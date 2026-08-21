@@ -102,8 +102,11 @@ fn q_proj_accepted() {
 fn gdn_module_rejected_named() {
     for m in [
         "in_proj_qkvz",
+        "in_proj_ba",
         "in_proj_qkv",
         "in_proj_z",
+        "in_proj_a",
+        "in_proj_b",
         "out_proj",
         "conv1d",
     ] {
