@@ -1,0 +1,38 @@
+{
+  "schema": "vllm-control-execution-status-v1",
+  "recorded_utc": "2026-09-05T02:55:01.170374+00:00",
+  "campaign": "hopper-atlas-vs-vllm-2026-09",
+  "status": "BLOCKED_STORAGE_CAP",
+  "hardware_preflight": {
+    "host": "pidtom@spark2.local",
+    "ip": "192.168.50.36",
+    "hardware_id": "gb10",
+    "gpu": "NVIDIA GB10",
+    "gpu_count": 1,
+    "driver": "580.173.02",
+    "driver_advertised_cuda": "13.0",
+    "nvidia_smi_q_sha256": "ac32b795cf20d7766197dc4e5e95c9f4e46f8c1c955d6028a22c64b77e804983"
+  },
+  "planned_image": {
+    "tag": "vllm/vllm-openai:v0.28.0-ubuntu2404",
+    "manifest_list_digest": "sha256:f8fe15a8039343336945db10494eaad80ef941fe2b2a5fa6649fa38636051a65",
+    "arm64_manifest_digest": "sha256:41b54fb42c66a670a8b27e613ebef05898f24b9ab1bdab28bd00c877bd4935f4",
+    "pulled": false,
+    "executed": false
+  },
+  "client": {
+    "checkout_base_git_sha": "f547486667dc95f65fb0d043402c1131148283c4",
+    "file_git_revision": "60370b9532a7af5319c99d6c2b93972d4f046d56",
+    "file_sha256": "1f10d4887b39a86ee946bc2aa0395e31c43ce1b3dfac778f51abbad11832d880",
+    "measurement_code_changed": false
+  },
+  "reason": "Nano repository payload plus previously absent compressed image blobs totals 42,404,838,322 bytes, above the 40,000,000,000-byte new-storage cap before ordinary image expansion/runtime caches. Installed allocation is unmeasured. No image/model download or GPU launch was attempted.",
+  "observed_engine_version": null,
+  "executed_serve_command": null,
+  "gpu_workloads_started": 0,
+  "containers_started": 0,
+  "weight_bytes_downloaded": 0,
+  "stage_artifacts_are_measurements": false,
+  "complete_prd_section_10_cell_artifacts": 0,
+  "cleanup": "No remote workload, image, weights or scratch directory was created; no remote cleanup was needed. Spark 1 was not accessed."
+}

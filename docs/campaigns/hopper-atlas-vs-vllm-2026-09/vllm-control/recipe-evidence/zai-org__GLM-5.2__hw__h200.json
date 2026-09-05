@@ -1,0 +1,32 @@
+{
+  "url": "https://recipes.vllm.ai/zai-org/GLM-5.2/hw/h200.json",
+  "retrieved_utc": "2026-09-05T02:41:14.684151+00:00",
+  "status": 200,
+  "final_url": "https://recipes.vllm.ai/zai-org/GLM-5.2/hw/h200.json",
+  "sha256": "88ab225f05a56b809c6d6f732d9be1d11877b87ec373a2bdcf893e3f49519102",
+  "data": {
+    "hardware": "h200",
+    "strategy": "single_node_tp",
+    "variant": "default",
+    "node_count": 1,
+    "deploy_type": "single_node",
+    "env": {},
+    "docker_image": "vllm/vllm-openai:v0.28.0",
+    "command": "vllm serve zai-org/GLM-5.2-FP8 \\\n  --tensor-parallel-size 8 \\\n  --kv-cache-dtype fp8 \\\n  --tool-call-parser glm47 \\\n  --enable-auto-tool-choice \\\n  --reasoning-parser glm45",
+    "argv": [
+      "vllm",
+      "serve",
+      "zai-org/GLM-5.2-FP8",
+      "--tensor-parallel-size",
+      "8",
+      "--kv-cache-dtype",
+      "fp8",
+      "--tool-call-parser",
+      "glm47",
+      "--enable-auto-tool-choice",
+      "--reasoning-parser",
+      "glm45"
+    ]
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

@@ -1,0 +1,38 @@
+{
+  "url": "https://recipes.vllm.ai/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8/hw/h200.json",
+  "retrieved_utc": "2026-09-05T02:41:14.355010+00:00",
+  "status": 200,
+  "final_url": "https://recipes.vllm.ai/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8/hw/h200.json",
+  "sha256": "bd3b732b7d19ebd92e01828ffa6c7934106b8b92ee7eb17bbe31c3ba553ffda9",
+  "data": {
+    "hardware": "h200",
+    "strategy": "single_node_tp",
+    "variant": "fp8",
+    "node_count": 1,
+    "deploy_type": "single_node",
+    "env": {},
+    "docker_image": "vllm/vllm-openai:latest",
+    "command": "vllm serve nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8 \\\n  --trust-remote-code \\\n  --async-scheduling \\\n  --kv-cache-dtype fp8 \\\n  --tensor-parallel-size 1 \\\n  --moe-backend flashinfer_cutlass \\\n  --enable-auto-tool-choice \\\n  --tool-call-parser qwen3_coder \\\n  --reasoning-parser-plugin nano_v3_reasoning_parser.py \\\n  --reasoning-parser nano_v3",
+    "argv": [
+      "vllm",
+      "serve",
+      "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+      "--trust-remote-code",
+      "--async-scheduling",
+      "--kv-cache-dtype",
+      "fp8",
+      "--tensor-parallel-size",
+      "1",
+      "--moe-backend",
+      "flashinfer_cutlass",
+      "--enable-auto-tool-choice",
+      "--tool-call-parser",
+      "qwen3_coder",
+      "--reasoning-parser-plugin",
+      "nano_v3_reasoning_parser.py",
+      "--reasoning-parser",
+      "nano_v3"
+    ]
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

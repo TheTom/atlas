@@ -1,0 +1,159 @@
+{
+  "clean": {
+    "schema": 1,
+    "url": "http://127.0.0.1:50261",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:45:46Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "get_weather(['city', 'days'])",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "determinism_ok": true,
+    "toolcall_ok": true,
+    "think_leak_ok": true,
+    "passed": true
+  },
+  "leak": {
+    "schema": 1,
+    "url": "http://127.0.0.1:50268",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:45:46Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "get_weather(['city', 'days'])",
+      "think_leak_ok": "leaked <think> tags"
+    },
+    "determinism_ok": true,
+    "toolcall_ok": true,
+    "think_leak_ok": false,
+    "passed": false
+  },
+  "missing-args": {
+    "schema": 1,
+    "url": "http://127.0.0.1:50275",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:45:46Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "get_weather([])",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "determinism_ok": true,
+    "toolcall_ok": true,
+    "think_leak_ok": true,
+    "passed": true
+  },
+  "wrong-types": {
+    "schema": 1,
+    "url": "http://127.0.0.1:50282",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:45:46Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "get_weather(['city', 'days'])",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "determinism_ok": true,
+    "toolcall_ok": true,
+    "think_leak_ok": true,
+    "passed": true
+  },
+  "wrong-name": {
+    "schema": 1,
+    "url": "http://127.0.0.1:50289",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:45:46Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "delete_files(['city', 'days'])",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "determinism_ok": true,
+    "toolcall_ok": true,
+    "think_leak_ok": true,
+    "passed": true
+  },
+  "wrong-call-type": {
+    "schema": 1,
+    "url": "http://127.0.0.1:50297",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:45:46Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "get_weather(['city', 'days'])",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "determinism_ok": true,
+    "toolcall_ok": true,
+    "think_leak_ok": true,
+    "passed": true
+  },
+  "extra-bad-call": {
+    "schema": 1,
+    "url": "http://127.0.0.1:50304",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:45:46Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "get_weather(['city', 'days'])",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "determinism_ok": true,
+    "toolcall_ok": true,
+    "think_leak_ok": true,
+    "passed": true
+  },
+  "nondeterministic": {
+    "schema": 1,
+    "url": "http://127.0.0.1:50311",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:45:46Z",
+    "details": {
+      "determinism_ok": "diverged at char 1: '01, 103, 107, 109, 113' vs '27'",
+      "toolcall_ok": "get_weather(['city', 'days'])",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "determinism_ok": false,
+    "toolcall_ok": true,
+    "think_leak_ok": true,
+    "passed": false
+  },
+  "empty": {
+    "schema": 1,
+    "url": "http://127.0.0.1:50318",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:45:46Z",
+    "details": {
+      "determinism_ok": "empty reply -- nothing to compare",
+      "toolcall_ok": "finish_reason was 'stop', not 'tool_calls'",
+      "think_leak_ok": "empty reply -- a leak check over no text proves nothing"
+    },
+    "determinism_ok": false,
+    "toolcall_ok": false,
+    "think_leak_ok": false,
+    "passed": false
+  },
+  "malformed": {
+    "passed": true,
+    "determinism_ok": true,
+    "toolcall_ok": true,
+    "crashed": "AttributeError: 'int' object has no attribute 'get'"
+  }
+}
+Traceback (most recent call last):
+  File "/private/tmp/atlas-vllm-control/bench/hopper_ab/coherency_gate.py", line 359, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/private/tmp/atlas-vllm-control/bench/hopper_ab/coherency_gate.py", line 345, in main
+    selftest()
+    ~~~~~~~~^^
+  File "/private/tmp/atlas-vllm-control/bench/hopper_ab/coherency_gate.py", line 325, in selftest
+    assert not failures, "\n".join(failures)
+           ^^^^^^^^^^^^
+AssertionError: missing-args must fail the tool-call gate
+wrong-types must fail the tool-call gate
+wrong-name must fail the tool-call gate
+wrong-call-type must fail the tool-call gate
+extra-bad-call must fail the tool-call gate
+malformed must fail determinism_ok

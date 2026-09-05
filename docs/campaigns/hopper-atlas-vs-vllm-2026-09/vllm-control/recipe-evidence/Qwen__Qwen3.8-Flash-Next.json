@@ -1,0 +1,228 @@
+{
+  "url": "https://recipes.vllm.ai/Qwen/Qwen3.8-Flash-Next.json",
+  "retrieved_utc": "2026-09-05T02:40:06.081566+00:00",
+  "status": 200,
+  "final_url": "https://recipes.vllm.ai/Qwen/Qwen3.8-Flash-Next.json",
+  "sha256": "0ab77ebc30aad6b65832a9d39d00cc0909ae1a15cfac11fd4c5d496d72b569b5",
+  "data": {
+    "hf_id": "Qwen/Qwen3.8-Flash-Next",
+    "model": {
+      "model_id": "Qwen/Qwen3.8-Flash-Next",
+      "min_vllm_version": "0.29.0",
+      "docker_image": {
+        "nvidia": "vllm/vllm-openai:qwen38-flash-next",
+        "amd": "vllm/vllm-openai-rocm:qwen38-flash-next"
+      },
+      "nightly_required": true,
+      "architecture": "moe",
+      "parameter_count": "176B",
+      "active_parameters": "6B",
+      "context_length": 262144,
+      "base_args": [
+        "--max-num-seqs",
+        "256",
+        "--gpu-memory-utilization",
+        "0.90",
+        "--enable-prefix-caching",
+        "--no-enable-flashinfer-autotune"
+      ],
+      "base_env": {},
+      "install": {
+        "docker": {
+          "command": "docker pull vllm/vllm-openai:qwen38-flash-next",
+          "note": "Use the dedicated Qwen3.8 Flash-Next image; PyPI installation is not supported for this recipe."
+        }
+      }
+    },
+    "features": {
+      "tool_calling": {
+        "description": "Enable automatic tool choice with the Qwen3 XML parser",
+        "args": [
+          "--enable-auto-tool-choice",
+          "--tool-call-parser",
+          "qwen3_xml"
+        ]
+      },
+      "reasoning": {
+        "description": "Extract thinking output with the Qwen3 reasoning parser",
+        "args": [
+          "--reasoning-parser",
+          "qwen3"
+        ]
+      },
+      "spec_decoding": {
+        "description": "Use the checkpoint's Multi-Token Prediction module for faster decoding",
+        "args": [
+          "--speculative-config",
+          "{\"method\":\"mtp\",\"num_speculative_tokens\":3}"
+        ]
+      },
+      "text_only": {
+        "description": "Skip the vision encoder for text-only workloads and leave more memory for KV cache",
+        "args": [
+          "--language-model-only"
+        ]
+      }
+    },
+    "opt_in_features": [
+      "spec_decoding",
+      "text_only"
+    ],
+    "variants": {
+      "default": {
+        "model_id": "Inferact/Qwen3.8-Flash-Next-NVFP4",
+        "precision": "nvfp4",
+        "vram_minimum_gb": 130,
+        "description": "Inferact quantized NVFP4 weights with per-layer embeddings in nvfp4 too",
+        "hardware_overrides": {
+          "dgx_station_gb300": {
+            "extra_args": [
+              "--max-num-seqs",
+              "32",
+              "--gpu-memory-utilization",
+              "0.95",
+              "--max-num-batched-tokens",
+              "8192",
+              "--enable-prefix-caching",
+              "--distributed-executor-backend",
+              "mp",
+              "-cc.mode",
+              "none",
+              "-cc.cudagraph_mode",
+              "full_decode_only"
+            ]
+          },
+          "rtx_pro_6000_4x": {
+            "extra_args": [
+              "--max-num-seqs",
+              "16",
+              "--gpu-memory-utilization",
+              "0.95",
+              "--max-num-batched-tokens",
+              "8192",
+              "--enable-prefix-caching",
+              "--moe-backend",
+              "marlin"
+            ]
+          }
+        },
+        "json": "/Inferact/Qwen3.8-Flash-Next-NVFP4.json"
+      },
+      "fp8": {
+        "model_id": "Qwen/Qwen3.8-Flash-Next-FP8",
+        "precision": "fp8",
+        "vram_minimum_gb": 250,
+        "description": "Official dynamic FP8 checkpoint with blockwise weight quantization",
+        "hardware_overrides": {
+          "h100": {
+            "extra_env": {
+              "VLLM_PLE_CPU_OFFLOAD": "1"
+            }
+          },
+          "dgx_station_gb300": {
+            "extra_args": [
+              "--max-num-seqs",
+              "32",
+              "--gpu-memory-utilization",
+              "0.95",
+              "--max-num-batched-tokens",
+              "8192",
+              "--enable-prefix-caching",
+              "--distributed-executor-backend",
+              "mp",
+              "-cc.mode",
+              "none",
+              "-cc.cudagraph_mode",
+              "full_decode_only"
+            ]
+          },
+          "rtx_pro_6000_4x": {
+            "extra_args": [
+              "--max-num-seqs",
+              "16",
+              "--gpu-memory-utilization",
+              "0.95",
+              "--max-num-batched-tokens",
+              "8192",
+              "--enable-prefix-caching"
+            ]
+          }
+        },
+        "json": "/Qwen/Qwen3.8-Flash-Next-FP8.json"
+      },
+      "bf16": {
+        "model_id": "Qwen/Qwen3.8-Flash-Next",
+        "precision": "bf16",
+        "vram_minimum_gb": 423,
+        "description": "Official BF16 checkpoint"
+      }
+    },
+    "hardware_overrides": {
+      "hopper": {
+        "extra_args": [
+          "--moe-backend",
+          "triton",
+          "--gpu-memory-utilization",
+          "0.85"
+        ],
+        "extra_env": {}
+      }
+    },
+    "meta": {
+      "title": "Qwen3.8-Flash-Next",
+      "date_updated": "2026-09-03",
+      "hardware": {
+        "h200": "verified",
+        "h100": "verified",
+        "gb200": "verified",
+        "gb300": "verified",
+        "mi355x": "verified",
+        "rtx_pro_6000_4x": "verified",
+        "dgx_station_gb300": "verified"
+      }
+    },
+    "recommended_command": {
+      "hardware": "b200",
+      "strategy": "single_node_tp",
+      "variant": "default",
+      "node_count": 1,
+      "deploy_type": "single_node",
+      "env": {},
+      "docker_image": "vllm/vllm-openai:qwen38-flash-next",
+      "command": "vllm serve Inferact/Qwen3.8-Flash-Next-NVFP4 \\\n  --max-num-seqs 256 \\\n  --gpu-memory-utilization 0.90 \\\n  --enable-prefix-caching \\\n  --no-enable-flashinfer-autotune \\\n  --tensor-parallel-size 4 \\\n  --enable-auto-tool-choice \\\n  --tool-call-parser qwen3_xml \\\n  --reasoning-parser qwen3",
+      "argv": [
+        "vllm",
+        "serve",
+        "Inferact/Qwen3.8-Flash-Next-NVFP4",
+        "--max-num-seqs",
+        "256",
+        "--gpu-memory-utilization",
+        "0.90",
+        "--enable-prefix-caching",
+        "--no-enable-flashinfer-autotune",
+        "--tensor-parallel-size",
+        "4",
+        "--enable-auto-tool-choice",
+        "--tool-call-parser",
+        "qwen3_xml",
+        "--reasoning-parser",
+        "qwen3"
+      ],
+      "by_hardware": {
+        "b200": "/Qwen/Qwen3.8-Flash-Next/hw/b200.json",
+        "gb200": "/Qwen/Qwen3.8-Flash-Next/hw/gb200.json",
+        "b300": "/Qwen/Qwen3.8-Flash-Next/hw/b300.json",
+        "gb300": "/Qwen/Qwen3.8-Flash-Next/hw/gb300.json",
+        "dgx_station_gb300": "/Qwen/Qwen3.8-Flash-Next/hw/dgx_station_gb300.json",
+        "rtx_pro_6000_4x": "/Qwen/Qwen3.8-Flash-Next/hw/rtx_pro_6000_4x.json"
+      }
+    },
+    "guide_excerpts": [
+      "### Recommended FP8 configuration on 4x H100",
+      "H100's 80GB/GPU is not enough headroom for the 51B N-gram/PLE embedding table\nunder plain TP4 \u2014 the recipe enables PLE CPU offload automatically on this\nhardware. Verified: engine starts, produces correct output, and sustains\n~1,430 output tok/s at concurrency 64 (random 1024-in/256-out workload).",
+      "Builds containing N-gram Embedding offload can keep the N-gram lookup\nmemory in host RAM and asynchronously prefetch the required rows. The initial\nimplementation supports both ModelRunner V1 and V2. PLE CPU offload is required\nfor DEP, and also required for TP/TEP on 80GB-class GPUs (H100) where the\nembedding table alone exceeds available headroom \u2014 optional only on GPUs with\nmore VRAM per rank (H200 and above). The DEP strategy and the H100 hardware\noverride generated by this recipe both enable it automatically.",
+      "- **FP8 on eight GPUs:** use TEP8; plain TP8 is incompatible with this\n  checkpoint. TP4 is also supported if GPU memory capacity allows.\n- **TP1 compilation OOM on GB300:** use TP2 or TP4.\n- **Mamba-cache capacity error at startup:** keep `--max-num-seqs 256`.\n- **Runtime OOM on large multimodal batches:** keep `--gpu-memory-utilization 0.90`.\n- **Out of memory while loading:** enable N-gram Embedding CPU offload, increase\n  TP size, or reduce `--max-model-len` to reserve less KV cache. On 4x H100\n  80GB, plain TP4 OOMs at engine startup without `VLLM_PLE_CPU_OFFLOAD=1` \u2014\n  this recipe sets it automatically for H100.\n- **XPU/TPU startup error:** these platforms are not supported by the initial\n  implementation.\n- **Pipeline-parallel startup error:** N-gram Embedding does not initially support\n  pipeline parallelism; use single-node TP or TEP instead.\n- **DEP startup failure:** DEP requires `VLLM_PLE_CPU_OFFLOAD=1`; DEP without PLE\n  offload is not supported. The generated DEP command sets this automatically.\n- **MTP memory pressure:** reduce `num_speculative_tokens` below 3.\n- **PLE:** a network layer that injects N-gram Embeddings into the main model. "
+    ]
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

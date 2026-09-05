@@ -1,0 +1,32 @@
+{
+  "url": "https://recipes.vllm.ai/MiniMaxAI/MiniMax-M3/hw/b200.json",
+  "retrieved_utc": "2026-09-05T02:41:14.767156+00:00",
+  "status": 200,
+  "final_url": "https://recipes.vllm.ai/MiniMaxAI/MiniMax-M3/hw/b200.json",
+  "sha256": "5a7cb568ddafc91a661a11873a4caaada021405c8a74cc344e53367f699c70f4",
+  "data": {
+    "hardware": "b200",
+    "strategy": "single_node_tp",
+    "variant": "default",
+    "node_count": 1,
+    "deploy_type": "single_node",
+    "env": {},
+    "docker_image": "vllm/vllm-openai:minimax-m3",
+    "command": "vllm serve MiniMaxAI/MiniMax-M3 \\\n  --block-size 128 \\\n  --tensor-parallel-size 8 \\\n  --tool-call-parser minimax_m3 \\\n  --enable-auto-tool-choice \\\n  --reasoning-parser minimax_m3",
+    "argv": [
+      "vllm",
+      "serve",
+      "MiniMaxAI/MiniMax-M3",
+      "--block-size",
+      "128",
+      "--tensor-parallel-size",
+      "8",
+      "--tool-call-parser",
+      "minimax_m3",
+      "--enable-auto-tool-choice",
+      "--reasoning-parser",
+      "minimax_m3"
+    ]
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

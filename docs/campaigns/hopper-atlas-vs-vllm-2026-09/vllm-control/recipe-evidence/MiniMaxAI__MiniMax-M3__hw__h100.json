@@ -1,0 +1,67 @@
+{
+  "url": "https://recipes.vllm.ai/MiniMaxAI/MiniMax-M3/hw/h100.json",
+  "retrieved_utc": "2026-09-05T02:41:14.728512+00:00",
+  "status": 200,
+  "final_url": "https://recipes.vllm.ai/MiniMaxAI/MiniMax-M3/hw/h100.json",
+  "sha256": "5fae16e15c8702a54ba5bebcc9f830cddf7a269fb45e2fc58263e39a70295013",
+  "data": {
+    "hardware": "h100",
+    "strategy": "multi_node_tp",
+    "variant": "default",
+    "node_count": 2,
+    "deploy_type": "multi_node",
+    "env": {
+      "GLOO_SOCKET_IFNAME": "$IFACE_NAME",
+      "NCCL_SOCKET_IFNAME": "$IFACE_NAME"
+    },
+    "docker_image": "vllm/vllm-openai:minimax-m3",
+    "head_command": "vllm serve MiniMaxAI/MiniMax-M3 \\\n  --block-size 128 \\\n  --tensor-parallel-size 16 \\\n  --nnodes 2 \\\n  --node-rank 0 \\\n  --master-addr $HEAD_IP \\\n  --tool-call-parser minimax_m3 \\\n  --enable-auto-tool-choice \\\n  --reasoning-parser minimax_m3",
+    "worker_commands": [
+      "vllm serve MiniMaxAI/MiniMax-M3 \\\n  --block-size 128 \\\n  --tensor-parallel-size 16 \\\n  --nnodes 2 \\\n  --node-rank 1 \\\n  --master-addr $HEAD_IP \\\n  --headless \\\n  --tool-call-parser minimax_m3 \\\n  --enable-auto-tool-choice \\\n  --reasoning-parser minimax_m3"
+    ],
+    "head_argv": [
+      "vllm",
+      "serve",
+      "MiniMaxAI/MiniMax-M3",
+      "--block-size",
+      "128",
+      "--tensor-parallel-size",
+      "16",
+      "--nnodes",
+      "2",
+      "--node-rank",
+      "0",
+      "--master-addr",
+      "$HEAD_IP",
+      "--tool-call-parser",
+      "minimax_m3",
+      "--enable-auto-tool-choice",
+      "--reasoning-parser",
+      "minimax_m3"
+    ],
+    "worker_argvs": [
+      [
+        "vllm",
+        "serve",
+        "MiniMaxAI/MiniMax-M3",
+        "--block-size",
+        "128",
+        "--tensor-parallel-size",
+        "16",
+        "--nnodes",
+        "2",
+        "--node-rank",
+        "1",
+        "--master-addr",
+        "$HEAD_IP",
+        "--headless",
+        "--tool-call-parser",
+        "minimax_m3",
+        "--enable-auto-tool-choice",
+        "--reasoning-parser",
+        "minimax_m3"
+      ]
+    ]
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

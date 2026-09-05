@@ -1,0 +1,208 @@
+{
+  "checked_utc": "2026-09-05T02:41:50.186635+00:00",
+  "image": "vllm/vllm-openai:v0.28.0-ubuntu2404",
+  "manifest_digest": "sha256:41b54fb42c66a670a8b27e613ebef05898f24b9ab1bdab28bd00c877bd4935f4",
+  "layers": [
+    {
+      "digest": "sha256:a91ffad96809552eb41208a0a580e75c014311ef2cb79002fb242da7bc6f8801",
+      "compressed_bytes": 29941398,
+      "diff_id": "sha256:ab34259f9ca5d315bec1b17d9f1ca272e84dedd964a8988695daf0ec3e0bbc2e",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:7be1e3dd81adb79f8fbffa3a472a80e4a024b7dedb4028788e15e05c4a7a3946",
+      "compressed_bytes": 4532957,
+      "diff_id": "sha256:45ec5cf5eb719732dd8022c3e1499cb58dd20b47224aad19db1c2a7ba9aaaca7",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:653ca2e1b0e9f4dda5c4101ba798059d34362dfdd0379f1fb2b80f1e48a703df",
+      "compressed_bytes": 99733679,
+      "diff_id": "sha256:1e07ba147d8b447007f54b570c25513c71b81b33e3849115838dded2ad222090",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:66c8341e87a6fcc90cd8b78f232a7707a96e4fbeaff457268bc6d4fdd8bf509a",
+      "compressed_bytes": 186,
+      "diff_id": "sha256:468a19d3be08446875045cd9e133ef47589431cb016896768394fe0e77766f2d",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:526d5438c009ab7178af1646fed10ff6f47a73f5a1ae7b9f49e63e4ade7e3ae6",
+      "compressed_bytes": 6886,
+      "diff_id": "sha256:b7ec8fd7c485bbedbe64cbc5a7a810ceabb9156e95c83ba60596ddb9b4955d48",
+      "already_present": true
+    },
+    {
+      "digest": "sha256:4cc1a0e0bdef75dddea0bc0f61a36caf1398d8fb795413fc6b031e4836df48f7",
+      "compressed_bytes": 104,
+      "diff_id": "sha256:7335aa09a4d0a21fd33c425d7a22b3210edc15834d20cd9570ce1901bc9880bd",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:27533c3d605abc23f0d8682e9da93909a19a0dc4cc4ec19072976902b3fea46c",
+      "compressed_bytes": 230,
+      "diff_id": "sha256:7c2b155442c28b7fee7ae149bb1b4a470bd40d8446797498abc965e681e50f8d",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:df0909c551b27073fc6ac6ef3430b8468762ea4e4e44f6bda56bde66194436b0",
+      "compressed_bytes": 226510202,
+      "diff_id": "sha256:f79c91102a15c91dce9907b3c28a88be8412755bee374456021078b0a8fd58b3",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:955b51e8b20977a4ecb12c33799dba37a48dd1c31b20a83cfefa3c85e2a60db7",
+      "compressed_bytes": 1561009222,
+      "diff_id": "sha256:59c14d35202682df78e8c01f4b39228a981a3a74d0f6b91e828b440f6bec6ab6",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:638d45e14ae8c67f48f18185e624ca0548224bd94999c02365f213173cf9a50b",
+      "compressed_bytes": 45552647,
+      "diff_id": "sha256:2a59049edcddd12ee8a2a7849d05b9c73aee95dc8b9e5c64d34e6852199a9e9d",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:56a66a30307cb1de8f92c99068c54b8047152d3bb4a53bfd192eb4dd73915751",
+      "compressed_bytes": 149,
+      "diff_id": "sha256:bcb502cdfca3f3b9f22849e788db250c45f94fcce9018f8166f4bd4a4fd59467",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:031b1c0c197b86b7f5f2b4921289d2b01755b0e9829e354020404f920c6f93de",
+      "compressed_bytes": 163,
+      "diff_id": "sha256:1feec1a7d442f7ebe519b2aa22019e44d8adaefce7112ac7b163888a4d825eba",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:a7ac69987114a355d8adcdd8f1031faec22568253e50599f8bb7c6011083a36b",
+      "compressed_bytes": 3706,
+      "diff_id": "sha256:5f9b180d59b3255bc8499522afbe3b979555fb17886eb5624a5424a411f616a8",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:007db6f1691474116dd8e14435b1feb00ea876ca3b3f5b84a91534be11b15561",
+      "compressed_bytes": 2085,
+      "diff_id": "sha256:b5687df4f796b4dd483d11bbe7f2ac1165542cbe1430ac8014bb1ed281ac6c8b",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:007db6f1691474116dd8e14435b1feb00ea876ca3b3f5b84a91534be11b15561",
+      "compressed_bytes": 2085,
+      "diff_id": "sha256:b5687df4f796b4dd483d11bbe7f2ac1165542cbe1430ac8014bb1ed281ac6c8b",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:50270b7e51480129b832899be14ba6ad8010ef9643ffe162b6b81e5046c586ac",
+      "compressed_bytes": 1671,
+      "diff_id": "sha256:b3f5ff28c0f8ec87d9544bd1c655160aad8af058e0cc5bd2b731ed4d3408e2ac",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:cd8eead3356a7426d61c24f635604569058641efec93260f707744e8853d9c9e",
+      "compressed_bytes": 871,
+      "diff_id": "sha256:260a0ac869eb2f749599e8cc3fd82d8f42d9f9966c96bf85bf064b2a84b66136",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:3e7d00ab22a7eb0cd0e639f1d8e471b8091c98dc04223a99f9afe55f276aa150",
+      "compressed_bytes": 4717144631,
+      "diff_id": "sha256:2812bbb23641cdb602786f2899d392ee80fe57c5d76502439fd5371f7e536475",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:3f8e4d679cde36ec722b5eba9eee296d0d5393f8b66b1c71b15a3db83a8e43d4",
+      "compressed_bytes": 1690911792,
+      "diff_id": "sha256:3a23bd8837dde3e22da6612f2912c344e80fb9b1db1f92f12a8e58303864cc5d",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:f8e38cd9638bc2430169b0dee743c34f7f791a198d0dd7fe330d8e6d30c89898",
+      "compressed_bytes": 897,
+      "diff_id": "sha256:7b59cb56017a48143b86aa80efa04377902f79369e1ac8f6d0c41096f66d0aa1",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:a49db23af440095fcf20fb09e334227e0f1146e25ea14f315f44ac02dd9d6a7b",
+      "compressed_bytes": 529744,
+      "diff_id": "sha256:435f042ce54f933e96f689e6d8a541165a69218045ba8a5bbeb81f01956c94ad",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:db10143cb464aaafa2a3a53bdf1cd94c642610a45d1b50b7fe6781c7310be2dd",
+      "compressed_bytes": 284198879,
+      "diff_id": "sha256:7a6c81ba345ba90017edba5aba74f314fa684a49052efc72bca0707cd9b0e708",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:57b4445a0595ed9c6a36d4fd27b623bbb1e10553ec9a8e003c78571c8dc93195",
+      "compressed_bytes": 198,
+      "diff_id": "sha256:000fc60a6b36178087cba1b1a6241df29d6f18bf4563d19d07ddeee4b1b0581c",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:71ec7cea7ff7dedcb4a03754dd82784124007ce35412a64caffcbf303325339c",
+      "compressed_bytes": 226,
+      "diff_id": "sha256:5dbea2697d919e12f7032f0af69a4c89c0ea3b9a92cc137e2ab060f9e306344e",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:5f08b418b90bf4765573f4b34c3ff5bb33a0d13206b75520ee6599175309b88f",
+      "compressed_bytes": 526260804,
+      "diff_id": "sha256:a7f05b16a50fa0db2ca90c43fcf442e0190045083e8454f682ed76201c5c9957",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+      "compressed_bytes": 32,
+      "diff_id": "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "already_present": true
+    },
+    {
+      "digest": "sha256:fede78d7fd82d34bb61df3593177f527cd3e68e558e0cc0a7515e1fda0cbb478",
+      "compressed_bytes": 254,
+      "diff_id": "sha256:e66d7a53bf3b5be40192028e5ba7624fcc8baaa5b730f264a97b5ebbe3d9d1e1",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:25c15c1893e59e02480da166124561d167128d7eac2ad6d9f5a029cd8c1986c5",
+      "compressed_bytes": 14310190,
+      "diff_id": "sha256:4ccf592aa0f8a500aa7bf444ab4f1fed3147f2dd909eaa3802f8df666dbf6412",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:639c8bc8e320295b1cb415d9368678997823efef492814fd3f363a7fca02bb9c",
+      "compressed_bytes": 269722,
+      "diff_id": "sha256:4fee9fdf634a92d3f8b2ddc5cc5bcb7b77d17011a66ca3c9dcfaa5c760c9ac3f",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:a76a0b711d60b099928bd84b449a91b04fb9184cf908ece9551c3a5f320d8288",
+      "compressed_bytes": 290054,
+      "diff_id": "sha256:fa6af3a22e31cc9ac7a52440892e630b2941f0884623a58982be1b4610d519a1",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:6551b221079292b6ff72e9c7526cba0bc4a47f6e40008f71cd96e4d33c7a6b51",
+      "compressed_bytes": 9840,
+      "diff_id": "sha256:43272175f1eae1eef56b81b004af3fc9d94cb353c4663cda4fa485638a9b2670",
+      "already_present": false
+    },
+    {
+      "digest": "sha256:95de3c24bc28f438b3a272b6ab6a19ce4f9d61e16fe31f7325370057ab63c622",
+      "compressed_bytes": 500270219,
+      "diff_id": "sha256:e3265a13f22275ef887641d49d57c34e9e1db3c28218039410e491df4cfed4eb",
+      "already_present": false
+    }
+  ],
+  "new_compressed_layer_bytes": 9701488805,
+  "note": "Registry sizes are compressed bytes, not installed bytes. Shared layers identified by uncompressed diff_id against all three pre-existing images. Duplicate compressed layer blobs are counted once in new_compressed_unique_blob_bytes. Exact installed allocation is unmeasured; the payload plus compressed transfer inventory already exceeds the cap before normal image expansion and runtime caches. No image or weights were pulled.",
+  "new_compressed_unique_blob_bytes": 9701486720,
+  "model_revision": "9bee19446c0dfd01f356e10979d225b2a6621944",
+  "model_repository_payload_bytes": 32703351602,
+  "new_usage_cap_bytes": 40000000000,
+  "model_plus_new_compressed_unique_blobs_bytes": 42404838322,
+  "preflight_verdict": "BLOCKED_STORAGE_CAP",
+  "installed_image_bytes": null
+}

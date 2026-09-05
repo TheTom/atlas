@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "engine": "selftest",
+  "url": "http://127.0.0.1:50041",
+  "model": "stub-model",
+  "time_to_ready_s": 2.197,
+  "first_token_s": 0.053,
+  "polls": 3,
+  "http_codes_seen": [
+    "503",
+    "200"
+  ],
+  "timeout_s": 30.0,
+  "status": "ready"
+}
+SELFTEST OK: measured 2.197 s over 3 polls ['503', '200']
+{
+  "clean": {
+    "exit_code": 0,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:50055/clean",
+      "model": "stub-model",
+      "time_to_ready_s": 0.033,
+      "first_token_s": 0.054,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "ready"
+    }
+  },
+  "http500": {
+    "exit_code": 0,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:50055/http500",
+      "model": "stub-model",
+      "time_to_ready_s": 0.032,
+      "first_token_s": 0.054,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "ready"
+    }
+  },
+  "error200": {
+    "exit_code": 0,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:50055/error200",
+      "model": "stub-model",
+      "time_to_ready_s": 0.035,
+      "first_token_s": 0.056,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "ready"
+    }
+  },
+  "empty": {
+    "exit_code": 0,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:50055/empty",
+      "model": "stub-model",
+      "time_to_ready_s": 0.031,
+      "first_token_s": 0.053,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "ready"
+    }
+  },
+  "invalid": {
+    "exit_code": 0,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:50055/invalid",
+      "model": "stub-model",
+      "time_to_ready_s": 0.034,
+      "first_token_s": 0.055,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "ready"
+    }
+  },
+  "expired": {
+    "exit_code": 0,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:50055/expired",
+      "model": "stub-model",
+      "time_to_ready_s": 2.032,
+      "first_token_s": 0.052,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 0.4,
+      "status": "ready"
+    }
+  },
+  "slow": {
+    "exit_code": 0,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:50055/slow",
+      "model": "stub-model",
+      "time_to_ready_s": 0.031,
+      "first_token_s": 0.784,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 0.4,
+      "status": "ready"
+    }
+  }
+}
+Traceback (most recent call last):
+  File "/private/tmp/atlas-vllm-control/bench/hopper_ab/readiness_selftest.py", line 82, in <module>
+    selftest()
+    ~~~~~~~~^^
+  File "/private/tmp/atlas-vllm-control/bench/hopper_ab/readiness_selftest.py", line 77, in selftest
+    assert not failures, '\n'.join(failures)
+           ^^^^^^^^^^^^
+AssertionError: http500: expected pass=False, got exit 0, status ready
+error200: expected pass=False, got exit 0, status ready
+empty: expected pass=False, got exit 0, status ready
+invalid: expected pass=False, got exit 0, status ready
+expired: expected pass=False, got exit 0, status ready
+slow: expected pass=False, got exit 0, status ready
+slow: first-token request exceeded whole-boot deadline (0.917s)
+first-token request did not pin presence_penalty=0.0
+first-token request did not pin frequency_penalty=0.0
+first-token request did not pin chat_template_kwargs={'enable_thinking': False}

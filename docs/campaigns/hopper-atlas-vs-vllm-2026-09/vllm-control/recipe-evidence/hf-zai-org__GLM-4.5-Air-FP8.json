@@ -1,0 +1,21 @@
+{
+  "url": "https://huggingface.co/zai-org/GLM-4.5-Air-FP8/raw/main/README.md",
+  "retrieved_utc": "2026-09-05T02:41:39.483629+00:00",
+  "status": 200,
+  "final_url": "https://huggingface.co/zai-org/GLM-4.5-Air-FP8/raw/main/README.md",
+  "sha256": "3c6b2df2ff1cb38754b24328fa9fadc1747623fad868720769cb78a06a5b7677",
+  "vllm_command_blocks": [
+    "vllm serve zai-org/GLM-4.5-Air \\\n    --tensor-parallel-size 8 \\\n    --tool-call-parser glm45 \\\n    --reasoning-parser glm45 \\\n    --enable-auto-tool-choice \\\n    --served-model-name glm-4.5-air"
+  ],
+  "card_excerpts": [
+    {
+      "line": 74,
+      "text": "4. All are executed on devices that natively support FP8 inference, ensuring both weights and cache are in FP8 format."
+    },
+    {
+      "line": 189,
+      "text": "+ When using `vLLM` and `SGLang`, thinking mode is enabled by default when sending requests. If you want to disable the"
+    }
+  ],
+  "stored_content": "Selected excerpts; sha256 hashes the original complete HTTP response body."
+}

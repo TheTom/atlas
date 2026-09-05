@@ -1,0 +1,14 @@
+{
+  "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.28.0/vllm/models/deepseek_v4/sparse_mla.py",
+  "retrieved_utc": "2026-09-05T02:43:42.885396+00:00",
+  "status": 200,
+  "sha256": "beb9af7e7e82b4aa05027a8267ea99020b6b00076de02e8177ca77d167cc7109",
+  "excerpts": [
+    {
+      "start_line": 43,
+      "end_line": 54,
+      "text": "    \"\"\"\n\n    supported_dtypes: ClassVar[list[torch.dtype]] = [torch.bfloat16]\n    supported_kv_cache_dtypes: ClassVar[list[CacheDType]] = [\n        \"auto\",\n        \"fp8_ds_mla\",\n        \"fp8\",  # alias for fp8_ds_mla\n    ]\n\n    @staticmethod\n    def get_supported_kernel_block_sizes() -> list[int | MultipleOf]:\n        return [256]"
+    }
+  ],
+  "stored_content": "Selected excerpts; sha256 hashes the original complete HTTP response body."
+}

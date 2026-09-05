@@ -1,0 +1,28 @@
+{
+  "url": "https://recipes.vllm.ai/Qwen/Qwen3-Next-80B-A3B-Instruct-FP8/hw/h100.json",
+  "retrieved_utc": "2026-09-05T02:41:14.067598+00:00",
+  "status": 200,
+  "final_url": "https://recipes.vllm.ai/Qwen/Qwen3-Next-80B-A3B-Instruct-FP8/hw/h100.json",
+  "sha256": "38c5a241a55a7e7ed39157785e6f2cd5de3aad1a0ff29e69a53c8783397189c5",
+  "data": {
+    "hardware": "h100",
+    "strategy": "single_node_tp",
+    "variant": "fp8",
+    "node_count": 1,
+    "deploy_type": "single_node",
+    "env": {},
+    "docker_image": "vllm/vllm-openai:latest",
+    "command": "vllm serve Qwen/Qwen3-Next-80B-A3B-Instruct-FP8 \\\n  --tensor-parallel-size 8 \\\n  --enable-auto-tool-choice \\\n  --tool-call-parser hermes",
+    "argv": [
+      "vllm",
+      "serve",
+      "Qwen/Qwen3-Next-80B-A3B-Instruct-FP8",
+      "--tensor-parallel-size",
+      "8",
+      "--enable-auto-tool-choice",
+      "--tool-call-parser",
+      "hermes"
+    ]
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

@@ -1,0 +1,21 @@
+$ Comparator CLI checks; oracle: identical synthetic fixtures tie, OSL mismatch exits 2.
+$ python3 bench/hopper_ab/compare.py --atlas bench/hopper_ab/fixtures/atlas_tiny.json --vllm bench/hopper_ab/fixtures/atlas_tiny.json --out-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/compare-cli-amkspqi2/aa.json --out-md /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/compare-cli-amkspqi2/aa.md
+### ISL 1024 / OSL 256 (temp 0.0, seed 42)
+
+| C | Atlas tok/s | vLLM tok/s | ratio | Atlas TTFT p50/p99 ms | vLLM TTFT p50/p99 ms | Atlas TPOT p50 ms | vLLM TPOT p50 ms | rung |
+|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| 1 | 40.00 | 40.00 | 1.00x | 100 / 140 | 100 / 140 | 24.00 | 24.00 | **TIE** |
+| 16 | 200.00 | 200.00 | 1.00x | 300 / 480 | 300 / 480 | 60.00 | 60.00 | **TIE** |
+
+0/2 rungs won.
+
+
+
+exit: 0
+$ python3 bench/hopper_ab/compare.py --atlas bench/hopper_ab/fixtures/atlas_tiny.json --vllm bench/hopper_ab/fixtures/vllm_tiny_mismatched.json --out-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/compare-cli-amkspqi2/refused.json
+
+REFUSED: refusing to compare two runs that did not measure the same workload:
+  - osl: atlas=256 vs vllm=512
+
+exit: 2
+PASS: CLI JSON/Markdown identity and mismatch refusal; no GPU or engine measurements.

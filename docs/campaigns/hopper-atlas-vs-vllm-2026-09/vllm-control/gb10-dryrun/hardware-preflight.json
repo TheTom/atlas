@@ -1,0 +1,109 @@
+{
+  "kind": "read-only-hardware-preflight",
+  "host": "pidtom@spark2.local",
+  "ip": "192.168.50.36",
+  "observations": [
+    {
+      "name": "gpu-memory",
+      "command": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "pidtom@spark2.local",
+        "nvidia-smi --query-gpu=memory.used,memory.total --format=csv"
+      ],
+      "started_utc": "2026-09-05T02:50:32.750956+00:00",
+      "exit_code": 0,
+      "stdout_file": "gpu-memory.txt",
+      "stdout_sha256": "7b9e0e53bd2a35670e2b7746dc936f8916247677366de80cabbcbe2143987aec",
+      "stderr": ""
+    },
+    {
+      "name": "docker-ps",
+      "command": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "pidtom@spark2.local",
+        "docker ps --no-trunc"
+      ],
+      "started_utc": "2026-09-05T02:50:33.451209+00:00",
+      "exit_code": 0,
+      "stdout_file": "docker-ps.txt",
+      "stdout_sha256": "f95becc007e273e85566e7ed2126c0fec7ebe43307f85564bcb1537f50aa0a98",
+      "stderr": ""
+    },
+    {
+      "name": "disk",
+      "command": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "pidtom@spark2.local",
+        "df -B1 /"
+      ],
+      "started_utc": "2026-09-05T02:50:33.733369+00:00",
+      "exit_code": 0,
+      "stdout_file": "disk.txt",
+      "stdout_sha256": "7050be222b4120b4fafadc385fab9eb53343acea53481fefb5b5e6867f42dacd",
+      "stderr": ""
+    },
+    {
+      "name": "nvidia-smi-q",
+      "command": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "pidtom@spark2.local",
+        "nvidia-smi -q"
+      ],
+      "started_utc": "2026-09-05T02:50:34.018476+00:00",
+      "exit_code": 0,
+      "stdout_file": "nvidia-smi-q.txt",
+      "stdout_sha256": "ac32b795cf20d7766197dc4e5e95c9f4e46f8c1c955d6028a22c64b77e804983",
+      "stderr": ""
+    },
+    {
+      "name": "memory",
+      "command": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "pidtom@spark2.local",
+        "free -b"
+      ],
+      "started_utc": "2026-09-05T02:50:34.417552+00:00",
+      "exit_code": 0,
+      "stdout_file": "memory.txt",
+      "stdout_sha256": "097ca9bff7e27c6b353d3cbd7a0bb697c27986f741e7900635d5165777c6a8c5",
+      "stderr": ""
+    },
+    {
+      "name": "docker-images",
+      "command": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "pidtom@spark2.local",
+        "docker image ls --digests --no-trunc"
+      ],
+      "started_utc": "2026-09-05T02:50:34.707217+00:00",
+      "exit_code": 0,
+      "stdout_file": "docker-images.txt",
+      "stdout_sha256": "f5c9c979be2c813f45f9ddd0261d1d8ea322ba345a3a134371e2b3e2cc887667",
+      "stderr": ""
+    }
+  ]
+}

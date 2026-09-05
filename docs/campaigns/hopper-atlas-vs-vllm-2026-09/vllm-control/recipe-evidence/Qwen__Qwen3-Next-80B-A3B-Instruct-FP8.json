@@ -1,0 +1,113 @@
+{
+  "url": "https://recipes.vllm.ai/Qwen/Qwen3-Next-80B-A3B-Instruct-FP8.json",
+  "retrieved_utc": "2026-09-05T02:40:06.081521+00:00",
+  "status": 200,
+  "final_url": "https://recipes.vllm.ai/Qwen/Qwen3-Next-80B-A3B-Instruct-FP8.json",
+  "sha256": "3967717fcd4ae43993fa12ef763346e01a9e84d0c9b2d7ba150eccf0d0332f93",
+  "data": {
+    "hf_id": "Qwen/Qwen3-Next-80B-A3B-Instruct-FP8",
+    "model": {
+      "model_id": "Qwen/Qwen3-Next-80B-A3B-Instruct-FP8",
+      "min_vllm_version": "0.17.0",
+      "architecture": "moe",
+      "parameter_count": "80B",
+      "active_parameters": "3B",
+      "context_length": 262144,
+      "base_args": [],
+      "base_env": {},
+      "install": {
+        "pip": {
+          "command": "uv venv\nsource .venv/bin/activate\nuv pip install -U vllm --torch-backend auto"
+        },
+        "docker": {
+          "command": "docker pull vllm/vllm-openai:latest"
+        }
+      }
+    },
+    "features": {
+      "tool_calling": {
+        "description": "Enable automatic tool choice with Hermes parser",
+        "args": [
+          "--enable-auto-tool-choice",
+          "--tool-call-parser",
+          "hermes"
+        ]
+      },
+      "spec_decoding": {
+        "description": "Multi-token prediction speculative decoding for lower latency",
+        "args": [
+          "--speculative-config",
+          "{\"method\":\"qwen3_next_mtp\",\"num_speculative_tokens\":2}",
+          "--no-enable-chunked-prefill"
+        ]
+      }
+    },
+    "opt_in_features": [
+      "spec_decoding"
+    ],
+    "variants": {
+      "default": {
+        "precision": "fp8",
+        "vram_minimum_gb": 96,
+        "description": "Qwen official FP8 checkpoint \u2014 recommended on SM90/SM100"
+      }
+    },
+    "hardware_overrides": {
+      "blackwell": {
+        "extra_args": [
+          "--moe-backend",
+          "flashinfer_trtllm",
+          "--attention-backend",
+          "FLASH_ATTN"
+        ],
+        "extra_env": {
+          "VLLM_USE_DEEP_GEMM": "0"
+        }
+      }
+    },
+    "meta": {
+      "title": "Qwen3-Next-80B-A3B-Instruct",
+      "date_added": "2025-09-11",
+      "date_updated": "2026-04-17",
+      "hardware": {
+        "h200": "verified",
+        "mi300x": "verified",
+        "mi325x": "verified",
+        "mi355x": "verified"
+      }
+    },
+    "recommended_command": {
+      "hardware": "h200",
+      "strategy": "single_node_tp",
+      "variant": "fp8",
+      "node_count": 1,
+      "deploy_type": "single_node",
+      "env": {},
+      "docker_image": "vllm/vllm-openai:latest",
+      "command": "vllm serve Qwen/Qwen3-Next-80B-A3B-Instruct-FP8 \\\n  --tensor-parallel-size 1 \\\n  --enable-auto-tool-choice \\\n  --tool-call-parser hermes",
+      "argv": [
+        "vllm",
+        "serve",
+        "Qwen/Qwen3-Next-80B-A3B-Instruct-FP8",
+        "--tensor-parallel-size",
+        "1",
+        "--enable-auto-tool-choice",
+        "--tool-call-parser",
+        "hermes"
+      ],
+      "by_hardware": {
+        "h200": "/Qwen/Qwen3-Next-80B-A3B-Instruct-FP8/hw/h200.json",
+        "h100": "/Qwen/Qwen3-Next-80B-A3B-Instruct-FP8/hw/h100.json",
+        "b200": "/Qwen/Qwen3-Next-80B-A3B-Instruct-FP8/hw/b200.json",
+        "gb200": "/Qwen/Qwen3-Next-80B-A3B-Instruct-FP8/hw/gb200.json",
+        "b300": "/Qwen/Qwen3-Next-80B-A3B-Instruct-FP8/hw/b300.json",
+        "gb300": "/Qwen/Qwen3-Next-80B-A3B-Instruct-FP8/hw/gb300.json",
+        "mi300x": "/Qwen/Qwen3-Next-80B-A3B-Instruct-FP8/hw/mi300x.json",
+        "mi325x": "/Qwen/Qwen3-Next-80B-A3B-Instruct-FP8/hw/mi325x.json",
+        "mi355x": "/Qwen/Qwen3-Next-80B-A3B-Instruct-FP8/hw/mi355x.json"
+      }
+    },
+    "guide_excerpts": []
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

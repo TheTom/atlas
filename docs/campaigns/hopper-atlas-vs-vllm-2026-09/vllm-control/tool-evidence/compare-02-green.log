@@ -1,0 +1,15 @@
+$ python3 bench/hopper_ab/compare.py --selftest
+### ISL 1024 / OSL 256 (temp 0.0, seed 42)
+
+| C | Atlas tok/s | vLLM tok/s | ratio | Atlas TTFT p50/p99 ms | vLLM TTFT p50/p99 ms | Atlas TPOT p50 ms | vLLM TPOT p50 ms | rung |
+|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| 1 | 40.00 | 20.00 | 2.00x | 100 / 140 | 130 / 180 | 24.00 | 48.00 | **WIN** |
+| 16 | 200.00 | 400.00 | 0.50x | 300 / 480 | 260 / 400 | 60.00 | 34.00 | **LOSS** |
+
+1/2 rungs won.
+
+REFUSED vllm_tiny_mismatched.json: - osl: atlas=256 vs vllm=512
+REFUSED vllm_tiny_no_thinking_key.json: - chat_template_kwargs: atlas={'enable_thinking': False} vllm='<absent>' (absent is not a match -- the run cannot show it used this value)
+SELFTEST OK: arithmetic, parity refusal, A/A identity, symmetric rung union and validity exclusions
+
+exit: 0

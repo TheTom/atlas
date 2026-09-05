@@ -1,0 +1,19 @@
+{
+  "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.28.0/vllm/utils/argparse_utils.py",
+  "retrieved_utc": "2026-09-05T02:42:44.145722+00:00",
+  "status": 200,
+  "sha256": "afd3717476e1eebf3e5b086c6da31645a989a69375e6f426cc21a7b4bfea1336",
+  "excerpts": [
+    {
+      "start_line": 118,
+      "end_line": 125,
+      "text": "        \"When passing JSON CLI arguments, the following sets of arguments \"\n        \"are equivalent:\\n\"\n        '   --json-arg \\'{\"key1\": \"value1\", \"key2\": {\"key3\": \"value2\"}}\\'\\n'\n        \"   --json-arg.key1 value1 --json-arg.key2.key3 value2\\n\\n\"\n        \"Additionally, list elements can be passed individually using +:\\n\"\n        '   --json-arg \\'{\"key4\": [\"value3\", \"value4\", \"value5\"]}\\'\\n'\n        \"   --json-arg.key4+ value3 --json-arg.key4+='value4,value5'\\n\\n\"\n    )"
+    },
+    {
+      "start_line": 373,
+      "end_line": 426,
+      "text": "        for i, processed_arg in enumerate(processed_args):\n            if i in delete:  # skip if value from previous arg\n                continue\n\n            if processed_arg.startswith(\"--\") and \".\" not in processed_arg:\n                if \"=\" in processed_arg:\n                    arg_name = processed_arg.split(\"=\", 1)[0]\n                else:\n                    arg_name = processed_arg\n\n                if arg_name in regular_args_seen:\n                    duplicates.add(arg_name)\n                else:\n                    regular_args_seen.add(arg_name)\n                continue\n\n            if processed_arg.startswith(\"-\") and \".\" in processed_arg:\n                if \"=\" in processed_arg:\n                    processed_arg, value_str = processed_arg.split(\"=\", 1)\n                    if \".\" not in processed_arg:\n                        # False positive, '.' was only in the value\n                        continue\n                else:\n                    value_str = processed_args[i + 1]\n                    delete.add(i + 1)\n\n                if processed_arg.endswith(\"+\"):\n                    processed_arg = processed_arg[:-1]\n                    value_str = json.dumps(list(value_str.split(\",\")))\n\n                key, *keys = processed_arg.split(\".\")\n                try:\n                    value = json.loads(value_str)\n                except json.decoder.JSONDecodeError:\n                    # Support human-readable suffixes (e.g. 1k, 80g) for\n                    # dotted config args like --config.field 80g\n                    try:\n                        value = human_readable_int(value_str)  # type: ignore[assignment]\n                    except (ValueError, ArgumentTypeError):\n                        value = value_str\n\n                # Merge all values with the same key into a single dict\n                arg_dict = create_nested_dict(keys, value)\n                arg_duplicates = recursive_dict_update(dict_args[key], arg_dict)\n                duplicates |= {f\"{key}.{d}\" for d in arg_duplicates}\n                delete.add(i)\n        # Filter out the dict args we set to None\n        processed_args = [a for i, a in enumerate(processed_args) if i not in delete]\n        if duplicates:\n            logger.warning(\"Found duplicate keys %s\", \", \".join(duplicates))\n\n        # Add the dict args back as if they were originally passed as JSON\n        for dict_arg, dict_value in dict_args.items():\n            processed_args.append(dict_arg)"
+    }
+  ],
+  "stored_content": "Selected excerpts; sha256 hashes the original complete HTTP response body."
+}
