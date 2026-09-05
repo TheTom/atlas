@@ -1,9 +1,9 @@
-# Hopper PTX gate — `hopper` @ `sm_90a`
+# Atlas PTX gate — `hopper` @ `sm_90a`
 
-* generated: 2026-09-05T01:30:43Z on `spark1`
+* generated: 2026-09-05T02:17:00Z on `spark1`
 * toolchain: Build cuda_13.0.r13.0/compiler.36424714_0
 * strict (`--Werror all-warnings`, as build.rs): True
-* self-test: known_good passed=True, known_bad failed=True
+* self-test: known_good passed=True, `known_bad_post_hopper.cu` failed=True
 * **171/171 kernels compiled** (0 failed)
 
 | model | kernels | pass | fail |
@@ -27,4 +27,4 @@ No failures: every kernel in this hardware set emitted PTX and assembled for the
 | nemotron-super-120b-a12b | `w4a16_gemm` | 168 | 624 |
 | nemotron-super-120b-a12b | `fp8_gemm_t_blockscaled` | 167 | 0 |
 
-Compilation is not correctness. Nothing here has run on an H100 or H200; these kernels are known to EXIST for the architecture, not to produce the right numbers or to be fast.
+Compilation is not correctness. Nothing here has run on hopper silicon; these kernels are known to EXIST for the architecture, not to produce the right numbers or to be fast.

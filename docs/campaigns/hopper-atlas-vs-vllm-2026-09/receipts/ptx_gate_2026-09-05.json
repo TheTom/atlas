@@ -1,12 +1,14 @@
 {
-  "generated_utc": "2026-09-05T01:27:01Z",
+  "generated_utc": "2026-09-05T02:14:18Z",
   "host": "spark1",
   "hw": "hopper",
   "arch": "sm_90a",
   "nvcc": "Build cuda_13.0.r13.0/compiler.36424714_0",
+  "strict": false,
   "selftest": {
     "bad_failed": true,
-    "good_passed": true
+    "good_passed": true,
+    "bad_fixture": "known_bad_post_hopper.cu"
   },
   "summary": {
     "total": 871,
@@ -8059,7 +8061,7 @@
       "ptxas_ok": false,
       "registers_max": null,
       "spill_bytes": null,
-      "error_head": "ptxas /tmp/tmp.AomXOOI1K6/ptx/240823f180a26d50.ptx, line 19586; error   : Instruction 'cvt with .e2m1x2' not supported on .target 'sm_90a'"
+      "error_head": "ptxas /tmp/tmp.ESx0YSVAo0/ptx/240823f180a26d50.ptx, line 19586; error   : Instruction 'cvt with .e2m1x2' not supported on .target 'sm_90a'"
     },
     {
       "file": "gb10/common/moe_w8a8_grouped_gemm.cu",

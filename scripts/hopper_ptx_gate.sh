@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: AGPL-3.0-only
 #
-# Does every Atlas kernel compile for Hopper? Answered with nvcc alone — no
-# H100 required, and no GPU of any kind.
+# Does every Atlas kernel compile for a given SM architecture? Answered with
+# nvcc alone — no H100, no B200, no GPU of any kind.
+#
+# Named for the campaign it was written for; it is not Hopper-specific and
+# `--hw` takes any set under `kernels/`. (The name is left alone because CI and
+# docs reference it, and a rename buys nothing a comment does not.)
 #
 # `nvcc --ptx` is a cross-compile: it emits device assembly for `-arch=sm_90a`
 # on a host with no NVIDIA hardware present. `ptxas -v` then assembles that PTX
@@ -35,6 +39,14 @@
 # must fail for this one — and if either verdict is wrong the gate refuses to
 # report results at all. A gate whose failure path has never executed is not
 # evidence.
+#
+# The NEGATIVE fixture is chosen per arch, because no one instruction is absent
+# from every architecture Atlas targets. `redux.sync.max.abs.f32` is absent
+# everywhere EXCEPT sm_100a; the warp-level `mma ... kind::mxf4nvf4
+# .block_scale` is absent on sm_90a and sm_100a and present on sm_120/sm_121.
+# An arch with no registered negative fixture is REFUSED, not waved through:
+# running the gate without a working failure path is the thing this section
+# exists to prevent.
 #
 # Exit status: 0 only if the self-test held AND every kernel compiled.
 #
@@ -101,7 +113,7 @@ while [ $# -gt 0 ]; do
     --out) OUT="$2"; shift 2 ;;
     --strict) STRICT=1; shift ;;
     --selftest) SELFTEST_ONLY=1; shift ;;
-    -h|--help) sed -n '4,46p' "$0"; exit 0 ;;
+    -h|--help) sed -n '4,54p' "$0"; exit 0 ;;
     *) echo "unknown argument: $1" >&2; exit 2 ;;
   esac
 done
@@ -135,6 +147,26 @@ fi
 
 NVCC_VERSION="$("$NVCC" --version | tail -1 | tr -s ' ')"
 
+# ── Which negative fixture is valid for THIS arch ──
+# See the fixtures' own measured tables. Neither Blackwell architecture is a
+# superset of the other, so the two fixtures are mirror images and the choice
+# cannot be avoided by picking a "more portable" instruction.
+case "$ARCH" in
+  sm_100*)          BAD_FIXTURE=known_bad_post_blackwell_dc.cu ;;
+  sm_9*|sm_12*)     BAD_FIXTURE=known_bad_post_hopper.cu ;;
+  *)                BAD_FIXTURE="" ;;
+esac
+if [ -z "$BAD_FIXTURE" ]; then
+  echo "no negative self-test fixture is registered for $ARCH." >&2
+  echo "  A gate with no failure path proves nothing, so this refuses to run." >&2
+  echo "  Add a fixture under $FIXTURES that ptxas rejects for $ARCH and" >&2
+  echo "  accepts elsewhere, record its measured table in the file, and add" >&2
+  echo "  the arm to the case statement in $(basename "${BASH_SOURCE[0]}")." >&2
+  exit 2
+fi
+[ -f "$FIXTURES/$BAD_FIXTURE" ] || {
+  echo "negative fixture missing: $FIXTURES/$BAD_FIXTURE" >&2; exit 2; }
+
 WORK="$(mktemp -d)"
 trap 'rm -rf "$WORK"' EXIT
 mkdir -p "$WORK/ptx" "$WORK/err" "$WORK/vrb" "$WORK/res"
@@ -149,7 +181,7 @@ selftest() {
   else
     good=false
   fi
-  if "$NVCC" --ptx "-arch=$ARCH" -O3 -o "$WORK/bad.ptx" "$FIXTURES/known_bad_post_hopper.cu" >/dev/null 2>&1 \
+  if "$NVCC" --ptx "-arch=$ARCH" -O3 -o "$WORK/bad.ptx" "$FIXTURES/$BAD_FIXTURE" >/dev/null 2>&1 \
      && "$PTXAS" "-arch=$ARCH" -o /dev/null "$WORK/bad.ptx" >/dev/null 2>&1; then
     bad=false   # it compiled; the negative fixture did NOT fail
   else
@@ -159,16 +191,17 @@ selftest() {
 }
 
 read -r SELF_GOOD SELF_BAD <<<"$(selftest)"
-echo "self-test @ $ARCH: known_good passed=$SELF_GOOD  known_bad failed=$SELF_BAD"
+echo "self-test @ $ARCH: known_good passed=$SELF_GOOD  $BAD_FIXTURE failed=$SELF_BAD"
 SELF_OK=0
 [ "$SELF_GOOD" = true ] && [ "$SELF_BAD" = true ] && SELF_OK=1
 
 if [ "$SELF_OK" != 1 ]; then
   echo "SELF-TEST FAILED — refusing to report kernel results." >&2
   if [ "$SELF_BAD" != true ]; then
-    echo "  known_bad_post_hopper.cu COMPILED for $ARCH. It is a valid negative for" >&2
-    echo "  sm_90a but not for sm_100a (see the fixture's measured table): at this" >&2
-    echo "  arch the fixture is what needs fixing, not the kernels." >&2
+    echo "  $BAD_FIXTURE COMPILED for $ARCH, so the instruction it relies on is" >&2
+    echo "  present here (see the fixture's own measured table). The gate has no" >&2
+    echo "  working failure path at this arch: the FIXTURE is what needs fixing," >&2
+    echo "  not the kernels." >&2
   fi
   if [ "$SELF_GOOD" != true ]; then
     echo "  known_good.cu FAILED for $ARCH — the toolchain or the arch string is wrong." >&2
@@ -257,9 +290,9 @@ xargs -a "$WORK/tasks.tsv" -d '\n' -P "$JOBS" -I LINE \
   bash "${BASH_SOURCE[0]}" --compile-one LINE "$WORK" "$NVCC" "$PTXAS" "$ARCH"
 
 # ── Ledger ──
-python3 - "$WORK" "$OUT" "$ARCH" "$HW" "$NVCC_VERSION" "$SELF_GOOD" "$SELF_BAD" "$STRICT" <<'PY'
+python3 - "$WORK" "$OUT" "$ARCH" "$HW" "$NVCC_VERSION" "$SELF_GOOD" "$SELF_BAD" "$STRICT" "$BAD_FIXTURE" <<'PY'
 import json, os, re, socket, sys, datetime
-work, out, arch, hw, nvcc_version, self_good, self_bad, strict = sys.argv[1:9]
+work, out, arch, hw, nvcc_version, self_good, self_bad, strict, bad_fixture = sys.argv[1:10]
 
 res = {}
 for name in os.listdir(os.path.join(work, "res")):
@@ -315,7 +348,13 @@ ledger = {
     "host": socket.gethostname(),
     "hw": hw, "arch": arch, "nvcc": nvcc_version,
     "strict": strict == "1",
-    "selftest": {"bad_failed": self_bad == "true", "good_passed": self_good == "true"},
+    "selftest": {
+        "bad_failed": self_bad == "true",
+        "good_passed": self_good == "true",
+        # WHICH negative fixture. Per-arch, so a receipt that does not name it
+        # cannot be checked against the fixture's measured table.
+        "bad_fixture": bad_fixture,
+    },
     "summary": {
         "total": len(results),
         "pass": len(results) - len(failures),
@@ -331,12 +370,12 @@ with open(out, "w") as f:
 
 md = os.path.splitext(out)[0] + ".md"
 L = []
-L.append(f"# Hopper PTX gate — `{hw}` @ `{arch}`\n")
+L.append(f"# Atlas PTX gate — `{hw}` @ `{arch}`\n")
 L.append(f"* generated: {ledger['generated_utc']} on `{ledger['host']}`")
 L.append(f"* toolchain: {nvcc_version}")
 L.append(f"* strict (`--Werror all-warnings`, as build.rs): {ledger['strict']}")
 L.append(f"* self-test: known_good passed={ledger['selftest']['good_passed']}, "
-         f"known_bad failed={ledger['selftest']['bad_failed']}")
+         f"`{bad_fixture}` failed={ledger['selftest']['bad_failed']}")
 L.append(f"* **{ledger['summary']['pass']}/{ledger['summary']['total']} kernels compiled**"
          f" ({ledger['summary']['fail']} failed)\n")
 L.append("| model | kernels | pass | fail |")
@@ -366,9 +405,9 @@ if top:
         L.append(f"| {r['model']} | `{r['stem']}` | {r['registers_max']} | "
                  f"{r['spill_bytes'] if r['spill_bytes'] is not None else '-'} |")
     L.append("")
-L.append("Compilation is not correctness. Nothing here has run on an H100 or "
-         "H200; these kernels are known to EXIST for the architecture, not to "
-         "produce the right numbers or to be fast.\n")
+L.append(f"Compilation is not correctness. Nothing here has run on {hw} "
+         "silicon; these kernels are known to EXIST for the architecture, not "
+         "to produce the right numbers or to be fast.\n")
 open(md, "w").write("\n".join(L))
 
 print(f"{ledger['summary']['pass']}/{ledger['summary']['total']} kernels compiled "

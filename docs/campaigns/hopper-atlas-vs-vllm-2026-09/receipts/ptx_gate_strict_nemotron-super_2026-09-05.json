@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-09-05T01:30:43Z",
+  "generated_utc": "2026-09-05T02:17:00Z",
   "host": "spark1",
   "hw": "hopper",
   "arch": "sm_90a",
@@ -7,7 +7,8 @@
   "strict": true,
   "selftest": {
     "bad_failed": true,
-    "good_passed": true
+    "good_passed": true,
+    "bad_fixture": "known_bad_post_hopper.cu"
   },
   "summary": {
     "total": 171,
