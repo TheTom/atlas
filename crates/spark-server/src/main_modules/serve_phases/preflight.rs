@@ -316,6 +316,18 @@ pub(crate) fn init_gpu_backend(
     args: &cli::ServeArgs,
     ptx_set: &atlas_kernels::TargetPtxSet,
 ) -> Result<(Box<dyn spark_runtime::gpu::GpuBackend>, usize)> {
+    // BEFORE the backend, because constructing it loads every PTX module and
+    // a driver-side arch rejection names neither the arch nor the GPU. The
+    // compiled arch is only knowable here: `AtlasCudaBackend::new` takes module
+    // blobs, while `ptx_set.target.arch` is the verbatim
+    // `kernels/<hw>/HARDWARE.toml` `[hardware].arch` this build compiled with.
+    // An empty arch means the build recorded none (the ATLAS_SKIP_BUILD stub),
+    // which the preflight warns about rather than passing.
+    spark_runtime::cuda_backend::arch_preflight::preflight_device_arch(
+        args.gpu_ordinal,
+        Some(ptx_set.target.arch).filter(|a| !a.is_empty()),
+    )?;
+
     let backend =
         spark_runtime::cuda_backend::AtlasCudaBackend::new(args.gpu_ordinal, &ptx_set.modules)
             .context("Failed to initialize CUDA backend")?;
