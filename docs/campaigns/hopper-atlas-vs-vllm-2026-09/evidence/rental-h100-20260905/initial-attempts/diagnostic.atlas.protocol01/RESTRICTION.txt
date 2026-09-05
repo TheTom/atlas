@@ -1,0 +1,1 @@
+Diagnostic protocol session after both scored coherency gates failed; no certified performance result. Exact prior recipe argv and environment retained.

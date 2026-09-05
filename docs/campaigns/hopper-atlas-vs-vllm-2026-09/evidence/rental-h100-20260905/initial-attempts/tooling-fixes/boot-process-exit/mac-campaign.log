@@ -1,0 +1,278 @@
+test_a_vllm_spec_refusal_survives_finalizer (__main__.DryRunFailureTest.test_a_vllm_spec_refusal_survives_finalizer) ... ok
+test_b_atlas_launcher_error_survives_finalizer (__main__.DryRunFailureTest.test_b_atlas_launcher_error_survives_finalizer) ... ok
+test_c_valid_cells_still_render (__main__.DryRunFailureTest.test_c_valid_cells_still_render) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.737s
+
+OK
+  ok [dryrun] 3 dry-run exit regressions passed (both engines, refusal before boot)
+test_failed_preflight_never_launches_and_writes_no_go (__main__.AdmissionTests.test_failed_preflight_never_launches_and_writes_no_go) ... {"case": "atlas-process", "preflight_ok": false, "runner_exit": 1, "engine_launches": [], "verdict": "NO-GO", "failing_stage": "preflight"}
+{"case": "atlas-binary", "preflight_ok": false, "runner_exit": 1, "engine_launches": [], "verdict": "NO-GO", "failing_stage": "preflight"}
+{"case": "atlas-container", "preflight_ok": false, "runner_exit": 1, "engine_launches": [], "verdict": "NO-GO", "failing_stage": "preflight"}
+{"case": "vllm-container", "preflight_ok": false, "runner_exit": 1, "engine_launches": [], "verdict": "NO-GO", "failing_stage": "preflight"}
+ok
+test_successful_preflight_reaches_selected_serve_path (__main__.AdmissionTests.test_successful_preflight_reaches_selected_serve_path) ... {"case": "atlas-binary", "preflight_ok": true, "runner_exit": 1, "engine_launches": [["/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-admission-rajv2ub7/bin/spark", "serve", "Qwen/Qwen3.6-35B-A3B-FP8", "--rank", "0", "--world-size", "1", "--ep-size", "1", "--tp-size", "1", "--gpu-ordinal", "0", "--port", "64289", "--master-addr", "127.0.0.1", "--master-port", "29500", "--no-tui", "--check-kernels", "--warmup-prompt", "/Users/tom/Documents/New project/atlas-boot-process-exit/bench/hopper_ab/warmup_1024.txt", "--request-timeout", "0", "--gpu-memory-utilization", "0.90", "--max-num-seqs", "128", "--max-batch-size", "32", "--enable-prefix-caching", "true", "--scheduling-policy", "slai", "--kv-cache-dtype", "fp8", "--kv-high-precision-layers", "auto", "--max-seq-len", "65536", "--max-prefill-tokens", "32768", "--fp8-kv-calibration-tokens", "256", "--disable-thinking"]], "verdict": "NO-GO", "failing_stage": "serve"}
+{"case": "atlas-container", "preflight_ok": true, "runner_exit": 1, "engine_launches": [["/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-admission-5d1ofo0q/bin/docker", "run", "--rm", "--gpus", "all", "--ipc=host", "--network", "host", "-e", "RUST_LOG=info", "-v", "/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-admission-5d1ofo0q/hub:/root/.cache/huggingface", "-v", "/Users/tom/Documents/New project/atlas-boot-process-exit/bench/hopper_ab/warmup_1024.txt:/warmup/warmup_1024.txt:ro", "admission-test:never-contacted", "serve", "Qwen/Qwen3.6-35B-A3B-FP8", "--rank", "0", "--world-size", "1", "--ep-size", "1", "--tp-size", "1", "--gpu-ordinal", "0", "--port", "64290", "--master-addr", "127.0.0.1", "--master-port", "29500", "--no-tui", "--check-kernels", "--warmup-prompt", "/warmup/warmup_1024.txt", "--request-timeout", "0", "--gpu-memory-utilization", "0.90", "--max-num-seqs", "128", "--max-batch-size", "32", "--enable-prefix-caching", "true", "--scheduling-policy", "slai", "--kv-cache-dtype", "fp8", "--kv-high-precision-layers", "auto", "--max-seq-len", "65536", "--max-prefill-tokens", "32768", "--fp8-kv-calibration-tokens", "256", "--disable-thinking"]], "verdict": "NO-GO", "failing_stage": "serve"}
+{"case": "vllm-container", "preflight_ok": true, "runner_exit": 1, "engine_launches": [["/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-admission-bdpql_fa/bin/docker", "run", "-d", "--name", "atlas-campaign-qwen3-6-35b-a3b-fp8-h100-lat-c1-specoff-thinkoff-42643", "--label", "atlas-campaign.run=vllm.qwen3.6-35b-a3b-fp8.h100.lat.c1.specoff.thinkoff-1788641659-42643", "--gpus", "all", "--ipc=host", "--network", "host", "-v", "/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-admission-bdpql_fa/hub:/root/.cache/huggingface", "--entrypoint", "vllm", "vllm/vllm-openai@sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "serve", "Qwen/Qwen3.6-35B-A3B-FP8", "--trust-remote-code", "--tensor-parallel-size", "1", "--enable-auto-tool-choice", "--tool-call-parser", "qwen3_xml", "--reasoning-parser", "qwen3", "--mm-encoder-tp-mode", "data", "--revision", "95a723d08a9490559dae23d0cff1d9466213d989"]], "verdict": "NO-GO", "failing_stage": "serve"}
+ok
+test_successful_process_preflight_reaches_engine_audit (__main__.AdmissionTests.test_successful_process_preflight_reaches_engine_audit) ... skipped 'process endpoint admission requires Linux /proc'
+
+----------------------------------------------------------------------
+Ran 3 tests in 6.238s
+
+OK (skipped=1)
+  ok [admission] failed preflight never launches either engine
+test_first_role_is_not_first_content (__main__.StreamTests.test_first_role_is_not_first_content) ... ok
+test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) ... ok
+test_multitoken_content_is_not_counted_as_one_token (__main__.StreamTests.test_multitoken_content_is_not_counted_as_one_token) ... ok
+test_real_http_retains_exact_request_and_wire_bytes (__main__.StreamTests.test_real_http_retains_exact_request_and_wire_bytes) ... ok
+test_tool_arguments_must_form_json (__main__.StreamTests.test_tool_arguments_must_form_json) ... ok
+test_total_deadline_rejects_trickling_headers (__main__.StreamTests.test_total_deadline_rejects_trickling_headers) ... ok
+test_utf8_and_crlf_split_at_every_byte (__main__.StreamTests.test_utf8_and_crlf_split_at_every_byte) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.114s
+
+OK
+  ok [stream] raw streaming diagnostic rejects incomplete replies and bounds trickling input
+test_a_forbidden_modes_refuse_before_stages (__main__.ThinkingPolicyTest.test_a_forbidden_modes_refuse_before_stages) ... ok
+test_b_atlas_renderer_cannot_bypass_policy (__main__.ThinkingPolicyTest.test_b_atlas_renderer_cannot_bypass_policy) ... ok
+test_c_permitted_modes_render (__main__.ThinkingPolicyTest.test_c_permitted_modes_render) ... ok
+test_d_absent_recipe_still_names_missing_pair (__main__.ThinkingPolicyTest.test_d_absent_recipe_still_names_missing_pair) ... ok
+test_e_catalog_covers_exact_recipe_models (__main__.ThinkingPolicyTest.test_e_catalog_covers_exact_recipe_models) ... ok
+test_f_real_refusal_also_precedes_resource_creation (__main__.ThinkingPolicyTest.test_f_real_refusal_also_precedes_resource_creation) ... ok
+test_g_minimax_unmapped_request_policy_refuses_all_skus (__main__.ThinkingPolicyTest.test_g_minimax_unmapped_request_policy_refuses_all_skus) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 6.222s
+
+OK
+  ok [policy] campaign thinking eligibility refuses excluded modes before launch
+test_broken_think_on_path_refuses (__main__.CoherencyPolicyTest.test_broken_think_on_path_refuses) ... ok
+test_clean_both_modes_pass (__main__.CoherencyPolicyTest.test_clean_both_modes_pass) ... ok
+test_dedicated_think_off_leak_refuses_in_both_modes (__main__.CoherencyPolicyTest.test_dedicated_think_off_leak_refuses_in_both_modes) ... ok
+test_default_remains_think_off (__main__.CoherencyPolicyTest.test_default_remains_think_off) ... ok
+test_known_wrong_answers_refuse_in_both_modes (__main__.CoherencyPolicyTest.test_known_wrong_answers_refuse_in_both_modes) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 4.580s
+
+OK
+test_a_opposite_coherency_mode_is_no_go (__main__.CoherencyEvidenceTest.test_a_opposite_coherency_mode_is_no_go) ... ok
+test_b_legacy_coherency_cannot_certify_think_on (__main__.CoherencyEvidenceTest.test_b_legacy_coherency_cannot_certify_think_on) ... ok
+test_c_inconsistent_or_missing_per_check_policy_refuses (__main__.CoherencyEvidenceTest.test_c_inconsistent_or_missing_per_check_policy_refuses) ... ok
+test_d_malformed_policy_does_not_become_true (__main__.CoherencyEvidenceTest.test_d_malformed_policy_does_not_become_true) ... ok
+test_e_malformed_ladder_policy_is_partial (__main__.CoherencyEvidenceTest.test_e_malformed_ladder_policy_is_partial) ... ok
+test_e_opposite_ladder_mode_is_partial (__main__.CoherencyEvidenceTest.test_e_opposite_ladder_mode_is_partial) ... ok
+test_f_matched_modes_and_legacy_off_still_certify (__main__.CoherencyEvidenceTest.test_f_matched_modes_and_legacy_off_still_certify) ... ok
+test_g_driver_passes_policy_to_gate (__main__.CoherencyEvidenceTest.test_g_driver_passes_policy_to_gate) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 3.640s
+
+OK
+  ok [coherency] gate requests and artifact certification match the cell's thinking mode
+test_branch_name_pin_refused (__main__.PinTests.test_branch_name_pin_refused) ... ok
+test_duplicate_primary_flag_refused (__main__.PinTests.test_duplicate_primary_flag_refused) ... ok
+test_every_head_and_worker_uses_declared_full_revision (__main__.PinTests.test_every_head_and_worker_uses_declared_full_revision) ... ok
+test_external_draft_missing_revision_refused (__main__.PinTests.test_external_draft_missing_revision_refused) ... ok
+test_external_draft_repo_mismatch_refused (__main__.PinTests.test_external_draft_repo_mismatch_refused) ... ok
+test_external_draft_revision_and_exact_spec_arithmetic (__main__.PinTests.test_external_draft_revision_and_exact_spec_arithmetic) ... ok
+test_identity_overrides_refused (__main__.PinTests.test_identity_overrides_refused) ... ok
+test_internal_spec_cannot_override_primary_revision (__main__.PinTests.test_internal_spec_cannot_override_primary_revision) ... ok
+test_missing_pin_refused (__main__.PinTests.test_missing_pin_refused) ... ok
+test_missing_primary_flag_refused (__main__.PinTests.test_missing_primary_flag_refused) ... ok
+test_non_identity_extra_remains_available (__main__.PinTests.test_non_identity_extra_remains_available) ... ok
+test_same_repo_different_pin_refused (__main__.PinTests.test_same_repo_different_pin_refused) ... ok
+test_short_pin_refused (__main__.PinTests.test_short_pin_refused) ... ok
+test_spec_args_cannot_override_primary_identity (__main__.PinTests.test_spec_args_cannot_override_primary_identity) ... ok
+test_stale_embedded_spec_config_refused_even_when_off (__main__.PinTests.test_stale_embedded_spec_config_refused_even_when_off) ... ok
+test_worker_pin_mismatch_refused (__main__.PinTests.test_worker_pin_mismatch_refused) ... ok
+test_wrong_repo_refused (__main__.PinTests.test_wrong_repo_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.064s
+
+OK
+  ok [pins] vLLM primary and draft pins survive rendering and reject identity overrides
+test_kimi_context (__main__.KimiContextTest.test_kimi_context) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+OK
+test_atlas_uses_target_context_and_calibration (__main__.Qwen27BRecipeTest.test_atlas_uses_target_context_and_calibration) ... ok
+test_both_engines_refuse_unevidenced_mtp (__main__.Qwen27BRecipeTest.test_both_engines_refuse_unevidenced_mtp) ... ok
+test_both_recipes_pin_same_fp8_checkpoint (__main__.Qwen27BRecipeTest.test_both_recipes_pin_same_fp8_checkpoint) ... ok
+test_vllm_matches_captured_h200_argv (__main__.Qwen27BRecipeTest.test_vllm_matches_captured_h200_argv) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.791s
+
+OK
+test_b200_uses_captured_nvfp4_recipe (__main__.MiniMaxNvfp4Test.test_b200_uses_captured_nvfp4_recipe) ... ok
+test_hopper_profiles_keep_their_original_bf16_checkpoint (__main__.MiniMaxNvfp4Test.test_hopper_profiles_keep_their_original_bf16_checkpoint) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+OK
+test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) ... ok
+test_metadata_does_not_claim_loaded_bytes (__main__.AtlasRevisionTest.test_metadata_does_not_claim_loaded_bytes) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK
+test_synthetic_support_receipt_must_match_image_and_digest (__main__.DraftImageSupportTest.test_synthetic_support_receipt_must_match_image_and_digest) ... ok
+test_unverified_external_drafts_refuse_before_staging (__main__.DraftImageSupportTest.test_unverified_external_drafts_refuse_before_staging) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.007s
+
+OK
+test_a_owned_capture_precedes_teardown_and_reaches_assembler (__main__.ModelCaptureTest.test_a_owned_capture_precedes_teardown_and_reaches_assembler) ... ok
+test_b_failed_inspect_does_not_forge_proof (__main__.ModelCaptureTest.test_b_failed_inspect_does_not_forge_proof) ... ok
+test_c_unknown_inspect_does_not_forge_proof (__main__.ModelCaptureTest.test_c_unknown_inspect_does_not_forge_proof) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.735s
+
+OK
+test_a_unowned_launch_cannot_certify (cell_assemble_test.AssemblyTest.test_a_unowned_launch_cannot_certify) ... ok
+test_b_unstarted_or_malformed_launch_cannot_certify (cell_assemble_test.AssemblyTest.test_b_unstarted_or_malformed_launch_cannot_certify) ... ok
+test_c_wrong_model_or_competing_revision_cannot_certify (cell_assemble_test.AssemblyTest.test_c_wrong_model_or_competing_revision_cannot_certify) ... ok
+test_d_failed_boot_does_not_prove_loaded_revision (cell_assemble_test.AssemblyTest.test_d_failed_boot_does_not_prove_loaded_revision) ... ok
+test_e_recipe_pins_alone_are_not_launch_proof (cell_assemble_test.AssemblyTest.test_e_recipe_pins_alone_are_not_launch_proof) ... ok
+test_f_owned_launched_pin_and_boot_prove_revision (cell_assemble_test.AssemblyTest.test_f_owned_launched_pin_and_boot_prove_revision) ... ok
+test_g_floating_launch_keeps_revision_null (cell_assemble_test.AssemblyTest.test_g_floating_launch_keeps_revision_null) ... ok
+test_h_failed_known_answer_remains_no_go (cell_assemble_test.AssemblyTest.test_h_failed_known_answer_remains_no_go) ... ok
+test_a_foreign_or_reused_process_is_refused (process_model_evidence_test.ProcessAssemblyTest.test_a_foreign_or_reused_process_is_refused) ... ok
+test_b_stopped_or_changed_capture_is_refused (process_model_evidence_test.ProcessAssemblyTest.test_b_stopped_or_changed_capture_is_refused) ... ok
+test_c_unowned_or_malformed_records_are_refused (process_model_evidence_test.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) ... ok
+test_d_wrong_or_mutated_argv_is_refused (process_model_evidence_test.ProcessAssemblyTest.test_d_wrong_or_mutated_argv_is_refused) ... ok
+test_e_conflicting_docker_and_process_proof_is_refused (process_model_evidence_test.ProcessAssemblyTest.test_e_conflicting_docker_and_process_proof_is_refused) ... ok
+test_f_failed_or_mismatched_boot_cannot_prove_revision (process_model_evidence_test.ProcessAssemblyTest.test_f_failed_or_mismatched_boot_cannot_prove_revision) ... ok
+test_g_owned_pin_survives_supported_actual_process_forms (process_model_evidence_test.ProcessAssemblyTest.test_g_owned_pin_survives_supported_actual_process_forms) ... ok
+test_h_floating_launch_does_not_inherit_recipe_revision (process_model_evidence_test.ProcessAssemblyTest.test_h_floating_launch_does_not_inherit_recipe_revision) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 6.970s
+
+OK
+cell_assemble selftest: 16/16 test methods passed
+  ok [recovery] recipe and launch identity regressions passed
+......
+----------------------------------------------------------------------
+Ran 6 tests in 2.070s
+
+OK
+  ok [process] process_mode CPU regression suite passed (Linux-only cases skip elsewhere)
+sssssssssss
+----------------------------------------------------------------------
+Ran 11 tests in 0.000s
+
+OK (skipped=11)
+  ok [process] process_launch CPU regression suite passed (Linux-only cases skip elsewhere)
+sssssssssssss
+----------------------------------------------------------------------
+Ran 13 tests in 0.000s
+
+OK (skipped=13)
+  ok [process] process_endpoint CPU regression suite passed (Linux-only cases skip elsewhere)
+test_preexisting_process_directory_cannot_capture_or_stop_foreign_owner (__main__.ProcessRunnerTests.test_preexisting_process_directory_cannot_capture_or_stop_foreign_owner) ... skipped 'requires Linux /proc, pidfds and a CPU C compiler'
+test_server_exit_during_boot_fails_promptly_with_boot_json (__main__.ProcessRunnerTests.test_server_exit_during_boot_fails_promptly_with_boot_json) ... skipped 'requires Linux /proc, pidfds and a CPU C compiler'
+test_term_during_boot_stops_owned_process_and_retains_environment (__main__.ProcessRunnerTests.test_term_during_boot_stops_owned_process_and_retains_environment) ... skipped 'requires Linux /proc, pidfds and a CPU C compiler'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK (skipped=3)
+  ok [process] process_runner CPU regression suite passed (Linux-only cases skip elsewhere)
+sssss
+----------------------------------------------------------------------
+Ran 5 tests in 0.000s
+
+OK (skipped=5)
+  ok [process] process_readiness CPU regression suite passed (Linux-only cases skip elsewhere)
+ssssssssssss
+----------------------------------------------------------------------
+Ran 12 tests in 0.000s
+
+OK (skipped=12)
+  ok [process] cell_deadline CPU regression suite passed (Linux-only cases skip elsewhere)
+  ok [a0] every FP8 Atlas entry carries --fp8-kv-calibration-tokens
+  ok [a] vllm_control --selftest: vllm_control selftest: 253/253 checks passed over 30 rendered entries
+  ok [a] atlas_render --selftest: atlas_render selftest: 329/329 checks passed over 18 entries
+  ok [a] validate_artifact --selftest: validate_artifact selftest: 26/26 checks passed (7 known-bad fixtures)
+  ok [b] atlas --dry-run exits 0 and creates nothing
+  ok [b] ladder invoked at the frozen lat shape (isl 1024 / osl 256, C=16, reps 3, warmup 1)
+  ok [b] boot gate and launcher both carry the 1800 s PRD cap
+  ok [b] serve line carries the recipe flags (util 0.92, bare_json, fp8 KV)
+  ok [b] --think on reaches the ladder client as --enable-thinking
+  ok [c] ladder invoked at the frozen agent shape (isl 4096 / osl 512, C=1)
+  ok [c] vllm boot gate carries the 1800 s PRD cap
+  ok [c] vllm renders the recipe under docker run and flags the missing digest
+  ok [d] Atlas on H100 emits no NCCL_* setting (only NCCL_PROFILE=default selects the empty profile)
+  ok [d] Super on H100 renders both EP=2 ranks and the think-off flag
+  ok [e] kimi-k3 b200 prints head + --headless worker with $HEAD_IP / --node-rank placeholders
+  ok [e] a real Kimi K3 run is refused with exit 6
+  ok [e] a real run with no VLLM_IMAGE_DIGEST is refused with exit 5
+  ok [e] --spec on against a recipe with no speculative profile is refused with exit 4
+  ok [f] vllm_control: no rendered profile -> exit 3, naming the pair
+  ok [f] run_cell: no vLLM profile for gb10 -> exit 3
+  ok [f] run_cell: no Atlas recipe for kimi-k3 -> exit 3
+  ok [f] run_cell without --yes or --dry-run refuses to start anything (exit 2)
+  ok [g] no executable 'pkill -f' under bench/campaign (teardown is by container name and pid file)
+  ok [h] cell_assemble turns the stub stage outputs into an artifact that validates
+  ok [h] think-on with legacy think-off gate evidence is NO-GO/coherency with mean_of_rep_percentiles
+  ok [h] the think-on caveat reaches the artifact notes
+  ok [h] a boot-gate failure still writes a VALID artifact, verdict NO-GO
+  ok [k] an all-green cell with its real pair is CERTIFIED and validates
+  ok [k] no pair, an empty {} pair, a pair on another SKU and a three-day-old pair are all PARTIAL/pair
+  ok [k] a rejected pair records within_24h=false and names the reason
+  ok [k] a boot timeout, a failed known-answer probe and absent gate JSONs are NO-GO, never CERTIFIED
+  ok [k] a ladder that exits 0 while failing the vacuity, error or spread gate is PARTIAL/ladder
+  ok [k] validate_artifact refuses a CERTIFIED verdict its own gate values do not support
+  ok [k] qwen3.6-35b-a3b-fp8 on h200 with --spec off records method=none and validates
+  ok [j] vllm_control returns the created container ID and labels it as this run's
+  ok [j] --image-file records what the created container is running, not the tag
+  ok [j] a docker run name conflict exits 125 and records no container ID
+  ok [j] docker run exit 125 -> no stop, no rm, nothing of another run is touched
+  ok [j] a name conflict is recorded as a serve-stage failure in a valid artifact
+  ok [j] each invocation names its container uniquely (--name atlas-campaign-nemotron-3-nano-fp8-h100-lat-c1-specoff-thinkoff-44636 vs --name atlas-campaign-nemotron-3-nano-fp8-h100-lat-c1-specoff-thinkoff-44708)
+  ok [l] SIGTERM during the boot gate exits 143, not a bare -15
+  ok [l] SIGTERM stops and removes exactly the container this invocation created
+  ok [l] the boot-gate child this cell started is killed by pid, not left polling
+  ok [l] a terminated cell still writes an artifact, and it validates
+  ok [l] the artifact is NO-GO at 'boot' -- the stage that was in flight
+  ok [l] the notes say it was interrupted by SIGTERM rather than that boot failed on its own
+  ok [m] SIGTERM during the create exits 143
+  ok [m] the container the create had already made is gone, not leaked
+  ok [m] SIGTERM mid-create stops and removes exactly the container that was made
+  ok [m] the artifact is a valid NO-GO at 'serve'
+  ok [n] a failed kernel audit starts no normal launcher
+  ok [n] a refused launch leaves the prior run's rank and its record untouched
+  ok [n] the artifact is a valid NO-GO at 'serve'
+  ok [n] a launch that recorded a rank in its own run dir is stopped and cleared
+  ok [n] the interrupted atlas cell still writes an artifact that validates
+  ok [o] SIGTERM during an Atlas container create exits 143
+  ok [o] SIGTERM mid-create stops and removes the rank the launcher had created
+  ok [o] a same-named container from another run is neither stopped nor removed
+  ok [o] the artifact is a valid NO-GO at 'boot'
+  ok [p] an Atlas container cell records the image's digest and revision, not the checkout
+  ok [p] an Atlas local-binary cell hashes the binary it ran and claims no revision
+  ok [p] the vLLM cell keeps the digest it was pinned to and claims no engine revision
+  ok [r] the launcher writes down the image its detached create actually resolved
+  ok [r] a tag re-pointed during the run does not change the build the artifact names
+  ok [r] the identity is read from the recorded image ID, not from the tag
+  ok [q] a teardown whose docker ps failed stops nothing on a guess
+  ok [q] the teardown reports an unknown fate rather than a confirmed absence
+  ok [q] the artifact validates as NO-GO and its notes name the container that may be leaked
+  ok [i] shellcheck clean on every .sh under bench/campaign
+  ok [i] python3 -m py_compile clean on every .py under bench/campaign
+  ok [i] every .json under bench/campaign parses
+  ok [i] typos clean under bench/campaign
+
+ALL 85 assertions passed.

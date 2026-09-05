@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "campaign": "hopper-atlas-vs-vllm-2026-09",
+  "cell_id": "vllm.qwen3.6-35b-a3b-fp8.h100.lat.c1.specoff.thinkoff",
+  "engine": "vllm",
+  "model": {
+    "hf_id": "Qwen/Qwen3.6-35B-A3B-FP8",
+    "model_key": "qwen3.6-35b-a3b-fp8",
+    "revision": null,
+    "quant": "fp8"
+  },
+  "engine_version": {
+    "git_sha": null,
+    "image_digest": null,
+    "binary_sha256": null,
+    "vllm_version": null
+  },
+  "harness": {
+    "git_sha": "2b49ccdbdc86ebb7e6c5bbd976726092cce1deae"
+  },
+  "hardware": {
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "gpu_count": 1,
+    "hardware_id": "h100",
+    "driver": "610.57.04",
+    "cuda": "13.3",
+    "sm_clock_mhz": null,
+    "clocks_locked": null,
+    "nvidia_smi_q_sha256": "236e24f489e838ecdede62f125d315def2efc342318f09a52851d9847f773b1f"
+  },
+  "topology": {
+    "tp": 1,
+    "ep": 1,
+    "pp": 1,
+    "dp": 1,
+    "world_size": 1,
+    "nnodes": 1,
+    "matched": false,
+    "recipe_max": true
+  },
+  "serve_command": [
+    "/workspace/atlas-rental/vllm/bin/vllm",
+    "serve",
+    "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/snapshots/95a723d08a9490559dae23d0cff1d9466213d989",
+    "--trust-remote-code",
+    "--tensor-parallel-size",
+    "1",
+    "--enable-auto-tool-choice",
+    "--tool-call-parser",
+    "qwen3_xml",
+    "--reasoning-parser",
+    "qwen3",
+    "--mm-encoder-tp-mode",
+    "data",
+    "--revision",
+    "95a723d08a9490559dae23d0cff1d9466213d989",
+    "--served-model-name",
+    "Qwen/Qwen3.6-35B-A3B-FP8",
+    "--port",
+    "8000"
+  ],
+  "serve_env": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "HF_HOME": "/workspace/atlas-rental/hf",
+    "HF_HUB_CACHE": "/workspace/atlas-rental/hf/hub",
+    "HF_HUB_OFFLINE": "1",
+    "LD_LIBRARY_PATH": "/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64",
+    "SPT_NOENV": "1"
+  },
+  "workload": {
+    "name": "lat",
+    "isl": 1024,
+    "osl": 256,
+    "concurrency": 1,
+    "source": "bench/hopper_ab/workloads.json"
+  },
+  "client": {
+    "name": "/workspace/atlas-rental/src/atlas/bench/ladder38/harness_w55_conc_ladder.py",
+    "sha256": "7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb",
+    "isl_nominal": 1024,
+    "isl_measured_p50": null,
+    "osl": 256,
+    "reps": 3,
+    "warmup": 1,
+    "seed": 42,
+    "temperature": 0.0,
+    "penalties": {
+      "presence_penalty": 0.0,
+      "frequency_penalty": 0.0
+    },
+    "prompt_mode": "essay"
+  },
+  "timing": {
+    "started_utc": null,
+    "finished_utc": null
+  },
+  "spec": {
+    "on": false,
+    "method": "none",
+    "k": null
+  },
+  "think": "off",
+  "boot": {
+    "time_to_ready_s": null,
+    "first_token_s": null,
+    "pass": null,
+    "timeout_s": 1800
+  },
+  "coherency": {
+    "determinism_ok": null,
+    "toolcall_ok": null,
+    "think_leak_ok": null,
+    "known_answer_ok": null,
+    "gate_json_path": null
+  },
+  "metrics": {
+    "percentile_method": "mean_of_rep_percentiles",
+    "tok_s_series": [],
+    "tok_s_mean": null,
+    "tok_s_spread_pct": null,
+    "ttft_p50_ms": null,
+    "ttft_p99_ms": null,
+    "tpot_p50_ms": null,
+    "e2e_p50_s": null,
+    "vacuous": null,
+    "ladder_json_path": null
+  },
+  "ptx_gate_receipt_sha256": null,
+  "ptx_gate_not_applicable_reason": "the Atlas PTX gate does not apply to an official vLLM image",
+  "paired_cell": {
+    "cell_id": null,
+    "artifact_path": null,
+    "within_24h": null
+  },
+  "verdict": "NO-GO",
+  "failing_stage": "boot",
+  "notes": "ladder JSON absent: every metric is null, not zero | interrupted by SIGTERM during the boot stage: this cell was terminated before it finished, so its gates are unfinished rather than passed; process launch capture failed; model revision remains unproven; vLLM process environment has no verified immutable engine build identity; image_digest remains null | model.revision is null: no actual model launch evidence was captured"
+}

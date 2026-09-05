@@ -1,0 +1,7 @@
+.........{"oracle": "real runner post-boot endpoint hook", "endpoint_status": "owned", "owned_pid": 2733, "failing_stage": "coherency", "accepted_socket": {"address": "127.0.0.1", "port": 42409, "remote": "127.0.0.1", "remote_port": 56956, "state": "01", "inode": 18524550, "table": "tcp", "pid": 2733, "start_ticks": 17177356, "fd": 4}}
+..{"schema": 1, "kind": "linux-proc-endpoint", "operation": "free", "checked_at": "2026-09-05T20:35:31.080112+00:00", "status": "refused", "address": "127.0.0.1", "port": 12345, "network_namespace": "net:[4026538182]", "error": "proc table unreadable"}
+..
+----------------------------------------------------------------------
+Ran 13 tests in 10.304s
+
+OK

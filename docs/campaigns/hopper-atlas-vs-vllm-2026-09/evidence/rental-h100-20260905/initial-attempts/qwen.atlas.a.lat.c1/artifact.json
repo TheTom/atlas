@@ -1,0 +1,169 @@
+{
+  "schema": 1,
+  "campaign": "hopper-atlas-vs-vllm-2026-09",
+  "cell_id": "atlas.qwen3.6-35b-a3b-fp8.h100.lat.c1.specoff.thinkoff",
+  "engine": "atlas",
+  "model": {
+    "hf_id": "Qwen/Qwen3.6-35B-A3B-FP8",
+    "model_key": "qwen3.6-35b-a3b-fp8",
+    "revision": "95a723d08a9490559dae23d0cff1d9466213d989",
+    "quant": "fp8"
+  },
+  "engine_version": {
+    "git_sha": null,
+    "image_digest": null,
+    "binary_sha256": "1082285233577f72e7dbc3ecc4078e8f953aa066a62e6507f6141254549f94fa",
+    "vllm_version": null
+  },
+  "harness": {
+    "git_sha": "2b49ccdbdc86ebb7e6c5bbd976726092cce1deae"
+  },
+  "hardware": {
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "gpu_count": 1,
+    "hardware_id": "h100",
+    "driver": "610.57.04",
+    "cuda": "13.3",
+    "sm_clock_mhz": null,
+    "clocks_locked": null,
+    "nvidia_smi_q_sha256": "42dc920efc4b88ba187aa66b41d4946c5369dbd32e9059a146c78b9df310813f"
+  },
+  "topology": {
+    "tp": 1,
+    "ep": 1,
+    "pp": 1,
+    "dp": 1,
+    "world_size": 1,
+    "nnodes": 1,
+    "matched": false,
+    "recipe_max": true
+  },
+  "serve_command": [
+    "/workspace/atlas-rental/bin/spark",
+    "serve",
+    "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/snapshots/95a723d08a9490559dae23d0cff1d9466213d989",
+    "--rank",
+    "0",
+    "--world-size",
+    "1",
+    "--ep-size",
+    "1",
+    "--tp-size",
+    "1",
+    "--gpu-ordinal",
+    "0",
+    "--port",
+    "8888",
+    "--master-addr",
+    "127.0.0.1",
+    "--master-port",
+    "29500",
+    "--no-tui",
+    "--bind",
+    "0.0.0.0",
+    "--warmup-prompt",
+    "/workspace/atlas-rental/src/atlas/bench/hopper_ab/warmup_1024.txt",
+    "--request-timeout",
+    "0",
+    "--gpu-memory-utilization",
+    "0.90",
+    "--max-num-seqs",
+    "128",
+    "--max-batch-size",
+    "32",
+    "--enable-prefix-caching",
+    "true",
+    "--scheduling-policy",
+    "slai",
+    "--kv-cache-dtype",
+    "fp8",
+    "--kv-high-precision-layers",
+    "auto",
+    "--max-seq-len",
+    "65536",
+    "--max-prefill-tokens",
+    "32768",
+    "--fp8-kv-calibration-tokens",
+    "256",
+    "--disable-thinking",
+    "--model-name",
+    "Qwen/Qwen3.6-35B-A3B-FP8"
+  ],
+  "serve_env": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "HF_HOME": "/workspace/atlas-rental/hf",
+    "HF_HUB_CACHE": "/workspace/atlas-rental/hf/hub",
+    "HF_HUB_OFFLINE": "1",
+    "LD_LIBRARY_PATH": "/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64",
+    "RUST_LOG": "info",
+    "SPT_NOENV": "1"
+  },
+  "workload": {
+    "name": "lat",
+    "isl": 1024,
+    "osl": 256,
+    "concurrency": 1,
+    "source": "bench/hopper_ab/workloads.json"
+  },
+  "client": {
+    "name": "/workspace/atlas-rental/src/atlas/bench/ladder38/harness_w55_conc_ladder.py",
+    "sha256": "7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb",
+    "isl_nominal": 1024,
+    "isl_measured_p50": null,
+    "osl": 256,
+    "reps": 3,
+    "warmup": 1,
+    "seed": 42,
+    "temperature": 0.0,
+    "penalties": {
+      "presence_penalty": 0.0,
+      "frequency_penalty": 0.0
+    },
+    "prompt_mode": "essay"
+  },
+  "timing": {
+    "started_utc": null,
+    "finished_utc": null
+  },
+  "spec": {
+    "on": false,
+    "method": "none",
+    "k": null
+  },
+  "think": "off",
+  "boot": {
+    "time_to_ready_s": 37.939,
+    "first_token_s": 0.066,
+    "pass": true,
+    "timeout_s": 1800
+  },
+  "coherency": {
+    "determinism_ok": true,
+    "toolcall_ok": true,
+    "think_leak_ok": true,
+    "known_answer_ok": false,
+    "gate_json_path": "/workspace/atlas-rental/results/qwen.atlas.a.lat.c1/coherency.json"
+  },
+  "metrics": {
+    "percentile_method": "mean_of_rep_percentiles",
+    "tok_s_series": [],
+    "tok_s_mean": null,
+    "tok_s_spread_pct": null,
+    "ttft_p50_ms": null,
+    "ttft_p99_ms": null,
+    "tpot_p50_ms": null,
+    "e2e_p50_s": null,
+    "vacuous": null,
+    "ladder_json_path": null
+  },
+  "ptx_gate_receipt_sha256": null,
+  "ptx_gate_not_applicable_reason": "no PTX gate receipt was passed to this cell (--ptx-receipt unset)",
+  "paired_cell": {
+    "cell_id": null,
+    "artifact_path": null,
+    "within_24h": null
+  },
+  "verdict": "NO-GO",
+  "failing_stage": "coherency",
+  "notes": "ladder JSON absent: every metric is null, not zero | owned process cleanup could not be confirmed; inspect process-stop.log | Two deliberate divergences from the GB10 fixture, both because the campaign's common block is the SSOT for a cell: the fixture pins bf16 KV and max_batch_size 2 (a GB10 memory constraint plus the atlas#110 workaround), the campaign pins fp8 KV and max-batch-size 32. Record the divergence in the artifact notes if a Hopper OOM forces the fixture values back. Spec matches the vLLM recipe's mtp K3 with the default --num-drafts 3. FP8 KV calibration: FP8 checkpoints that ship no *.k_scale tensors get scale 1.0, which clips BF16 into E4M3 (spark-runtime weights.rs fp8_kv_scale_count); the GB10 rehearsal of 2026-09-05 (Nano FP8 through the nvfp4 bundle, 'missing FP8 KV scale tensors, default 1.0') produced degenerate output. 256 calibration tokens is the value kernels/gb10/qwen3.6-35b-a3b/MODEL.toml uses for its FP8 checkpoint. Applies only with --kv-cache-dtype fp8. | actual model launch evidence /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/process-launch.json sha256=95d556e01b78eec35ef797693020b9de26b6fa0db51cfadcc726ddc5bc2b1578; owner /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/process-13373/owner.json sha256=2727679a1ced83cd9fc8a450e7dab4506d321c5024a63876f1fab190fa127162; owned Linux /proc executable, cmdline, PID/start_ticks/boot_id and run marker; model launch identity, not weight bytes or an engine build identity"
+}

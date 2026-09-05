@@ -1,0 +1,132 @@
+{
+  "recorded_at": "2026-09-05T21:04:10.162964+00:00",
+  "main_commit": "231d86950af4b2bd48a1169c1daadbbba61fcfb0",
+  "isolated_commit": "9b6b70504150cb3ef31bbebeab2d56b04f572b03",
+  "tree": "76c782c1e9908bf532e2ba7b2416f30bb2d32295",
+  "tree_equality_verified": true,
+  "checks": [
+    {
+      "name": "campaign",
+      "command": [
+        "bash",
+        "bench/campaign/campaign_test.sh"
+      ],
+      "exit_code": 0,
+      "passed_assertions": 85,
+      "log": "exact-tree-campaign.log",
+      "oracle": "Known-bad fixtures and refusals must stay red; valid orchestrations and artifact assembly must pass.",
+      "sha256": "cd2fe885eddc26575bae245ff5d5feb47fdcf1ff03856fabce6180df2ac31d89"
+    },
+    {
+      "name": "launcher",
+      "command": [
+        "bash",
+        "scripts/start_node_ep_test.sh"
+      ],
+      "exit_code": 0,
+      "passed_assertions": 30,
+      "log": "exact-tree-launcher.log",
+      "oracle": "Topology, readiness and owned teardown match explicit launch fixtures; foreign containers survive.",
+      "sha256": "23c04a3cd8d345349503756ac556620ad3441c42dbd7873db7a4e88694ca3e76"
+    },
+    {
+      "name": "dockerfiles",
+      "command": [
+        "bash",
+        "docker/datacenter_dockerfiles_test.sh"
+      ],
+      "exit_code": 0,
+      "passed_assertions": 17,
+      "log": "exact-tree-dockerfiles.log",
+      "oracle": "Hopper/B200 Dockerfiles and workflow preserve architecture/build inputs and image pins.",
+      "sha256": "c4141fae15a7e8f4c0ca18891a13b75980cadfd52fd433fe22946cdfe4976ea6"
+    },
+    {
+      "name": "format",
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0,
+      "passed_assertions": null,
+      "log": "exact-tree-format.log",
+      "oracle": "Rust sources already match rustfmt; no edits permitted.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "shellcheck",
+      "command": [
+        "shellcheck",
+        "-x",
+        "bench/campaign/run_cell.sh",
+        "bench/campaign/campaign_test.sh",
+        "bench/hopper_ab/time_to_ready.sh",
+        "scripts/hopper_ptx_gate.sh",
+        "scripts/hopper_ptx_gate_test.sh"
+      ],
+      "exit_code": 0,
+      "passed_assertions": null,
+      "log": "exact-tree-shellcheck.log",
+      "oracle": "Changed shell scripts and remote PTX scripts produce no static shell diagnostics.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "typos",
+      "command": [
+        "typos",
+        "bench/campaign",
+        "bench/hopper_ab/time_to_ready.sh"
+      ],
+      "exit_code": 0,
+      "passed_assertions": null,
+      "log": "exact-tree-typos.log",
+      "oracle": "All changed tooling sources satisfy repository typo policy.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "hopper_ptx",
+      "command": [
+        "bash",
+        "scripts/hopper_ptx_gate_test.sh"
+      ],
+      "exit_code": 0,
+      "passed_assertions": 7,
+      "log": "exact-tree-ptx/ptx.log",
+      "oracle": "Real nvcc/ptxas must reject the known-bad fixture and ledger must preserve both rejected entries; source aliases select the same task set.",
+      "sha256": "09810a2a1dd12af723eca61043b4d8aa2cede7a953e2d6479aa8850c6e21db86"
+    }
+  ],
+  "campaign_nested_checks": {
+    "atlas_renderer": "329/329",
+    "vllm_renderer": "253/253",
+    "validator": "26/26",
+    "assembler": "16/16"
+  },
+  "reused_linux_checks": {
+    "reason": "Final combined-fix Linux tests already ran against identical source hashes. No subsequent code changes.",
+    "logs": [
+      "final-runner.log",
+      "final-readiness.log",
+      "green-esrch.log"
+    ],
+    "counts": {
+      "runner": 3,
+      "readiness": 5,
+      "ownership_executed": 12,
+      "optional_setproctitle_skipped": 1
+    }
+  },
+  "ptx_host": "pidtom@192.168.50.125",
+  "ptx_toolchain": "nvcc13.0.88 / CUDA13.0; real CPU cross compilation, no GPU use",
+  "ptx_remote_shellcheck": "Unavailable remotely; gate and suite both checked with shellcheck locally, exit0.",
+  "remote_source_entries": 228,
+  "remote_source_manifest": "prepush-ptx-source-manifest.json",
+  "remote_source_verification": "exact-tree-ptx/source-verification.txt",
+  "remote_directory_removed": "/home/pidtom/atlas-prepush-cpu-rPSZ1yCR",
+  "disk_before": "7.3G free",
+  "disk_after": "7.3G free",
+  "scope": "No code changes, GitHub writes, production checkout changes, GPU work, or H100 actions."
+}

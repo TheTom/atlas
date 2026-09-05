@@ -1,0 +1,16 @@
+{"oracle": "__main__.ProcessReadinessTests.test_already_gone_server_refuses", "status": "process-exited", "elapsed_s": 0.04}
+.{"oracle": "__main__.ProcessReadinessTests.test_exit_during_first_completion_is_prompt", "status": "process-exited", "elapsed_s": 0.34}
+.{"oracle": "__main__.ProcessReadinessTests.test_exit_during_health_request_is_prompt", "status": "process-exited", "elapsed_s": 0.353}
+.{"oracle": "__main__.ProcessReadinessTests.test_live_owned_server_passes", "status": "ready", "elapsed_s": 0.04}
+.{"oracle": "__main__.ProcessReadinessTests.test_reused_pid_and_foreign_or_stale_owner_refuse_without_signals", "status": "process-ownership-unproven", "elapsed_s": 0.022}
+{"oracle": "__main__.ProcessReadinessTests.test_reused_pid_and_foreign_or_stale_owner_refuse_without_signals", "status": "process-ownership-unproven", "elapsed_s": 0.024}
+{"oracle": "__main__.ProcessReadinessTests.test_reused_pid_and_foreign_or_stale_owner_refuse_without_signals", "status": "process-ownership-unproven", "elapsed_s": 0.039}
+{"oracle": "__main__.ProcessReadinessTests.test_reused_pid_and_foreign_or_stale_owner_refuse_without_signals", "status": "process-ownership-unproven", "elapsed_s": 0.038}
+{"oracle": "__main__.ProcessReadinessTests.test_reused_pid_and_foreign_or_stale_owner_refuse_without_signals", "status": "process-ownership-unproven", "elapsed_s": 0.038}
+{"oracle": "__main__.ProcessReadinessTests.test_reused_pid_and_foreign_or_stale_owner_refuse_without_signals", "status": "process-ownership-unproven", "elapsed_s": 0.038}
+{"oracle": "__main__.ProcessReadinessTests.test_reused_pid_and_foreign_or_stale_owner_refuse_without_signals", "status": "ready", "elapsed_s": 0.055}
+.
+----------------------------------------------------------------------
+Ran 5 tests in 1.848s
+
+OK

@@ -1,0 +1,287 @@
+{
+  "schema": 1,
+  "engine": "atlas",
+  "url": "http://127.0.0.1:8888",
+  "model": "Qwen/Qwen3.6-35B-A3B-FP8",
+  "start_epoch": 1788641340.0,
+  "time_to_ready_s": 37.939,
+  "first_token_s": 0.066,
+  "polls": 37,
+  "http_codes_seen": [
+    "transport-error",
+    "200"
+  ],
+  "timeout_s": 1800.0,
+  "status": "ready",
+  "passed": true,
+  "http_exchanges": [
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": 200,
+      "response_body": "{\"status\":\"ready\",\"model\":\"Qwen/Qwen3.6-35B-A3B-FP8\"}",
+      "response_complete": true
+    },
+    {
+      "path": "/v1/chat/completions",
+      "request_json": "{\"model\": \"Qwen/Qwen3.6-35B-A3B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"hi\"}], \"max_tokens\": 1, \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-8c31bf71-5282-4c28-94c0-b87c07097800\",\"object\":\"chat.completion\",\"created\":1788641378,\"model\":\"Qwen/Qwen3.6-35B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello\"},\"finish_reason\":\"length\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":13,\"completion_tokens\":1,\"total_tokens\":14,\"prompt_tokens_details\":{\"cached_tokens\":0,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":45.289249,\"response_token/s\":0.0}}",
+      "response_complete": true
+    }
+  ],
+  "last_health_curl_exit": 7,
+  "total_s": 38.005
+}

@@ -1,0 +1,6 @@
+{
+  "cell": "qwen.vllm.a.lat.c1",
+  "eligible_for_scoring": false,
+  "reason": "Initial diagnostic attempt; Atlas source rebuild resumed concurrently. Do not use any measured latency/throughput or time-to-ready from this attempt in scored A/B or A/A. Retain boot/coherency/failure evidence.",
+  "recorded_epoch": 1788641037.0524936
+}

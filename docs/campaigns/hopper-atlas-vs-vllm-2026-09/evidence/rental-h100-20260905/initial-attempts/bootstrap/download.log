@@ -1,0 +1,62 @@
+{"event": "verified-file", "path": "configuration.json", "size": 58, "reused": false}
+{"event": "verified-file", "path": "generation_config.json", "size": 202, "reused": false}
+{"event": "verified-file", "path": "video_preprocessor_config.json", "size": 385, "reused": false}
+{"event": "verified-file", "path": "preprocessor_config.json", "size": 390, "reused": false}
+{"event": "verified-file", "path": ".gitattributes", "size": 1570, "reused": false}
+{"event": "verified-file", "path": "chat_template.jinja", "size": 7764, "reused": false}
+{"event": "verified-file", "path": "LICENSE", "size": 11343, "reused": false}
+{"event": "verified-file", "path": "tokenizer_config.json", "size": 16718, "reused": false}
+{"event": "verified-file", "path": "config.json", "size": 37000, "reused": false}
+{"event": "verified-file", "path": "README.md", "size": 64855, "reused": false}
+{"event": "verified-file", "path": "merges.txt", "size": 3353259, "reused": false}
+{"event": "verified-file", "path": "model.safetensors.index.json", "size": 6329223, "reused": false}
+{"event": "verified-file", "path": "vocab.json", "size": 6722759, "reused": false}
+{"event": "verified-file", "path": "tokenizer.json", "size": 12807982, "reused": false}
+{"event": "verified-file", "path": "layers-3.safetensors", "size": 837092440, "reused": false}
+{"event": "verified-file", "path": "layers-7.safetensors", "size": 837092440, "reused": false}
+{"event": "verified-file", "path": "layers-11.safetensors", "size": 837094000, "reused": false}
+{"event": "verified-file", "path": "layers-15.safetensors", "size": 837094000, "reused": false}
+{"event": "verified-file", "path": "layers-19.safetensors", "size": 837094000, "reused": false}
+{"event": "verified-file", "path": "layers-23.safetensors", "size": 837094000, "reused": false}
+{"event": "verified-file", "path": "layers-27.safetensors", "size": 837094000, "reused": false}
+{"event": "verified-file", "path": "layers-31.safetensors", "size": 837094000, "reused": false}
+{"event": "verified-file", "path": "layers-35.safetensors", "size": 837094000, "reused": false}
+{"event": "verified-file", "path": "layers-39.safetensors", "size": 837094000, "reused": false}
+{"event": "verified-file", "path": "layers-0.safetensors", "size": 843713608, "reused": false}
+{"event": "verified-file", "path": "layers-1.safetensors", "size": 843713608, "reused": false}
+{"event": "verified-file", "path": "layers-2.safetensors", "size": 843713608, "reused": false}
+{"event": "verified-file", "path": "layers-4.safetensors", "size": 843713608, "reused": false}
+{"event": "verified-file", "path": "layers-5.safetensors", "size": 843713608, "reused": false}
+{"event": "verified-file", "path": "layers-6.safetensors", "size": 843713608, "reused": false}
+{"event": "verified-file", "path": "layers-8.safetensors", "size": 843713608, "reused": false}
+{"event": "verified-file", "path": "layers-9.safetensors", "size": 843713608, "reused": false}
+{"event": "verified-file", "path": "layers-10.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-12.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-13.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-14.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-16.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-17.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-18.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-20.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-21.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-22.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-24.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-25.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-26.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-28.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-29.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-30.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-32.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-33.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-34.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-36.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-37.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "layers-38.safetensors", "size": 843715168, "reused": false}
+{"event": "verified-file", "path": "mtp.safetensors", "size": 853860608, "reused": false}
+{"event": "verified-file", "path": "outside.safetensors", "size": 2927422112, "reused": false}
+{
+  "complete": true,
+  "proof": "/workspace/atlas-rental/download-proof/staging-proof.json",
+  "hf_hub_cache": "/workspace/atlas-rental/hf/hub",
+  "snapshot": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/snapshots/95a723d08a9490559dae23d0cff1d9466213d989"
+}

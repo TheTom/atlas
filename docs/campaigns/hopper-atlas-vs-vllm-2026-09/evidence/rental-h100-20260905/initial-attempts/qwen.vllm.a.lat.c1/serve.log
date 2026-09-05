@@ -1,0 +1,150 @@
+(APIServer pid=12207) INFO 09-05 20:42:55 [api_utils.py:333] 
+(APIServer pid=12207) INFO 09-05 20:42:55 [api_utils.py:333]        █     █     █▄   ▄█
+(APIServer pid=12207) INFO 09-05 20:42:55 [api_utils.py:333]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.28.0
+(APIServer pid=12207) INFO 09-05 20:42:55 [api_utils.py:333]   █▄█▀ █     █     █     █  model   /workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/snapshots/95a723d08a9490559dae23d0cff1d9466213d989
+(APIServer pid=12207) INFO 09-05 20:42:55 [api_utils.py:333]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=12207) INFO 09-05 20:42:55 [api_utils.py:333] 
+(APIServer pid=12207) INFO 09-05 20:42:55 [api_utils.py:272] non-default args: {'model_tag': '/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/snapshots/95a723d08a9490559dae23d0cff1d9466213d989', 'enable_auto_tool_choice': True, 'tool_call_parser': 'qwen3_xml', 'model': '/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/snapshots/95a723d08a9490559dae23d0cff1d9466213d989', 'trust_remote_code': True, 'revision': '95a723d08a9490559dae23d0cff1d9466213d989', 'served_model_name': ['Qwen/Qwen3.6-35B-A3B-FP8'], 'reasoning_parser': 'qwen3', 'mm_encoder_tp_mode': 'data'}
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072] Error in inspecting model architecture 'Qwen3_5MoeForConditionalGeneration'
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072] Traceback (most recent call last):
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/model_executor/models/registry.py", line 1507, in _run_in_subprocess
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     returned.check_returncode()
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/usr/lib/python3.12/subprocess.py", line 502, in check_returncode
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     raise CalledProcessError(self.returncode, self.args, self.stdout,
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072] subprocess.CalledProcessError: Command '['/workspace/atlas-rental/vllm/bin/python3', '-m', 'vllm.model_executor.models.registry']' returned non-zero exit status 1.
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072] 
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072] The above exception was the direct cause of the following exception:
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072] 
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072] Traceback (most recent call last):
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/model_executor/models/registry.py", line 1070, in _try_inspect_model_cls
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     return model.inspect_model_cls()
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/logging_utils/log_time.py", line 21, in _wrapper
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     result = func(*args, **kwargs)
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]              ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/model_executor/models/registry.py", line 1031, in inspect_model_cls
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     mi = _run_in_subprocess(
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]          ^^^^^^^^^^^^^^^^^^^
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/model_executor/models/registry.py", line 1510, in _run_in_subprocess
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     raise RuntimeError(
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072] RuntimeError: Error raised in subprocess:
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072] <frozen runpy>:128: RuntimeWarning: 'vllm.model_executor.models.registry' found in sys.modules after import of package 'vllm.model_executor.models', but prior to execution of 'vllm.model_executor.models.registry'; this may result in unpredictable behaviour
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072] /tmp/tmp41dufj10/cuda_utils.c:9:10: fatal error: Python.h: No such file or directory
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     9 | #include <Python.h>
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]       |          ^~~~~~~~~~
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072] compilation terminated.
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072] Traceback (most recent call last):
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "<frozen runpy>", line 198, in _run_module_as_main
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "<frozen runpy>", line 88, in _run_code
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/model_executor/models/registry.py", line 1533, in <module>
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     _run()
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/model_executor/models/registry.py", line 1526, in _run
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     result = fn()
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]              ^^^^
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/model_executor/models/registry.py", line 1032, in <lambda>
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     lambda: _ModelInfo.from_model_cls(self.load_model_cls())
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]                                       ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/model_executor/models/registry.py", line 1045, in load_model_cls
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     mod = importlib.import_module(self.module_name)
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     return _bootstrap._gcd_import(name[level:], package, level)
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/model_executor/models/qwen3_5.py", line 41, in <module>
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     from vllm.model_executor.layers.mamba.gdn.qwen_gdn_linear_attn import (
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/model_executor/layers/mamba/gdn/qwen_gdn_linear_attn.py", line 50, in <module>
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     from vllm.third_party.flash_linear_attention.ops import (
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/third_party/flash_linear_attention/ops/__init__.py", line 9, in <module>
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     from .chunk import chunk_gated_delta_rule
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/third_party/flash_linear_attention/ops/chunk.py", line 13, in <module>
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     from .chunk_delta_h import chunk_gated_delta_rule_fwd_h
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/third_party/flash_linear_attention/ops/chunk_delta_h.py", line 15, in <module>
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     from .index import prepare_chunk_indices, prepare_chunk_offsets
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/third_party/flash_linear_attention/ops/index.py", line 15, in <module>
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     from .utils import tensor_cache
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/third_party/flash_linear_attention/ops/utils.py", line 145, in <module>
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     device_platform = _check_platform()
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]                       ^^^^^^^^^^^^^^^^^
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/third_party/flash_linear_attention/ops/utils.py", line 130, in _check_platform
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     device = get_available_device()
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]              ^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/third_party/flash_linear_attention/ops/utils.py", line 123, in get_available_device
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     return triton.runtime.driver.active.get_current_target().backend
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/triton/runtime/driver.py", line 39, in active
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     self._active = self.default
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]                    ^^^^^^^^^^^^
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/triton/runtime/driver.py", line 33, in default
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     self._default = _create_driver()
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]                     ^^^^^^^^^^^^^^^^
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/triton/runtime/driver.py", line 21, in _create_driver
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     return active_drivers[0]()
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]            ^^^^^^^^^^^^^^^^^^^
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/triton/backends/nvidia/driver.py", line 336, in __init__
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     self.utils = CudaUtils()  # TODO: make static
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]                  ^^^^^^^^^^^
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/triton/backends/nvidia/driver.py", line 66, in __init__
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     mod = compile_module_from_src(
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]           ^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/triton/runtime/build.py", line 93, in compile_module_from_src
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     so = _build(name, src_path, tmpdir, library_dirs or [], include_dirs or [], libraries or [], ccflags or [])
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/triton/runtime/build.py", line 48, in _build
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     subprocess.check_call(cc_cmd, stdout=subprocess.DEVNULL)
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]   File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072]     raise CalledProcessError(retcode, cmd)
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072] subprocess.CalledProcessError: Command '['/usr/bin/gcc', '/tmp/tmp41dufj10/cuda_utils.c', '-O3', '-shared', '-fPIC', '-Wno-psabi', '-o', '/tmp/tmp41dufj10/cuda_utils.cpython-312-x86_64-linux-gnu.so', '-l:libcuda.so.1', '-L/workspace/atlas-rental/vllm/lib/python3.12/site-packages/triton/backends/nvidia/lib', '-L/lib/x86_64-linux-gnu', '-I/workspace/atlas-rental/vllm/lib/python3.12/site-packages/triton/backends/nvidia/include', '-I/tmp/tmp41dufj10', '-I/usr/include/python3.12']' returned non-zero exit status 1.
+(APIServer pid=12207) ERROR 09-05 20:43:06 [registry.py:1072] 
+(APIServer pid=12207) Traceback (most recent call last):
+(APIServer pid=12207)   File "/workspace/atlas-rental/vllm/bin/vllm", line 8, in <module>
+(APIServer pid=12207)     sys.exit(main())
+(APIServer pid=12207)              ^^^^^^
+(APIServer pid=12207)   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/entrypoints/cli/main.py", line 97, in main
+(APIServer pid=12207)     args.dispatch_function(args)
+(APIServer pid=12207)   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/entrypoints/cli/serve.py", line 152, in cmd
+(APIServer pid=12207)     uvloop.run(run_server(args))
+(APIServer pid=12207)   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/uvloop/__init__.py", line 96, in run
+(APIServer pid=12207)     return __asyncio.run(
+(APIServer pid=12207)            ^^^^^^^^^^^^^^
+(APIServer pid=12207)   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+(APIServer pid=12207)     return runner.run(main)
+(APIServer pid=12207)            ^^^^^^^^^^^^^^^^
+(APIServer pid=12207)   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+(APIServer pid=12207)     return self._loop.run_until_complete(task)
+(APIServer pid=12207)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=12207)   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+(APIServer pid=12207)   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/uvloop/__init__.py", line 48, in wrapper
+(APIServer pid=12207)     return await main
+(APIServer pid=12207)            ^^^^^^^^^^
+(APIServer pid=12207)   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 739, in run_server
+(APIServer pid=12207)     await run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+(APIServer pid=12207)   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 753, in run_server_worker
+(APIServer pid=12207)     async with build_async_engine_client(
+(APIServer pid=12207)   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+(APIServer pid=12207)     return await anext(self.gen)
+(APIServer pid=12207)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=12207)   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 127, in build_async_engine_client
+(APIServer pid=12207)     async with build_async_engine_client_from_engine_args(
+(APIServer pid=12207)   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+(APIServer pid=12207)     return await anext(self.gen)
+(APIServer pid=12207)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=12207)   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 151, in build_async_engine_client_from_engine_args
+(APIServer pid=12207)     vllm_config = engine_args.create_engine_config(usage_context=usage_context)
+(APIServer pid=12207)                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=12207)   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/engine/arg_utils.py", line 1969, in create_engine_config
+(APIServer pid=12207)     model_config = self.create_model_config()
+(APIServer pid=12207)                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=12207)   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/engine/arg_utils.py", line 1727, in create_model_config
+(APIServer pid=12207)     return ModelConfig(
+(APIServer pid=12207)            ^^^^^^^^^^^^
+(APIServer pid=12207)   File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/pydantic/_internal/_dataclasses.py", line 121, in __init__
+(APIServer pid=12207)     s.__pydantic_validator__.validate_python(ArgsKwargs(args, kwargs), self_instance=s)
+(APIServer pid=12207) pydantic_core._pydantic_core.ValidationError: 1 validation error for ModelConfig
+(APIServer pid=12207)   Value error, Model architectures ['Qwen3_5MoeForConditionalGeneration'] failed to be inspected. Please check the logs for more details. [type=value_error, input_value=ArgsKwargs((), {'model': ...nderer_num_workers': 1}), input_type=ArgsKwargs]
+(APIServer pid=12207)     For further information visit https://errors.pydantic.dev/2.13/v/value_error

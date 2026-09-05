@@ -1,0 +1,429 @@
+=== campaign cell atlas.qwen3.6-35b-a3b-fp8.h100.lat.c1.specoff.thinkoff ===
+engine:      atlas
+model:       qwen3.6-35b-a3b-fp8 -> Qwen/Qwen3.6-35B-A3B-FP8
+sku:         h100
+workload:    lat  isl=1024 osl=256  C=1  reps=3 warmup=1
+spec:        off     think: off
+boot cap:    1800s
+out:         /workspace/atlas-rental/results/qwen.atlas.a.lat.c1
+client url:  http://127.0.0.1:8888
+
+$ whole-cell deadline 2700s; cleanup grace 60s
+
+--- stage 1/7 preflight ---
+$ nvidia-smi -q > /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/nvidia-smi-q.txt
+$ df -h /workspace/atlas-rental/results/qwen.atlas.a.lat.c1 > /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/df.txt
+$ git -C /workspace/atlas-rental/src/atlas rev-parse HEAD
+$ sha256sum /workspace/atlas-rental/src/atlas/bench/ladder38/harness_w55_conc_ladder.py
+
+--- stage 2/7 serve ---
+process_argv: ["/workspace/atlas-rental/bin/spark", "serve", "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/snapshots/95a723d08a9490559dae23d0cff1d9466213d989", "--rank", "0", "--world-size", "1", "--ep-size", "1", "--tp-size", "1", "--gpu-ordinal", "0", "--port", "8888", "--master-addr", "127.0.0.1", "--master-port", "29500", "--no-tui", "--bind", "0.0.0.0", "--warmup-prompt", "/workspace/atlas-rental/src/atlas/bench/hopper_ab/warmup_1024.txt", "--request-timeout", "0", "--gpu-memory-utilization", "0.90", "--max-num-seqs", "128", "--max-batch-size", "32", "--enable-prefix-caching", "true", "--scheduling-policy", "slai", "--kv-cache-dtype", "fp8", "--kv-high-precision-layers", "auto", "--max-seq-len", "65536", "--max-prefill-tokens", "32768", "--fp8-kv-calibration-tokens", "256", "--disable-thinking", "--model-name", "Qwen/Qwen3.6-35B-A3B-FP8"]
+process_environment: {"CUDA_VISIBLE_DEVICES": "0", "HF_HOME": "/workspace/atlas-rental/hf", "HF_HUB_CACHE": "/workspace/atlas-rental/hf/hub", "HF_HUB_OFFLINE": "1", "LD_LIBRARY_PATH": "/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64", "RUST_LOG": "info", "SPT_NOENV": "1"}
+
+--- stage 3/7 boot gate (cap 1800s) ---
+$ bash /workspace/atlas-rental/src/atlas/bench/hopper_ab/time_to_ready.sh --url http://127.0.0.1:8888 --model Qwen/Qwen3.6-35B-A3B-FP8 --engine atlas --start-epoch <serve-start> --timeout-s 1800 --out /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/boot.json
+{
+  "schema": 1,
+  "engine": "atlas",
+  "url": "http://127.0.0.1:8888",
+  "model": "Qwen/Qwen3.6-35B-A3B-FP8",
+  "start_epoch": 1788641340.0,
+  "time_to_ready_s": 37.939,
+  "first_token_s": 0.066,
+  "polls": 37,
+  "http_codes_seen": [
+    "transport-error",
+    "200"
+  ],
+  "timeout_s": 1800.0,
+  "status": "ready",
+  "passed": true,
+  "http_exchanges": [
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": 200,
+      "response_body": "{\"status\":\"ready\",\"model\":\"Qwen/Qwen3.6-35B-A3B-FP8\"}",
+      "response_complete": true
+    },
+    {
+      "path": "/v1/chat/completions",
+      "request_json": "{\"model\": \"Qwen/Qwen3.6-35B-A3B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"hi\"}], \"max_tokens\": 1, \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-8c31bf71-5282-4c28-94c0-b87c07097800\",\"object\":\"chat.completion\",\"created\":1788641378,\"model\":\"Qwen/Qwen3.6-35B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello\"},\"finish_reason\":\"length\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":13,\"completion_tokens\":1,\"total_tokens\":14,\"prompt_tokens_details\":{\"cached_tokens\":0,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":45.289249,\"response_token/s\":0.0}}",
+      "response_complete": true
+    }
+  ],
+  "last_health_curl_exit": 7,
+  "total_s": 38.005
+}
+
+--- stage 4/7 coherency gate ---
+$ python3 /workspace/atlas-rental/src/atlas/bench/hopper_ab/coherency_gate.py --url http://127.0.0.1:8888 --model Qwen/Qwen3.6-35B-A3B-FP8 --think off --out /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/coherency.json
+{
+  "schema": 1,
+  "url": "http://127.0.0.1:8888",
+  "model": "Qwen/Qwen3.6-35B-A3B-FP8",
+  "checked_utc": "2026-09-05T20:49:38Z",
+  "request_policy": {
+    "think": "off",
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "check_request_policy": {
+    "determinism_ok": {
+      "think": "off",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "toolcall_ok": {
+      "think": "off",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "think_leak_ok": {
+      "think": "off",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "known_answer_ok": {
+      "think": "off",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    }
+  },
+  "details": {
+    "determinism_ok": "23 chars reproduced exactly, no degeneration signals",
+    "toolcall_ok": "1 get_weather call(s), required argument types valid",
+    "think_leak_ok": "116 chars, no leak signals",
+    "known_answer_ok": "'391' OK; 'Tokyo' OK; 'rotaregirfer' FAIL (answer not stated: \"The word 'refrigerator' spelled backwards is: **rotarefiger**\\n\\n### Explanation o\")"
+  },
+  "http_exchanges": [
+    {
+      "check": "determinism_ok",
+      "request_json": "{\"model\": \"Qwen/Qwen3.6-35B-A3B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-c3bd1e46-08c9-4343-a086-9e8e5b260838\",\"object\":\"chat.completion\",\"created\":1788641378,\"model\":\"Qwen/Qwen3.6-35B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"101, 103, 107, 109, 113\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":30,\"completion_tokens\":24,\"total_tokens\":54,\"prompt_tokens_details\":{\"cached_tokens\":0,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":73.14496500000001,\"response_token/s\":230.70507161165668}}",
+      "response_complete": true
+    },
+    {
+      "check": "determinism_ok",
+      "request_json": "{\"model\": \"Qwen/Qwen3.6-35B-A3B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-0619009a-3cc1-4ac8-9be1-96c838fb01eb\",\"object\":\"chat.completion\",\"created\":1788641378,\"model\":\"Qwen/Qwen3.6-35B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"101, 103, 107, 109, 113\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":30,\"completion_tokens\":24,\"total_tokens\":54,\"prompt_tokens_details\":{\"cached_tokens\":16,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":71.08153,\"response_token/s\":247.3181917465898}}",
+      "response_complete": true
+    },
+    {
+      "check": "toolcall_ok",
+      "request_json": "{\"model\": \"Qwen/Qwen3.6-35B-A3B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-26a605ed-b5b2-4f85-92fb-875728e1307a\",\"object\":\"chat.completion\",\"created\":1788641384,\"model\":\"Qwen/Qwen3.6-35B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":null,\"tool_calls\":[{\"id\":\"call_0000000000000000\",\"type\":\"function\",\"function\":{\"name\":\"get_weather\",\"arguments\":\"{\\\"city\\\":\\\"Reykjavik\\\",\\\"days\\\":3}\"}}]},\"finish_reason\":\"tool_calls\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":1135,\"completion_tokens\":41,\"total_tokens\":1176,\"prompt_tokens_details\":{\"cached_tokens\":0,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":459.543049,\"response_token/s\":54.09748768413552}}",
+      "response_complete": true
+    },
+    {
+      "check": "think_leak_ok",
+      "request_json": "{\"model\": \"Qwen/Qwen3.6-35B-A3B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-0fa20cc1-faaf-4218-81ef-73bc7942c488\",\"object\":\"chat.completion\",\"created\":1788641384,\"model\":\"Qwen/Qwen3.6-35B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"A benchmark harness is used to automate the execution and measurement of performance tests for software or hardware.\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":25,\"completion_tokens\":20,\"total_tokens\":45,\"prompt_tokens_details\":{\"cached_tokens\":0,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":63.00124,\"response_token/s\":247.14313591288158}}",
+      "response_complete": true
+    },
+    {
+      "check": "known_answer_ok",
+      "request_json": "{\"model\": \"Qwen/Qwen3.6-35B-A3B-FP8\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a careful, precise assistant. Answer the question directly and correctly. Work step by step when a question needs it, and state the final answer explicitly. Do not refuse or hedge on simple factual or arithmetic questions.\"}, {\"role\": \"user\", \"content\": \"What is 17 * 23? Reply with the number, then explain your working.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-917e33c4-e742-4d55-83e8-4008b3845806\",\"object\":\"chat.completion\",\"created\":1788641385,\"model\":\"Qwen/Qwen3.6-35B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"391\\n\\n**Working:**\\n\\nTo calculate $17 \\\\times 23$, we can use the standard multiplication method or break it down using the distributive property:\\n\\n$$17 \\\\times 23 = 17 \\\\times (20 + 3)$$\\n\\n1.  Multiply 17 by 20:\\n    $$17 \\\\times 20 = 340$$\\n\\n2.  Multiply 17 by 3:\\n    $$17 \\\\times 3 = 51$$\\n\\n3.  Add the two results together:\\n    $$340 + 51 = 391$$\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":81,\"completion_tokens\":141,\"total_tokens\":222,\"prompt_tokens_details\":{\"cached_tokens\":0,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":172.391568,\"response_token/s\":243.10561758632704}}",
+      "response_complete": true
+    },
+    {
+      "check": "known_answer_ok",
+      "request_json": "{\"model\": \"Qwen/Qwen3.6-35B-A3B-FP8\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a careful, precise assistant. Answer the question directly and correctly. Work step by step when a question needs it, and state the final answer explicitly. Do not refuse or hedge on simple factual or arithmetic questions.\"}, {\"role\": \"user\", \"content\": \"Name the capital city of Japan, then describe it in a few sentences.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-33645efc-392b-4126-b144-1271ad640d10\",\"object\":\"chat.completion\",\"created\":1788641385,\"model\":\"Qwen/Qwen3.6-35B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"The capital city of Japan is **Tokyo**.\\n\\nTokyo is a sprawling metropolis that seamlessly blends ultramodern technology and neon-lit skyscrapers with traditional temples and quiet gardens. As the world's most populous metropolitan area, it serves as Japan's economic, political, and cultural hub, offering a unique mix of historic charm and futuristic innovation.\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":76,\"completion_tokens\":74,\"total_tokens\":150,\"prompt_tokens_details\":{\"cached_tokens\":48,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":164.42352,\"response_token/s\":244.71156272156975}}",
+      "response_complete": true
+    },
+    {
+      "check": "known_answer_ok",
+      "request_json": "{\"model\": \"Qwen/Qwen3.6-35B-A3B-FP8\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a careful, precise assistant. Answer the question directly and correctly. Work step by step when a question needs it, and state the final answer explicitly. Do not refuse or hedge on simple factual or arithmetic questions.\"}, {\"role\": \"user\", \"content\": \"Spell the word 'refrigerator' backwards, then explain how you did it.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-8dcd64a0-2e61-47c5-ada8-fba9808c3484\",\"object\":\"chat.completion\",\"created\":1788641387,\"model\":\"Qwen/Qwen3.6-35B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"The word 'refrigerator' spelled backwards is: **rotarefiger**\\n\\n### Explanation of the Process:\\n\\nTo spell a word backwards, you read the letters from the last letter to the first letter, in reverse order.\\n\\n1.  Start with the original word: **r e f r i g e r a t o r**\\n2.  Identify the last letter: **r**\\n3.  Move to the second-to-last letter: **o**\\n4.  Continue moving backwards through the word:\\n    *   3rd from end: **t**\\n    *   4th from end: **a**\\n    *   5th from end: **r**\\n    *   6th from end: **e**\\n    *   7th from end: **g**\\n    *   8th from end: **i**\\n    *   9th from end: **r**\\n    *   10th from end: **f**\\n    *   11th from end: **e**\\n    *   12th from end (first letter): **r**\\n5.  Combine these letters in the order\"},\"finish_reason\":\"length\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":78,\"completion_tokens\":256,\"total_tokens\":334,\"prompt_tokens_details\":{\"cached_tokens\":48,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":167.240009,\"response_token/s\":241.61490170044587}}",
+      "response_complete": true
+    }
+  ],
+  "determinism_ok": true,
+  "toolcall_ok": true,
+  "think_leak_ok": true,
+  "known_answer_ok": false,
+  "passed": false
+}
+STAGE FAILED: coherency
+
+--- stage 5/7 latency pack ---
+$ python3 /workspace/atlas-rental/src/atlas/bench/ladder38/harness_w55_conc_ladder.py --url http://127.0.0.1:8888 --model Qwen/Qwen3.6-35B-A3B-FP8 --label atlas.qwen3.6-35b-a3b-fp8.h100.lat.c1.specoff.thinkoff --out /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/ladder.json --concs 1 --reps 3 --isl 1024 --osl 256 --warmup 1 
+
+--- stage 6/7 teardown ---
+STAGE FAILED: teardown
+
+--- stage 7/7 assemble and validate ---
+$ python3 /workspace/atlas-rental/src/atlas/bench/campaign/cell_assemble.py --engine atlas --model-key qwen3.6-35b-a3b-fp8 --sku h100 --workload lat --concurrency 1 --spec off --think off --out /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/artifact.json --workloads /workspace/atlas-rental/src/atlas/bench/hopper_ab/workloads.json --atlas-recipes /workspace/atlas-rental/src/atlas/bench/campaign/atlas_recipes.json --vllm-recipes /workspace/atlas-rental/src/atlas/bench/campaign/vllm_recipes.json --client /workspace/atlas-rental/src/atlas/bench/ladder38/harness_w55_conc_ladder.py --serve-argv /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/serve.argv --serve-env /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/serve.env --nvidia-smi-q /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/nvidia-smi-q.txt --boot-json /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/boot.json --coherency-json /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/coherency.json --ladder-json /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/ladder.json --model-launch-process-json /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/process-launch.json --model-launch-process-owner-json /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/process-13373/owner.json --harness-git-sha 2b49ccdbdc86ebb7e6c5bbd976726092cce1deae --binary /workspace/atlas-rental/bin/spark --extra-note owned process cleanup could not be confirmed; inspect process-stop.log --failing-stage coherency
+$ python3 /workspace/atlas-rental/src/atlas/bench/campaign/validate_artifact.py /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/artifact.json
+# wrote /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/artifact.json at 2026-09-05T20:49:47Z
+VALID: /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/artifact.json
+
+=== atlas.qwen3.6-35b-a3b-fp8.h100.lat.c1.specoff.thinkoff: FAILED at stage 'coherency'; artifact written to /workspace/atlas-rental/results/qwen.atlas.a.lat.c1/artifact.json ===

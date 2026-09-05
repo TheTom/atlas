@@ -1,0 +1,40 @@
+=== campaign cell vllm.qwen3.6-35b-a3b-fp8.h100.lat.c1.specoff.thinkoff ===
+engine:      vllm
+model:       qwen3.6-35b-a3b-fp8 -> Qwen/Qwen3.6-35B-A3B-FP8
+sku:         h100
+workload:    lat  isl=1024 osl=256  C=1  reps=3 warmup=1
+spec:        off     think: off
+boot cap:    1800s
+out:         /workspace/atlas-rental/results/qwen.vllm.a.lat.c1
+client url:  http://127.0.0.1:8000
+
+$ whole-cell deadline 2700s; cleanup grace 60s
+
+--- stage 1/7 preflight ---
+$ nvidia-smi -q > /workspace/atlas-rental/results/qwen.vllm.a.lat.c1/nvidia-smi-q.txt
+$ df -h /workspace/atlas-rental/results/qwen.vllm.a.lat.c1 > /workspace/atlas-rental/results/qwen.vllm.a.lat.c1/df.txt
+$ git -C /workspace/atlas-rental/src/atlas rev-parse HEAD
+$ sha256sum /workspace/atlas-rental/src/atlas/bench/ladder38/harness_w55_conc_ladder.py
+
+--- stage 2/7 serve ---
+process_argv: ["/workspace/atlas-rental/vllm/bin/vllm", "serve", "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/snapshots/95a723d08a9490559dae23d0cff1d9466213d989", "--trust-remote-code", "--tensor-parallel-size", "1", "--enable-auto-tool-choice", "--tool-call-parser", "qwen3_xml", "--reasoning-parser", "qwen3", "--mm-encoder-tp-mode", "data", "--revision", "95a723d08a9490559dae23d0cff1d9466213d989", "--served-model-name", "Qwen/Qwen3.6-35B-A3B-FP8", "--port", "8000"]
+process_environment: {"CUDA_VISIBLE_DEVICES": "0", "HF_HOME": "/workspace/atlas-rental/hf", "HF_HUB_CACHE": "/workspace/atlas-rental/hf/hub", "HF_HUB_OFFLINE": "1", "LD_LIBRARY_PATH": "/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64", "SPT_NOENV": "1"}
+
+--- stage 3/7 boot gate (cap 1800s) ---
+$ bash /workspace/atlas-rental/src/atlas/bench/hopper_ab/time_to_ready.sh --url http://127.0.0.1:8000 --model Qwen/Qwen3.6-35B-A3B-FP8 --engine vllm --start-epoch <serve-start> --timeout-s 1800 --out /workspace/atlas-rental/results/qwen.vllm.a.lat.c1/boot.json
+
+!!! SIGTERM during stage 'boot': releasing what
+    this cell created, then writing the artifact that says so.
+STAGE FAILED: boot
+
+--- stage 6/7 teardown ---
+killing pid 12208, started by this cell
+Terminated
+
+--- stage 7/7 assemble and validate ---
+$ python3 /workspace/atlas-rental/src/atlas/bench/campaign/cell_assemble.py --engine vllm --model-key qwen3.6-35b-a3b-fp8 --sku h100 --workload lat --concurrency 1 --spec off --think off --out /workspace/atlas-rental/results/qwen.vllm.a.lat.c1/artifact.json --workloads /workspace/atlas-rental/src/atlas/bench/hopper_ab/workloads.json --atlas-recipes /workspace/atlas-rental/src/atlas/bench/campaign/atlas_recipes.json --vllm-recipes /workspace/atlas-rental/src/atlas/bench/campaign/vllm_recipes.json --client /workspace/atlas-rental/src/atlas/bench/ladder38/harness_w55_conc_ladder.py --serve-argv /workspace/atlas-rental/results/qwen.vllm.a.lat.c1/serve.argv --serve-env /workspace/atlas-rental/results/qwen.vllm.a.lat.c1/serve.env --nvidia-smi-q /workspace/atlas-rental/results/qwen.vllm.a.lat.c1/nvidia-smi-q.txt --boot-json /workspace/atlas-rental/results/qwen.vllm.a.lat.c1/boot.json --coherency-json /workspace/atlas-rental/results/qwen.vllm.a.lat.c1/coherency.json --ladder-json /workspace/atlas-rental/results/qwen.vllm.a.lat.c1/ladder.json --harness-git-sha 2b49ccdbdc86ebb7e6c5bbd976726092cce1deae --extra-note interrupted by SIGTERM during the boot stage: this cell was terminated before it finished, so its gates are unfinished rather than passed; process launch capture failed; model revision remains unproven; vLLM process environment has no verified immutable engine build identity; image_digest remains null --failing-stage boot
+$ python3 /workspace/atlas-rental/src/atlas/bench/campaign/validate_artifact.py /workspace/atlas-rental/results/qwen.vllm.a.lat.c1/artifact.json
+# wrote /workspace/atlas-rental/results/qwen.vllm.a.lat.c1/artifact.json at 2026-09-05T20:46:01Z
+VALID: /workspace/atlas-rental/results/qwen.vllm.a.lat.c1/artifact.json
+
+=== vllm.qwen3.6-35b-a3b-fp8.h100.lat.c1.specoff.thinkoff: TERMINATED by SIGTERM at stage 'boot'; artifact written to /workspace/atlas-rental/results/qwen.vllm.a.lat.c1/artifact.json ===

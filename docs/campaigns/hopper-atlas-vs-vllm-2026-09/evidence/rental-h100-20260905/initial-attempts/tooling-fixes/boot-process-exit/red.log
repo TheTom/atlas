@@ -1,0 +1,27 @@
+test_server_exit_during_boot_fails_promptly_with_boot_json (__main__.ProcessRunnerTests.test_server_exit_during_boot_fails_promptly_with_boot_json) ... FAIL
+
+======================================================================
+FAIL: test_server_exit_during_boot_fails_promptly_with_boot_json (__main__.ProcessRunnerTests.test_server_exit_during_boot_fails_promptly_with_boot_json)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/pidtom/atlas-boot-exit-jbAh6qKj/bench/campaign/process_runner_test.py", line 198, in test_server_exit_during_boot_fails_promptly_with_boot_json
+    rc = self.runner.wait(timeout=5)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2045, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['bash', '/home/pidtom/atlas-boot-exit-jbAh6qKj/bench/campaign/run_cell.sh', '--engine', 'atlas', '--model', 'qwen3.6-35b-a3b-fp8', '--sku', 'h100', '--workload', 'lat', '--concurrency', '1', '--spec', 'off', '--think', 'off', '--out', '/tmp/atlas-process-runner-qncewi0s/cell', '--process', '--model-path', '/tmp/atlas-process-runner-qncewi0s/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/snapshots/95a723d08a9490559dae23d0cff1d9466213d989', '--yes']' timed out after 5 seconds
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pidtom/atlas-boot-exit-jbAh6qKj/bench/campaign/process_runner_test.py", line 200, in test_server_exit_during_boot_fails_promptly_with_boot_json
+    self.fail("boot gate kept polling after its owned server exited")
+AssertionError: boot gate kept polling after its owned server exited
+
+----------------------------------------------------------------------
+Ran 1 test in 5.855s
+
+FAILED (failures=1)

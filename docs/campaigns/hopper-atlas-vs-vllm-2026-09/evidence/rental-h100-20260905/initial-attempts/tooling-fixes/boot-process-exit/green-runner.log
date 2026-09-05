@@ -1,0 +1,11 @@
+test_preexisting_process_directory_cannot_capture_or_stop_foreign_owner (__main__.ProcessRunnerTests.test_preexisting_process_directory_cannot_capture_or_stop_foreign_owner) ... {"oracle": "preexisting process directory", "exit": 1, "foreign_pid": 1179970, "alive_after": true, "owner_unchanged": true, "verdict": "NO-GO", "stage": "serve"}
+ok
+test_server_exit_during_boot_fails_promptly_with_boot_json (__main__.ProcessRunnerTests.test_server_exit_during_boot_fails_promptly_with_boot_json) ... {"oracle": "owned server exit ends boot before the cap", "exit": 1, "elapsed_s": 1.091461393996724, "boot_status": "process-exited"}
+ok
+test_term_during_boot_stops_owned_process_and_retains_environment (__main__.ProcessRunnerTests.test_term_during_boot_stops_owned_process_and_retains_environment) ... {"oracle": "SIGTERM during boot", "exit": 143, "owned_pid": 1180146, "alive_after": false, "verdict": "NO-GO", "stage": "boot", "serve_env": {"CUDA_VISIBLE_DEVICES": "-1", "HF_HUB_OFFLINE": "1", "RUST_LOG": "info", "SPT_NOENV": "1"}}
+ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.147s
+
+OK

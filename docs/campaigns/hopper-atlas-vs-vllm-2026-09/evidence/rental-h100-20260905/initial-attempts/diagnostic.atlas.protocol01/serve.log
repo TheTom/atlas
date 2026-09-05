@@ -1,0 +1,740 @@
+[2m2026-09-05T21:08:18.761352Z[0m [32m INFO[0m [2mspark::main_modules::serve[0m[2m:[0m Atlas Spark starting...
+[2m2026-09-05T21:08:18.761454Z[0m [32m INFO[0m [2mspark::main_modules::serve[0m[2m:[0m Licensed under AGPL-3.0-only — see /LICENSE in this container
+[2m2026-09-05T21:08:18.761595Z[0m [32m INFO[0m [2mspark::main_modules::serve_flags[0m[2m:[0m kernel flags: ssm_h_dtype=f32 gdn_fused_norm=false ssm_batched_recurrent=false exact_verify=false ssm_tail_midchunk=true mtp_gate=auto ssm_rollback_mode=Snapshot prefill_varlen_batch=false
+[2m2026-09-05T21:08:18.761681Z[0m [32m INFO[0m [2mspark::model_resolver[0m[2m:[0m Model path: /workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/snapshots/95a723d08a9490559dae23d0cff1d9466213d989 (local directory)
+[2m2026-09-05T21:08:18.761693Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m Port: 8888
+[2m2026-09-05T21:08:18.761701Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m SSM decode h-state dtype: f32 (full precision) (--ssm-h-dtype)
+[2m2026-09-05T21:08:18.762696Z[0m [32m INFO[0m [2mspark::main_modules::serve[0m[2m:[0m Vision area bound 16777216 px from /workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/snapshots/95a723d08a9490559dae23d0cff1d9466213d989/preprocessor_config.json (was: hard-coded 1280px long side)
+[2m2026-09-05T21:08:18.762723Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m Vision area bound: 16777216 px (checkpoint processor config / ATLAS_VISION_MAX_PIXELS)
+[2m2026-09-05T21:08:18.762731Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m Remote image fetching disabled (default); image_url parts carrying an http(s) URL are refused with a 400. Send base64 data: URIs, or pass --vision-allow-remote-images.
+[2m2026-09-05T21:08:18.762751Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m Video decoding disabled (default). Animated GIF decodes in-process; every other container needs ffmpeg — pass --video-allow-ffmpeg to enable it.
+[2m2026-09-05T21:08:18.762760Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m Quantization config: method="fp8", algo="", format="", 0 module(s) in ignore list
+[2m2026-09-05T21:08:18.762774Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m Model config: 40 layers, 10 attention, 30 SSM, 256 experts, rope_theta=10000000, head_dim=256, rotary_dim=64
+[2m2026-09-05T21:08:18.762819Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m Selected kernel target: (sm_90, qwen3.6-35b-a3b, nvfp4) (173 modules) — quant compat: kernel=nvfp4 model=fp8 OK
+[2m2026-09-05T21:08:18.762862Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::config[0m[2m:[0m num_drafts: using MODEL.toml default_num_drafts=1 (K=2) — pass --num-drafts to override
+[2m2026-09-05T21:08:19.184721Z[0m [32m INFO[0m [2mspark_runtime::cuda_backend::arch_preflight[0m[2m:[0m device CC 9.0, kernels built for sm_90a
+[2m2026-09-05T21:08:19.520324Z[0m [32m INFO[0m [2mspark_runtime::cuda_backend[0m[2m:[0m AtlasCudaBackend initialized on GPU 0 with 173 PTX modules
+[2m2026-09-05T21:08:19.520426Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::preflight[0m[2m:[0m GPU 0: 79.2 GB total, 78.6 GB free
+[2m2026-09-05T21:08:19.520445Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::preflight[0m[2m:[0m Preflight reserve: inference=20924 MB, buffer_arena=7803 MB (pre-load free: 78.6 GB)
+[2m2026-09-05T21:08:19.520458Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m OOM watchdog started (threshold: 2 GB, interval: 2s)
+[2m2026-09-05T21:08:19.520462Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m OOM guard reserve: 4096 MB
+[2m2026-09-05T21:08:19.520514Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::weights[0m[2m:[0m Using fast weight loader (O_DIRECT + pipelined read/copy)
+[2m2026-09-05T21:08:19.728875Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-load pre-flight: 34.88 GB on-disk, 1.1x overhead = 36.63 GB peak, 78.56 GB free, 4.0 GB reserve (FP8: true)
+[2m2026-09-05T21:08:19.729683Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 1/42: layers-0.safetensors (1558 tensors)
+[2m2026-09-05T21:08:20.427441Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 1/42 done — GPU memory: 0.79 GB used, 77.78 GB free
+[2m2026-09-05T21:08:20.434553Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 2/42: layers-1.safetensors (1558 tensors)
+[2m2026-09-05T21:08:21.152093Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 2/42 done — GPU memory: 1.57 GB used, 76.99 GB free
+[2m2026-09-05T21:08:21.158425Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 3/42: layers-10.safetensors (1558 tensors)
+[2m2026-09-05T21:08:21.754117Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 3/42 done — GPU memory: 2.36 GB used, 76.20 GB free
+[2m2026-09-05T21:08:21.756748Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 4/42: layers-11.safetensors (1556 tensors)
+[2m2026-09-05T21:08:22.453489Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 4/42 done — GPU memory: 3.14 GB used, 75.42 GB free
+[2m2026-09-05T21:08:22.456103Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 5/42: layers-12.safetensors (1558 tensors)
+[2m2026-09-05T21:08:23.178330Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 5/42 done — GPU memory: 3.92 GB used, 74.64 GB free
+[2m2026-09-05T21:08:23.181073Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 6/42: layers-13.safetensors (1558 tensors)
+[2m2026-09-05T21:08:23.895197Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 6/42 done — GPU memory: 4.71 GB used, 73.85 GB free
+[2m2026-09-05T21:08:23.897812Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 7/42: layers-14.safetensors (1558 tensors)
+[2m2026-09-05T21:08:24.616942Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 7/42 done — GPU memory: 5.50 GB used, 73.07 GB free
+[2m2026-09-05T21:08:24.619562Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 8/42: layers-15.safetensors (1556 tensors)
+[2m2026-09-05T21:08:25.348044Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 8/42 done — GPU memory: 6.28 GB used, 72.29 GB free
+[2m2026-09-05T21:08:25.350669Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 9/42: layers-16.safetensors (1558 tensors)
+[2m2026-09-05T21:08:25.972770Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 9/42 done — GPU memory: 7.06 GB used, 71.50 GB free
+[2m2026-09-05T21:08:25.975411Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 10/42: layers-17.safetensors (1558 tensors)
+[2m2026-09-05T21:08:26.706560Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 10/42 done — GPU memory: 7.85 GB used, 70.72 GB free
+[2m2026-09-05T21:08:26.712130Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 11/42: layers-18.safetensors (1558 tensors)
+[2m2026-09-05T21:08:27.500800Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 11/42 done — GPU memory: 8.63 GB used, 69.93 GB free
+[2m2026-09-05T21:08:27.510014Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 12/42: layers-19.safetensors (1556 tensors)
+[2m2026-09-05T21:08:28.241656Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 12/42 done — GPU memory: 9.41 GB used, 69.15 GB free
+[2m2026-09-05T21:08:28.245027Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 13/42: layers-2.safetensors (1558 tensors)
+[2m2026-09-05T21:08:28.959461Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 13/42 done — GPU memory: 10.20 GB used, 68.36 GB free
+[2m2026-09-05T21:08:28.962078Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 14/42: layers-20.safetensors (1558 tensors)
+[2m2026-09-05T21:08:29.684681Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 14/42 done — GPU memory: 10.98 GB used, 67.58 GB free
+[2m2026-09-05T21:08:29.687292Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 15/42: layers-21.safetensors (1558 tensors)
+[2m2026-09-05T21:08:30.331344Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 15/42 done — GPU memory: 11.77 GB used, 66.79 GB free
+[2m2026-09-05T21:08:30.341820Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 16/42: layers-22.safetensors (1558 tensors)
+[2m2026-09-05T21:08:31.034066Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 16/42 done — GPU memory: 12.56 GB used, 66.01 GB free
+[2m2026-09-05T21:08:31.036717Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 17/42: layers-23.safetensors (1556 tensors)
+[2m2026-09-05T21:08:31.849902Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 17/42 done — GPU memory: 13.34 GB used, 65.23 GB free
+[2m2026-09-05T21:08:31.852563Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 18/42: layers-24.safetensors (1558 tensors)
+[2m2026-09-05T21:08:32.531988Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 18/42 done — GPU memory: 14.12 GB used, 64.44 GB free
+[2m2026-09-05T21:08:32.534662Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 19/42: layers-25.safetensors (1558 tensors)
+[2m2026-09-05T21:08:33.475799Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 19/42 done — GPU memory: 14.91 GB used, 63.65 GB free
+[2m2026-09-05T21:08:33.478581Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 20/42: layers-26.safetensors (1558 tensors)
+[2m2026-09-05T21:08:34.180191Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 20/42 done — GPU memory: 15.69 GB used, 62.87 GB free
+[2m2026-09-05T21:08:34.182832Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 21/42: layers-27.safetensors (1556 tensors)
+[2m2026-09-05T21:08:34.825638Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 21/42 done — GPU memory: 16.47 GB used, 62.09 GB free
+[2m2026-09-05T21:08:34.828302Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 22/42: layers-28.safetensors (1558 tensors)
+[2m2026-09-05T21:08:35.527339Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 22/42 done — GPU memory: 17.26 GB used, 61.31 GB free
+[2m2026-09-05T21:08:35.530001Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 23/42: layers-29.safetensors (1558 tensors)
+[2m2026-09-05T21:08:36.231295Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 23/42 done — GPU memory: 18.04 GB used, 60.52 GB free
+[2m2026-09-05T21:08:36.234715Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 24/42: layers-3.safetensors (1556 tensors)
+[2m2026-09-05T21:08:36.821038Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 24/42 done — GPU memory: 18.82 GB used, 59.74 GB free
+[2m2026-09-05T21:08:36.823677Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 25/42: layers-30.safetensors (1558 tensors)
+[2m2026-09-05T21:08:38.039143Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 25/42 done — GPU memory: 19.61 GB used, 58.95 GB free
+[2m2026-09-05T21:08:38.041805Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 26/42: layers-31.safetensors (1556 tensors)
+[2m2026-09-05T21:08:39.058460Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 26/42 done — GPU memory: 20.39 GB used, 58.17 GB free
+[2m2026-09-05T21:08:39.061095Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 27/42: layers-32.safetensors (1558 tensors)
+[2m2026-09-05T21:08:39.830118Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 27/42 done — GPU memory: 21.18 GB used, 57.39 GB free
+[2m2026-09-05T21:08:39.840111Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 28/42: layers-33.safetensors (1558 tensors)
+[2m2026-09-05T21:08:40.456287Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 28/42 done — GPU memory: 21.96 GB used, 56.60 GB free
+[2m2026-09-05T21:08:40.458929Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 29/42: layers-34.safetensors (1558 tensors)
+[2m2026-09-05T21:08:41.147661Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 29/42 done — GPU memory: 22.75 GB used, 55.81 GB free
+[2m2026-09-05T21:08:41.150305Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 30/42: layers-35.safetensors (1556 tensors)
+[2m2026-09-05T21:08:41.892863Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 30/42 done — GPU memory: 23.53 GB used, 55.04 GB free
+[2m2026-09-05T21:08:41.895496Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 31/42: layers-36.safetensors (1558 tensors)
+[2m2026-09-05T21:08:42.611300Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 31/42 done — GPU memory: 24.31 GB used, 54.25 GB free
+[2m2026-09-05T21:08:42.613947Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 32/42: layers-37.safetensors (1558 tensors)
+[2m2026-09-05T21:08:43.273485Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 32/42 done — GPU memory: 25.10 GB used, 53.46 GB free
+[2m2026-09-05T21:08:43.276226Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 33/42: layers-38.safetensors (1558 tensors)
+[2m2026-09-05T21:08:44.014553Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 33/42 done — GPU memory: 25.88 GB used, 52.68 GB free
+[2m2026-09-05T21:08:44.017375Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 34/42: layers-39.safetensors (1556 tensors)
+[2m2026-09-05T21:08:44.662964Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 34/42 done — GPU memory: 26.66 GB used, 51.90 GB free
+[2m2026-09-05T21:08:44.666404Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 35/42: layers-4.safetensors (1558 tensors)
+[2m2026-09-05T21:08:45.385248Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 35/42 done — GPU memory: 27.45 GB used, 51.11 GB free
+[2m2026-09-05T21:08:45.387544Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 36/42: layers-5.safetensors (1558 tensors)
+[2m2026-09-05T21:08:46.121999Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 36/42 done — GPU memory: 28.24 GB used, 50.33 GB free
+[2m2026-09-05T21:08:46.124247Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 37/42: layers-6.safetensors (1558 tensors)
+[2m2026-09-05T21:08:46.962382Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 37/42 done — GPU memory: 29.02 GB used, 49.54 GB free
+[2m2026-09-05T21:08:46.964616Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 38/42: layers-7.safetensors (1556 tensors)
+[2m2026-09-05T21:08:47.707380Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 38/42 done — GPU memory: 29.80 GB used, 48.76 GB free
+[2m2026-09-05T21:08:47.709586Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 39/42: layers-8.safetensors (1558 tensors)
+[2m2026-09-05T21:08:48.420842Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 39/42 done — GPU memory: 30.59 GB used, 47.98 GB free
+[2m2026-09-05T21:08:48.423063Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 40/42: layers-9.safetensors (1558 tensors)
+[2m2026-09-05T21:08:49.131328Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 40/42 done — GPU memory: 31.37 GB used, 47.19 GB free
+[2m2026-09-05T21:08:49.132676Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 41/42: mtp.safetensors (1560 tensors)
+[2m2026-09-05T21:08:49.857829Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 41/42 done — GPU memory: 32.17 GB used, 46.39 GB free
+[2m2026-09-05T21:08:49.858573Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 42/42: outside.safetensors (336 tensors)
+[2m2026-09-05T21:08:51.128824Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 42/42 done — GPU memory: 34.98 GB used, 43.59 GB free
+[2m2026-09-05T21:08:51.128981Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loaded 64196 weight tensors
+[2m2026-09-05T21:08:51.144532Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::weights[0m[2m:[0m Loaded 64196 weight tensors
+[2m2026-09-05T21:08:51.144565Z[0m [32m INFO[0m [2mspark_runtime::weights::prefix_detect[0m[2m:[0m Weight prefix: model.language_model
+[2m2026-09-05T21:08:51.193582Z[0m [32m INFO[0m [2mspark_model::preflight[0m[2m:[0m Pre-flight checks passed
+[2m2026-09-05T21:08:51.193604Z[0m [32m INFO[0m [2mspark_model::quant_format[0m[2m:[0m QuantFormat: fp8 (block-scaled), 0 ignored module(s)
+[2m2026-09-05T21:08:51.193613Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m Quantization format: fp8-blockscaled (base variant Fp8Dequanted), ignored globs = 0
+[2m2026-09-05T21:08:51.299822Z[0m [32m INFO[0m [2mspark_runtime::cublaslt[0m[2m:[0m cuBLASLt pre-warmed (handle + workspace + kernel images)
+[2m2026-09-05T21:08:51.300666Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::preflight[0m[2m:[0m GDN chunked prefill reserve: 1032 MB (chunk_size=32768, max_seq_len=65536)
+[2m2026-09-05T21:08:51.300682Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::preflight[0m[2m:[0m Weights: 34.88 GB, estimated free: 43.7 GB, actual free: 43.5 GB (reserve: 20924 MB)
+[2m2026-09-05T21:08:51.300691Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::kv_cache[0m[2m:[0m Prefill config: ssm_prefill_chunk=32768, args.max_prefill_tokens=32768, prefill_budget=32768, max_batch_tokens=32800
+[2m2026-09-05T21:08:51.300697Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::build[0m[2m:[0m Prefix caching: ENABLED (radix tree)
+[2m2026-09-05T21:08:51.697586Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::config[0m[2m:[0m Capping vocab_size from 248320 to 248070 (tokenizer)
+[2m2026-09-05T21:08:51.730702Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::kv_cache[0m[2m:[0m FP8 KV cache with online calibration (checkpoint ships no k/v scales): freezing per-tensor scales on the first observed tokens.
+[2m2026-09-05T21:08:51.730723Z[0m [32m INFO[0m [2mspark::main_modules::kv_dtypes[0m[2m:[0m Selective boundary KV cache: 4/10 attention layers at bf16, rest at fp8
+[2m2026-09-05T21:08:51.731156Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Weight format: Fp8BlockScaled, NVFP4 variant: Fp8Dequanted, quant_format: Fp8
+[2m2026-09-05T21:08:51.731200Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:51.731609Z[0m [32m INFO[0m [2mspark_model::weight_map::loaders_fp8[0m[2m:[0m quantize_to_nvfp4: n=512 k=2048 total=1048576 global_max=0.204102 scale2=0.00007593 grid1=1024
+[2m2026-09-05T21:08:51.732211Z[0m [32m INFO[0m [2mspark_model::weight_map::loaders_fp8[0m[2m:[0m quantize_to_nvfp4: n=512 k=2048 total=1048576 global_max=0.135742 scale2=0.00005050 grid1=1024
+[2m2026-09-05T21:08:51.732619Z[0m [32m INFO[0m [2mspark_model::weight_map::loaders_fp8[0m[2m:[0m quantize_to_nvfp4: n=2048 k=512 total=1048576 global_max=0.312500 scale2=0.00011626 grid1=1024
+[2m2026-09-05T21:08:51.736293Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T21:08:51.736313Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T21:08:51.747548Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 0: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:51.747564Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 0: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:51.747870Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 0: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:51.748048Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.0.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.748084Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.0.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.750549Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:51.756460Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 0: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:51.756531Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Loaded layers 0..1 — 43.5 GB free
+[2m2026-09-05T21:08:51.756540Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:51.756770Z[0m [32m INFO[0m [2mspark_model::weight_map::loaders_fp8[0m[2m:[0m quantize_to_nvfp4: n=512 k=2048 total=1048576 global_max=0.164062 scale2=0.00006104 grid1=1024
+[2m2026-09-05T21:08:51.757091Z[0m [32m INFO[0m [2mspark_model::weight_map::loaders_fp8[0m[2m:[0m quantize_to_nvfp4: n=512 k=2048 total=1048576 global_max=0.179688 scale2=0.00006685 grid1=1024
+[2m2026-09-05T21:08:51.769022Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 1: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:51.769041Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 1: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:51.769335Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 1: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:51.769504Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.1.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.769540Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.1.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.769640Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:51.769696Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 1: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:51.769762Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Loaded layers 0..2 — 43.5 GB free
+[2m2026-09-05T21:08:51.769769Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:51.782150Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 2: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:51.782170Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 2: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:51.782452Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 2: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:51.782622Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.2.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.782657Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.2.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.782753Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:51.782801Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 2: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:51.782857Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Loaded layers 0..3 — 43.4 GB free
+[2m2026-09-05T21:08:51.782864Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:51.795184Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 3: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:51.795204Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 3: loading attention FP8 native (zero-copy)
+[2m2026-09-05T21:08:51.795326Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 3: FP8 Q/K/V/O loaded, 43.4 GB free
+[2m2026-09-05T21:08:51.799600Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 3: FP8 weights transposed for fast prefill
+[2m2026-09-05T21:08:51.799658Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Loaded layers 0..4 — 43.4 GB free
+[2m2026-09-05T21:08:51.799667Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:51.812054Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 4: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:51.812074Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 4: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:51.812361Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 4: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:51.812644Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.4.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.812679Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.4.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.812777Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:51.812822Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 4: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:51.812876Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Loaded layers 0..5 — 43.4 GB free
+[2m2026-09-05T21:08:51.812883Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:51.825201Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 5: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:51.825219Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 5: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:51.825497Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 5: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:51.825660Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.5.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.825693Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.5.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.825777Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:51.825818Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 5: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:51.825825Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:51.838365Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 6: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:51.838386Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 6: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:51.838662Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 6: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:51.838826Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.6.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.838859Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.6.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.838945Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:51.838987Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 6: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:51.838994Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:51.851258Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 7: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:51.851275Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 7: loading attention FP8 native (zero-copy)
+[2m2026-09-05T21:08:51.851400Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 7: FP8 Q/K/V/O loaded, 43.3 GB free
+[2m2026-09-05T21:08:51.852441Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 7: FP8 weights transposed for fast prefill
+[2m2026-09-05T21:08:51.852453Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:51.864744Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 8: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:51.864764Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 8: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:51.865045Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 8: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:51.865222Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.8.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.865258Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.8.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.865340Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:51.865382Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 8: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:51.865389Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:51.877616Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 9: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:51.877635Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 9: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:51.877910Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 9: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:51.878194Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.9.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.878233Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.9.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.878318Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:51.878360Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 9: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:51.878417Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Loaded layers 0..10 — 43.2 GB free
+[2m2026-09-05T21:08:51.878423Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:51.890764Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 10: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:51.890782Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 10: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:51.891106Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 10: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:51.891294Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.10.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.891334Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.10.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.891418Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:51.891459Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 10: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:51.891466Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:51.903821Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 11: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:51.903840Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 11: loading attention FP8 native (zero-copy)
+[2m2026-09-05T21:08:51.903965Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 11: FP8 Q/K/V/O loaded, 43.2 GB free
+[2m2026-09-05T21:08:51.905033Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 11: FP8 weights transposed for fast prefill
+[2m2026-09-05T21:08:51.905046Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:51.917422Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 12: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:51.917440Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 12: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:51.917725Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 12: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:51.917894Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.12.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.917927Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.12.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.918011Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:51.918053Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 12: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:51.918060Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:51.930467Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 13: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:51.930487Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 13: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:51.930763Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 13: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:51.930943Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.13.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.930976Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.13.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.931058Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:51.931100Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 13: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:51.931106Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:51.943400Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 14: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:51.943417Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 14: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:51.943690Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 14: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:51.943860Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.14.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.943894Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.14.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.943975Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:51.944016Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 14: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:51.944023Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:51.956618Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 15: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:51.956636Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 15: loading attention FP8 native (zero-copy)
+[2m2026-09-05T21:08:51.956755Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 15: FP8 Q/K/V/O loaded, 43.1 GB free
+[2m2026-09-05T21:08:51.957755Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 15: FP8 weights transposed for fast prefill
+[2m2026-09-05T21:08:51.957767Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:51.970538Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 16: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:51.970558Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 16: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:51.970825Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 16: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:51.970998Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.16.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.971040Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.16.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.971126Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:51.971171Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 16: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:51.971181Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:51.983602Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 17: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:51.983620Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 17: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:51.983894Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 17: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:51.984072Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.17.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.984106Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.17.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.984191Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:51.984235Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 17: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:51.984241Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:51.996638Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 18: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:51.996657Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 18: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:51.996931Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 18: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:51.997103Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.18.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.997139Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.18.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:51.997227Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:51.997268Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 18: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:51.997275Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.009644Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 19: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.009662Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 19: loading attention FP8 native (zero-copy)
+[2m2026-09-05T21:08:52.009793Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 19: FP8 Q/K/V/O loaded, 43.0 GB free
+[2m2026-09-05T21:08:52.010825Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 19: FP8 weights transposed for fast prefill
+[2m2026-09-05T21:08:52.010871Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Loaded layers 0..20 — 43.0 GB free
+[2m2026-09-05T21:08:52.010878Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.023323Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 20: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.023341Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 20: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:52.023609Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 20: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:52.023772Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.20.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.023805Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.20.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.023889Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:52.023931Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 20: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:52.023938Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.036971Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 21: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.036992Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 21: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:52.037236Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 21: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:52.037407Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.21.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.037440Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.21.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.037524Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:52.037566Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 21: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:52.037573Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.050176Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 22: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.050197Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 22: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:52.050490Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 22: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:52.050664Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.22.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.050698Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.22.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.050790Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:52.050832Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 22: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:52.050838Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.063514Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 23: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.063534Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 23: loading attention FP8 native (zero-copy)
+[2m2026-09-05T21:08:52.063657Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 23: FP8 Q/K/V/O loaded, 42.9 GB free
+[2m2026-09-05T21:08:52.064685Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 23: FP8 weights transposed for fast prefill
+[2m2026-09-05T21:08:52.064698Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.077327Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 24: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.077345Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 24: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:52.077616Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 24: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:52.077786Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.24.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.077820Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.24.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.077905Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:52.077946Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 24: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:52.077953Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.090394Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 25: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.090412Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 25: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:52.090686Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 25: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:52.090865Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.25.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.090899Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.25.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.090982Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:52.091023Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 25: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:52.091030Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.103409Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 26: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.103427Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 26: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:52.103698Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 26: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:52.103987Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.26.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.104023Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.26.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.104107Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:52.104154Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 26: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:52.104164Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.116520Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 27: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.116537Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 27: loading attention FP8 native (zero-copy)
+[2m2026-09-05T21:08:52.116660Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 27: FP8 Q/K/V/O loaded, 42.8 GB free
+[2m2026-09-05T21:08:52.117670Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 27: FP8 weights transposed for fast prefill
+[2m2026-09-05T21:08:52.117682Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.130158Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 28: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.130175Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 28: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:52.130506Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 28: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:52.130674Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.28.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.130715Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.28.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.130800Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:52.130842Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 28: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:52.130849Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.143272Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 29: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.143290Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 29: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:52.143569Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 29: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:52.143743Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.29.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.143776Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.29.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.143858Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:52.143899Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 29: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:52.143959Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Loaded layers 0..30 — 42.7 GB free
+[2m2026-09-05T21:08:52.143967Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.156321Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 30: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.156339Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 30: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:52.156614Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 30: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:52.156778Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.30.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.156812Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.30.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.156892Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:52.156933Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 30: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:52.156940Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.169293Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 31: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.169323Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 31: loading attention FP8 native (zero-copy)
+[2m2026-09-05T21:08:52.169445Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 31: FP8 Q/K/V/O loaded, 42.7 GB free
+[2m2026-09-05T21:08:52.170582Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 31: FP8 weights transposed for fast prefill
+[2m2026-09-05T21:08:52.170596Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.183625Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 32: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.183644Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 32: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:52.183934Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 32: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:52.184231Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.32.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.184271Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.32.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.184357Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:52.184399Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 32: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:52.184406Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.196804Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 33: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.196823Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 33: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:52.197092Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 33: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:52.197258Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.33.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.197295Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.33.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.197378Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:52.197420Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 33: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:52.197427Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.209866Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 34: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.209883Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 34: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:52.210260Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 34: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:52.210427Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.34.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.210460Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.34.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.210545Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:52.210586Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 34: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:52.210593Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.223060Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 35: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.223078Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 35: loading attention FP8 native (zero-copy)
+[2m2026-09-05T21:08:52.223784Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 35: FP8 Q/K/V/O loaded, 42.6 GB free
+[2m2026-09-05T21:08:52.264168Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 35: FP8 weights transposed for fast prefill
+[2m2026-09-05T21:08:52.264241Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.292206Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 36: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.292259Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 36: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:52.292737Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 36: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:52.293025Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.36.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.293086Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.36.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.293269Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:52.293372Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 36: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:52.293390Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.314373Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 37: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.314410Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 37: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:52.314832Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 37: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:52.315291Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.37.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.315354Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.37.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.315505Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:52.315583Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 37: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:52.315597Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.334206Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 38: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.334236Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 38: loading SSM FP8 native (block-scaled decode + prefill)
+[2m2026-09-05T21:08:52.336968Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 38: SSM QKVZ FP8 [12288,2048] block-scaled, out_proj FP8 [2048,4096] block-scaled
+[2m2026-09-05T21:08:52.337245Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.38.linear_attn.A_log from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.337302Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.38.linear_attn.dt_bias from BF16 to FP32 ([32])
+[2m2026-09-05T21:08:52.337447Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T21:08:52.337513Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers::linear_attn_arms[0m[2m:[0m Layer 38: SSM native FP8 — w8a16 decode + prefill
+[2m2026-09-05T21:08:52.337525Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m FP8: skipping NVFP4 routed experts (FP8 fused MoE batch1/2/3 handles all dispatch)
+[2m2026-09-05T21:08:52.404731Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 39: MoE experts loaded as native FP8
+[2m2026-09-05T21:08:52.404785Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 39: loading attention FP8 native (zero-copy)
+[2m2026-09-05T21:08:52.405046Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 39: FP8 Q/K/V/O loaded, 42.5 GB free
+[2m2026-09-05T21:08:52.409552Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Layer 39: FP8 weights transposed for fast prefill
+[2m2026-09-05T21:08:52.409842Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Loaded layers 0..40 — 42.4 GB free
+[2m2026-09-05T21:08:52.409858Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35::load_layers[0m[2m:[0m Qwen3.5 weight loader: 40 layers (10 attention, 30 linear_attn)
+[2m2026-09-05T21:08:52.409931Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m Layer construction: 1.16 GB consumed (46.73 GB free -> 45.58 GB free) across 40 layers, 28.9 MB/layer average
+[2m2026-09-05T21:08:52.409953Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35[0m[2m:[0m Loading MTP weights (256 experts, variant=Fp8Dequanted)...
+[2m2026-09-05T21:08:52.632861Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35[0m[2m:[0m MTP weights loaded: fc=[2048,4096], 256 experts, attn layer
+[2m2026-09-05T21:08:52.633089Z[0m [33m WARN[0m [2mspark_model::layers::vision_encoder::enc_impl::init[0m[2m:[0m Vision encoder capacity 16384 patches (2048x2048 px) — the resolved area bound wanted 65536 patches, clamped: the ViT score matrix is O(patches^2) and 65536 would need ~24.0 GB of scratch. Lower --vision-max-pixels to reclaim memory, or raise CEILING_MAX_PATCHES only alongside tiled ViT attention.
+[2m2026-09-05T21:08:52.636479Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35[0m[2m:[0m Qwen3.6 vision encoder loaded: depth=27, hidden=1152, heads=16, FP8-blocks>=4
+[2m2026-09-05T21:08:52.636494Z[0m [32m INFO[0m [2mspark_model::quant_format[0m[2m:[0m QuantFormat: fp8 (block-scaled), 0 ignored module(s)
+[2m2026-09-05T21:08:52.638637Z[0m [32m INFO[0m [2mspark_model::factory::lm_head_setup[0m[2m:[0m LM head quantized to NVFP4 (vocab=248070)
+[2m2026-09-05T21:08:52.641916Z[0m [32m INFO[0m [2mspark_runtime::buffers[0m[2m:[0m Buffer arena: 32800 tokens × 7811.9 MB total (attn_out=256.2MB, ssm_deint=768.8MB, kv_lora_rank=0)
+[2m2026-09-05T21:08:52.642380Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m KV budget self-relative (ledger): Atlas-own 45.4 GB live in the alloc ledger; 0.8 GB of co-tenant/page-cache use excluded (set ATLAS_KV_EXTERNAL_RESERVE_GB to override)
+[2m2026-09-05T21:08:52.642396Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m KV cache: 79.2 GB total × 90% util = 71.3 GB budget; 45.4 GB pre-KV + 20.4 GB reserve → 5.4 GB for KV → 25487 blocks × 16 tok/block = 407792 max KV tokens
+[2m2026-09-05T21:08:52.642406Z[0m [33m WARN[0m [2mspark_model::factory::build[0m[2m:[0m KV OVERCOMMIT: pool fits 6 seq(s) at full --max-seq-len=65536 but --max-batch-size=32 requested (4096 block(s)/seq, 25487 block(s) total). Paged KV allocates on demand; long-context bursts are back-pressured at the block allocator, not refused at boot.
+[2m2026-09-05T21:08:52.645642Z[0m [32m INFO[0m [2mspark_runtime::kv_cache::paged_impl[0m[2m:[0m KV cache: 25487 blocks × 10 layers (4 high-precision) = 5.4 GB total (mixed dtype)
+[2m2026-09-05T21:08:52.645892Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T21:08:52.645902Z[0m [32m INFO[0m [2mspark_model::model::impl_a1[0m[2m:[0m TransformerModel: 40 layers, vocab=248070, hidden=2048
+[2m2026-09-05T21:08:52.647290Z[0m [32m INFO[0m [2mspark_model::model::ssm_pool[0m[2m:[0m SSM state pool: 32 slots × 30 layers = 2040 MB
+[2m2026-09-05T21:08:52.664988Z[0m [32m INFO[0m [2mspark_model::model::ssm_snapshot[0m[2m:[0m SSM snapshot pool: Marconi 16 slots (1020 MB), decode-rollback 8 slots × 32 seqs (16320 MB), 30 layers
+[2m2026-09-05T21:08:52.665014Z[0m [32m INFO[0m [2mspark_model::model::impl_a1[0m[2m:[0m Marconi intermediate checkpoints: every 256 blocks (4096 tokens at block_size=16)
+[2m2026-09-05T21:08:52.666752Z[0m [33m WARN[0m [2mspark_model::model::impl_a1[0m[2m:[0m lm_head twin uses a PADDED stride (248192 != vocab 248070): this target's w4a16_gemm_t MUST accept the `ldb` argument, or decode at padded_n>=5 will read sheared rows. Disable with ATLAS_NO_LMHEAD_TGEMM=1.
+[2m2026-09-05T21:08:52.666772Z[0m [32m INFO[0m [2mspark_model::model::impl_a1[0m[2m:[0m lm_head transposed twin: vocab=248070 -> padded stride=248192 (vocab%16=6), tile GEMM active
+[2m2026-09-05T21:08:52.666777Z[0m [32m INFO[0m [2mspark_model::model::impl_a1_init[0m[2m:[0m MTP weights available (1 module(s)) but --speculative not set, skipping MTP head construction
+[2m2026-09-05T21:08:52.669370Z[0m [32m INFO[0m [2mspark_model::model::impl_a1[0m[2m:[0m Pinned metadata staging: 3203 KB
+[2m2026-09-05T21:08:52.670211Z[0m [32m INFO[0m [2mspark_model::model::impl_a1_init[0m[2m:[0m GDN prefill buffers: 1033 MB for 32800 tokens (chunked SSM prefill)
+[2m2026-09-05T21:08:52.691694Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m GPU allocation ledger: 76.33 GB live across 68 sites
+[2m2026-09-05T21:08:52.691711Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m     35719.7 MB  x64196 crates/spark-runtime/src/fast_weights/mod.rs:413
+[2m2026-09-05T21:08:52.691714Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m     15360.0 MB  x30    crates/spark-model/src/model/ssm_snapshot.rs:180
+[2m2026-09-05T21:08:52.691717Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      2787.6 MB  x10    crates/spark-runtime/src/kv_cache/paged_impl.rs:28
+[2m2026-09-05T21:08:52.691719Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      2787.6 MB  x10    crates/spark-runtime/src/kv_cache/paged_impl.rs:27
+[2m2026-09-05T21:08:52.691722Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      2103.8 MB  x2     crates/spark-model/src/model/ssm_pool.rs:149
+[2m2026-09-05T21:08:52.691724Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      1594.0 MB  x775   crates/spark-model/src/weight_map/quant_helpers.rs:98
+[2m2026-09-05T21:08:52.691727Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      1537.5 MB  x1     crates/spark-runtime/src/buffers.rs:175
+[2m2026-09-05T21:08:52.691729Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      1326.6 MB  x1     crates/spark-runtime/src/buffers.rs:200
+[2m2026-09-05T21:08:52.691731Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      1025.0 MB  x1     crates/spark-runtime/src/buffers.rs:179
+[2m2026-09-05T21:08:52.691734Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m       960.0 MB  x30    crates/spark-model/src/model/ssm_snapshot.rs:165
+[2m2026-09-05T21:08:52.691736Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m       960.0 MB  x30    crates/spark-model/src/model/ssm_snapshot.rs:181
+[2m2026-09-05T21:08:52.691739Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m       768.8 MB  x1     crates/spark-runtime/src/buffers.rs:173
+[2m2026-09-05T21:08:52.691741Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      5859.0 MB  across 56 smaller sites
+[2m2026-09-05T21:08:52.691744Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m   ── by file ──
+[2m2026-09-05T21:08:52.691746Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m     35719.7 MB  x64196 crates/spark-runtime/src/fast_weights/mod.rs
+[2m2026-09-05T21:08:52.691748Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m     17340.1 MB  x121   crates/spark-model/src/model/ssm_snapshot.rs
+[2m2026-09-05T21:08:52.691751Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      7811.9 MB  x31    crates/spark-runtime/src/buffers.rs
+[2m2026-09-05T21:08:52.691753Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      5575.3 MB  x20    crates/spark-runtime/src/kv_cache/paged_impl.rs
+[2m2026-09-05T21:08:52.691756Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      2103.8 MB  x2     crates/spark-model/src/model/ssm_pool.rs
+[2m2026-09-05T21:08:52.691758Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      1594.0 MB  x775   crates/spark-model/src/weight_map/quant_helpers.rs
+[2m2026-09-05T21:08:52.691760Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      1033.0 MB  x4     crates/spark-model/src/model/impl_a1_init.rs
+[2m2026-09-05T21:08:52.691763Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m       720.2 MB  x60    crates/spark-model/src/weight_loader/qwen35/load_layers/linear_attn_arms.rs
+[2m2026-09-05T21:08:52.691765Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m       532.7 MB  x82    crates/spark-model/src/weight_map/quantized.rs
+[2m2026-09-05T21:08:52.691768Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m       347.9 MB  x31453 crates/spark-model/src/weight_map/loaders_fp8.rs
+[2m2026-09-05T21:08:52.691770Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m         7.5 MB  x30    crates/spark-model/src/weight_map/fp8_lut.rs
+[2m2026-09-05T21:08:52.691774Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m         2.5 MB  x40    crates/spark-model/src/layers/moe/init.rs
+[2m2026-09-05T21:08:52.691996Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m util pledge honored: 71.1 GB tracked live within the 71.3 GB budget (0.2 GB pledge headroom)
+[2m2026-09-05T21:08:52.764372Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::kernel_gate[0m[2m:[0m 
+┌─ Kernel load audit ─ 173 kernels embedded · set-hash e3aea0fdeb04 ─
+│ MODULE (operation)                 PTX-HASH       RESOLUTION           SHADOWED
+│ ────────────────────────────────────────────────────────────────────────────────────
+│ argmax                             a3d8f119da7a   used                 N
+│ bf16_add                           c545be6b71cf   -                    N
+│ causal_conv1d                      7ab0b25e6e35   used                 N
+│ dense_gemv_bf16_batch2             e1f4168736fb   used                 N
+│ dense_gemv_bf16_batchm             81909bd83184   used                 N
+│ dense_gemv_fp8w_batch2             a567517f18dc   used                 N
+│ dequant_fp8_blockscaled_bf16       7ca785f6615b   used                 N
+│ dequant_gguf_bf16                  3ea7d0fc8c6f   used                 N
+│ dequant_nvfp4_bf16                 f19c898469a3   -                    N
+│ dflash2                            505e703883e7   -                    N
+│ e2m1                               ee092f6a0007   -                    N
+│ embed_from_argmax                  33d7f5f7f9ec   used                 N
+│ fp8_gemm_t_blockscaled             e38442d64e75   used                 N
+│ fp8_gemv_rt                        3eaa87894534   -                    N
+│ fused_k_norm_rope_cache            274a231d8067   used                 N
+│ gated_delta_rule                   19171cff0f29   used                 N
+│ gated_delta_rule_fla               b314a4eac529   used                 N
+│ gated_delta_rule_persistent        c07d74224169   used                 N
+│ gated_delta_rule_regresident       fc021d4f0478   used                 N
+│ gated_delta_rule_wy                1f709adb59e1   used                 N
+│ gated_delta_rule_wy17              5710cd8277c5   used                 N
+│ gated_delta_rule_wy2_resident      5ef790286dd4   used                 N
+│ gated_delta_rule_wy2_resident_f16  6241545d5063   used                 N
+│ gated_delta_rule_wy3               f9c827f61f90   used                 N
+│ gated_delta_rule_wy3_f16           89fc19007532   used                 N
+│ gated_delta_rule_wy3_resident      fca8d31d0845   used                 N
+│ gated_delta_rule_wy3_resident_f16  b5e49523c387   used                 N
+│ gated_delta_rule_wy4               564b543b338f   used                 N
+│ gated_delta_rule_wy4_f16           89c1fed78a9f   used                 N
+│ gated_delta_rule_wy64_prefill      d3decc3327aa   used                 N
+│ gated_delta_rule_wy_f16            51c86719c030   used                 N
+│ gated_delta_rule_wyn               cdc277e13c48   used                 N
+│ gdn_verify_fused_conv_kn           66bd2cc1acf2   used                 N
+│ gdn_verify_fused_k2                32f1b2749c62   used                 N
+│ gemm                               0efe3af7944d   used                 N
+│ gemm_splitk                        0c472718bd89   used                 N
+│ gemm_tc                            c9cd4a74aa86   used                 N
+│ gemv                               98694eec2dfa   used                 N
+│ gemv_fp8w                          64caf0b46229   used                 N
+│ inferspark_decode                  5135eced3f7f   -                    N
+│ inferspark_prefill                 cf58fea48707   used                 N
+│ inferspark_prefill_h128            b8e20d30cc9b   -                    N
+│ inferspark_prefill_paged_512       f9c2777dc77d   -                    N
+│ inferspark_prefill_paged_batched   e3e19bfa20a2   used                 N
+│ inferspark_prefill_paged_fp8_batched dabea5428b89   used                 N
+│ inferspark_prefill_paged_nvfp4_batched 9728f96cbb4d   used                 N
+│ inferspark_prefill_v47             a75c748d0c9f   -                    N
+│ kv_cache                           2b4e52b6d337   -                    N
+│ lora_bgmv                          c92ad2a0e2bc   -                    N
+│ mamba2_ssd_chunk                   39635a3f8333   -                    N
+│ mamba2_ssm                         ab9f97ce499b   -                    N
+│ metadata_fill                      1d5bf751196c   used                 N
+│ moe                                c0c4cff565f5   used                 N
+│ moe_bf16_grouped_gemm              07cb1657897f   used                 N
+│ moe_decode_atomic_c4               0b21e7b32872   used                 N
+│ moe_expert_gemv                    bc99a28c1fbe   used                 N
+│ moe_expert_gemv_fused              fcb5c21d01e5   -                    N
+│ moe_fp8_grouped_gemm               b7cc6e252b3e   used                 N
+│ moe_fused_batch2                   5c35a6941de7   used                 N
+│ moe_fused_batch3                   f63c53f276e3   used                 N
+│ moe_gate_topk                      a8fd3c3b3db9   used                 N
+│ moe_hash_route                     4c9092b0b5bd   used                 N
+│ moe_lora_gather_bgmv               fe7e1af640f6   -                    N
+│ moe_lora_grouped_down              197182c49d84   -                    N
+│ moe_prefill                        97146a516b9b   used                 N
+│ moe_relu2_fused                    a72403bf6dd7   -                    N
+│ moe_shared_expert_fused            b68db854cf10   used                 N
+│ moe_shared_expert_fused_batch2_t   b83c587dd066   used                 N
+│ moe_shared_expert_fused_batch3_t   141b291be42d   used                 N
+│ moe_shared_expert_fused_bf16       110548889e0f   used                 N
+│ moe_shared_expert_fused_bf16_batch2 e562ae77741f   used                 N
+│ moe_shared_expert_fused_fp8        9ee897f90bf4   used                 N
+│ moe_shared_expert_fused_fp8_batch2 b4c0ae76cd35   used                 N
+│ moe_shared_expert_fused_fp8_batch2_t 152d4f318a09   used                 N
+│ moe_shared_expert_fused_fp8_batch3 fbba7016b029   used                 N
+│ moe_shared_expert_fused_fp8_batch3_t 0387c0d01bd7   used                 N
+│ moe_shared_expert_fused_fp8_t      8542d58d5a49   used                 N
+│ moe_shared_expert_fused_t          90de732f2498   used                 N
+│ moe_silu_mul                       944a461c9c33   used                 N
+│ moe_sorted                         4e3692d4b59c   used                 N
+│ moe_topk                           ceaf62b9ee78   used                 N
+│ moe_topk_sig                       c9078eb548f0   used                 N
+│ moe_topk_softmax_bias              9e33f60b21f0   used                 N
+│ moe_topk_sqrt                      55316962d0f0   used                 N
+│ moe_transpose_batched              548c1c368da1   used                 N
+│ moe_w4a16                          a2b22be8e25e   used                 Y (1 dropped)
+│ moe_w8a8_grouped_gemm              2ab8b585f13a   used                 N
+│ nemotron_moe_prefill               7d611384a880   -                    N
+│ nllb_encoder                       9c06ebec859c   -                    N
+│ norm                               39583f167b56   used                 N
+│ paged_decode                       f9cf37f937a3   used                 N
+│ paged_decode_bf16k_turbo2v         ae57e28ccf0a   -                    N
+│ paged_decode_bf16k_turbo2v_128     c72279607077   -                    N
+│ paged_decode_bf16k_turbo3v         0a00279aedf6   -                    N
+│ paged_decode_bf16k_turbo3v_128     cf4f70644d26   -                    N
+│ paged_decode_bf16k_turbo4v         f10fe0d153c6   -                    N
+│ paged_decode_bf16k_turbo4v_128     084f13d8a3bc   -                    N
+│ paged_decode_fp8                   e5acd87bc335   used                 N
+│ paged_decode_fp8k_turbo2v          73568425d01b   -                    N
+│ paged_decode_fp8k_turbo2v_128      f95969bfa730   -                    N
+│ paged_decode_fp8k_turbo3v          7875a2251caf   -                    N
+│ paged_decode_fp8k_turbo3v_128      c27da47baf4a   -                    N
+│ paged_decode_fp8k_turbo4v          be5202228465   -                    N
+│ paged_decode_fp8k_turbo4v_128      16c05e5cad14   -                    N
+│ paged_decode_nvfp4                 2075fb3fac85   -                    N
+│ paged_decode_turbo2                f4e19492e218   -                    N
+│ paged_decode_turbo2_128            81cdb2be29f6   -                    N
+│ paged_decode_turbo3                31ad1778a26f   -                    N
+│ paged_decode_turbo3_128            dc2ff01c04f1   -                    N
+│ paged_decode_turbo3k_turbo8v       3e8243b1561a   -                    N
+│ paged_decode_turbo3k_turbo8v_128   80b7daca9986   -                    N
+│ paged_decode_turbo4                195bbebc87b0   -                    N
+│ paged_decode_turbo4_128            121f53435ee4   -                    N
+│ paged_decode_turbo4_512            e53a1bd3d8a8   -                    N
+│ paged_decode_turbo4k_turbo3v       ddd70af4c1be   -                    N
+│ paged_decode_turbo4k_turbo3v_128   4eac023391a7   -                    N
+│ paged_decode_turbo4k_turbo8v       7e4af1d8d58f   -                    N
+│ paged_decode_turbo4k_turbo8v_128   d6129769be1d   -                    N
+│ paged_decode_turbo8                a3cebd74bed2   -                    N
+│ paged_decode_turbo8_128            a7811959aad6   -                    N
+│ paged_decode_turbo8_512            d85b7e70ef63   -                    N
+│ per_token_group_quant_fp8          60432b374f77   used                 N
+│ prefill_fp8kv                      1723bd8cece8   -                    N
+│ prefill_paged                      16ac23f76bca   used                 N
+│ prefill_paged_bf16k_turbo2v        5632304dc8ff   used                 N
+│ prefill_paged_bf16k_turbo3v        10bba38b0548   used                 N
+│ prefill_paged_bf16k_turbo4v        1677758ae47a   used                 N
+│ prefill_paged_fp8                  c28e747ccf9f   used                 N
+│ prefill_paged_fp8k_turbo2v         2df8caa3927b   used                 N
+│ prefill_paged_fp8k_turbo3v         2d57552506fb   used                 N
+│ prefill_paged_fp8k_turbo4v         c2166490c6d3   used                 N
+│ prefill_paged_indirect             897275212550   -                    N
+│ prefill_paged_nvfp4                ce0d8d9a60d3   used                 N
+│ prefill_paged_turbo2               a9a23e2b3d03   used                 N
+│ prefill_paged_turbo3               ce0017962e68   used                 N
+│ prefill_paged_turbo3k_turbo8v      1f1892971511   used                 N
+│ prefill_paged_turbo4               7c58b7ce9229   used                 N
+│ prefill_paged_turbo4k_turbo3v      12db335dcfdd   used                 N
+│ prefill_paged_turbo4k_turbo8v      081397cc5fb8   used                 N
+│ prefill_paged_turbo8               e45bf3407a1b   used                 N
+│ q2_0_gemv                          d94e369bebea   -                    N
+│ q2_0_gemv_vec                      461e4edb18bb   used                 N
+│ quant_rowwise_fp8                  1e626b8a3a25   -                    N
+│ quantize_bf16_to_fp8_blockscaled   68ebed9e2706   -                    N
+│ quantize_nvfp4                     225759ad81f9   used                 N
+│ relu2                              9ca7d0d89bcb   -                    N
+│ reshape_and_cache                  1ff39b18cce3   used                 N
+│ reshape_and_cache_turbo            5bd3666c2efb   -                    N
+│ residual_add                       6f5cda944230   used                 N
+│ rms_norm_vanilla                   afca074afa31   -                    N
+│ rope                               0c9e11777609   used                 N
+│ rope_mrope_interleaved             3ad05b8ad684   used                 N
+│ ssm_h_dtype                        71fc4ec62b4a   used                 N
+│ ssm_preprocess                     be3ce7f5576c   used                 N
+│ ssm_state_norm                     d360f511d031   used                 N
+│ token_overlay                      36b987f13fe3   used                 N
+│ tq_plus_innerq_apply               f386b419370d   used                 N
+│ transpose_u8                       231b85b903d6   used                 N
+│ vector_add                         c5307a23277d   -                    N
+│ vision_encoder                     5d5643ec9948   used                 N
+│ w4a16                              04f476dd922a   used                 Y (1 dropped)
+│ w4a16_fp8_ldmab                    26f1c1f2dd4e   -                    N
+│ w4a16_gemv                         2f285c75f86d   used                 N
+│ w4a16_gemv_fused                   9e9778cd14d2   used                 N
+│ w8a16_gemm                         e974f7e0d13f   used                 N
+│ w8a16_gemm_pipelined               15f207518fa6   used                 N
+│ w8a16_gemm_t                       60091e2746f7   used                 N
+│ w8a16_gemm_t_m128                  7ff753cd8aa3   used                 N
+│ w8a16_gemv                         55805d4299d9   used                 N
+│ w8a16_gemv_batch4                  a5a48306d4d1   used                 N
+│ w8a16_gemv_fused                   646930a34817   -                    N
+│ wht_bf16                           4a07ee00eb6c   used                 N
+│ widen_block_scale_f32              6db3bf165dfa   used                 N
+└─
+
+20 kernel(s) declared expected-absent in this target's MODEL.toml [expected_absent] (no action):
+    gated_delta_rule::gated_delta_rule_decode_f16_norm, gated_delta_rule::gated_delta_rule_decode_f16_strided_norm_half, gated_delta_rule::gated_delta_rule_decode_f32_strided_norm_half, gated_delta_rule::gated_delta_rule_decode_f32_strided_norm_smem, gated_delta_rule_snap::gated_delta_rule_decode_f32_norm_snap, gated_delta_rule_snap::gated_delta_rule_decode_f32_strided_norm_snap, gdn_verify_fused_conv_kn_f32::gdn_verify_fused_conv_kn_f32, moe_w4a16::moe_w4a16_down_t_k64_fp4, moe_w4a16::moe_w4a16_fused_gate_up_t_e8m0, moe_w4a16::moe_w4a16_fused_gate_up_t_k64_e8m0, moe_w4a16::moe_w4a16_fused_gate_up_t_k64_fp4, moe_w4a16::moe_w4a16_fused_gate_up_t_k64_m128, moe_w4a16::moe_w4a16_grouped_gemm_ptrtable_e8m0, moe_w4a16::moe_w4a16_grouped_gemm_ptrtable_t_e8m0, moe_w4a16::moe_w4a16_grouped_gemm_ptrtable_t_k64_e8m0, w4a16::w4a16_gemm_t_k64_n64_p3, w4a16::w4a16_gemm_t_k64_p3, w4a16::w4a16_gemm_t_m128_bf16, w4a16::w4a16_gemm_t_p3, w4a4::w4a4_gemm_mfast
+
+[2m2026-09-05T21:08:52.770268Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::runtime[0m[2m:[0m EOS tokens (from generation_config.json): [248046, 248044]
+[2m2026-09-05T21:08:52.770292Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::runtime[0m[2m:[0m Default sampling: temperature=1, top_k=20, top_p=0.95, top_n_sigma=1, min_p=0.08
+[2m2026-09-05T21:08:53.108620Z[0m [32m INFO[0m [2mspark::tokenizer::jinja_helpers[0m[2m:[0m Loaded Jinja chat template from tokenizer_config.json (7772 chars)
+[2m2026-09-05T21:08:53.109035Z[0m [32m INFO[0m [2mspark::tokenizer::chat_impl[0m[2m:[0m Loaded tokenizer from /workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/snapshots/95a723d08a9490559dae23d0cff1d9466213d989/tokenizer.json
+[2m2026-09-05T21:08:53.166268Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Reasoning parser: qwen (auto-detected from model_type 'qwen3_6_moe')
+[2m2026-09-05T21:08:53.166480Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Code-fence token: 71093 (``` — F2 fence guard active)
+[2m2026-09-05T21:08:53.321830Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Numeric-token mask: 10/248070 ids classified as digit-runs (digit-normalized content-loop path active)
+[2m2026-09-05T21:08:53.476749Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Boundary-token mask: 620/248070 ids end in a newline / sentence boundary (Phase-C rollback-to-boundary active)
+[2m2026-09-05T21:08:53.636760Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Mid-word token mask: 241519/248070 ids end in alphanumeric (mid-word </think> defer active during thinking)
+[2m2026-09-05T21:08:53.636771Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Thinking end token: 248069 (</think>)
+[2m2026-09-05T21:08:53.636775Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Thinking start token: 248068 (<think>)
+[2m2026-09-05T21:08:53.636788Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m ChatML role-boundary hard stop: <|im_start|> (id 248045) registered
+[2m2026-09-05T21:08:53.636801Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Tool-response hard stop: <tool_response> (id 248066) registered
+[2m2026-09-05T21:08:53.636864Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Tool call start token: 248058 (<tool_call>)
+[2m2026-09-05T21:08:53.636871Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Tool call end token: 248059 (</tool_call>)
+[2m2026-09-05T21:08:53.938410Z[0m [32m INFO[0m [2mspark::grammar::engine[0m[2m:[0m Grammar: detected tokenizer vocab_type=byte_level, add_prefix_space=false
+[2m2026-09-05T21:08:54.218473Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Grammar engine initialized (vocab_size=248070, vocab_type=auto-detected from tokenizer)
+[2m2026-09-05T21:08:54.218695Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m Scheduling policy: SLAI (TBT deadline=100ms)
+[2m2026-09-05T21:08:54.218856Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::runtime[0m[2m:[0m Tool call parser: qwen3_coder (auto-detected from model_type 'qwen3_6_moe')
+[2m2026-09-05T21:08:54.218865Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::runtime[0m[2m:[0m Tool call parser: 'qwen3_coder' has registered XGrammar grammar — constrained decoding ENABLED for tool requests
+[2m2026-09-05T21:08:54.218871Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::runtime[0m[2m:[0m Response store: max_entries=10000, ttl=86400s, persist=memory-only
+[2m2026-09-05T21:08:54.218883Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::runtime[0m[2m:[0m Model behavior: max_thinking_budget=768, thinking_default=true
+[2m2026-09-05T21:08:54.218887Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::runtime[0m[2m:[0m Model behavior: content-loop watchdog ENABLED (period-2…64 repetition detector)
+[2m2026-09-05T21:08:54.218891Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::runtime[0m[2m:[0m Model behavior: watchdog rollback+re-steer ENABLED (cap 2 per sequence)
+[2m2026-09-05T21:08:54.218894Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::runtime[0m[2m:[0m --disable-thinking set: thinking is forced OFF for every request
+[2m2026-09-05T21:08:54.219095Z[0m [32m INFO[0m [2mspark::scheduler[0m[2m:[0m Scheduler started (batched mode, max_batch=32, mtp=false, ngram=false, num_drafts=0, policy=slai, chunked_prefill=true, max_prefill_tokens=32768)
+[2m2026-09-05T21:08:54.219840Z[0m [33m WARN[0m [2mspark::main_modules::serve_router[0m[2m:[0m Atlas is listening on 0.0.0.0:8888 — reachable from any host on the network. If this machine is on a shared LAN or has a public IP, pass --bind 127.0.0.1 (or set --require-auth and a real firewall) before accepting traffic.
+[2m2026-09-05T21:08:54.219853Z[0m [32m INFO[0m [2mspark::scheduler[0m[2m:[0m Swap space: 3 GB at /tmp/atlas-swap-18191
+[2m2026-09-05T21:08:54.219900Z[0m [32m INFO[0m [2mspark::main_modules::serve_router[0m[2m:[0m Server live and ready at 127.0.0.1:8888 running Qwen/Qwen3.6-35B-A3B-FP8
+[2m2026-09-05T21:08:54.622053Z[0m [32m INFO[0m [2mspark::api::chat::prepare[0m[2m:[0m Request: model=Qwen/Qwen3.6-35B-A3B-FP8, messages=1, tools=0, tools_active=false, tool_choice=None, stream=false, temp=Some(0.0), max_tokens=1, freq_pen=Some(0.0), rep_pen=None
+[2m2026-09-05T21:08:54.622382Z[0m [32m INFO[0m [2mspark::tokenizer::chat_impl[0m[2m:[0m Jinja rendered (71 chars): "<|im_start|>user\nhi<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+[2m2026-09-05T21:08:54.622826Z[0m [32m INFO[0m [2mspark::api::chat[0m[2m:[0m Session 0xad17a500a5cd2703: 13 prompt tokens, tools=false (0 defined)
+[2m2026-09-05T21:08:54.622887Z[0m [32m INFO[0m [2mspark::api::chat::sampling_setup[0m[2m:[0m sampling resolved (first request): temp=0.000 top_p=0.950 top_k=20 min_p=0.0800 top_n_sigma=1.0000 rep_pen=1.000 (core_preset=false)
+[2m2026-09-05T21:08:54.623408Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Chunked prefill start: 13 prompt tokens, chunk_size=13, max_tokens=1
+[2m2026-09-05T21:08:54.625359Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::trait_prefill_recur[0m[2m:[0m GDN prefill: FLA chunked path ACTIVE (baked default: recompute_wu → chunk_delta_h_ksplit → chunk_fwd_o)
+[2m2026-09-05T21:08:54.636817Z[0m [32m INFO[0m [2mspark_model::layers::fp8_calibration[0m[2m:[0m FP8 KV scale frozen on first observe (13 tok, headroom=2.0): k_scale=0.074777 (max=16.75), v_scale=0.046596 (max=10.44) — constant for all entries
+[2m2026-09-05T21:08:54.640921Z[0m [32m INFO[0m [2mspark_model::layers::fp8_calibration[0m[2m:[0m FP8 KV scale frozen on first observe (13 tok, headroom=2.0): k_scale=0.088728 (max=19.88), v_scale=0.054688 (max=12.25) — constant for all entries
+[2m2026-09-05T21:08:54.645014Z[0m [32m INFO[0m [2mspark_model::layers::fp8_calibration[0m[2m:[0m FP8 KV scale frozen on first observe (13 tok, headroom=2.0): k_scale=0.059710 (max=13.38), v_scale=0.052734 (max=11.81) — constant for all entries
+[2m2026-09-05T21:08:54.649110Z[0m [32m INFO[0m [2mspark_model::layers::fp8_calibration[0m[2m:[0m FP8 KV scale frozen on first observe (13 tok, headroom=2.0): k_scale=0.070312 (max=15.75), v_scale=0.054967 (max=12.31) — constant for all entries
+[2m2026-09-05T21:08:54.653207Z[0m [32m INFO[0m [2mspark_model::layers::fp8_calibration[0m[2m:[0m FP8 KV scale frozen on first observe (13 tok, headroom=2.0): k_scale=0.075335 (max=16.88), v_scale=0.051060 (max=11.44) — constant for all entries
+[2m2026-09-05T21:08:54.657289Z[0m [32m INFO[0m [2mspark_model::layers::fp8_calibration[0m[2m:[0m FP8 KV scale frozen on first observe (13 tok, headroom=2.0): k_scale=0.077567 (max=17.38), v_scale=0.079241 (max=17.75) — constant for all entries
+[2m2026-09-05T21:08:54.667838Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Prefill first token: 9419
+[2m2026-09-05T21:08:54.667876Z[0m [32m INFO[0m [2mspark::scheduler::mtp_accept_debug[0m[2m:[0m Done: 1 tokens (length) 52331.4 tok/s, TTFT=44.5ms, serial=0.00 mtp=0.00 p1=0.000 mean_na=0.000 tok_step=1.000 regime_reprobes=0
+[2m2026-09-05T21:09:38.080541Z[0m [32m INFO[0m [2mspark::api::chat::prepare[0m[2m:[0m Request: model=Qwen/Qwen3.6-35B-A3B-FP8, messages=1, tools=0, tools_active=false, tool_choice=None, stream=true, temp=Some(0.0), max_tokens=256, freq_pen=Some(0.0), rep_pen=None
+[2m2026-09-05T21:09:38.080977Z[0m [32m INFO[0m [2mspark::tokenizer::chat_impl[0m[2m:[0m Jinja rendered (164 chars): "<|im_start|>user\nList exactly five prime numbers greater than one hundred, comma separated, with no other words.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+[2m2026-09-05T21:09:38.081718Z[0m [32m INFO[0m [2mspark::api::chat[0m[2m:[0m Session 0x22edf306cc1e3ad6: 30 prompt tokens, tools=false (0 defined)
+[2m2026-09-05T21:09:38.082182Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Chunked prefill start: 30 prompt tokens, chunk_size=30, max_tokens=256
+[2m2026-09-05T21:09:38.142389Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::finalize_last[0m[2m:[0m Saved SSM snapshot 0 for 30 tokens (2 blocks) [chunk]
+[2m2026-09-05T21:09:38.153892Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Prefill first token: 16
+[2m2026-09-05T21:09:38.153920Z[0m [32m INFO[0m [2mspark::scheduler::phase_start_prefills[0m[2m:[0m Prefilled (single chunk): seq_len=30, remaining=255
+[2m2026-09-05T21:09:38.153988Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_a[0m[2m:[0m FP8 calibration frozen — re-enabling CUDA graphs
+[2m2026-09-05T21:09:38.153996Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_a[0m[2m:[0m CUDA graph capture: starting for 40 layers
+[2m2026-09-05T21:09:38.158865Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_a[0m[2m:[0m CUDA graph captured successfully for slot=0 (handle=134506230464464)
+[2m2026-09-05T21:09:38.251691Z[0m [32m INFO[0m [2mspark::scheduler::mtp_accept_debug[0m[2m:[0m Done: 24 tokens (stop) 245.5 tok/s, TTFT=71.7ms, serial=1.00 mtp=0.00 p1=0.000 mean_na=0.000 tok_step=1.000 regime_reprobes=0
+[2m2026-09-05T21:09:38.251950Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m Saved finish-leaf SSM snapshot 1 for 53 tokens
+[2m2026-09-05T21:09:38.385887Z[0m [32m INFO[0m [2mspark::api::chat::prepare[0m[2m:[0m Request: model=Qwen/Qwen3.6-35B-A3B-FP8, messages=2, tools=1, tools_active=true, tool_choice=Some(Mode("auto")), stream=true, temp=Some(0.0), max_tokens=256, freq_pen=Some(0.0), rep_pen=None
+[2m2026-09-05T21:09:38.393791Z[0m [32m INFO[0m [2mspark::api::chat[0m[2m:[0m Session 0xdb798841b149b96e: 1135 prompt tokens, tools=true (1 defined)
+[2m2026-09-05T21:09:42.864449Z[0m [32m INFO[0m [2mspark::scheduler::emit_step[0m[2m:[0m Grammar constrained decoding active: parser=qwen3_coder, tools=1
+[2m2026-09-05T21:09:42.864477Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Chunked prefill start: 1135 prompt tokens, chunk_size=1135, max_tokens=256
+[2m2026-09-05T21:09:43.243849Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::save_checkpoint[0m[2m:[0m Intermediate SSM checkpoint saved at token 1104 (snapshot_id 2, block 69)
+[2m2026-09-05T21:09:43.299244Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::finalize_last[0m[2m:[0m Saved SSM snapshot 3 for 1135 tokens (71 blocks) [chunk]
+[2m2026-09-05T21:09:43.312097Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Prefill first token: 248058
+[2m2026-09-05T21:09:43.312117Z[0m [32m INFO[0m [2mspark::scheduler::phase_start_prefills[0m[2m:[0m Prefilled (single chunk): seq_len=1135, remaining=255
+[2m2026-09-05T21:09:43.658591Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=1152 end_block=72 snap_id=4 block_table_len=72 straddle=0
+[2m2026-09-05T21:09:44.035620Z[0m [32m INFO[0m [2mspark::api::chat_stream::tool_handlers[0m[2m:[0m Tool call: get_weather({"city":"Reykjavik","days":3})
+[2m2026-09-05T21:09:44.041178Z[0m [32m INFO[0m [2mspark::scheduler::mtp_accept_debug[0m[2m:[0m Done: 41 tokens (stop) 56.2 tok/s, TTFT=447.6ms, serial=1.00 mtp=0.00 p1=0.000 mean_na=0.000 tok_step=1.000 regime_reprobes=0
+[2m2026-09-05T21:09:44.041413Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m Saved finish-leaf SSM snapshot 5 for 1175 tokens
+[2m2026-09-05T21:09:44.210877Z[0m [32m INFO[0m [2mspark::tokenizer::chat_impl[0m[2m:[0m Jinja rendered (398 chars): "or hedge on simple factual or arithmetic questions.<|im_end|>\n<|im_start|>user\nSpell the word 'refrigerator' backwards, then explain how you did it.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+[2m2026-09-05T21:09:44.331234Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Chunked prefill start: 78 prompt tokens, chunk_size=78, max_tokens=64
+[2m2026-09-05T21:09:44.419795Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::save_checkpoint[0m[2m:[0m Intermediate SSM checkpoint saved at token 48 (snapshot_id 6, block 3)
+[2m2026-09-05T21:09:44.484961Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::finalize_last[0m[2m:[0m Saved SSM snapshot 7 for 78 tokens (5 blocks) [chunk]
+[2m2026-09-05T21:09:44.497668Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Prefill first token: 760
+[2m2026-09-05T21:09:44.497678Z[0m [32m INFO[0m [2mspark::scheduler::phase_start_prefills[0m[2m:[0m Prefilled (single chunk): seq_len=78, remaining=63
+[2m2026-09-05T21:09:44.837764Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=128 end_block=8 snap_id=8 block_table_len=8 straddle=0
+[2m2026-09-05T21:09:44.925767Z[0m [32m INFO[0m [2mspark::scheduler::decode_logits_step[0m[2m:[0m process_decode_logits: remaining=0, output_tokens=64, thinking_tokens=0
+[2m2026-09-05T21:09:44.925789Z[0m [32m INFO[0m [2mspark::scheduler::mtp_accept_debug[0m[2m:[0m Done: 64 tokens (length) 149.5 tok/s, TTFT=166.4ms, serial=1.00 mtp=0.00 p1=0.000 mean_na=0.000 tok_step=1.000 regime_reprobes=0
+[2m2026-09-05T21:09:44.925998Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m Saved finish-leaf SSM snapshot 9 for 141 tokens
+[2m2026-09-05T21:10:58.676050Z[0m [32m INFO[0m [2mspark::tui::shutdown[0m[2m:[0m Shutdown requested (SIGTERM) — draining in-flight requests
+[2m2026-09-05T21:10:58.676280Z[0m [32m INFO[0m [2mspark::tui::shutdown[0m[2m:[0m Drain complete — no active requests
+[2m2026-09-05T21:10:58.676339Z[0m [32m INFO[0m [2mspark::main_modules::serve_router[0m[2m:[0m Shutdown complete

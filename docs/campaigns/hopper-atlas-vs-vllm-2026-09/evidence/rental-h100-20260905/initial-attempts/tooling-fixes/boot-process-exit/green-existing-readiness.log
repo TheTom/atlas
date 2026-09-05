@@ -1,0 +1,297 @@
+{
+  "schema": 1,
+  "engine": "selftest",
+  "url": "http://127.0.0.1:50949",
+  "model": "stub-model",
+  "start_epoch": 1788641700.5669966,
+  "time_to_ready_s": 2.016,
+  "first_token_s": 0.006,
+  "polls": 3,
+  "http_codes_seen": [
+    "503",
+    "200"
+  ],
+  "timeout_s": 30.0,
+  "status": "ready",
+  "passed": true,
+  "http_exchanges": [
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": 503,
+      "response_body": "{\"status\": \"loading\"}",
+      "response_complete": true
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": 503,
+      "response_body": "{\"status\": \"loading\"}",
+      "response_complete": true
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": 200,
+      "response_body": "{\"status\": \"ready\"}",
+      "response_complete": true
+    },
+    {
+      "path": "/v1/chat/completions",
+      "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"hi\"}], \"max_tokens\": 1, \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"choices\": [{\"message\": {\"content\": \"x\"}, \"finish_reason\": \"length\"}]}",
+      "response_complete": true
+    }
+  ],
+  "total_s": 2.022
+}
+SELFTEST OK: measured 2.016 s over 3 polls ['503', '200']
+{
+  "clean": {
+    "exit_code": 0,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:45267/clean",
+      "model": "stub-model",
+      "start_epoch": 1788641702.6557248,
+      "time_to_ready_s": 0.019,
+      "first_token_s": 0.004,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "ready",
+      "passed": true,
+      "http_exchanges": [
+        {
+          "path": "/health",
+          "request_json": null,
+          "response_status": 200,
+          "response_body": "{\"status\": \"ready\"}",
+          "response_complete": true
+        },
+        {
+          "path": "/v1/chat/completions",
+          "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"hi\"}], \"max_tokens\": 1, \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+          "response_status": 200,
+          "response_body": "{\"choices\": [{\"message\": {\"content\": \"x\"}, \"finish_reason\": \"length\"}]}",
+          "response_complete": true
+        }
+      ],
+      "total_s": 0.023
+    }
+  },
+  "http500": {
+    "exit_code": 1,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:45267/http500",
+      "model": "stub-model",
+      "start_epoch": 1788641702.6819046,
+      "time_to_ready_s": 0.018,
+      "first_token_s": null,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "first-token-failed",
+      "passed": false,
+      "http_exchanges": [
+        {
+          "path": "/health",
+          "request_json": null,
+          "response_status": 200,
+          "response_body": "{\"status\": \"ready\"}",
+          "response_complete": true
+        },
+        {
+          "path": "/v1/chat/completions",
+          "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"hi\"}], \"max_tokens\": 1, \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+          "response_status": 500,
+          "response_body": "{\"error\": \"known failure\"}",
+          "response_complete": true
+        }
+      ],
+      "total_s": 0.023,
+      "detail": "curl exit 22: curl: (22) The requested URL returned error: 500"
+    }
+  },
+  "error200": {
+    "exit_code": 1,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:45267/error200",
+      "model": "stub-model",
+      "start_epoch": 1788641702.7083097,
+      "time_to_ready_s": 0.018,
+      "first_token_s": null,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "first-token-failed",
+      "passed": false,
+      "http_exchanges": [
+        {
+          "path": "/health",
+          "request_json": null,
+          "response_status": 200,
+          "response_body": "{\"status\": \"ready\"}",
+          "response_complete": true
+        },
+        {
+          "path": "/v1/chat/completions",
+          "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"hi\"}], \"max_tokens\": 1, \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+          "response_status": 200,
+          "response_body": "{\"error\": \"known failure\"}",
+          "response_complete": true
+        }
+      ],
+      "total_s": 0.023,
+      "detail": "invalid first-token completion: completion returned an error or a non-object"
+    }
+  },
+  "empty": {
+    "exit_code": 1,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:45267/empty",
+      "model": "stub-model",
+      "start_epoch": 1788641702.7355938,
+      "time_to_ready_s": 0.02,
+      "first_token_s": null,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "first-token-failed",
+      "passed": false,
+      "http_exchanges": [
+        {
+          "path": "/health",
+          "request_json": null,
+          "response_status": 200,
+          "response_body": "{\"status\": \"ready\"}",
+          "response_complete": true
+        },
+        {
+          "path": "/v1/chat/completions",
+          "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"hi\"}], \"max_tokens\": 1, \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+          "response_status": 200,
+          "response_body": "{\"choices\": [{\"message\": {\"content\": \"\"}, \"finish_reason\": \"length\"}]}",
+          "response_complete": true
+        }
+      ],
+      "total_s": 0.026,
+      "detail": "invalid first-token completion: empty first-token reply"
+    }
+  },
+  "invalid": {
+    "exit_code": 1,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:45267/invalid",
+      "model": "stub-model",
+      "start_epoch": 1788641702.7644577,
+      "time_to_ready_s": 0.019,
+      "first_token_s": null,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "first-token-failed",
+      "passed": false,
+      "http_exchanges": [
+        {
+          "path": "/health",
+          "request_json": null,
+          "response_status": 200,
+          "response_body": "{\"status\": \"ready\"}",
+          "response_complete": true
+        },
+        {
+          "path": "/v1/chat/completions",
+          "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"hi\"}], \"max_tokens\": 1, \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+          "response_status": 200,
+          "response_body": "not json",
+          "response_complete": true
+        }
+      ],
+      "total_s": 0.023,
+      "detail": "invalid first-token completion: Expecting value: line 1 column 1 (char 0)"
+    }
+  },
+  "expired": {
+    "exit_code": 1,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:45267/expired",
+      "model": "stub-model",
+      "start_epoch": 1788641700.7903392,
+      "time_to_ready_s": null,
+      "first_token_s": null,
+      "polls": 0,
+      "http_codes_seen": [],
+      "timeout_s": 0.4,
+      "status": "timeout",
+      "passed": false,
+      "http_exchanges": [],
+      "total_s": 2.014,
+      "detail": "health did not pass within process-start deadline"
+    }
+  },
+  "slow": {
+    "exit_code": 1,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:45267/slow",
+      "model": "stub-model",
+      "start_epoch": 1788641702.8078115,
+      "time_to_ready_s": 0.018,
+      "first_token_s": null,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 0.4,
+      "status": "timeout",
+      "passed": false,
+      "http_exchanges": [
+        {
+          "path": "/health",
+          "request_json": null,
+          "response_status": 200,
+          "response_body": "{\"status\": \"ready\"}",
+          "response_complete": true
+        },
+        {
+          "path": "/v1/chat/completions",
+          "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"hi\"}], \"max_tokens\": 1, \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+          "response_status": 200,
+          "response_body": "",
+          "response_complete": false
+        }
+      ],
+      "total_s": 0.406,
+      "detail": "first completion exceeded process-start deadline"
+    }
+  },
+  "unwritable-artifact": {
+    "exit_code": 1,
+    "stderr": "tee: /tmp/tmpws0fdksa/missing/boot.json: No such file or directory\n"
+  }
+}
+SELFTEST OK: HTTP500, error JSON, empty/invalid replies, expired and slow boots refused; sampling pinned

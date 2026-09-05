@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "kind": "cell-deadline",
+  "status": "cancelled",
+  "target_pid": 13373,
+  "target_start_ticks": 17249067,
+  "watchdog_pid": 13403,
+  "watchdog_start_ticks": 17249161,
+  "boot_id": "f7dff0ed-70ad-46d4-8961-c7075e4c6f72",
+  "armed_utc": "2026-09-05T20:47:27.617359+00:00",
+  "timeout_s": 2700.0,
+  "grace_s": 60.0,
+  "deadline_exceeded": false,
+  "cleanup_unconfirmed": false,
+  "updated_utc": "2026-09-05T20:49:48.018582+00:00",
+  "elapsed_s": 140.4013447180041
+}

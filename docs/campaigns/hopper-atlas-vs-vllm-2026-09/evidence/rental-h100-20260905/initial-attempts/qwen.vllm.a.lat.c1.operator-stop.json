@@ -1,0 +1,7 @@
+{
+  "operator_action": "SIGTERM through pidfd after engine already failed model inspection",
+  "reason": "Missing Python.h in Triton helper compilation; avoid waiting full boot cap after observed process exit",
+  "target_pid": 12161,
+  "target_start_ticks": 17220848,
+  "epoch": 1788641161.3614562
+}

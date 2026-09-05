@@ -1,0 +1,45 @@
+{
+  "kind": "CPU_IMPORT_PROBE_ONLY",
+  "python": "3.12.3",
+  "machine": "x86_64",
+  "versions": {
+    "vllm": "0.28.0",
+    "torch": "2.13.0",
+    "transformers": "5.16.1",
+    "tokenizers": "0.23.2",
+    "huggingface-hub": "1.30.0",
+    "flashinfer-python": "0.6.16.post3",
+    "flashinfer-cubin": null,
+    "triton": "3.7.1",
+    "nvidia-cutlass-dsl": "4.6.2"
+  },
+  "checks": [
+    {
+      "check": "qwen3_xml_tool_parser_import",
+      "passed": true,
+      "observed": "vllm.tool_parsers.qwen3_engine_tool_parser.Qwen3EngineToolParser"
+    },
+    {
+      "check": "qwen3_reasoning_parser_import",
+      "passed": true,
+      "observed": "vllm.parser.engine.adapters.Qwen3ParserReasoningAdapter"
+    },
+    {
+      "check": "qwen3_5_moe_registry",
+      "passed": true,
+      "observed": "Qwen3_5MoeForConditionalGeneration"
+    },
+    {
+      "check": "torch_import",
+      "passed": true,
+      "observed": "2.13.0+cu130"
+    },
+    {
+      "check": "transformers_import",
+      "passed": true,
+      "observed": "5.16.1"
+    }
+  ],
+  "passed": true,
+  "limitations": "No CUDA initialization, weight loading, H100 execution, or checkpoint support certification."
+}

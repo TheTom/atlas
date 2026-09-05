@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "kind": "linux-proc-endpoint",
+  "operation": "owned",
+  "checked_at": "2026-09-05T21:04:59.604319+00:00",
+  "status": "owned",
+  "address": "127.0.0.1",
+  "port": 8000,
+  "network_namespace": "net:[4026538182]",
+  "pid": 13908,
+  "start_ticks": 17281474,
+  "boot_id": "f7dff0ed-70ad-46d4-8961-c7075e4c6f72",
+  "run_marker": "3c5a706e692a40cfb5209f30caa58d43",
+  "pgid": 13908,
+  "sid": 13908,
+  "listeners": [
+    {
+      "address": "0.0.0.0",
+      "port": 8000,
+      "remote": "0.0.0.0",
+      "remote_port": 0,
+      "state": "0A",
+      "inode": 18971155,
+      "table": "tcp"
+    }
+  ],
+  "accepted_socket": {
+    "address": "127.0.0.1",
+    "port": 8000,
+    "remote": "127.0.0.1",
+    "remote_port": 40374,
+    "state": "01",
+    "inode": 19021200,
+    "table": "tcp",
+    "pid": 13908,
+    "start_ticks": 17281474,
+    "fd": 43
+  }
+}

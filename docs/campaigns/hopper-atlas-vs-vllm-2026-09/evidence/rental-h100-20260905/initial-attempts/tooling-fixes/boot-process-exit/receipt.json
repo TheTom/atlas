@@ -1,0 +1,42 @@
+{
+  "boot_commit": "d57d9243bc4002b61360e779a30a8e399b587699",
+  "cleanup_commit": "9b6b70504150cb3ef31bbebeab2d56b04f572b03",
+  "base_commit": "2b49ccdbdc86ebb7e6c5bbd976726092cce1deae",
+  "linux_host": "pidtom@192.168.50.125",
+  "scope": "CPU fixtures only; nvidia-smi in runner test is a PATH stub; no GPU commands or engine execution",
+  "linux_directory": "/home/pidtom/atlas-boot-exit-jbAh6qKj",
+  "boot_red": "real run_cell process-mode server stopped after boot begins: old gate still polling after5s; red.log",
+  "boot_green": {
+    "runner_tests": 3,
+    "readiness_methods": 5,
+    "last_runner_exit_after_s": 1.091,
+    "http_stalled_max_s": 0.353
+  },
+  "cleanup_red": "Real Linux openat(environ) through proc directory retained across exact child exit/reap yields ESRCH3; old owned_members propagates; red-esrch.log",
+  "cleanup_green": {
+    "process_launch_executed_passed": 12,
+    "optional_setproctitle_skipped": 1,
+    "permission_and_io_controls": "errors still propagate"
+  },
+  "mac_campaign_assertions": 85,
+  "additional_checks": [
+    "existing time_to_ready selftest on Linux and Mac",
+    "shellcheck changed shell scripts",
+    "typos changed sources",
+    "git diff --check"
+  ],
+  "final_joint_checks": [
+    "final-runner.log",
+    "final-readiness.log"
+  ],
+  "source_hashes_verified": true,
+  "remote_directory_removed": true,
+  "disk_free_before": "7.3G",
+  "disk_free_after": "7.3G",
+  "limitations": [
+    "CPU evidence only; no GPU performance or engine numerical claim",
+    "process-mode boot only; container-mode early-exit detection unchanged",
+    "Guard tracks exact API leader; run_cell remains responsible for owned descendants and teardown",
+    "Process exit code cannot be reaped by readiness because launcher is its original parent; failed boot status claims observed exit only"
+  ]
+}

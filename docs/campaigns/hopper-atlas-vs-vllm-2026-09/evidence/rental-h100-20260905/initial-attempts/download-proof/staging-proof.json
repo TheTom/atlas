@@ -1,0 +1,523 @@
+{
+  "complete": true,
+  "started_utc": "2026-09-05T20:25:44.884471+00:00",
+  "repo_id": "Qwen/Qwen3.6-35B-A3B-FP8",
+  "revision": "95a723d08a9490559dae23d0cff1d9466213d989",
+  "snapshot": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/snapshots/95a723d08a9490559dae23d0cff1d9466213d989",
+  "files": [
+    {
+      "path": "configuration.json",
+      "size": 58,
+      "hash_type": "git-sha1",
+      "expected_hash": "d24dba949ee1fe70cc810e4c4709a0bddf4e06ba",
+      "observed_hash": "d24dba949ee1fe70cc810e4c4709a0bddf4e06ba",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/d24dba949ee1fe70cc810e4c4709a0bddf4e06ba",
+      "reused": false
+    },
+    {
+      "path": "generation_config.json",
+      "size": 202,
+      "hash_type": "git-sha1",
+      "expected_hash": "023756cfadf88e5bf69eefeee3e172f38c448d64",
+      "observed_hash": "023756cfadf88e5bf69eefeee3e172f38c448d64",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/023756cfadf88e5bf69eefeee3e172f38c448d64",
+      "reused": false
+    },
+    {
+      "path": "video_preprocessor_config.json",
+      "size": 385,
+      "hash_type": "git-sha1",
+      "expected_hash": "3ba673a5ad7d4d13f54155ecd38b2a94a6dac8fe",
+      "observed_hash": "3ba673a5ad7d4d13f54155ecd38b2a94a6dac8fe",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/3ba673a5ad7d4d13f54155ecd38b2a94a6dac8fe",
+      "reused": false
+    },
+    {
+      "path": "preprocessor_config.json",
+      "size": 390,
+      "hash_type": "git-sha1",
+      "expected_hash": "2ea84a437d448ff71b08df68fdd949d5cc4ebb64",
+      "observed_hash": "2ea84a437d448ff71b08df68fdd949d5cc4ebb64",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/2ea84a437d448ff71b08df68fdd949d5cc4ebb64",
+      "reused": false
+    },
+    {
+      "path": ".gitattributes",
+      "size": 1570,
+      "hash_type": "git-sha1",
+      "expected_hash": "52373fe24473b1aa44333d318f578ae6bf04b49b",
+      "observed_hash": "52373fe24473b1aa44333d318f578ae6bf04b49b",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/52373fe24473b1aa44333d318f578ae6bf04b49b",
+      "reused": false
+    },
+    {
+      "path": "chat_template.jinja",
+      "size": 7764,
+      "hash_type": "git-sha1",
+      "expected_hash": "a8755d827c0a7b614c246c4060dfd58ab352a8ff",
+      "observed_hash": "a8755d827c0a7b614c246c4060dfd58ab352a8ff",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/a8755d827c0a7b614c246c4060dfd58ab352a8ff",
+      "reused": false
+    },
+    {
+      "path": "LICENSE",
+      "size": 11343,
+      "hash_type": "git-sha1",
+      "expected_hash": "1d5180a42f1c3383ba7c7bd0a50f0837ef0168df",
+      "observed_hash": "1d5180a42f1c3383ba7c7bd0a50f0837ef0168df",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/1d5180a42f1c3383ba7c7bd0a50f0837ef0168df",
+      "reused": false
+    },
+    {
+      "path": "tokenizer_config.json",
+      "size": 16718,
+      "hash_type": "git-sha1",
+      "expected_hash": "28d96ff303d1d20350185caf4bf037045916ed35",
+      "observed_hash": "28d96ff303d1d20350185caf4bf037045916ed35",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/28d96ff303d1d20350185caf4bf037045916ed35",
+      "reused": false
+    },
+    {
+      "path": "config.json",
+      "size": 37000,
+      "hash_type": "git-sha1",
+      "expected_hash": "c8df3b893d8070130c2b59497ddb508f41cf9168",
+      "observed_hash": "c8df3b893d8070130c2b59497ddb508f41cf9168",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/c8df3b893d8070130c2b59497ddb508f41cf9168",
+      "reused": false
+    },
+    {
+      "path": "README.md",
+      "size": 64855,
+      "hash_type": "git-sha1",
+      "expected_hash": "966c3e089adc1402b79cda649fa95604846014ea",
+      "observed_hash": "966c3e089adc1402b79cda649fa95604846014ea",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/966c3e089adc1402b79cda649fa95604846014ea",
+      "reused": false
+    },
+    {
+      "path": "merges.txt",
+      "size": 3353259,
+      "hash_type": "git-sha1",
+      "expected_hash": "a494e019ca1502219fd0128658b979e5f05ae8e8",
+      "observed_hash": "a494e019ca1502219fd0128658b979e5f05ae8e8",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/a494e019ca1502219fd0128658b979e5f05ae8e8",
+      "reused": false
+    },
+    {
+      "path": "model.safetensors.index.json",
+      "size": 6329223,
+      "hash_type": "git-sha1",
+      "expected_hash": "3a6440878f2f2564e214496bb35fcc37cbbf7d8b",
+      "observed_hash": "3a6440878f2f2564e214496bb35fcc37cbbf7d8b",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/3a6440878f2f2564e214496bb35fcc37cbbf7d8b",
+      "reused": false
+    },
+    {
+      "path": "vocab.json",
+      "size": 6722759,
+      "hash_type": "git-sha1",
+      "expected_hash": "0aa0ce0658d60ac4a5d609f4eadb0e8e43514176",
+      "observed_hash": "0aa0ce0658d60ac4a5d609f4eadb0e8e43514176",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/0aa0ce0658d60ac4a5d609f4eadb0e8e43514176",
+      "reused": false
+    },
+    {
+      "path": "tokenizer.json",
+      "size": 12807982,
+      "hash_type": "sha256",
+      "expected_hash": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "observed_hash": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "reused": false
+    },
+    {
+      "path": "layers-3.safetensors",
+      "size": 837092440,
+      "hash_type": "sha256",
+      "expected_hash": "9ebbd0a7aa2f82f516ec339b66b317f5a7d710d244c42d00f4fea22478bac7da",
+      "observed_hash": "9ebbd0a7aa2f82f516ec339b66b317f5a7d710d244c42d00f4fea22478bac7da",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/9ebbd0a7aa2f82f516ec339b66b317f5a7d710d244c42d00f4fea22478bac7da",
+      "reused": false
+    },
+    {
+      "path": "layers-7.safetensors",
+      "size": 837092440,
+      "hash_type": "sha256",
+      "expected_hash": "ec6d9082f26b2e3d6010114cac16d71626836a53812782690bce582bf2baac51",
+      "observed_hash": "ec6d9082f26b2e3d6010114cac16d71626836a53812782690bce582bf2baac51",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/ec6d9082f26b2e3d6010114cac16d71626836a53812782690bce582bf2baac51",
+      "reused": false
+    },
+    {
+      "path": "layers-11.safetensors",
+      "size": 837094000,
+      "hash_type": "sha256",
+      "expected_hash": "0f85558bc82b754230204607f55a3035fd39a6ad4e7f0f5613aa40a632566cab",
+      "observed_hash": "0f85558bc82b754230204607f55a3035fd39a6ad4e7f0f5613aa40a632566cab",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/0f85558bc82b754230204607f55a3035fd39a6ad4e7f0f5613aa40a632566cab",
+      "reused": false
+    },
+    {
+      "path": "layers-15.safetensors",
+      "size": 837094000,
+      "hash_type": "sha256",
+      "expected_hash": "786c965fcbc9544aa97524e986ff7e1e2303b6c22812249b283b8c590ada7a77",
+      "observed_hash": "786c965fcbc9544aa97524e986ff7e1e2303b6c22812249b283b8c590ada7a77",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/786c965fcbc9544aa97524e986ff7e1e2303b6c22812249b283b8c590ada7a77",
+      "reused": false
+    },
+    {
+      "path": "layers-19.safetensors",
+      "size": 837094000,
+      "hash_type": "sha256",
+      "expected_hash": "b1bc3e93c3a22adc01a77b4a2d5e2171e9588e2478ed648526596700ffa566c7",
+      "observed_hash": "b1bc3e93c3a22adc01a77b4a2d5e2171e9588e2478ed648526596700ffa566c7",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/b1bc3e93c3a22adc01a77b4a2d5e2171e9588e2478ed648526596700ffa566c7",
+      "reused": false
+    },
+    {
+      "path": "layers-23.safetensors",
+      "size": 837094000,
+      "hash_type": "sha256",
+      "expected_hash": "51a7c63c51959faa40c369c80ddac42233cd13d7ad6603e75574bbeeca72e98d",
+      "observed_hash": "51a7c63c51959faa40c369c80ddac42233cd13d7ad6603e75574bbeeca72e98d",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/51a7c63c51959faa40c369c80ddac42233cd13d7ad6603e75574bbeeca72e98d",
+      "reused": false
+    },
+    {
+      "path": "layers-27.safetensors",
+      "size": 837094000,
+      "hash_type": "sha256",
+      "expected_hash": "48829a4c312ecaf44e03bd9266245549982c326c0311b37694eb29dde4f30c62",
+      "observed_hash": "48829a4c312ecaf44e03bd9266245549982c326c0311b37694eb29dde4f30c62",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/48829a4c312ecaf44e03bd9266245549982c326c0311b37694eb29dde4f30c62",
+      "reused": false
+    },
+    {
+      "path": "layers-31.safetensors",
+      "size": 837094000,
+      "hash_type": "sha256",
+      "expected_hash": "21073b1a747d3736b46dc4f84ed66ae287ee3acb699807757a06d77de98af99e",
+      "observed_hash": "21073b1a747d3736b46dc4f84ed66ae287ee3acb699807757a06d77de98af99e",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/21073b1a747d3736b46dc4f84ed66ae287ee3acb699807757a06d77de98af99e",
+      "reused": false
+    },
+    {
+      "path": "layers-35.safetensors",
+      "size": 837094000,
+      "hash_type": "sha256",
+      "expected_hash": "a079648624f32732831382efa86c72bf03bc58336dcfe6b8ae11f4fcba33e2ea",
+      "observed_hash": "a079648624f32732831382efa86c72bf03bc58336dcfe6b8ae11f4fcba33e2ea",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/a079648624f32732831382efa86c72bf03bc58336dcfe6b8ae11f4fcba33e2ea",
+      "reused": false
+    },
+    {
+      "path": "layers-39.safetensors",
+      "size": 837094000,
+      "hash_type": "sha256",
+      "expected_hash": "0e347a8527fb41e4dde7e92a359feb0709d770d2b7ab4f2081c940205b85dba9",
+      "observed_hash": "0e347a8527fb41e4dde7e92a359feb0709d770d2b7ab4f2081c940205b85dba9",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/0e347a8527fb41e4dde7e92a359feb0709d770d2b7ab4f2081c940205b85dba9",
+      "reused": false
+    },
+    {
+      "path": "layers-0.safetensors",
+      "size": 843713608,
+      "hash_type": "sha256",
+      "expected_hash": "969ed52b6d4a45e1c919115aed81a48a00004625a0406eebf630e829ff97c5bf",
+      "observed_hash": "969ed52b6d4a45e1c919115aed81a48a00004625a0406eebf630e829ff97c5bf",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/969ed52b6d4a45e1c919115aed81a48a00004625a0406eebf630e829ff97c5bf",
+      "reused": false
+    },
+    {
+      "path": "layers-1.safetensors",
+      "size": 843713608,
+      "hash_type": "sha256",
+      "expected_hash": "9b6714f0a7b7f9f7ed9eceefc31af655de1863bd83a23d735aa8dbad2cc03dfe",
+      "observed_hash": "9b6714f0a7b7f9f7ed9eceefc31af655de1863bd83a23d735aa8dbad2cc03dfe",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/9b6714f0a7b7f9f7ed9eceefc31af655de1863bd83a23d735aa8dbad2cc03dfe",
+      "reused": false
+    },
+    {
+      "path": "layers-2.safetensors",
+      "size": 843713608,
+      "hash_type": "sha256",
+      "expected_hash": "7ca3668d7dde8c47e796186f9a459afe6f86a60e547bc2f72fcc87543e4a718e",
+      "observed_hash": "7ca3668d7dde8c47e796186f9a459afe6f86a60e547bc2f72fcc87543e4a718e",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/7ca3668d7dde8c47e796186f9a459afe6f86a60e547bc2f72fcc87543e4a718e",
+      "reused": false
+    },
+    {
+      "path": "layers-4.safetensors",
+      "size": 843713608,
+      "hash_type": "sha256",
+      "expected_hash": "3fda002efe01809173b2a9179d529e04f1a9e28d58038cf47fea02b1251c544e",
+      "observed_hash": "3fda002efe01809173b2a9179d529e04f1a9e28d58038cf47fea02b1251c544e",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/3fda002efe01809173b2a9179d529e04f1a9e28d58038cf47fea02b1251c544e",
+      "reused": false
+    },
+    {
+      "path": "layers-5.safetensors",
+      "size": 843713608,
+      "hash_type": "sha256",
+      "expected_hash": "85f08db02168b263497757002827eb15c44c9ae46962ec26f19a648a0f5fb826",
+      "observed_hash": "85f08db02168b263497757002827eb15c44c9ae46962ec26f19a648a0f5fb826",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/85f08db02168b263497757002827eb15c44c9ae46962ec26f19a648a0f5fb826",
+      "reused": false
+    },
+    {
+      "path": "layers-6.safetensors",
+      "size": 843713608,
+      "hash_type": "sha256",
+      "expected_hash": "0601aa7cd21d29efdd6330614aaff2b9a7e4b599d1de894fdb50525033c8725a",
+      "observed_hash": "0601aa7cd21d29efdd6330614aaff2b9a7e4b599d1de894fdb50525033c8725a",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/0601aa7cd21d29efdd6330614aaff2b9a7e4b599d1de894fdb50525033c8725a",
+      "reused": false
+    },
+    {
+      "path": "layers-8.safetensors",
+      "size": 843713608,
+      "hash_type": "sha256",
+      "expected_hash": "a4284bb825ff85f6166208edfb8315897771db03dae82a078bc69014c695502a",
+      "observed_hash": "a4284bb825ff85f6166208edfb8315897771db03dae82a078bc69014c695502a",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/a4284bb825ff85f6166208edfb8315897771db03dae82a078bc69014c695502a",
+      "reused": false
+    },
+    {
+      "path": "layers-9.safetensors",
+      "size": 843713608,
+      "hash_type": "sha256",
+      "expected_hash": "f2bc291ccdccde1094f34e5d2f506e2b8a3857327faa9ffbd2d3a5d75de9d23a",
+      "observed_hash": "f2bc291ccdccde1094f34e5d2f506e2b8a3857327faa9ffbd2d3a5d75de9d23a",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/f2bc291ccdccde1094f34e5d2f506e2b8a3857327faa9ffbd2d3a5d75de9d23a",
+      "reused": false
+    },
+    {
+      "path": "layers-10.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "5cc57c2d6e18830429e2c9ea27a0b7d15e6502c74463d3d4ec6b621c699a5ef8",
+      "observed_hash": "5cc57c2d6e18830429e2c9ea27a0b7d15e6502c74463d3d4ec6b621c699a5ef8",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/5cc57c2d6e18830429e2c9ea27a0b7d15e6502c74463d3d4ec6b621c699a5ef8",
+      "reused": false
+    },
+    {
+      "path": "layers-12.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "0eb974e0b80092a722d10140647aedc14647831007ea7d898b892064c9fb4d0d",
+      "observed_hash": "0eb974e0b80092a722d10140647aedc14647831007ea7d898b892064c9fb4d0d",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/0eb974e0b80092a722d10140647aedc14647831007ea7d898b892064c9fb4d0d",
+      "reused": false
+    },
+    {
+      "path": "layers-13.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "7d4bbdc09e40a3ccfa503c5149c7bb477b07bf8a75ca81613aa68031d995cbf8",
+      "observed_hash": "7d4bbdc09e40a3ccfa503c5149c7bb477b07bf8a75ca81613aa68031d995cbf8",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/7d4bbdc09e40a3ccfa503c5149c7bb477b07bf8a75ca81613aa68031d995cbf8",
+      "reused": false
+    },
+    {
+      "path": "layers-14.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "0c6c07e10d047dd742b90fdfdbe734d5b4627fcae7728f8319413194c8d6f171",
+      "observed_hash": "0c6c07e10d047dd742b90fdfdbe734d5b4627fcae7728f8319413194c8d6f171",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/0c6c07e10d047dd742b90fdfdbe734d5b4627fcae7728f8319413194c8d6f171",
+      "reused": false
+    },
+    {
+      "path": "layers-16.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "dbbaab6eef74ab4f24d374ce94203c8f439019a26d322d8b02fb1cee6ed70267",
+      "observed_hash": "dbbaab6eef74ab4f24d374ce94203c8f439019a26d322d8b02fb1cee6ed70267",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/dbbaab6eef74ab4f24d374ce94203c8f439019a26d322d8b02fb1cee6ed70267",
+      "reused": false
+    },
+    {
+      "path": "layers-17.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "29a35db86d591da297ac0ff46f773bf5e5386035172b6c637e00cf0786b0fdc9",
+      "observed_hash": "29a35db86d591da297ac0ff46f773bf5e5386035172b6c637e00cf0786b0fdc9",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/29a35db86d591da297ac0ff46f773bf5e5386035172b6c637e00cf0786b0fdc9",
+      "reused": false
+    },
+    {
+      "path": "layers-18.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "99db8f52e91928e6a362c4510b15112c0c5d2eb0e9279b3413ec1db2016f1b2b",
+      "observed_hash": "99db8f52e91928e6a362c4510b15112c0c5d2eb0e9279b3413ec1db2016f1b2b",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/99db8f52e91928e6a362c4510b15112c0c5d2eb0e9279b3413ec1db2016f1b2b",
+      "reused": false
+    },
+    {
+      "path": "layers-20.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "027f68acf35eb9e9fc41ae12154c18da1b0126bee7eaf16a177cfcbeaafbc7a6",
+      "observed_hash": "027f68acf35eb9e9fc41ae12154c18da1b0126bee7eaf16a177cfcbeaafbc7a6",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/027f68acf35eb9e9fc41ae12154c18da1b0126bee7eaf16a177cfcbeaafbc7a6",
+      "reused": false
+    },
+    {
+      "path": "layers-21.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "79205dfb7fe145b26e5941f1b9590a870bc9e1df3127a67bd1ac32f1a12ad75f",
+      "observed_hash": "79205dfb7fe145b26e5941f1b9590a870bc9e1df3127a67bd1ac32f1a12ad75f",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/79205dfb7fe145b26e5941f1b9590a870bc9e1df3127a67bd1ac32f1a12ad75f",
+      "reused": false
+    },
+    {
+      "path": "layers-22.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "94e7674ffb28f4cd9cf8859c6d0440cbd5d4d3a6dc33193a0442642ae303cd17",
+      "observed_hash": "94e7674ffb28f4cd9cf8859c6d0440cbd5d4d3a6dc33193a0442642ae303cd17",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/94e7674ffb28f4cd9cf8859c6d0440cbd5d4d3a6dc33193a0442642ae303cd17",
+      "reused": false
+    },
+    {
+      "path": "layers-24.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "8c64b42cb8abc93ff5e5ac801c556da6eb81545a151c10320618bae250c9efd9",
+      "observed_hash": "8c64b42cb8abc93ff5e5ac801c556da6eb81545a151c10320618bae250c9efd9",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/8c64b42cb8abc93ff5e5ac801c556da6eb81545a151c10320618bae250c9efd9",
+      "reused": false
+    },
+    {
+      "path": "layers-25.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "18ca830020bd0c7af5f99257112e1c5ba457673d4fd926e6eafcb3127edb06b5",
+      "observed_hash": "18ca830020bd0c7af5f99257112e1c5ba457673d4fd926e6eafcb3127edb06b5",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/18ca830020bd0c7af5f99257112e1c5ba457673d4fd926e6eafcb3127edb06b5",
+      "reused": false
+    },
+    {
+      "path": "layers-26.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "a3fcd9cfeeb8ef52b749041df0986865cd2b6822a67bd69d0e0692571e49cfde",
+      "observed_hash": "a3fcd9cfeeb8ef52b749041df0986865cd2b6822a67bd69d0e0692571e49cfde",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/a3fcd9cfeeb8ef52b749041df0986865cd2b6822a67bd69d0e0692571e49cfde",
+      "reused": false
+    },
+    {
+      "path": "layers-28.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "9e40e51e6b2fbd04642cdfe3e66f4936bb74ef880ea8ff5417ec2075c47a938f",
+      "observed_hash": "9e40e51e6b2fbd04642cdfe3e66f4936bb74ef880ea8ff5417ec2075c47a938f",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/9e40e51e6b2fbd04642cdfe3e66f4936bb74ef880ea8ff5417ec2075c47a938f",
+      "reused": false
+    },
+    {
+      "path": "layers-29.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "154e2b6da74a5c7921382d1738a57d4a7a9465594f68aa2f7e269340cef27d76",
+      "observed_hash": "154e2b6da74a5c7921382d1738a57d4a7a9465594f68aa2f7e269340cef27d76",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/154e2b6da74a5c7921382d1738a57d4a7a9465594f68aa2f7e269340cef27d76",
+      "reused": false
+    },
+    {
+      "path": "layers-30.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "292aa0e63dfbd0c757945021b0995b83d7f561985202df9fbfe591c61911f9fa",
+      "observed_hash": "292aa0e63dfbd0c757945021b0995b83d7f561985202df9fbfe591c61911f9fa",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/292aa0e63dfbd0c757945021b0995b83d7f561985202df9fbfe591c61911f9fa",
+      "reused": false
+    },
+    {
+      "path": "layers-32.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "52e7905b111b6fbfb2b91b9f5b4fd748e61c93cbd39e988d1fabbcd9e00f4f20",
+      "observed_hash": "52e7905b111b6fbfb2b91b9f5b4fd748e61c93cbd39e988d1fabbcd9e00f4f20",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/52e7905b111b6fbfb2b91b9f5b4fd748e61c93cbd39e988d1fabbcd9e00f4f20",
+      "reused": false
+    },
+    {
+      "path": "layers-33.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "bcc4ad3526f6bb99ae9af57cc319da6bfd69228e5d0bcbd678590323f240cccb",
+      "observed_hash": "bcc4ad3526f6bb99ae9af57cc319da6bfd69228e5d0bcbd678590323f240cccb",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/bcc4ad3526f6bb99ae9af57cc319da6bfd69228e5d0bcbd678590323f240cccb",
+      "reused": false
+    },
+    {
+      "path": "layers-34.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "f52d1343ed110f00a661fcdc17e530a5f3c22a9397469bd2f41e22c8a2ffe9f1",
+      "observed_hash": "f52d1343ed110f00a661fcdc17e530a5f3c22a9397469bd2f41e22c8a2ffe9f1",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/f52d1343ed110f00a661fcdc17e530a5f3c22a9397469bd2f41e22c8a2ffe9f1",
+      "reused": false
+    },
+    {
+      "path": "layers-36.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "f293aff9b2498b7a86303bfb928a03b62b1763bf71f0fe35c14d2d1712292673",
+      "observed_hash": "f293aff9b2498b7a86303bfb928a03b62b1763bf71f0fe35c14d2d1712292673",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/f293aff9b2498b7a86303bfb928a03b62b1763bf71f0fe35c14d2d1712292673",
+      "reused": false
+    },
+    {
+      "path": "layers-37.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "918c26a832494ea368013e5fce8dba0e98923cc62f69d0b21f752dfeb241d404",
+      "observed_hash": "918c26a832494ea368013e5fce8dba0e98923cc62f69d0b21f752dfeb241d404",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/918c26a832494ea368013e5fce8dba0e98923cc62f69d0b21f752dfeb241d404",
+      "reused": false
+    },
+    {
+      "path": "layers-38.safetensors",
+      "size": 843715168,
+      "hash_type": "sha256",
+      "expected_hash": "2cd43a74c05a8f112c4f137f8139f217601a6035f6474c256b4bac315ccf5c39",
+      "observed_hash": "2cd43a74c05a8f112c4f137f8139f217601a6035f6474c256b4bac315ccf5c39",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/2cd43a74c05a8f112c4f137f8139f217601a6035f6474c256b4bac315ccf5c39",
+      "reused": false
+    },
+    {
+      "path": "mtp.safetensors",
+      "size": 853860608,
+      "hash_type": "sha256",
+      "expected_hash": "3e9c9fef90a5c02314cf27eeccc72f9f61ce711c12c869244c7127c787b5bd7d",
+      "observed_hash": "3e9c9fef90a5c02314cf27eeccc72f9f61ce711c12c869244c7127c787b5bd7d",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/3e9c9fef90a5c02314cf27eeccc72f9f61ce711c12c869244c7127c787b5bd7d",
+      "reused": false
+    },
+    {
+      "path": "outside.safetensors",
+      "size": 2927422112,
+      "hash_type": "sha256",
+      "expected_hash": "bb9755bc8ebd638e6a9994ae75064f9a6ac3f56541c00a10a90b7a930d24cc4f",
+      "observed_hash": "bb9755bc8ebd638e6a9994ae75064f9a6ac3f56541c00a10a90b7a930d24cc4f",
+      "blob": "/workspace/atlas-rental/hf/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/blobs/bb9755bc8ebd638e6a9994ae75064f9a6ac3f56541c00a10a90b7a930d24cc4f",
+      "reused": false
+    }
+  ],
+  "verified_downloaded_bytes_this_run": 37493015668,
+  "logical_snapshot_bytes": 37493015668,
+  "unique_blob_bytes": 37493015668,
+  "disk_after": {
+    "total": 536870912000,
+    "used": 49826689024,
+    "free": 487044222976
+  },
+  "hf_hub_cache": "/workspace/atlas-rental/hf/hub",
+  "finished_utc": "2026-09-05T20:37:53.712854+00:00"
+}
