@@ -1,0 +1,29 @@
+{
+  "recorded_utc": "2026-09-05T17:32:09.829000+00:00",
+  "originals_unchanged": true,
+  "reproduction": "python3 reproduce.py",
+  "scope": "Only this read-only kit audit; pre-existing sibling evidence files excluded",
+  "external_network_used_by_reproductions": false,
+  "gpu_work": false,
+  "installations": false,
+  "files": {
+    "AUDIT.md": "6f701a3943a4f89a34be30c25452dc049b0c65c2e016d7b53d3135c02d4c1f7c",
+    "reproduce.py": "060eabe574d7d0f1e19eb5ad27cd7f0db61077102e604e99371d57b4b09925e6",
+    "source-receipt.json": "6100d3cca8205736c9c02f06dd3f8b06e627a5c96cd4bf43ed21bed289487f56",
+    "red-observations.json": "c1737041f1d36ea785b803b1fd08b12008b2fbdebcd81e0585a38c2a62a94d26",
+    "existing-selftest.log": "07184b4742db92a09c0eef1433df8328886fd52a4693159c6df88c80c1343793",
+    "install-failure-exits-zero.json": "d97b7c556a5cdb2da0299faafc4097f19ab61ad46d07ea199347e761d8d35809",
+    "deferred-queue-reports-done.json": "7e87bcb8aff12b63884a361f8383fe214da161b5bc2dbe0853246184e5753b0f",
+    "network-failure-reports-go.json": "a172b86648659056e65a3d1998a3d0ab2050d81ee1f685d32fd6b8ffaeb1a994",
+    "process-query-failure-reports-idle.json": "185b8d4aaf01bc6a4d5602c4b8cd95a46fc44e715ab28aa86d00e1027a063201",
+    "shorter-prefix-falsely-agrees.json": "479c4ab2a9d760699c6477461d6ca779ed8ef63bbde396947aaeb1e54c8620f3",
+    "empty-legacy-streams-falsely-agree.json": "22149d14ee72f504bdcb8f8da559314d14b0bdd36e7559b7b17c591706994c97",
+    "same-wrong-answer-is-agreement-only.json": "173ec1c0d05b0bd4c6a9eaeb990a5af89a64bc6be7149fc0dc05e690334cfa23",
+    "source/H100 Rental Day - Plan.md": "dddbf21400b1006ae9c99cf513c213fbb61e16fce8dea85a835ff94bb050d843",
+    "source/README.md": "3b5f9186cf978a99dd0e67a881c4e525900d2266b8fb2159c1c6d494fbf34eee",
+    "source/dl_queue.sh": "8ce78054b83d8fd8ead8a0ff10e7ed067cd9d7ee9bdf952b2c2ff55be48ada9e",
+    "source/install_vllm.sh": "1f1898353f88c761621e88122e507923912b1f0f303d38fc5f18e35143c3c95e",
+    "source/logit_diff.py": "fd609a637e36c8ca2f0f253309af6e8f4a41b4d537e329478b63ed74306fe066",
+    "source/preflight_node.sh": "3f1ee2255646dc1a3dccde26f28c02d41f2753a9bb22cbd320235ba328157864"
+  }
+}

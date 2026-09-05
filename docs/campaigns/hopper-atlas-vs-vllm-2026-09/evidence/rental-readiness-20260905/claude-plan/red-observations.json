@@ -1,0 +1,37 @@
+[
+  {
+    "case": "install-failure-exits-zero",
+    "observed_exit_code": 0,
+    "evidence": "install-failure-exits-zero.json"
+  },
+  {
+    "case": "deferred-queue-reports-done",
+    "observed_exit_code": 0,
+    "evidence": "deferred-queue-reports-done.json"
+  },
+  {
+    "case": "network-failure-reports-go",
+    "observed_exit_code": 0,
+    "evidence": "network-failure-reports-go.json"
+  },
+  {
+    "case": "process-query-failure-reports-idle",
+    "observed_exit_code": 0,
+    "evidence": "process-query-failure-reports-idle.json"
+  },
+  {
+    "case": "shorter-prefix-falsely-agrees",
+    "observed_exit_code": 0,
+    "evidence": "shorter-prefix-falsely-agrees.json"
+  },
+  {
+    "case": "empty-legacy-streams-falsely-agree",
+    "observed_exit_code": 0,
+    "evidence": "empty-legacy-streams-falsely-agree.json"
+  },
+  {
+    "case": "same-wrong-answer-is-agreement-only",
+    "observed_exit_code": 0,
+    "evidence": "same-wrong-answer-is-agreement-only.json"
+  }
+]

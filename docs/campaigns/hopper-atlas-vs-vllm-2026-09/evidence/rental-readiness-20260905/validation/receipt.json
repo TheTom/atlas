@@ -1,0 +1,39 @@
+{
+  "captured_utc": "2026-09-05T17:30:52.113350+00:00",
+  "scope": "CPU-only required campaign checks after process-mode wiring; no benchmark or GPU engine result inferred.",
+  "checks": {
+    "launcher": "30 assertions,exit0",
+    "dockerfiles": "17 assertions,exit0",
+    "atlas_render": "329/329,exit0",
+    "vllm_render": "253/253,exit0",
+    "validator": "26/26,exit0",
+    "assembler": "16/16,exit0",
+    "fmt": "exit0; repeated after process audit correction",
+    "typos": "exit0; repeated after process audit correction",
+    "hopper_ptx_gate": "7 assertions with real nvcc+ptxas,exit0; remote shellcheck absent,local shellcheck passed",
+    "campaign_linux": "78 assertions,exit0",
+    "process_mode_linux": "6/6",
+    "process_runner_linux": "2/2",
+    "process_launch_linux": "11 scheduled,10passed,1skip (optional setproctitle package absent)"
+  },
+  "known_bad_evidence": {
+    "process_audit_env": "Actual Linux runner originally failed1/2 tests; retained stderr: audit environment differs from declared serve environment. After safe process_exec environment application,2/2passed.",
+    "hopper_ptx_gate": "Unknown model refusedexit2; known-bad PTX fixture compiled then ptxas rejected exactly2entry functions,ledgererrors2/rejected_entries2."
+  },
+  "skips": [
+    "Linux campaign shellcheck andtypos absent; both covered onMac.",
+    "Optional realsetproctitle Linux testcase skipped here; independent archagent receipt covers installed-package execution."
+  ],
+  "ownership": {
+    "remote_directory": "/home/pidtom/atlas-rental-ptx-tests-20260905",
+    "size": "85MB",
+    "removed": true,
+    "df_available_before_bytes": 7331819520,
+    "df_available_precleanup_bytes": 7510278144,
+    "df_available_postcleanup_bytes": 7599476736,
+    "shared_checkout_or_target_modified": false,
+    "note": "Concurrent independent cargo work means whole-host disk changes cannot be attributed solely to this staging tree."
+  },
+  "inputs": "tested-inputs.json hashes current source inputs; remotebaseHEAD e2cf120 is explicitly not the overlaid harness identity.",
+  "stopping_rule": "All requested CPUchecks and process correction red/green observed; rawoutputs copied; owned staging removed. No sourceedits orcommits."
+}

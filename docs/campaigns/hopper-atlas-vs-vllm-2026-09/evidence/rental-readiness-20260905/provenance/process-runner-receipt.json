@@ -1,0 +1,16 @@
+{
+  "captured_utc": "2026-09-05T17:13:23.164229+00:00",
+  "commit": "9abcdee29fc9d3be06458213fcf603212f7bfd3a",
+  "test": "bench/campaign/process_runner_test.py",
+  "source_sha256": "43f28b50e32d662a9cd3c6552f5420171da95d27f41bb9bc192b224df1105c7b",
+  "host": "Spark1 192.168.50.125, CPU only, noGPUcalls",
+  "command": "python3 bench/campaign/process_runner_test.py",
+  "result": "2/2 passed in2.040s; exited0",
+  "oracle": [
+    "SIGTERM during observed boot exits143, writes validNO-GO/boot, retains captured environment and procproof, and leaves owned process dead.",
+    "A process-PID directory planted during blocked preflight causes exit1 andNO-GO/serve while foreignprocess andownerrecord remain untouched."
+  ],
+  "red_evidence": "The earlier environment review observed JSON read as empty {}; no fabricated pre-fix integration failure is claimed. The first Linux integration case uses a known-bad occupieddirectory and observes the expected refusal before the owned-run case.",
+  "remote_usage": "84MB worktree and850KBsource tar; removed after logs copied. df-h free6.9GBbeforecleanup,7.0GBafter. Shared warm checkout/target untouched.",
+  "stopping_rule": "Both real Linux ownership oracles passed,logs retained,ownedworktree removed,testonly committed. NoGPUengine results inferred."
+}

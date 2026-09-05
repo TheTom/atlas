@@ -1,0 +1,22 @@
+cell_assemble selftest: 16/16 test methods passed
+test_a_unowned_launch_cannot_certify (cell_assemble_test.AssemblyTest.test_a_unowned_launch_cannot_certify) ... ok
+test_b_unstarted_or_malformed_launch_cannot_certify (cell_assemble_test.AssemblyTest.test_b_unstarted_or_malformed_launch_cannot_certify) ... ok
+test_c_wrong_model_or_competing_revision_cannot_certify (cell_assemble_test.AssemblyTest.test_c_wrong_model_or_competing_revision_cannot_certify) ... ok
+test_d_failed_boot_does_not_prove_loaded_revision (cell_assemble_test.AssemblyTest.test_d_failed_boot_does_not_prove_loaded_revision) ... ok
+test_e_recipe_pins_alone_are_not_launch_proof (cell_assemble_test.AssemblyTest.test_e_recipe_pins_alone_are_not_launch_proof) ... ok
+test_f_owned_launched_pin_and_boot_prove_revision (cell_assemble_test.AssemblyTest.test_f_owned_launched_pin_and_boot_prove_revision) ... ok
+test_g_floating_launch_keeps_revision_null (cell_assemble_test.AssemblyTest.test_g_floating_launch_keeps_revision_null) ... ok
+test_h_failed_known_answer_remains_no_go (cell_assemble_test.AssemblyTest.test_h_failed_known_answer_remains_no_go) ... ok
+test_a_foreign_or_reused_process_is_refused (process_model_evidence_test.ProcessAssemblyTest.test_a_foreign_or_reused_process_is_refused) ... ok
+test_b_stopped_or_changed_capture_is_refused (process_model_evidence_test.ProcessAssemblyTest.test_b_stopped_or_changed_capture_is_refused) ... ok
+test_c_unowned_or_malformed_records_are_refused (process_model_evidence_test.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) ... ok
+test_d_wrong_or_mutated_argv_is_refused (process_model_evidence_test.ProcessAssemblyTest.test_d_wrong_or_mutated_argv_is_refused) ... ok
+test_e_conflicting_docker_and_process_proof_is_refused (process_model_evidence_test.ProcessAssemblyTest.test_e_conflicting_docker_and_process_proof_is_refused) ... ok
+test_f_failed_or_mismatched_boot_cannot_prove_revision (process_model_evidence_test.ProcessAssemblyTest.test_f_failed_or_mismatched_boot_cannot_prove_revision) ... ok
+test_g_owned_pin_survives_supported_actual_process_forms (process_model_evidence_test.ProcessAssemblyTest.test_g_owned_pin_survives_supported_actual_process_forms) ... ok
+test_h_floating_launch_does_not_inherit_recipe_revision (process_model_evidence_test.ProcessAssemblyTest.test_h_floating_launch_does_not_inherit_recipe_revision) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 5.118s
+
+OK

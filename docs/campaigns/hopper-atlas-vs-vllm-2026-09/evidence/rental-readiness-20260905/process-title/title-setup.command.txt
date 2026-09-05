@@ -1,0 +1,1 @@
+ssh pidtom@192.168.50.125 'df -h / && mkdir /home/pidtom/atlas-process-title-test-20260905 && python3 -m venv /home/pidtom/atlas-process-title-test-20260905/venv'

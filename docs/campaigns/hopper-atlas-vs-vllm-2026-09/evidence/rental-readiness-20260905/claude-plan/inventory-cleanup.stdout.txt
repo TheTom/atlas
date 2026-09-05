@@ -1,0 +1,4 @@
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  916G  862G  7.0G 100% /
+Filesystem        1B-blocks         Used  Available Use% Mounted on
+/dev/nvme0n1p2 982819848192 925379190784 7440621568 100% /

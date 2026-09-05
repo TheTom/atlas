@@ -1,0 +1,12 @@
+{
+  "case": "install-failure-exits-zero",
+  "original": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/claude-plan/source/install_vllm.sh",
+  "adaptation": "Literal /root and /etc/os-release paths only; external commands stubbed offline",
+  "command": [
+    "bash",
+    "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/claude-plan/offline-sandbox/install_vllm.sh"
+  ],
+  "exit_code": 0,
+  "stdout": "FIXTURE package resolution failed\nVLLM_INSTALL_EXIT=19 in 0s\n",
+  "stderr": "FIXTURE import failed\n"
+}

@@ -1,0 +1,762 @@
+{
+  "case": "same-wrong-answer-is-agreement-only",
+  "oracle_exit": 0,
+  "report": {
+    "config": {
+      "a": "fixture-a",
+      "b": "fixture-b",
+      "model_a": "canned-a",
+      "model_b": "canned-b",
+      "max_tokens": 64,
+      "top_k": 5,
+      "think": "off",
+      "raw": false,
+      "min_agree": "full",
+      "started_utc": "2026-09-05T17:27:34Z"
+    },
+    "prompts": [
+      {
+        "name": "arith_17x23",
+        "prompt": "What is 17 * 23? Reply with the number, then explain briefly.",
+        "expect_substring": "391",
+        "endpoints": {
+          "chat": {
+            "n_compared": 1,
+            "len_a": 1,
+            "len_b": 1,
+            "length_mismatch": false,
+            "first_divergence": null,
+            "argmax_agreement": 1.0,
+            "mean_jaccard": 1.0,
+            "agree_prefix": 1,
+            "positions": [
+              {
+                "i": 0,
+                "a_token": "wrong",
+                "b_token": "wrong",
+                "argmax_match": true,
+                "jaccard": 1.0,
+                "a_logprob": -0.01,
+                "b_logprob": -0.01,
+                "abs_logprob_delta_of_a_choice": 0.0,
+                "a_choice_in_b_topk": true
+              }
+            ],
+            "a_tokens": [
+              "wrong"
+            ],
+            "b_tokens": [
+              "wrong"
+            ],
+            "pass": true
+          }
+        }
+      },
+      {
+        "name": "capital_japan",
+        "prompt": "Name the capital city of Japan, then describe it in a few sentences.",
+        "expect_substring": "Tokyo",
+        "endpoints": {
+          "chat": {
+            "n_compared": 1,
+            "len_a": 1,
+            "len_b": 1,
+            "length_mismatch": false,
+            "first_divergence": null,
+            "argmax_agreement": 1.0,
+            "mean_jaccard": 1.0,
+            "agree_prefix": 1,
+            "positions": [
+              {
+                "i": 0,
+                "a_token": "wrong",
+                "b_token": "wrong",
+                "argmax_match": true,
+                "jaccard": 1.0,
+                "a_logprob": -0.01,
+                "b_logprob": -0.01,
+                "abs_logprob_delta_of_a_choice": 0.0,
+                "a_choice_in_b_topk": true
+              }
+            ],
+            "a_tokens": [
+              "wrong"
+            ],
+            "b_tokens": [
+              "wrong"
+            ],
+            "pass": true
+          }
+        }
+      },
+      {
+        "name": "spell_backwards",
+        "prompt": "Spell the word 'refrigerator' backwards, then explain how you did it.",
+        "expect_substring": "rotaregirfer",
+        "endpoints": {
+          "chat": {
+            "n_compared": 1,
+            "len_a": 1,
+            "len_b": 1,
+            "length_mismatch": false,
+            "first_divergence": null,
+            "argmax_agreement": 1.0,
+            "mean_jaccard": 1.0,
+            "agree_prefix": 1,
+            "positions": [
+              {
+                "i": 0,
+                "a_token": "wrong",
+                "b_token": "wrong",
+                "argmax_match": true,
+                "jaccard": 1.0,
+                "a_logprob": -0.01,
+                "b_logprob": -0.01,
+                "abs_logprob_delta_of_a_choice": 0.0,
+                "a_choice_in_b_topk": true
+              }
+            ],
+            "a_tokens": [
+              "wrong"
+            ],
+            "b_tokens": [
+              "wrong"
+            ],
+            "pass": true
+          }
+        }
+      },
+      {
+        "name": "five_primes",
+        "prompt": "List exactly five prime numbers greater than 100, comma separated.",
+        "expect_substring": null,
+        "endpoints": {
+          "chat": {
+            "n_compared": 1,
+            "len_a": 1,
+            "len_b": 1,
+            "length_mismatch": false,
+            "first_divergence": null,
+            "argmax_agreement": 1.0,
+            "mean_jaccard": 1.0,
+            "agree_prefix": 1,
+            "positions": [
+              {
+                "i": 0,
+                "a_token": "wrong",
+                "b_token": "wrong",
+                "argmax_match": true,
+                "jaccard": 1.0,
+                "a_logprob": -0.01,
+                "b_logprob": -0.01,
+                "abs_logprob_delta_of_a_choice": 0.0,
+                "a_choice_in_b_topk": true
+              }
+            ],
+            "a_tokens": [
+              "wrong"
+            ],
+            "b_tokens": [
+              "wrong"
+            ],
+            "pass": true
+          }
+        }
+      }
+    ],
+    "exchanges": [
+      {
+        "prompt": "arith_17x23",
+        "side": "A",
+        "endpoint": "chat",
+        "url": "fixture-a/v1/chat/completions",
+        "request": {
+          "model": "canned-a",
+          "messages": [
+            {
+              "role": "user",
+              "content": "What is 17 * 23? Reply with the number, then explain briefly."
+            }
+          ],
+          "max_tokens": 64,
+          "temperature": 0,
+          "seed": 42,
+          "presence_penalty": 0,
+          "frequency_penalty": 0,
+          "logprobs": true,
+          "top_logprobs": 5,
+          "stream": false,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          }
+        },
+        "http_status": 200,
+        "transport_error": null,
+        "elapsed_s": 0.0,
+        "response": {
+          "id": "canned",
+          "object": "chat.completion",
+          "choices": [
+            {
+              "index": 0,
+              "finish_reason": "stop",
+              "logprobs": {
+                "content": [
+                  {
+                    "token": "wrong",
+                    "logprob": -0.01,
+                    "top_logprobs": [
+                      {
+                        "token": "wrong",
+                        "logprob": -0.01
+                      },
+                      {
+                        "token": "alt1",
+                        "logprob": -1.5
+                      },
+                      {
+                        "token": "alt2",
+                        "logprob": -2.5
+                      },
+                      {
+                        "token": "alt3",
+                        "logprob": -3.5
+                      },
+                      {
+                        "token": "alt4",
+                        "logprob": -4.5
+                      }
+                    ]
+                  }
+                ]
+              },
+              "message": {
+                "role": "assistant",
+                "content": "wrong"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "prompt": "arith_17x23",
+        "side": "B",
+        "endpoint": "chat",
+        "url": "fixture-b/v1/chat/completions",
+        "request": {
+          "model": "canned-b",
+          "messages": [
+            {
+              "role": "user",
+              "content": "What is 17 * 23? Reply with the number, then explain briefly."
+            }
+          ],
+          "max_tokens": 64,
+          "temperature": 0,
+          "seed": 42,
+          "presence_penalty": 0,
+          "frequency_penalty": 0,
+          "logprobs": true,
+          "top_logprobs": 5,
+          "stream": false,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          }
+        },
+        "http_status": 200,
+        "transport_error": null,
+        "elapsed_s": 0.0,
+        "response": {
+          "id": "canned",
+          "object": "chat.completion",
+          "choices": [
+            {
+              "index": 0,
+              "finish_reason": "stop",
+              "logprobs": {
+                "content": [
+                  {
+                    "token": "wrong",
+                    "logprob": -0.01,
+                    "top_logprobs": [
+                      {
+                        "token": "wrong",
+                        "logprob": -0.01
+                      },
+                      {
+                        "token": "alt1",
+                        "logprob": -1.5
+                      },
+                      {
+                        "token": "alt2",
+                        "logprob": -2.5
+                      },
+                      {
+                        "token": "alt3",
+                        "logprob": -3.5
+                      },
+                      {
+                        "token": "alt4",
+                        "logprob": -4.5
+                      }
+                    ]
+                  }
+                ]
+              },
+              "message": {
+                "role": "assistant",
+                "content": "wrong"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "prompt": "capital_japan",
+        "side": "A",
+        "endpoint": "chat",
+        "url": "fixture-a/v1/chat/completions",
+        "request": {
+          "model": "canned-a",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Name the capital city of Japan, then describe it in a few sentences."
+            }
+          ],
+          "max_tokens": 64,
+          "temperature": 0,
+          "seed": 42,
+          "presence_penalty": 0,
+          "frequency_penalty": 0,
+          "logprobs": true,
+          "top_logprobs": 5,
+          "stream": false,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          }
+        },
+        "http_status": 200,
+        "transport_error": null,
+        "elapsed_s": 0.0,
+        "response": {
+          "id": "canned",
+          "object": "chat.completion",
+          "choices": [
+            {
+              "index": 0,
+              "finish_reason": "stop",
+              "logprobs": {
+                "content": [
+                  {
+                    "token": "wrong",
+                    "logprob": -0.01,
+                    "top_logprobs": [
+                      {
+                        "token": "wrong",
+                        "logprob": -0.01
+                      },
+                      {
+                        "token": "alt1",
+                        "logprob": -1.5
+                      },
+                      {
+                        "token": "alt2",
+                        "logprob": -2.5
+                      },
+                      {
+                        "token": "alt3",
+                        "logprob": -3.5
+                      },
+                      {
+                        "token": "alt4",
+                        "logprob": -4.5
+                      }
+                    ]
+                  }
+                ]
+              },
+              "message": {
+                "role": "assistant",
+                "content": "wrong"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "prompt": "capital_japan",
+        "side": "B",
+        "endpoint": "chat",
+        "url": "fixture-b/v1/chat/completions",
+        "request": {
+          "model": "canned-b",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Name the capital city of Japan, then describe it in a few sentences."
+            }
+          ],
+          "max_tokens": 64,
+          "temperature": 0,
+          "seed": 42,
+          "presence_penalty": 0,
+          "frequency_penalty": 0,
+          "logprobs": true,
+          "top_logprobs": 5,
+          "stream": false,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          }
+        },
+        "http_status": 200,
+        "transport_error": null,
+        "elapsed_s": 0.0,
+        "response": {
+          "id": "canned",
+          "object": "chat.completion",
+          "choices": [
+            {
+              "index": 0,
+              "finish_reason": "stop",
+              "logprobs": {
+                "content": [
+                  {
+                    "token": "wrong",
+                    "logprob": -0.01,
+                    "top_logprobs": [
+                      {
+                        "token": "wrong",
+                        "logprob": -0.01
+                      },
+                      {
+                        "token": "alt1",
+                        "logprob": -1.5
+                      },
+                      {
+                        "token": "alt2",
+                        "logprob": -2.5
+                      },
+                      {
+                        "token": "alt3",
+                        "logprob": -3.5
+                      },
+                      {
+                        "token": "alt4",
+                        "logprob": -4.5
+                      }
+                    ]
+                  }
+                ]
+              },
+              "message": {
+                "role": "assistant",
+                "content": "wrong"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "prompt": "spell_backwards",
+        "side": "A",
+        "endpoint": "chat",
+        "url": "fixture-a/v1/chat/completions",
+        "request": {
+          "model": "canned-a",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Spell the word 'refrigerator' backwards, then explain how you did it."
+            }
+          ],
+          "max_tokens": 64,
+          "temperature": 0,
+          "seed": 42,
+          "presence_penalty": 0,
+          "frequency_penalty": 0,
+          "logprobs": true,
+          "top_logprobs": 5,
+          "stream": false,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          }
+        },
+        "http_status": 200,
+        "transport_error": null,
+        "elapsed_s": 0.0,
+        "response": {
+          "id": "canned",
+          "object": "chat.completion",
+          "choices": [
+            {
+              "index": 0,
+              "finish_reason": "stop",
+              "logprobs": {
+                "content": [
+                  {
+                    "token": "wrong",
+                    "logprob": -0.01,
+                    "top_logprobs": [
+                      {
+                        "token": "wrong",
+                        "logprob": -0.01
+                      },
+                      {
+                        "token": "alt1",
+                        "logprob": -1.5
+                      },
+                      {
+                        "token": "alt2",
+                        "logprob": -2.5
+                      },
+                      {
+                        "token": "alt3",
+                        "logprob": -3.5
+                      },
+                      {
+                        "token": "alt4",
+                        "logprob": -4.5
+                      }
+                    ]
+                  }
+                ]
+              },
+              "message": {
+                "role": "assistant",
+                "content": "wrong"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "prompt": "spell_backwards",
+        "side": "B",
+        "endpoint": "chat",
+        "url": "fixture-b/v1/chat/completions",
+        "request": {
+          "model": "canned-b",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Spell the word 'refrigerator' backwards, then explain how you did it."
+            }
+          ],
+          "max_tokens": 64,
+          "temperature": 0,
+          "seed": 42,
+          "presence_penalty": 0,
+          "frequency_penalty": 0,
+          "logprobs": true,
+          "top_logprobs": 5,
+          "stream": false,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          }
+        },
+        "http_status": 200,
+        "transport_error": null,
+        "elapsed_s": 0.0,
+        "response": {
+          "id": "canned",
+          "object": "chat.completion",
+          "choices": [
+            {
+              "index": 0,
+              "finish_reason": "stop",
+              "logprobs": {
+                "content": [
+                  {
+                    "token": "wrong",
+                    "logprob": -0.01,
+                    "top_logprobs": [
+                      {
+                        "token": "wrong",
+                        "logprob": -0.01
+                      },
+                      {
+                        "token": "alt1",
+                        "logprob": -1.5
+                      },
+                      {
+                        "token": "alt2",
+                        "logprob": -2.5
+                      },
+                      {
+                        "token": "alt3",
+                        "logprob": -3.5
+                      },
+                      {
+                        "token": "alt4",
+                        "logprob": -4.5
+                      }
+                    ]
+                  }
+                ]
+              },
+              "message": {
+                "role": "assistant",
+                "content": "wrong"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "prompt": "five_primes",
+        "side": "A",
+        "endpoint": "chat",
+        "url": "fixture-a/v1/chat/completions",
+        "request": {
+          "model": "canned-a",
+          "messages": [
+            {
+              "role": "user",
+              "content": "List exactly five prime numbers greater than 100, comma separated."
+            }
+          ],
+          "max_tokens": 64,
+          "temperature": 0,
+          "seed": 42,
+          "presence_penalty": 0,
+          "frequency_penalty": 0,
+          "logprobs": true,
+          "top_logprobs": 5,
+          "stream": false,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          }
+        },
+        "http_status": 200,
+        "transport_error": null,
+        "elapsed_s": 0.0,
+        "response": {
+          "id": "canned",
+          "object": "chat.completion",
+          "choices": [
+            {
+              "index": 0,
+              "finish_reason": "stop",
+              "logprobs": {
+                "content": [
+                  {
+                    "token": "wrong",
+                    "logprob": -0.01,
+                    "top_logprobs": [
+                      {
+                        "token": "wrong",
+                        "logprob": -0.01
+                      },
+                      {
+                        "token": "alt1",
+                        "logprob": -1.5
+                      },
+                      {
+                        "token": "alt2",
+                        "logprob": -2.5
+                      },
+                      {
+                        "token": "alt3",
+                        "logprob": -3.5
+                      },
+                      {
+                        "token": "alt4",
+                        "logprob": -4.5
+                      }
+                    ]
+                  }
+                ]
+              },
+              "message": {
+                "role": "assistant",
+                "content": "wrong"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "prompt": "five_primes",
+        "side": "B",
+        "endpoint": "chat",
+        "url": "fixture-b/v1/chat/completions",
+        "request": {
+          "model": "canned-b",
+          "messages": [
+            {
+              "role": "user",
+              "content": "List exactly five prime numbers greater than 100, comma separated."
+            }
+          ],
+          "max_tokens": 64,
+          "temperature": 0,
+          "seed": 42,
+          "presence_penalty": 0,
+          "frequency_penalty": 0,
+          "logprobs": true,
+          "top_logprobs": 5,
+          "stream": false,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          }
+        },
+        "http_status": 200,
+        "transport_error": null,
+        "elapsed_s": 0.0,
+        "response": {
+          "id": "canned",
+          "object": "chat.completion",
+          "choices": [
+            {
+              "index": 0,
+              "finish_reason": "stop",
+              "logprobs": {
+                "content": [
+                  {
+                    "token": "wrong",
+                    "logprob": -0.01,
+                    "top_logprobs": [
+                      {
+                        "token": "wrong",
+                        "logprob": -0.01
+                      },
+                      {
+                        "token": "alt1",
+                        "logprob": -1.5
+                      },
+                      {
+                        "token": "alt2",
+                        "logprob": -2.5
+                      },
+                      {
+                        "token": "alt3",
+                        "logprob": -3.5
+                      },
+                      {
+                        "token": "alt4",
+                        "logprob": -4.5
+                      }
+                    ]
+                  }
+                ]
+              },
+              "message": {
+                "role": "assistant",
+                "content": "wrong"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "summary": {
+      "line": "LOGIT_DIFF: 4 prompts, first divergence at [none, none, none, none], argmax agreement [1.000, 1.000, 1.000, 1.000]",
+      "verdict": "AGREED",
+      "exit_code": 0,
+      "failing_comparisons": 0,
+      "oracle_unavailable": null
+    }
+  },
+  "stdout": "== arith_17x23 [chat]\n   prompt: What is 17 * 23? Reply with the number, then explain briefly.\n   first divergence : none\n   argmax agreement : 1.0000  (1/1 positions, len A=1 B=1)\n   mean top-5 Jaccard: 1.0000\n   |logprob delta| of A's choice in B's top-5: max 0.0000 mean 0.0000 (0/1 positions where A's choice was absent from B's top-K)\n   A: 'wrong'\n   B: 'wrong'\n   coherency ('391' present): A=False B=False\n   verdict: PASS\n\n== capital_japan [chat]\n   prompt: Name the capital city of Japan, then describe it in a few sentences.\n   first divergence : none\n   argmax agreement : 1.0000  (1/1 positions, len A=1 B=1)\n   mean top-5 Jaccard: 1.0000\n   |logprob delta| of A's choice in B's top-5: max 0.0000 mean 0.0000 (0/1 positions where A's choice was absent from B's top-K)\n   A: 'wrong'\n   B: 'wrong'\n   coherency ('Tokyo' present): A=False B=False\n   verdict: PASS\n\n== spell_backwards [chat]\n   prompt: Spell the word 'refrigerator' backwards, then explain how you did it.\n   first divergence : none\n   argmax agreement : 1.0000  (1/1 positions, len A=1 B=1)\n   mean top-5 Jaccard: 1.0000\n   |logprob delta| of A's choice in B's top-5: max 0.0000 mean 0.0000 (0/1 positions where A's choice was absent from B's top-K)\n   A: 'wrong'\n   B: 'wrong'\n   coherency ('rotaregirfer' present): A=False B=False\n   verdict: PASS\n\n== five_primes [chat]\n   prompt: List exactly five prime numbers greater than 100, comma separated.\n   first divergence : none\n   argmax agreement : 1.0000  (1/1 positions, len A=1 B=1)\n   mean top-5 Jaccard: 1.0000\n   |logprob delta| of A's choice in B's top-5: max 0.0000 mean 0.0000 (0/1 positions where A's choice was absent from B's top-K)\n   A: 'wrong'\n   B: 'wrong'\n   verdict: PASS\n\nLOGIT_DIFF: 4 prompts, first divergence at [none, none, none, none], argmax agreement [1.000, 1.000, 1.000, 1.000]\nLOGIT_DIFF: AGREED (exit 0)\n"
+}

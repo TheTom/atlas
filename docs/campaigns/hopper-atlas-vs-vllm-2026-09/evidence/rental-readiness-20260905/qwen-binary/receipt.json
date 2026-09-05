@@ -1,0 +1,60 @@
+{
+  "captured_utc": "2026-09-05T17:06:20.209377+00:00",
+  "source": {
+    "conclusion": "success",
+    "headBranch": "hopper/sm90-target-tdd-2026-09",
+    "headSha": "8d125b31d291bdbfe0185894b5e9f3c6dceab8a4",
+    "status": "completed",
+    "url": "https://github.com/TheTom/atlas/actions/runs/33978523017",
+    "workflowName": "Datacenter binaries"
+  },
+  "identity_checked": {
+    "git_sha": "8d125b31d291bdbfe0185894b5e9f3c6dceab8a4",
+    "target_hw": "hopper",
+    "target_arch": "sm_90a",
+    "target_model": "qwen3.6-35b-a3b",
+    "target_quant": "nvfp4",
+    "host_target": "x86_64-unknown-linux-gnu"
+  },
+  "artifact": {
+    "id": 9973220597,
+    "node_id": "MDg6QXJ0aWZhY3Q5OTczMjIwNTk3",
+    "name": "spark-hopper-x86_64",
+    "size_in_bytes": 20336697,
+    "url": "https://api.github.com/repos/TheTom/atlas/actions/artifacts/9973220597",
+    "archive_download_url": "https://api.github.com/repos/TheTom/atlas/actions/artifacts/9973220597/zip",
+    "expired": false,
+    "digest": "sha256:d22cd61f8d76bdf3c5a869bfba46e56991f855c53002443ac8d593b3d2413a3c",
+    "created_at": "2026-09-05T16:51:53Z",
+    "updated_at": "2026-09-05T16:51:53Z",
+    "expires_at": "2026-09-19T16:51:50Z",
+    "workflow_run": {
+      "id": 33978523017,
+      "repository_id": 1247792475,
+      "head_repository_id": 1247792475,
+      "head_branch": "hopper/sm90-target-tdd-2026-09",
+      "head_sha": "8d125b31d291bdbfe0185894b5e9f3c6dceab8a4"
+    }
+  },
+  "binary_path": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/qwen-binary/spark",
+  "size_bytes": 75814080,
+  "sha256": "683f70e837519e6f91ed09fa23f6978a8c16e877477f5a762202c8963af09bce",
+  "max_required_glibc": "2.39",
+  "needed_libraries": [
+    "libcuda.so.1",
+    "libibverbs.so.1",
+    "libnccl.so.2",
+    "libcublasLt.so.13",
+    "libcudart.so.13",
+    "libgcc_s.so.1",
+    "libm.so.6",
+    "libc.so.6",
+    "ld-linux-x86-64.so.2"
+  ],
+  "elf_interpreter": "/lib64/ld-linux-x86-64.so.2",
+  "build_info_runtime_note": "CUDA13 runtime, libnccl2>=2.28, libibverbs/librdmacm; NVIDIA Hopper driver",
+  "deployment_entrypoint": "./spark serve <pinned snapshot> --check-kernels --no-tui",
+  "oracle": "Wrong SHA manifest must fail first. Bundled SHA, BUILD-INFO SHA/size and exact Git/model/arch fields must then match actual binary and successful workflow head. ELF headers provide actual dynamic dependency requirements.",
+  "stopping_rule": "All local artifact identity checks passed; no GPU execution or runtime readiness inferred.",
+  "file_mode_octal": "0o755"
+}

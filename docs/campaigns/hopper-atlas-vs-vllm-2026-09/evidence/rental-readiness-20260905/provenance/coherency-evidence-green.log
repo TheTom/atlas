@@ -1,0 +1,13 @@
+test_a_opposite_coherency_mode_is_no_go (__main__.CoherencyEvidenceTest.test_a_opposite_coherency_mode_is_no_go) ... ok
+test_b_legacy_coherency_cannot_certify_think_on (__main__.CoherencyEvidenceTest.test_b_legacy_coherency_cannot_certify_think_on) ... ok
+test_c_inconsistent_or_missing_per_check_policy_refuses (__main__.CoherencyEvidenceTest.test_c_inconsistent_or_missing_per_check_policy_refuses) ... ok
+test_d_malformed_policy_does_not_become_true (__main__.CoherencyEvidenceTest.test_d_malformed_policy_does_not_become_true) ... ok
+test_e_malformed_ladder_policy_is_partial (__main__.CoherencyEvidenceTest.test_e_malformed_ladder_policy_is_partial) ... ok
+test_e_opposite_ladder_mode_is_partial (__main__.CoherencyEvidenceTest.test_e_opposite_ladder_mode_is_partial) ... ok
+test_f_matched_modes_and_legacy_off_still_certify (__main__.CoherencyEvidenceTest.test_f_matched_modes_and_legacy_off_still_certify) ... ok
+test_g_driver_passes_policy_to_gate (__main__.CoherencyEvidenceTest.test_g_driver_passes_policy_to_gate) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 3.788s
+
+OK

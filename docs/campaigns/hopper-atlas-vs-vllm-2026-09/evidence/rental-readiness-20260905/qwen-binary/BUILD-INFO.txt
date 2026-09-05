@@ -1,0 +1,25 @@
+atlas spark — datacentre build
+git_sha:        8d125b31d291bdbfe0185894b5e9f3c6dceab8a4
+git_ref:        refs/heads/hopper/sm90-target-tdd-2026-09
+built_by:       .github/workflows/datacenter-binaries.yml
+run:            https://github.com/TheTom/atlas/actions/runs/33978523017
+target_hw:      hopper
+target_arch:    sm_90a
+target_model:   qwen3.6-35b-a3b
+target_quant:   nvfp4
+host_target:    x86_64-unknown-linux-gnu
+cargo_features: --no-default-features --features cuda,nccl
+container:      nvidia/cuda:13.0.2-devel-ubuntu24.04
+nvcc:           13.0
+libnccl-dev:    2.28.3-1+cuda13.0 (link time; the host needs libnccl2 >= 2.28 at run time)
+ptx_modules:    178
+size_bytes:     75814080
+sha256:         683f70e837519e6f91ed09fa23f6978a8c16e877477f5a762202c8963af09bce
+spark_version:  (not runnable on this GPU-free runner: target/release/spark: error while loading shared libraries: libcuda.so.1: cannot open shared object file: No such file or directory)
+
+This binary carries sm_90a PTX and nothing else.
+spark's arch preflight will REFUSE to run it on any other GPU.
+It needs, on the host: an NVIDIA driver for hopper, a
+CUDA 13 runtime, libnccl2 >= 2.28, and libibverbs/librdmacm.
+First boot should be:
+  ./spark serve <model> --check-kernels --no-tui

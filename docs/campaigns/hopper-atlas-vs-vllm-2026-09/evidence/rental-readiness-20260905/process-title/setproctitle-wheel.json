@@ -1,0 +1,24 @@
+{
+  "comment_text": null,
+  "core-metadata": {
+    "sha256": "f3aae6f59f0e0c2ae3378189d4399d7a4a25de58c774cdb423fbfa02a534d0aa"
+  },
+  "digests": {
+    "blake2b_256": "5022cee06af4ffcfb0e8aba047bd44f5262e644199ae7527ae2c1f672b86495c",
+    "md5": "0b0c344cba6c4657bcf595158f620f34",
+    "sha256": "6915964a6dda07920a1159321dcd6d94fc7fc526f815ca08a8063aeca3c204f1"
+  },
+  "downloads": -1,
+  "filename": "setproctitle-1.3.7-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+  "has_sig": false,
+  "md5_digest": "0b0c344cba6c4657bcf595158f620f34",
+  "packagetype": "bdist_wheel",
+  "python_version": "cp312",
+  "requires_python": ">=3.8",
+  "size": 33736,
+  "upload_time": "2025-09-05T12:49:40",
+  "upload_time_iso_8601": "2025-09-05T12:49:40.565574Z",
+  "url": "https://files.pythonhosted.org/packages/50/22/cee06af4ffcfb0e8aba047bd44f5262e644199ae7527ae2c1f672b86495c/setproctitle-1.3.7-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+  "yanked": false,
+  "yanked_reason": null
+}

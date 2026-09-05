@@ -1,0 +1,35 @@
+[
+  {
+    "name": "campaign-mac",
+    "command": [
+      "bash",
+      "bench/campaign/campaign_test.sh"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "shellcheck",
+    "command": [
+      "shellcheck",
+      "-x",
+      "-S",
+      "warning",
+      "bench/campaign/run_cell.sh",
+      "bench/campaign/cell_process.sh",
+      "bench/campaign/cell_serve.sh",
+      "bench/campaign/cell_lifecycle.sh",
+      "bench/campaign/cell_identity.sh",
+      "bench/campaign/campaign_test.sh"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "diff-check",
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0
+  }
+]

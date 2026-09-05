@@ -5,13 +5,15 @@ GPU-free selftest, a receipt already measured on Spark 1, or an explicit "first
 time on silicon" step. Nothing below has run on Hopper or B200 yet; the point of
 the runbook is that the first run is a checklist, not an exploration.
 
-For Tom's proposed **Vast.ai 2×H100 SXM, eight-hour booking with 300 GB instance
+For Tom's **Vast.ai 2×H100 SXM, eight-hour booking with 300 GB instance
 disk and no volume**, follow
 [VAST-H100-8H-PLAN.md](VAST-H100-8H-PLAN.md) for provider setup, model order,
 readiness prerequisites and time limits. It supersedes this generic provisioning
 sequence for that pilot: standard Vast container rentals do not support the nested
-Docker launches used below. The pilot remains on hold pending a tested execution
-path and pinned model-specific binaries.
+Docker launches used below. Tom has authorized staging and on-node rebuilds;
+the tested process path and Qwen binary are ready for host verification. SSH and
+activation time are pending. Include diagnostic fix/rebuild cycles in the pilot,
+preserve each binary's identity and keep full-matrix scoring separate.
 
 ## 0. Before renting (all done off the GPU clock)
 

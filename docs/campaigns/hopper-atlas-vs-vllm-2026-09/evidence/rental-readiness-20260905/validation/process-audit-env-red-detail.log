@@ -1,0 +1,63 @@
+{"oracle": "preexisting process directory", "exit": 1, "foreign_pid": 1084139, "alive_after": true, "owner_unchanged": true, "verdict": "NO-GO", "stage": "serve"}
+RETAINED_AUDIT_STDERR
+audit environment differs from declared serve environment
+
+test_preexisting_process_directory_cannot_capture_or_stop_foreign_owner (process_runner_test.ProcessRunnerTests.test_preexisting_process_directory_cannot_capture_or_stop_foreign_owner) ... ok
+test_term_during_boot_stops_owned_process_and_retains_environment (process_runner_test.ProcessRunnerTests.test_term_during_boot_stops_owned_process_and_retains_environment) ... FAIL
+
+======================================================================
+FAIL: test_term_during_boot_stops_owned_process_and_retains_environment (process_runner_test.ProcessRunnerTests.test_term_during_boot_stops_owned_process_and_retains_environment)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/pidtom/atlas-rental-ptx-tests-20260905/bench/campaign/process_runner_test.py", line 177, in test_term_during_boot_stops_owned_process_and_retains_environment
+    self.wait_for(owned, "the completed owned process record")
+  File "/home/pidtom/atlas-rental-ptx-tests-20260905/bench/campaign/process_runner_test.py", line 154, in wait_for
+    self.fail(f"runner exited before {description}: " + self.log.read_text())
+AssertionError: runner exited before the completed owned process record: === campaign cell atlas.qwen3.6-35b-a3b-fp8.h100.lat.c1.specoff.thinkoff ===
+engine:      atlas
+model:       qwen3.6-35b-a3b-fp8 -> Qwen/Qwen3.6-35B-A3B-FP8
+sku:         h100
+workload:    lat  isl=1024 osl=256  C=1  reps=3 warmup=1
+spec:        off     think: off
+boot cap:    1800s
+out:         /tmp/atlas-process-runner-_f3tdom4/cell
+client url:  http://127.0.0.1:32813
+
+
+--- stage 1/7 preflight ---
+$ nvidia-smi -q > /tmp/atlas-process-runner-_f3tdom4/cell/nvidia-smi-q.txt
+$ df -h /tmp/atlas-process-runner-_f3tdom4/cell > /tmp/atlas-process-runner-_f3tdom4/cell/df.txt
+$ git -C /home/pidtom/atlas-rental-ptx-tests-20260905 rev-parse HEAD
+$ sha256sum /home/pidtom/atlas-rental-ptx-tests-20260905/bench/ladder38/harness_w55_conc_ladder.py
+NOTE: the tree is dirty; harness.git_sha e2cf12073d5a554e4599ea14f304214601031b25 does not fully
+  describe it.
+
+--- stage 2/7 serve ---
+process_argv: ["/tmp/atlas-process-runner-_f3tdom4/bin/spark", "serve", "/tmp/atlas-process-runner-_f3tdom4/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/snapshots/95a723d08a9490559dae23d0cff1d9466213d989", "--rank", "0", "--world-size", "1", "--ep-size", "1", "--tp-size", "1", "--gpu-ordinal", "0", "--port", "32813", "--master-addr", "127.0.0.1", "--master-port", "29500", "--no-tui", "--bind", "0.0.0.0", "--warmup-prompt", "/home/pidtom/atlas-rental-ptx-tests-20260905/bench/hopper_ab/warmup_1024.txt", "--request-timeout", "0", "--gpu-memory-utilization", "0.90", "--max-num-seqs", "128", "--max-batch-size", "32", "--enable-prefix-caching", "true", "--scheduling-policy", "slai", "--kv-cache-dtype", "fp8", "--kv-high-precision-layers", "auto", "--max-seq-len", "65536", "--max-prefill-tokens", "32768", "--fp8-kv-calibration-tokens", "256", "--disable-thinking", "--model-name", "Qwen/Qwen3.6-35B-A3B-FP8"]
+process_environment: {"CUDA_VISIBLE_DEVICES": "-1", "HF_HUB_OFFLINE": "1", "RUST_LOG": "info", "SPT_NOENV": "1"}
+STAGE FAILED: serve
+
+--- stage 3/7 boot gate (cap 1800s) ---
+$ bash /home/pidtom/atlas-rental-ptx-tests-20260905/bench/hopper_ab/time_to_ready.sh --url http://127.0.0.1:32813 --model Qwen/Qwen3.6-35B-A3B-FP8 --engine atlas --start-epoch <serve-start> --timeout-s 1800 --out /tmp/atlas-process-runner-_f3tdom4/cell/boot.json
+
+--- stage 4/7 coherency gate ---
+$ python3 /home/pidtom/atlas-rental-ptx-tests-20260905/bench/hopper_ab/coherency_gate.py --url http://127.0.0.1:32813 --model Qwen/Qwen3.6-35B-A3B-FP8 --think off --out /tmp/atlas-process-runner-_f3tdom4/cell/coherency.json
+
+--- stage 5/7 latency pack ---
+$ python3 /home/pidtom/atlas-rental-ptx-tests-20260905/bench/ladder38/harness_w55_conc_ladder.py --url http://127.0.0.1:32813 --model Qwen/Qwen3.6-35B-A3B-FP8 --label atlas.qwen3.6-35b-a3b-fp8.h100.lat.c1.specoff.thinkoff --out /tmp/atlas-process-runner-_f3tdom4/cell/ladder.json --concs 1 --reps 3 --isl 1024 --osl 256 --warmup 1 
+
+--- stage 6/7 teardown ---
+
+--- stage 7/7 assemble and validate ---
+$ python3 /home/pidtom/atlas-rental-ptx-tests-20260905/bench/campaign/cell_assemble.py --engine atlas --model-key qwen3.6-35b-a3b-fp8 --sku h100 --workload lat --concurrency 1 --spec off --think off --out /tmp/atlas-process-runner-_f3tdom4/cell/artifact.json --workloads /home/pidtom/atlas-rental-ptx-tests-20260905/bench/hopper_ab/workloads.json --atlas-recipes /home/pidtom/atlas-rental-ptx-tests-20260905/bench/campaign/atlas_recipes.json --vllm-recipes /home/pidtom/atlas-rental-ptx-tests-20260905/bench/campaign/vllm_recipes.json --client /home/pidtom/atlas-rental-ptx-tests-20260905/bench/ladder38/harness_w55_conc_ladder.py --serve-argv /tmp/atlas-process-runner-_f3tdom4/cell/serve.argv --serve-env /tmp/atlas-process-runner-_f3tdom4/cell/serve.env --nvidia-smi-q /tmp/atlas-process-runner-_f3tdom4/cell/nvidia-smi-q.txt --boot-json /tmp/atlas-process-runner-_f3tdom4/cell/boot.json --coherency-json /tmp/atlas-process-runner-_f3tdom4/cell/coherency.json --ladder-json /tmp/atlas-process-runner-_f3tdom4/cell/ladder.json --harness-git-sha e2cf12073d5a554e4599ea14f304214601031b25 --binary /tmp/atlas-process-runner-_f3tdom4/bin/spark --failing-stage serve
+$ python3 /home/pidtom/atlas-rental-ptx-tests-20260905/bench/campaign/validate_artifact.py /tmp/atlas-process-runner-_f3tdom4/cell/artifact.json
+# wrote /tmp/atlas-process-runner-_f3tdom4/cell/artifact.json at 2026-09-05T17:27:30Z
+VALID: /tmp/atlas-process-runner-_f3tdom4/cell/artifact.json
+
+=== atlas.qwen3.6-35b-a3b-fp8.h100.lat.c1.specoff.thinkoff: FAILED at stage 'serve'; artifact written to /tmp/atlas-process-runner-_f3tdom4/cell/artifact.json ===
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.563s
+
+FAILED (failures=1)

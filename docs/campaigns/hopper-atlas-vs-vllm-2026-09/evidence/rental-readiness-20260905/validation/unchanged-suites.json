@@ -1,0 +1,98 @@
+[
+  {
+    "name": "launcher",
+    "command": [
+      "bash",
+      "scripts/start_node_ep_test.sh"
+    ],
+    "started_utc": "2026-09-05T17:24:26.087775+00:00",
+    "finished_utc": "2026-09-05T17:24:34.823200+00:00",
+    "exit_code": 0,
+    "checkout_head": "4168042b41ce79f15d35e410f68fe32aa5d16b53"
+  },
+  {
+    "name": "dockerfiles",
+    "command": [
+      "bash",
+      "docker/datacenter_dockerfiles_test.sh"
+    ],
+    "started_utc": "2026-09-05T17:24:26.089447+00:00",
+    "finished_utc": "2026-09-05T17:24:26.364971+00:00",
+    "exit_code": 0,
+    "checkout_head": "4168042b41ce79f15d35e410f68fe32aa5d16b53"
+  },
+  {
+    "name": "atlas-render",
+    "command": [
+      "python3",
+      "bench/campaign/atlas_render.py",
+      "--selftest"
+    ],
+    "started_utc": "2026-09-05T17:24:26.091316+00:00",
+    "finished_utc": "2026-09-05T17:24:26.138688+00:00",
+    "exit_code": 0,
+    "checkout_head": "4168042b41ce79f15d35e410f68fe32aa5d16b53"
+  },
+  {
+    "name": "vllm-render",
+    "command": [
+      "python3",
+      "bench/campaign/vllm_render.py",
+      "--recipes",
+      "bench/campaign/vllm_recipes.json",
+      "--selftest"
+    ],
+    "started_utc": "2026-09-05T17:24:26.091522+00:00",
+    "finished_utc": "2026-09-05T17:24:26.138419+00:00",
+    "exit_code": 0,
+    "checkout_head": "4168042b41ce79f15d35e410f68fe32aa5d16b53"
+  },
+  {
+    "name": "validator",
+    "command": [
+      "python3",
+      "bench/campaign/validate_artifact.py",
+      "--selftest"
+    ],
+    "started_utc": "2026-09-05T17:24:26.092815+00:00",
+    "finished_utc": "2026-09-05T17:24:26.141567+00:00",
+    "exit_code": 0,
+    "checkout_head": "4168042b41ce79f15d35e410f68fe32aa5d16b53"
+  },
+  {
+    "name": "assembler",
+    "command": [
+      "python3",
+      "bench/campaign/cell_assemble.py",
+      "--selftest"
+    ],
+    "started_utc": "2026-09-05T17:24:26.138903+00:00",
+    "finished_utc": "2026-09-05T17:24:31.581607+00:00",
+    "exit_code": 0,
+    "checkout_head": "4168042b41ce79f15d35e410f68fe32aa5d16b53"
+  },
+  {
+    "name": "fmt",
+    "command": [
+      "cargo",
+      "fmt",
+      "--all",
+      "--",
+      "--check"
+    ],
+    "started_utc": "2026-09-05T17:24:26.138998+00:00",
+    "finished_utc": "2026-09-05T17:24:27.944387+00:00",
+    "exit_code": 0,
+    "checkout_head": "4168042b41ce79f15d35e410f68fe32aa5d16b53"
+  },
+  {
+    "name": "typos",
+    "command": [
+      "typos"
+    ],
+    "started_utc": "2026-09-05T17:24:26.141919+00:00",
+    "finished_utc": "2026-09-05T17:24:26.336354+00:00",
+    "exit_code": 0,
+    "checkout_head": "4168042b41ce79f15d35e410f68fe32aa5d16b53"
+  }
+]

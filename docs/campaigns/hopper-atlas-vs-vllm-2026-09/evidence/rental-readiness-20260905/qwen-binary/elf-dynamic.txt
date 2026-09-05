@@ -1,0 +1,104 @@
+
+/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/qwen-binary/spark:	file format elf64-x86-64
+
+Program Header:
+    PHDR off    0x0000000000000040 vaddr 0x0000000000000040 paddr 0x0000000000000040 align 2**3
+         filesz 0x00000000000002a0 memsz 0x00000000000002a0 flags r--
+  INTERP off    0x00000000000002e0 vaddr 0x00000000000002e0 paddr 0x00000000000002e0 align 2**0
+         filesz 0x000000000000001c memsz 0x000000000000001c flags r--
+    LOAD off    0x0000000000000000 vaddr 0x0000000000000000 paddr 0x0000000000000000 align 2**12
+         filesz 0x0000000002bae4fc memsz 0x0000000002bae4fc flags r--
+    LOAD off    0x0000000002bae500 vaddr 0x0000000002baf500 paddr 0x0000000002baf500 align 2**12
+         filesz 0x0000000001406c80 memsz 0x0000000001406c80 flags r-x
+    LOAD off    0x0000000003fb5180 vaddr 0x0000000003fb7180 paddr 0x0000000003fb7180 align 2**12
+         filesz 0x000000000011f5d0 memsz 0x000000000011fe80 flags rw-
+    LOAD off    0x00000000040d4750 vaddr 0x00000000040d7750 paddr 0x00000000040d7750 align 2**12
+         filesz 0x0000000000012b58 memsz 0x0000000000013980 flags rw-
+    TLS off    0x0000000003fb5180 vaddr 0x0000000003fb7180 paddr 0x0000000003fb7180 align 2**3
+         filesz 0x00000000000005f9 memsz 0x00000000000008c0 flags r--
+ DYNAMIC off    0x00000000040c9270 vaddr 0x00000000040cb270 paddr 0x00000000040cb270 align 2**3
+         filesz 0x0000000000000230 memsz 0x0000000000000230 flags rw-
+   RELRO off    0x0000000003fb5180 vaddr 0x0000000003fb7180 paddr 0x0000000003fb7180 align 2**0
+         filesz 0x000000000011f5d0 memsz 0x000000000011fe80 flags r--
+EH_FRAME off    0x000000000294ba40 vaddr 0x000000000294ba40 paddr 0x000000000294ba40 align 2**2
+         filesz 0x00000000000462a4 memsz 0x00000000000462a4 flags r--
+   STACK off    0x0000000000000000 vaddr 0x0000000000000000 paddr 0x0000000000000000 align 2**64
+         filesz 0x0000000000000000 memsz 0x0000000000000000 flags rw-
+    NOTE off    0x00000000000002fc vaddr 0x00000000000002fc paddr 0x00000000000002fc align 2**2
+         filesz 0x0000000000000044 memsz 0x0000000000000044 flags r--
+
+Dynamic Section:
+  NEEDED       libcuda.so.1
+  NEEDED       libibverbs.so.1
+  NEEDED       libnccl.so.2
+  NEEDED       libcublasLt.so.13
+  NEEDED       libcudart.so.13
+  NEEDED       libgcc_s.so.1
+  NEEDED       libm.so.6
+  NEEDED       libc.so.6
+  NEEDED       ld-linux-x86-64.so.2
+  FLAGS        0x0000000000000008
+  FLAGS_1      0x0000000008000001
+  DEBUG        0x0000000000000000
+  RELA         0x0000000000003240
+  RELASZ       0x0000000000189e88
+  RELAENT      0x0000000000000018
+  RELACOUNT    0x00000000000105a0
+  JMPREL       0x000000000018d0c8
+  PLTRELSZ     0x0000000000000300
+  PLTGOT       0x00000000040d6638
+  PLTREL       0x0000000000000007
+  SYMTAB       0x0000000000000340
+  SYMENT       0x0000000000000018
+  STRTAB       0x00000000000021c4
+  STRSZ        0x0000000000001075
+  GNU_HASH     0x00000000000021a8
+  INIT_ARRAY   0x0000000003fb7788
+  INIT_ARRAYSZ 0x0000000000000010
+  FINI_ARRAY   0x0000000003fb7780
+  FINI_ARRAYSZ 0x0000000000000008
+  INIT         0x0000000003fb5f40
+  FINI         0x0000000003fb5f5c
+  VERSYM       0x0000000000001d20
+  VERNEED      0x0000000000001f48
+  VERNEEDNUM   0x0000000000000007
+
+Version References:
+  required from libibverbs.so.1:
+    0x06365ab1 0x00 12 IBVERBS_1.1
+  required from libcublasLt.so.13:
+    0x0b5aa1d3 0x00 14 libcublasLt.so.13
+  required from libcudart.so.13:
+    0x0ff3db23 0x00 13 libcudart.so.13
+  required from libgcc_s.so.1:
+    0x0b792650 0x00 05 GCC_3.0
+    0x0b792653 0x00 31 GCC_3.3
+    0x09276060 0x00 32 GCC_4.2.0
+  required from libm.so.6:
+    0x09691a75 0x00 08 GLIBC_2.2.5
+    0x06969187 0x00 06 GLIBC_2.27
+    0x06969189 0x00 07 GLIBC_2.29
+  required from libc.so.6:
+    0x09691a75 0x00 03 GLIBC_2.2.5
+    0x0d696913 0x00 22 GLIBC_2.3
+    0x09691972 0x00 16 GLIBC_2.3.2
+    0x09691974 0x00 11 GLIBC_2.3.4
+    0x0d696914 0x00 10 GLIBC_2.4
+    0x0d696917 0x00 18 GLIBC_2.7
+    0x0d696919 0x00 17 GLIBC_2.9
+    0x06969190 0x00 15 GLIBC_2.10
+    0x06969194 0x00 04 GLIBC_2.14
+    0x06969195 0x00 30 GLIBC_2.15
+    0x06969196 0x00 25 GLIBC_2.16
+    0x06969197 0x00 26 GLIBC_2.17
+    0x06969198 0x00 21 GLIBC_2.18
+    0x06969185 0x00 27 GLIBC_2.25
+    0x06969188 0x00 23 GLIBC_2.28
+    0x06969189 0x00 29 GLIBC_2.29
+    0x069691b0 0x00 24 GLIBC_2.30
+    0x069691b2 0x00 20 GLIBC_2.32
+    0x069691b3 0x00 19 GLIBC_2.33
+    0x069691b4 0x00 02 GLIBC_2.34
+    0x069691b9 0x00 28 GLIBC_2.39
+  required from ld-linux-x86-64.so.2:
+    0x0d696913 0x00 09 GLIBC_2.3

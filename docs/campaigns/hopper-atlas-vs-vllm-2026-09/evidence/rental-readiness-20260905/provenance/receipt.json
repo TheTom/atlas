@@ -1,0 +1,22 @@
+{
+  "captured_utc": "2026-09-05T16:59:01.342127+00:00",
+  "commit": "bbb3683598bdeae41a44721c2b191a12942f2462",
+  "scope": "Model revision provenance from actual owned Linux process capture; no claim of GPU execution or engine package identity.",
+  "cli": [
+    "--model-launch-process-json",
+    "SNAPSHOT",
+    "--model-launch-process-owner-json",
+    "OWNER"
+  ],
+  "oracle": "Foreign/stale/malformed process snapshots, incorrect argv, mixed Docker/process proofs and unsuccessful or mismatched boot must not produce a model revision. Exact pinned actual argv plus owner tuple and matching completed boot can.",
+  "red": "process-evidence-red.log:16 test methods,32 failing subcases because assembler rejected new input flags.",
+  "green": "assembler-selftest-green.log:16/16 (8 existing Docker,8 process); coherency-evidence-green.log:8/8.",
+  "timing": "Capture after completed boot and before teardown; snapshot captured_at must be >= created_at and >= boot.start_epoch+total_s with1second rounding allowance.",
+  "stopping_rule": "Known-bad CLI cases red; all existing and process-positive/negative tests green,typos anddiffchecks clean; commit ownedfiles and hand off to runner integration.",
+  "limits": [
+    "Synthetic fixtures prove assembler decisions; process manager owns actual Linux proc reads.",
+    "Python executable SHA does not prove vLLM installed package identity.",
+    "No model revision inferred from recipe pins.",
+    "No artifact schema or shared ladder changes."
+  ]
+}

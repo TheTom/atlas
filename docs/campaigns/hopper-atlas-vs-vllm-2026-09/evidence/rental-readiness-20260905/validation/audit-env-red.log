@@ -1,0 +1,15 @@
+.....F
+======================================================================
+FAIL: test_f_audit_uses_declared_environment_without_ambient_credentials (__main__.ProcessModeTests.test_f_audit_uses_declared_environment_without_ambient_credentials)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_mode_test.py", line 80, in test_f_audit_uses_declared_environment_without_ambient_credentials
+    self.assertEqual(result.returncode, 0, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : /opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_exec.py': [Errno 2] No such file or directory
+
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.946s
+
+FAILED (failures=1)

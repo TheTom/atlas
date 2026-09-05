@@ -1,0 +1,15 @@
+{
+  "recorded_utc": "2026-09-05T17:18:05.606599+00:00",
+  "host": "pidtom@192.168.50.125",
+  "command_kind": "read-only Python module availability; no module import",
+  "python": "/usr/bin/python3",
+  "python_version": "3.12.3",
+  "machine": "aarch64",
+  "setproctitle_available": false,
+  "module_path": null,
+  "supplemental_search": "rg unavailable; no results claimed",
+  "runtime_procfs_experiment": "NOT_RUN",
+  "installed_packages": false,
+  "gpu_imports": false,
+  "credentials_inspected": false
+}

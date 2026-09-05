@@ -1,0 +1,1151 @@
+test_a_unowned_launch_cannot_certify (cell_assemble_test.AssemblyTest.test_a_unowned_launch_cannot_certify) ... ok
+test_b_unstarted_or_malformed_launch_cannot_certify (cell_assemble_test.AssemblyTest.test_b_unstarted_or_malformed_launch_cannot_certify) ... ok
+test_c_wrong_model_or_competing_revision_cannot_certify (cell_assemble_test.AssemblyTest.test_c_wrong_model_or_competing_revision_cannot_certify) ... ok
+test_d_failed_boot_does_not_prove_loaded_revision (cell_assemble_test.AssemblyTest.test_d_failed_boot_does_not_prove_loaded_revision) ... ok
+test_e_recipe_pins_alone_are_not_launch_proof (cell_assemble_test.AssemblyTest.test_e_recipe_pins_alone_are_not_launch_proof) ... ok
+test_f_owned_launched_pin_and_boot_prove_revision (cell_assemble_test.AssemblyTest.test_f_owned_launched_pin_and_boot_prove_revision) ... ok
+test_g_floating_launch_keeps_revision_null (cell_assemble_test.AssemblyTest.test_g_floating_launch_keeps_revision_null) ... ok
+test_h_failed_known_answer_remains_no_go (cell_assemble_test.AssemblyTest.test_h_failed_known_answer_remains_no_go) ... ok
+test_a_foreign_or_reused_process_is_refused (__main__.ProcessAssemblyTest.test_a_foreign_or_reused_process_is_refused) ... 
+  test_a_foreign_or_reused_process_is_refused (__main__.ProcessAssemblyTest.test_a_foreign_or_reused_process_is_refused) (key='pid') ... FAIL
+  test_a_foreign_or_reused_process_is_refused (__main__.ProcessAssemblyTest.test_a_foreign_or_reused_process_is_refused) (key='start_ticks') ... FAIL
+  test_a_foreign_or_reused_process_is_refused (__main__.ProcessAssemblyTest.test_a_foreign_or_reused_process_is_refused) (key='pgid') ... FAIL
+  test_a_foreign_or_reused_process_is_refused (__main__.ProcessAssemblyTest.test_a_foreign_or_reused_process_is_refused) (key='sid') ... FAIL
+  test_a_foreign_or_reused_process_is_refused (__main__.ProcessAssemblyTest.test_a_foreign_or_reused_process_is_refused) (key='boot_id') ... FAIL
+  test_a_foreign_or_reused_process_is_refused (__main__.ProcessAssemblyTest.test_a_foreign_or_reused_process_is_refused) (key='run_marker') ... FAIL
+test_b_stopped_or_changed_capture_is_refused (__main__.ProcessAssemblyTest.test_b_stopped_or_changed_capture_is_refused) ... 
+  test_b_stopped_or_changed_capture_is_refused (__main__.ProcessAssemblyTest.test_b_stopped_or_changed_capture_is_refused) (key='running') ... FAIL
+  test_b_stopped_or_changed_capture_is_refused (__main__.ProcessAssemblyTest.test_b_stopped_or_changed_capture_is_refused) (key='captured_pid') ... FAIL
+  test_b_stopped_or_changed_capture_is_refused (__main__.ProcessAssemblyTest.test_b_stopped_or_changed_capture_is_refused) (key='captured_start_ticks') ... FAIL
+  test_b_stopped_or_changed_capture_is_refused (__main__.ProcessAssemblyTest.test_b_stopped_or_changed_capture_is_refused) (key='captured_boot_id') ... FAIL
+  test_b_stopped_or_changed_capture_is_refused (__main__.ProcessAssemblyTest.test_b_stopped_or_changed_capture_is_refused) (key='captured_at') ... FAIL
+  test_b_stopped_or_changed_capture_is_refused (__main__.ProcessAssemblyTest.test_b_stopped_or_changed_capture_is_refused) (key='executable') ... FAIL
+  test_b_stopped_or_changed_capture_is_refused (__main__.ProcessAssemblyTest.test_b_stopped_or_changed_capture_is_refused) (key='executable_sha256') ... FAIL
+  test_b_stopped_or_changed_capture_is_refused (__main__.ProcessAssemblyTest.test_b_stopped_or_changed_capture_is_refused) (key='environment') ... FAIL
+test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) ... 
+  test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (process={'schema': 1, 'kind': 'linux-proc', 'pid': 321, 'pgid': 321, 'sid': 321, 'start_ticks': 1234567, 'boot_id': '01234567-89ab-4cde-8fab-0123456789ab', 'run_marker': 'fixture-process-cccccccccccccccccccccccccccccccc', 'executable': '/usr/bin/python3.12', 'executable_sha256': 'dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'argv': ['/opt/vllm/bin/python3', '/opt/vllm/bin/vllm', 'serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'], 'environment': {'ATLAS_CAMPAIGN_RUN_TOKEN': 'fixture-process-cccccccccccccccccccccccccccccccc'}, 'created_at': '2026-09-05T09:20:00+00:00', 'running': True, 'captured_pid': 321, 'captured_start_ticks': 1234567, 'captured_boot_id': '01234567-89ab-4cde-8fab-0123456789ab', 'captured_at': '2026-09-05T09:26:54.830000+00:00'}, owner=None) ... FAIL
+  test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (process=None, owner={'schema': 1, 'kind': 'linux-proc-owner', 'pid': 321, 'pgid': 321, 'sid': 321, 'start_ticks': 1234567, 'boot_id': '01234567-89ab-4cde-8fab-0123456789ab', 'run_marker': 'fixture-process-cccccccccccccccccccccccccccccccc', 'executable': '/usr/bin/python3.12', 'executable_sha256': 'dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'argv': ['/opt/vllm/bin/python3', '/opt/vllm/bin/vllm', 'serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'], 'environment': {'ATLAS_CAMPAIGN_RUN_TOKEN': 'fixture-process-cccccccccccccccccccccccccccccccc'}, 'created_at': '2026-09-05T09:20:00+00:00'}) ... FAIL
+  test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (process=[], owner={'schema': 1, 'kind': 'linux-proc-owner', 'pid': 321, 'pgid': 321, 'sid': 321, 'start_ticks': 1234567, 'boot_id': '01234567-89ab-4cde-8fab-0123456789ab', 'run_marker': 'fixture-process-cccccccccccccccccccccccccccccccc', 'executable': '/usr/bin/python3.12', 'executable_sha256': 'dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'argv': ['/opt/vllm/bin/python3', '/opt/vllm/bin/vllm', 'serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'], 'environment': {'ATLAS_CAMPAIGN_RUN_TOKEN': 'fixture-process-cccccccccccccccccccccccccccccccc'}, 'created_at': '2026-09-05T09:20:00+00:00'}) ... FAIL
+  test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (process={'schema': 1, 'kind': 'linux-proc', 'pid': 321, 'pgid': 321, 'sid': 321, 'start_ticks': 1234567, 'boot_id': '01234567-89ab-4cde-8fab-0123456789ab', 'run_marker': 'fixture-process-cccccccccccccccccccccccccccccccc', 'executable': '/usr/bin/python3.12', 'executable_sha256': 'dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'argv': ['/opt/vllm/bin/python3', '/opt/vllm/bin/vllm', 'serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'], 'environment': {'ATLAS_CAMPAIGN_RUN_TOKEN': 'fixture-process-cccccccccccccccccccccccccccccccc'}, 'created_at': '2026-09-05T09:20:00+00:00', 'running': True, 'captured_pid': 321, 'captured_start_ticks': 1234567, 'captured_boot_id': '01234567-89ab-4cde-8fab-0123456789ab', 'captured_at': '2026-09-05T09:26:54.830000+00:00'}, owner={}) ... FAIL
+  test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (process={}, owner={'schema': 1, 'kind': 'linux-proc-owner', 'pid': 321, 'pgid': 321, 'sid': 321, 'start_ticks': 1234567, 'boot_id': '01234567-89ab-4cde-8fab-0123456789ab', 'run_marker': 'fixture-process-cccccccccccccccccccccccccccccccc', 'executable': '/usr/bin/python3.12', 'executable_sha256': 'dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'argv': ['/opt/vllm/bin/python3', '/opt/vllm/bin/vllm', 'serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'], 'environment': {'ATLAS_CAMPAIGN_RUN_TOKEN': 'fixture-process-cccccccccccccccccccccccccccccccc'}, 'created_at': '2026-09-05T09:20:00+00:00'}) ... FAIL
+  test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (key='pid') ... FAIL
+  test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (key='start_ticks') ... FAIL
+  test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (key='boot_id') ... FAIL
+  test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (key='run_marker') ... FAIL
+  test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (key='executable_sha256') ... FAIL
+test_d_wrong_or_mutated_argv_is_refused (__main__.ProcessAssemblyTest.test_d_wrong_or_mutated_argv_is_refused) ... FAIL
+test_e_conflicting_docker_and_process_proof_is_refused (__main__.ProcessAssemblyTest.test_e_conflicting_docker_and_process_proof_is_refused) ... FAIL
+test_f_failed_or_mismatched_boot_cannot_prove_revision (__main__.ProcessAssemblyTest.test_f_failed_or_mismatched_boot_cannot_prove_revision) ... FAIL
+test_g_owned_pin_survives_supported_actual_process_forms (__main__.ProcessAssemblyTest.test_g_owned_pin_survives_supported_actual_process_forms) ... 
+  test_g_owned_pin_survives_supported_actual_process_forms (__main__.ProcessAssemblyTest.test_g_owned_pin_survives_supported_actual_process_forms) (mode='shebang') ... FAIL
+  test_g_owned_pin_survives_supported_actual_process_forms (__main__.ProcessAssemblyTest.test_g_owned_pin_survives_supported_actual_process_forms) (mode='module') ... FAIL
+  test_g_owned_pin_survives_supported_actual_process_forms (__main__.ProcessAssemblyTest.test_g_owned_pin_survives_supported_actual_process_forms) (mode='direct') ... FAIL
+  test_g_owned_pin_survives_supported_actual_process_forms (__main__.ProcessAssemblyTest.test_g_owned_pin_survives_supported_actual_process_forms) (mode='atlas') ... FAIL
+test_h_floating_launch_does_not_inherit_recipe_revision (__main__.ProcessAssemblyTest.test_h_floating_launch_does_not_inherit_recipe_revision) ... FAIL
+
+======================================================================
+FAIL: test_a_foreign_or_reused_process_is_refused (__main__.ProcessAssemblyTest.test_a_foreign_or_reused_process_is_refused) (key='pid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 51, in test_a_foreign_or_reused_process_is_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpcnqgixy7/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpcnqgixy7/process-owner.json
+
+
+======================================================================
+FAIL: test_a_foreign_or_reused_process_is_refused (__main__.ProcessAssemblyTest.test_a_foreign_or_reused_process_is_refused) (key='start_ticks')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 51, in test_a_foreign_or_reused_process_is_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp5xmx_vxf/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp5xmx_vxf/process-owner.json
+
+
+======================================================================
+FAIL: test_a_foreign_or_reused_process_is_refused (__main__.ProcessAssemblyTest.test_a_foreign_or_reused_process_is_refused) (key='pgid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 51, in test_a_foreign_or_reused_process_is_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpoawv6bsk/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpoawv6bsk/process-owner.json
+
+
+======================================================================
+FAIL: test_a_foreign_or_reused_process_is_refused (__main__.ProcessAssemblyTest.test_a_foreign_or_reused_process_is_refused) (key='sid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 51, in test_a_foreign_or_reused_process_is_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp_uiv7lmg/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp_uiv7lmg/process-owner.json
+
+
+======================================================================
+FAIL: test_a_foreign_or_reused_process_is_refused (__main__.ProcessAssemblyTest.test_a_foreign_or_reused_process_is_refused) (key='boot_id')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 51, in test_a_foreign_or_reused_process_is_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp6b8yf2mp/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp6b8yf2mp/process-owner.json
+
+
+======================================================================
+FAIL: test_a_foreign_or_reused_process_is_refused (__main__.ProcessAssemblyTest.test_a_foreign_or_reused_process_is_refused) (key='run_marker')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 51, in test_a_foreign_or_reused_process_is_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpk7hzp4d4/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpk7hzp4d4/process-owner.json
+
+
+======================================================================
+FAIL: test_b_stopped_or_changed_capture_is_refused (__main__.ProcessAssemblyTest.test_b_stopped_or_changed_capture_is_refused) (key='running')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 62, in test_b_stopped_or_changed_capture_is_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpwntx1pi6/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpwntx1pi6/process-owner.json
+
+
+======================================================================
+FAIL: test_b_stopped_or_changed_capture_is_refused (__main__.ProcessAssemblyTest.test_b_stopped_or_changed_capture_is_refused) (key='captured_pid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 62, in test_b_stopped_or_changed_capture_is_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpvbyn8e0s/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpvbyn8e0s/process-owner.json
+
+
+======================================================================
+FAIL: test_b_stopped_or_changed_capture_is_refused (__main__.ProcessAssemblyTest.test_b_stopped_or_changed_capture_is_refused) (key='captured_start_ticks')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 62, in test_b_stopped_or_changed_capture_is_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmps18ofccq/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmps18ofccq/process-owner.json
+
+
+======================================================================
+FAIL: test_b_stopped_or_changed_capture_is_refused (__main__.ProcessAssemblyTest.test_b_stopped_or_changed_capture_is_refused) (key='captured_boot_id')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 62, in test_b_stopped_or_changed_capture_is_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpqu628mv6/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpqu628mv6/process-owner.json
+
+
+======================================================================
+FAIL: test_b_stopped_or_changed_capture_is_refused (__main__.ProcessAssemblyTest.test_b_stopped_or_changed_capture_is_refused) (key='captured_at')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 62, in test_b_stopped_or_changed_capture_is_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp50a22935/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp50a22935/process-owner.json
+
+
+======================================================================
+FAIL: test_b_stopped_or_changed_capture_is_refused (__main__.ProcessAssemblyTest.test_b_stopped_or_changed_capture_is_refused) (key='executable')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 62, in test_b_stopped_or_changed_capture_is_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpgmgtnlpu/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpgmgtnlpu/process-owner.json
+
+
+======================================================================
+FAIL: test_b_stopped_or_changed_capture_is_refused (__main__.ProcessAssemblyTest.test_b_stopped_or_changed_capture_is_refused) (key='executable_sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 62, in test_b_stopped_or_changed_capture_is_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpzugd1di7/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpzugd1di7/process-owner.json
+
+
+======================================================================
+FAIL: test_b_stopped_or_changed_capture_is_refused (__main__.ProcessAssemblyTest.test_b_stopped_or_changed_capture_is_refused) (key='environment')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 62, in test_b_stopped_or_changed_capture_is_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpa1kfll4w/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpa1kfll4w/process-owner.json
+
+
+======================================================================
+FAIL: test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (process={'schema': 1, 'kind': 'linux-proc', 'pid': 321, 'pgid': 321, 'sid': 321, 'start_ticks': 1234567, 'boot_id': '01234567-89ab-4cde-8fab-0123456789ab', 'run_marker': 'fixture-process-cccccccccccccccccccccccccccccccc', 'executable': '/usr/bin/python3.12', 'executable_sha256': 'dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'argv': ['/opt/vllm/bin/python3', '/opt/vllm/bin/vllm', 'serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'], 'environment': {'ATLAS_CAMPAIGN_RUN_TOKEN': 'fixture-process-cccccccccccccccccccccccccccccccc'}, 'created_at': '2026-09-05T09:20:00+00:00', 'running': True, 'captured_pid': 321, 'captured_start_ticks': 1234567, 'captured_boot_id': '01234567-89ab-4cde-8fab-0123456789ab', 'captured_at': '2026-09-05T09:26:54.830000+00:00'}, owner=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 69, in test_c_unowned_or_malformed_records_are_refused
+    self.assert_refused(bad_process, bad_owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp5guhqmzc/process.json
+
+
+======================================================================
+FAIL: test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (process=None, owner={'schema': 1, 'kind': 'linux-proc-owner', 'pid': 321, 'pgid': 321, 'sid': 321, 'start_ticks': 1234567, 'boot_id': '01234567-89ab-4cde-8fab-0123456789ab', 'run_marker': 'fixture-process-cccccccccccccccccccccccccccccccc', 'executable': '/usr/bin/python3.12', 'executable_sha256': 'dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'argv': ['/opt/vllm/bin/python3', '/opt/vllm/bin/vllm', 'serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'], 'environment': {'ATLAS_CAMPAIGN_RUN_TOKEN': 'fixture-process-cccccccccccccccccccccccccccccccc'}, 'created_at': '2026-09-05T09:20:00+00:00'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 69, in test_c_unowned_or_malformed_records_are_refused
+    self.assert_refused(bad_process, bad_owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpin3u8isj/process-owner.json
+
+
+======================================================================
+FAIL: test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (process=[], owner={'schema': 1, 'kind': 'linux-proc-owner', 'pid': 321, 'pgid': 321, 'sid': 321, 'start_ticks': 1234567, 'boot_id': '01234567-89ab-4cde-8fab-0123456789ab', 'run_marker': 'fixture-process-cccccccccccccccccccccccccccccccc', 'executable': '/usr/bin/python3.12', 'executable_sha256': 'dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'argv': ['/opt/vllm/bin/python3', '/opt/vllm/bin/vllm', 'serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'], 'environment': {'ATLAS_CAMPAIGN_RUN_TOKEN': 'fixture-process-cccccccccccccccccccccccccccccccc'}, 'created_at': '2026-09-05T09:20:00+00:00'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 69, in test_c_unowned_or_malformed_records_are_refused
+    self.assert_refused(bad_process, bad_owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp07chp59r/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp07chp59r/process-owner.json
+
+
+======================================================================
+FAIL: test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (process={'schema': 1, 'kind': 'linux-proc', 'pid': 321, 'pgid': 321, 'sid': 321, 'start_ticks': 1234567, 'boot_id': '01234567-89ab-4cde-8fab-0123456789ab', 'run_marker': 'fixture-process-cccccccccccccccccccccccccccccccc', 'executable': '/usr/bin/python3.12', 'executable_sha256': 'dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'argv': ['/opt/vllm/bin/python3', '/opt/vllm/bin/vllm', 'serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'], 'environment': {'ATLAS_CAMPAIGN_RUN_TOKEN': 'fixture-process-cccccccccccccccccccccccccccccccc'}, 'created_at': '2026-09-05T09:20:00+00:00', 'running': True, 'captured_pid': 321, 'captured_start_ticks': 1234567, 'captured_boot_id': '01234567-89ab-4cde-8fab-0123456789ab', 'captured_at': '2026-09-05T09:26:54.830000+00:00'}, owner={})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 69, in test_c_unowned_or_malformed_records_are_refused
+    self.assert_refused(bad_process, bad_owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpygz0t6jk/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpygz0t6jk/process-owner.json
+
+
+======================================================================
+FAIL: test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (process={}, owner={'schema': 1, 'kind': 'linux-proc-owner', 'pid': 321, 'pgid': 321, 'sid': 321, 'start_ticks': 1234567, 'boot_id': '01234567-89ab-4cde-8fab-0123456789ab', 'run_marker': 'fixture-process-cccccccccccccccccccccccccccccccc', 'executable': '/usr/bin/python3.12', 'executable_sha256': 'dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'argv': ['/opt/vllm/bin/python3', '/opt/vllm/bin/vllm', 'serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'], 'environment': {'ATLAS_CAMPAIGN_RUN_TOKEN': 'fixture-process-cccccccccccccccccccccccccccccccc'}, 'created_at': '2026-09-05T09:20:00+00:00'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 69, in test_c_unowned_or_malformed_records_are_refused
+    self.assert_refused(bad_process, bad_owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp3bov7xnu/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp3bov7xnu/process-owner.json
+
+
+======================================================================
+FAIL: test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (key='pid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 75, in test_c_unowned_or_malformed_records_are_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpdxqw3r30/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpdxqw3r30/process-owner.json
+
+
+======================================================================
+FAIL: test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (key='start_ticks')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 75, in test_c_unowned_or_malformed_records_are_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp1ilyrum3/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp1ilyrum3/process-owner.json
+
+
+======================================================================
+FAIL: test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (key='boot_id')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 75, in test_c_unowned_or_malformed_records_are_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpblu606kg/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpblu606kg/process-owner.json
+
+
+======================================================================
+FAIL: test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (key='run_marker')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 75, in test_c_unowned_or_malformed_records_are_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpsz3g7y8z/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpsz3g7y8z/process-owner.json
+
+
+======================================================================
+FAIL: test_c_unowned_or_malformed_records_are_refused (__main__.ProcessAssemblyTest.test_c_unowned_or_malformed_records_are_refused) (key='executable_sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 75, in test_c_unowned_or_malformed_records_are_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpse02211z/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpse02211z/process-owner.json
+
+
+======================================================================
+FAIL: test_d_wrong_or_mutated_argv_is_refused (__main__.ProcessAssemblyTest.test_d_wrong_or_mutated_argv_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 80, in test_d_wrong_or_mutated_argv_is_refused
+    self.assert_refused(observed, owner)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp8q71zblx/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp8q71zblx/process-owner.json
+
+
+======================================================================
+FAIL: test_e_conflicting_docker_and_process_proof_is_refused (__main__.ProcessAssemblyTest.test_e_conflicting_docker_and_process_proof_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 93, in test_e_conflicting_docker_and_process_proof_is_refused
+    self.assert_refused(observed, owner, evidence=launch())
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 39, in assert_refused
+    result = self.assemble(process=process, owner=owner, **kwargs)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp8ypkbs6d/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp8ypkbs6d/process-owner.json
+
+
+======================================================================
+FAIL: test_f_failed_or_mismatched_boot_cannot_prove_revision (__main__.ProcessAssemblyTest.test_f_failed_or_mismatched_boot_cannot_prove_revision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 97, in test_f_failed_or_mismatched_boot_cannot_prove_revision
+    result = self.assemble(process=observed, owner=owner, boot=fixture("stub_boot_timeout.json"))
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpbh37frwj/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpbh37frwj/process-owner.json
+
+
+======================================================================
+FAIL: test_g_owned_pin_survives_supported_actual_process_forms (__main__.ProcessAssemblyTest.test_g_owned_pin_survives_supported_actual_process_forms) (mode='shebang')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 118, in test_g_owned_pin_survives_supported_actual_process_forms
+    result = self.assemble(process=observed, owner=owner, engine=engine)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpdnxs2cpy/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpdnxs2cpy/process-owner.json
+
+
+======================================================================
+FAIL: test_g_owned_pin_survives_supported_actual_process_forms (__main__.ProcessAssemblyTest.test_g_owned_pin_survives_supported_actual_process_forms) (mode='module')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 118, in test_g_owned_pin_survives_supported_actual_process_forms
+    result = self.assemble(process=observed, owner=owner, engine=engine)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpvk9gv9kn/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpvk9gv9kn/process-owner.json
+
+
+======================================================================
+FAIL: test_g_owned_pin_survives_supported_actual_process_forms (__main__.ProcessAssemblyTest.test_g_owned_pin_survives_supported_actual_process_forms) (mode='direct')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 118, in test_g_owned_pin_survives_supported_actual_process_forms
+    result = self.assemble(process=observed, owner=owner, engine=engine)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmprs_t8jyv/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmprs_t8jyv/process-owner.json
+
+
+======================================================================
+FAIL: test_g_owned_pin_survives_supported_actual_process_forms (__main__.ProcessAssemblyTest.test_g_owned_pin_survives_supported_actual_process_forms) (mode='atlas')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 118, in test_g_owned_pin_survives_supported_actual_process_forms
+    result = self.assemble(process=observed, owner=owner, engine=engine)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmptp7l_xhg/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmptp7l_xhg/process-owner.json
+
+
+======================================================================
+FAIL: test_h_floating_launch_does_not_inherit_recipe_revision (__main__.ProcessAssemblyTest.test_h_floating_launch_does_not_inherit_recipe_revision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/process_model_evidence_test.py", line 126, in test_h_floating_launch_does_not_inherit_recipe_revision
+    result = self.assemble(process=observed, owner=owner)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 77, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] [--selftest] --engine {atlas,vllm}
+                        --model-key MODEL_KEY --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--model-launch-json MODEL_LAUNCH_JSON]
+                        [--model-launch-container-id MODEL_LAUNCH_CONTAINER_ID]
+                        [--model-launch-label MODEL_LAUNCH_LABEL]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-process-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpy2omlmyo/process.json --model-launch-process-owner-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpy2omlmyo/process-owner.json
+
+
+----------------------------------------------------------------------
+Ran 16 tests in 3.231s
+
+FAILED (failures=32)

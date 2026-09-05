@@ -1,0 +1,11 @@
+{
+  "tested_base": "8d125b31d291bdbfe0185894b5e9f3c6dceab8a4",
+  "changed_source": "crates/atlas-plugin/src/gate/taxon_tests.rs",
+  "sha256": "b9773d6aab6f202a1db826b127d4ce37e44f3843e54c2bc5c4d229d8bf89527f",
+  "passed": 932,
+  "failed": 0,
+  "ignored": 0,
+  "gpu_work": false,
+  "workspace_doc_exit_code": 0,
+  "fix_commit": "fee26d73d24dc04ddb88bee8690459e0007df8a7"
+}

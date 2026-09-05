@@ -1,0 +1,12 @@
+{
+  "case": "deferred-queue-reports-done",
+  "original": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/claude-plan/source/dl_queue.sh",
+  "adaptation": "Literal /root and /etc/os-release paths only; external commands stubbed offline",
+  "command": [
+    "bash",
+    "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/claude-plan/offline-sandbox/dl_queue.sh"
+  ],
+  "exit_code": 0,
+  "stdout": "DEFER nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-NVFP4: need 19G+40G, free 10G\nDEFER nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8: need 31G+40G, free 10G\nDEFER nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8: need 120G+40G, free 10G\nQUEUE_DONE 2026-09-05T17:27:34Z\n10G\n",
+  "stderr": ""
+}

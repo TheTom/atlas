@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "kind": "linux-proc-owner",
+  "pid": 321,
+  "pgid": 321,
+  "sid": 321,
+  "start_ticks": 1234567,
+  "boot_id": "01234567-89ab-4cde-8fab-0123456789ab",
+  "run_marker": "fixture-process-cccccccccccccccccccccccccccccccc",
+  "executable": "/usr/bin/python3.12",
+  "executable_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "argv": [
+    "/opt/vllm/bin/python3",
+    "/opt/vllm/bin/vllm",
+    "serve",
+    "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
+    "--revision",
+    "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  ],
+  "environment": {
+    "ATLAS_CAMPAIGN_RUN_TOKEN": "fixture-process-cccccccccccccccccccccccccccccccc"
+  },
+  "created_at": "2026-09-05T09:20:00+00:00"
+}

@@ -1,0 +1,19 @@
+  ok [a] hopper/Dockerfile defaults ATLAS_TARGET_HW=hopper
+  ok [a] hopper/Dockerfile exports ATLAS_TARGET_HW to the build
+  ok [a] hopper/Dockerfile defaults ATLAS_TARGET_MODEL='*'
+  ok [a] b200/Dockerfile defaults ATLAS_TARGET_HW=b200
+  ok [a] b200/Dockerfile exports ATLAS_TARGET_HW to the build
+  ok [a] b200/Dockerfile defaults ATLAS_TARGET_MODEL='*'
+  ok [b] hopper/Dockerfile bakes in no NCCL_* env
+  ok [b] b200/Dockerfile bakes in no NCCL_* env
+  ok [c] hopper/Dockerfile gates NCCL >= 2.28 and exits non-zero below it
+  ok [c] b200/Dockerfile gates NCCL >= 2.28 and exits non-zero below it
+  ok [d] hopper/Dockerfile builds --features cuda,nccl
+  ok [d] hopper/Dockerfile entrypoints spark
+  ok [d] hopper/Dockerfile pins both base images by digest
+  ok [d] b200/Dockerfile builds --features cuda,nccl
+  ok [d] b200/Dockerfile entrypoints spark
+  ok [d] b200/Dockerfile pins both base images by digest
+  ok [e] workflow ok: both legs, hopper=sm_90a b200=sm_100a
+
+PASS — 17 assertions (workflow checked in yaml mode)

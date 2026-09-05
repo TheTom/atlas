@@ -1,0 +1,144 @@
+exit_code=0
+logit_diff --selftest: two in-process http.server instances, canned OpenAI payloads, no GPU and no network.
+
+==============================================================================
+RED 1/3  planted bug: B's token at position 7 differs -> expect first_divergence=7 and exit 1
+==============================================================================
+== arith_17x23 [chat]
+   prompt: What is 17 * 23? Reply with the number, then explain briefly.
+   first divergence : 7
+   argmax agreement : 0.9500  (19/20 positions, len A=20 B=20)
+   mean top-5 Jaccard: 0.9833
+   |logprob delta| of A's choice in B's top-5: max 0.0000 mean 0.0000 (1/20 positions where A's choice was absent from B's top-K)
+   A: '391. Seventeen times twenty-three is three hundred ninety-one,'
+   B: '391. Seventeen times twenty-four is three hundred ninety-one,'
+   coherency ('391' present): A=True B=True
+   verdict: FAIL
+
+== capital_japan [chat]
+   prompt: Name the capital city of Japan, then describe it in a few sentences.
+   first divergence : 7
+   argmax agreement : 0.9500  (19/20 positions, len A=20 B=20)
+   mean top-5 Jaccard: 0.9833
+   |logprob delta| of A's choice in B's top-5: max 0.0000 mean 0.0000 (1/20 positions where A's choice was absent from B's top-K)
+   A: '391. Seventeen times twenty-three is three hundred ninety-one,'
+   B: '391. Seventeen times twenty-four is three hundred ninety-one,'
+   coherency ('Tokyo' present): A=False B=False
+   verdict: FAIL
+
+== spell_backwards [chat]
+   prompt: Spell the word 'refrigerator' backwards, then explain how you did it.
+   first divergence : 7
+   argmax agreement : 0.9500  (19/20 positions, len A=20 B=20)
+   mean top-5 Jaccard: 0.9833
+   |logprob delta| of A's choice in B's top-5: max 0.0000 mean 0.0000 (1/20 positions where A's choice was absent from B's top-K)
+   A: '391. Seventeen times twenty-three is three hundred ninety-one,'
+   B: '391. Seventeen times twenty-four is three hundred ninety-one,'
+   coherency ('rotaregirfer' present): A=False B=False
+   verdict: FAIL
+
+== five_primes [chat]
+   prompt: List exactly five prime numbers greater than 100, comma separated.
+   first divergence : 7
+   argmax agreement : 0.9500  (19/20 positions, len A=20 B=20)
+   mean top-5 Jaccard: 0.9833
+   |logprob delta| of A's choice in B's top-5: max 0.0000 mean 0.0000 (1/20 positions where A's choice was absent from B's top-K)
+   A: '391. Seventeen times twenty-three is three hundred ninety-one,'
+   B: '391. Seventeen times twenty-four is three hundred ninety-one,'
+   verdict: FAIL
+
+LOGIT_DIFF: 4 prompts, first divergence at [7, 7, 7, 7], argmax agreement [0.950, 0.950, 0.950, 0.950]
+LOGIT_DIFF: DIVERGED (exit 1)
+>>> RED 1/3 PASS: exit=1 (want 1), first_divergence=7 (want 7)
+
+==============================================================================
+RED 2/3  planted bug: server A returns logprobs: null -> expect exit 2, NOT a silent pass
+==============================================================================
+== arith_17x23 [chat]
+   prompt: What is 17 * 23? Reply with the number, then explain briefly.
+   ORACLE UNAVAILABLE: server A does not return logprobs; oracle unavailable
+== capital_japan [chat]
+   prompt: Name the capital city of Japan, then describe it in a few sentences.
+   ORACLE UNAVAILABLE: server A does not return logprobs; oracle unavailable
+== spell_backwards [chat]
+   prompt: Spell the word 'refrigerator' backwards, then explain how you did it.
+   ORACLE UNAVAILABLE: server A does not return logprobs; oracle unavailable
+== five_primes [chat]
+   prompt: List exactly five prime numbers greater than 100, comma separated.
+   ORACLE UNAVAILABLE: server A does not return logprobs; oracle unavailable
+LOGIT_DIFF: 4 prompts, first divergence at [n/a, n/a, n/a, n/a], argmax agreement [n/a, n/a, n/a, n/a]
+LOGIT_DIFF: ORACLE UNAVAILABLE (exit 2)
+LOGIT_DIFF: server A does not return logprobs; oracle unavailable
+>>> RED 2/3 PASS: exit=2 (want 2), message='server A does not return logprobs; oracle unavailable'
+
+==============================================================================
+RED 3/3  planted bug: server B refuses connections -> expect exit 2
+==============================================================================
+== arith_17x23 [chat]
+   prompt: What is 17 * 23? Reply with the number, then explain briefly.
+   ORACLE UNAVAILABLE: server B unreachable at http://127.0.0.1:61495 (URLError: <urlopen error [Errno 61] Connection refused>)
+== capital_japan [chat]
+   prompt: Name the capital city of Japan, then describe it in a few sentences.
+   ORACLE UNAVAILABLE: server B unreachable at http://127.0.0.1:61495 (URLError: <urlopen error [Errno 61] Connection refused>)
+== spell_backwards [chat]
+   prompt: Spell the word 'refrigerator' backwards, then explain how you did it.
+   ORACLE UNAVAILABLE: server B unreachable at http://127.0.0.1:61495 (URLError: <urlopen error [Errno 61] Connection refused>)
+== five_primes [chat]
+   prompt: List exactly five prime numbers greater than 100, comma separated.
+   ORACLE UNAVAILABLE: server B unreachable at http://127.0.0.1:61495 (URLError: <urlopen error [Errno 61] Connection refused>)
+LOGIT_DIFF: 4 prompts, first divergence at [n/a, n/a, n/a, n/a], argmax agreement [n/a, n/a, n/a, n/a]
+LOGIT_DIFF: ORACLE UNAVAILABLE (exit 2)
+LOGIT_DIFF: server B unreachable at http://127.0.0.1:61495 (URLError: <urlopen error [Errno 61] Connection refused>)
+>>> RED 3/3 PASS: exit=2 (want 2)
+
+==============================================================================
+GREEN 4/4  clean case: identical streams on both servers -> expect no divergence and exit 0
+==============================================================================
+== arith_17x23 [chat]
+   prompt: What is 17 * 23? Reply with the number, then explain briefly.
+   first divergence : none
+   argmax agreement : 1.0000  (20/20 positions, len A=20 B=20)
+   mean top-5 Jaccard: 1.0000
+   |logprob delta| of A's choice in B's top-5: max 0.0000 mean 0.0000 (0/20 positions where A's choice was absent from B's top-K)
+   A: '391. Seventeen times twenty-three is three hundred ninety-one, by the distributive law.'
+   B: '391. Seventeen times twenty-three is three hundred ninety-one, by the distributive law.'
+   coherency ('391' present): A=True B=True
+   verdict: PASS
+
+== capital_japan [chat]
+   prompt: Name the capital city of Japan, then describe it in a few sentences.
+   first divergence : none
+   argmax agreement : 1.0000  (20/20 positions, len A=20 B=20)
+   mean top-5 Jaccard: 1.0000
+   |logprob delta| of A's choice in B's top-5: max 0.0000 mean 0.0000 (0/20 positions where A's choice was absent from B's top-K)
+   A: '391. Seventeen times twenty-three is three hundred ninety-one, by the distributive law.'
+   B: '391. Seventeen times twenty-three is three hundred ninety-one, by the distributive law.'
+   coherency ('Tokyo' present): A=False B=False
+   verdict: PASS
+
+== spell_backwards [chat]
+   prompt: Spell the word 'refrigerator' backwards, then explain how you did it.
+   first divergence : none
+   argmax agreement : 1.0000  (20/20 positions, len A=20 B=20)
+   mean top-5 Jaccard: 1.0000
+   |logprob delta| of A's choice in B's top-5: max 0.0000 mean 0.0000 (0/20 positions where A's choice was absent from B's top-K)
+   A: '391. Seventeen times twenty-three is three hundred ninety-one, by the distributive law.'
+   B: '391. Seventeen times twenty-three is three hundred ninety-one, by the distributive law.'
+   coherency ('rotaregirfer' present): A=False B=False
+   verdict: PASS
+
+== five_primes [chat]
+   prompt: List exactly five prime numbers greater than 100, comma separated.
+   first divergence : none
+   argmax agreement : 1.0000  (20/20 positions, len A=20 B=20)
+   mean top-5 Jaccard: 1.0000
+   |logprob delta| of A's choice in B's top-5: max 0.0000 mean 0.0000 (0/20 positions where A's choice was absent from B's top-K)
+   A: '391. Seventeen times twenty-three is three hundred ninety-one, by the distributive law.'
+   B: '391. Seventeen times twenty-three is three hundred ninety-one, by the distributive law.'
+   verdict: PASS
+
+LOGIT_DIFF: 4 prompts, first divergence at [none, none, none, none], argmax agreement [1.000, 1.000, 1.000, 1.000]
+LOGIT_DIFF: AGREED (exit 0)
+>>> GREEN 4/4 PASS: exit=0 (want 0), first_divergence=None (want None), agreement=1.000, jaccard=1.000
+
+SELFTEST: ALL 4 CASES BEHAVED AS EXPECTED

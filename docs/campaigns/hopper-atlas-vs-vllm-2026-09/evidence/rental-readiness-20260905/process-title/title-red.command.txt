@@ -1,0 +1,1 @@
+ssh pidtom@192.168.50.125 '/home/pidtom/atlas-process-title-test-20260905/venv/bin/python3 /home/pidtom/atlas-process-title-test-20260905/process_launch_test.py ProcessLaunchTests.test_renamed_child_retains_marker_and_can_be_stopped ProcessLaunchTests.test_conflicting_process_title_environment_refuses'

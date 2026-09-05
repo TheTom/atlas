@@ -1,0 +1,1 @@
+/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/qwen-binary/spark: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=35f8fdb9590e80d9f639576c9542c2171057c33a, not stripped

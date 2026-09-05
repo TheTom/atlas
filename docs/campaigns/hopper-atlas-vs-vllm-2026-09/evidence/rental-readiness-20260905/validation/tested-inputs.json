@@ -1,0 +1,16 @@
+{
+  "captured_utc": "2026-09-05T17:29:04.078132+00:00",
+  "git_head": "fee26d73d24dc04ddb88bee8690459e0007df8a7",
+  "inputs": {
+    "bench/campaign/cell_process.sh": "af05454cd0d6282081b071beff52b3c370edd478bd02af2a02586605ffb9745b",
+    "bench/campaign/process_exec.py": "b510e00970dfc88c3a90b2247f37625a63d79bae036c16d0b4639b7c0186dae6",
+    "bench/campaign/process_recipe.py": "5723667ca162cf905ac18ebf20f6586aa602b7feabb6451a9de03ba6fdb7c30f",
+    "bench/campaign/process_runner_test.py": "f71dc91f8ecb704d6e58fdc99b880dd39188e168b706a6afd185483aa03a0fd4",
+    "bench/campaign/process_launch.py": "236a288541b544d9a9d71de71eab9929fcc27b3d3e7c077c40a043567661607b",
+    "bench/campaign/process_launch_proc.py": "7334ae644e751ea3aff36b1e4b03493f636f2e20dad299645a4234ee14910fc7",
+    "bench/campaign/campaign_test.sh": "9acbc8715ac1f463d0246d058b78ae17ee0e718b15e47182d59fcab6bdd6ec8e",
+    "scripts/hopper_ptx_gate.sh": "aa389e104b37ca8741bb3cefa55f0a7319c99443343611328518012fd5b8892d",
+    "scripts/hopper_ptx_gate_test.sh": "dae96827241b1120b5cb4d9782ee42b517f9fede2364da8db460068b73ce954b"
+  },
+  "notes": "Parent working tree includes process changes; this receipt hashes test inputs and does not claim remote staging checkout HEAD fully describes the overlay."
+}

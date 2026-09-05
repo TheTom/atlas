@@ -1,0 +1,12 @@
+   Compiling atlas-plugin v1.0.0-beta-preview (/home/pidtom/atlas-inventory-test-20260905/crates/atlas-plugin)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.80s
+     Running unittests src/lib.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/atlas_plugin-193e6b6c56c3072b)
+     Running unittests src/bin/implied_benches.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/implied_benches-a69752d1d386bb00)
+     Running unittests src/bin/ledger_append.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/ledger_append-0707e9dd895047a0)
+     Running unittests src/bin/ledger_harvest.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/ledger_harvest-e9d0e3ed75427be0)
+     Running unittests src/bin/pr_telemetry.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/pr_telemetry-da772bd8b171bd3c)
+     Running tests/coherence.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/coherence-130ead76f6dc03aa)
+     Running tests/e2e.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/e2e-60c857a3a2f9993c)
+     Running tests/mock_endpoint.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/mock_endpoint-042e5257fb6a0c03)
+     Running tests/serve_matrix_e2e.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/serve_matrix_e2e-c90a1d1b7ceb3487)
+   Doc-tests atlas_plugin

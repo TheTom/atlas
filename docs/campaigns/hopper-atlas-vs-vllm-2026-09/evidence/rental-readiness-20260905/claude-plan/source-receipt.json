@@ -1,0 +1,35 @@
+{
+  "captured_utc": "2026-09-05T17:27:33.723345+00:00",
+  "files": [
+    {
+      "path": "/Users/tom/dev/rental-kit/README.md",
+      "bytes": 12644,
+      "sha256": "3b5f9186cf978a99dd0e67a881c4e525900d2266b8fb2159c1c6d494fbf34eee"
+    },
+    {
+      "path": "/Users/tom/dev/rental-kit/dl_queue.sh",
+      "bytes": 1286,
+      "sha256": "8ce78054b83d8fd8ead8a0ff10e7ed067cd9d7ee9bdf952b2c2ff55be48ada9e"
+    },
+    {
+      "path": "/Users/tom/dev/rental-kit/install_vllm.sh",
+      "bytes": 614,
+      "sha256": "1f1898353f88c761621e88122e507923912b1f0f303d38fc5f18e35143c3c95e"
+    },
+    {
+      "path": "/Users/tom/dev/rental-kit/preflight_node.sh",
+      "bytes": 3878,
+      "sha256": "3f1ee2255646dc1a3dccde26f28c02d41f2753a9bb22cbd320235ba328157864"
+    },
+    {
+      "path": "/Users/tom/dev/rental-kit/logit_diff.py",
+      "bytes": 24102,
+      "sha256": "fd609a637e36c8ca2f0f253309af6e8f4a41b4d537e329478b63ed74306fe066"
+    },
+    {
+      "path": "/Users/tom/Documents/obsidian/Self Study/H100 Rental Day - Plan.md",
+      "bytes": 6514,
+      "sha256": "dddbf21400b1006ae9c99cf513c213fbb61e16fce8dea85a835ff94bb050d843"
+    }
+  ]
+}

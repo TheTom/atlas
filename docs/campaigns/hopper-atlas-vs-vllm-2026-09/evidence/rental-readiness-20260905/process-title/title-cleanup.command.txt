@@ -1,0 +1,1 @@
+ssh pidtom@192.168.50.125 'du -sh /home/pidtom/atlas-process-title-test-20260905 && rm -r -- /home/pidtom/atlas-process-title-test-20260905 && df -h /'

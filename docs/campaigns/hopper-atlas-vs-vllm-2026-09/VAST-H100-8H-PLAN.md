@@ -1,15 +1,15 @@
 # Vast.ai: eight-hour, two-H100 SXM pilot
 
-Planning snapshot: 2026-09-05, campaign code `8d125b31d291bdbfe0185894b5e9f3c6dceab8a4`.
+Planning snapshot: 2026-09-05, campaign code `05475310694ef0469824813e62282eb0c33d3873`.
 Tom's updated quote is **$3.789/hour for both H100 SXM GPUs and 300 GB of instance
 disk, with no separate volume**. This replaces the earlier 500 GB disk plus
-500 GB volume configuration. No rental has been made. This is a
-preparation plan, with no H100 performance or runtime results.
+500 GB volume configuration. Tom is proceeding with the rental and has authorized
+code staging, model download and on-node fixes/rebuilds. Connection details and
+activation time are still pending; no H100 performance or runtime results exist.
 
-**Booking decision: HOLD until the execution environment, selected binaries and
-launch identity checks below are proven.** The earlier 2–4 engineering-hour
-estimate preceded discovery of the Vast execution gap; it is not a reliable
-remaining-time estimate. The exact offer ID/template, CPU architecture and
+**Purpose: a shakedown with room to diagnose, fix and rebuild on the node.** Eight
+hours is the total rental budget, including setup and export. Full campaign scoring
+can follow once the hardware and engine paths have been observed. The exact offer ID/template, CPU architecture and
 allocation, RAM, shared memory, network rates and exposed GPU topology remain
 to be checked. This pilot is a user-selected alternative to the PRD's first
 H200/27B cell; it does not replace or certify that scoring row.
@@ -44,7 +44,7 @@ Confirm actual free space with `df` before and after each download; do not infer
 usable space from the offer's capacity label. Avoid staging the entire campaign. See the pinned
 [model assets](evidence/vast-h100-8h-20260905/model-assets.json).
 
-Prepare binaries, environments and the pinned transfer manifest before booking.
+Prepare binaries, environments and the pinned transfer manifest before arrival.
 Once the instance is available, download Qwen into one task-owned cache on its
 disk and have both engines load that snapshot. Budget transfer and verification
 time inside the eight-hour window. There is no volume to pre-stage or retain.
@@ -60,17 +60,17 @@ the data but continues storage charges; the updated quote lists disk at
 $1.334/day. The default end-of-run plan is verified export followed by destruction
 of the owned instance. [Vast instance lifecycle](https://docs.vast.ai/guides/instances/manage-instances).
 
-## Work to finish before booking
+## Work to finish before measurement
 
 | Prerequisite | Evidence required / oracle | Current state and stopping rule |
 |---|---|---|
-| Run both engines in the actual Vast environment | A prepared immutable image/environment runs Atlas and vLLM sequentially as owned processes. CPU tests first reject failed launch, stale/PID-reused ownership, wrong revision and failed boot; then prove cleanup and successful identity capture. | **P0 OPEN.** Standard Vast container rentals cannot run nested Docker; the current vLLM launcher requires it. No paid experiment until this integration is tested. |
-| Preserve artifact identity in process mode | Actual executable/version, environment digest, observed argv and model snapshot, process start identity and boot evidence reach the existing validator. Foreign/stale evidence must remain uncertifiable. | **P1 OPEN.** Current model launch evidence is Docker-specific. A shell wrapper alone does not close this gap. Do not fabricate Docker inspection records. |
-| Pin the Qwen executable and runtime | Host-compatible Atlas release binary built with `ATLAS_TARGET_HW=hopper`, `ATLAS_TARGET_MODEL=qwen3.6-35b-a3b`, selected quant bundle; SHA256 and PTX receipt at the frozen code tree. Resolve CUDA/NCCL dependencies in the prepared environment. | **OPEN.** The first recovered x86 artifact targets Super. Compile and link Qwen off the GPU clock, then verify its build receipt. |
-| Pin vLLM and parser support | Exact image/environment digest; CPU import/registration of the Qwen model and `qwen3_xml` / `qwen3` parsers in that environment, including dependency versions. | **OPEN.** An official recipe and source registry are available; selected-image support is unobserved. Never install an untested upgrade during the rental. |
-| Freeze model transfer and load identity | Qwen revision `95a723d08a9490559dae23d0cff1d9466213d989`; pinned transfer manifest including tokenizer/config/template files, one instance-disk cache and explicit snapshot paths for both engines. | Metadata pinned; transfer/verification procedure still needs rehearsal. Download and hash verification occur after activation, before any scored cell. Missing or conflicting identity blocks a scored comparison. |
-| Prove the revised driver off the GPU clock | Existing CPU gates plus red-first process-mode, deadline and artifact tests; frozen ladder unchanged; known-bad OSL/think/spec comparisons refused. | Existing Docker path is tested; Vast path is not. Stop preparation at the first failed dependency, record and fix it before booking. |
-| Verify exact offer and stop mechanism | Two assigned H100 SXM GPUs, compatible host/driver, adequate actual CPU/RAM/shared memory, sufficient local storage and bandwidth; provider-level deadline stop tested independently of the engine process. | **OPEN.** Price screenshot alone cannot establish these. No paid API action is authorized by this plan. |
+| Run both engines in the actual Vast environment | Atlas and vLLM run sequentially as owned processes. CPU tests first reject failed launch, stale/PID-reused ownership, wrong revision and failed boot; then prove cleanup and successful identity capture. | Process integration is implemented locally and completing regression checks. Actual Vast execution remains unobserved. |
+| Preserve artifact identity in process mode | Actual executable/version, environment digest, observed argv and model snapshot, process start identity and boot evidence reach the existing validator. Foreign/stale evidence must remain uncertifiable. | Owned-process model evidence is tested; actual vLLM immutable build identity remains open. Do not fabricate Docker inspection or pass a Python interpreter hash as the engine build. |
+| Pin the Qwen executable and runtime | Host-compatible Atlas release binary built with `ATLAS_TARGET_HW=hopper`, `ATLAS_TARGET_MODEL=qwen3.6-35b-a3b`, selected quant bundle; SHA256 and PTX receipt at the frozen code tree. Resolve CUDA/NCCL dependencies in the prepared environment. | Qwen artifact at `8d125b31` downloaded and checksum verified. It requires glibc 2.39, CUDA 13 and NCCL. On-node builds are expected for fixes and additional model targets. |
+| Pin vLLM and parser support | Exact environment inventory and immutable package/source identities; CPU import/registration of the Qwen model and `qwen3_xml` / `qwen3` parsers in that environment, including dependency versions. | **OPEN.** Inspect the actual rental environment, then install a specific version into a separate venv when needed. Retain installation output and resolved dependencies; a bare moving `pip install vllm` is insufficient provenance. |
+| Freeze model transfer and load identity | Qwen revision `95a723d08a9490559dae23d0cff1d9466213d989`; pinned transfer manifest including tokenizer/config/template files, one instance-disk cache and explicit snapshot paths for both engines. | Downloader passes 21 offline tests and four negative mutations. Download and byte verification occur after activation; no weights have been downloaded. Missing or conflicting identity blocks a scored comparison. |
+| Prove the revised campaign runner | Existing CPU gates plus red-first process-mode and artifact tests; frozen ladder unchanged; known-bad OSL/think/spec comparisons refused. | Real Linux CPU ownership/interruption tests pass; completing final integration checks. GPU behavior and provider-level shutdown remain unobserved. |
+| Verify exact offer and stop mechanism | Two assigned H100 SXM GPUs, compatible host/driver, adequate actual CPU/RAM/shared memory, sufficient local storage and bandwidth; provider-level deadline stop tested independently of the engine process. | **OPEN pending connection.** Tom is renting the instance. Track the eight-hour deadline from actual activation, not first SSH access. |
 
 The provider incompatibility is a source-based finding, not an observed failed Vast
 instance. [Vast's container FAQ](https://docs.vast.ai/guides/instances/manage-instances#can-i-run-docker-inside-my-instance)
@@ -89,6 +89,46 @@ topology evidence. [VM guide](https://docs.vast.ai/guides/instances/virtual-mach
 [multi-GPU VM guidance](https://docs.vast.ai/host/vms).
 
 ## Model order and scope
+
+Claude's plan and rental kit were inspected on September 5, including his
+[campaign handoff](https://github.com/Avarok-Cybersecurity/atlas/issues/899#issuecomment-5553224414).
+Adopt his on-node rebuild loop, CUDA fault diagnostics, short profiling captures
+and continuous result export. His RTX measurements were 3m45s cold and 55s warm
+on 128 vCPUs, with a 1.2 GB target directory; these are observations from another
+host, not promised H100 build times. His setup estimates also exclude the actual
+rental's download and installation variability.
+
+The plans differ in model order: his starts Nano NVFP4 for the cheap loader/kernel
+audit, then Nano FP8 for the control, then Super. Our first pinned Qwen checkpoint
+and matching binary are ready, so Qwen stays the first download. Nano remains a
+targeted diagnostic if its earlier refusal needs reproducing. Do not compare
+Atlas Nano NVFP4 against vLLM Nano FP8 as a same-checkpoint pair. Super remains
+conditional on the complete two-GPU recipe and process path.
+
+Keep compilation available throughout the booking. Prefer the CUDA 13 devel,
+Ubuntu 24.04 environment used by the repository Dockerfile; inspect the rented
+image and host driver before installing missing userspace dependencies. CUDA
+toolkit installation inside the container cannot upgrade the host driver. Retain
+the pinned Rust toolchain, source checkout and one reusable Cargo target directory
+on the instance disk. Account for toolkit, Cargo registry/build artifacts, vLLM
+venv and diagnostic traces in the measured disk reserve.
+
+For each fix: retain the failing command/output, make a focused change on an
+isolated `codex/rental-h100-20260905` branch, run its regression, then rebuild with
+`ATLAS_TARGET_HW=hopper ATLAS_TARGET_MODEL=<selected-model> ATLAS_TARGET_QUANT=nvfp4`
+and `cargo build --locked --release -p spark-server --bin spark --no-default-features
+--features cuda,nccl`. Preserve the previous executable; record source commit,
+dirty diff if any, compiler versions, elapsed time, target-directory size and the
+new executable SHA256. Re-run the failed gate with the same recipe. Integrate only
+reviewed fixes into PR895, following the exact repository/fork guards. Every
+change under perf paths requires a new gate-tip identity; never pool pre-fix and
+post-fix measurements.
+
+Claude's diagnostic kit is useful for investigation, with limits: missing
+logprobs makes the token oracle unavailable; the first divergent token does not
+by itself identify a faulty kernel, and raw completions only narrow the template
+hypothesis. Sanitizer or profiler runs are diagnostic evidence and are excluded
+from performance rows. Use the frozen campaign ladder for comparisons.
 
 1. **First defensible pair: Qwen3.6-35B-A3B-FP8, one H100 per engine leg,
    spec off, think off.** Both current recipes are single-GPU profiles. Run the
@@ -119,16 +159,17 @@ first-cell timings, then drop lower-priority cells if needed.
 
 ## Eight-hour schedule, measured from activation
 
-These are work ceilings and priorities, not predictions of first-silicon speed.
-Eight hours is a maximum; a conclusive failure can end the booking early.
+These are priorities and decision points, not predictions of first-silicon speed.
+Eight hours is a maximum; useful debugging is part of the booking. The earlier
+blanket stop at hour one for setup or hour two without a passing pair is withdrawn.
 
 | Elapsed time | Work | Oracle / stopping rule |
 |---|---|---|
-| 00:00–00:20 | Record GPU UUIDs, `nvidia-smi -q`, `nvidia-smi topo -m`, driver, CPU/RAM/shared memory and filesystem capacity. Download and verify Qwen on instance disk; record image/model hashes. Run the prepared short P2P/NCCL check before a two-GPU cell. | Expected assigned devices, pinned bytes and functioning communication. Hardware/environment mismatch: export evidence and stop. No driver/toolchain installation. |
-| 00:20–01:45 | First Qwen lat C1 pair, architecture/kernel audit, boot, hardened coherency, ladder and paired artifacts. Add vLLM A/A for this shape only after both legs pass. | Each engine has at most one 30-minute boot attempt with the frozen flags. Failure is a result; try the other engine, not new flags. If there is no valid primary pair by hour 2, export and stop rather than start Super. |
-| 01:45–03:30 | Remaining Qwen shapes, prioritizing a complete A/B row over another unpaired run, then remaining vLLM A/A cells. | Same model bytes, GPU, think/spec policy and valid output lengths. Keep failed/missing rows explicit. Use observed boot/cell durations to decide what fits. |
-| 03:30–06:30 | Download/verify Super within the disk budget, then use both GPUs only if its profile/environment was frozen before rental and the Qwen pair passed. Start with lat C1, then C16, then agent shapes as time allows. | Both engine boots/coherency must pass before a performance claim. No new model after 05:00; allow download time plus at least 90 minutes for a pair and final export time. |
-| 06:30–07:15 | Close the most valuable outstanding pair or A/A check; assemble and validate all artifacts. | A compare exit 0 alone is insufficient: inspect row verdicts and validator output. No new model or environment change. |
+| 00:00–00:45 | Record GPU UUIDs, `nvidia-smi -q`, topology, driver, CPU/RAM/shared memory and actual disk quota. Stage source, build tools and verified Qwen binary while the pinned checkpoint downloads. Start incremental export. | Require the assigned idle H100s and a CUDA 13-capable host driver. Measure throughput/setup time; this is a target, not a claim that downloads finish in 45 minutes. |
+| 00:45–02:00 | Architecture/kernel audit, first Qwen requests, coherency on both engines, first lat C1 pair if green. | Preserve each failed boot/coherency result. A frozen build gets one attempt capped at 30 minutes; a code fix starts a separately identified diagnostic attempt. |
+| 02:00–04:00 | Diagnose and rebuild focused fixes; complete the first useful pair and its vLLM A/A check. | Each debugging cycle needs a concrete hypothesis, reproduction and bounded next check. Reassess every 30 minutes; stop a blocked line of work when no informative next experiment fits. |
+| 04:00–06:30 | Complete remaining Qwen shapes or test Super on both GPUs if its recipe/process environment is ready and disk/time permit. | Prioritize a trustworthy completed pair over breadth. No new model after 05:00; use measured transfer/build/boot times and retain export reserve. |
+| 06:30–07:15 | Close the most valuable outstanding pair or diagnostic reproduction; assemble and validate all artifacts. | A compare exit 0 alone is insufficient: inspect verdicts and validator output. No new model or long rebuild; preserve incomplete work and its reproduction. |
 | 07:15–07:45 | Final incremental export, local hash verification, receipt/index review, provider-level stop. | Verify the evidence exists off-instance before deletion and verify the provider reports stopped. Keep uploading small evidence bundles throughout the run. |
 | 07:45–08:00 | Reserved margin for stop confirmation and cleanup. | GPU billing must cease before hour 8. Destroy the owned instance after verified export; record actual charges. No volume is created or retained. |
 
@@ -137,9 +178,9 @@ its 37.49 GB repository has a theoretical minimum
 of about five minutes; Qwen plus Super takes about 22 minutes. Protocol, hashing
 and storage overhead increase these times. Refuse a download whose projected
 space or completion time consumes the experiment/export reserve. Never overlap
-downloads or heavy hashing with a scored ladder. At one hour, an unresolved
-environment/setup problem ends the booking; do not use the remaining seven hours
-for package or launcher debugging.
+downloads, compilation, package installation or heavy hashing with a scored
+ladder. The decision to continue debugging depends on the observed failure and
+the next useful experiment, while the eight-hour deadline remains fixed.
 
 ## Evidence and readiness status
 
@@ -153,22 +194,31 @@ earlier GB10 rehearsal remain separately labelled; neither is H100 evidence.
 Preparation observed so far: six current H100 dry renders exit 0,
 [with commands and exit codes](evidence/vast-h100-8h-20260905/current-render-receipt.json).
 They include the unsuitable Super TP8 recipe. Source pins and payload estimates
-are captured; the new Vast process integration, targeted Qwen environment and
-two-GPU Super profile are **not implemented or runtime-validated**. PR895 CI at
-this snapshot still has queued checks. A2/B/D1 GPU work remains as reported in
+are captured. The process integration now passes CPU tests, including real Linux
+ownership and signal handling; the actual Qwen environment and two-GPU Super
+profile remain unobserved/incomplete. A2/B/D1 GPU work remains as reported in
 [LEAD-RECOVERY-REPORT.md](LEAD-RECOVERY-REPORT.md).
 
-Publication checks passed: campaign 77, launcher 30, Dockerfiles 17, Atlas renderer
-329, vLLM renderer 253, validator 26, assembler 8 and Spark 1 CPU PTX suite 7;
-formatting, typos and local PTX-script shellcheck also passed. These validate the
-existing code, not the proposed Vast adapter. See the
-[validation receipt](evidence/vast-h100-8h-20260905/validation.json).
+Current publication checks passed: campaign 80 on macOS and 78 on Linux (Linux
+lacks shellcheck/typos, covered on macOS), launcher 30, Dockerfiles 17, Atlas
+renderer 329, vLLM renderer 253, validator 26, assembler 16, and Spark 1 CPU PTX
+suite 7. Process rendering has six cases; real Linux runner has two; process
+ownership has eleven, including a separately installed pinned setproctitle
+reproduction. The inventory correction passes 932 atlas-plugin tests and
+workspace rustdoc. Formatting, typos and shellcheck pass. See the
+[current validation receipt](evidence/rental-readiness-20260905/validation/receipt.json).
+The test-only inventory change is under `crates/`, so the new perf identity is
+`gate-tip-05475310`; no GPU perf records exist at that tag.
 
-The targeted Qwen Hopper x86 build was dispatched on the authorized fork at the
-recorded code SHA and is in progress:
+The targeted Qwen Hopper x86 build completed successfully on the authorized fork:
 [build run 33978523017](https://github.com/TheTom/atlas/actions/runs/33978523017).
-Its artifact and runtime dependencies remain unverified; no GPU was rented.
+Its 75,814,080-byte executable has SHA256
+`683f70e837519e6f91ed09fa23f6978a8c16e877477f5a762202c8963af09bce`.
+The bundled checksum was verified after a deliberately wrong checksum failed.
+ELF inspection found glibc 2.39, `libcublasLt.so.13`, `libcudart.so.13`,
+`libcuda.so.1`, `libnccl.so.2` and `libibverbs.so.1` dependencies. This is compile
+and link evidence; runtime compatibility will be observed on the rented node.
 
-The next preparation milestone is a tested, downloadable Qwen execution bundle
-with a complete dry rehearsal through the artifact validator. Re-estimate booking
-readiness after that milestone. This plan itself is not a green light to rent.
+Next: stage the prepared bundle when SSH details arrive and observe the
+real host. Missing immutable vLLM build identity remains a certification blocker;
+do not relabel the Python interpreter hash as the engine build.

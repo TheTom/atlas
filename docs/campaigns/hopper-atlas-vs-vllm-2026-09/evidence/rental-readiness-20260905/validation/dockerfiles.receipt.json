@@ -1,0 +1,11 @@
+{
+  "name": "dockerfiles",
+  "command": [
+    "bash",
+    "docker/datacenter_dockerfiles_test.sh"
+  ],
+  "started_utc": "2026-09-05T17:24:26.089447+00:00",
+  "finished_utc": "2026-09-05T17:24:26.364971+00:00",
+  "exit_code": 0,
+  "checkout_head": "4168042b41ce79f15d35e410f68fe32aa5d16b53"
+}

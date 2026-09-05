@@ -1,0 +1,27 @@
+{
+  "captured_utc": "2026-09-05T17:07:41.394536+00:00",
+  "scope": "Bounded read-only review of process model pins, served aliases and environment attribution.",
+  "findings": [
+    {
+      "path": "bench/campaign/cell_process.sh",
+      "priority": "P1",
+      "finding": "JSON process environment is copied to serve.env, while assembler read_env expects KEY=VALUE lines; actual observed result for a three-key JSON map was {}.",
+      "status": "corrected in parent working tree",
+      "verification": "process-runner-linux.log records nonempty serve_env with exact RUST_LOG, HF_HUB_OFFLINE and CUDA_VISIBLE_DEVICES values."
+    },
+    {
+      "path": "bench/campaign/cell_identity.sh",
+      "priority": "P1",
+      "finding": "Process-mode version uses ambient python3 importlib.metadata, independent of recorded /proc executable or VLLM_BIN; a separate venv can attribute a different installation.",
+      "status": "corrected in parent working tree",
+      "verification": "cell_identity.sh process vLLM branch explicitly leaves ENGINE_VLLM_VERSION empty."
+    }
+  ],
+  "verified_positive": [
+    "Qwen model snapshot repository and revision are compared to recipe before launch.",
+    "Both engines preserve checkpoint identity through explicit pinned snapshot and stable served model alias.",
+    "Spec off keeps speculative config absent on vLLM and Atlas thinking flags match frozen client mode."
+  ],
+  "edits": "None to parent process-mode files.",
+  "status": "Both findings corrected by parent during review; environment serialization verified by real Linux runner integration."
+}

@@ -1,0 +1,5 @@
+85M	/home/pidtom/atlas-rental-ptx-tests-20260905
+Filesystem        1B-blocks         Used  Available Use% Mounted on
+/dev/nvme0n1p2 982819848192 925309534208 7510278144 100% /
+Filesystem        1B-blocks         Used  Available Use% Mounted on
+/dev/nvme0n1p2 982819848192 925220335616 7599476736 100% /
