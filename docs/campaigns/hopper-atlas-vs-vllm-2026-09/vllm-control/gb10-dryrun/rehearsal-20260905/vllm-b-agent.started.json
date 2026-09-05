@@ -1,0 +1,41 @@
+{
+  "job": {
+    "root": "/home/pidtom/atlas-vllm-control-20260905",
+    "phase": "vllm-b-agent",
+    "baseline_used": 845513351168,
+    "argv": [
+      "/home/pidtom/atlas-vllm-control-20260905/venv/bin/python",
+      "/home/pidtom/atlas-vllm-control-20260905/harness_w55_conc_ladder.py",
+      "--url",
+      "http://192.168.50.36:8888",
+      "--model",
+      "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+      "--label",
+      "GB10-REHEARSAL-vllm-b-agent",
+      "--out",
+      "/home/pidtom/atlas-vllm-control-20260905/results/vllm-b-agent.json",
+      "--concs",
+      "1,16",
+      "--reps",
+      "3",
+      "--isl",
+      "4096",
+      "--osl",
+      "512",
+      "--warmup",
+      "1"
+    ],
+    "environment": {
+      "W55_PROMPT_MODE": "essay",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "scope": "GB10 rehearsal only; not Hopper data",
+    "status": "PLANNED_NOT_EXECUTED"
+  },
+  "before": {
+    "utc": "2026-09-05T04:19:25.812810+00:00",
+    "used": 899705282560,
+    "available": 33114529792
+  },
+  "pid": 156832
+}

@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "url": "http://127.0.0.1:8888",
+  "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+  "checked_utc": "2026-09-05T04:35:44Z",
+  "details": {
+    "determinism_ok": "256 chars reproduced exactly",
+    "toolcall_ok": "finish_reason was 'length', not 'tool_calls'",
+    "think_leak_ok": "355 chars, no leak signals"
+  },
+  "http_exchanges": [
+    {
+      "check": "determinism_ok",
+      "request_json": "{\"model\": \"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-0efcdf76-320c-4b01-b6da-2a84f4405a31\",\"object\":\"chat.completion\",\"created\":1788582948,\"model\":\"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"101, 103, 107, 107, 109, 109, 113, 109, 107, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 107, 107, 109, 109, 109, 107, 107, 109, 109, 109, 109, 109, 109, 109, 109, 107, 107, 109, 109, 109, 109, 107, 1\"},\"finish_reason\":\"length\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":35,\"completion_tokens\":256,\"total_tokens\":291,\"prompt_tokens_details\":{\"cached_tokens\":0,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":195.27535600000002,\"response_token/s\":71.06395820363099}}",
+      "response_complete": true
+    },
+    {
+      "check": "determinism_ok",
+      "request_json": "{\"model\": \"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-b3dfdda0-b9ab-4998-9d43-b97601cb1650\",\"object\":\"chat.completion\",\"created\":1788582952,\"model\":\"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"101, 103, 107, 107, 109, 109, 113, 109, 107, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 107, 107, 109, 109, 109, 107, 107, 109, 109, 109, 109, 109, 109, 109, 109, 107, 107, 109, 109, 109, 109, 107, 1\"},\"finish_reason\":\"length\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":35,\"completion_tokens\":256,\"total_tokens\":291,\"prompt_tokens_details\":{\"cached_tokens\":32,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":193.37901399999998,\"response_token/s\":71.50314464184548}}",
+      "response_complete": true
+    },
+    {
+      "check": "toolcall_ok",
+      "request_json": "{\"model\": \"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-18c0c77b-ed32-40c8-9064-ef71bb1a4125\",\"object\":\"chat.completion\",\"created\":1788582958,\"model\":\"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"<parameter>\\n<t:Do not write a weather forecast for me as I can do that myself.>\\n;;\\n</file>\\n</file>\\n</parameter>\\n<follow=0>\\n</recommend>\\n- \\n- <parameter name=\\\"a\\\" name:=\\\"a\\\" \\n< \\n  <p>\\n  <span style=\\\"font-size: 14px; font-family: sans-serif;\\\">\\n  <span style=\\\"text-align: left; inline, so the text is not split across multiple lines\\\">\\n  <span>\\n</script>\\n</p>\\n</parameter>\\n</section>\\n</body>\\n</body>\\n</html>\\n</body>\\n</a>\\n</a>\\n</a>\\n- \\n- <style>\\n- \\n- <style>\\n  <span> \\n  </span>\\n  </span>\\n</script>\\n</p>\\n</body>\\n<parameter name=\\\"q\\\">weather in cagliu</parameter>\\n<parameter: name=\\\"q\\\" value=\\\"13.768\\\">\\n</<style>\\n</p>\\n</body>\\n</p>\\n</a>\\n</parameter>\\n</body>\\n</body>\\n</body>\\n</section>\\n</parameter>\\n<parameter>\\n<parameter= \\n- <\"},\"finish_reason\":\"length\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":1230,\"completion_tokens\":256,\"total_tokens\":1486,\"prompt_tokens_details\":{\"cached_tokens\":0,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":672.103943,\"response_token/s\":67.30922603673187}}",
+      "response_complete": true
+    },
+    {
+      "check": "think_leak_ok",
+      "request_json": "{\"model\": \"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-9f737f8d-7062-4db6-9d3e-77255636d08a\",\"object\":\"chat.completion\",\"created\":1788582958,\"model\":\"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"A benchmark is a standardized test or set of tasks that measures how well a system performs a particular function, allowing developers to compare performance across different implementations or platforms. It provides a consistent way to evaluate and benchmark different approaches, ensuring that improvements are measured against a common reference point.\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":30,\"completion_tokens\":56,\"total_tokens\":86,\"prompt_tokens_details\":{\"cached_tokens\":0,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":118.154167,\"response_token/s\":71.38423254947865}}",
+      "response_complete": true
+    }
+  ],
+  "determinism_ok": true,
+  "toolcall_ok": false,
+  "think_leak_ok": true,
+  "passed": false
+}

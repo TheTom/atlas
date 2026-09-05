@@ -1,103 +1,108 @@
-# vLLM control report
+# GB10 rehearsal report — vLLM control and Atlas attempt
 
-**Status: CPU instrument validation and source research complete; GB10 engine
-execution blocked by the 40 GB new-storage cap.** No vLLM server, model load,
-real-engine A/A, or vLLM benchmark cross-check ran. Consequently there are no
-measured section 10 cell artifacts and no certified performance claims.
+**GB10 rehearsal data only. This is not Hopper data and must never be quoted as Hopper performance.**
 
-Work occurred on 2026-09-05 UTC, still 2026-09-04 in Chicago. The fresh checkout
-is `/tmp/atlas-vllm-control`, base `f547486667dc95f65fb0d043402c1131148283c4`,
-branch `campaign/vllm-control-gb10-2026-09`. Only `bench/hopper_ab/` and this
-`vllm-control/` directory changed. The ladder, PRD, VLLM-RECIPES.md and off-limits
-checkouts/engine directories were left unchanged. Spark 1 was not accessed.
+The live rehearsal finished on 2026-09-05 UTC (2026-09-04 Chicago). vLLM passed boot and all three coherency checks, completed both frozen ladders twice, and completed one native benchmark cross-check. **Seven of eight ladder cells passed; B/agent/C16 failed the per-request 80% output-length floor.** The real A/A comparisons did not produce an exact TIE. Atlas booted with the same pinned checkpoint but **failed tool-call coherency**; its four ladder cells and both Atlas/vLLM comparisons were therefore not run. No engine was retried or tuned after a failed gate.
 
-## What ran, where, and with which oracle
+All task-created Spark 2 containers, images, checkpoint files, environments and scratch directories were removed after verified evidence export. Root free space was **82 GiB before and 82 GiB after**. The peak observed increase in root usage was **54.20 GB**, below the revised 70 GB cap; minimum observed free space was **33.11 GB**, above the 12 GB floor.
 
-| Work | Host | Observation / oracle |
+The initial 40 GB storage stop is preserved in [REPORT-INITIAL.md](REPORT-INITIAL.md). Its plan-only status artifacts predate this authorized follow-on. The current [execution status](gb10-dryrun/rehearsal-20260905/execution-status.json), [run notes](gb10-dryrun/rehearsal-20260905/RUN-NOTES.md), and [cell records](gb10-dryrun/rehearsal-20260905/cells/) describe what actually ran.
+
+## Gate outcomes
+
+| Gate / step | vLLM | Atlas |
 |---|---|---|
-| Hardware and storage preflight | `pidtom@spark2.local` / `192.168.50.36` | SSH succeeded. `docker ps` empty; NVIDIA GB10 showed 0% utilization and only Xorg/GNOME graphics processes. `df -h /` initially showed 82 GB available. Raw commands, timestamps, outputs and hashes are in [hardware-preflight.json](gb10-dryrun/hardware-preflight.json). |
-| Driver inventory | Spark 2 | Driver **580.173.02**, driver-advertised CUDA **13.0**, one NVIDIA GB10. Memory query reports N/A on this unified-memory device; it was not treated as zero usage. [nvidia-smi -q](gb10-dryrun/nvidia-smi-q.txt) SHA256: `ac32b795cf20d7766197dc4e5e95c9f4e46f8c1c955d6028a22c64b77e804983`. |
-| Readiness/coherency/comparator selftests | Local Mac CPU, loopback HTTP stubs and synthetic ladder fixtures | Known-bad cases fail before each fix and pass the regression assertions afterwards. [Validation index](tool-evidence/validation.json) records commands, interpreter, source hashes, exits and transcripts. |
-| Recipe verification | Local Mac, public HTTPS metadata/docs/source/cards | **29 verbatim command fields** checked; known-bad command substitution rejected. URLs, dates, source hashes and exact proposed owner diffs are in [RECIPE-VERIFICATION.md](RECIPE-VERIFICATION.md). |
-| Weight inventory | Local Mac, HF blobs API metadata only | All **12 explicit §3 IDs** resolved; **15 total pinned commands** include concrete NVFP4 variants and §16's 27B. Four bad metadata fixtures rejected, all 15 saved responses audited. [Manifest](WEIGHTS-MANIFEST.md). |
+| Immutable checkpoint verification | PASS: 38 files, 32,703,351,602 bytes | PASS: same files and hashes rechecked before boot |
+| Boot within 1800 seconds | PASS: health 369.239 s; one-token response 1.123 s; total 370.362 s | PASS: observed health 216.743 s; one-token response 0.096 s; total 216.839 s, with endpoint caveat below |
+| Determinism | PASS: identical answer content | PASS for equality only; identical degenerate prime-number output, not a semantic correctness pass |
+| Structured tool call | PASS | **FAIL:** malformed markup, no structured tool calls, `finish_reason=length` |
+| Think-tag leak | PASS | PASS |
+| Frozen ladder validity | 7 PASS, 1 FAIL / NO-GO | NOT_RUN after coherency failure |
+| Real A/A exact TIE | NOT ACHIEVED: 3 LOSS rows and 1 INVALID row | Not applicable |
+| Deliberate OSL mismatch refusal | PASS: exit 2, no comparison output written | Not applicable |
+| Native cross-check | PASS: 3/3 timed requests, all 256 tokens | Not requested |
+| Atlas/vLLM performance pair | NOT_RUN: no valid Atlas ladder input | NOT_RUN after coherency failure |
+| Resource guard and cleanup | PASS at every observed sample; owned objects removed | PASS at every observed sample; owned objects removed |
 
-Prospective official image: `vllm/vllm-openai:v0.28.0-ubuntu2404`.
-The [Docker tag metadata](gb10-dryrun/docker-tag.json) resolved manifest-list
-`sha256:f8fe15a8039343336945db10494eaad80ef941fe2b2a5fa6649fa38636051a65`
-and arm64 manifest
-`sha256:41b54fb42c66a670a8b27e613ebef05898f24b9ab1bdab28bd00c877bd4935f4`.
-These identify a **planned, unpulled image**, not an observed running engine.
-Its runtime CUDA version and vLLM version were not measured. The current Nano
-recipe has no verified GB10 entry, so this user-specified image is a GB10
-campaign adaptation, not a verbatim Nano GB10 recipe.
+Readiness raw JSON: [vLLM](gb10-dryrun/rehearsal-20260905/vllm-boot.json), [Atlas](gb10-dryrun/rehearsal-20260905/atlas-boot.json). Coherency request/response envelopes: [vLLM](gb10-dryrun/rehearsal-20260905/vllm-coherency.json), [Atlas](gb10-dryrun/rehearsal-20260905/atlas-coherency.json). The Atlas [engine-attempt artifact](gb10-dryrun/rehearsal-20260905/atlas-engine-attempt.json) preserves the failed result with null performance metrics.
 
-Nano HF revision: `9bee19446c0dfd01f356e10979d225b2a6621944`.
-The unchanged ladder file's Git revision is
-`60370b9532a7af5319c99d6c2b93972d4f046d56` and source SHA256 is
-`1f10d4887b39a86ee946bc2aa0395e31c43ce1b3dfac778f51abbad11832d880`.
-These are client provenance, not vLLM provenance.
+Atlas's recipe defaults bound to `127.0.0.1`, whereas the initial readiness client used the LAN address used for vLLM. Only the readiness client was cancelled and redirected to Spark 2 loopback; the same container, server flags and original launch clock were retained. The observed **216.839 seconds includes this correction delay** and is not a cold-boot speed comparison. Atlas's expected loading-503 transition was not observed; the successful probe saw ready-200. The server log's earlier ready milestone is separate evidence, not a replacement for the measured timer. See [endpoint correction](gb10-dryrun/rehearsal-20260905/atlas-endpoint-correction.json) and [server log](gb10-dryrun/rehearsal-20260905/atlas-server.log).
 
-## Storage stop and execution status
+## Measured cells
 
-Observed from API/registry metadata:
+Every ladder cell used the unchanged client, `W55_PROMPT_MODE=essay`, C=1 or 16, one discarded warmup batch and three timed reps. Sampling was temperature 0, seed 42, penalties 0, thinking off and speculation off. Prefix caching was enabled for both engines. The eight ladder cells contain **24 measured reps / 204 requests** with no transport errors. Coherency verdicts below are the shared pre-ladder gate result, not fresh checks per row.
 
-- Nano whole-repository payload: **32,703,351,602 bytes**.
-- New compressed image blobs, deduplicated and compared with all three existing
-  images' uncompressed layer identities: **9,701,486,720 bytes**.
-- Combined planning inventory: **42,404,838,322 bytes**, versus the user's
-  **40,000,000,000-byte** new-storage cap. Only two tiny layer identities were
-  already present. Normal image expansion and compilation/runtime caches need
-  additional storage; installed allocation was not measured.
+Ladder TTFT/TPOT columns are **arithmetic means of the three per-rep percentiles**, not percentiles pooled across requests. At C=1 each rep contains one request, so the reported mean p50 and p99 coincide. Ladder tok/s is the mean of three per-rep aggregate rates. The native cross-check uses its own percentiles over three requests and total-output/benchmark-duration throughput. Preserve these distinct reducers when reading the table.
 
-The observation is the byte inventory. The operational inference is that this
-combination cannot be provisioned within the current cap using the existing
-local storage/cache arrangement. Free space alone does not authorize exceeding
-the cap. No weights or image were downloaded, and no new remote workload,
-container or scratch directory was created. Nothing remote needed cleanup, and
-no existing process/container/model was removed to make space. See
-[storage-preflight.json](gb10-dryrun/storage-preflight.json).
+| Engine / pass / shape | Nominal ISL/OSL | C | TTFT p50 ms | TTFT p99 ms | TPOT p50 ms | tok/s | Determinism / tool / think | Cell result |
+|---|---:|---:|---:|---:|---:|---:|---|---|
+| [vLLM a-lat](gb10-dryrun/rehearsal-20260905/cells/vllm-a-lat-vllm-lat-c1.json) | 1024/256 | 1 | 247.82 | 247.82 | 20.41 | 46.96 | PASS / PASS / PASS | PASS |
+| [vLLM a-lat](gb10-dryrun/rehearsal-20260905/cells/vllm-a-lat-vllm-lat-c16.json) | 1024/256 | 16 | 1750.09 | 2941.66 | 69.72 | 208.19 | PASS / PASS / PASS | PASS |
+| [vLLM a-agent](gb10-dryrun/rehearsal-20260905/cells/vllm-a-agent-vllm-agent-c1.json) | 4096/512 | 1 | 850.85 | 850.85 | 20.52 | 45.16 | PASS / PASS / PASS | PASS |
+| [vLLM a-agent](gb10-dryrun/rehearsal-20260905/cells/vllm-a-agent-vllm-agent-c16.json) | 4096/512 | 16 | 6137.20 | 11064.70 | 76.25 | 177.74 | PASS / PASS / PASS | PASS |
+| [vLLM b-lat](gb10-dryrun/rehearsal-20260905/cells/vllm-b-lat-vllm-lat-c1.json) | 1024/256 | 1 | 242.61 | 242.61 | 20.37 | 47.08 | PASS / PASS / PASS | PASS |
+| [vLLM b-lat](gb10-dryrun/rehearsal-20260905/cells/vllm-b-lat-vllm-lat-c16.json) | 1024/256 | 16 | 1750.57 | 2944.29 | 69.65 | 208.35 | PASS / PASS / PASS | PASS |
+| [vLLM b-agent](gb10-dryrun/rehearsal-20260905/cells/vllm-b-agent-vllm-agent-c1.json) | 4096/512 | 1 | 181.37 | 181.37 | 20.41 | 48.25 | PASS / PASS / PASS | PASS |
+| [vLLM b-agent](gb10-dryrun/rehearsal-20260905/cells/vllm-b-agent-vllm-agent-c16.json) | 4096/512 | 16 | 841.73 | 1386.67 | 68.02 | 226.61 | PASS / PASS / PASS | FAIL / NO-GO: vacuity |
+| [vLLM bench-crosscheck](gb10-dryrun/rehearsal-20260905/cells/vllm-bench-crosscheck-vllm-lat-c1.json) | 1024/256 | 1 | 281.49 | 305.47 | 20.32 | 46.93 | PASS / PASS / PASS | PASS |
+| Atlas lat | 1024/256 | 1 | — | — | — | — | PASS* / FAIL / PASS | NOT_RUN: coherency |
+| Atlas lat | 1024/256 | 16 | — | — | — | — | PASS* / FAIL / PASS | NOT_RUN: coherency |
+| Atlas agent | 4096/512 | 1 | — | — | — | — | PASS* / FAIL / PASS | NOT_RUN: coherency |
+| Atlas agent | 4096/512 | 16 | — | — | — | — | PASS* / FAIL / PASS | NOT_RUN: coherency |
 
-[execution-status.json](gb10-dryrun/execution-status.json) and the four stage
-status JSONs record **NOT_RUN / BLOCKED_STORAGE_CAP**. They are deliberately
-separate from the section 10 measured-cell schema. [planned-cells.json](gb10-dryrun/planned-cells.json)
-contains eight requested cells (four shapes/concurrencies × A/A passes), with
-null results and explicit plan-only typing.
+*Atlas determinism passes equality only: both prime replies were identical repeated sequences and ended at the 256-token cap. It did not return exactly five primes. Atlas rows have no performance metrics and no synthetic section 10 cells.
 
-## Requested cell table
+Observed vLLM ladder prompt usage was **1209 tokens for nominal ISL 1024** and **4646 for nominal ISL 4096**. The B/agent/C16 failure contains a **403-token request in rep index 1**, only 78.71% of OSL 512; its displayed throughput is retained raw evidence and is **invalid for performance scoring**. Each measured cell links to its full rate series, raw rung, gate evidence, actual serve argv/environment, image digest, driver, `nvidia-smi -q` SHA and client source SHA. Unknown provenance remains null. Passing rehearsal rows remain `PARTIAL` under campaign certification; no row is certified Hopper data.
 
-ISL below means the frozen **nominal ladder argument**; actual tokenizer lengths
-were not measured. Each row was planned for temperature 0, seed 42, penalties
-0, thinking off, speculation off, one discarded warmup batch and three timed
-reps, repeated as passes A and B.
+Raw ladders: [A lat](gb10-dryrun/rehearsal-20260905/vllm-a-lat.json), [A agent](gb10-dryrun/rehearsal-20260905/vllm-a-agent.json), [B lat](gb10-dryrun/rehearsal-20260905/vllm-b-lat.json), [B agent](gb10-dryrun/rehearsal-20260905/vllm-b-agent.json).
 
-| Workload | Nominal ISL / OSL | C | A / B TTFT p50 / p99 ms | A / B TPOT p50 ms | A / B tok/s series | Determinism / tool call / think leak | Status |
-|---|---|---:|---|---|---|---|---|
-| lat | 1024 / 256 | 1 | — | — | — | NOT_RUN / NOT_RUN / NOT_RUN | BLOCKED_STORAGE_CAP |
-| lat | 1024 / 256 | 16 | — | — | — | NOT_RUN / NOT_RUN / NOT_RUN | BLOCKED_STORAGE_CAP |
-| agent | 4096 / 512 | 1 | — | — | — | NOT_RUN / NOT_RUN / NOT_RUN | BLOCKED_STORAGE_CAP |
-| agent | 4096 / 512 | 16 | — | — | — | NOT_RUN / NOT_RUN / NOT_RUN | BLOCKED_STORAGE_CAP |
+## A/A, refusal and native cross-check
 
-There are no live raw series to report. Synthetic fixtures are stored only as
-instrument evidence. The comparator's identical-fixture A/A produced ratios
-**1.0 and TIE at C=1 and C=16**; the deliberately different OSL fixture was
-refused with exit **2** and no output file. The [CLI transcript](tool-evidence/compare-cli-green.log)
-contains the command and output. Exact identity does not establish that two
-independent hardware runs will tie or define a statistical equivalence band.
+The actual `compare.py` outputs are [lat JSON](gb10-dryrun/rehearsal-20260905/aa-lat.json) / [Markdown](gb10-dryrun/rehearsal-20260905/aa-lat.md) and [agent JSON](gb10-dryrun/rehearsal-20260905/aa-agent.json) / [Markdown](gb10-dryrun/rehearsal-20260905/aa-agent.md). Its legacy `atlas` input/columns hold **vLLM pass A**, and its `vllm` input/columns hold **vLLM pass B** in these A/A files; no Atlas performance was measured. Invocation receipts explicitly record that mapping.
 
-The `vllm bench serve --backend openai --random-range-ratio 0.0 --ignore-eos
---percentile-metrics ttft,tpot,itl,e2el` cross-check was **NOT_RUN**. Its TTFT/TPOT
-differences from the ladder therefore remain unmeasured. Source review found
-that the vLLM OpenAI-completions backend times choices-bearing chunks, whereas
-the ladder times nonempty content. Their prompt construction, endpoint and EOS
-policy also differ. See [SCHEMA-GAPS.md](SCHEMA-GAPS.md) for the exact formulas
-and versioned source links.
+Lat A/B throughput ratios were **0.997387 at C=1** and **0.999207 at C=16**, both `LOSS` under the comparator's exact arithmetic rule. Agent C=1 was **0.935837 / LOSS**; C=16 was `INVALID`, with no scored ratio. These are observed repeatability findings. Exact-identity fixtures still produce `TIE`; the tool has no statistical equivalence band. No tolerance was invented to force the real runs to tie.
 
-## Tooling fixes and red evidence
+The nonce restarts across ladder processes while prefix caching stays on. Agent TTFT fell sharply on pass B (C=1: 850.85 → 181.37 ms). Cache reuse is a plausible confound supported by the execution design, not an isolated causal result. Pass A was fixed as the planned Atlas control before inspecting B. The ladder owner proposals in [SCHEMA-GAPS.md](SCHEMA-GAPS.md) cover unique process nonces, explicit cache-state control, pooled versus per-rep statistics, discarded warmup series and missing provenance; the ladder was not edited.
 
-Each logical fix has its own commit with a `red:` body line. The source changes
-are confined to the campaign gates and synthetic fixtures. The final two rows
-were found during independent review, including a bug in the expanded selftest
-itself; they were corrected before delivery.
+The [OSL refusal receipt](gb10-dryrun/rehearsal-20260905/osl-mismatch-refusal.json) records a deliberate 256 → 257 header mutation in a separate copy, exit **2**, and no output file. Original ladder files remain unchanged. Atlas/vLLM [lat](gb10-dryrun/rehearsal-20260905/atlas-vs-vllm-lat.status.json) and [agent](gb10-dryrun/rehearsal-20260905/atlas-vs-vllm-agent.status.json) status records say `NOT_RUN`; they do not masquerade as comparator outputs.
+
+The native [raw benchmark](gb10-dryrun/rehearsal-20260905/vllm-bench-crosscheck.json), [exact command](gb10-dryrun/rehearsal-20260905/control-vllm-bench-crosscheck.json), and [comparison note](gb10-dryrun/rehearsal-20260905/crosscheck-comparison.json) record one C=1 cell: three timed requests, one warmup and the tool's preliminary probe, tokenizer-exact 1024-token random prompts, OSL 256, `--ignore-eos`. It completed **3/3** requests. Relative to A/lat/C1, native TTFT p50 was **+33.67 ms**, and TPOT p50 was **−0.0879 ms**. Different prompts, actual input lengths, completion endpoint, EOS policy and first-chunk semantics prevent attributing that delta solely to timing implementation. Raw `max_concurrent_requests=2` is vLLM's one-second activity-bucket statistic, not evidence that its configured C=1 semaphore launched two simultaneous requests; source references and replay limitations are in SCHEMA-GAPS.
+
+## Engine and checkpoint provenance
+
+Both legs ran on Spark 2 (`192.168.50.36`), one NVIDIA GB10, driver **580.173.02**, with driver-advertised CUDA compatibility **13.0**. This is a unified-memory device; unsupported memory query fields were not interpreted as zero. The full launch argv, Docker inspection and environments are captured in [vLLM provenance](gb10-dryrun/rehearsal-20260905/vllm-provenance.json) / [launch](gb10-dryrun/rehearsal-20260905/vllm-launch.json) and [Atlas provenance](gb10-dryrun/rehearsal-20260905/atlas-provenance.json) / [launch](gb10-dryrun/rehearsal-20260905/atlas-launch.json).
+
+| Engine | Observed identity | Pulled digest |
+|---|---|---|
+| vLLM | 0.28.0; build `2cf0a6915ce544dc493a0990f2ea38d81601128a` | `sha256:f8fe15a8039343336945db10494eaad80ef941fe2b2a5fa6649fa38636051a65` |
+| Atlas | `spark 1.0.0-beta-preview`; image Git label unknown, stored as null | `sha256:faa6e5820c42dd86d0ae9e12cbaf2a2e9f32d0f7a9ab348a75ee54d4253929a6` |
+
+vLLM's arm64 platform manifest is `sha256:41b54fb42c66a670a8b27e613ebef05898f24b9ab1bdab28bd00c877bd4935f4`. Atlas's `/usr/local/bin/spark` SHA256 is `df41bf3aea2a1c21c8c98c39979ab4bc84659d37604068297d351153ebdbba31`. Image CUDA environment values are 13.0.2 / 13.0.0 respectively; they are not runtime library probes.
+
+The only downloaded checkpoint was `nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8` at **`9bee19446c0dfd01f356e10979d225b2a6621944`**. All 38 repository files were checked against sizes plus LFS SHA256 or Git-blob SHA1, then rechecked before Atlas: [initial verification](gb10-dryrun/rehearsal-20260905/nano-verification.json), [same-checkpoint verification](gb10-dryrun/rehearsal-20260905/nano-verification-before-atlas.json). Both engines used this task-owned offline HF snapshot. Atlas's log confirms its pinned path. The existing user HF cache was not used or altered.
+
+Atlas used the repository's [Nano fixture copy](gb10-dryrun/rehearsal-20260905/atlas-recipe-fixture.yaml) with the user-specified FP8 checkpoint, context 8192, FP8 KV, memory utilization 0.88, SLAI and prefix caching on; speculation remained off. Its log selected the nvfp4 kernel bundle and recorded MoE FP8→NVFP4 requantization while other tensors retained a mixture of FP8/BF16. This is the same checkpoint, not identical runtime arithmetic. The warning about missing FP8 KV scale tensors/default 1.0 is preserved as a finding, without claiming it caused the coherence failure. No calibration or tuning retry was made.
+
+The ladder source SHA256 remains **`1f10d4887b39a86ee946bc2aa0395e31c43ce1b3dfac778f51abbad11832d880`**, file Git revision `60370b9532a7af5319c99d6c2b93972d4f046d56`. The execution checkout source receipt is `1f7bf76a957ef543c14d263995f0f275406cef18`; later commits package evidence and documentation. `nvidia-smi -q` SHA256: vLLM **`9ea61dd57d2f0fa3bc1fe7263365b75e640c3a0d1e0036921941843cee58af64`**; Atlas **`01ddaaeaa8c1460ac91f5cd6109432b5bb4e5b2dcf8bf1c280283ff4b8ed589e`**.
+
+## Storage and cleanup
+
+[Resource summary](gb10-dryrun/rehearsal-20260905/resource-cleanup-summary.json), [before df](gb10-dryrun/rehearsal-20260905/df-before.txt), [after df](gb10-dryrun/rehearsal-20260905/df-after.txt), and [cleanup receipt](gb10-dryrun/rehearsal-20260905/cleanup-remote.json) preserve exact measurements:
+
+| Observation | Used bytes | Available bytes |
+|---|---:|---:|
+| Before task | 845,513,351,168 | 87,306,461,184 |
+| Highest observed task-period usage | 899,711,713,280 | 33,108,099,072 |
+| After cleanup | 845,532,073,984 | 87,287,738,368 |
+
+There were **9,114 resource samples**, with 0.5-second guards and soft stops at 65 GB new / 17 GB free, reserving 5 GB against the user limits. No observed sample crossed either limit. These are sampled observations, not a continuous allocation trace. `df -h /` was captured before and after each dependency, checkpoint and image download. vLLM's container and image were removed before the Atlas pull; the checkpoint stayed in place until both legs ended.
+
+The verified [remote export](gb10-dryrun/rehearsal-20260905/remote-export-verification.json) contains **166 files / 1,667,090 bytes**, with a SHA256 manifest in [remote-evidence](gb10-dryrun/rehearsal-20260905/remote-evidence/remote-export-manifest.json). The export includes orchestration, raw logs/results, resource samples and copied client sources; weights and environments were excluded from export and deleted. `/home/pidtom/atlas-vllm-control-20260905` is absent. Docker has zero containers and exactly the three original image IDs. The GPU returned to 0% utilization with the original graphics processes. The final root-used delta is **18,722,816 bytes**; root `df` includes host activity and filesystem/Docker metadata, so that delta is not attributed to a surviving task file. No existing model, image or workload was removed.
+
+## Tooling fixes and validation
+
+
+Each logical fix has its own commit with a `red:` body line. The initial source changes are confined to campaign gates and synthetic fixtures. Their regression evidence remains preserved.
 
 | Commit | Bug / corrected behavior | Red line and evidence |
 |---|---|---|
@@ -117,7 +122,13 @@ header; failed filesystem writes; HTTP Content-Length; and an injected crash
 sentinel that cannot count as a clean response. The comparator's detailed
 validity and exit-code behavior is in [COMPARE-FINDINGS.md](COMPARE-FINDINGS.md).
 
-## Recipe-verification verdicts
+
+The follow-on added raw HTTP exchange capture in **`41f36a41`**, after failing selftests proved the gates discarded request/response evidence: [coherency red](tool-evidence/raw-gates-coherency-red.log), [green](tool-evidence/raw-gates-coherency-green.log), [readiness red](tool-evidence/raw-gates-readiness-red.log), [green](tool-evidence/raw-gates-readiness-green.log). It also added the section 10 assembler in **`386a95f1`**, with explicit nulls, reducer semantics, failed-cell retention and source hashes: [red](tool-evidence/assemble-red.txt), [green](tool-evidence/assemble-green.txt), [assembly contract](ASSEMBLY.md).
+
+Final CPU selftests and source/evidence validation are recorded in [final validation](gb10-dryrun/rehearsal-20260905/final-validation.json). The independent evidence audit checked all nine measured cells and 54 source references; raw metrics, labels, gates and the failed 403-token request matched. No Atlas ladder artifacts were created.
+
+## Recipe-verification verdicts retained from initial work
+
 
 These are source observations from 2026-09-05 UTC, not GPU validation. Every
 exact command, SKU, source URL and date is in [RECIPE-VERIFICATION.md](RECIPE-VERIFICATION.md).
@@ -140,39 +151,33 @@ and pass `git apply --check`; they were not applied.
 | Qwen3.8-Flash-Next FP8 | verbatim | Current default H100/H200/B200 TP4, H100 adds PLE offload; prior H200 TEP8 line is not the default. |
 | MiniMax M3 | verbatim | H200 BF16 TP8 and B200 NVFP4 commands retrieved. |
 
-## Schema gaps and what remains
 
-[SCHEMA-GAPS.md](SCHEMA-GAPS.md) records every missing/ambiguous field without
-inventing a value. The most consequential gaps are:
+## Delivery scope
 
-- Nominal ISL is a word-based prompt builder; actual token lengths require
-  server usage. Saved latency values are per-rep percentiles, not pooled cell
-  percentiles. Raw warmup results and per-request latency series are discarded.
-- The nonce restarts across client processes; repeated A/A processes can reuse
-  prefixes. An explicit cache reset or consistent disabled-cache adaptation is
-  necessary. `W55_PROMPT_MODE` is also absent from the ladder header.
-- The bare ladder record cannot verify server speculation, model revision,
-  engine image/version, node/topology or the 24-hour pairing window. It omits
-  the harness Git SHA and explicit penalties. A source hash is not a vLLM hash.
-- Clock/power sampling happens before the rep timer, on the client host. Empty
-  output may still count as `n_ok`; missing TPOT is unavailable, not zero. An
-  all-error rung can crash on console formatting before saving its JSON; this
-  is written up for the ladder owner and left unchanged.
-- §10 needs defined nullability and percentile reducers, a vLLM binary-hash
-  meaning, non-applicable Atlas PTX handling, BF16/MXFP4 quant vocabulary and
-  PP/node topology for Kimi.
+Only `bench/hopper_ab/` and this `vllm-control/` directory changed. The original ladder, PRD, VLLM-RECIPES and off-limits engine directories/checkouts remain unchanged. No cargo build ran and Spark 1 was not accessed.
 
-The [weights manifest](WEIGHTS-MANIFEST.md) is complete for concrete §3 IDs.
-The sole unresolved selection is the nonspecific `nvidia/*-NVFP4` Qwen3.6 P0
-expansion, which has no permitted explicit HF ID to pin. API payload sizes are
-logical bytes; allocated and peak disk usage remain unmeasured.
+The branch remains `campaign/vllm-control-gb10-2026-09` in `/tmp/atlas-vllm-control`; no rebase or merge was performed by this task. [TheTom/atlas#1](https://github.com/TheTom/atlas/pull/1) was observed merged externally at 03:43:36 UTC while this follow-on was running; its [recorded state](gb10-dryrun/rehearsal-20260905/fork-pr-observed-state.json) names merge commit `518f5bd16091123c2344a86684ccfaf37650c261`. Follow-on commits are pushed to the same branch for the lead to fold into the campaign.
 
-To finish the live deliverables, provide a storage arrangement that fits the
-model, expanded official image and runtime caches, or explicitly revise the
-40 GB cap. Then recheck Spark 2 occupancy, prefetch only Nano at its pinned
-revision, verify image digest/parser provenance, and execute boot → coherency
-→ both frozen ladders twice → OSL refusal → one vLLM cross-check. Capture the
-actual serve argv/environment and raw results, stop on a failed gate, and
-remove only the task-created model/container afterward. Resolve the recorded
-schema and cache-state limits before calling any resulting row certified.
-No hardware rental, future monitor or deferred GPU workload was started.
+## Overnight follow-on — Step A handoff
+
+The overnight request reuses the completed Step A rehearsal above, including Atlas's failed coherency result and full cleanup. It does not retry that engine or relabel old measurements with a new client. [Step A status](gb10-dryrun/overnight-20260905/step-a.status.json) preserves the handoff. The new request explicitly authorizes rebasing and the Step B cargo build, superseding the earlier no-rebase/no-cargo execution constraints for this phase. The five follow-on commits were rebased onto fork tip `8b7405ca159a6ab8bb3e593a740f4d20f93996fd`; [setup](gb10-dryrun/overnight-20260905/setup.json) records the old and new SHAs. The explicitly requested `792579b` predates the new device preflight; Step B's build target is awaiting clarification. Prior measurements and SHA receipts remain historical evidence.
+
+## Overnight follow-on — Step B blocked before build
+
+The clean Spark 2 clone is at `8b7405ca159a6ab8bb3e593a740f4d20f93996fd`, size 127,952,036 bytes. No cargo build, model download, kernel audit or GPU gate was started. The target remains unresolved: the request names `792579b24164d8696083760073b5c85b29cd968a`, which predates the new architecture preflight, while also requiring measurement at the current campaign tip. The pending user question requests a choice. [Step B status](gb10-dryrun/overnight-20260905/step-b.status.json) records the block; [clone verification](gb10-dryrun/overnight-20260905/clone-verification.json) records clean status, SHA and size. No `.benchmarks` result or gate-record PR was fabricated.
+
+| Gate | Overnight verdict | Duration | Measured hardware block |
+|---|---|---|---|
+| `concurrency-sweep` | NOT_RUN: build target unresolved | — | — |
+| `decode-floor` | NOT_RUN: build target unresolved | — | — |
+| `ttft-warm-gate` | NOT_RUN: build target unresolved | — | — |
+| `ttft-cold-gate` | NOT_RUN: build target unresolved | — | — |
+| `bfcl-subset` | NOT_RUN: build target unresolved | — | — |
+| `bfcl-subset-echolp` | NOT_RUN: build target unresolved | — | — |
+| `ssm-state-poisoning-gate` | NOT_RUN: build target unresolved | — | — |
+| `agentic-webserver` | NOT_RUN: build target unresolved | — | — |
+| `vision-fidelity` | NOT_RUN: build target unresolved | — | — |
+| `video-fidelity` | NOT_RUN: build target unresolved | — | — |
+| `concurrency-sweep-dflash2` | NOT_RUN: build target unresolved | — | — |
+
+The source inventory found several prerequisites the supplied plan does not account for. `--check-kernels` runs after loading the full model, so a missing-cache invocation before the proposed prefetch cannot produce a kernel audit. The current source requires eleven gates, including DFlash2. Per-gate registered defaults match their newest records but select three main checkpoints and a separate draft model; they do not all use the one Qwen3.8 checkpoint. That checkpoint alone is 23.44 GB. The agentic gate executes unconfined `sh -c` with inherited environment; its temporary working directory is not an OS sandbox. These are source findings, not executed failures or permission to change thresholds or checkpoints. See [gate inventory](gb10-dryrun/overnight-20260905/gate-source-inventory.md) and [model/check-kernels prerequisites](gb10-dryrun/overnight-20260905/qwen-preflight-prerequisites.md). The unrun audit has a [status file](gb10-dryrun/check-kernels-gb10.status.json), not a fabricated raw result. [End-of-step df](gb10-dryrun/overnight-20260905/step-b-end-df.json) is recorded.

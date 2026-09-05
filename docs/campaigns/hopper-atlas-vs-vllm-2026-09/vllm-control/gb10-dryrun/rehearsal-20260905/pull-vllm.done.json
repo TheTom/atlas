@@ -1,0 +1,25 @@
+{
+  "job": {
+    "root": "/home/pidtom/atlas-vllm-control-20260905",
+    "phase": "pull-vllm",
+    "baseline_used": 845513351168,
+    "argv": [
+      "docker",
+      "pull",
+      "vllm/vllm-openai@sha256:f8fe15a8039343336945db10494eaad80ef941fe2b2a5fa6649fa38636051a65"
+    ],
+    "environment": {}
+  },
+  "before": {
+    "utc": "2026-09-05T03:35:24.829318+00:00",
+    "used": 845521805312,
+    "available": 87298007040
+  },
+  "pid": 110354,
+  "exit_code": 0,
+  "after": {
+    "utc": "2026-09-05T03:51:25.202536+00:00",
+    "used": 878636507136,
+    "available": 54183305216
+  }
+}

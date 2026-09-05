@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "python3",
+    "bench/hopper_ab/assemble.py",
+    "--ladder",
+    "docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/gb10-dryrun/rehearsal-20260905/vllm-b-agent.json",
+    "--boot",
+    "docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/gb10-dryrun/rehearsal-20260905/vllm-boot.json",
+    "--coherency",
+    "docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/gb10-dryrun/rehearsal-20260905/vllm-coherency.json",
+    "--provenance",
+    "docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/gb10-dryrun/rehearsal-20260905/vllm-b-agent.provenance.json",
+    "--workload",
+    "agent",
+    "--run-id",
+    "vllm-b-agent",
+    "--out-dir",
+    "docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/gb10-dryrun/rehearsal-20260905/cells"
+  ],
+  "exit_code": 1,
+  "stdout": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/gb10-dryrun/rehearsal-20260905/cells/vllm-b-agent-vllm-agent-c1.json: PASS (PARTIAL)\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/gb10-dryrun/rehearsal-20260905/cells/vllm-b-agent-vllm-agent-c16.json: FAIL (NO-GO)\n",
+  "stderr": ""
+}

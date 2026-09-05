@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "workload": {
+    "isl": 4096,
+    "osl": 512,
+    "temperature": 0.0,
+    "seed": 42,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "reps": 3,
+    "warmup": 1,
+    "driver_sha256": "1f10d4887b39a86ee946bc2aa0395e31c43ce1b3dfac778f51abbad11832d880"
+  },
+  "atlas_label": "GB10-REHEARSAL-vllm-a-agent",
+  "vllm_label": "GB10-REHEARSAL-vllm-b-agent",
+  "atlas_model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+  "vllm_model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+  "rows": [
+    {
+      "concurrency": 1,
+      "atlas_tok_s": 45.15507641974944,
+      "vllm_tok_s": 48.25099118954808,
+      "atlas_ttft_p50_ms": 850.8545299998028,
+      "vllm_ttft_p50_ms": 181.3662749997699,
+      "atlas_ttft_p99_ms": 850.8545299998028,
+      "vllm_ttft_p99_ms": 181.3662749997699,
+      "atlas_tpot_p50_ms": 20.524316615133795,
+      "vllm_tpot_p50_ms": 20.410280522506003,
+      "atlas_errors": 0,
+      "vllm_errors": 0,
+      "atlas_issues": [],
+      "vllm_issues": [],
+      "ratio": 0.9358372814013971,
+      "verdict": "LOSS"
+    },
+    {
+      "concurrency": 16,
+      "atlas_tok_s": 177.74042953512,
+      "vllm_tok_s": 226.6091297822984,
+      "atlas_ttft_p50_ms": 6137.19647916605,
+      "vllm_ttft_p50_ms": 841.7265015001855,
+      "atlas_ttft_p99_ms": 11064.695835116465,
+      "vllm_ttft_p99_ms": 1386.6730214829659,
+      "atlas_tpot_p50_ms": 76.25149939008655,
+      "vllm_tpot_p50_ms": 68.01855193564602,
+      "atlas_errors": 0,
+      "vllm_errors": 0,
+      "atlas_issues": [],
+      "vllm_issues": [
+        "rep 1: vacuity (a request returned <80% of OSL 512)"
+      ],
+      "ratio": null,
+      "verdict": "INVALID"
+    }
+  ],
+  "rungs_won": 0,
+  "rungs_compared": 1
+}

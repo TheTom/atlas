@@ -1,0 +1,13 @@
+UTC: 2026-09-05T03:31:30.112371+00:00
+$ python3 bench/hopper_ab/assemble.py --selftest
+Traceback (most recent call last):
+  File "/private/tmp/atlas-vllm-control/bench/hopper_ab/assemble.py", line 103, in <module>
+    selftest()
+    ~~~~~~~~^^
+  File "/private/tmp/atlas-vllm-control/bench/hopper_ab/assemble.py", line 55, in selftest
+    cell = assemble(*inputs, "lat", "fixture")[0]
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/atlas-vllm-control/bench/hopper_ab/assemble.py", line 17, in assemble
+    raise NotImplementedError("GB10 cell assembly has not been implemented")
+NotImplementedError: GB10 cell assembly has not been implemented
+exit 1

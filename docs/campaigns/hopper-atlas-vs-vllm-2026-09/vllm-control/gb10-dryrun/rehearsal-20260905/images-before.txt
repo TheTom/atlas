@@ -1,0 +1,4 @@
+REPOSITORY                        TAG                          DIGEST                                                                    IMAGE ID                                                                  CREATED         SIZE
+ghcr.io/anemll/dspark-vllm-gx10   0.1.1                        <none>                                                                    sha256:3430d6614a8e2925f34d059af6caf05aff42387326db4d05639a60f10f2654d8   7 weeks ago     18.8GB
+nvidia/cuda                       13.0.1-devel-ubuntu24.04     sha256:7d2f6a8c2071d911524f95061a0db363e24d27aa51ec831fcccf9e76eb72bc92   sha256:d1f3dc428c537e98f04bf6957f6bbccf77a4a51cab06b6a1cba36e543b285679   12 months ago   6.59GB
+nvidia/cuda                       13.0.1-runtime-ubuntu24.04   sha256:c3fde347d52d578c84fd644bc177bc7ec333feaf11550d990da4084d7612e4c7   sha256:55e3a0bc92ce6d14b77cd8f4a81414f2b75c6b3964b17dc452028b55e09ab168   12 months ago   2.55GB

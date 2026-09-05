@@ -1,0 +1,38 @@
+[
+  {
+    "name": "df-before",
+    "command": "df -h /",
+    "utc": "2026-09-05T03:33:14.202739+00:00",
+    "exit_code": 0
+  },
+  {
+    "name": "df-before-bytes",
+    "command": "df -B1 /",
+    "utc": "2026-09-05T03:33:14.495163+00:00",
+    "exit_code": 0
+  },
+  {
+    "name": "gpu-before",
+    "command": "nvidia-smi",
+    "utc": "2026-09-05T03:33:14.820188+00:00",
+    "exit_code": 0
+  },
+  {
+    "name": "nvidia-smi-q",
+    "command": "nvidia-smi -q",
+    "utc": "2026-09-05T03:33:15.241626+00:00",
+    "exit_code": 0
+  },
+  {
+    "name": "containers-before",
+    "command": "docker ps -a --no-trunc",
+    "utc": "2026-09-05T03:33:15.545673+00:00",
+    "exit_code": 0
+  },
+  {
+    "name": "images-before",
+    "command": "docker image ls --digests --no-trunc",
+    "utc": "2026-09-05T03:33:15.859230+00:00",
+    "exit_code": 0
+  }
+]

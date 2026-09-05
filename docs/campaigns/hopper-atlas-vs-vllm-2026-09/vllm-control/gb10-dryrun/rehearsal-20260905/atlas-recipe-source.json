@@ -1,0 +1,13 @@
+{
+  "source_path": "crates/spark-server/tests/fixtures/recipes/nemotron-3-nano/nemotron-3-nano-30b-a3b-nvfp4.yaml",
+  "file_git_revision": "c19481aa29e1db4676e3f30411d957e7f9ce1b0c",
+  "sha256": "d16f349d81d34d5b113b7dbf05c417731fcae5f3e950c10c13328d6d2b9f978f",
+  "checkpoint_substitution": "User explicitly requested the same nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8 checkpoint for Atlas; fixture names NVFP4.",
+  "deployment_additions": [
+    "--no-tui",
+    "--enable-prefix-caching true",
+    "task-owned Hugging Face cache",
+    "HF_HUB_OFFLINE=1"
+  ],
+  "scope": "GB10 rehearsal only; not Hopper data"
+}

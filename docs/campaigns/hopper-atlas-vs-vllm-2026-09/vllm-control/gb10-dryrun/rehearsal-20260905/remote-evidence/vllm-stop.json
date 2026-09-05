@@ -1,0 +1,30 @@
+{
+  "cache_ownership": {
+    "argv": [
+      "docker",
+      "exec",
+      "vllm-control-nano-20260905",
+      "chown",
+      "-R",
+      "1000:1000",
+      "/root/.cache/huggingface",
+      "/rehearsal-results"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "stop": {
+    "argv": [
+      "docker",
+      "stop",
+      "--time",
+      "30",
+      "vllm-control-nano-20260905"
+    ],
+    "exit_code": 0,
+    "stdout": "Flag --time has been deprecated, use --timeout instead\nvllm-control-nano-20260905\n",
+    "stderr": ""
+  },
+  "df_after_stop": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  838G   31G  97% /\n"
+}

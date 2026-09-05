@@ -1,0 +1,8 @@
+{
+  "number": 2,
+  "url": "https://github.com/TheTom/atlas/pull/2",
+  "repo": "TheTom/atlas",
+  "base": "hopper/sm90-target-tdd-2026-09",
+  "head": "campaign/vllm-control-gb10-2026-09",
+  "draft": true
+}

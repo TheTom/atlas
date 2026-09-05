@@ -1,0 +1,840 @@
+{
+  "remote_root": "/home/pidtom/atlas-vllm-control-20260905",
+  "excluded": [
+    "hf",
+    "venv",
+    "__pycache__"
+  ],
+  "files": [
+    {
+      "path": "atlas-binary-hash.json",
+      "bytes": 441,
+      "sha256": "4e1f21c9f63e4aa0a5f484cfbb30471c143e9daeb0e4f5fe6491b2527dc0592d"
+    },
+    {
+      "path": "atlas-binary-version.json",
+      "bytes": 513,
+      "sha256": "1171cdafc39f9a9f111d91aeeacd32e8134c5bacbd2520002d86e58ec0409bcc"
+    },
+    {
+      "path": "atlas-boot.json",
+      "bytes": 1746,
+      "sha256": "9a3f91a5ee6571278d5263300709a736542f689298947873b786699674c6660a"
+    },
+    {
+      "path": "atlas-boot.launch.log",
+      "bytes": 925,
+      "sha256": "1b83b4446f23dc70d8480854627d819435e34ed251a1dbed8556d808a546b95c"
+    },
+    {
+      "path": "atlas-coherency.after.df.txt",
+      "bytes": 89,
+      "sha256": "6b93dca925dfcb898169ee1f88281b9476195dc510167f520f5ad91400985b74"
+    },
+    {
+      "path": "atlas-coherency.before.df.txt",
+      "bytes": 89,
+      "sha256": "6b93dca925dfcb898169ee1f88281b9476195dc510167f520f5ad91400985b74"
+    },
+    {
+      "path": "atlas-coherency.done.json",
+      "bytes": 889,
+      "sha256": "26cbe3369313f12fc9f691fd9a5318a0e324e92471c191832a7dad6474f3ae9c"
+    },
+    {
+      "path": "atlas-coherency.json",
+      "bytes": 7496,
+      "sha256": "01789b27fcba0e5158e7f17988f89944208a6767ed7c327c2b82ba96a7a65ddf"
+    },
+    {
+      "path": "atlas-coherency.launch.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "atlas-coherency.log",
+      "bytes": 7496,
+      "sha256": "01789b27fcba0e5158e7f17988f89944208a6767ed7c327c2b82ba96a7a65ddf"
+    },
+    {
+      "path": "atlas-coherency.resources.jsonl",
+      "bytes": 2760,
+      "sha256": "557758c1be287906ad737cf0debc086097ab27f4b387eca044960c7e9687f4d0"
+    },
+    {
+      "path": "atlas-coherency.started.json",
+      "bytes": 751,
+      "sha256": "1c6cc09485074b09a57b1f2b01b1ff35d6a704efbea7d8b21737b236076ff9f6"
+    },
+    {
+      "path": "atlas-container-after-boot.json",
+      "bytes": 11272,
+      "sha256": "13fd94d96d30e67f091305e74dbb35fbdbe6991328fcd241bb38adb6f4651697"
+    },
+    {
+      "path": "atlas-container-before-stop.json",
+      "bytes": 13652,
+      "sha256": "f8e91db83e68825a5c5ed6577570617905cf423377aa18f3996b78123d390095"
+    },
+    {
+      "path": "atlas-container-start.json",
+      "bytes": 11272,
+      "sha256": "13fd94d96d30e67f091305e74dbb35fbdbe6991328fcd241bb38adb6f4651697"
+    },
+    {
+      "path": "atlas-container-stopped.json",
+      "bytes": 13500,
+      "sha256": "3ffefa0918f08187ed121ff4e7c1d5f8332af5eb31a4dfecfd49b1e8d1b9e97a"
+    },
+    {
+      "path": "atlas-endpoint-correction.json",
+      "bytes": 1449,
+      "sha256": "86d35b1748d1987ef6f8831f522c68a68d5e9cd1da14010d1601fd9e526836e1"
+    },
+    {
+      "path": "atlas-guard-pid.json",
+      "bytes": 20,
+      "sha256": "7cd3c4a039d38c17d15613b3a2292f68c03ecbebd7dca813eb6cdd59941382d3"
+    },
+    {
+      "path": "atlas-guard.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "atlas-host-memory-before.txt",
+      "bytes": 209,
+      "sha256": "82c7600bddf9a8d65fd442d1fd19b52a6f7782ee8f32e3a11a49127fc553e5c1"
+    },
+    {
+      "path": "atlas-image-inspect.json",
+      "bytes": 7676,
+      "sha256": "c3f6c029b83ef9030337a7a1f07e43cbeb4adfc37bf30965d72dcc5d9a2d9af9"
+    },
+    {
+      "path": "atlas-launch.json",
+      "bytes": 2263,
+      "sha256": "ed7ddb6ddac88f4867b4f7cad919ee47229a9e001ad159427ceb151a26212a51"
+    },
+    {
+      "path": "atlas-nvidia-smi-q.txt",
+      "bytes": 13895,
+      "sha256": "01ddaaeaa8c1460ac91f5cd6109432b5bb4e5b2dcf8bf1c280283ff4b8ed589e"
+    },
+    {
+      "path": "atlas-plan.json",
+      "bytes": 1909,
+      "sha256": "09566e3263823dd87f2ade7882241a873f8937aee944d2e0b16c7f14203ccae6"
+    },
+    {
+      "path": "atlas-prelaunch.json",
+      "bytes": 2705,
+      "sha256": "2d155e9eed3821b015f917e305d3328580252c7d80628206e9e06ab3ceff53c4"
+    },
+    {
+      "path": "atlas-readiness-command.json",
+      "bytes": 390,
+      "sha256": "c787688da5834fd1e10b52bcadc4cbe32a8ed193c1a264ca64bf5dae8eedaf40"
+    },
+    {
+      "path": "atlas-readiness-loopback.after.df.txt",
+      "bytes": 89,
+      "sha256": "6b93dca925dfcb898169ee1f88281b9476195dc510167f520f5ad91400985b74"
+    },
+    {
+      "path": "atlas-readiness-loopback.before.df.txt",
+      "bytes": 89,
+      "sha256": "6b93dca925dfcb898169ee1f88281b9476195dc510167f520f5ad91400985b74"
+    },
+    {
+      "path": "atlas-readiness-loopback.done.json",
+      "bytes": 864,
+      "sha256": "440ea72c28555ebedd86aaec8017edc020ca136d550b5c214b5a20401dca4851"
+    },
+    {
+      "path": "atlas-readiness-loopback.launch.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "atlas-readiness-loopback.log",
+      "bytes": 1746,
+      "sha256": "9a3f91a5ee6571278d5263300709a736542f689298947873b786699674c6660a"
+    },
+    {
+      "path": "atlas-readiness-loopback.resources.jsonl",
+      "bytes": 184,
+      "sha256": "22cfb5503b3787c92e03855879ce32b742c108d78c5b8c77762d3a5717666588"
+    },
+    {
+      "path": "atlas-readiness-loopback.started.json",
+      "bytes": 726,
+      "sha256": "626f2b6d99329f83bb4ccd73d343c05b58255d7966e499e1b441761405657c96"
+    },
+    {
+      "path": "atlas-readiness.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "atlas-removal.json",
+      "bytes": 3065,
+      "sha256": "e82b3edcf98dfd469e50929b8ad4b404c47085b782f5a0e9d81cf926f180bd8b"
+    },
+    {
+      "path": "atlas-running-binary-version.json",
+      "bytes": 186,
+      "sha256": "8abfe6d398a49624e77a75dafdd4c8fa3f58b346f67fd2dc425e588a66411159"
+    },
+    {
+      "path": "atlas-runtime.resources.jsonl",
+      "bytes": 70288,
+      "sha256": "2f6ce83234de2aabb7eaab7a5aa168cd08dc8fb4c6f5380e5b3f4c8094a2d3f5"
+    },
+    {
+      "path": "atlas-server.log",
+      "bytes": 62763,
+      "sha256": "55f81da602bfca443e009cbb136b11f51d0e17f680f9ac722b5ed315dc9cf08f"
+    },
+    {
+      "path": "atlas-stop.json",
+      "bytes": 586,
+      "sha256": "a6e889292dc28196b90bad103043fa477f8e8ed0c8ff9f91001dbe8e0d84b868"
+    },
+    {
+      "path": "client-pip-freeze.txt",
+      "bytes": 376,
+      "sha256": "5b82485116b4d475ad1c58cff3d86f067e00fdc43400ab6125a00ecebc7c463f"
+    },
+    {
+      "path": "client-python-version.txt",
+      "bytes": 14,
+      "sha256": "5b3e43dc38ca01e3f5a7854ba50d4330864b0c1e0f646650b2c78cf072acc366"
+    },
+    {
+      "path": "control-atlas-ab-agent.json",
+      "bytes": 946,
+      "sha256": "2f87baf47dc3e9eaee4fb0aa0f6d0d4529d984c1610dbee6b55eddb91f266671"
+    },
+    {
+      "path": "control-atlas-ab-lat.json",
+      "bytes": 940,
+      "sha256": "c4fee19e8184e06e7890ba5afe04492be42bb1e723ece3c13ae32877b74ea3a4"
+    },
+    {
+      "path": "control-atlas-coherency.json",
+      "bytes": 562,
+      "sha256": "670cef572934336e5adbf936296ec8109a587caf417c823a5f96b8d2c57ec7ea"
+    },
+    {
+      "path": "control-atlas-readiness-loopback.json",
+      "bytes": 533,
+      "sha256": "d7e1100d8fb8d7677cb6c4946f50c489839ddda9d6af15051f18e5ce7db92d3a"
+    },
+    {
+      "path": "control-download-nano.json",
+      "bytes": 586,
+      "sha256": "d4552443d159d4238533d2a454a2648bb1214367f49e40222438b4f001d43741"
+    },
+    {
+      "path": "control-install-client-deps.json",
+      "bytes": 365,
+      "sha256": "7d5f47cb79dfbc5cd5c0aefd7c423b93df1f572d928d4b750cee422293b3e616"
+    },
+    {
+      "path": "control-pull-atlas.json",
+      "bytes": 210,
+      "sha256": "715da46989c78c1c94794d2dd687f46ad12af792e6181eae94776e529d997303"
+    },
+    {
+      "path": "control-pull-vllm.json",
+      "bytes": 273,
+      "sha256": "3ff90c247a11513fc80e6395971a3ce7706e4a521708ca4297fda12472d1cba5"
+    },
+    {
+      "path": "control-vllm-a-agent.json",
+      "bytes": 821,
+      "sha256": "a39f9f31fa95b891f63356f78947efe4a5355d4620719f75922ca0c9616a26d6"
+    },
+    {
+      "path": "control-vllm-a-lat.json",
+      "bytes": 815,
+      "sha256": "5d57415340f39f7b687d427c6487bfcde948729a5804567c13f63589a209bad1"
+    },
+    {
+      "path": "control-vllm-b-agent.json",
+      "bytes": 821,
+      "sha256": "59fa307b38aa979443b7ce811a8c84561d1d4df9a7c02e5989e45e5a9669fcfe"
+    },
+    {
+      "path": "control-vllm-b-lat.json",
+      "bytes": 815,
+      "sha256": "00dadc905dd258598532fec95579899ac7f64d84b0293cfc7e9bb0deb1f46d21"
+    },
+    {
+      "path": "control-vllm-bench-crosscheck.json",
+      "bytes": 1680,
+      "sha256": "45ffd59213a5c8a83271af1bcde6d5a48a985c697d170b7d300db7b18e21e128"
+    },
+    {
+      "path": "control_engine.py",
+      "bytes": 6108,
+      "sha256": "a88492d84ed0930515ba76c917ee9df7d5d4ba38ea80e5dec5ead116ee447097"
+    },
+    {
+      "path": "control_remote_job.py",
+      "bytes": 2965,
+      "sha256": "87ef3d47be58acaa7a827a7957398634e420068ea8636e9858902c945e67cc6c"
+    },
+    {
+      "path": "control_run_ladders.py",
+      "bytes": 1144,
+      "sha256": "25af0f274726cf3848e6059663a111fa78807bff3790bbaadf6f18bbafcbf38a"
+    },
+    {
+      "path": "control_verify_nano.py",
+      "bytes": 1858,
+      "sha256": "045b1d00feb790dba2335602be498cd418bc573ca352eee79bf5fb5b08f048db"
+    },
+    {
+      "path": "download-nano.after.df.txt",
+      "bytes": 89,
+      "sha256": "3b3b62a58bdf16403ffb06dc66b05e709d639cf337ad2ffb829908f277a53704"
+    },
+    {
+      "path": "download-nano.before.df.txt",
+      "bytes": 89,
+      "sha256": "eddc5b5b6a71bda81d3e5dc9c596129dbb729cfa66b5698582be780b1c0673e9"
+    },
+    {
+      "path": "download-nano.done.json",
+      "bytes": 915,
+      "sha256": "00f152363d282800c07b98f44bb5bf40fa5def1a86b2e003dd5782bc3e7f18fc"
+    },
+    {
+      "path": "download-nano.launch.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "download-nano.log",
+      "bytes": 453,
+      "sha256": "7f3b4807e9cd9cdfbee2ef83e2547666992fcb71e1326abe85d8775bbfe4922c"
+    },
+    {
+      "path": "download-nano.resources.jsonl",
+      "bytes": 220800,
+      "sha256": "33275bea0175645343194140fef42873ab7d7d43efa21cb9f94768bcb72ed91a"
+    },
+    {
+      "path": "download-nano.started.json",
+      "bytes": 777,
+      "sha256": "49e6ca7070760b830111ce7b4d78b351ef2804cd19eba5d8e462d80d6011ea98"
+    },
+    {
+      "path": "harness_w55_conc_ladder.py",
+      "bytes": 12662,
+      "sha256": "1f10d4887b39a86ee946bc2aa0395e31c43ce1b3dfac778f51abbad11832d880"
+    },
+    {
+      "path": "install-client-deps.after.df.txt",
+      "bytes": 89,
+      "sha256": "b4c87a49094fb3c87b5249799ed2ea4d1936fb9cb83108cfb5ec1dbf5e3cbb84"
+    },
+    {
+      "path": "install-client-deps.before.df.txt",
+      "bytes": 89,
+      "sha256": "b4c87a49094fb3c87b5249799ed2ea4d1936fb9cb83108cfb5ec1dbf5e3cbb84"
+    },
+    {
+      "path": "install-client-deps.done.json",
+      "bytes": 686,
+      "sha256": "8d057d341ef96901f026ebb629688c001665af1df925b65094a907033044bb84"
+    },
+    {
+      "path": "install-client-deps.launch.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "install-client-deps.log",
+      "bytes": 8800,
+      "sha256": "0c625bb6a2531b0f61683852b2b41763cfc35be25f085d8ef02cb36908e7d22a"
+    },
+    {
+      "path": "install-client-deps.resources.jsonl",
+      "bytes": 2024,
+      "sha256": "a7162a67de633a181b82ea6f45841350444046efe8dd64c8cd414cd8a53bcfe8"
+    },
+    {
+      "path": "install-client-deps.started.json",
+      "bytes": 548,
+      "sha256": "d935354ef81e0d8f0153310d9f8792b54dca7e3a4953b0a34012d0ca2d6ccf6c"
+    },
+    {
+      "path": "nano-expected-files.json",
+      "bytes": 7327,
+      "sha256": "e8eb67ac6388c92ce4b0edd068c5cfecc83b9efa6251f1dd348e4eb3b1b095b2"
+    },
+    {
+      "path": "nano-generation-config.json",
+      "bytes": 197,
+      "sha256": "7a8f2d91a749d7a09b755daceacab14da9d66ebfdaea7e8583e48c0be01ee73d"
+    },
+    {
+      "path": "nano-hf-quant-config.json",
+      "bytes": 3047,
+      "sha256": "e96eee54358742dd80535b2042d4b9b3aa99ba94fb82ea04209ba560b47acef4"
+    },
+    {
+      "path": "nano-model-config.json",
+      "bytes": 1817,
+      "sha256": "f4fcbaaaed3ee215f86205a7600636cd930bde069f2b603d7ff908c046a0cd96"
+    },
+    {
+      "path": "nano-parser.py",
+      "bytes": 798,
+      "sha256": "aafb12208054504f619cbdd01837e1532a482ad937ed987bfe9a13fb812ae2b7"
+    },
+    {
+      "path": "nano-verification-before-atlas.json",
+      "bytes": 12220,
+      "sha256": "8a0a02f717d0c9fdaee82be8d44c7cc58ba1283ca2615f072f023a265c2becee"
+    },
+    {
+      "path": "nano-verification-before-atlas.log",
+      "bytes": 9756,
+      "sha256": "90ac516499a6c6e66c0f95c2e991d0d9a439693e7a2bae6fd22001d587f31fda"
+    },
+    {
+      "path": "nano-verification.json",
+      "bytes": 12220,
+      "sha256": "19dd5da4248faa4746930dcdcce50f7875328a811bafd1fd3558482e1cc1c907"
+    },
+    {
+      "path": "nano-verification.log",
+      "bytes": 9756,
+      "sha256": "90ac516499a6c6e66c0f95c2e991d0d9a439693e7a2bae6fd22001d587f31fda"
+    },
+    {
+      "path": "pull-atlas.after.df.txt",
+      "bytes": 89,
+      "sha256": "6b93dca925dfcb898169ee1f88281b9476195dc510167f520f5ad91400985b74"
+    },
+    {
+      "path": "pull-atlas.before.df.txt",
+      "bytes": 89,
+      "sha256": "b86afc5b6a024e581d0b90484c1ece38088cee1521da00415340f0d2ae4c925b"
+    },
+    {
+      "path": "pull-atlas.done.json",
+      "bytes": 519,
+      "sha256": "c6f55f1244ba2938667cbd445ff3f310425bc00ec0494944dc9b1352a49be381"
+    },
+    {
+      "path": "pull-atlas.launch.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pull-atlas.log",
+      "bytes": 2060,
+      "sha256": "83b0776183917930f58af99c0c84f624372450bdfe01dc843b2c360369558bc2"
+    },
+    {
+      "path": "pull-atlas.resources.jsonl",
+      "bytes": 17296,
+      "sha256": "eea67cbaaf9a34784d06aa386cfeee2774cc37b72d018254b755ec93a407a7c1"
+    },
+    {
+      "path": "pull-atlas.started.json",
+      "bytes": 381,
+      "sha256": "d679a543965047b60d4d8f7efbd0cadbd06c456cb41a3662995b4b0c65f8f7f9"
+    },
+    {
+      "path": "pull-vllm.after.df.txt",
+      "bytes": 89,
+      "sha256": "8de592b94623337333f61605ebe5126393cc871b0b68988032761de04cf84372"
+    },
+    {
+      "path": "pull-vllm.before.df.txt",
+      "bytes": 89,
+      "sha256": "29ff507f49af32374a5d2628c9feea90270bc2b9ea0de60a0f9907177adc4160"
+    },
+    {
+      "path": "pull-vllm.done.json",
+      "bytes": 582,
+      "sha256": "2ad87a7514a87cdeb61fbec76717dfb57a2efe9e974397ac13ffb08a0021f7d5"
+    },
+    {
+      "path": "pull-vllm.launch.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pull-vllm.log",
+      "bytes": 4794,
+      "sha256": "275f3fc81effe53deaa266691b2ea7dea69775e1986f709fed1f835d098d9425"
+    },
+    {
+      "path": "pull-vllm.resources.jsonl",
+      "bytes": 176640,
+      "sha256": "ca2e607f38c04b7b25ec3dd8ab4e8ecba9594625353d7a5ad2b2a24744b66a0a"
+    },
+    {
+      "path": "pull-vllm.started.json",
+      "bytes": 444,
+      "sha256": "5233a5d5a89b638f24ada4d4e82c6c1cdf10c33514f38d83f270eed8d403dc51"
+    },
+    {
+      "path": "repo/bench/hopper_ab/coherency_gate.py",
+      "bytes": 20019,
+      "sha256": "e266a8086fa48ee315ec00ac85b119321d582dc91fb8dc90c52d3a243e4f2f2e"
+    },
+    {
+      "path": "repo/scripts/test_coherence.py",
+      "bytes": 62614,
+      "sha256": "2b632bd5cc0507a8201d22f801b4769fa83623f87f00bfa3a5ddc62587c9b0fe"
+    },
+    {
+      "path": "results/vllm-a-agent.json",
+      "bytes": 6602,
+      "sha256": "367766c4d300d5aff717ca8863fb70321f7d767be1124a878a9095f2f8449d51"
+    },
+    {
+      "path": "results/vllm-a-lat.json",
+      "bytes": 6564,
+      "sha256": "c8a71a4733c6fa4102fc65f77ba549de60a7a35c02a9c01dde092b227525d249"
+    },
+    {
+      "path": "results/vllm-b-agent.json",
+      "bytes": 6646,
+      "sha256": "19f46ad2d9c9c9c7d8e92af6ed4515510a6cea42efe000bf0c6d9c7730e2cdf2"
+    },
+    {
+      "path": "results/vllm-b-lat.json",
+      "bytes": 6571,
+      "sha256": "95bcef8fd93922a33816c0829d92c3efe30d7c05542232cb911ca21249215a24"
+    },
+    {
+      "path": "results/vllm-bench-crosscheck.json",
+      "bytes": 20251,
+      "sha256": "f2501209d6a3bd57d05484942ba72bc1c1485dea8a9e549f845723b25f1db9a4"
+    },
+    {
+      "path": "time_to_ready.sh",
+      "bytes": 9956,
+      "sha256": "8afd7063523ed589d8530ce596334b1b317eb98d18d22aca18937f0cb5d48464"
+    },
+    {
+      "path": "vllm-a-agent.after.df.txt",
+      "bytes": 89,
+      "sha256": "0d2d502834fedd030248763e17f6c22378fc9336e2656c1897e5962a12b1bda3"
+    },
+    {
+      "path": "vllm-a-agent.before.df.txt",
+      "bytes": 89,
+      "sha256": "0d2d502834fedd030248763e17f6c22378fc9336e2656c1897e5962a12b1bda3"
+    },
+    {
+      "path": "vllm-a-agent.done.json",
+      "bytes": 1174,
+      "sha256": "08d9d849d0f8e61dee93c382e7b0f9f56ae3495cc26b4034d26f8c9a02e56732"
+    },
+    {
+      "path": "vllm-a-agent.log",
+      "bytes": 1211,
+      "sha256": "238e446a1c0a1263d43a9dae4ecdabf1d018d1047d6987e440548a4f510b7244"
+    },
+    {
+      "path": "vllm-a-agent.resources.jsonl",
+      "bytes": 42044,
+      "sha256": "bc31261d192abe84861b11f04288eb685774f80afb3dcb66587d3f054ae4185c"
+    },
+    {
+      "path": "vllm-a-agent.started.json",
+      "bytes": 1036,
+      "sha256": "9db780e6fcde9bac32c017bee1c1bfb98c81040ec9b6cb4b0c0b1299fcd6c3b3"
+    },
+    {
+      "path": "vllm-a-lat.after.df.txt",
+      "bytes": 89,
+      "sha256": "0d2d502834fedd030248763e17f6c22378fc9336e2656c1897e5962a12b1bda3"
+    },
+    {
+      "path": "vllm-a-lat.before.df.txt",
+      "bytes": 89,
+      "sha256": "0d2d502834fedd030248763e17f6c22378fc9336e2656c1897e5962a12b1bda3"
+    },
+    {
+      "path": "vllm-a-lat.done.json",
+      "bytes": 1168,
+      "sha256": "35e8f3651f3cb7ce28de7f6b239f4ac51e871ed1adf9e7cdccda16d34860620a"
+    },
+    {
+      "path": "vllm-a-lat.log",
+      "bytes": 1193,
+      "sha256": "a3f7efb773daaaeda75d79357946098ba07713484dd15da45f7510afe1b0fb6f"
+    },
+    {
+      "path": "vllm-a-lat.resources.jsonl",
+      "bytes": 18768,
+      "sha256": "8c3a623ae2f53053b4b9877e820154e0691fef648fdde826845f0def53a1ec89"
+    },
+    {
+      "path": "vllm-a-lat.started.json",
+      "bytes": 1030,
+      "sha256": "fa45f52cd54b558778cd9cf67428d4d543a740cd0ed4f6fb0a0793b560e8f8bf"
+    },
+    {
+      "path": "vllm-b-agent.after.df.txt",
+      "bytes": 89,
+      "sha256": "0d2d502834fedd030248763e17f6c22378fc9336e2656c1897e5962a12b1bda3"
+    },
+    {
+      "path": "vllm-b-agent.before.df.txt",
+      "bytes": 89,
+      "sha256": "0d2d502834fedd030248763e17f6c22378fc9336e2656c1897e5962a12b1bda3"
+    },
+    {
+      "path": "vllm-b-agent.done.json",
+      "bytes": 1174,
+      "sha256": "dbacb6be9cf861ea0b185349c7646a6479e2ce8ba5d2d8537496e098d3025377"
+    },
+    {
+      "path": "vllm-b-agent.log",
+      "bytes": 1208,
+      "sha256": "05f1b3654647518c9e9dfb52705d712ceed2d44c2e51e6a75fad2257142a0197"
+    },
+    {
+      "path": "vllm-b-agent.resources.jsonl",
+      "bytes": 34316,
+      "sha256": "26906f88bfd66dc363e9402bd163d4859dabcd841e0d787394fcda47367e1a5e"
+    },
+    {
+      "path": "vllm-b-agent.started.json",
+      "bytes": 1036,
+      "sha256": "5011cc0ad60634eb62d3b0478d13b2810ca3de98c925fee068b74ada12988cd2"
+    },
+    {
+      "path": "vllm-b-lat.after.df.txt",
+      "bytes": 89,
+      "sha256": "0d2d502834fedd030248763e17f6c22378fc9336e2656c1897e5962a12b1bda3"
+    },
+    {
+      "path": "vllm-b-lat.before.df.txt",
+      "bytes": 89,
+      "sha256": "0d2d502834fedd030248763e17f6c22378fc9336e2656c1897e5962a12b1bda3"
+    },
+    {
+      "path": "vllm-b-lat.done.json",
+      "bytes": 1168,
+      "sha256": "7c8a1b3ace496ad6c05f013a30943883a51cb85f8bb52993ecdc62b02fddc6de"
+    },
+    {
+      "path": "vllm-b-lat.log",
+      "bytes": 1193,
+      "sha256": "8d487c93bf64e9041f7dd46333b18aff4db38c70d112023cf5716a4781b8aa66"
+    },
+    {
+      "path": "vllm-b-lat.resources.jsonl",
+      "bytes": 18584,
+      "sha256": "c365923a9d89a0917509b8ee58d4ffac2d4f57fb350ade02c9fd09f4add2794e"
+    },
+    {
+      "path": "vllm-b-lat.started.json",
+      "bytes": 1030,
+      "sha256": "1b17960da85ffd263f6a78059ea1dc4e3c07d09a0d70f9cb1a66fc30d023e57e"
+    },
+    {
+      "path": "vllm-bench-crosscheck.after.df.txt",
+      "bytes": 89,
+      "sha256": "0d2d502834fedd030248763e17f6c22378fc9336e2656c1897e5962a12b1bda3"
+    },
+    {
+      "path": "vllm-bench-crosscheck.before.df.txt",
+      "bytes": 89,
+      "sha256": "0d2d502834fedd030248763e17f6c22378fc9336e2656c1897e5962a12b1bda3"
+    },
+    {
+      "path": "vllm-bench-crosscheck.done.json",
+      "bytes": 2093,
+      "sha256": "235823c2d89a94b460f4fb645250466f23f0545f0a03adcd35fbbc1b2a89cca6"
+    },
+    {
+      "path": "vllm-bench-crosscheck.launch.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "vllm-bench-crosscheck.log",
+      "bytes": 5981,
+      "sha256": "74a3b6ef199df5b8128413415b0b894e27a215504a153f794fc1db53259e1991"
+    },
+    {
+      "path": "vllm-bench-crosscheck.resources.jsonl",
+      "bytes": 6072,
+      "sha256": "30d2c2b3f0e9b03728a04a1e46e6cd30b4176e41893f48504f73bae4fb6f7518"
+    },
+    {
+      "path": "vllm-bench-crosscheck.started.json",
+      "bytes": 1955,
+      "sha256": "847d98df429d73aa325cdc182937396136e128ffaeda4b99d37214a41804b04c"
+    },
+    {
+      "path": "vllm-bench-help-all-command.json",
+      "bytes": 327,
+      "sha256": "eb2c3fde6c2bf6afb888c54b3ad75f5824bed9885659e97e661c97cbcedf1334"
+    },
+    {
+      "path": "vllm-bench-help-all.txt",
+      "bytes": 29323,
+      "sha256": "a279e65b2aa92f9c9daf0c7a89b154f77bfeebdea249646d07fca90d9c3f6206"
+    },
+    {
+      "path": "vllm-bench-help-command.json",
+      "bytes": 319,
+      "sha256": "39816ca2fe4b98116203343dde0d2694d038486ed923ae3540e8e452a4fd9feb"
+    },
+    {
+      "path": "vllm-bench-help.txt",
+      "bytes": 2654,
+      "sha256": "41baab3b386ea7b893d13480c8809eb9199144ef56af3cd3fef28eac1abf92eb"
+    },
+    {
+      "path": "vllm-bench-source-hashes.json",
+      "bytes": 648,
+      "sha256": "0980982de650b6629579c10465db205c8bef5832fc0ed2ac6365b3399e2e95c8"
+    },
+    {
+      "path": "vllm-boot.done.json",
+      "bytes": 87,
+      "sha256": "c9d74e4b4d2f55fdd8686e64ad0eb341aaeaba898990fb3fa8a5901fc7efe2a8"
+    },
+    {
+      "path": "vllm-boot.json",
+      "bytes": 59484,
+      "sha256": "0ea6ceda4b279405cc3ced04d798b8e4ce2ce41a1c2ddb4f073f13ce5568bac9"
+    },
+    {
+      "path": "vllm-boot.launch.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "vllm-container-after-boot.json",
+      "bytes": 14915,
+      "sha256": "13e2b036e390dbb4ca666bf2be050869799a6928ce54f4a6a1c3064918ea88ee"
+    },
+    {
+      "path": "vllm-container-before-stop.json",
+      "bytes": 17639,
+      "sha256": "62843f73d13553ae396893f499f9b1fc0488014b46aee56d4d7d41f298947a32"
+    },
+    {
+      "path": "vllm-container-start.json",
+      "bytes": 14915,
+      "sha256": "c29d6032ff2b46dc4137a5032f9f99b9f238d414278be39ebf225395bcc50e9a"
+    },
+    {
+      "path": "vllm-container-stopped.json",
+      "bytes": 17487,
+      "sha256": "cb05d7203f5366f1011d877e5e4f48aae600af9fa9002bd41b0ab0977ad6def7"
+    },
+    {
+      "path": "vllm-guard-pid.json",
+      "bytes": 20,
+      "sha256": "988d34c9131a94a9fc9d4535722d260f071a76c5982eb11a5be63090b77b58cf"
+    },
+    {
+      "path": "vllm-guard.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "vllm-host-memory-before.txt",
+      "bytes": 209,
+      "sha256": "24aa10736ee63c9bb35874c80fde5925a71c1c26cdf9172ae9abaa92e7b47823"
+    },
+    {
+      "path": "vllm-image-inspect.json",
+      "bytes": 11630,
+      "sha256": "bcac52c031160ec3f134f00f63703e9ba58fe1bfebeca8cad52ce8f3c5d24ed9"
+    },
+    {
+      "path": "vllm-ladders.done.json",
+      "bytes": 1384,
+      "sha256": "bcf42e6d3646afbab8f55f75c3deb980b75a1a20042575df4b82fb0300c1241c"
+    },
+    {
+      "path": "vllm-ladders.launch.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "vllm-launch.json",
+      "bytes": 3541,
+      "sha256": "6a5d65ec7b7a596e78a567b0345acec16d3c5f933c3a964dd96cbd00d1d4c539"
+    },
+    {
+      "path": "vllm-nvidia-smi-q.txt",
+      "bytes": 13891,
+      "sha256": "9ea61dd57d2f0fa3bc1fe7263365b75e640c3a0d1e0036921941843cee58af64"
+    },
+    {
+      "path": "vllm-package-versions.json",
+      "bytes": 701,
+      "sha256": "6ddfd98a01ffcd9b1bef24b5f197ac0f66d643d5112c794ded8e6dd1def1350e"
+    },
+    {
+      "path": "vllm-plan.json",
+      "bytes": 3133,
+      "sha256": "8771cb1b192ef543b54671284735290e94348c8009f301139fc93c045ef4b4bb"
+    },
+    {
+      "path": "vllm-prelaunch.json",
+      "bytes": 2705,
+      "sha256": "48656faffdedb07d1d872c90e1eb797fe5a4074d3517c9cffd885accc60d1630"
+    },
+    {
+      "path": "vllm-readiness-command.json",
+      "bytes": 388,
+      "sha256": "0a093c1b66ba90ff78d4fbe217f06b08f64820a13c7c048fb718a11090e28e13"
+    },
+    {
+      "path": "vllm-readiness.log",
+      "bytes": 59484,
+      "sha256": "0ea6ceda4b279405cc3ced04d798b8e4ce2ce41a1c2ddb4f073f13ce5568bac9"
+    },
+    {
+      "path": "vllm-removal.json",
+      "bytes": 5256,
+      "sha256": "bafff4255c028c1cd3f9d7f5bb6149b2722e70638d530a4d60b30ffa59bcbcd0"
+    },
+    {
+      "path": "vllm-runtime.resources.jsonl",
+      "bytes": 228712,
+      "sha256": "02ce74f70ddb4f96baf7ba843c91832556b6d22e8369de32d648ac32e9d7fe4c"
+    },
+    {
+      "path": "vllm-serve-help-all-command.json",
+      "bytes": 828,
+      "sha256": "6b5f51d06d8c7850c69214a4e3ceb396654a8b50a8664b0d5dc69cfdb32d980c"
+    },
+    {
+      "path": "vllm-serve-help-all.txt",
+      "bytes": 2401,
+      "sha256": "398a9d137889c81e548efef5f72129c72c0b06f08db809732fcafcbf046727ce"
+    },
+    {
+      "path": "vllm-server.log",
+      "bytes": 116742,
+      "sha256": "f2f47ee5e85b4e4eeff49bac85f0364a7fd20203b55863ebc930ff7fa354f01a"
+    },
+    {
+      "path": "vllm-stop.json",
+      "bytes": 664,
+      "sha256": "8a615db90b72a2257c10f291f8df8f8cd5bfddeeb6c10769ce3aea63eb5200d0"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "remove_container": {
+    "argv": [
+      "docker",
+      "rm",
+      "vllm-control-nano-20260905"
+    ],
+    "exit_code": 0,
+    "stdout": "vllm-control-nano-20260905\n",
+    "stderr": ""
+  },
+  "remove_image": {
+    "argv": [
+      "docker",
+      "image",
+      "rm",
+      "vllm/vllm-openai@sha256:f8fe15a8039343336945db10494eaad80ef941fe2b2a5fa6649fa38636051a65"
+    ],
+    "exit_code": 0,
+    "stdout": "Untagged: vllm/vllm-openai@sha256:f8fe15a8039343336945db10494eaad80ef941fe2b2a5fa6649fa38636051a65\nDeleted: sha256:a7ee93f830e18f24391603ff675289c368b9fcf6c7fd2d94712d012973aa5b08\nDeleted: sha256:273628ab8977c5461ebe191df81925d0a3075a6e267c9597469d2834651c0e41\nDeleted: sha256:f430cfc4f7bc82c37d4b05f30f47dfa1470f63454480d16fb13f4821b2ee680f\nDeleted: sha256:3018efd730eddd4feeba460343f123e14cbe44151b1946d33d8d66aa74f52af7\nDeleted: sha256:201511f3e3d81dacc51490a2ceb6d1da475046185a004b8123612debd668af10\nDeleted: sha256:b185f2dd89b252eb57bcc348381909a436d31eebff8d6b97f3fac8721b22ce1a\nDeleted: sha256:380305bd628703fe678f3ccf1a61f440db92bc46c551382ec2d25e5e6b47aa4b\nDeleted: sha256:031d436805ba95ed88b94a20ea268db3accff7a59ed4d3b1b067cffe4eb0f3af\nDeleted: sha256:33b41d84b05de980508612f34eaf9709b82654ac4f8046283468a16871215a47\nDeleted: sha256:7da462964e4281602c31cf96937d66228420d1e360a1ed1c5e81338c91b083bc\nDeleted: sha256:17b18d1ca04beb4f287bc3f54b9fed7278855905f5dbc3e0ad934d7e921dd9d4\nDeleted: sha256:370e12033152d2056f10c8c22ec30f1aebc10964564f9d60e62ed79f0c47461f\nDeleted: sha256:c9aab4ca7379362c6fde31d6f2e2e422c978609a9af4dc63daaafaa4af3ec7b0\nDeleted: sha256:1743d49cd34fed49987d545e1467f95a434a2652188c54a3372bbf699af50898\nDeleted: sha256:92ae5e8d3b486b4c6e51f7fbe5afa08557a53d9a923d7ca0b70def937f7dd2dc\nDeleted: sha256:f5427df454d4a87a960d8abbf9a4c5913bae914d806d7c32a6e468f8b869ddce\nDeleted: sha256:b04c470f775e24546f7471677b78370dedc45fcb8dbb4c018192c4160d2b8918\nDeleted: sha256:133820c92852a7394994b6eea77f72bd5df57b839efe01c1fc44ab92fb09d84f\nDeleted: sha256:d73e90fec3ea97bfd20f2ea502d4a5ac94b1765d486fd1c0d3f17a0a7f4d5277\nDeleted: sha256:56229504cdaeb75a23b41bfd3d160a28c14b6da39360942f5211af34123823b5\nDeleted: sha256:9f41636edf96b98554ae645511ff5c12078a74363ab431282139eb7fa3e0e294\nDeleted: sha256:16655e5535537632af48d517160f52b6991666f5e167d4e52f9d58a65dfd381b\nDeleted: sha256:9ec924a8293cbaf52ce2063b3bbc535cc8a0334e2e1b04641a4f9d7c1643daf4\nDeleted: sha256:20f1ad995d7ec2b3e3161949933611fd823a41e829d9f0a7a34ad487f0530d03\nDeleted: sha256:f12f5df12e634b2037826d5d9280abd7a0fa05568aeb66c2a97dde16b77ccf68\nDeleted: sha256:4de506007294b51707854d982adfdeeb5904adc3abe1614836e8cabfbce20827\nDeleted: sha256:dec7f1919fb483f325102a0c2cf9ed973050d7ec9afdea374ad6926c92b4b359\nDeleted: sha256:c3b1e0362d9d3ec0510b54b2618fd8e66f7e444c3d03e1e9bed1dd49349fc024\nDeleted: sha256:9af94f6ca4400749b520dd896930903c4173bafdd86f804bd667009fd58ed135\nDeleted: sha256:1b3a4d1381af670ab6a07e9eed8ee3ba6040e12732f0168c6e75e37b4c5a23ec\nDeleted: sha256:10b3c082949f29875c95077c767e396bba4485e6258860a4059607c6d3a2830c\nDeleted: sha256:c4318825fa859ad1e7b403c4f86350c49434e0e495097a8dced5e1fe3e700dfc\nDeleted: sha256:ab34259f9ca5d315bec1b17d9f1ca272e84dedd964a8988695daf0ec3e0bbc2e\n",
+    "stderr": ""
+  },
+  "df": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  818G   51G  95% /\n",
+  "gpu": "Fri Sep  4 23:27:19 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 580.173.02             Driver Version: 580.173.02     CUDA Version: 13.0     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GB10                    On  |   0000000F:01:00.0 Off |                  N/A |\n| N/A   55C    P8              6W /  N/A  | Not Supported          |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|    0   N/A  N/A            2649      G   /usr/lib/xorg/Xorg                       18MiB |\n|    0   N/A  N/A            2748      G   /usr/bin/gnome-shell                      6MiB |\n+-----------------------------------------------------------------------------------------+\n",
+  "containers": "CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES\n"
+}

@@ -1,0 +1,12 @@
+{
+  "checkout_sha": "1f7bf76a957ef543c14d263995f0f275406cef18",
+  "ladder_git_revision": "60370b9532a7af5319c99d6c2b93972d4f046d56",
+  "files": {
+    "bench/ladder38/harness_w55_conc_ladder.py": "1f10d4887b39a86ee946bc2aa0395e31c43ce1b3dfac778f51abbad11832d880",
+    "bench/hopper_ab/time_to_ready.sh": "8afd7063523ed589d8530ce596334b1b317eb98d18d22aca18937f0cb5d48464",
+    "bench/hopper_ab/coherency_gate.py": "e266a8086fa48ee315ec00ac85b119321d582dc91fb8dc90c52d3a243e4f2f2e",
+    "bench/hopper_ab/compare.py": "777835df7c383c625b32b5c1a57efa841b2e3acef64b3ce0f6b644956a6c6b0c",
+    "bench/hopper_ab/assemble.py": "84de07456fdaebc75c2f54eca2ea476bee6889dbb89e3604fd63397d53277fbe",
+    "bench/hopper_ab/workloads.json": "355e7b9e2f1ae3f223d5012f9a5d856a2c5ea8ed86ce8a2dda1106aefcbd08c2"
+  }
+}

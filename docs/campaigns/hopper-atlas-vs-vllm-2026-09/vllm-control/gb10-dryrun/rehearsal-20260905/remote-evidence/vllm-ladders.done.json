@@ -1,0 +1,51 @@
+{
+  "engine": "vllm",
+  "scope": "GB10 rehearsal only; not Hopper data",
+  "jobs": [
+    {
+      "job": "vllm-a-lat",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "argv": [
+        "/usr/bin/python3",
+        "/home/pidtom/atlas-vllm-control-20260905/control_remote_job.py",
+        "--job",
+        "/home/pidtom/atlas-vllm-control-20260905/control-vllm-a-lat.json"
+      ]
+    },
+    {
+      "job": "vllm-a-agent",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "argv": [
+        "/usr/bin/python3",
+        "/home/pidtom/atlas-vllm-control-20260905/control_remote_job.py",
+        "--job",
+        "/home/pidtom/atlas-vllm-control-20260905/control-vllm-a-agent.json"
+      ]
+    },
+    {
+      "job": "vllm-b-lat",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "argv": [
+        "/usr/bin/python3",
+        "/home/pidtom/atlas-vllm-control-20260905/control_remote_job.py",
+        "--job",
+        "/home/pidtom/atlas-vllm-control-20260905/control-vllm-b-lat.json"
+      ]
+    },
+    {
+      "job": "vllm-b-agent",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "argv": [
+        "/usr/bin/python3",
+        "/home/pidtom/atlas-vllm-control-20260905/control_remote_job.py",
+        "--job",
+        "/home/pidtom/atlas-vllm-control-20260905/control-vllm-b-agent.json"
+      ]
+    }
+  ],
+  "finished_utc": "2026-09-05T04:22:32.111988+00:00"
+}

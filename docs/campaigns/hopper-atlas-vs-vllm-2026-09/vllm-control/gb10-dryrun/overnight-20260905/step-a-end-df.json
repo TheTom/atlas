@@ -1,0 +1,12 @@
+{
+  "step": "A",
+  "timestamp_utc": "2026-09-05T05:04:25.992052+00:00",
+  "argv": [
+    "ssh",
+    "pidtom@spark2.local",
+    "df -h /"
+  ],
+  "stdout": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  805G   65G  93% /\n",
+  "exit_code": 0,
+  "note": "No remote files, downloads or workloads were created by the overnight follow-on through this observation. Root free space changed since the completed rehearsal due to other host activity; not attributed to this task."
+}

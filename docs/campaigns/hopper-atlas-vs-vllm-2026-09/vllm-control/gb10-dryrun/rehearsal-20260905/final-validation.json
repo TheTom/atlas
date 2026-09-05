@@ -1,0 +1,76 @@
+{
+  "scope": "CPU tooling validation for GB10 rehearsal",
+  "timestamp_utc": "2026-09-05T04:52:17.373311+00:00",
+  "python_version": "Python 3.14.6",
+  "checks": [
+    {
+      "name": "readiness",
+      "argv": [
+        "bash",
+        "bench/hopper_ab/time_to_ready.sh",
+        "--selftest"
+      ],
+      "exit_code": 0,
+      "log": "readiness-final-selftest.log",
+      "log_sha256": "42abf4749241194608e161aa2bdc2c50c75ac6622c58069101c95e92d8079ead"
+    },
+    {
+      "name": "coherency",
+      "argv": [
+        "python3",
+        "bench/hopper_ab/coherency_gate.py",
+        "--selftest"
+      ],
+      "exit_code": 0,
+      "log": "coherency-final-selftest.log",
+      "log_sha256": "51779241b8d3f4de9c3d2dbffb8acf1492cd4434d2d7f57f3d4fde6a700f667b"
+    },
+    {
+      "name": "compare",
+      "argv": [
+        "python3",
+        "bench/hopper_ab/compare.py",
+        "--selftest"
+      ],
+      "exit_code": 0,
+      "log": "compare-final-selftest.log",
+      "log_sha256": "83cc96504d6c55b7168a0f47de6217ec320d72fc517a3e24ea504b4a5153669d"
+    },
+    {
+      "name": "assemble",
+      "argv": [
+        "python3",
+        "bench/hopper_ab/assemble.py",
+        "--selftest"
+      ],
+      "exit_code": 0,
+      "log": "assemble-final-selftest.log",
+      "log_sha256": "a191b37155a988bda3af9fc61f6d45e4eb1b86d829bf08ec81a079b387aa4b88"
+    }
+  ],
+  "all_selftests_passed": true,
+  "evidence_audit": {
+    "all_passed": true,
+    "measured_cells": 9,
+    "cell_source_hashes_verified": 54,
+    "execution_source_hashes_verified": 6,
+    "ladder_unchanged": true,
+    "ladder_reps": 24,
+    "timed_ladder_requests": 204,
+    "ladder_passed_cells": 7,
+    "ladder_failed_cells": 1,
+    "atlas_ladder_cells": 0,
+    "checkpoint_files_identical": 38,
+    "remote_export_hashes_verified": 166,
+    "all_changed_paths_within_authorized_scope": true,
+    "atlas_attempt_source_hashes_verified": 3
+  },
+  "report_audit": {
+    "all_passed": true,
+    "measured_table_rows_verified": 9,
+    "local_markdown_links_resolved": 104,
+    "endpoint_timing_caveat_verified": true,
+    "cleanup_figures_verified": true
+  },
+  "git_diff_cached_check_passed": true
+}

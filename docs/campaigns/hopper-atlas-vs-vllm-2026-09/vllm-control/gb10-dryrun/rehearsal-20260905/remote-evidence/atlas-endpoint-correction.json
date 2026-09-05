@@ -1,0 +1,51 @@
+{
+  "reason": "Atlas recipe default bound127.0.0.1; client LAN endpoint cannot reach it. Engine container and serve flags remain unchanged.",
+  "status": "CLIENT_ENDPOINT_CORRECTED",
+  "old_readiness_argv": [
+    "bash",
+    "/home/pidtom/atlas-vllm-control-20260905/time_to_ready.sh",
+    "--url",
+    "http://192.168.50.36:8888",
+    "--model",
+    "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+    "--engine",
+    "atlas",
+    "--start-epoch",
+    "1788582657.8496726",
+    "--timeout-s",
+    "1800",
+    "--out",
+    "/home/pidtom/atlas-vllm-control-20260905/atlas-boot.json"
+  ],
+  "matching_owned_processes": [
+    {
+      "pid": 175762,
+      "pgid": 175762
+    },
+    {
+      "pid": 175764,
+      "pgid": 175762
+    }
+  ],
+  "cancelled_readiness_process_group": 175762,
+  "new_readiness_argv": [
+    "bash",
+    "/home/pidtom/atlas-vllm-control-20260905/time_to_ready.sh",
+    "--url",
+    "http://127.0.0.1:8888",
+    "--model",
+    "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+    "--engine",
+    "atlas",
+    "--start-epoch",
+    "1788582657.8496726",
+    "--timeout-s",
+    "1800",
+    "--out",
+    "/home/pidtom/atlas-vllm-control-20260905/atlas-boot.json"
+  ],
+  "original_start_epoch": 1788582657.8496726,
+  "correction_epoch": 1788582874.2007778,
+  "boot_time_caveat": "Gate time includes endpoint correction delay; original process-start clock is retained.",
+  "cancelled_http_polls": "Unavailable; old gate had not emitted JSON."
+}

@@ -1,0 +1,16 @@
+PASS positive: raw reps retained, mean-per-rep latency labelled, unknown provenance null
+PASS positive: one artifact per C=1 and C=16 rung
+PASS negative: frozen workload mismatch rejected
+PASS negative: client hash mismatch rejected
+PASS negative: boot engine mismatch rejected
+PASS negative: gate model mismatch rejected
+PASS negative: Hopper wrongly labelled GB10 rejected
+PASS negative: nonfinite metric rejected
+PASS negative: inconsistent gate verdict rejected
+PASS negative: vacuous measured request retained as failed cell
+PASS negative: missing completion usage retained as failed cell
+PASS negative: missing TPOT retained as failed cell
+PASS negative: stale throughput summary retained as failed cell
+PASS negative: boot exceeds campaign cap retained as failed cell
+PASS negative: failed actual coherency gate retained as failed cell
+SELFTEST OK: synthetic fixtures only; no engine or GPU used

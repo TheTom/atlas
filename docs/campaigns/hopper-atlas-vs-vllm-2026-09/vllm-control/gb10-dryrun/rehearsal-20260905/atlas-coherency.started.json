@@ -1,0 +1,28 @@
+{
+  "job": {
+    "root": "/home/pidtom/atlas-vllm-control-20260905",
+    "phase": "atlas-coherency",
+    "baseline_used": 845513351168,
+    "argv": [
+      "/home/pidtom/atlas-vllm-control-20260905/venv/bin/python",
+      "/home/pidtom/atlas-vllm-control-20260905/repo/bench/hopper_ab/coherency_gate.py",
+      "--url",
+      "http://127.0.0.1:8888",
+      "--model",
+      "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+      "--timeout",
+      "300",
+      "--out",
+      "/home/pidtom/atlas-vllm-control-20260905/atlas-coherency.json"
+    ],
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1"
+    }
+  },
+  "before": {
+    "utc": "2026-09-05T04:35:44.796559+00:00",
+    "used": 881182146560,
+    "available": 51637665792
+  },
+  "pid": 186205
+}

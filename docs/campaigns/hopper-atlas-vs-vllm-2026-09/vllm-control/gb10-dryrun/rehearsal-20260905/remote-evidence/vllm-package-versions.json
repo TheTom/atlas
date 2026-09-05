@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "vllm-control-metadata-20260905",
+    "--network",
+    "none",
+    "--entrypoint",
+    "python3",
+    "vllm/vllm-openai@sha256:f8fe15a8039343336945db10494eaad80ef941fe2b2a5fa6649fa38636051a65",
+    "-c",
+    "import importlib.metadata as m,json,sys; print(json.dumps({\"python\":sys.version,\"packages\":{n:m.version(n) for n in [\"vllm\",\"torch\",\"transformers\"]}},indent=2))"
+  ],
+  "exit_code": 0,
+  "stdout": "{\n  \"python\": \"3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]\",\n  \"packages\": {\n    \"vllm\": \"0.28.0\",\n    \"torch\": \"2.13.0+cu130\",\n    \"transformers\": \"5.15.1\"\n  }\n}\n",
+  "stderr": ""
+}

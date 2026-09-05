@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "bash",
+    "/home/pidtom/atlas-vllm-control-20260905/time_to_ready.sh",
+    "--url",
+    "http://192.168.50.36:8888",
+    "--model",
+    "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+    "--engine",
+    "vllm",
+    "--start-epoch",
+    "1788581022.4653678",
+    "--timeout-s",
+    "1800",
+    "--out",
+    "/home/pidtom/atlas-vllm-control-20260905/vllm-boot.json"
+  ]
+}

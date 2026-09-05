@@ -1,0 +1,9 @@
+{
+  "image_id_matches_arm64_manifest_config": true,
+  "installed_diff_ids_match_platform_config": true,
+  "installed_architecture_matches": true,
+  "nvidia_smi_q_sha256": "9ea61dd57d2f0fa3bc1fe7263365b75e640c3a0d1e0036921941843cee58af64",
+  "platform_manifest_digest": "sha256:41b54fb42c66a670a8b27e613ebef05898f24b9ab1bdab28bd00c877bd4935f4",
+  "manifest_receipt": "../image-manifest-arm64.json",
+  "config_receipt": "../image-config-arm64.json"
+}

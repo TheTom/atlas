@@ -1,0 +1,31 @@
+{
+  "job": {
+    "root": "/home/pidtom/atlas-vllm-control-20260905",
+    "phase": "install-client-deps",
+    "baseline_used": 845513351168,
+    "argv": [
+      "/home/pidtom/atlas-vllm-control-20260905/venv/bin/python",
+      "-m",
+      "pip",
+      "install",
+      "--no-cache-dir",
+      "huggingface_hub",
+      "aiohttp"
+    ],
+    "environment": {
+      "PIP_DISABLE_PIP_VERSION_CHECK": "1"
+    }
+  },
+  "before": {
+    "utc": "2026-09-05T03:41:22.219512+00:00",
+    "used": 854952669184,
+    "available": 77867143168
+  },
+  "pid": 111346,
+  "exit_code": 0,
+  "after": {
+    "utc": "2026-09-05T03:41:32.729175+00:00",
+    "used": 855161737216,
+    "available": 77658075136
+  }
+}

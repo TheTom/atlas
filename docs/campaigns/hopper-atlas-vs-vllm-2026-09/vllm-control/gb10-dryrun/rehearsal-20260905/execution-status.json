@@ -1,0 +1,37 @@
+{
+  "artifact_type": "gb10-rehearsal-execution-status",
+  "scope": "GB10 rehearsal only; not Hopper data",
+  "completed": true,
+  "performance_pair_completed": false,
+  "overall_result": "NO-GO: Atlas coherency failure; A/A repeatability not established",
+  "vllm": {
+    "boot": "PASS",
+    "coherency": "PASS",
+    "ladder_cells_run": 8,
+    "ladder_cells_passed": 7,
+    "ladder_cells_failed": 1,
+    "failed_cell": "vllm-b-agent C16: 403/512-token vacuity",
+    "aa": [
+      "LOSS",
+      "LOSS",
+      "LOSS",
+      "INVALID"
+    ],
+    "osl_mismatch_refusal": "PASS",
+    "native_crosscheck": "PASS"
+  },
+  "atlas": {
+    "boot": "PASS_WITH_ENDPOINT_TIMING_CAVEAT",
+    "coherency": "FAIL_TOOLCALL",
+    "ladder_cells_run": 0,
+    "ladder_cells_not_run": 4,
+    "comparisons_run": 0,
+    "engine_attempt": "atlas-engine-attempt.json"
+  },
+  "section10_measured_cells": 9,
+  "cleanup": "COMPLETE",
+  "resource_summary": "resource-cleanup-summary.json",
+  "raw_directory": "remote-evidence",
+  "ladder_modified": false,
+  "engine_retried_with_different_flags": false
+}

@@ -1,0 +1,10 @@
+# Preserve byte-exact GPU diagnostic and engine log output.
+gpu-*.txt -whitespace
+*-nvidia-smi-q.txt -whitespace
+nvidia-smi-q-after.txt -whitespace
+*-server.log -whitespace
+# Preserve literal native benchmark output, comparator output and HF source bytes.
+aa-*.md -whitespace
+nano-hf-quant-config.json -whitespace
+vllm-bench-crosscheck.log -whitespace
+vllm-bench-help*.txt -whitespace
