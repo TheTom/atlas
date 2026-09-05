@@ -1,0 +1,11 @@
+{
+  "root": "/home/pidtom/atlas-vllm-control-20260905",
+  "phase": "pull-atlas",
+  "baseline_used": 845513351168,
+  "argv": [
+    "docker",
+    "pull",
+    "avarok/atlas-gb10:latest"
+  ],
+  "environment": {}
+}

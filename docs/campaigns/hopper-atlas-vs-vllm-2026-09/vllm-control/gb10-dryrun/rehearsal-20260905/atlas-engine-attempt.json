@@ -1,0 +1,415 @@
+{
+  "schema": 1,
+  "campaign": "hopper-atlas-vs-vllm-2026-09",
+  "scope": "GB10 rehearsal only; not Hopper data",
+  "artifact_type": "gb10-rehearsal-engine-attempt",
+  "engine": "atlas",
+  "engine_version": {
+    "git_sha": null,
+    "git_sha_note": "Image revision label is unknown",
+    "version": "spark 1.0.0-beta-preview",
+    "image_digest": "sha256:faa6e5820c42dd86d0ae9e12cbaf2a2e9f32d0f7a9ab348a75ee54d4253929a6",
+    "image_id": "sha256:dd2e31034f052e7f3e35b8c6cd1e435353ba0faea57915aab12499f3cec01e7d",
+    "binary_sha256": "df41bf3aea2a1c21c8c98c39979ab4bc84659d37604068297d351153ebdbba31",
+    "binary_path": "/usr/local/bin/spark",
+    "cuda_image_version": "13.0.0",
+    "cuda_image_version_source": "Docker image/container CUDA_VERSION environment",
+    "cuda_cudart_package_version": "13.0.48-1",
+    "cuda_runtime_library_probe": null
+  },
+  "model": {
+    "hf_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+    "served_model_name": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+    "revision": "9bee19446c0dfd01f356e10979d225b2a6621944",
+    "quant": "fp8",
+    "verification_file": "nano-verification-before-atlas.json",
+    "kernel_target": [
+      "sm_121",
+      "nemotron-3-nano-30b-a3b",
+      "nvfp4"
+    ],
+    "runtime_quantization_note": "Server log records FP8 MoE experts requantized to NVFP4; SSM and attention retain a mixture of native FP8/BF16."
+  },
+  "hardware": {
+    "gpu": "NVIDIA GB10",
+    "gpu_count": 1,
+    "driver": "580.173.02",
+    "cuda": "13.0",
+    "cuda_semantics": "nvidia-smi driver-advertised compatibility",
+    "hardware_id": "gb10",
+    "sm_clock_mhz": null,
+    "nvidia_smi_q_sha256": "01ddaaeaa8c1460ac91f5cd6109432b5bb4e5b2dcf8bf1c280283ff4b8ed589e",
+    "host": "spark2.local",
+    "address": "192.168.50.36"
+  },
+  "topology": {
+    "tp": 1,
+    "ep": 1,
+    "world_size": 1,
+    "matched": null,
+    "basis": "one GPU; no distributed launch arguments; no performance pair ran"
+  },
+  "serve_command": [
+    "spark",
+    "serve",
+    "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+    "--port",
+    "8888",
+    "--max-seq-len",
+    "8192",
+    "--kv-cache-dtype",
+    "fp8",
+    "--gpu-memory-utilization",
+    "0.88",
+    "--scheduling-policy",
+    "slai",
+    "--no-tui",
+    "--enable-prefix-caching",
+    "true"
+  ],
+  "environment": {
+    "HF_HUB_OFFLINE": "1",
+    "HF_HOME": "/root/.cache/huggingface",
+    "PATH": "/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "NVARCH": "sbsa",
+    "NVIDIA_REQUIRE_CUDA": "cuda>=13.0 brand=unknown,driver>=535,driver<536 brand=grid,driver>=535,driver<536 brand=tesla,driver>=535,driver<536 brand=nvidia,driver>=535,driver<536 brand=quadro,driver>=535,driver<536 brand=quadrortx,driver>=535,driver<536 brand=nvidiartx,driver>=535,driver<536 brand=vapps,driver>=535,driver<536 brand=vpc,driver>=535,driver<536 brand=vcs,driver>=535,driver<536 brand=vws,driver>=535,driver<536 brand=cloudgaming,driver>=535,driver<536 brand=unknown,driver>=550,driver<551 brand=grid,driver>=550,driver<551 brand=tesla,driver>=550,driver<551 brand=nvidia,driver>=550,driver<551 brand=quadro,driver>=550,driver<551 brand=quadrortx,driver>=550,driver<551 brand=nvidiartx,driver>=550,driver<551 brand=vapps,driver>=550,driver<551 brand=vpc,driver>=550,driver<551 brand=vcs,driver>=550,driver<551 brand=vws,driver>=550,driver<551 brand=cloudgaming,driver>=550,driver<551 brand=unknown,driver>=565,driver<566 brand=grid,driver>=565,driver<566 brand=tesla,driver>=565,driver<566 brand=nvidia,driver>=565,driver<566 brand=quadro,driver>=565,driver<566 brand=quadrortx,driver>=565,driver<566 brand=nvidiartx,driver>=565,driver<566 brand=vapps,driver>=565,driver<566 brand=vpc,driver>=565,driver<566 brand=vcs,driver>=565,driver<566 brand=vws,driver>=565,driver<566 brand=cloudgaming,driver>=565,driver<566 brand=unknown,driver>=570,driver<571 brand=grid,driver>=570,driver<571 brand=tesla,driver>=570,driver<571 brand=nvidia,driver>=570,driver<571 brand=quadro,driver>=570,driver<571 brand=quadrortx,driver>=570,driver<571 brand=nvidiartx,driver>=570,driver<571 brand=vapps,driver>=570,driver<571 brand=vpc,driver>=570,driver<571 brand=vcs,driver>=570,driver<571 brand=vws,driver>=570,driver<571 brand=cloudgaming,driver>=570,driver<571 brand=unknown,driver>=575,driver<576 brand=grid,driver>=575,driver<576 brand=tesla,driver>=575,driver<576 brand=nvidia,driver>=575,driver<576 brand=quadro,driver>=575,driver<576 brand=quadrortx,driver>=575,driver<576 brand=nvidiartx,driver>=575,driver<576 brand=vapps,driver>=575,driver<576 brand=vpc,driver>=575,driver<576 brand=vcs,driver>=575,driver<576 brand=vws,driver>=575,driver<576 brand=cloudgaming,driver>=575,driver<576",
+    "NV_CUDA_CUDART_VERSION": "13.0.48-1",
+    "CUDA_VERSION": "13.0.0",
+    "LD_LIBRARY_PATH": "/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64",
+    "NVIDIA_VISIBLE_DEVICES": "all",
+    "NVIDIA_DRIVER_CAPABILITIES": "compute,utility",
+    "NV_CUDA_LIB_VERSION": "13.0.0-1",
+    "NV_NVTX_VERSION": "13.0.39-1",
+    "NV_LIBNPP_VERSION": "13.0.0.50-1",
+    "NV_LIBNPP_PACKAGE": "libnpp-13-0=13.0.0.50-1",
+    "NV_LIBCUSPARSE_VERSION": "12.6.2.49-1",
+    "NV_LIBCUBLAS_PACKAGE_NAME": "libcublas-13-0",
+    "NV_LIBCUBLAS_VERSION": "13.0.0.19-1",
+    "NV_LIBCUBLAS_PACKAGE": "libcublas-13-0=13.0.0.19-1",
+    "NV_LIBNCCL_PACKAGE_NAME": "libnccl2",
+    "NV_LIBNCCL_PACKAGE_VERSION": "2.27.7-1",
+    "NCCL_VERSION": "2.27.7-1",
+    "NV_LIBNCCL_PACKAGE": "libnccl2=2.27.7-1+cuda13.0",
+    "NVIDIA_PRODUCT_NAME": "CUDA",
+    "RUST_LOG": "info"
+  },
+  "client": {
+    "kind": "campaign coherency gate on Spark2",
+    "git_sha": "1f7bf76a957ef543c14d263995f0f275406cef18",
+    "driver_sha256": "e266a8086fa48ee315ec00ac85b119321d582dc91fb8dc90c52d3a243e4f2f2e",
+    "invocation": [
+      "/home/pidtom/atlas-vllm-control-20260905/venv/bin/python",
+      "/home/pidtom/atlas-vllm-control-20260905/repo/bench/hopper_ab/coherency_gate.py",
+      "--url",
+      "http://127.0.0.1:8888",
+      "--model",
+      "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+      "--timeout",
+      "300",
+      "--out",
+      "/home/pidtom/atlas-vllm-control-20260905/atlas-coherency.json"
+    ],
+    "url": "http://127.0.0.1:8888",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "python_version": "Python 3.12.3"
+  },
+  "ptx_gate_ledger_sha256": null,
+  "workload": null,
+  "boot": {
+    "pass": true,
+    "time_to_ready_s": 216.743,
+    "first_token_s": 0.096,
+    "total_s": 216.839,
+    "timing_quality": "Includes endpoint correction delay; not a comparable cold-boot timing"
+  },
+  "coherency": {
+    "determinism_ok": true,
+    "toolcall_ok": false,
+    "think_leak_ok": true,
+    "passed": false
+  },
+  "metrics": null,
+  "gates": {
+    "boot": true,
+    "coherency": false,
+    "latency_pack": null,
+    "ab": null
+  },
+  "verdict": "NO-GO",
+  "notes": "Engine attempt only, not a measured ladder cell. Determinism is equality of degenerate output; no semantic correctness claim. No engine restart or flag retry.",
+  "schema_gaps": [
+    "Image Git revision unknown; do not substitute harness revision.",
+    "Kernel audit uses abbreviated hashes in server log; no canonical full ledger hash emitted.",
+    "Boot timing includes correction from unreachable LAN endpoint to direct loopback; original clock and engine retained."
+  ],
+  "raw": {
+    "boot": {
+      "schema": 1,
+      "engine": "atlas",
+      "url": "http://127.0.0.1:8888",
+      "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+      "start_epoch": 1788582657.8496726,
+      "time_to_ready_s": 216.743,
+      "first_token_s": 0.096,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 1800.0,
+      "status": "ready",
+      "passed": true,
+      "http_exchanges": [
+        {
+          "path": "/health",
+          "request_json": null,
+          "response_status": 200,
+          "response_body": "{\"status\":\"ready\",\"model\":\"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8\"}",
+          "response_complete": true
+        },
+        {
+          "path": "/v1/chat/completions",
+          "request_json": "{\"model\": \"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"hi\"}], \"max_tokens\": 1, \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+          "response_status": 200,
+          "response_body": "{\"id\":\"chatcmpl-1cd685a7-d7e7-4c38-9745-e1ea1bd34d0e\",\"object\":\"chat.completion\",\"created\":1788582874,\"model\":\"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"I\"},\"finish_reason\":\"length\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":18,\"completion_tokens\":1,\"total_tokens\":19,\"prompt_tokens_details\":{\"cached_tokens\":0,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":90.234639,\"response_token/s\":0.0}}",
+          "response_complete": true
+        }
+      ],
+      "total_s": 216.839
+    },
+    "coherency": {
+      "schema": 1,
+      "url": "http://127.0.0.1:8888",
+      "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+      "checked_utc": "2026-09-05T04:35:44Z",
+      "details": {
+        "determinism_ok": "256 chars reproduced exactly",
+        "toolcall_ok": "finish_reason was 'length', not 'tool_calls'",
+        "think_leak_ok": "355 chars, no leak signals"
+      },
+      "http_exchanges": [
+        {
+          "check": "determinism_ok",
+          "request_json": "{\"model\": \"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+          "response_status": 200,
+          "response_body": "{\"id\":\"chatcmpl-0efcdf76-320c-4b01-b6da-2a84f4405a31\",\"object\":\"chat.completion\",\"created\":1788582948,\"model\":\"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"101, 103, 107, 107, 109, 109, 113, 109, 107, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 107, 107, 109, 109, 109, 107, 107, 109, 109, 109, 109, 109, 109, 109, 109, 107, 107, 109, 109, 109, 109, 107, 1\"},\"finish_reason\":\"length\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":35,\"completion_tokens\":256,\"total_tokens\":291,\"prompt_tokens_details\":{\"cached_tokens\":0,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":195.27535600000002,\"response_token/s\":71.06395820363099}}",
+          "response_complete": true
+        },
+        {
+          "check": "determinism_ok",
+          "request_json": "{\"model\": \"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+          "response_status": 200,
+          "response_body": "{\"id\":\"chatcmpl-b3dfdda0-b9ab-4998-9d43-b97601cb1650\",\"object\":\"chat.completion\",\"created\":1788582952,\"model\":\"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"101, 103, 107, 107, 109, 109, 113, 109, 107, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 107, 107, 109, 109, 109, 107, 107, 109, 109, 109, 109, 109, 109, 109, 109, 107, 107, 109, 109, 109, 109, 107, 1\"},\"finish_reason\":\"length\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":35,\"completion_tokens\":256,\"total_tokens\":291,\"prompt_tokens_details\":{\"cached_tokens\":32,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":193.37901399999998,\"response_token/s\":71.50314464184548}}",
+          "response_complete": true
+        },
+        {
+          "check": "toolcall_ok",
+          "request_json": "{\"model\": \"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+          "response_status": 200,
+          "response_body": "{\"id\":\"chatcmpl-18c0c77b-ed32-40c8-9064-ef71bb1a4125\",\"object\":\"chat.completion\",\"created\":1788582958,\"model\":\"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"<parameter>\\n<t:Do not write a weather forecast for me as I can do that myself.>\\n;;\\n</file>\\n</file>\\n</parameter>\\n<follow=0>\\n</recommend>\\n- \\n- <parameter name=\\\"a\\\" name:=\\\"a\\\" \\n< \\n  <p>\\n  <span style=\\\"font-size: 14px; font-family: sans-serif;\\\">\\n  <span style=\\\"text-align: left; inline, so the text is not split across multiple lines\\\">\\n  <span>\\n</script>\\n</p>\\n</parameter>\\n</section>\\n</body>\\n</body>\\n</html>\\n</body>\\n</a>\\n</a>\\n</a>\\n- \\n- <style>\\n- \\n- <style>\\n  <span> \\n  </span>\\n  </span>\\n</script>\\n</p>\\n</body>\\n<parameter name=\\\"q\\\">weather in cagliu</parameter>\\n<parameter: name=\\\"q\\\" value=\\\"13.768\\\">\\n</<style>\\n</p>\\n</body>\\n</p>\\n</a>\\n</parameter>\\n</body>\\n</body>\\n</body>\\n</section>\\n</parameter>\\n<parameter>\\n<parameter= \\n- <\"},\"finish_reason\":\"length\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":1230,\"completion_tokens\":256,\"total_tokens\":1486,\"prompt_tokens_details\":{\"cached_tokens\":0,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":672.103943,\"response_token/s\":67.30922603673187}}",
+          "response_complete": true
+        },
+        {
+          "check": "think_leak_ok",
+          "request_json": "{\"model\": \"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+          "response_status": 200,
+          "response_body": "{\"id\":\"chatcmpl-9f737f8d-7062-4db6-9d3e-77255636d08a\",\"object\":\"chat.completion\",\"created\":1788582958,\"model\":\"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"A benchmark is a standardized test or set of tasks that measures how well a system performs a particular function, allowing developers to compare performance across different implementations or platforms. It provides a consistent way to evaluate and benchmark different approaches, ensuring that improvements are measured against a common reference point.\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":30,\"completion_tokens\":56,\"total_tokens\":86,\"prompt_tokens_details\":{\"cached_tokens\":0,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":118.154167,\"response_token/s\":71.38423254947865}}",
+          "response_complete": true
+        }
+      ],
+      "determinism_ok": true,
+      "toolcall_ok": false,
+      "think_leak_ok": true,
+      "passed": false
+    },
+    "provenance": {
+      "scope": "GB10 rehearsal only; not Hopper data",
+      "engine": "atlas",
+      "engine_version": {
+        "git_sha": null,
+        "git_sha_note": "Image revision label is unknown",
+        "version": "spark 1.0.0-beta-preview",
+        "image_digest": "sha256:faa6e5820c42dd86d0ae9e12cbaf2a2e9f32d0f7a9ab348a75ee54d4253929a6",
+        "image_id": "sha256:dd2e31034f052e7f3e35b8c6cd1e435353ba0faea57915aab12499f3cec01e7d",
+        "binary_sha256": "df41bf3aea2a1c21c8c98c39979ab4bc84659d37604068297d351153ebdbba31",
+        "binary_path": "/usr/local/bin/spark",
+        "cuda_image_version": "13.0.0",
+        "cuda_image_version_source": "Docker image/container CUDA_VERSION environment",
+        "cuda_cudart_package_version": "13.0.48-1",
+        "cuda_runtime_library_probe": null
+      },
+      "model": {
+        "hf_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+        "served_model_name": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+        "revision": "9bee19446c0dfd01f356e10979d225b2a6621944",
+        "quant": "fp8",
+        "verification_file": "nano-verification-before-atlas.json",
+        "kernel_target": [
+          "sm_121",
+          "nemotron-3-nano-30b-a3b",
+          "nvfp4"
+        ],
+        "runtime_quantization_note": "Server log records FP8 MoE experts requantized to NVFP4; SSM and attention retain a mixture of native FP8/BF16."
+      },
+      "hardware": {
+        "gpu": "NVIDIA GB10",
+        "gpu_count": 1,
+        "driver": "580.173.02",
+        "cuda": "13.0",
+        "cuda_semantics": "nvidia-smi driver-advertised compatibility",
+        "hardware_id": "gb10",
+        "sm_clock_mhz": null,
+        "nvidia_smi_q_sha256": "01ddaaeaa8c1460ac91f5cd6109432b5bb4e5b2dcf8bf1c280283ff4b8ed589e",
+        "host": "spark2.local",
+        "address": "192.168.50.36"
+      },
+      "topology": {
+        "tp": 1,
+        "ep": 1,
+        "world_size": 1,
+        "matched": null,
+        "basis": "one GPU; no distributed launch arguments; no performance pair ran"
+      },
+      "serve_command": [
+        "spark",
+        "serve",
+        "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+        "--port",
+        "8888",
+        "--max-seq-len",
+        "8192",
+        "--kv-cache-dtype",
+        "fp8",
+        "--gpu-memory-utilization",
+        "0.88",
+        "--scheduling-policy",
+        "slai",
+        "--no-tui",
+        "--enable-prefix-caching",
+        "true"
+      ],
+      "docker_argv": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "atlas-control-nano-20260905",
+        "--network",
+        "host",
+        "--gpus",
+        "all",
+        "--ipc=host",
+        "-v",
+        "/home/pidtom/atlas-vllm-control-20260905/hf:/root/.cache/huggingface",
+        "--env",
+        "HF_HUB_OFFLINE=1",
+        "--env",
+        "HF_HOME=/root/.cache/huggingface",
+        "avarok/atlas-gb10@sha256:faa6e5820c42dd86d0ae9e12cbaf2a2e9f32d0f7a9ab348a75ee54d4253929a6",
+        "serve",
+        "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+        "--port",
+        "8888",
+        "--max-seq-len",
+        "8192",
+        "--kv-cache-dtype",
+        "fp8",
+        "--gpu-memory-utilization",
+        "0.88",
+        "--scheduling-policy",
+        "slai",
+        "--no-tui",
+        "--enable-prefix-caching",
+        "true"
+      ],
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "HF_HOME": "/root/.cache/huggingface",
+        "PATH": "/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "NVARCH": "sbsa",
+        "NVIDIA_REQUIRE_CUDA": "cuda>=13.0 brand=unknown,driver>=535,driver<536 brand=grid,driver>=535,driver<536 brand=tesla,driver>=535,driver<536 brand=nvidia,driver>=535,driver<536 brand=quadro,driver>=535,driver<536 brand=quadrortx,driver>=535,driver<536 brand=nvidiartx,driver>=535,driver<536 brand=vapps,driver>=535,driver<536 brand=vpc,driver>=535,driver<536 brand=vcs,driver>=535,driver<536 brand=vws,driver>=535,driver<536 brand=cloudgaming,driver>=535,driver<536 brand=unknown,driver>=550,driver<551 brand=grid,driver>=550,driver<551 brand=tesla,driver>=550,driver<551 brand=nvidia,driver>=550,driver<551 brand=quadro,driver>=550,driver<551 brand=quadrortx,driver>=550,driver<551 brand=nvidiartx,driver>=550,driver<551 brand=vapps,driver>=550,driver<551 brand=vpc,driver>=550,driver<551 brand=vcs,driver>=550,driver<551 brand=vws,driver>=550,driver<551 brand=cloudgaming,driver>=550,driver<551 brand=unknown,driver>=565,driver<566 brand=grid,driver>=565,driver<566 brand=tesla,driver>=565,driver<566 brand=nvidia,driver>=565,driver<566 brand=quadro,driver>=565,driver<566 brand=quadrortx,driver>=565,driver<566 brand=nvidiartx,driver>=565,driver<566 brand=vapps,driver>=565,driver<566 brand=vpc,driver>=565,driver<566 brand=vcs,driver>=565,driver<566 brand=vws,driver>=565,driver<566 brand=cloudgaming,driver>=565,driver<566 brand=unknown,driver>=570,driver<571 brand=grid,driver>=570,driver<571 brand=tesla,driver>=570,driver<571 brand=nvidia,driver>=570,driver<571 brand=quadro,driver>=570,driver<571 brand=quadrortx,driver>=570,driver<571 brand=nvidiartx,driver>=570,driver<571 brand=vapps,driver>=570,driver<571 brand=vpc,driver>=570,driver<571 brand=vcs,driver>=570,driver<571 brand=vws,driver>=570,driver<571 brand=cloudgaming,driver>=570,driver<571 brand=unknown,driver>=575,driver<576 brand=grid,driver>=575,driver<576 brand=tesla,driver>=575,driver<576 brand=nvidia,driver>=575,driver<576 brand=quadro,driver>=575,driver<576 brand=quadrortx,driver>=575,driver<576 brand=nvidiartx,driver>=575,driver<576 brand=vapps,driver>=575,driver<576 brand=vpc,driver>=575,driver<576 brand=vcs,driver>=575,driver<576 brand=vws,driver>=575,driver<576 brand=cloudgaming,driver>=575,driver<576",
+        "NV_CUDA_CUDART_VERSION": "13.0.48-1",
+        "CUDA_VERSION": "13.0.0",
+        "LD_LIBRARY_PATH": "/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64",
+        "NVIDIA_VISIBLE_DEVICES": "all",
+        "NVIDIA_DRIVER_CAPABILITIES": "compute,utility",
+        "NV_CUDA_LIB_VERSION": "13.0.0-1",
+        "NV_NVTX_VERSION": "13.0.39-1",
+        "NV_LIBNPP_VERSION": "13.0.0.50-1",
+        "NV_LIBNPP_PACKAGE": "libnpp-13-0=13.0.0.50-1",
+        "NV_LIBCUSPARSE_VERSION": "12.6.2.49-1",
+        "NV_LIBCUBLAS_PACKAGE_NAME": "libcublas-13-0",
+        "NV_LIBCUBLAS_VERSION": "13.0.0.19-1",
+        "NV_LIBCUBLAS_PACKAGE": "libcublas-13-0=13.0.0.19-1",
+        "NV_LIBNCCL_PACKAGE_NAME": "libnccl2",
+        "NV_LIBNCCL_PACKAGE_VERSION": "2.27.7-1",
+        "NCCL_VERSION": "2.27.7-1",
+        "NV_LIBNCCL_PACKAGE": "libnccl2=2.27.7-1+cuda13.0",
+        "NVIDIA_PRODUCT_NAME": "CUDA",
+        "RUST_LOG": "info"
+      },
+      "client": {
+        "kind": "campaign coherency gate on Spark2",
+        "git_sha": "1f7bf76a957ef543c14d263995f0f275406cef18",
+        "driver_sha256": "e266a8086fa48ee315ec00ac85b119321d582dc91fb8dc90c52d3a243e4f2f2e",
+        "invocation": [
+          "/home/pidtom/atlas-vllm-control-20260905/venv/bin/python",
+          "/home/pidtom/atlas-vllm-control-20260905/repo/bench/hopper_ab/coherency_gate.py",
+          "--url",
+          "http://127.0.0.1:8888",
+          "--model",
+          "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+          "--timeout",
+          "300",
+          "--out",
+          "/home/pidtom/atlas-vllm-control-20260905/atlas-coherency.json"
+        ],
+        "url": "http://127.0.0.1:8888",
+        "environment": {
+          "PYTHONDONTWRITEBYTECODE": "1"
+        },
+        "python_version": "Python 3.12.3"
+      },
+      "planned_ladder_client": {
+        "status": "NOT_RUN",
+        "driver_sha256": "1f10d4887b39a86ee946bc2aa0395e31c43ce1b3dfac778f51abbad11832d880",
+        "file_git_revision": "60370b9532a7af5319c99d6c2b93972d4f046d56",
+        "git_sha": "1f7bf76a957ef543c14d263995f0f275406cef18",
+        "environment": {
+          "W55_PROMPT_MODE": "essay"
+        },
+        "url": "http://127.0.0.1:8888"
+      },
+      "workload": {
+        "spec": {
+          "on": false,
+          "k": 0,
+          "basis": "Server log: mtp=false, ngram=false, num_drafts=0"
+        },
+        "presence_penalty": 0.0,
+        "frequency_penalty": 0.0
+      },
+      "ptx_gate_ledger_sha256": null,
+      "provenance_gaps": [
+        "Image Git revision unknown; do not substitute harness revision.",
+        "Kernel audit uses abbreviated hashes in server log; no canonical full ledger hash emitted.",
+        "Boot timing includes correction from unreachable LAN endpoint to direct loopback; original clock and engine retained."
+      ]
+    }
+  },
+  "source_artifacts": {
+    "boot": {
+      "path": "/private/tmp/atlas-vllm-control/docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/gb10-dryrun/rehearsal-20260905/atlas-boot.json",
+      "sha256": "9a3f91a5ee6571278d5263300709a736542f689298947873b786699674c6660a"
+    },
+    "coherency": {
+      "path": "/private/tmp/atlas-vllm-control/docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/gb10-dryrun/rehearsal-20260905/atlas-coherency.json",
+      "sha256": "01789b27fcba0e5158e7f17988f89944208a6767ed7c327c2b82ba96a7a65ddf"
+    },
+    "provenance": {
+      "path": "/private/tmp/atlas-vllm-control/docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/gb10-dryrun/rehearsal-20260905/atlas-provenance.json",
+      "sha256": "5eaf77d66265d1c97fd12ee9d26599f275a0bbd7ac7642dc823a0fc945ebe247"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+# driver sha256 1f10d4887b39a86ee946bc2aa0395e31c43ce1b3dfac778f51abbad11832d880
+[GB10-REHEARSAL-vllm-a-lat] C=  1 rep0  tok/s=   46.88  wall=   5.46s  ctok=    256  ptok/req=[1209]  ttft_p50=257ms  err=0  clk=2502, 36.35
+[GB10-REHEARSAL-vllm-a-lat] C=  1 rep1  tok/s=   47.02  wall=   5.44s  ctok=    256  ptok/req=[1209]  ttft_p50=242ms  err=0  clk=2483, 36.75
+[GB10-REHEARSAL-vllm-a-lat] C=  1 rep2  tok/s=   46.98  wall=   5.45s  ctok=    256  ptok/req=[1209]  ttft_p50=245ms  err=0  clk=2483, 36.78
+[GB10-REHEARSAL-vllm-a-lat] C=  1 SERIES ['46.88', '47.02', '46.98'] mean=46.96 spread=0.31%
+[GB10-REHEARSAL-vllm-a-lat] C= 16 rep0  tok/s=  209.22  wall=  19.58s  ctok=   4096  ptok/req=[1209]  ttft_p50=1745ms  err=0  clk=2489, 41.11
+[GB10-REHEARSAL-vllm-a-lat] C= 16 rep1  tok/s=  205.58  wall=  19.92s  ctok=   4096  ptok/req=[1209]  ttft_p50=1761ms  err=0  clk=2489, 41.82
+[GB10-REHEARSAL-vllm-a-lat] C= 16 rep2  tok/s=  209.76  wall=  19.53s  ctok=   4096  ptok/req=[1209]  ttft_p50=1744ms  err=0  clk=2489, 42.06
+[GB10-REHEARSAL-vllm-a-lat] C= 16 SERIES ['209.22', '205.58', '209.76'] mean=208.19 spread=2.01%
+# wrote /home/pidtom/atlas-vllm-control-20260905/results/vllm-a-lat.json

@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "docker",
+    "exec",
+    "atlas-control-nano-20260905",
+    "spark",
+    "--version"
+  ],
+  "exit_code": 0,
+  "stdout": "spark 1.0.0-beta-preview\n",
+  "stderr": ""
+}

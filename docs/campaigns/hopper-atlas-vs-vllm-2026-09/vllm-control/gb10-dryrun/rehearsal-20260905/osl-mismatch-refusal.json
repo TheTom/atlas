@@ -1,0 +1,18 @@
+{
+  "scope": "negative instrument probe derived from GB10 raw JSON; not a measured run",
+  "mutation": "vLLM B lat osl changed from256 to257; original raw file untouched",
+  "argv": [
+    "python3",
+    "bench/hopper_ab/compare.py",
+    "--atlas",
+    "docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/gb10-dryrun/rehearsal-20260905/vllm-a-lat.json",
+    "--vllm",
+    "docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/gb10-dryrun/rehearsal-20260905/deliberate-osl-mismatch.json",
+    "--out-json",
+    "docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/gb10-dryrun/rehearsal-20260905/must-not-exist-mismatch.json"
+  ],
+  "exit_code": 2,
+  "stdout": "",
+  "stderr": "REFUSED: refusing to compare two runs that did not measure the same workload:\n  - osl: atlas=256 vs vllm=257\n",
+  "output_exists": false
+}

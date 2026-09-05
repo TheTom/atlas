@@ -1,0 +1,26 @@
+{
+  "scope": "GB10 rehearsal only; not Hopper data",
+  "status": "NOT_RUN",
+  "reason": "Atlas coherency failed; user required ending this engine leg without retry or tuning.",
+  "atlas_input": null,
+  "vllm_input": "vllm-a-agent.json",
+  "coherency_artifact": "atlas-coherency.json",
+  "planned_cells": [
+    {
+      "isl": 4096,
+      "osl": 512,
+      "concurrency": 1,
+      "warmup": 1,
+      "reps": 3,
+      "metrics": null
+    },
+    {
+      "isl": 4096,
+      "osl": 512,
+      "concurrency": 16,
+      "warmup": 1,
+      "reps": 3,
+      "metrics": null
+    }
+  ]
+}

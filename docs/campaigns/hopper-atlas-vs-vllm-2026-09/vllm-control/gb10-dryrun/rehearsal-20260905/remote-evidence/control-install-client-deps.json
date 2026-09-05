@@ -1,0 +1,17 @@
+{
+  "root": "/home/pidtom/atlas-vllm-control-20260905",
+  "phase": "install-client-deps",
+  "baseline_used": 845513351168,
+  "argv": [
+    "/home/pidtom/atlas-vllm-control-20260905/venv/bin/python",
+    "-m",
+    "pip",
+    "install",
+    "--no-cache-dir",
+    "huggingface_hub",
+    "aiohttp"
+  ],
+  "environment": {
+    "PIP_DISABLE_PIP_VERSION_CHECK": "1"
+  }
+}

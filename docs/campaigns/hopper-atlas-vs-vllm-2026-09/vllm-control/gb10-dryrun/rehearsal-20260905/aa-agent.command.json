@@ -1,0 +1,19 @@
+{
+  "scope": "GB10 rehearsal only",
+  "purpose": "vLLM A/A: --atlas is vLLM pass A; --vllm is vLLM pass B, not an actual Atlas comparison.",
+  "argv": [
+    "python3",
+    "bench/hopper_ab/compare.py",
+    "--atlas",
+    "docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/gb10-dryrun/rehearsal-20260905/vllm-a-agent.json",
+    "--vllm",
+    "docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/gb10-dryrun/rehearsal-20260905/vllm-b-agent.json",
+    "--out-json",
+    "docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/gb10-dryrun/rehearsal-20260905/aa-agent.json",
+    "--out-md",
+    "docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/gb10-dryrun/rehearsal-20260905/aa-agent.md"
+  ],
+  "exit_code": 0,
+  "stdout": "### ISL 4096 / OSL 512 (temp 0.0, seed 42)\n\n| C | Atlas tok/s | vLLM tok/s | ratio | Atlas TTFT p50/p99 ms | vLLM TTFT p50/p99 ms | Atlas TPOT p50 ms | vLLM TPOT p50 ms | rung |\n|---:|---:|---:|---:|---:|---:|---:|---:|---|\n| 1 | 45.16 | 48.25 | 0.94x | 851 / 851 | 181 / 181 | 20.52 | 20.41 | **LOSS** |\n| 16 | 177.74 | 226.61 | -- | 6137 / 11065 | 842 / 1387 | 76.25 | 68.02 | **INVALID** |\n\n0/1 rungs won.\n\nC=16 vllm: rep 1: vacuity (a request returned <80% of OSL 512)\n",
+  "stderr": ""
+}

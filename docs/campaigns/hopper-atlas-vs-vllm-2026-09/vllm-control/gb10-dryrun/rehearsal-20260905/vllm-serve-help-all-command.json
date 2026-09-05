@@ -1,0 +1,34 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "vllm-control-serve-help-20260905",
+    "--network",
+    "none",
+    "--entrypoint",
+    "vllm",
+    "vllm/vllm-openai@sha256:f8fe15a8039343336945db10494eaad80ef941fe2b2a5fa6649fa38636051a65",
+    "serve",
+    "--help=all"
+  ],
+  "exit_code": 1,
+  "planned_flags_present": {
+    "--trust-remote-code": false,
+    "--async-scheduling": false,
+    "--kv-cache-dtype": false,
+    "--tensor-parallel-size": false,
+    "--moe-backend": false,
+    "--enable-auto-tool-choice": false,
+    "--tool-call-parser": false,
+    "--reasoning-parser-plugin": false,
+    "--reasoning-parser": false,
+    "--revision": false,
+    "--tokenizer-revision": false,
+    "--host": false,
+    "--port": false,
+    "--max-model-len": false,
+    "--enable-prefix-caching": false
+  }
+}

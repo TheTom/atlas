@@ -1,0 +1,174 @@
+{
+  "scope": "GB10 rehearsal only; not Hopper data",
+  "engine": "atlas",
+  "engine_version": {
+    "git_sha": null,
+    "git_sha_note": "Image revision label is unknown",
+    "version": "spark 1.0.0-beta-preview",
+    "image_digest": "sha256:faa6e5820c42dd86d0ae9e12cbaf2a2e9f32d0f7a9ab348a75ee54d4253929a6",
+    "image_id": "sha256:dd2e31034f052e7f3e35b8c6cd1e435353ba0faea57915aab12499f3cec01e7d",
+    "binary_sha256": "df41bf3aea2a1c21c8c98c39979ab4bc84659d37604068297d351153ebdbba31",
+    "binary_path": "/usr/local/bin/spark",
+    "cuda_image_version": "13.0.0",
+    "cuda_image_version_source": "Docker image/container CUDA_VERSION environment",
+    "cuda_cudart_package_version": "13.0.48-1",
+    "cuda_runtime_library_probe": null
+  },
+  "model": {
+    "hf_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+    "served_model_name": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+    "revision": "9bee19446c0dfd01f356e10979d225b2a6621944",
+    "quant": "fp8",
+    "verification_file": "nano-verification-before-atlas.json",
+    "kernel_target": [
+      "sm_121",
+      "nemotron-3-nano-30b-a3b",
+      "nvfp4"
+    ],
+    "runtime_quantization_note": "Server log records FP8 MoE experts requantized to NVFP4; SSM and attention retain a mixture of native FP8/BF16."
+  },
+  "hardware": {
+    "gpu": "NVIDIA GB10",
+    "gpu_count": 1,
+    "driver": "580.173.02",
+    "cuda": "13.0",
+    "cuda_semantics": "nvidia-smi driver-advertised compatibility",
+    "hardware_id": "gb10",
+    "sm_clock_mhz": null,
+    "nvidia_smi_q_sha256": "01ddaaeaa8c1460ac91f5cd6109432b5bb4e5b2dcf8bf1c280283ff4b8ed589e",
+    "host": "spark2.local",
+    "address": "192.168.50.36"
+  },
+  "topology": {
+    "tp": 1,
+    "ep": 1,
+    "world_size": 1,
+    "matched": null,
+    "basis": "one GPU; no distributed launch arguments; no performance pair ran"
+  },
+  "serve_command": [
+    "spark",
+    "serve",
+    "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+    "--port",
+    "8888",
+    "--max-seq-len",
+    "8192",
+    "--kv-cache-dtype",
+    "fp8",
+    "--gpu-memory-utilization",
+    "0.88",
+    "--scheduling-policy",
+    "slai",
+    "--no-tui",
+    "--enable-prefix-caching",
+    "true"
+  ],
+  "docker_argv": [
+    "docker",
+    "run",
+    "-d",
+    "--name",
+    "atlas-control-nano-20260905",
+    "--network",
+    "host",
+    "--gpus",
+    "all",
+    "--ipc=host",
+    "-v",
+    "/home/pidtom/atlas-vllm-control-20260905/hf:/root/.cache/huggingface",
+    "--env",
+    "HF_HUB_OFFLINE=1",
+    "--env",
+    "HF_HOME=/root/.cache/huggingface",
+    "avarok/atlas-gb10@sha256:faa6e5820c42dd86d0ae9e12cbaf2a2e9f32d0f7a9ab348a75ee54d4253929a6",
+    "serve",
+    "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+    "--port",
+    "8888",
+    "--max-seq-len",
+    "8192",
+    "--kv-cache-dtype",
+    "fp8",
+    "--gpu-memory-utilization",
+    "0.88",
+    "--scheduling-policy",
+    "slai",
+    "--no-tui",
+    "--enable-prefix-caching",
+    "true"
+  ],
+  "environment": {
+    "HF_HUB_OFFLINE": "1",
+    "HF_HOME": "/root/.cache/huggingface",
+    "PATH": "/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "NVARCH": "sbsa",
+    "NVIDIA_REQUIRE_CUDA": "cuda>=13.0 brand=unknown,driver>=535,driver<536 brand=grid,driver>=535,driver<536 brand=tesla,driver>=535,driver<536 brand=nvidia,driver>=535,driver<536 brand=quadro,driver>=535,driver<536 brand=quadrortx,driver>=535,driver<536 brand=nvidiartx,driver>=535,driver<536 brand=vapps,driver>=535,driver<536 brand=vpc,driver>=535,driver<536 brand=vcs,driver>=535,driver<536 brand=vws,driver>=535,driver<536 brand=cloudgaming,driver>=535,driver<536 brand=unknown,driver>=550,driver<551 brand=grid,driver>=550,driver<551 brand=tesla,driver>=550,driver<551 brand=nvidia,driver>=550,driver<551 brand=quadro,driver>=550,driver<551 brand=quadrortx,driver>=550,driver<551 brand=nvidiartx,driver>=550,driver<551 brand=vapps,driver>=550,driver<551 brand=vpc,driver>=550,driver<551 brand=vcs,driver>=550,driver<551 brand=vws,driver>=550,driver<551 brand=cloudgaming,driver>=550,driver<551 brand=unknown,driver>=565,driver<566 brand=grid,driver>=565,driver<566 brand=tesla,driver>=565,driver<566 brand=nvidia,driver>=565,driver<566 brand=quadro,driver>=565,driver<566 brand=quadrortx,driver>=565,driver<566 brand=nvidiartx,driver>=565,driver<566 brand=vapps,driver>=565,driver<566 brand=vpc,driver>=565,driver<566 brand=vcs,driver>=565,driver<566 brand=vws,driver>=565,driver<566 brand=cloudgaming,driver>=565,driver<566 brand=unknown,driver>=570,driver<571 brand=grid,driver>=570,driver<571 brand=tesla,driver>=570,driver<571 brand=nvidia,driver>=570,driver<571 brand=quadro,driver>=570,driver<571 brand=quadrortx,driver>=570,driver<571 brand=nvidiartx,driver>=570,driver<571 brand=vapps,driver>=570,driver<571 brand=vpc,driver>=570,driver<571 brand=vcs,driver>=570,driver<571 brand=vws,driver>=570,driver<571 brand=cloudgaming,driver>=570,driver<571 brand=unknown,driver>=575,driver<576 brand=grid,driver>=575,driver<576 brand=tesla,driver>=575,driver<576 brand=nvidia,driver>=575,driver<576 brand=quadro,driver>=575,driver<576 brand=quadrortx,driver>=575,driver<576 brand=nvidiartx,driver>=575,driver<576 brand=vapps,driver>=575,driver<576 brand=vpc,driver>=575,driver<576 brand=vcs,driver>=575,driver<576 brand=vws,driver>=575,driver<576 brand=cloudgaming,driver>=575,driver<576",
+    "NV_CUDA_CUDART_VERSION": "13.0.48-1",
+    "CUDA_VERSION": "13.0.0",
+    "LD_LIBRARY_PATH": "/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64",
+    "NVIDIA_VISIBLE_DEVICES": "all",
+    "NVIDIA_DRIVER_CAPABILITIES": "compute,utility",
+    "NV_CUDA_LIB_VERSION": "13.0.0-1",
+    "NV_NVTX_VERSION": "13.0.39-1",
+    "NV_LIBNPP_VERSION": "13.0.0.50-1",
+    "NV_LIBNPP_PACKAGE": "libnpp-13-0=13.0.0.50-1",
+    "NV_LIBCUSPARSE_VERSION": "12.6.2.49-1",
+    "NV_LIBCUBLAS_PACKAGE_NAME": "libcublas-13-0",
+    "NV_LIBCUBLAS_VERSION": "13.0.0.19-1",
+    "NV_LIBCUBLAS_PACKAGE": "libcublas-13-0=13.0.0.19-1",
+    "NV_LIBNCCL_PACKAGE_NAME": "libnccl2",
+    "NV_LIBNCCL_PACKAGE_VERSION": "2.27.7-1",
+    "NCCL_VERSION": "2.27.7-1",
+    "NV_LIBNCCL_PACKAGE": "libnccl2=2.27.7-1+cuda13.0",
+    "NVIDIA_PRODUCT_NAME": "CUDA",
+    "RUST_LOG": "info"
+  },
+  "client": {
+    "kind": "campaign coherency gate on Spark2",
+    "git_sha": "1f7bf76a957ef543c14d263995f0f275406cef18",
+    "driver_sha256": "e266a8086fa48ee315ec00ac85b119321d582dc91fb8dc90c52d3a243e4f2f2e",
+    "invocation": [
+      "/home/pidtom/atlas-vllm-control-20260905/venv/bin/python",
+      "/home/pidtom/atlas-vllm-control-20260905/repo/bench/hopper_ab/coherency_gate.py",
+      "--url",
+      "http://127.0.0.1:8888",
+      "--model",
+      "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+      "--timeout",
+      "300",
+      "--out",
+      "/home/pidtom/atlas-vllm-control-20260905/atlas-coherency.json"
+    ],
+    "url": "http://127.0.0.1:8888",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "python_version": "Python 3.12.3"
+  },
+  "planned_ladder_client": {
+    "status": "NOT_RUN",
+    "driver_sha256": "1f10d4887b39a86ee946bc2aa0395e31c43ce1b3dfac778f51abbad11832d880",
+    "file_git_revision": "60370b9532a7af5319c99d6c2b93972d4f046d56",
+    "git_sha": "1f7bf76a957ef543c14d263995f0f275406cef18",
+    "environment": {
+      "W55_PROMPT_MODE": "essay"
+    },
+    "url": "http://127.0.0.1:8888"
+  },
+  "workload": {
+    "spec": {
+      "on": false,
+      "k": 0,
+      "basis": "Server log: mtp=false, ngram=false, num_drafts=0"
+    },
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0
+  },
+  "ptx_gate_ledger_sha256": null,
+  "provenance_gaps": [
+    "Image Git revision unknown; do not substitute harness revision.",
+    "Kernel audit uses abbreviated hashes in server log; no canonical full ledger hash emitted.",
+    "Boot timing includes correction from unreachable LAN endpoint to direct loopback; original clock and engine retained."
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "scope": "GB10 rehearsal instrument cross-check",
+  "ladder_reference": "vllm-a-lat.json C1",
+  "input_lengths": {
+    "ladder_observed": 1209,
+    "crosscheck": [
+      1024,
+      1024,
+      1024
+    ]
+  },
+  "metrics": {
+    "ttft_p50_ms": {
+      "ladder": 247.8192170001421,
+      "vllm_bench": 281.4929719988868,
+      "delta": 33.6737549987447
+    },
+    "ttft_p99_ms": {
+      "ladder": 247.8192170001421,
+      "vllm_bench": 305.4739669398987,
+      "delta": 57.654749939756584
+    },
+    "tpot_p50_ms": {
+      "ladder": 20.406592730720458,
+      "vllm_bench": 20.318699741177376,
+      "delta": -0.08789298954308222
+    },
+    "tok_s_mean": {
+      "ladder": 46.958512505536554,
+      "vllm_bench": 46.932564070281025,
+      "delta": -0.025948435255529034
+    }
+  },
+  "limitations": [
+    "Different instrument: random completion prompts, tokenizer-exact input length, ignore_eos and choices-chunk timing; not a matched ladder cell.",
+    "No per-rep throughput series or pooled ladder percentile equivalence is available.",
+    "vLLM max_concurrent_requests is a one-second bucket metric, not an instantaneous server concurrency trace.",
+    "No single vLLM binary hash or under-load clock mean is defined."
+  ]
+}

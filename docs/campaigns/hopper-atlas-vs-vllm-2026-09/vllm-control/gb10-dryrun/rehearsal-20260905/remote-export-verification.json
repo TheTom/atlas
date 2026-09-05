@@ -1,0 +1,13 @@
+{
+  "captured_at_utc": "2026-09-05T04:47:09.328481+00:00",
+  "files_verified": 166,
+  "payload_bytes": 1667090,
+  "manifest_sha256": "852caad54e0355139a9ee589989040757f674db502dd68799eb468d762489e35",
+  "all_hashes_match": true,
+  "archive_created_on_spark2": false,
+  "excluded_task_data_pending_deletion": [
+    "hf",
+    "venv",
+    "__pycache__"
+  ]
+}

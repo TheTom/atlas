@@ -1,0 +1,22 @@
+{
+  "root": "/home/pidtom/atlas-vllm-control-20260905",
+  "phase": "atlas-readiness-loopback",
+  "baseline_used": 845513351168,
+  "argv": [
+    "bash",
+    "/home/pidtom/atlas-vllm-control-20260905/time_to_ready.sh",
+    "--url",
+    "http://127.0.0.1:8888",
+    "--model",
+    "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+    "--engine",
+    "atlas",
+    "--start-epoch",
+    "1788582657.8496726",
+    "--timeout-s",
+    "1800",
+    "--out",
+    "/home/pidtom/atlas-vllm-control-20260905/atlas-boot.json"
+  ],
+  "environment": {}
+}

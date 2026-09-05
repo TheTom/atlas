@@ -1,0 +1,251 @@
+{
+  "hf_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+  "revision": "9bee19446c0dfd01f356e10979d225b2a6621944",
+  "files": [
+    {
+      "rfilename": ".gitattributes",
+      "blobId": "52373fe24473b1aa44333d318f578ae6bf04b49b",
+      "size": 1570
+    },
+    {
+      "rfilename": "README.md",
+      "blobId": "9ae0b2274f31a8b908d6d9448edb65405c6e3114",
+      "size": 73371
+    },
+    {
+      "rfilename": "bias.md",
+      "blobId": "8cabadf2f8758c32865f64cc15d30ff626dabb61",
+      "size": 2276
+    },
+    {
+      "rfilename": "chat_template.jinja",
+      "blobId": "67ca3ce54a7118ed74d6fd793b7cc9fd6b2a9f03",
+      "size": 10504
+    },
+    {
+      "rfilename": "config.json",
+      "blobId": "6b2510909bcc6a25c83b9c54092c011d6dcc31f4",
+      "size": 1817
+    },
+    {
+      "rfilename": "configuration_nemotron_h.py",
+      "blobId": "639b30de95ae1ca9ad0c3d8b504ae6211f5d8996",
+      "size": 12893
+    },
+    {
+      "rfilename": "explainability.md",
+      "blobId": "e865a0653712f1c06b55bc21f18e7c3bbcab0ac8",
+      "size": 3003
+    },
+    {
+      "rfilename": "generation_config.json",
+      "blobId": "87e52131c34aff9b9027d90e324bcddd77789852",
+      "size": 197
+    },
+    {
+      "rfilename": "hf_quant_config.json",
+      "blobId": "e02fde306167475574d4c9154c655f34e478e0df",
+      "size": 3047
+    },
+    {
+      "rfilename": "model-00001-of-00010.json",
+      "blobId": "6c7665b072823a95dae85612c1560bb9d7302bd5",
+      "size": 155413
+    },
+    {
+      "rfilename": "model-00001-of-00010.safetensors",
+      "blobId": "88c5cb32730a5ca3bf716eae5032b9e88885d447",
+      "size": 3999240760,
+      "lfs": {
+        "sha256": "1faa3d94580c9b83d70dd6b7d2668b6ba0461e648ba5159f83e80139bf1369a7",
+        "size": 3999240760,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "model-00002-of-00010.json",
+      "blobId": "baa2f7f9ff104cc653957dfc9eebfbde9ba148e5",
+      "size": 235181
+    },
+    {
+      "rfilename": "model-00002-of-00010.safetensors",
+      "blobId": "30f4a2e53e475a40961ab5dc2b34c471c1df1b1a",
+      "size": 3997872560,
+      "lfs": {
+        "sha256": "f7beb249f4dde47eb6199eacecb93724bd28b77126267ff4ba8bf292736a7ecb",
+        "size": 3997872560,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "model-00003-of-00010.json",
+      "blobId": "a1fa908f4482b18a4723812592bb52cfddddc5d2",
+      "size": 236829
+    },
+    {
+      "rfilename": "model-00003-of-00010.safetensors",
+      "blobId": "93c4d0d48ec92ff5ac12c9bdc4badefaedf1c575",
+      "size": 3997873320,
+      "lfs": {
+        "sha256": "4a45b93f5da8f9e3029241a68a5eb88610178d703f6182853232995c82eddbf7",
+        "size": 3997873320,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "model-00004-of-00010.json",
+      "blobId": "f1f23b80eecea8c762eae8fed1c3949e421dcdcf",
+      "size": 236886
+    },
+    {
+      "rfilename": "model-00004-of-00010.safetensors",
+      "blobId": "fe62a3123e664d42fa5ff597ba80ab3fe1449a40",
+      "size": 3997873136,
+      "lfs": {
+        "sha256": "68a9d0c07d047f78758ccf2aed198c27061c6664cb0df2e8462e7a8753cccfcd",
+        "size": 3997873136,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "model-00005-of-00010.json",
+      "blobId": "1468f5dfca66d42887b66f58293d01798e82d226",
+      "size": 236886
+    },
+    {
+      "rfilename": "model-00005-of-00010.safetensors",
+      "blobId": "0ee532d9f5a8fd0ba3c4e6fd871a71dd3771f51c",
+      "size": 3997872896,
+      "lfs": {
+        "sha256": "3850e4b8cd55248f1fd29d3d424fe9d5b77f8ce107ed7bd4f08dd6c980408bd8",
+        "size": 3997872896,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "model-00006-of-00010.json",
+      "blobId": "7467b66c205738ff096c4280262008dd940bb192",
+      "size": 236886
+    },
+    {
+      "rfilename": "model-00006-of-00010.safetensors",
+      "blobId": "3036a8df86ce5c9b7ede26c3a0ae1a72abbb6707",
+      "size": 3997872656,
+      "lfs": {
+        "sha256": "2f093ddc92fa57a634549cefe90c55f6c622432d3280cbcd3a12708aa814ab84",
+        "size": 3997872656,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "model-00007-of-00010.json",
+      "blobId": "df2060ca5c9b3c5954eb9238af0ff3eb7547bfaf",
+      "size": 236886
+    },
+    {
+      "rfilename": "model-00007-of-00010.safetensors",
+      "blobId": "1b87f8750750f3bcf4ee7dc5cb6f18761be05ffa",
+      "size": 3997872376,
+      "lfs": {
+        "sha256": "c39259e5dd9ada25e1fa94e237968c7c0f874ddb0aa456a0cdc42cdf1f5c7b19",
+        "size": 3997872376,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "model-00008-of-00010.json",
+      "blobId": "7df0ec1af3380cac0988f0c8156f989052297456",
+      "size": 242075
+    },
+    {
+      "rfilename": "model-00008-of-00010.safetensors",
+      "blobId": "32c646eb59fbc6999675b6f9bf0548c1311c4247",
+      "size": 3997184888,
+      "lfs": {
+        "sha256": "fad59ac6cba1db25be784ce25c6cd356aa80a15f8a422c4470b7fc36bfc26aa0",
+        "size": 3997184888,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "model-00009-of-00010.json",
+      "blobId": "ab4fdf2d3ed11cdbda1969869dc097c62e408420",
+      "size": 43373
+    },
+    {
+      "rfilename": "model-00009-of-00010.safetensors",
+      "blobId": "70f6b05b863ac59786b6987e0fbfb1a567706578",
+      "size": 698500912,
+      "lfs": {
+        "sha256": "220a0bb702f36c060c6fa6478a8c720fdba7a549b92b85929139e99fb3eb888b",
+        "size": 698500912,
+        "pointerSize": 134
+      }
+    },
+    {
+      "rfilename": "model-00010-of-00010.json",
+      "blobId": "35d41539914701bee76061efaea8676496aa77cd",
+      "size": 73
+    },
+    {
+      "rfilename": "model-00010-of-00010.safetensors",
+      "blobId": "ba3b119b2f58080a7333315d44b5df1993289f9c",
+      "size": 40,
+      "lfs": {
+        "sha256": "60d95b10b6e140a9626a7058d5038528f2ff80148dc4569b881db56052046509",
+        "size": 40,
+        "pointerSize": 127
+      }
+    },
+    {
+      "rfilename": "model.safetensors.index.json",
+      "blobId": "b0d69e1cae55ba8adb51d1e9806c177ce96b1d5e",
+      "size": 1859729
+    },
+    {
+      "rfilename": "modeling_nemotron_h.py",
+      "blobId": "a81defb1665c23e8d40562fc5ce0f5e01c4c9b9f",
+      "size": 83779
+    },
+    {
+      "rfilename": "nano_v3_reasoning_parser.py",
+      "blobId": "d3ea6626404ebcd28042d67c84a0224bcec1d215",
+      "size": 798
+    },
+    {
+      "rfilename": "nemo-evaluator-launcher-configs/local_nvidia_nemotron_3_nano_30b_a3b.yaml",
+      "blobId": "9fca750085e0de9f028379c48e60781407e19d17",
+      "size": 4242
+    },
+    {
+      "rfilename": "privacy.md",
+      "blobId": "6e51797489658fef85d8520e672e61fb6936c6c8",
+      "size": 2296
+    },
+    {
+      "rfilename": "safety.md",
+      "blobId": "476dab643d8d0c8b123c31fffcb2bf5a28810c74",
+      "size": 2094
+    },
+    {
+      "rfilename": "special_tokens_map.json",
+      "blobId": "0d5c2c9dba131d5da20e58336dd09b022142ea50",
+      "size": 420
+    },
+    {
+      "rfilename": "tokenizer.json",
+      "blobId": "405d91bbe2dcd1ef6b9334c84c573dd3bf082937",
+      "size": 17077485,
+      "lfs": {
+        "sha256": "c6021eb6847e682f89aa52d5eb6e8c7d902a23acfc8137e25211cf84828f1592",
+        "size": 17077485,
+        "pointerSize": 133
+      }
+    },
+    {
+      "rfilename": "tokenizer_config.json",
+      "blobId": "3ad9eea1e335b8cd5fb9a3af40f012f0d6fd2985",
+      "size": 188049
+    }
+  ]
+}

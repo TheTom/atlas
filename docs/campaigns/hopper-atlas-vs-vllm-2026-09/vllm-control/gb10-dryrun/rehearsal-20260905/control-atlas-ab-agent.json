@@ -1,0 +1,34 @@
+{
+  "root": "/home/pidtom/atlas-vllm-control-20260905",
+  "phase": "atlas-ab-agent",
+  "baseline_used": 845513351168,
+  "argv": [
+    "/home/pidtom/atlas-vllm-control-20260905/venv/bin/python",
+    "/home/pidtom/atlas-vllm-control-20260905/harness_w55_conc_ladder.py",
+    "--url",
+    "http://127.0.0.1:8888",
+    "--model",
+    "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+    "--label",
+    "GB10-REHEARSAL-atlas-ab-agent",
+    "--out",
+    "/home/pidtom/atlas-vllm-control-20260905/results/atlas-ab-agent.json",
+    "--concs",
+    "1,16",
+    "--reps",
+    "3",
+    "--isl",
+    "4096",
+    "--osl",
+    "512",
+    "--warmup",
+    "1"
+  ],
+  "environment": {
+    "W55_PROMPT_MODE": "essay",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "scope": "GB10 rehearsal only; not Hopper data",
+  "status": "PLANNED_NOT_EXECUTED",
+  "client_endpoint_note": "Atlas bound loopback; same direct on-box client, original engine process and flags unchanged."
+}

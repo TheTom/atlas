@@ -1,0 +1,26 @@
+{
+  "remove_container": {
+    "argv": [
+      "docker",
+      "rm",
+      "atlas-control-nano-20260905"
+    ],
+    "exit_code": 0,
+    "stdout": "atlas-control-nano-20260905\n",
+    "stderr": ""
+  },
+  "remove_image": {
+    "argv": [
+      "docker",
+      "image",
+      "rm",
+      "avarok/atlas-gb10:latest"
+    ],
+    "exit_code": 0,
+    "stdout": "Untagged: avarok/atlas-gb10:latest\nUntagged: avarok/atlas-gb10@sha256:faa6e5820c42dd86d0ae9e12cbaf2a2e9f32d0f7a9ab348a75ee54d4253929a6\nDeleted: sha256:dd2e31034f052e7f3e35b8c6cd1e435353ba0faea57915aab12499f3cec01e7d\nDeleted: sha256:34506aeeb89392e718bdc22d6ed7fc5ddbdc87c2b27b4c9e406630b52c75b272\nDeleted: sha256:00243339781a48947e556b7dd14a0280d0f99d6a2fc93ad3bacb5cbdf5d7b4d7\nDeleted: sha256:ea5ace8d955fc5c85781e47047494a95ede1aa776b3749a3269187dd1854c4ec\nDeleted: sha256:57757528835b9c37ade463bbd33269d90012dbc34f51eb24076c48cfca507452\nDeleted: sha256:ad402baf9aba0975fde537fc7bba180dcafb6053b67603e1e146265b44d7d9c0\nDeleted: sha256:8b526a0f0aaaeebcc5c22607e67f90fbff818af03820a96c97c5475d63a27cc1\nDeleted: sha256:f4d96fc9e3f5b46fbfc393443fcc17acb1cd932b2a0265d87308f33e4d9317ff\nDeleted: sha256:38f10aee0f0edc61e9f93aa206c15e08b7b860c8fbf0d6f84dd29e2ed8b73377\nDeleted: sha256:1a43e488b7513448946340ac368072142103f84a8b55920c98b22c8dba11c353\nDeleted: sha256:ce2eaf089f7588f064739e63c3d1874c7a4b6f8db5c2ee3bbc83464b40a7af15\nDeleted: sha256:cb1b5e3b726b7e9742d4407d047934d9f4a6f1969f76da164e2682a5bc01a928\nDeleted: sha256:04f6e0a87462da5459d2f56b40dac88df0be437b4f987e6db2bf72128645e1dd\nDeleted: sha256:b2497ab6678bb99ebe88ba1de1811bfceba5477b1cd5a16ba676a15f4b25a3da\nDeleted: sha256:f938656f385ef839075702193b749dad80f71362a3316b96702c58c070312e22\n",
+    "stderr": ""
+  },
+  "df": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  818G   51G  95% /\n",
+  "containers": "",
+  "images": "{\"Containers\":\"0\",\"CreatedAt\":\"2026-07-15 10:42:02 -0500 CDT\",\"CreatedSince\":\"7 weeks ago\",\"Digest\":\"\\u003cnone\\u003e\",\"ID\":\"sha256:3430d6614a8e2925f34d059af6caf05aff42387326db4d05639a60f10f2654d8\",\"Repository\":\"ghcr.io/anemll/dspark-vllm-gx10\",\"SharedSize\":\"N/A\",\"Size\":\"18.8GB\",\"Tag\":\"0.1.1\",\"UniqueSize\":\"N/A\"}\n{\"Containers\":\"0\",\"CreatedAt\":\"2025-09-08 12:29:51 -0500 CDT\",\"CreatedSince\":\"12 months ago\",\"Digest\":\"sha256:7d2f6a8c2071d911524f95061a0db363e24d27aa51ec831fcccf9e76eb72bc92\",\"ID\":\"sha256:d1f3dc428c537e98f04bf6957f6bbccf77a4a51cab06b6a1cba36e543b285679\",\"Repository\":\"nvidia/cuda\",\"SharedSize\":\"N/A\",\"Size\":\"6.59GB\",\"Tag\":\"13.0.1-devel-ubuntu24.04\",\"UniqueSize\":\"N/A\"}\n{\"Containers\":\"0\",\"CreatedAt\":\"2025-09-08 11:42:52 -0500 CDT\",\"CreatedSince\":\"12 months ago\",\"Digest\":\"sha256:c3fde347d52d578c84fd644bc177bc7ec333feaf11550d990da4084d7612e4c7\",\"ID\":\"sha256:55e3a0bc92ce6d14b77cd8f4a81414f2b75c6b3964b17dc452028b55e09ab168\",\"Repository\":\"nvidia/cuda\",\"SharedSize\":\"N/A\",\"Size\":\"2.55GB\",\"Tag\":\"13.0.1-runtime-ubuntu24.04\",\"UniqueSize\":\"N/A\"}\n"
+}

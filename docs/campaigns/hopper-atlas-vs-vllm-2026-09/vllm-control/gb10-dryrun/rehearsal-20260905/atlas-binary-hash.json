@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "atlas-control-binary-hash-20260905",
+    "--network",
+    "none",
+    "--entrypoint",
+    "sha256sum",
+    "avarok/atlas-gb10@sha256:faa6e5820c42dd86d0ae9e12cbaf2a2e9f32d0f7a9ab348a75ee54d4253929a6",
+    "/usr/local/bin/spark"
+  ],
+  "exit_code": 0,
+  "stdout": "df41bf3aea2a1c21c8c98c39979ab4bc84659d37604068297d351153ebdbba31  /usr/local/bin/spark\n",
+  "stderr": ""
+}

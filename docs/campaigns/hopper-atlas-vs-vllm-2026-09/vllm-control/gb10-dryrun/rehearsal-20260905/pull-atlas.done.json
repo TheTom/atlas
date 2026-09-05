@@ -1,0 +1,25 @@
+{
+  "job": {
+    "root": "/home/pidtom/atlas-vllm-control-20260905",
+    "phase": "pull-atlas",
+    "baseline_used": 845513351168,
+    "argv": [
+      "docker",
+      "pull",
+      "avarok/atlas-gb10:latest"
+    ],
+    "environment": {}
+  },
+  "before": {
+    "utc": "2026-09-05T04:27:37.124959+00:00",
+    "used": 878289846272,
+    "available": 54529966080
+  },
+  "pid": 170978,
+  "exit_code": 0,
+  "after": {
+    "utc": "2026-09-05T04:29:10.711808+00:00",
+    "used": 881149505536,
+    "available": 51670306816
+  }
+}

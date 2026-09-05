@@ -1,0 +1,271 @@
+{
+  "Id": "ed5b300671afc30e92eb9bb590a02c86efa295d8fa6377942d8614616e7ce836",
+  "Created": "2026-09-05T04:30:57.859667978Z",
+  "Path": "spark",
+  "Args": [
+    "serve",
+    "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+    "--port",
+    "8888",
+    "--max-seq-len",
+    "8192",
+    "--kv-cache-dtype",
+    "fp8",
+    "--gpu-memory-utilization",
+    "0.88",
+    "--scheduling-policy",
+    "slai",
+    "--no-tui",
+    "--enable-prefix-caching",
+    "true"
+  ],
+  "State": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 175684,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-09-05T04:30:57.8838406Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "Image": "sha256:dd2e31034f052e7f3e35b8c6cd1e435353ba0faea57915aab12499f3cec01e7d",
+  "ResolvConfPath": "/var/lib/docker/containers/ed5b300671afc30e92eb9bb590a02c86efa295d8fa6377942d8614616e7ce836/resolv.conf",
+  "HostnamePath": "/var/lib/docker/containers/ed5b300671afc30e92eb9bb590a02c86efa295d8fa6377942d8614616e7ce836/hostname",
+  "HostsPath": "/var/lib/docker/containers/ed5b300671afc30e92eb9bb590a02c86efa295d8fa6377942d8614616e7ce836/hosts",
+  "LogPath": "/var/lib/docker/containers/ed5b300671afc30e92eb9bb590a02c86efa295d8fa6377942d8614616e7ce836/ed5b300671afc30e92eb9bb590a02c86efa295d8fa6377942d8614616e7ce836-json.log",
+  "Name": "/atlas-control-nano-20260905",
+  "RestartCount": 0,
+  "Driver": "overlay2",
+  "Platform": "linux",
+  "MountLabel": "",
+  "ProcessLabel": "",
+  "AppArmorProfile": "docker-default",
+  "ExecIDs": null,
+  "HostConfig": {
+    "Binds": [
+      "/home/pidtom/atlas-vllm-control-20260905/hf:/root/.cache/huggingface"
+    ],
+    "ContainerIDFile": "",
+    "LogConfig": {
+      "Type": "json-file",
+      "Config": {}
+    },
+    "NetworkMode": "host",
+    "PortBindings": {},
+    "RestartPolicy": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    },
+    "AutoRemove": false,
+    "VolumeDriver": "",
+    "VolumesFrom": null,
+    "ConsoleSize": [
+      0,
+      0
+    ],
+    "CapAdd": null,
+    "CapDrop": null,
+    "CgroupnsMode": "private",
+    "Dns": null,
+    "DnsOptions": [],
+    "DnsSearch": [],
+    "ExtraHosts": null,
+    "GroupAdd": null,
+    "IpcMode": "host",
+    "Cgroup": "",
+    "Links": null,
+    "OomScoreAdj": 0,
+    "PidMode": "",
+    "Privileged": false,
+    "PublishAllPorts": false,
+    "ReadonlyRootfs": false,
+    "SecurityOpt": [
+      "label=disable"
+    ],
+    "UTSMode": "",
+    "UsernsMode": "",
+    "ShmSize": 67108864,
+    "Runtime": "runc",
+    "Isolation": "",
+    "CpuShares": 0,
+    "Memory": 0,
+    "NanoCpus": 0,
+    "CgroupParent": "",
+    "BlkioWeight": 0,
+    "BlkioWeightDevice": [],
+    "BlkioDeviceReadBps": [],
+    "BlkioDeviceWriteBps": [],
+    "BlkioDeviceReadIOps": [],
+    "BlkioDeviceWriteIOps": [],
+    "CpuPeriod": 0,
+    "CpuQuota": 0,
+    "CpuRealtimePeriod": 0,
+    "CpuRealtimeRuntime": 0,
+    "CpusetCpus": "",
+    "CpusetMems": "",
+    "Devices": [],
+    "DeviceCgroupRules": null,
+    "DeviceRequests": [
+      {
+        "Driver": "",
+        "Count": -1,
+        "DeviceIDs": null,
+        "Capabilities": [
+          [
+            "gpu"
+          ]
+        ],
+        "Options": {}
+      }
+    ],
+    "MemoryReservation": 0,
+    "MemorySwap": 0,
+    "MemorySwappiness": null,
+    "OomKillDisable": null,
+    "PidsLimit": null,
+    "Ulimits": [],
+    "CpuCount": 0,
+    "CpuPercent": 0,
+    "IOMaximumIOps": 0,
+    "IOMaximumBandwidth": 0,
+    "MaskedPaths": [
+      "/proc/acpi",
+      "/proc/asound",
+      "/proc/interrupts",
+      "/proc/kcore",
+      "/proc/keys",
+      "/proc/latency_stats",
+      "/proc/sched_debug",
+      "/proc/scsi",
+      "/proc/timer_list",
+      "/proc/timer_stats",
+      "/sys/devices/virtual/powercap",
+      "/sys/firmware"
+    ],
+    "ReadonlyPaths": [
+      "/proc/bus",
+      "/proc/fs",
+      "/proc/irq",
+      "/proc/sys",
+      "/proc/sysrq-trigger"
+    ]
+  },
+  "GraphDriver": {
+    "Data": {
+      "ID": "ed5b300671afc30e92eb9bb590a02c86efa295d8fa6377942d8614616e7ce836",
+      "LowerDir": "/var/lib/docker/overlay2/da85fbe491b2dbd773b87ccc4007d4e3dc2d4daf42c26baaf3cae6b11f48b8dd-init/diff:/var/lib/docker/overlay2/770e22bed87f2450d9092e0a23aa80140f8d36eeba5fc0a4d512fdec87edb7a6/diff:/var/lib/docker/overlay2/13c206d1181323277ab9453b2fb229568a27af7233dc2702013ef014f067ef64/diff:/var/lib/docker/overlay2/9fe24a8796ef037bf2cf906f047e2d093f41e0613e9092dcac2a1ec11c4bf2f8/diff:/var/lib/docker/overlay2/a91c4ca6f520020c80e9a19f8465866ea05b7fa13dd31f1b833f33ddc2319beb/diff:/var/lib/docker/overlay2/bd4c6ed3f14d714f9c3b22b2a1701f6dec502965cd0457b57003ea33aff46c13/diff:/var/lib/docker/overlay2/3341620f21ff95140676c45875426b394a8ef77938660083415238d8118243ee/diff:/var/lib/docker/overlay2/6c414899d921703e39414e49d9da2014c2ca78d997d2281e8f5b1201e527e8e6/diff:/var/lib/docker/overlay2/cbb993c629aa8465b45c43d1171c6da185f52d5b6c93c37c23d0ed7e10210d95/diff:/var/lib/docker/overlay2/4f58b2b9335ccb1d67f49d42c32edfd015c73277947bc946c1b5d5740dcec268/diff:/var/lib/docker/overlay2/2115e8f54271ba5f51a48d7ca965da810644486bbc15adcae836d3bea7b7824b/diff:/var/lib/docker/overlay2/dfa4a4d5a763ccc59d3a4416cd1ec58901fdb92cd4b598648d8222b4a6db296d/diff:/var/lib/docker/overlay2/4042d507fdb26fcf141ede9ad0a6dddf4979712fb3350a65033437fd248315a8/diff:/var/lib/docker/overlay2/5b5b51bdacaac59342bfcab1d880f106471361ffb09cdf95815b11330bfc9b67/diff:/var/lib/docker/overlay2/e7fac105a7714d8cac7b7e570f46a15f89e66dde704b7e07394309f66540d428/diff",
+      "MergedDir": "/var/lib/docker/overlay2/da85fbe491b2dbd773b87ccc4007d4e3dc2d4daf42c26baaf3cae6b11f48b8dd/merged",
+      "UpperDir": "/var/lib/docker/overlay2/da85fbe491b2dbd773b87ccc4007d4e3dc2d4daf42c26baaf3cae6b11f48b8dd/diff",
+      "WorkDir": "/var/lib/docker/overlay2/da85fbe491b2dbd773b87ccc4007d4e3dc2d4daf42c26baaf3cae6b11f48b8dd/work"
+    },
+    "Name": "overlay2"
+  },
+  "Mounts": [
+    {
+      "Type": "bind",
+      "Source": "/home/pidtom/atlas-vllm-control-20260905/hf",
+      "Destination": "/root/.cache/huggingface",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    }
+  ],
+  "Config": {
+    "Hostname": "spark2",
+    "Domainname": "",
+    "User": "",
+    "AttachStdin": false,
+    "AttachStdout": false,
+    "AttachStderr": false,
+    "ExposedPorts": {
+      "8888/tcp": {}
+    },
+    "Tty": false,
+    "OpenStdin": false,
+    "StdinOnce": false,
+    "Env": [
+      "HF_HUB_OFFLINE=1",
+      "HF_HOME=/root/.cache/huggingface",
+      "PATH=/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "NVARCH=sbsa",
+      "NVIDIA_REQUIRE_CUDA=cuda>=13.0 brand=unknown,driver>=535,driver<536 brand=grid,driver>=535,driver<536 brand=tesla,driver>=535,driver<536 brand=nvidia,driver>=535,driver<536 brand=quadro,driver>=535,driver<536 brand=quadrortx,driver>=535,driver<536 brand=nvidiartx,driver>=535,driver<536 brand=vapps,driver>=535,driver<536 brand=vpc,driver>=535,driver<536 brand=vcs,driver>=535,driver<536 brand=vws,driver>=535,driver<536 brand=cloudgaming,driver>=535,driver<536 brand=unknown,driver>=550,driver<551 brand=grid,driver>=550,driver<551 brand=tesla,driver>=550,driver<551 brand=nvidia,driver>=550,driver<551 brand=quadro,driver>=550,driver<551 brand=quadrortx,driver>=550,driver<551 brand=nvidiartx,driver>=550,driver<551 brand=vapps,driver>=550,driver<551 brand=vpc,driver>=550,driver<551 brand=vcs,driver>=550,driver<551 brand=vws,driver>=550,driver<551 brand=cloudgaming,driver>=550,driver<551 brand=unknown,driver>=565,driver<566 brand=grid,driver>=565,driver<566 brand=tesla,driver>=565,driver<566 brand=nvidia,driver>=565,driver<566 brand=quadro,driver>=565,driver<566 brand=quadrortx,driver>=565,driver<566 brand=nvidiartx,driver>=565,driver<566 brand=vapps,driver>=565,driver<566 brand=vpc,driver>=565,driver<566 brand=vcs,driver>=565,driver<566 brand=vws,driver>=565,driver<566 brand=cloudgaming,driver>=565,driver<566 brand=unknown,driver>=570,driver<571 brand=grid,driver>=570,driver<571 brand=tesla,driver>=570,driver<571 brand=nvidia,driver>=570,driver<571 brand=quadro,driver>=570,driver<571 brand=quadrortx,driver>=570,driver<571 brand=nvidiartx,driver>=570,driver<571 brand=vapps,driver>=570,driver<571 brand=vpc,driver>=570,driver<571 brand=vcs,driver>=570,driver<571 brand=vws,driver>=570,driver<571 brand=cloudgaming,driver>=570,driver<571 brand=unknown,driver>=575,driver<576 brand=grid,driver>=575,driver<576 brand=tesla,driver>=575,driver<576 brand=nvidia,driver>=575,driver<576 brand=quadro,driver>=575,driver<576 brand=quadrortx,driver>=575,driver<576 brand=nvidiartx,driver>=575,driver<576 brand=vapps,driver>=575,driver<576 brand=vpc,driver>=575,driver<576 brand=vcs,driver>=575,driver<576 brand=vws,driver>=575,driver<576 brand=cloudgaming,driver>=575,driver<576",
+      "NV_CUDA_CUDART_VERSION=13.0.48-1",
+      "CUDA_VERSION=13.0.0",
+      "LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64",
+      "NVIDIA_VISIBLE_DEVICES=all",
+      "NVIDIA_DRIVER_CAPABILITIES=compute,utility",
+      "NV_CUDA_LIB_VERSION=13.0.0-1",
+      "NV_NVTX_VERSION=13.0.39-1",
+      "NV_LIBNPP_VERSION=13.0.0.50-1",
+      "NV_LIBNPP_PACKAGE=libnpp-13-0=13.0.0.50-1",
+      "NV_LIBCUSPARSE_VERSION=12.6.2.49-1",
+      "NV_LIBCUBLAS_PACKAGE_NAME=libcublas-13-0",
+      "NV_LIBCUBLAS_VERSION=13.0.0.19-1",
+      "NV_LIBCUBLAS_PACKAGE=libcublas-13-0=13.0.0.19-1",
+      "NV_LIBNCCL_PACKAGE_NAME=libnccl2",
+      "NV_LIBNCCL_PACKAGE_VERSION=2.27.7-1",
+      "NCCL_VERSION=2.27.7-1",
+      "NV_LIBNCCL_PACKAGE=libnccl2=2.27.7-1+cuda13.0",
+      "NVIDIA_PRODUCT_NAME=CUDA",
+      "RUST_LOG=info"
+    ],
+    "Cmd": [
+      "serve",
+      "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+      "--port",
+      "8888",
+      "--max-seq-len",
+      "8192",
+      "--kv-cache-dtype",
+      "fp8",
+      "--gpu-memory-utilization",
+      "0.88",
+      "--scheduling-policy",
+      "slai",
+      "--no-tui",
+      "--enable-prefix-caching",
+      "true"
+    ],
+    "Image": "avarok/atlas-gb10@sha256:faa6e5820c42dd86d0ae9e12cbaf2a2e9f32d0f7a9ab348a75ee54d4253929a6",
+    "Volumes": null,
+    "WorkingDir": "",
+    "Entrypoint": [
+      "spark"
+    ],
+    "Labels": {
+      "maintainer": "NVIDIA CORPORATION <cudatools@nvidia.com>",
+      "org.opencontainers.image.licenses": "AGPL-3.0-only",
+      "org.opencontainers.image.ref.name": "ubuntu",
+      "org.opencontainers.image.revision": "unknown",
+      "org.opencontainers.image.version": "24.04"
+    }
+  },
+  "NetworkSettings": {
+    "SandboxID": "4d3c6a1571d6adf6e45317ee0823a17b407f7ca0466d5f8aa409913e06781fd2",
+    "SandboxKey": "/var/run/docker/netns/default",
+    "Ports": {},
+    "Networks": {
+      "host": {
+        "IPAMConfig": null,
+        "Links": null,
+        "Aliases": null,
+        "DriverOpts": null,
+        "GwPriority": 0,
+        "NetworkID": "6c7188d62d1f6eab536d112448490325f9f01e9b769f9a24e44b6b3a4369466e",
+        "EndpointID": "bc2c85f474ab1681d3d832c87131fe287781a5c98524affc3ad2cc48e46dc0f2",
+        "Gateway": "",
+        "IPAddress": "",
+        "MacAddress": "",
+        "IPPrefixLen": 0,
+        "IPv6Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "DNSNames": null
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "root": "/home/pidtom/atlas-vllm-control-20260905",
+  "phase": "download-nano",
+  "baseline_used": 845513351168,
+  "argv": [
+    "/home/pidtom/atlas-vllm-control-20260905/venv/bin/hf",
+    "download",
+    "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+    "--revision",
+    "9bee19446c0dfd01f356e10979d225b2a6621944",
+    "--cache-dir",
+    "/home/pidtom/atlas-vllm-control-20260905/hf/hub",
+    "--max-workers",
+    "4"
+  ],
+  "environment": {
+    "HF_HOME": "/home/pidtom/atlas-vllm-control-20260905/hf",
+    "HF_HUB_DISABLE_XET": "1",
+    "HF_HUB_DISABLE_PROGRESS_BARS": "1"
+  }
+}

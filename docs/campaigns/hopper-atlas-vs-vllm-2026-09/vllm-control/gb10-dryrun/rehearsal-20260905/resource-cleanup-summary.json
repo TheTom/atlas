@@ -1,0 +1,62 @@
+{
+  "scope": "GB10 rehearsal only; not Hopper data",
+  "initial_used_bytes": 845513351168,
+  "initial_available_bytes": 87306461184,
+  "final_used_bytes": 845532073984,
+  "final_available_bytes": 87287738368,
+  "final_used_delta_bytes": 18722816,
+  "final_delta_attribution": "Root filesystem delta includes host activity and filesystem/Docker metadata; not an allocation attribution. All task-owned named objects were removed.",
+  "resource_samples": 9114,
+  "sampled_peak_new_used_bytes": 54198362112,
+  "sampled_min_available_bytes": 33108099072,
+  "peak_sample": {
+    "utc": "2026-09-05T04:07:58.340093+00:00",
+    "used": 899711713280,
+    "available": 33108099072,
+    "source": "remote-evidence/vllm-runtime.resources.jsonl"
+  },
+  "minimum_available_sample": {
+    "utc": "2026-09-05T04:07:58.340093+00:00",
+    "used": 899711713280,
+    "available": 33108099072,
+    "source": "remote-evidence/vllm-runtime.resources.jsonl"
+  },
+  "new_usage_limit_bytes": 70000000000,
+  "free_floor_bytes": 12000000000,
+  "guard_new_usage_stop_bytes": 65000000000,
+  "guard_free_stop_bytes": 17000000000,
+  "guard_sample_interval_seconds": 0.5,
+  "sampling_note": "Observed samples and 5 GB soft-stop margins; not a continuous filesystem trace.",
+  "limits_passed_at_every_observed_sample": true,
+  "initial_images_preserved": true,
+  "remaining_image_ids": [
+    "sha256:3430d6614a8e2925f34d059af6caf05aff42387326db4d05639a60f10f2654d8",
+    "sha256:55e3a0bc92ce6d14b77cd8f4a81414f2b75c6b3964b17dc452028b55e09ab168",
+    "sha256:d1f3dc428c537e98f04bf6957f6bbccf77a4a51cab06b6a1cba36e543b285679"
+  ],
+  "containers_before_count": 0,
+  "containers_after_count": 0,
+  "task_root_absent": true,
+  "download_df_receipts": [
+    {
+      "job": "install-client-deps",
+      "before": "install-client-deps.before.df.txt",
+      "after": "install-client-deps.after.df.txt"
+    },
+    {
+      "job": "download-nano",
+      "before": "download-nano.before.df.txt",
+      "after": "download-nano.after.df.txt"
+    },
+    {
+      "job": "pull-vllm",
+      "before": "pull-vllm.before.df.txt",
+      "after": "pull-vllm.after.df.txt"
+    },
+    {
+      "job": "pull-atlas",
+      "before": "pull-atlas.before.df.txt",
+      "after": "pull-atlas.after.df.txt"
+    }
+  ]
+}

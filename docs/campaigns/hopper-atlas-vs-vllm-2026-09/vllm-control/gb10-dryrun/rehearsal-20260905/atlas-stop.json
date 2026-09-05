@@ -1,0 +1,29 @@
+{
+  "cache_ownership": {
+    "argv": [
+      "docker",
+      "exec",
+      "atlas-control-nano-20260905",
+      "chown",
+      "-R",
+      "1000:1000",
+      "/root/.cache/huggingface"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "stop": {
+    "argv": [
+      "docker",
+      "stop",
+      "--timeout",
+      "30",
+      "atlas-control-nano-20260905"
+    ],
+    "exit_code": 0,
+    "stdout": "atlas-control-nano-20260905\n",
+    "stderr": ""
+  },
+  "df_after_stop": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  821G   49G  95% /\n"
+}

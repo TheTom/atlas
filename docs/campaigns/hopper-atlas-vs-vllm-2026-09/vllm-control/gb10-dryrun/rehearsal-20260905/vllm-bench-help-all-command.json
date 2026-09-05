@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "vllm-control-help-all-20260905",
+    "--network",
+    "none",
+    "--entrypoint",
+    "vllm",
+    "vllm/vllm-openai@sha256:f8fe15a8039343336945db10494eaad80ef941fe2b2a5fa6649fa38636051a65",
+    "bench",
+    "serve",
+    "--help=all"
+  ],
+  "exit_code": 0
+}
