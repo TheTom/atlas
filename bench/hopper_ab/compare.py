@@ -7,7 +7,9 @@ tok/s, TTFT p50/p99, TPOT p50, the Atlas/vLLM ratio, and WIN, TIE or LOSS.
 
 ★ The fairness oracle is the reason this exists rather than a spreadsheet.
 Before it compares anything it refuses two files whose workload axes disagree:
-isl, osl, temperature, seed, chat_template_kwargs. That failure is otherwise
+isl, osl, temperature, seed, chat_template_kwargs, reps, warmup and driver hash.
+The hash is the ladder client source, including its penalty and nonce pins;
+it is not the server's version. That failure is otherwise
 SILENT -- two legs run days apart with one flag changed produce a table that
 looks exactly like a valid one, and the only trace is a number that seems
 surprising. `bench/ladder38/published.json` carries a whole `harness_shas`
@@ -30,9 +32,11 @@ import sys
 # The workload axes that must agree for two runs to be comparable at all.
 #
 # Every one of these changes what was measured, not how well it went. Anything
-# NOT in this list -- label, url, model, driver sha, timestamps -- may differ:
-# the two legs are two engines, so they are supposed to differ there.
-PARITY_KEYS = ("isl", "osl", "temperature", "seed", "chat_template_kwargs")
+# NOT in this list -- label, url, served-model alias, timestamps -- may differ.
+# Model revision, server speculation and hardware require separate artifacts:
+# the ladder does not emit them, and header equality cannot certify them.
+PARITY_KEYS = ("isl", "osl", "temperature", "seed", "chat_template_kwargs",
+               "reps", "warmup", "driver_sha256")
 
 
 class Mismatch(Exception):
@@ -44,6 +48,21 @@ def load(path):
     if "rungs" not in d:
         raise Mismatch(f"{path}: no 'rungs' -- not a harness_w55_conc_ladder.py output")
     return d
+
+
+def valid_header_value(key, value):
+    if key in ("isl", "osl", "reps", "warmup"):
+        return type(value) is int and value >= (0 if key == "warmup" else 1)
+    if key == "temperature":
+        return finite_number(value) and value >= 0
+    if key == "seed":
+        return type(value) is int
+    if key == "chat_template_kwargs":
+        return isinstance(value, dict) and type(value.get("enable_thinking")) is bool
+    if key == "driver_sha256":
+        return (isinstance(value, str) and len(value) == 64
+                and all(c in "0123456789abcdef" for c in value))
+    raise ValueError(f"no validation for parity key {key}")
 
 
 def assert_comparable(a, b, a_name="atlas", b_name="vllm"):
@@ -60,6 +79,8 @@ def assert_comparable(a, b, a_name="atlas", b_name="vllm"):
                 f"{key}: {a_name}={a.get(key, '<absent>')!r} {b_name}={b.get(key, '<absent>')!r} "
                 "(absent is not a match -- the run cannot show it used this value)"
             )
+        elif not valid_header_value(key, a[key]) or not valid_header_value(key, b[key]):
+            problems.append(f"{key}: invalid header value: {a_name}={a[key]!r} {b_name}={b[key]!r}")
         elif a[key] != b[key]:
             problems.append(f"{key}: {a_name}={a[key]!r} vs {b_name}={b[key]!r}")
     if problems:
@@ -306,6 +327,28 @@ def selftest():
             pass
         else:
             failures.append(f"rung identity oracle: {name} rungs must be refused")
+    # The ladder header pins rep counts and its full request-body source hash.
+    for key, changed in (("reps", 3), ("warmup", 0), ("driver_sha256", "1" * 64)):
+        for name, bad in (("changed", {**atlas, key: changed}),
+                          ("absent", {k: v for k, v in atlas.items() if k != key})):
+            try:
+                compare(atlas, bad)
+            except Mismatch as e:
+                assert key in str(e), e
+            except (KeyError, TypeError) as e:
+                failures.append(f"header oracle: {name} {key} must be REFUSED, not crash: {e}")
+            else:
+                failures.append(f"header oracle: {name} {key} must be REFUSED")
+    for key, value in (("isl", 0), ("osl", 0), ("reps", 0), ("warmup", -1),
+                       ("temperature", None), ("seed", None),
+                       ("chat_template_kwargs", None), ("driver_sha256", "")):
+        bad = {**atlas, key: value}
+        try:
+            compare(bad, copy.deepcopy(bad))
+        except Mismatch as e:
+            assert key in str(e), e
+        else:
+            failures.append(f"header oracle: equal invalid {key} must not establish parity")
     for failure in failures:
         print("FAIL:", failure)
     assert not failures, "; ".join(failures)
