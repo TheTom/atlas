@@ -1,0 +1,53 @@
+{
+  "timestamp_utc": "2026-09-05T05:04:27.855269+00:00",
+  "checks": [
+    {
+      "name": "readiness",
+      "argv": [
+        "bash",
+        "bench/hopper_ab/time_to_ready.sh",
+        "--selftest"
+      ],
+      "exit_code": 0,
+      "log": "readiness-post-rebase.log"
+    },
+    {
+      "name": "coherency",
+      "argv": [
+        "python3",
+        "bench/hopper_ab/coherency_gate.py",
+        "--selftest"
+      ],
+      "exit_code": 0,
+      "log": "coherency-post-rebase.log"
+    },
+    {
+      "name": "compare",
+      "argv": [
+        "python3",
+        "bench/hopper_ab/compare.py",
+        "--selftest"
+      ],
+      "exit_code": 0,
+      "log": "compare-post-rebase.log"
+    },
+    {
+      "name": "assemble",
+      "argv": [
+        "python3",
+        "bench/hopper_ab/assemble.py",
+        "--selftest"
+      ],
+      "exit_code": 0,
+      "log": "assemble-post-rebase.log"
+    }
+  ],
+  "all_passed": true,
+  "source_hashes": {
+    "bench/hopper_ab/time_to_ready.sh": "8afd7063523ed589d8530ce596334b1b317eb98d18d22aca18937f0cb5d48464",
+    "bench/hopper_ab/coherency_gate.py": "e266a8086fa48ee315ec00ac85b119321d582dc91fb8dc90c52d3a243e4f2f2e",
+    "bench/hopper_ab/compare.py": "777835df7c383c625b32b5c1a57efa841b2e3acef64b3ce0f6b644956a6c6b0c",
+    "bench/hopper_ab/assemble.py": "84de07456fdaebc75c2f54eca2ea476bee6889dbb89e3604fd63397d53277fbe",
+    "bench/ladder38/harness_w55_conc_ladder.py": "7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb"
+  }
+}

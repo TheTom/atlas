@@ -1,0 +1,45 @@
+{
+  "creator": 34668080,
+  "id": 1284134386,
+  "images": [
+    {
+      "architecture": "amd64",
+      "features": "",
+      "variant": null,
+      "digest": "sha256:ffaf945675c81fa7ed3e6a66c7c2d7189dd012614e2c961fac1c2702a7ba04be",
+      "os": "linux",
+      "os_features": "",
+      "os_version": null,
+      "size": 8634175446,
+      "status": "active",
+      "last_pulled": "2026-09-05T02:35:02.788173987Z",
+      "last_pushed": "2026-08-26T09:11:18.915032977Z"
+    },
+    {
+      "architecture": "arm64",
+      "features": "",
+      "variant": null,
+      "digest": "sha256:41b54fb42c66a670a8b27e613ebef05898f24b9ab1bdab28bd00c877bd4935f4",
+      "os": "linux",
+      "os_features": "",
+      "os_version": null,
+      "size": 9701495723,
+      "status": "active",
+      "last_pulled": "2026-09-05T02:35:01.743320309Z",
+      "last_pushed": "2026-08-26T09:20:43.271206436Z"
+    }
+  ],
+  "last_updated": "2026-08-26T09:20:48.849154Z",
+  "last_updater": 34668080,
+  "last_updater_username": "vllmbot",
+  "name": "v0.28.0-ubuntu2404",
+  "repository": 22490489,
+  "full_size": 9701495723,
+  "v2": true,
+  "tag_status": "active",
+  "tag_last_pulled": "2026-09-05T02:35:02.788173987Z",
+  "tag_last_pushed": "2026-08-26T09:20:48.849154Z",
+  "media_type": "application/vnd.docker.distribution.manifest.list.v2+json",
+  "content_type": "image",
+  "digest": "sha256:f8fe15a8039343336945db10494eaad80ef941fe2b2a5fa6649fa38636051a65"
+}

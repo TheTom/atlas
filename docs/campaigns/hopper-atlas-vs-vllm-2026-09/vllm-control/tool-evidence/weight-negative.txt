@@ -1,0 +1,5 @@
+PASS negative: missing size rejected: missing or invalid file size
+PASS negative: LFS pointer/payload mismatch rejected: LFS payload size differs
+PASS negative: incorrect total rejected: all_files_bytes differs from saved API metadata
+PASS negative: wrong revision rejected: revision differs
+PASS positive: 13 total bytes includes 10 safetensors bytes plus 3 config bytes

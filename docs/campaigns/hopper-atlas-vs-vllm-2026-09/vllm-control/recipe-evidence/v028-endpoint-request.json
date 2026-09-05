@@ -1,0 +1,29 @@
+{
+  "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.28.0/vllm/benchmarks/lib/endpoint_request_func.py",
+  "retrieved_utc": "2026-09-05T02:52:33.645590+00:00",
+  "status": 200,
+  "sha256": "1144469df5e1ded48dcd1c6b8720f329e46b4e2653b5c2a4f9b5961927f274a6",
+  "excerpts": [
+    {
+      "start_line": 158,
+      "end_line": 162,
+      "text": "async def async_request_openai_completions(\n    request_func_input: RequestFuncInput,\n    session: aiohttp.ClientSession,\n    pbar: tqdm | None = None,\n) -> RequestFuncOutput:"
+    },
+    {
+      "start_line": 196,
+      "end_line": 199,
+      "text": "    generated_text = \"\"\n    st = time.perf_counter()\n    output.start_time = st\n    most_recent_timestamp = st"
+    },
+    {
+      "start_line": 219,
+      "end_line": 247,
+      "text": "                        chunk = message.removeprefix(\"data: \")\n\n                        if chunk != \"[DONE]\":\n                            data = json.loads(chunk)\n\n                            # NOTE: Some completion API might have a last\n                            # usage summary response without a token so we\n                            # want to check a token was generated\n                            if choices := data.get(\"choices\"):\n                                # Note that text could be empty here\n                                # e.g. for special tokens\n                                text = choices[0].get(\"text\")\n                                timestamp = time.perf_counter()\n                                # First token\n                                if not first_chunk_received:\n                                    first_chunk_received = True\n                                    ttft = time.perf_counter() - st\n                                    output.ttft = ttft\n\n                                # Decoding phase\n                                else:\n                                    output.itl.append(timestamp - most_recent_timestamp)\n\n                                most_recent_timestamp = timestamp\n                                generated_text += text or \"\"\n                            elif usage := data.get(\"usage\"):\n                                output.output_tokens = usage.get(\"completion_tokens\")\n                                if (pt := usage.get(\"prompt_tokens\")) is not None:\n                                    output.prompt_len = pt"
+    },
+    {
+      "start_line": 248,
+      "end_line": 257,
+      "text": "                if first_chunk_received:\n                    output.success = True\n                else:\n                    output.success = False\n                    output.error = (\n                        \"Never received a valid chunk to calculate TTFT.\"\n                        \"This response will be marked as failed!\"\n                    )\n                output.generated_text = generated_text\n                output.latency = most_recent_timestamp - st"
+    }
+  ],
+  "stored_content": "Selected excerpts; sha256 hashes the original complete HTTP response body."
+}

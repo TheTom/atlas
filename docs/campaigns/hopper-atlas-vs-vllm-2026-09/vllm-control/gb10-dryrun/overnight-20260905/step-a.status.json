@@ -1,0 +1,17 @@
+{
+  "step": "A",
+  "status": "COMPLETED_WITH_FAILURE_FINDINGS",
+  "execution": "CARRIED_FORWARD_ALREADY_COMPLETED_REHEARSAL",
+  "reason": "The identical requested engine sequence was executed immediately before this follow-on; per the no-retry policy, preserve Atlas coherency failure rather than repeat or tune it.",
+  "scope": "GB10 rehearsal data only; not Hopper data",
+  "results": "../rehearsal-20260905/execution-status.json",
+  "report": "../../REPORT.md",
+  "cleanup": "../rehearsal-20260905/resource-cleanup-summary.json",
+  "vllm_ladder_cells": 8,
+  "vllm_passed_cells": 7,
+  "vllm_failed_cells": 1,
+  "atlas_ladder_cells": 0,
+  "atlas_stop_reason": "FAIL_TOOLCALL_COHERENCY",
+  "both_containers_images_and_nano_removed": true,
+  "end_of_step_df": "step-a-end-df.json"
+}

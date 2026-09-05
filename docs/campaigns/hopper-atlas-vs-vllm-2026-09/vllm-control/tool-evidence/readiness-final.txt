@@ -1,0 +1,170 @@
+{
+  "schema": 1,
+  "engine": "selftest",
+  "url": "http://127.0.0.1:51175",
+  "model": "stub-model",
+  "start_epoch": 1788576991.7515168,
+  "time_to_ready_s": 2.037,
+  "first_token_s": 0.009,
+  "polls": 3,
+  "http_codes_seen": [
+    "503",
+    "200"
+  ],
+  "timeout_s": 30.0,
+  "status": "ready",
+  "passed": true,
+  "total_s": 2.046
+}
+SELFTEST OK: measured 2.037 s over 3 polls ['503', '200']
+{
+  "clean": {
+    "exit_code": 0,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:51190/clean",
+      "model": "stub-model",
+      "start_epoch": 1788576993.883564,
+      "time_to_ready_s": 0.043,
+      "first_token_s": 0.009,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "ready",
+      "passed": true,
+      "total_s": 0.052
+    }
+  },
+  "http500": {
+    "exit_code": 1,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:51190/http500",
+      "model": "stub-model",
+      "start_epoch": 1788576993.939286,
+      "time_to_ready_s": 0.042,
+      "first_token_s": null,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "first-token-failed",
+      "passed": false,
+      "total_s": 0.051,
+      "detail": "curl exit 22: curl: (22) The requested URL returned error: 500"
+    }
+  },
+  "error200": {
+    "exit_code": 1,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:51190/error200",
+      "model": "stub-model",
+      "start_epoch": 1788576993.9943428,
+      "time_to_ready_s": 0.04,
+      "first_token_s": null,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "first-token-failed",
+      "passed": false,
+      "total_s": 0.049,
+      "detail": "invalid first-token completion: completion returned an error or a non-object"
+    }
+  },
+  "empty": {
+    "exit_code": 1,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:51190/empty",
+      "model": "stub-model",
+      "start_epoch": 1788576994.047895,
+      "time_to_ready_s": 0.041,
+      "first_token_s": null,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "first-token-failed",
+      "passed": false,
+      "total_s": 0.051,
+      "detail": "invalid first-token completion: empty first-token reply"
+    }
+  },
+  "invalid": {
+    "exit_code": 1,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:51190/invalid",
+      "model": "stub-model",
+      "start_epoch": 1788576994.102487,
+      "time_to_ready_s": 0.041,
+      "first_token_s": null,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "first-token-failed",
+      "passed": false,
+      "total_s": 0.049,
+      "detail": "invalid first-token completion: Expecting value: line 1 column 1 (char 0)"
+    }
+  },
+  "expired": {
+    "exit_code": 1,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:51190/expired",
+      "model": "stub-model",
+      "start_epoch": 1788576992.155433,
+      "time_to_ready_s": null,
+      "first_token_s": null,
+      "polls": 0,
+      "http_codes_seen": [],
+      "timeout_s": 0.4,
+      "status": "timeout",
+      "passed": false,
+      "total_s": 2.032,
+      "detail": "health did not pass within process-start deadline"
+    }
+  },
+  "slow": {
+    "exit_code": 1,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:51190/slow",
+      "model": "stub-model",
+      "start_epoch": 1788576994.190877,
+      "time_to_ready_s": 0.053,
+      "first_token_s": null,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 0.4,
+      "status": "timeout",
+      "passed": false,
+      "total_s": 0.415,
+      "detail": "first completion exceeded process-start deadline"
+    }
+  },
+  "unwritable-artifact": {
+    "exit_code": 1,
+    "stderr": "tee: /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp5nqyrsgv/missing/boot.json: No such file or directory\n"
+  }
+}
+SELFTEST OK: HTTP500, error JSON, empty/invalid replies, expired and slow boots refused; sampling pinned

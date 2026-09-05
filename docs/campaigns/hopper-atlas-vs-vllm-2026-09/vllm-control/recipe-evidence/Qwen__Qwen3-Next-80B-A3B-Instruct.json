@@ -1,0 +1,131 @@
+{
+  "url": "https://recipes.vllm.ai/Qwen/Qwen3-Next-80B-A3B-Instruct.json",
+  "retrieved_utc": "2026-09-05T02:40:06.081466+00:00",
+  "status": 200,
+  "final_url": "https://recipes.vllm.ai/Qwen/Qwen3-Next-80B-A3B-Instruct.json",
+  "sha256": "b6fd42eb167f4bdbad76ae4ded1f83545ccdcd7ab1555ee36df9c5851547dce4",
+  "data": {
+    "hf_id": "Qwen/Qwen3-Next-80B-A3B-Instruct",
+    "model": {
+      "model_id": "Qwen/Qwen3-Next-80B-A3B-Instruct",
+      "min_vllm_version": "0.17.0",
+      "architecture": "moe",
+      "parameter_count": "80B",
+      "active_parameters": "3B",
+      "context_length": 262144,
+      "base_args": [],
+      "base_env": {},
+      "install": {
+        "pip": {
+          "command": "uv venv\nsource .venv/bin/activate\nuv pip install -U vllm --torch-backend auto"
+        },
+        "docker": {
+          "command": "docker pull vllm/vllm-openai:latest"
+        }
+      }
+    },
+    "features": {
+      "tool_calling": {
+        "description": "Enable automatic tool choice with Hermes parser",
+        "args": [
+          "--enable-auto-tool-choice",
+          "--tool-call-parser",
+          "hermes"
+        ]
+      },
+      "spec_decoding": {
+        "description": "Multi-token prediction speculative decoding for lower latency",
+        "args": [
+          "--speculative-config",
+          "{\"method\":\"qwen3_next_mtp\",\"num_speculative_tokens\":2}",
+          "--no-enable-chunked-prefill"
+        ]
+      }
+    },
+    "opt_in_features": [
+      "spec_decoding"
+    ],
+    "variants": {
+      "default": {
+        "precision": "bf16",
+        "vram_minimum_gb": 192,
+        "description": "Full precision BF16 \u2014 fits on 4x H200/H20/A100/A800"
+      },
+      "fp8": {
+        "model_id": "Qwen/Qwen3-Next-80B-A3B-Instruct-FP8",
+        "precision": "fp8",
+        "vram_minimum_gb": 96,
+        "description": "Qwen official FP8 checkpoint \u2014 recommended on SM90/SM100",
+        "json": "/Qwen/Qwen3-Next-80B-A3B-Instruct-FP8.json"
+      },
+      "nvfp4": {
+        "model_id": "nvidia/Qwen3-Next-80B-A3B-Instruct-NVFP4",
+        "precision": "nvfp4",
+        "vram_minimum_gb": 48,
+        "description": "NVIDIA NVFP4 quantized weights for Blackwell GPUs",
+        "extra_args": [
+          "--kv-cache-dtype",
+          "fp8"
+        ],
+        "json": "/nvidia/Qwen3-Next-80B-A3B-Instruct-NVFP4.json"
+      }
+    },
+    "hardware_overrides": {
+      "blackwell": {
+        "extra_args": [
+          "--moe-backend",
+          "flashinfer_trtllm",
+          "--attention-backend",
+          "FLASH_ATTN"
+        ],
+        "extra_env": {
+          "VLLM_USE_DEEP_GEMM": "0"
+        }
+      }
+    },
+    "meta": {
+      "title": "Qwen3-Next-80B-A3B-Instruct",
+      "date_added": "2025-09-11",
+      "date_updated": "2026-04-17",
+      "hardware": {
+        "h200": "verified",
+        "mi300x": "verified",
+        "mi325x": "verified",
+        "mi355x": "verified"
+      }
+    },
+    "recommended_command": {
+      "hardware": "h200",
+      "strategy": "single_node_tp",
+      "variant": "default",
+      "node_count": 1,
+      "deploy_type": "single_node",
+      "env": {},
+      "docker_image": "vllm/vllm-openai:latest",
+      "command": "vllm serve Qwen/Qwen3-Next-80B-A3B-Instruct \\\n  --tensor-parallel-size 8 \\\n  --enable-auto-tool-choice \\\n  --tool-call-parser hermes",
+      "argv": [
+        "vllm",
+        "serve",
+        "Qwen/Qwen3-Next-80B-A3B-Instruct",
+        "--tensor-parallel-size",
+        "8",
+        "--enable-auto-tool-choice",
+        "--tool-call-parser",
+        "hermes"
+      ],
+      "by_hardware": {
+        "h200": "/Qwen/Qwen3-Next-80B-A3B-Instruct/hw/h200.json",
+        "h100": "/Qwen/Qwen3-Next-80B-A3B-Instruct/hw/h100.json",
+        "b200": "/Qwen/Qwen3-Next-80B-A3B-Instruct/hw/b200.json",
+        "gb200": "/Qwen/Qwen3-Next-80B-A3B-Instruct/hw/gb200.json",
+        "b300": "/Qwen/Qwen3-Next-80B-A3B-Instruct/hw/b300.json",
+        "gb300": "/Qwen/Qwen3-Next-80B-A3B-Instruct/hw/gb300.json",
+        "mi300x": "/Qwen/Qwen3-Next-80B-A3B-Instruct/hw/mi300x.json",
+        "mi325x": "/Qwen/Qwen3-Next-80B-A3B-Instruct/hw/mi325x.json",
+        "mi355x": "/Qwen/Qwen3-Next-80B-A3B-Instruct/hw/mi355x.json"
+      }
+    },
+    "guide_excerpts": []
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

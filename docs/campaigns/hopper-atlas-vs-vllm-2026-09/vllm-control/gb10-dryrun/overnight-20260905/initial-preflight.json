@@ -1,0 +1,57 @@
+{
+  "timestamp_utc": "2026-09-05T05:02:36.772962+00:00",
+  "gpu": {
+    "argv": [
+      "nvidia-smi"
+    ],
+    "exit_code": 0,
+    "stdout": "Sat Sep  5 00:02:36 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 580.173.02             Driver Version: 580.173.02     CUDA Version: 13.0     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GB10                    On  |   0000000F:01:00.0 Off |                  N/A |\n| N/A   58C    P0             13W /  N/A  | Not Supported          |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|    0   N/A  N/A            2649      G   /usr/lib/xorg/Xorg                       18MiB |\n|    0   N/A  N/A            2748      G   /usr/bin/gnome-shell                      6MiB |\n+-----------------------------------------------------------------------------------------+\n",
+    "stderr": ""
+  },
+  "containers": {
+    "argv": [
+      "docker",
+      "ps",
+      "--no-trunc"
+    ],
+    "exit_code": 0,
+    "stdout": "CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES\n",
+    "stderr": ""
+  },
+  "df_h": {
+    "argv": [
+      "df",
+      "-h",
+      "/"
+    ],
+    "exit_code": 0,
+    "stdout": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  802G   68G  93% /\n",
+    "stderr": ""
+  },
+  "df_bytes": {
+    "argv": [
+      "df",
+      "-B1",
+      "/"
+    ],
+    "exit_code": 0,
+    "stdout": "Filesystem        1B-blocks         Used   Available Use% Mounted on\n/dev/nvme0n1p2 982819848192 860097490944 72722321408  93% /\n",
+    "stderr": ""
+  },
+  "memory": {
+    "argv": [
+      "free",
+      "-b"
+    ],
+    "exit_code": 0,
+    "stdout": "               total        used        free      shared  buff/cache   available\nMem:     130596184064  9622388736 106547257344     1372160 16142254080 120973795328\nSwap:    17179865088   197279744 16982585344\n",
+    "stderr": ""
+  },
+  "qwen_cache_candidates": [
+    {
+      "path": "/home/pidtom/.cache/huggingface/hub/models--unsloth--Qwen3.8-27B-NVFP4",
+      "exists": false
+    }
+  ],
+  "atlas_gates_exists": false
+}

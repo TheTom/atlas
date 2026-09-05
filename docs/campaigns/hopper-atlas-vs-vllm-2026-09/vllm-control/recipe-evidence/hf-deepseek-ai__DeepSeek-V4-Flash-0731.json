@@ -1,0 +1,21 @@
+{
+  "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731/raw/main/README.md",
+  "retrieved_utc": "2026-09-05T02:41:39.297137+00:00",
+  "status": 200,
+  "final_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731/raw/main/README.md",
+  "sha256": "252acafdc9204d0dba3fde1b0a93d71cd1664a4ceadfe222b60117ed0ccc56ff",
+  "vllm_command_blocks": [
+    "vllm serve deepseek-ai/DeepSeek-V4-Flash-0731 \\\n  --trust-remote-code --kv-cache-dtype fp8 --block-size 256 \\\n  --data-parallel-size 4 --enable-expert-parallel \\\n  --moe-backend deep_gemm_mega_moe \\\n  --attention-config '{\"use_fp4_indexer_cache\": true}' \\\n  --speculative-config '{\"method\":\"dspark\",\"num_speculative_tokens\":7,\"draft_sample_method\":\"greedy\"}'"
+  ],
+  "card_excerpts": [
+    {
+      "line": 72,
+      "text": "The `reasoning_effort` parameter now supports three levels \u2014 `low`, `high`, and `max` \u2014 which control how much deliberation the model spends before answering."
+    },
+    {
+      "line": 86,
+      "text": "prompt = encode_messages(messages, thinking_mode=\"thinking\", reasoning_effort=\"max\")"
+    }
+  ],
+  "stored_content": "Selected excerpts; sha256 hashes the original complete HTTP response body."
+}

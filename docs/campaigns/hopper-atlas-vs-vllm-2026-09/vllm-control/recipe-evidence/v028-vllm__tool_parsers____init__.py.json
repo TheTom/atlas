@@ -1,0 +1,14 @@
+{
+  "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.28.0/vllm/tool_parsers/__init__.py",
+  "retrieved_utc": "2026-09-05T02:43:42.886038+00:00",
+  "status": 200,
+  "sha256": "20fed55878cafcc9ad4af9155a830ce661e535bdc0a1fedbefcbebeb0d1be7d1",
+  "excerpts": [
+    {
+      "start_line": 173,
+      "end_line": 180,
+      "text": "    \"qwen3_coder\": (\n        \"qwen3_engine_tool_parser\",\n        \"Qwen3EngineToolParser\",\n    ),\n    \"qwen3_xml\": (\n        \"qwen3_engine_tool_parser\",\n        \"Qwen3EngineToolParser\",\n    ),"
+    }
+  ],
+  "stored_content": "Selected excerpts; sha256 hashes the original complete HTTP response body."
+}

@@ -1,0 +1,201 @@
+{
+  "url": "https://recipes.vllm.ai/zai-org/GLM-5.2.json",
+  "retrieved_utc": "2026-09-05T02:40:06.563148+00:00",
+  "status": 200,
+  "final_url": "https://recipes.vllm.ai/zai-org/GLM-5.2.json",
+  "sha256": "8003b7fc815e9be560b71580a04eb3f1b85e8e41e6b0219830bd78b5bb99b768",
+  "data": {
+    "hf_id": "zai-org/GLM-5.2",
+    "model": {
+      "model_id": "zai-org/GLM-5.2",
+      "min_vllm_version": "0.23.0",
+      "docker_image": {
+        "nvidia": "vllm/vllm-openai:v0.28.0",
+        "amd": "vllm/vllm-openai-rocm:nightly-4c626633159887b0f2c962058c17c78f1434556d"
+      },
+      "architecture": "moe",
+      "parameter_count": "743B",
+      "active_parameters": "39B",
+      "context_length": 1048576,
+      "base_args": [
+        "--kv-cache-dtype",
+        "fp8_e4m3"
+      ],
+      "base_env": {},
+      "install": {
+        "pip": {
+          "command": "uv venv\nsource .venv/bin/activate\nuv pip install -U vllm --torch-backend auto"
+        },
+        "docker": {
+          "command": "docker pull vllm/vllm-openai:v0.28.0"
+        }
+      }
+    },
+    "features": {
+      "tool_calling": {
+        "description": "GLM-4.7 tool call parser with automatic tool choice",
+        "args": [
+          "--tool-call-parser",
+          "glm47",
+          "--enable-auto-tool-choice"
+        ]
+      },
+      "reasoning": {
+        "description": "GLM-4.5 reasoning parser \u2014 thinking mode enabled by default on requests",
+        "args": [
+          "--reasoning-parser",
+          "glm45"
+        ]
+      },
+      "spec_decoding": {
+        "description": "Multi-Token Prediction speculative decoding (up to 7 draft tokens)",
+        "default_mode": "mtp",
+        "modes": {
+          "mtp": {
+            "label": "MTP",
+            "description": "Built-in Multi-Token Prediction, 5 draft tokens.",
+            "variants": [
+              "default",
+              "nvfp4",
+              "bf16",
+              "mxfp4"
+            ],
+            "args": [
+              "--speculative-config",
+              "{\"method\":\"mtp\",\"num_speculative_tokens\":5}"
+            ]
+          },
+          "dspark": {
+            "label": "DSpark",
+            "description": "DSpark drafting with an externally trained 7-token draft model; the served GLM checkpoint is unchanged.",
+            "variants": [
+              "default"
+            ],
+            "args": [
+              "--speculative-config",
+              "{\"model\": \"RedHatAI/GLM-5.2-speculator.dspark\",\"num_speculative_tokens\": 7,\"method\": \"dspark\"}"
+            ]
+          }
+        }
+      }
+    },
+    "opt_in_features": [
+      "spec_decoding"
+    ],
+    "variants": {
+      "default": {
+        "model_id": "zai-org/GLM-5.2-FP8",
+        "precision": "fp8",
+        "vram_minimum_gb": 893,
+        "description": "Native FP8 checkpoint \u2014 8xH200/H20 (141GB \u00d7 8) single-node serving",
+        "json": "/zai-org/GLM-5.2-FP8.json"
+      },
+      "mxfp4": {
+        "model_id": "amd/GLM-5.2-MXFP4",
+        "precision": "mxfp4",
+        "vram_minimum_gb": 446,
+        "supported_hardware": [
+          "mi355x"
+        ],
+        "description": "AMD Quark MXFP4 checkpoint \u2014 MoE weights quantized for MI355X (gfx950)",
+        "hardware_overrides": {
+          "mi355x": {
+            "extra_args": [
+              "--trust-remote-code"
+            ],
+            "extra_env": {
+              "VLLM_USE_V2_MODEL_RUNNER": "1",
+              "VLLM_ROCM_USE_AITER_FP8BMM": "0",
+              "VLLM_ROCM_USE_AITER_FP4BMM": "0"
+            }
+          }
+        },
+        "json": "/amd/GLM-5.2-MXFP4.json"
+      },
+      "nvfp4": {
+        "model_id": "nvidia/GLM-5.2-NVFP4",
+        "precision": "nvfp4",
+        "vram_minimum_gb": 558,
+        "description": "NVIDIA modelopt NVFP4 checkpoint \u2014 only MoE expert linears are quantized to NVFP4; shared experts, attention, embeddings, and the early dense layers stay FP8/BF16, with FP8 KV cache. Blackwell GPUs (B200/B300) only.",
+        "json": "/nvidia/GLM-5.2-NVFP4.json"
+      },
+      "bf16": {
+        "precision": "bf16",
+        "vram_minimum_gb": 1786,
+        "description": "Full precision BF16 \u2014 requires multi-node deployment"
+      }
+    },
+    "hardware_overrides": {
+      "hopper": {
+        "extra_args": [
+          "--kv-cache-dtype",
+          "fp8"
+        ]
+      },
+      "amd": {
+        "extra_args": [
+          "--linear-backend",
+          "aiter",
+          "--moe-backend",
+          "aiter"
+        ],
+        "extra_env": {
+          "VLLM_ROCM_USE_AITER": "1",
+          "VLLM_ROCM_USE_AITER_FUSION_SHARED_EXPERTS": "1"
+        }
+      }
+    },
+    "meta": {
+      "title": "GLM-5.2",
+      "date_added": "2026-06-16",
+      "date_updated": "2026-07-12",
+      "hardware": {
+        "b300": "verified",
+        "b200": "verified",
+        "mi300x": "verified",
+        "mi355x": "verified"
+      }
+    },
+    "recommended_command": {
+      "hardware": "h200",
+      "strategy": "single_node_tp",
+      "variant": "default",
+      "node_count": 1,
+      "deploy_type": "single_node",
+      "env": {},
+      "docker_image": "vllm/vllm-openai:v0.28.0",
+      "command": "vllm serve zai-org/GLM-5.2-FP8 \\\n  --tensor-parallel-size 8 \\\n  --kv-cache-dtype fp8 \\\n  --tool-call-parser glm47 \\\n  --enable-auto-tool-choice \\\n  --reasoning-parser glm45",
+      "argv": [
+        "vllm",
+        "serve",
+        "zai-org/GLM-5.2-FP8",
+        "--tensor-parallel-size",
+        "8",
+        "--kv-cache-dtype",
+        "fp8",
+        "--tool-call-parser",
+        "glm47",
+        "--enable-auto-tool-choice",
+        "--reasoning-parser",
+        "glm45"
+      ],
+      "by_hardware": {
+        "h200": "/zai-org/GLM-5.2/hw/h200.json",
+        "h100": "/zai-org/GLM-5.2/hw/h100.json",
+        "b200": "/zai-org/GLM-5.2/hw/b200.json",
+        "gb200": "/zai-org/GLM-5.2/hw/gb200.json",
+        "b300": "/zai-org/GLM-5.2/hw/b300.json",
+        "gb300": "/zai-org/GLM-5.2/hw/gb300.json",
+        "mi300x": "/zai-org/GLM-5.2/hw/mi300x.json",
+        "mi325x": "/zai-org/GLM-5.2/hw/mi325x.json",
+        "mi355x": "/zai-org/GLM-5.2/hw/mi355x.json"
+      }
+    },
+    "guide_excerpts": [
+      "This recipe targets the **FP8** checkpoint, the practical default: it fits on a single\n8xH200 / 8xH20 node and \u2014 with FP8 KV cache \u2014 reaches the full 1M-token context on 8xB200.\nOn AMD MI355X hardware, use the **MXFP4** variant when HBM footprint is the priority.",
+      "GLM-5.2 has a native 1M-token window. Whether the full window fits is a KV-cache VRAM\nquestion, so the lever is `--max-num-seqs` \u2014 it bounds how many sequences share the KV budget\nat once, leaving room for each to hold a long context. **Start at 32** and scale with your\nnode's VRAM: raise it on larger trays (e.g. 8xB300) or short-prompt traffic, lower it if you\nOOM at full context. FP8 KV cache (`--kv-cache-dtype fp8_e4m3`, already in the base flags)\nroughly halves that budget, which is what makes 1M reachable at all.",
+      "The `nvidia/GLM-5.2-NVFP4` variant is NVIDIA's modelopt re-quantization: only the MoE\nexpert linears drop to NVFP4 while shared experts, attention, embeddings, and the early\ndense layers stay FP8/BF16, with FP8 KV cache. The ~465 GB checkpoint fits comfortably on\nBlackwell \u2014 vLLM auto-detects the quantization from the checkpoint, so no `--quantization`\nflag is needed. Select the **NVFP4** variant above (Blackwell-only) or run NVIDIA's command:"
+    ]
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

@@ -1,0 +1,147 @@
+{
+  "url": "https://recipes.vllm.ai/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16.json",
+  "retrieved_utc": "2026-09-05T02:40:06.081862+00:00",
+  "status": 200,
+  "final_url": "https://recipes.vllm.ai/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16.json",
+  "sha256": "80b8078848701191f2ead9eadaeb7fb1d15494a1315de8065521dd536854aef3",
+  "data": {
+    "hf_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+    "model": {
+      "model_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+      "min_vllm_version": "0.17.0",
+      "architecture": "moe",
+      "parameter_count": "30B",
+      "active_parameters": "3B",
+      "context_length": 262144,
+      "base_args": [
+        "--trust-remote-code",
+        "--async-scheduling"
+      ],
+      "base_env": {},
+      "install": {
+        "pip": {
+          "command": "uv venv\nsource .venv/bin/activate\nuv pip install -U vllm --torch-backend auto"
+        },
+        "docker": {
+          "command": "docker pull vllm/vllm-openai:latest"
+        }
+      }
+    },
+    "features": {
+      "tool_calling": {
+        "description": "Qwen3 Coder tool-call parser with automatic tool choice",
+        "args": [
+          "--enable-auto-tool-choice",
+          "--tool-call-parser",
+          "qwen3_coder"
+        ]
+      },
+      "reasoning": {
+        "description": "Custom Nano v3 reasoning parser (download plugin: nano_v3_reasoning_parser.py)",
+        "args": [
+          "--reasoning-parser-plugin",
+          "nano_v3_reasoning_parser.py",
+          "--reasoning-parser",
+          "nano_v3"
+        ]
+      }
+    },
+    "opt_in_features": [],
+    "variants": {
+      "default": {
+        "precision": "bf16",
+        "vram_minimum_gb": 72,
+        "description": "BF16 weights",
+        "extra_args": [
+          "--kv-cache-dtype",
+          "auto"
+        ]
+      },
+      "fp8": {
+        "model_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+        "precision": "fp8",
+        "vram_minimum_gb": 35,
+        "description": "FP8 weights + FP8 KV cache",
+        "extra_args": [
+          "--kv-cache-dtype",
+          "fp8"
+        ],
+        "hardware_overrides": {
+          "nvidia": {
+            "extra_args": [
+              "--moe-backend",
+              "flashinfer_cutlass"
+            ]
+          }
+        },
+        "json": "/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8.json"
+      }
+    },
+    "hardware_overrides": {
+      "xpu": {
+        "extra_args": [
+          "--enforce-eager"
+        ]
+      }
+    },
+    "meta": {
+      "title": "NVIDIA Nemotron-3-Nano-30B-A3B",
+      "date_added": "2026-01-08",
+      "date_updated": "2026-04-17",
+      "hardware": {
+        "h100": "verified",
+        "h200": "verified",
+        "arc_pro_b60": "verified",
+        "arc_pro_b70": "verified"
+      }
+    },
+    "recommended_command": {
+      "hardware": "h200",
+      "strategy": "single_node_tp",
+      "variant": "default",
+      "node_count": 1,
+      "deploy_type": "single_node",
+      "env": {},
+      "docker_image": "vllm/vllm-openai:latest",
+      "command": "vllm serve nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16 \\\n  --trust-remote-code \\\n  --async-scheduling \\\n  --kv-cache-dtype auto \\\n  --tensor-parallel-size 1 \\\n  --enable-auto-tool-choice \\\n  --tool-call-parser qwen3_coder \\\n  --reasoning-parser-plugin nano_v3_reasoning_parser.py \\\n  --reasoning-parser nano_v3",
+      "argv": [
+        "vllm",
+        "serve",
+        "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+        "--trust-remote-code",
+        "--async-scheduling",
+        "--kv-cache-dtype",
+        "auto",
+        "--tensor-parallel-size",
+        "1",
+        "--enable-auto-tool-choice",
+        "--tool-call-parser",
+        "qwen3_coder",
+        "--reasoning-parser-plugin",
+        "nano_v3_reasoning_parser.py",
+        "--reasoning-parser",
+        "nano_v3"
+      ],
+      "by_hardware": {
+        "h200": "/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/hw/h200.json",
+        "h100": "/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/hw/h100.json",
+        "b200": "/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/hw/b200.json",
+        "gb200": "/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/hw/gb200.json",
+        "b300": "/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/hw/b300.json",
+        "gb300": "/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/hw/gb300.json",
+        "mi300x": "/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/hw/mi300x.json",
+        "mi325x": "/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/hw/mi325x.json",
+        "mi355x": "/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/hw/mi355x.json",
+        "arc_pro_b60": "/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/hw/arc_pro_b60.json",
+        "arc_pro_b70": "/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/hw/arc_pro_b70.json"
+      }
+    },
+    "guide_excerpts": [
+      "- Hardware: 1x H100/H200 or comparable; DGX Spark, Jetson Thor, and Intel Arc Pro B60/B70 supported\n- vLLM >= 0.17.0 (0.28.0 recommended for full support)\n- Docker with NVIDIA Container Toolkit (recommended)",
+      "```bash\nwget https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/resolve/main/nano_v3_reasoning_parser.py",
+      "vllm serve nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16 \\\n  --max-num-seqs 8 \\\n  --tensor-parallel-size 1 \\\n  --max-model-len 262144 \\\n  --trust-remote-code \\\n  --enable-auto-tool-choice \\\n  --tool-call-parser qwen3_coder \\\n  --reasoning-parser-plugin nano_v3_reasoning_parser.py \\\n  --reasoning-parser nano_v3\n```",
+      "BF16:\n```bash\ndocker run --device /dev/dri \\\n  -v /dev/dri/by-path:/dev/dri/by-path --shm-size=16g \\\n  --privileged --ipc=host -p 8000:8000 \\\n  -v ~/.cache/huggingface:/root/.cache/huggingface \\\n  vllm/vllm-openai-xpu:latest \\\n  nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16 \\\n  --trust-remote-code \\\n  --async-scheduling \\\n  --kv-cache-dtype auto \\\n  --tensor-parallel-size 4 \\\n  --enforce-eager \\\n  --enable-auto-tool-choice \\\n  --tool-call-parser qwen3_coder \\\n  --reasoning-parser-plugin nano_v3_reasoning_parser.py \\\n  --reasoning-parser nano_v3 \\\n  --max-model-len 8192\n```"
+    ]
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

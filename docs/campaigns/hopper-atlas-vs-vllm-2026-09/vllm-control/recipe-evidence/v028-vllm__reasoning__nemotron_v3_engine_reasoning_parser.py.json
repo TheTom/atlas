@@ -1,0 +1,14 @@
+{
+  "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.28.0/vllm/reasoning/nemotron_v3_engine_reasoning_parser.py",
+  "retrieved_utc": "2026-09-05T02:43:42.886068+00:00",
+  "status": 200,
+  "sha256": "344bd5a684d59d6e8f32356f25f4a484949441650e531e7f1bca7f9bf055d7de",
+  "excerpts": [
+    {
+      "start_line": 1,
+      "end_line": 8,
+      "text": "# SPDX-License-Identifier: Apache-2.0\n# SPDX-FileCopyrightText: Copyright contributors to the vLLM project\n\nfrom vllm.parser.engine.registered_adapters import (\n    NemotronV3ParserReasoningAdapter,\n)\n\n__all__ = [\"NemotronV3ParserReasoningAdapter\"]"
+    }
+  ],
+  "stored_content": "Selected excerpts; sha256 hashes the original complete HTTP response body."
+}

@@ -1,0 +1,12 @@
+{
+  "timestamp_utc": "2026-09-05T05:01:22.730225+00:00",
+  "requested_pin": "792579b24164d8696083760073b5c85b29cd968a",
+  "fetched_fork_tip": "8b7405ca159a6ab8bb3e593a740f4d20f93996fd",
+  "pre_rebase_head": "0f4c8d5220c0f6650ae4a2a947c07a76d87da2a2",
+  "rebased_head": "a93044aa0bb53828a9b19850325101489b5f23b5",
+  "rebase_completed": true,
+  "rebase_method": "git rebase --onto fork/hopper/sm90-target-tdd-2026-09 e545ebf58007597e2d4056c2ba1e59c8daf8682e",
+  "rebase_note": "Ordinary rebase tried replaying rewritten historical engine commits; it was aborted. Replayed only the five control follow-on commits. Kept control PLAN, REPORT and SCHEMA-GAPS in modify/delete conflicts. Restored prior control evidence removed from the upstream code branch so report links remain self-contained.",
+  "build_target_status": "AWAITING_USER_TARGET_SELECTION",
+  "target_question": "Explicit792579b predates the new architecture preflight; current fork tip8b7405ca includes it."
+}

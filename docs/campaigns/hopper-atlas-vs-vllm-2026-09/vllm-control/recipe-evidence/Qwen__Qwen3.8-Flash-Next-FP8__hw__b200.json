@@ -1,0 +1,35 @@
+{
+  "url": "https://recipes.vllm.ai/Qwen/Qwen3.8-Flash-Next-FP8/hw/b200.json",
+  "retrieved_utc": "2026-09-05T02:43:24.405981+00:00",
+  "status": 200,
+  "sha256": "2fd9c86e5bc0cee72694045dc153e353c5811e21d86e252079ed9b40691622f7",
+  "data": {
+    "hardware": "b200",
+    "strategy": "single_node_tp",
+    "variant": "fp8",
+    "node_count": 1,
+    "deploy_type": "single_node",
+    "env": {},
+    "docker_image": "vllm/vllm-openai:qwen38-flash-next",
+    "command": "vllm serve Qwen/Qwen3.8-Flash-Next-FP8 \\\n  --max-num-seqs 256 \\\n  --gpu-memory-utilization 0.90 \\\n  --enable-prefix-caching \\\n  --no-enable-flashinfer-autotune \\\n  --tensor-parallel-size 4 \\\n  --enable-auto-tool-choice \\\n  --tool-call-parser qwen3_xml \\\n  --reasoning-parser qwen3",
+    "argv": [
+      "vllm",
+      "serve",
+      "Qwen/Qwen3.8-Flash-Next-FP8",
+      "--max-num-seqs",
+      "256",
+      "--gpu-memory-utilization",
+      "0.90",
+      "--enable-prefix-caching",
+      "--no-enable-flashinfer-autotune",
+      "--tensor-parallel-size",
+      "4",
+      "--enable-auto-tool-choice",
+      "--tool-call-parser",
+      "qwen3_xml",
+      "--reasoning-parser",
+      "qwen3"
+    ]
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

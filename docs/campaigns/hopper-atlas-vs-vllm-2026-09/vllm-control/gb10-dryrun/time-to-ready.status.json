@@ -1,0 +1,9 @@
+{
+  "schema": "vllm-control-blocked-stage-v1",
+  "stage": "time-to-ready",
+  "status": "NOT_RUN",
+  "blocked_by": "BLOCKED_STORAGE_CAP",
+  "recorded_utc": "2026-09-05T02:55:01.170374+00:00",
+  "reason": "Nano repository payload plus previously absent compressed image blobs totals 42,404,838,322 bytes, above the 40,000,000,000-byte new-storage cap before ordinary image expansion/runtime caches. Installed allocation is unmeasured. No image/model download or GPU launch was attempted.",
+  "result": null
+}

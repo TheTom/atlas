@@ -1,0 +1,2 @@
+# Preserve byte-exact NVIDIA diagnostics, including their trailing whitespace.
+nvidia-smi-q.txt -whitespace

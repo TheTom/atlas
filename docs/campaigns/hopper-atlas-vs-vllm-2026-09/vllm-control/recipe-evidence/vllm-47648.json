@@ -1,0 +1,18 @@
+{
+  "url": "https://api.github.com/repos/vllm-project/vllm/issues/47648",
+  "retrieved_utc": "2026-09-05T02:42:44.145819+00:00",
+  "status": 200,
+  "sha256": "83dc001f87bdb05c5fd3b00564810d4ce2cc004025937ec573b4f14a270a52d1",
+  "issue": {
+    "html_url": "https://github.com/vllm-project/vllm/issues/47648",
+    "number": 47648,
+    "title": "[Bug]: DeepSeek-V4-Flash-DSpark fails on H200/SM90 with FlashMLA KV cache shape mismatch",
+    "state": "closed",
+    "created_at": "2026-07-05T13:10:44Z",
+    "updated_at": "2026-07-06T19:56:46Z",
+    "closed_at": "2026-07-06T19:56:46Z",
+    "reported_environment": "0.23.1rc1.dev788+gfa4321de3, torch2.11.0+cu129, 8xH200, DeepSeek-V4-Flash-DSpark",
+    "reported_error": "kv must have shape (num_blocks, page_block_size, h_kv, bytes_per_token)"
+  },
+  "stored_content": "Selected excerpts; sha256 hashes the original complete HTTP response body."
+}
