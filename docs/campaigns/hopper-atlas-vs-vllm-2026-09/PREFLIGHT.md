@@ -28,7 +28,7 @@ calls `spark_runtime::cuda_backend::arch_preflight::preflight_device_arch`
    through the `cuDeviceGetAttribute` FFI that already existed for the SM-count
    query — no new symbols;
 3. apply `atlas_core::arch::ptx_arch_runs_on_device` to
-   `(ptx_set.target.arch, device_cc)`;
+   `(ptx_set.ptx_arch, device_cc)`;
 4. on success log at info, e.g. `device CC 9.0, kernels built for sm_90a`;
    on failure abort the serve with the message below.
 
@@ -36,6 +36,26 @@ A build that recorded **no** architecture — the `ATLAS_SKIP_BUILD=1` stub
 registry compiles nothing — is warned and skipped. A check with no input has no
 opinion, and passing it would let a stub build claim hardware compatibility it
 never tested.
+
+### It judges the VERBATIM arch, not the base SM
+
+`TargetPtxSet` carries two readings of one `kernels/<hw>/HARDWARE.toml`
+`[hardware].arch` declaration, and the preflight may only be handed one of
+them:
+
+| field | hopper | what it is |
+|---|---|---|
+| `target.arch` (`KernelTarget.arch`) | `sm_90` | the base SM, feature suffix stripped — an IDENTITY: the key `crates/atlas-core/src/target.rs`'s constants, the gate baselines and every committed record use |
+| `ptx_arch` | `sm_90a` | the declaration verbatim — what nvcc was handed |
+
+The suffix **is** the compatibility rule, so stripping it changes the verdict
+rather than shortening it. `sm_90a` judged as `sm_90` is plain PTX, which the
+forward-compat rule runs on any CC >= 9.0 — so Hopper-only kernels would PASS
+this preflight on a B200 (CC 10.0) or a GB10 (12.1) and then die inside
+`cuModuleLoadData`, which is the failure the preflight was added to replace.
+`spark_runtime::cuda_backend::arch_preflight::preflight_arch` owns that pick so
+no call site repeats it, and `--check-kernels` reports `compiled_arch` from the
+same field.
 
 ## The message
 
@@ -54,8 +74,8 @@ compute capability Atlas ships nothing for says `no shipped target matches
 compute capability <X.Y>` instead of naming a target that does not exist.
 
 `--check-kernels` reports the same two facts in its machine-readable line:
-`compiled_arch` (verbatim `[hardware].arch`) and `device_cc` (`"12.1"`, or
-`null` when nothing can be asked). The pre-existing `arch` field is retained,
+`compiled_arch` (verbatim `[hardware].arch`, i.e. `ptx_arch`) and `device_cc`
+(`"12.1"`, or `null` when nothing can be asked). The pre-existing `arch` field is retained,
 carrying the same value under the name it shipped with.
 
 ## Compatibility matrix

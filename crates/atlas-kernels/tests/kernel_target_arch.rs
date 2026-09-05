@@ -52,3 +52,51 @@ fn non_nvidia_arch_strings_pass_through() {
     assert_eq!(kernel_target_arch("gfx90a"), "gfx90a");
     assert_eq!(kernel_target_arch("metal3.1"), "metal3.1");
 }
+
+// ── the pair a compiled target records ──
+
+use build_arch::target_arch_fields;
+
+/// ORACLE: `kernels/hopper/HARDWARE.toml` declares `arch = "sm_90a"`, and the
+/// two fields a `TargetPtxSet` carries are the two readings of that one
+/// declaration: `KernelTarget.arch` is the base SM the registry, the gate
+/// baselines and `KernelTarget`'s own constants are keyed by, and `ptx_arch`
+/// is the string nvcc was actually handed.
+///
+/// They are produced together so they cannot drift. The drift is not
+/// hypothetical: the GPU preflight was reading `KernelTarget.arch`, where
+/// `sm_90a` arrives as `sm_90` — plain PTX, forward-compatible by rule — so
+/// `sm_90a` kernels PASSED the preflight on a CC 10.0 device and died inside
+/// `cuModuleLoadData`, which is the failure the preflight exists to replace.
+#[test]
+fn a_target_records_both_the_base_sm_and_the_arch_nvcc_was_handed() {
+    assert_eq!(
+        target_arch_fields("sm_90a"),
+        ("sm_90".to_string(), "sm_90a")
+    );
+    assert_eq!(
+        target_arch_fields("sm_121f"),
+        ("sm_121".to_string(), "sm_121f")
+    );
+    assert_eq!(
+        target_arch_fields("sm_100a"),
+        ("sm_100".to_string(), "sm_100a")
+    );
+}
+
+/// A plain arch and a non-NVIDIA one record the SAME string twice — there is
+/// no suffix to strip, so the base and the verbatim reading coincide. Pinned
+/// because a caller reading `ptx_arch` must not have to ask whether a Metal or
+/// SCALE build fills it differently.
+#[test]
+fn an_arch_with_no_feature_suffix_records_the_same_string_twice() {
+    assert_eq!(target_arch_fields("sm_90"), ("sm_90".to_string(), "sm_90"));
+    assert_eq!(
+        target_arch_fields("gfx1151"),
+        ("gfx1151".to_string(), "gfx1151")
+    );
+    assert_eq!(
+        target_arch_fields("metal3.1"),
+        ("metal3.1".to_string(), "metal3.1")
+    );
+}

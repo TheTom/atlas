@@ -229,7 +229,12 @@ fn check_json(
         .collect();
     check_json_from(&CheckSummary {
         model: ptx_set.target.model,
-        compiled_arch: ptx_set.target.arch,
+        // `ptx_arch`, not `target.arch`: this field's contract (above) is the
+        // VERBATIM `[hardware].arch`, and `target.arch` is that string with
+        // its feature suffix stripped. Reporting `sm_90` for a build nvcc
+        // compiled as `sm_90a` describes PTX that travels forward, which this
+        // PTX does not.
+        compiled_arch: ptx_set.ptx_arch,
         quant: ptx_set.target.quant,
         modules_embedded: ptx_set.modules.len(),
         lookups: rows.len(),

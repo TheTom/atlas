@@ -451,6 +451,26 @@ pub struct DflashConfig {
 /// The runtime registry sniffs text-vs-binary per blob at load time.
 pub struct TargetPtxSet {
     pub target: KernelTarget,
+    /// The `kernels/<hw>/HARDWARE.toml` `[hardware].arch` this target was
+    /// compiled with, VERBATIM — `sm_90a`, `sm_100a`, `sm_121f`, `gfx1151`.
+    ///
+    /// Additive to [`KernelTarget::arch`], which records the same declaration
+    /// with its feature suffix stripped (`sm_90`, `sm_121`) because that is
+    /// the base SM the target constants, the gate baselines and every existing
+    /// record are keyed by. Both are needed, and they are not interchangeable:
+    ///
+    /// * the base SM is an IDENTITY — "which architecture family is this";
+    /// * this field is the only one a COMPATIBILITY question may be asked of,
+    ///   because the suffix IS the rule (`a` never runs forward onto a later
+    ///   architecture, `f` stays inside one major family, a bare `sm_XY`
+    ///   JIT-compiles forward). Judging the stripped string applies plain
+    ///   forward-compat to PTX that has none, which is how `sm_90a` kernels
+    ///   passed the GPU preflight on a CC 10.0 device and then failed inside
+    ///   `cuModuleLoadData` — the error the preflight exists to replace.
+    ///
+    /// Empty only if a build recorded no architecture. Consumers treat empty
+    /// as "no opinion" and skip, rather than inventing a verdict.
+    pub ptx_arch: &'static str,
     pub modules: Vec<(&'static str, &'static [u8])>,
     pub sampling: SamplingPresets,
     pub behavior: ModelBehavior,

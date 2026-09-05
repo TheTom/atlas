@@ -68,6 +68,29 @@ pub fn check_arch(compiled_arch: &str, device_cc: (u32, u32)) -> Result<String> 
     ))
 }
 
+/// Which architecture string a resolved target's preflight must judge.
+///
+/// A `TargetPtxSet` carries two readings of one `[hardware].arch`
+/// declaration, and only one of them can answer this question:
+///
+/// * `target.arch` is the BASE SM (`sm_90`, `sm_121`) — the identity the
+///   registry, `KernelTarget`'s constants and every gate baseline are keyed
+///   by. Its feature suffix has been stripped, so `sm_90a` arrives as plain
+///   `sm_90`, which the forward-compat rule says runs on any CC >= 9.0.
+/// * `ptx_arch` is the declaration VERBATIM (`sm_90a`, `sm_121f`) — what nvcc
+///   was handed, suffix and all. The suffix IS the compatibility rule.
+///
+/// Passing the base SM here is not a slightly weaker check, it is the wrong
+/// one: Hopper-only PTX would pass on a B200 (CC 10.0) or a GB10 (12.1) and
+/// then fail inside `cuModuleLoadData` — the driver error with no useful
+/// nouns in it that this whole module exists to pre-empt.
+///
+/// `None` when the target records no architecture, which the caller warns
+/// about and skips rather than treating as a pass.
+pub fn preflight_arch(ptx_set: &atlas_kernels::TargetPtxSet) -> Option<&'static str> {
+    Some(ptx_set.ptx_arch).filter(|a| !a.is_empty())
+}
+
 /// Fail fast if this binary's kernels cannot run on GPU `ordinal`.
 ///
 /// Call this BEFORE constructing the backend: `AtlasCudaBackend::new` loads
@@ -98,7 +121,89 @@ pub fn preflight_device_arch(ordinal: usize, compiled_arch: Option<&str>) -> Res
 
 #[cfg(test)]
 mod tests {
-    use super::{check_arch, preflight_device_arch};
+    use super::{check_arch, preflight_arch, preflight_device_arch};
+    use atlas_core::target::KernelTarget;
+    use atlas_kernels::{ModelBehavior, SamplingPresets, TargetPtxSet};
+
+    /// A `TargetPtxSet` shaped exactly as `build_codegen.rs` emits one for
+    /// `kernels/hopper`: `KernelTarget.arch` is the base SM the registry is
+    /// keyed by, `ptx_arch` is the `[hardware].arch` nvcc was handed.
+    fn a_hopper_target(ptx_arch: &'static str) -> TargetPtxSet {
+        TargetPtxSet {
+            target: KernelTarget {
+                arch: "sm_90",
+                model: "nemotron-super-120b-a12b",
+                quant: "nvfp4",
+            },
+            ptx_arch,
+            modules: Vec::new(),
+            sampling: SamplingPresets::default(),
+            behavior: ModelBehavior::default(),
+            model_type_matches: Vec::new(),
+            match_names: &[],
+            dflash: None,
+            shadowed_dropped: &[],
+            expected_absent: &[],
+        }
+    }
+
+    /// ★ THE DEFECT, pinned. `KernelTarget.arch` records the base SM, so a
+    /// hopper build reaches this module as `sm_90` — plain PTX, which the
+    /// forward-compat rule says runs on any CC >= 9.0. A B200 (CC 10.0) or a
+    /// GB10 (12.1) would therefore PASS the preflight and then fail inside
+    /// `cuModuleLoadData`, which is precisely the driver error this preflight
+    /// exists to replace.
+    ///
+    /// Oracle: `kernels/hopper/HARDWARE.toml` declares `arch = "sm_90a"`, and
+    /// the NVIDIA CUDA C++ Programming Guide's *PTX Compatibility* rules make
+    /// an `a`-suffixed arch runnable on CC 9.0 and nothing else. So the
+    /// preflight must judge `ptx_arch`, and the pick is what this asserts —
+    /// `check_arch` itself was already correct about `sm_90a`; nothing called
+    /// it with `sm_90a`.
+    #[test]
+    fn the_preflight_judges_the_verbatim_arch_not_the_stripped_base_sm() {
+        let hopper = a_hopper_target("sm_90a");
+        assert_eq!(
+            preflight_arch(&hopper),
+            Some("sm_90a"),
+            "the preflight must be handed the arch nvcc compiled for"
+        );
+        // The negative the whole slice is for: Hopper PTX on Blackwell
+        // datacenter silicon.
+        let err = check_arch(
+            preflight_arch(&hopper).expect("hopper records an arch"),
+            (10, 0),
+        )
+        .expect_err("sm_90a cannot load on CC 10.0");
+        let msg = format!("{err}");
+        assert!(msg.contains("sm_90a"), "{msg}");
+        assert!(msg.contains("compute capability 10.0"), "{msg}");
+        // …and the base SM, which is what USED to be passed, is waved through.
+        // Asserted so the two readings are visibly not interchangeable rather
+        // than merely documented as such.
+        assert!(
+            check_arch(hopper.target.arch, (10, 0)).is_ok(),
+            "sm_90 is plain PTX and passes on CC 10.0 — that is the bug, not a \
+             property to rely on"
+        );
+    }
+
+    /// A build that compiled nothing records no arch, and the skip branch must
+    /// still fire through the selector.
+    ///
+    /// Oracle: `crates/atlas-kernels/build.rs` under `ATLAS_SKIP_BUILD=1`
+    /// writes a stub whose `all_ptx_sets()` is empty, so nothing carries an
+    /// arch at all; an empty `ptx_arch` is the same statement reaching a
+    /// consumer that does hold a set.
+    #[test]
+    fn a_target_that_records_no_arch_selects_nothing_to_check() {
+        let stub = a_hopper_target("");
+        assert_eq!(preflight_arch(&stub), None);
+        // The whole chain, as the serve phase runs it: an empty `ptx_arch`
+        // reaches `preflight_device_arch` as `None`, which warns and returns
+        // WITHOUT touching CUDA — so this passes on the GPU-free runner.
+        preflight_device_arch(0, preflight_arch(&stub)).expect("a stub build has nothing to check");
+    }
 
     /// Oracle: `kernels/gb10/HARDWARE.toml` declares `arch = "sm_121f"` and
     /// `compute_capability = "12.1"` — the shipped pairing must pass, and the

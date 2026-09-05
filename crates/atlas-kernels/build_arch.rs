@@ -33,3 +33,29 @@ pub(crate) fn kernel_target_arch(arch: &str) -> String {
     }
     format!("sm_{trimmed}")
 }
+/// The two arch strings one HARDWARE.toml `arch` declaration produces, as
+/// `(KernelTarget.arch, ptx_arch)`.
+///
+/// `TargetPtxSet` records both because they answer different questions and
+/// only one of them is safe for each:
+///
+/// * `KernelTarget.arch` is the base SM (`sm_90`, `sm_121`). It is an
+///   IDENTITY — the key `crates/atlas-core/src/target.rs` spells its constants
+///   with, and what gate baselines and existing records are keyed by. It must
+///   not change.
+/// * `ptx_arch` is the string nvcc was handed, verbatim (`sm_90a`,
+///   `sm_121f`). It is the only one that can answer a COMPATIBILITY question,
+///   because the feature suffix IS the rule: `a` never runs forward onto a
+///   later architecture, `f` stays inside one major family, and a bare
+///   `sm_XY` JIT-compiles forward from X.Y. Strip the suffix and every
+///   arch-specific build looks portable.
+///
+/// Returned as a pair, from one function, so the two readings of a single
+/// declaration cannot drift apart in codegen. They drifted once: the GPU
+/// preflight judged `KernelTarget.arch`, so `sm_90a` reached it as `sm_90`,
+/// the plain forward-compat rule applied, and Hopper-only PTX PASSED the
+/// preflight on a CC 10.0 device — the exact `cuModuleLoadData` failure the
+/// preflight was added to replace.
+pub(crate) fn target_arch_fields(arch: &str) -> (String, &str) {
+    (kernel_target_arch(arch), arch)
+}
