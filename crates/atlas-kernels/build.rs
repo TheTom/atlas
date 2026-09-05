@@ -1384,6 +1384,12 @@ fn find_cu_files(kernel_dir: &std::path::Path, source_ext: &str) -> Vec<PathBuf>
         .collect()
 }
 
+// The HARDWARE.toml `arch` -> `KernelTarget.arch` mapping. Its own file, with
+// no `super::` dependencies, so `tests/kernel_target_arch.rs` can compile the
+// same code — cargo never runs a build script's `#[cfg(test)]` modules.
+#[path = "build_arch.rs"]
+mod build_arch;
+
 #[path = "build_codegen.rs"]
 mod build_codegen;
 use build_codegen::generate_target_ptx_rs;

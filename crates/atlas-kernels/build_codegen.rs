@@ -122,8 +122,9 @@ pub(super) fn generate_target_ptx_rs(
          \x20   vec![\n",
     );
     for (idx, target) in targets.iter().enumerate() {
-        // Strip trailing 'f' from arch for KernelTarget (sm_121f → sm_121)
-        let arch_clean = target.arch.trim_end_matches('f');
+        // HARDWARE.toml declares nvcc's feature arch (sm_121f, sm_90a); the
+        // registry records the base SM (sm_121, sm_90).
+        let arch_clean = super::build_arch::kernel_target_arch(&target.arch);
         let fn_name = if single_target {
             "ptx_modules".to_string()
         } else {
