@@ -39,6 +39,8 @@ NGPUS=4 EP_SIZE=4 TP_SIZE=1 NCCL_PROFILE=debug bash scripts/start-node-ep.sh <MO
 
 Expected: `/health` 503 `{"status":"loading"}` then 200 `{"status":"ready"}`; `--check-kernels` exit 0 with `compiled_arch: sm_90a` (hopper) or `sm_100a` (b200) and `device_cc` 9.0 / 10.0. A mismatch message naming `ATLAS_TARGET_HW=...` means the wrong image. First-request cold start 5–30 s unless `--warmup-prompt` is passed (the cell runner passes it).
 
+Every FP8 checkpoint gets `--fp8-kv-calibration-tokens 256` with FP8 KV (the cell kit adds it): without KV scales the FP8 KV scale defaults to 1.0 and clips, which on GB10 produced degenerate output that a byte-identity determinism check did not catch.
+
 Model notes (from the PRD §6.1): Super → `--tool-call-parser bare_json`, think-on primary row, spec off by default; Nano → spec off, `--max-seq-len 32768`; Qwen3.6-35B → `--speculative --num-drafts 2 --mtp-quantization bf16`, `--lm-head-dtype bf16`; Qwen3-Next-80B → default `--ssm-h-dtype`; DeepSeek V4-Flash → EP only, spec off, `--oom-guard-mb 512`. On B200 the W4A4 escape hatch is compiled out; FP8 checkpoints are the A/B quant on both SKUs.
 
 ## 3. A cell

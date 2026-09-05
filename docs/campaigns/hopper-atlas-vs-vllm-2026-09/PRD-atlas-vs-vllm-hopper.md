@@ -148,7 +148,7 @@ Common flags for every cell (from the ladder38 Atlas leg, adapted):
 --gpu-memory-utilization 0.90 --max-num-seqs 128 --max-batch-size 32
 --enable-prefix-caching true --scheduling-policy slai
 --warmup-prompt bench/hopper_ab/warmup_1024.txt     # kills the 5–30 s first-request autotune
---kv-cache-dtype fp8 --kv-high-precision-layers auto
+--kv-cache-dtype fp8 --kv-high-precision-layers auto --fp8-kv-calibration-tokens 256   # FP8 checkpoints ship no k_scale; scale 1.0 clips (GB10 rehearsal 2026-09-05)
 ```
 
 Think-off rows add `--disable-thinking`. Spec-on rows add `--speculative --num-drafts 3 --mtp-quantization bf16` (K=4) and the vLLM leg must use `num_speculative_tokens: 3`.
@@ -281,6 +281,7 @@ Not allowed: "faster than vLLM" without SKU, C, quant and spec matching; calling
 
 | Risk | Mitigation |
 |---|---|
+| FP8 checkpoint + FP8 KV without KV scales → degenerate output (seen on GB10 with Nano FP8: repeated tokens that still passed a byte-identity determinism check) | `--fp8-kv-calibration-tokens 256` on every FP8 Atlas entry (`bench/campaign/atlas_recipes.json`); coherency gate gains loop detection + known-answer probes; Step A2 diagnosis (bf16 KV / calibrated fp8 / NVFP4 checkpoint) localizes the cause |
 | Atlas sm_90a / sm_100a kernels do not compile or spill | PTX gate before any rental; shadow per-kernel copies under `kernels/<hw>/<model>/nvfp4/` |
 | Intra-node NCCL never exercised | Start with NCCL defaults, `NCCL_DEBUG=INFO`, 2 GPUs first; the GB10 env block is documented as pessimization |
 | V4-Flash EP=8 bring-up eats the box | 30-min boot cap; run last; B200 EP=4 as the fallback SKU |
