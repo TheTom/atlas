@@ -5,7 +5,8 @@ GPU-free selftest, a receipt already measured on Spark 1, or an explicit "first
 time on silicon" step. Nothing below has run on Hopper or B200 yet; the point of
 the runbook is that the first run is a checklist, not an exploration.
 
-For Tom's proposed **Vast.ai 2×H100 SXM, eight-hour booking**, follow
+For Tom's proposed **Vast.ai 2×H100 SXM, eight-hour booking with 300 GB instance
+disk and no volume**, follow
 [VAST-H100-8H-PLAN.md](VAST-H100-8H-PLAN.md) for provider setup, model order,
 readiness prerequisites and time limits. It supersedes this generic provisioning
 sequence for that pilot: standard Vast container rentals do not support the nested
