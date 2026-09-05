@@ -3,7 +3,7 @@
 
 Input is two files written by `bench/ladder38/harness_w55_conc_ladder.py` --
 one per engine. Output is a markdown table and a JSON twin: per concurrency,
-tok/s, TTFT p50/p99, TPOT p50, the Atlas/vLLM ratio, and WIN or LOSS.
+tok/s, TTFT p50/p99, TPOT p50, the Atlas/vLLM ratio, and WIN, TIE or LOSS.
 
 ★ The fairness oracle is the reason this exists rather than a spreadsheet.
 Before it compares anything it refuses two files whose workload axes disagree:
@@ -20,6 +20,7 @@ Usage:
 """
 
 import argparse
+import copy
 import json
 import pathlib
 import statistics
@@ -93,17 +94,19 @@ def rung_stats(rung):
 
 def compare(atlas, vllm):
     assert_comparable(atlas, vllm)
-    by_c = {r["concurrency"]: rung_stats(r) for r in vllm["rungs"]}
+    atlas_by_c = {r["concurrency"]: rung_stats(r) for r in atlas["rungs"]}
+    vllm_by_c = {r["concurrency"]: rung_stats(r) for r in vllm["rungs"]}
     rows = []
-    for rung in atlas["rungs"]:
-        a = rung_stats(rung)
-        b = by_c.get(a["concurrency"])
-        if b is None:
+    for concurrency in sorted(atlas_by_c.keys() | vllm_by_c.keys()):
+        a = atlas_by_c.get(concurrency)
+        b = vllm_by_c.get(concurrency)
+        if a is None or b is None:
             # Reported, not dropped: a rung one engine ran and the other did
             # not is a hole in the campaign, and a table that silently omits it
             # reads as complete.
-            rows.append({**{f"atlas_{k}": v for k, v in a.items()},
-                         "concurrency": a["concurrency"], "verdict": "NO-PAIR"})
+            rows.append({**{f"atlas_{k}": v for k, v in (a or {}).items()},
+                         **{f"vllm_{k}": v for k, v in (b or {}).items()},
+                         "concurrency": concurrency, "verdict": "NO-PAIR"})
             continue
         ratio = (a["tok_s"] / b["tok_s"]) if (a["tok_s"] and b["tok_s"]) else None
         rows.append({
@@ -118,7 +121,8 @@ def compare(atlas, vllm):
             # scoreboard is scored on; the latency columns sit beside it so a
             # win bought by a TTFT regression is visible in the same row rather
             # than in a footnote.
-            "verdict": "WIN" if (ratio is not None and ratio > 1.0) else "LOSS",
+            "verdict": ("TIE" if ratio == 1.0 else
+                        "WIN" if ratio is not None and ratio > 1.0 else "LOSS"),
         })
     return {
         "schema": 1,
@@ -127,7 +131,7 @@ def compare(atlas, vllm):
         "atlas_model": atlas.get("model"), "vllm_model": vllm.get("model"),
         "rows": rows,
         "rungs_won": sum(1 for r in rows if r["verdict"] == "WIN"),
-        "rungs_compared": sum(1 for r in rows if r["verdict"] in ("WIN", "LOSS")),
+        "rungs_compared": sum(1 for r in rows if r["verdict"] in ("WIN", "TIE", "LOSS")),
     }
 
 
@@ -144,7 +148,8 @@ def to_markdown(result):
     ]
     for r in result["rows"]:
         if r["verdict"] == "NO-PAIR":
-            lines.append(f"| {r['concurrency']} | {num(r.get('atlas_tok_s'))} | -- | -- | -- "
+            lines.append(f"| {r['concurrency']} | {num(r.get('atlas_tok_s'))} "
+                         f"| {num(r.get('vllm_tok_s'))} | -- | -- "
                          "| -- | -- | -- | **NO-PAIR** |")
             continue
         lines.append(
@@ -191,7 +196,24 @@ def selftest():
             print(f"REFUSED {bad}: {str(e).splitlines()[-1].strip()}")
         else:
             raise AssertionError(f"{bad} must be refused, not compared")
-    print("SELFTEST OK: matched pair scores 1/2 rungs, both mismatches refused")
+    # Arithmetic identity and rung-set union are independent of GPU timings.
+    failures = []
+    tied = compare(atlas, copy.deepcopy(atlas))
+    if not (all(r["ratio"] == 1.0 and r["verdict"] == "TIE" for r in tied["rows"])
+            and tied["rungs_compared"] == 2 and tied["rungs_won"] == 0):
+        failures.append("identity oracle: A/A ratio 1.0 must be TIE and count as compared")
+    for name, a, b in (("atlas-only", atlas, {**atlas, "rungs": atlas["rungs"][:1]}),
+                       ("vllm-only", {**atlas, "rungs": atlas["rungs"][:1]}, atlas)):
+        unpaired = compare(a, b)
+        rows = {r["concurrency"]: r for r in unpaired["rows"]}
+        if 16 not in rows or rows[16]["verdict"] != "NO-PAIR":
+            failures.append(f"rung-union oracle: {name} C=16 must remain NO-PAIR")
+        elif name == "vllm-only" and "200.00" not in to_markdown(unpaired):
+            failures.append("rung-union oracle: vllm-only throughput must render in its column")
+    for failure in failures:
+        print("FAIL:", failure)
+    assert not failures, "; ".join(failures)
+    print("SELFTEST OK: arithmetic, parity refusal, A/A identity and symmetric rung union")
 
 
 def main():
