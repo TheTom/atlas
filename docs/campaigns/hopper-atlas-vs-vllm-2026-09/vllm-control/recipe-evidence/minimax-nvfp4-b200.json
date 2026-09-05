@@ -1,0 +1,45 @@
+{
+  "url": "https://recipes.vllm.ai/nvidia/MiniMax-M3-NVFP4/hw/b200.json",
+  "retrieved_utc": "2026-09-05T02:48:42.096164+00:00",
+  "status": 200,
+  "sha256": "e551db9fc18e7572d4f7cffae01fd50068ff5dc8907bf6f6bc6e161ac6a833f6",
+  "data": {
+    "hardware": "b200",
+    "strategy": "single_node_tp",
+    "variant": "nvfp4",
+    "node_count": 1,
+    "deploy_type": "single_node",
+    "env": {
+      "VLLM_FLOAT32_MATMUL_PRECISION": "high",
+      "VLLM_FLASHINFER_ALLREDUCE_BACKEND": "trtllm"
+    },
+    "docker_image": "vllm/vllm-openai:minimax-m3",
+    "command": "vllm serve nvidia/MiniMax-M3-NVFP4 \\\n  --block-size 128 \\\n  --trust-remote-code \\\n  --kv-cache-dtype fp8 \\\n  --attention_config.backend FLASHINFER \\\n  --attention_config.use_trtllm_attention true \\\n  --attention_config.indexer_kv_dtype fp8 \\\n  --attention_config.minimax_m3_msa_decode_backend cutlass \\\n  --tensor-parallel-size 8 \\\n  --tool-call-parser minimax_m3 \\\n  --enable-auto-tool-choice \\\n  --reasoning-parser minimax_m3",
+    "argv": [
+      "vllm",
+      "serve",
+      "nvidia/MiniMax-M3-NVFP4",
+      "--block-size",
+      "128",
+      "--trust-remote-code",
+      "--kv-cache-dtype",
+      "fp8",
+      "--attention_config.backend",
+      "FLASHINFER",
+      "--attention_config.use_trtllm_attention",
+      "true",
+      "--attention_config.indexer_kv_dtype",
+      "fp8",
+      "--attention_config.minimax_m3_msa_decode_backend",
+      "cutlass",
+      "--tensor-parallel-size",
+      "8",
+      "--tool-call-parser",
+      "minimax_m3",
+      "--enable-auto-tool-choice",
+      "--reasoning-parser",
+      "minimax_m3"
+    ]
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

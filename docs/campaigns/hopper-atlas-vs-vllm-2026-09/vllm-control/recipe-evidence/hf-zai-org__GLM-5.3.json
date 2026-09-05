@@ -1,0 +1,19 @@
+{
+  "url": "https://huggingface.co/zai-org/GLM-5.3/raw/main/README.md",
+  "retrieved_utc": "2026-09-05T02:41:39.455816+00:00",
+  "status": 200,
+  "final_url": "https://huggingface.co/zai-org/GLM-5.3/raw/main/README.md",
+  "sha256": "ed1c0a4563c437a32f8953d637a1db9bd831de1b24bd3062a5ace9e04340b1cf",
+  "vllm_command_blocks": [],
+  "card_excerpts": [
+    {
+      "line": 46,
+      "text": "- [vLLM](https://github.com/vllm-project/vllm) \u2014 see [recipes](https://recipes.vllm.ai/zai-org/GLM-5.3)"
+    },
+    {
+      "line": 55,
+      "text": "- GLM-5.3 supports controlling the thinking budget through the `reasoning_effort` parameter, which accepts three levels: `low`, `high`, and `max`. It defaults to `max` if not passed (or if set to any other value). To use `low` or `high`, pass them explicitly. For benchmark and leaderboard reproduction, keep the default `max`."
+    }
+  ],
+  "stored_content": "Selected excerpts; sha256 hashes the original complete HTTP response body."
+}

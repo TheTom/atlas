@@ -1,0 +1,18 @@
+{
+  "url": "https://huggingface.co/Qwen/Qwen3-Next-80B-A3B-Instruct-FP8/raw/main/README.md",
+  "retrieved_utc": "2026-09-05T02:41:39.297054+00:00",
+  "status": 200,
+  "final_url": "https://huggingface.co/Qwen/Qwen3-Next-80B-A3B-Instruct-FP8/raw/main/README.md",
+  "sha256": "ff22c7bffaa14d26037ead194a00433b110650c117af6c4e0174fbe9b7a3d1bf",
+  "vllm_command_blocks": [
+    "vllm serve Qwen/Qwen3-Next-80B-A3B-Instruct-FP8 --port 8000 --tensor-parallel-size 4 --max-model-len 262144",
+    "vllm serve Qwen/Qwen3-Next-80B-A3B-Instruct-FP8 --port 8000 --tensor-parallel-size 4 --max-model-len 262144 --speculative-config '{\"method\":\"qwen3_next_mtp\",\"num_speculative_tokens\":2}'"
+  ],
+  "card_excerpts": [
+    {
+      "line": 45,
+      "text": "> **Qwen3-Next-80B-A3B-Instruct-FP8** supports only instruct (non-thinking) mode and does not generate ``<think></think>`` blocks in its output."
+    }
+  ],
+  "stored_content": "Selected excerpts; sha256 hashes the original complete HTTP response body."
+}

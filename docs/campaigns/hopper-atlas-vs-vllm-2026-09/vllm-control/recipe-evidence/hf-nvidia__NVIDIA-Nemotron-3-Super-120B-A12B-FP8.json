@@ -1,0 +1,37 @@
+{
+  "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8/raw/main/README.md",
+  "retrieved_utc": "2026-09-05T02:41:39.297081+00:00",
+  "status": 200,
+  "final_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8/raw/main/README.md",
+  "sha256": "7d8cf610376dc7668b788b082b53c4b39229b3b0df5478f5504ba07e6a960228",
+  "vllm_command_blocks": [
+    "# Optional: --enable-expert-parallel\nvllm serve $MODEL_CKPT \\\n  --served-model-name nvidia/nemotron-3-super \\\n  --async-scheduling \\\n  --dtype auto \\\n  --kv-cache-dtype fp8 \\\n  --tensor-parallel-size 4 \\\n  --max-model-len 262144 \\\n  --enable-expert-parallel \\\n  --swap-space 0 \\\n  --trust-remote-code \\\n  --gpu-memory-utilization 0.9 \\\n  --max-cudagraph-capture-size 128 \\\n  --enable-chunked-prefill \\\n  --mamba-ssm-cache-dtype float32 \\\n  --reasoning-parser nemotron_v3 \\\n  --enable-auto-tool-choice \\\n  --tool-call-parser qwen3_coder"
+  ],
+  "card_excerpts": [
+    {
+      "line": 226,
+      "text": "For each inference backend, you'll need the custom `super_v3` reasoning parser. Download it with:"
+    },
+    {
+      "line": 228,
+      "text": "wget https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8/raw/main/super_v3_reasoning_parser.py"
+    },
+    {
+      "line": 233,
+      "text": "curl -O https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8/raw/main/super_v3_reasoning_parser.py"
+    },
+    {
+      "line": 273,
+      "text": "> **B200/B300 (FP8)**: The FP8 checkpoint fits on a single GPU. Set `--tensor-parallel-size 1` and remove `--enable-expert-parallel`. All other flags remain the same."
+    },
+    {
+      "line": 298,
+      "text": "> **B200/B300 (FP8)**: The FP8 checkpoint fits on a single GPU. Set `--tp 1 --ep 1`. All other flags remain the same."
+    },
+    {
+      "line": 342,
+      "text": "> **B200/B300 (FP8)**: The FP8 checkpoint fits on a single GPU. Set `--tp_size 1 --ep_size 1` and set `enable_attention_dp: false` in the config file. All other flags remain the same."
+    }
+  ],
+  "stored_content": "Selected excerpts; sha256 hashes the original complete HTTP response body."
+}

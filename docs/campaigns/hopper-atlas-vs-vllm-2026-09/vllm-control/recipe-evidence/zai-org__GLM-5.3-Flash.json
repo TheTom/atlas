@@ -1,0 +1,210 @@
+{
+  "url": "https://recipes.vllm.ai/zai-org/GLM-5.3-Flash.json",
+  "retrieved_utc": "2026-09-05T02:40:06.532543+00:00",
+  "status": 200,
+  "final_url": "https://recipes.vllm.ai/zai-org/GLM-5.3-Flash.json",
+  "sha256": "bf67631d92b580b6553c1488c88068681f5a4aa3a05940ad228a0b97942cdd03",
+  "data": {
+    "hf_id": "zai-org/GLM-5.3-Flash",
+    "model": {
+      "model_id": "zai-org/GLM-5.3-Flash",
+      "min_vllm_version": "0.29.0",
+      "nightly_required": true,
+      "docker_image": {
+        "nvidia": "vllm/vllm-openai:glm53-flash",
+        "amd": "vllm/vllm-openai-rocm:glm53-flash"
+      },
+      "architecture": "moe",
+      "parameter_count": "321B",
+      "active_parameters": "18B",
+      "context_length": 1048576,
+      "base_env": {
+        "VLLM_ENGINE_READY_TIMEOUT_S": "3600"
+      },
+      "install": {
+        "docker": {
+          "command": "docker pull vllm/vllm-openai:glm53-flash",
+          "note": "NVIDIA/AMD: use vllm/vllm-openai:glm53-flash until support lands in the standard image. Ascend 950PR: pin quay.io/ascend/vllm-ascend:nightly-main-a5 (same as GLM-5.3) with GLM-5.3-Flash overlays vLLM#53906 and vllm-ascend#15127."
+        }
+      }
+    },
+    "features": {
+      "tool_calling": {
+        "description": "GLM tool-call parsing with automatic tool choice",
+        "args": [
+          "--tool-call-parser",
+          "glm47",
+          "--enable-auto-tool-choice"
+        ]
+      },
+      "reasoning": {
+        "description": "Extract reasoning content with the GLM reasoning parser",
+        "args": [
+          "--reasoning-parser",
+          "glm45"
+        ]
+      },
+      "spec_decoding": {
+        "description": "Use the checkpoint's single MTP layer to draft one token",
+        "args": [
+          "--speculative-config",
+          "{\"method\":\"mtp\",\"num_speculative_tokens\":5}"
+        ]
+      }
+    },
+    "opt_in_features": [
+      "spec_decoding"
+    ],
+    "variants": {
+      "default": {
+        "precision": "fp8",
+        "vram_minimum_gb": 386,
+        "description": "Default native FP8 checkpoint (zai-org/GLM-5.3-Flash)",
+        "hardware_overrides": {
+          "ascend_950pr_8x": {
+            "docker_image": "quay.io/ascend/vllm-ascend:nightly-main-a5",
+            "install": {
+              "pip": false
+            }
+          }
+        }
+      },
+      "nvfp4": {
+        "model_id": "RedHatAI/GLM-5.3-Flash-NVFP4",
+        "precision": "nvfp4",
+        "vram_minimum_gb": 229,
+        "description": "NVFP4 checkpoint (RedHatAI/GLM-5.3-Flash-NVFP4) \u2014 MoE experts quantized to 4-bit; requires Blackwell",
+        "json": "/RedHatAI/GLM-5.3-Flash-NVFP4.json"
+      },
+      "bf16": {
+        "model_id": "zai-org/GLM-5.3-Flash-BF16",
+        "precision": "bf16",
+        "vram_minimum_gb": 772,
+        "description": "Official BF16 checkpoint; requires substantially more GPU memory",
+        "json": "/zai-org/GLM-5.3-Flash-BF16.json"
+      }
+    },
+    "strategy_hardware": {
+      "single_node_tep": {
+        "npu": "unsupported"
+      },
+      "single_node_dep": {
+        "npu": "unsupported"
+      },
+      "multi_node_tp": {
+        "npu": "unsupported"
+      },
+      "multi_node_tp_pp": {
+        "npu": "unsupported"
+      },
+      "multi_node_tep": {
+        "npu": "unsupported"
+      },
+      "multi_node_dep": {
+        "npu": "unsupported"
+      },
+      "pd_cluster": {
+        "npu": "unsupported"
+      }
+    },
+    "hardware_overrides": {
+      "hopper": {
+        "extra_args": [
+          "--no-enable-flashinfer-autotune"
+        ]
+      },
+      "blackwell": {
+        "extra_args": [
+          "--kv-cache-dtype",
+          "fp8"
+        ]
+      },
+      "amd": {
+        "extra_args": [
+          "--max-num-seqs",
+          "512",
+          "--attention-backend",
+          "ROCM_AITER_MLA_SPARSE"
+        ],
+        "extra_env": {
+          "VLLM_ROCM_USE_AITER": "1"
+        }
+      },
+      "npu": {
+        "extra_args": [
+          "--trust-remote-code",
+          "--block-size",
+          "512",
+          "--max-model-len",
+          "131072",
+          "--max-num-seqs",
+          "16",
+          "--max-num-batched-tokens",
+          "8192",
+          "--gpu-memory-utilization",
+          "0.90"
+        ],
+        "extra_env": {
+          "PYTORCH_NPU_ALLOC_CONF": "expandable_segments:True",
+          "HCCL_BUFFSIZE": "512",
+          "HCCL_OP_EXPANSION_MODE": "AIV",
+          "HCCL_CONNECT_TIMEOUT": "7200"
+        }
+      }
+    },
+    "meta": {
+      "title": "GLM-5.3-Flash",
+      "date_added": "2026-08-27",
+      "date_updated": "2026-09-03",
+      "hardware": {
+        "h100": "verified",
+        "b200": "verified",
+        "gb200": "verified",
+        "mi300x": "unsupported",
+        "mi325x": "unsupported",
+        "mi355x": "verified",
+        "ascend_950pr_8x": "verified"
+      }
+    },
+    "recommended_command": {
+      "hardware": "h200",
+      "strategy": "single_node_tp",
+      "variant": "default",
+      "node_count": 1,
+      "deploy_type": "single_node",
+      "env": {
+        "VLLM_ENGINE_READY_TIMEOUT_S": "3600"
+      },
+      "docker_image": "vllm/vllm-openai:glm53-flash",
+      "command": "vllm serve zai-org/GLM-5.3-Flash \\\n  --tensor-parallel-size 8 \\\n  --no-enable-flashinfer-autotune \\\n  --tool-call-parser glm47 \\\n  --enable-auto-tool-choice \\\n  --reasoning-parser glm45",
+      "argv": [
+        "vllm",
+        "serve",
+        "zai-org/GLM-5.3-Flash",
+        "--tensor-parallel-size",
+        "8",
+        "--no-enable-flashinfer-autotune",
+        "--tool-call-parser",
+        "glm47",
+        "--enable-auto-tool-choice",
+        "--reasoning-parser",
+        "glm45"
+      ],
+      "by_hardware": {
+        "h200": "/zai-org/GLM-5.3-Flash/hw/h200.json",
+        "h100": "/zai-org/GLM-5.3-Flash/hw/h100.json",
+        "b200": "/zai-org/GLM-5.3-Flash/hw/b200.json",
+        "gb200": "/zai-org/GLM-5.3-Flash/hw/gb200.json",
+        "b300": "/zai-org/GLM-5.3-Flash/hw/b300.json",
+        "gb300": "/zai-org/GLM-5.3-Flash/hw/gb300.json",
+        "mi355x": "/zai-org/GLM-5.3-Flash/hw/mi355x.json",
+        "ascend_950pr_8x": "/zai-org/GLM-5.3-Flash/hw/ascend_950pr_8x.json"
+      }
+    },
+    "guide_excerpts": [
+      "Split one 8-GPU node into a prefill pool (GPUs 0-3) and a decode pool (GPUs 4-7),\nbridged by NIXL KV transfer. The KDA conv-state and KV-cache layouts must be pinned\nidentically on both pools, and MTP drafts run on both sides. On Blackwell you can add\n`--kv-cache-dtype fp8` to both pools; Hopper does not support FP8 KV cache for this\nmodel and must run BF16 KV.",
+      "Thinking is always on \u2014 the generation prompt opens a `<think>` block unconditionally.\nGLM-5.3-Flash offers **three reasoning effort levels** driven by the `reasoning_effort`\nfield; the default is **`max`**:"
+    ]
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

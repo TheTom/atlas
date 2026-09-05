@@ -1,0 +1,14 @@
+{
+  "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.28.0/vllm/benchmarks/serve.py",
+  "retrieved_utc": "2026-09-05T02:52:20.243851+00:00",
+  "status": 200,
+  "sha256": "999939debed5ccebaa2e31d5a196c494c9b0ccac993dc85191737324c0bee497",
+  "excerpts": [
+    {
+      "start_line": 587,
+      "end_line": 616,
+      "text": "    for i in range(len(outputs)):\n        if outputs[i].success:\n            output_len = outputs[i].output_tokens\n\n            if not output_len:\n                if tokenizer is None:\n                    output_len = 1\n                else:\n                    # We use the tokenizer to count the number of output tokens\n                    # for some serving backends instead of looking at\n                    # len(outputs[i].itl) since multiple output tokens may be\n                    # bundled together\n                    # Note : this may inflate the output token count slightly\n                    output_len = len(\n                        tokenizer(\n                            outputs[i].generated_text, add_special_tokens=False\n                        ).input_ids\n                    )\n            actual_output_lens.append(output_len)\n            total_input += outputs[i].prompt_len\n            tpot = 0.0\n            if output_len > 1:\n                latency_minus_ttft = outputs[i].latency - outputs[i].ttft\n                tpot = latency_minus_ttft / (output_len - 1)\n                tpots.append(tpot)\n            # Note: if output_len <= 1, we regard tpot as 0 for goodput\n            all_tpots.append(tpot)\n            itls += outputs[i].itl\n            ttfts.append(outputs[i].ttft)\n            e2els.append(outputs[i].latency)"
+    }
+  ],
+  "stored_content": "Selected excerpts; sha256 hashes the original complete HTTP response body."
+}

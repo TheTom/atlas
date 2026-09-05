@@ -1,0 +1,14 @@
+{
+  "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.28.0/vllm/entrypoints/openai/api_server.py",
+  "retrieved_utc": "2026-09-05T02:48:42.096419+00:00",
+  "status": 200,
+  "sha256": "b59e59012452aaad47073d5ddc55ddc0236103b46f2dad6c7869b18259119e05",
+  "excerpts": [
+    {
+      "start_line": 225,
+      "end_line": 228,
+      "text": "    if envs.VLLM_SERVER_DEV_MODE:\n        from vllm.entrypoints.serve import register_vllm_dev_api_routers\n\n        register_vllm_dev_api_routers(app)"
+    }
+  ],
+  "stored_content": "Selected excerpts; sha256 hashes the original complete HTTP response body."
+}

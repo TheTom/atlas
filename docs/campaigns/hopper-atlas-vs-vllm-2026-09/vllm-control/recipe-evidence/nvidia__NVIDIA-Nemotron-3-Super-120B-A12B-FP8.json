@@ -1,0 +1,126 @@
+{
+  "url": "https://recipes.vllm.ai/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8.json",
+  "retrieved_utc": "2026-09-05T02:40:06.081654+00:00",
+  "status": 200,
+  "final_url": "https://recipes.vllm.ai/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8.json",
+  "sha256": "b2fade6e64f6b4516c9dfa3e99a26041a90a9c4179118644b3414bda3173a9d5",
+  "data": {
+    "hf_id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
+    "model": {
+      "model_id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
+      "min_vllm_version": "0.17.1",
+      "architecture": "moe",
+      "parameter_count": "120B",
+      "active_parameters": "12B",
+      "context_length": 262144,
+      "base_args": [
+        "--trust-remote-code"
+      ],
+      "base_env": {},
+      "install": {
+        "pip": {
+          "command": "uv venv\nsource .venv/bin/activate\nuv pip install -U vllm --torch-backend auto"
+        },
+        "docker": {
+          "command": "docker pull vllm/vllm-openai:latest"
+        }
+      }
+    },
+    "features": {
+      "tool_calling": {
+        "description": "Qwen3 XML tool-call parser with automatic tool choice",
+        "args": [
+          "--enable-auto-tool-choice",
+          "--tool-call-parser",
+          "qwen3_xml"
+        ]
+      },
+      "reasoning": {
+        "description": "Built-in nemotron_v3 reasoning parser (vLLM >= 0.17.1)",
+        "args": [
+          "--reasoning-parser",
+          "nemotron_v3"
+        ]
+      },
+      "spec_decoding": {
+        "description": "MTP speculative decoding for accelerated inference",
+        "args": [
+          "--speculative-config",
+          "{\"method\":\"mtp\",\"num_speculative_tokens\":3}"
+        ]
+      }
+    },
+    "opt_in_features": [
+      "spec_decoding"
+    ],
+    "variants": {
+      "default": {
+        "precision": "fp8",
+        "vram_minimum_gb": 149,
+        "description": "FP8 weights + FP8 KV cache",
+        "extra_args": [
+          "--kv-cache-dtype",
+          "fp8"
+        ]
+      }
+    },
+    "hardware_overrides": {},
+    "meta": {
+      "title": "NVIDIA Nemotron-3-Super-120B-A12B",
+      "date_added": "2026-04-28",
+      "date_updated": "2026-07-31",
+      "hardware": {
+        "h100": "verified",
+        "h200": "verified",
+        "b200": "verified",
+        "dgx_station_gb300": "verified",
+        "dgx_spark_gb10": "verified",
+        "rtx_pro_6000": "verified"
+      }
+    },
+    "recommended_command": {
+      "hardware": "h200",
+      "strategy": "single_node_tp",
+      "variant": "fp8",
+      "node_count": 1,
+      "deploy_type": "single_node",
+      "env": {},
+      "docker_image": "vllm/vllm-openai:latest",
+      "command": "vllm serve nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8 \\\n  --trust-remote-code \\\n  --kv-cache-dtype fp8 \\\n  --tensor-parallel-size 8 \\\n  --enable-auto-tool-choice \\\n  --tool-call-parser qwen3_xml \\\n  --reasoning-parser nemotron_v3",
+      "argv": [
+        "vllm",
+        "serve",
+        "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
+        "--trust-remote-code",
+        "--kv-cache-dtype",
+        "fp8",
+        "--tensor-parallel-size",
+        "8",
+        "--enable-auto-tool-choice",
+        "--tool-call-parser",
+        "qwen3_xml",
+        "--reasoning-parser",
+        "nemotron_v3"
+      ],
+      "by_hardware": {
+        "h200": "/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8/hw/h200.json",
+        "h100": "/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8/hw/h100.json",
+        "b200": "/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8/hw/b200.json",
+        "gb200": "/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8/hw/gb200.json",
+        "b300": "/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8/hw/b300.json",
+        "gb300": "/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8/hw/gb300.json",
+        "dgx_station_gb300": "/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8/hw/dgx_station_gb300.json",
+        "dgx_spark_gb10": "/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8/hw/dgx_spark_gb10.json",
+        "rtx_pro_6000": "/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8/hw/rtx_pro_6000.json",
+        "mi300x": "/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8/hw/mi300x.json",
+        "mi325x": "/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8/hw/mi325x.json",
+        "mi355x": "/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8/hw/mi355x.json"
+      }
+    },
+    "guide_excerpts": [
+      "- Hardware: 4-8x H100/H200/B200/RTX Pro 6000, DGX Station, or DGX Spark\n- vLLM >= 0.17.1\n- Docker with NVIDIA Container Toolkit (recommended)",
+      "Reference command from the [vLLM blog](https://vllm.ai/blog/nemotron-3-super) (BF16, 4x H100, FP8 KV cache):"
+    ]
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

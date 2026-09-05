@@ -28,6 +28,7 @@ Exits non-zero if any check fails, so a driver can `set -e` around it.
 
 import argparse
 import importlib.util
+import http.client
 import json
 import pathlib
 import subprocess
@@ -126,9 +127,24 @@ def body(model, prompt, **extra):
     return payload
 
 
+def choice_of(response):
+    """Validate the HTTP/JSON boundary before inspecting a completion."""
+    if not isinstance(response, dict) or response.get("error"):
+        raise ValueError("response must be a completion object without an error")
+    choices = response.get("choices")
+    if not isinstance(choices, list) or not choices or not isinstance(choices[0], dict):
+        raise ValueError("response must contain a nonempty choices array of objects")
+    choice = choices[0]
+    if not isinstance(choice.get("message"), dict):
+        raise ValueError("completion message must be an object")
+    return choice
+
+
 def content_of(response):
-    choice = (response.get("choices") or [{}])[0]
-    return (choice.get("message") or {}).get("content") or ""
+    content = choice_of(response)["message"].get("content")
+    if content is not None and not isinstance(content, str):
+        raise ValueError("completion content must be a string or null")
+    return content or ""
 
 
 def check_determinism(url, model, timeout):
@@ -154,23 +170,42 @@ def check_determinism(url, model, timeout):
 def check_toolcall(url, model, timeout):
     """A tool call must arrive as a tool call, with arguments that parse."""
     r = post(url, body(model, TOOLCALL_PROMPT, tools=TOOL_SCHEMA, tool_choice="auto"), timeout)
-    choice = (r.get("choices") or [{}])[0]
+    choice = choice_of(r)
     finish = choice.get("finish_reason")
     calls = (choice.get("message") or {}).get("tool_calls") or choice.get("tool_calls") or []
     if finish != "tool_calls":
         return False, f"finish_reason was {finish!r}, not 'tool_calls'"
     if not calls:
         return False, "finish_reason said tool_calls but none were returned"
-    raw = (calls[0].get("function") or {}).get("arguments")
-    if not isinstance(raw, str):
-        return False, f"arguments were {type(raw).__name__}, not a JSON string"
-    try:
-        args = json.loads(raw)
-    except json.JSONDecodeError as e:
-        return False, f"arguments are not JSON ({e}): {raw[:200]!r}"
-    if not isinstance(args, dict):
-        return False, f"arguments parsed to {type(args).__name__}, not an object"
-    return True, f"{calls[0].get('function', {}).get('name')}({sorted(args)})"
+    if not isinstance(calls, list):
+        return False, "tool_calls must be an array"
+    schema = TOOL_SCHEMA[0]["function"]
+    for call in calls:
+        if not isinstance(call, dict) or call.get("type") != "function":
+            return False, "each tool call must be a function object"
+        function = call.get("function")
+        if not isinstance(function, dict) or function.get("name") != schema["name"]:
+            return False, f"tool name must be {schema['name']}"
+        raw = function.get("arguments")
+        if not isinstance(raw, str):
+            return False, f"arguments were {type(raw).__name__}, not a JSON string"
+        try:
+            args = json.loads(raw)
+        except json.JSONDecodeError as e:
+            return False, f"arguments are not JSON ({e}): {raw[:200]!r}"
+        if not isinstance(args, dict):
+            return False, f"arguments parsed to {type(args).__name__}, not an object"
+        for key in schema["parameters"]["required"]:
+            if key not in args:
+                return False, f"missing required argument: {key}"
+        for key, definition in schema["parameters"]["properties"].items():
+            if key not in args:
+                continue
+            expected = {"string": str, "integer": int}[definition["type"]]
+            # bool is an int subclass in Python, but not a JSON integer.
+            if type(args[key]) is not expected:
+                return False, f"{key} must be {definition['type']}"
+    return True, f"{len(calls)} {schema['name']} call(s), required argument types valid"
 
 
 def check_think_leak(url, model, timeout):
@@ -195,7 +230,7 @@ def run(url, model, timeout):
     for key, fn in checks:
         try:
             ok, detail = fn(url, model, timeout)
-        except (urllib.error.URLError, OSError, TimeoutError, ValueError, KeyError) as e:
+        except (urllib.error.URLError, http.client.HTTPException, OSError, TimeoutError, ValueError, KeyError) as e:
             # A transport failure is a FAILED check, never a skipped one: the
             # gate's whole job is to refuse to certify what it could not see.
             ok, detail = False, f"{type(e).__name__}: {e}"
@@ -212,6 +247,7 @@ import json, sys
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 MODE = sys.argv[2]
+PRIME_HITS = 0
 
 def reply(text, finish="stop", calls=None):
     msg = {"role": "assistant", "content": text}
@@ -221,22 +257,39 @@ def reply(text, finish="stop", calls=None):
 
 class H(BaseHTTPRequestHandler):
     def do_POST(self):
+        global PRIME_HITS
         req = json.loads(self.rfile.read(int(self.headers.get("Content-Length") or 0)) or b"{}")
         prompt = req["messages"][0]["content"]
         if req.get("tools"):
             body = reply("", "tool_calls", [{"id": "call_0", "type": "function",
                 "function": {"name": "get_weather",
                              "arguments": json.dumps({"city": "Reykjavik", "days": 3})}}])
+            call = body["choices"][0]["message"]["tool_calls"][0]
+            if MODE == "missing-args":
+                call["function"]["arguments"] = "{}"
+            elif MODE == "wrong-types":
+                call["function"]["arguments"] = json.dumps({"city": 4, "days": True})
+            elif MODE == "wrong-name":
+                call["function"]["name"] = "delete_files"
+            elif MODE == "wrong-call-type":
+                call["type"] = "custom"
+            elif MODE == "extra-bad-call":
+                body["choices"][0]["message"]["tool_calls"].append({"type": "function", "function": {"name": "get_weather", "arguments": "{}"}})
         elif "prime" in prompt:
-            body = reply("101, 103, 107, 109, 113")
+            PRIME_HITS += 1
+            body = reply("101, 103, 107, 109, 113" if MODE != "nondeterministic" or PRIME_HITS == 1 else "127")
         elif MODE == "leak":
             body = reply("<think>the user wants a definition</think> To measure a system.")
         else:
             body = reply("To measure a system under a fixed workload.")
+        if MODE == "empty":
+            body = reply("")
+        elif MODE == "malformed":
+            body = {"choices": [7]}
         raw = json.dumps(body).encode()
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
-        self.send_header("Content-Length", str(len(raw)))
+        self.send_header("Content-Length", str(len(raw) + (100 if MODE == "truncated" else 0)))
         self.end_headers()
         self.wfile.write(raw)
 
@@ -269,37 +322,59 @@ def _await_bind(port):
 
 
 def selftest():
-    """Validate the instrument against two known cases.
+    """Exercise each gate against clean and known-bad HTTP responses.
 
-    ★ The one that matters is the FAILING one. A gate that has only ever been
-    watched to pass is not evidence -- it might be reporting `passed: True`
-    because it never looked. So the second stub leaks a <think> block into a
-    reply that is otherwise perfectly good, and the gate must fail exactly the
-    leak check and exit non-zero, while the other two still pass.
+    Tool-name/type/schema failures, nondeterminism, empty replies, malformed
+    envelopes and leaked thinking must fail rather than certify or crash.
     """
     with tempfile.TemporaryDirectory() as d:
         stub = pathlib.Path(d) / "stub.py"
         stub.write_text(STUB)
         results = {}
-        for mode in ("clean", "leak"):
+        for mode in ("clean", "leak", "missing-args", "wrong-types", "wrong-name", "wrong-call-type", "extra-bad-call", "nondeterministic", "empty", "malformed", "truncated"):
             port = _free_port()
             proc = subprocess.Popen([sys.executable, str(stub), str(port), mode])
             try:
                 _await_bind(port)
-                results[mode] = run(f"http://127.0.0.1:{port}", "stub-model", 30)
+                try:
+                    results[mode] = run(f"http://127.0.0.1:{port}", "stub-model", 30)
+                except Exception as exc:
+                    results[mode] = {"crashed": f"{type(exc).__name__}: {exc}"}
             finally:
                 proc.terminate()
                 proc.wait(timeout=10)
 
-    clean, leak = results["clean"], results["leak"]
     print(json.dumps(results, indent=2))
+    _assert_stub_results(results)
+    # Validate the selftest's own exception sentinel against a known bad case.
+    crashed = {**results, "clean": {"passed": True, "crashed": "known clean-path failure"}}
+    try:
+        _assert_stub_results(crashed)
+    except AssertionError:
+        pass
+    else:
+        raise AssertionError("a clean-stub crash must fail the selftest")
+    print("SELFTEST OK: clean passes; every known-bad response and a clean-stub crash fail")
+
+
+def _assert_stub_results(results):
+    for mode, result in results.items():
+        assert "crashed" not in result, f"{mode} stub crashed: {result}"
+    clean, leak = results["clean"], results["leak"]
+    failures = []
+    for mode in ("missing-args", "wrong-types", "wrong-name", "wrong-call-type", "extra-bad-call"):
+        if results[mode]["toolcall_ok"] or results[mode]["passed"]:
+            failures.append(f"{mode} must fail the tool-call gate")
+    for mode, key in (("nondeterministic", "determinism_ok"), ("empty", "determinism_ok"), ("malformed", "determinism_ok"), ("truncated", "determinism_ok")):
+        if results[mode][key] or results[mode]["passed"]:
+            failures.append(f"{mode} must fail {key}")
+    assert not failures, "\n".join(failures)
     assert clean["passed"], f"the clean stub must pass: {clean}"
     assert not leak["passed"], "a <think> leak must FAIL the gate"
     assert leak["determinism_ok"], f"the leak must not disturb determinism: {leak}"
     assert leak["toolcall_ok"], f"the leak must not disturb tool calls: {leak}"
     assert not leak["think_leak_ok"], leak
     assert "think" in leak["details"]["think_leak_ok"], leak["details"]
-    print("SELFTEST OK: clean stub passes, <think> leak fails exactly the leak check")
 
 
 def main():

@@ -1,0 +1,577 @@
+{
+  "url": "https://recipes.vllm.ai/deepseek-ai/DeepSeek-V4-Flash.json",
+  "retrieved_utc": "2026-09-05T02:40:06.473238+00:00",
+  "status": 200,
+  "final_url": "https://recipes.vllm.ai/deepseek-ai/DeepSeek-V4-Flash.json",
+  "sha256": "1520bfcfb9d20e88b5dd47966bd3702d1e9518f69b430fc0c1ecdff47bce98d9",
+  "data": {
+    "hf_id": "deepseek-ai/DeepSeek-V4-Flash",
+    "model": {
+      "model_id": "deepseek-ai/DeepSeek-V4-Flash",
+      "min_vllm_version": "0.20.0",
+      "docker_image": {
+        "amd": "vllm/vllm-openai-rocm:nightly"
+      },
+      "architecture": "moe",
+      "parameter_count": "284B",
+      "active_parameters": "13B",
+      "context_length": 1048576,
+      "flashinfer_autotune": true,
+      "base_args": [
+        "--trust-remote-code",
+        "--kv-cache-dtype",
+        "fp8",
+        "--block-size",
+        "256"
+      ],
+      "install": {
+        "pip": {
+          "command": "uv venv\nsource .venv/bin/activate\nuv pip install -U vllm --torch-backend auto"
+        },
+        "docker": {
+          "command": "docker pull vllm/vllm-openai:latest"
+        }
+      }
+    },
+    "features": {
+      "tool_calling": {
+        "description": "Enable tool calling with DeepSeek V4 chat template support.",
+        "args": [
+          "--tokenizer-mode",
+          "deepseek_v4",
+          "--tool-call-parser",
+          "deepseek_v4",
+          "--enable-auto-tool-choice"
+        ]
+      },
+      "reasoning": {
+        "description": "Enable reasoning/thinking mode with the DeepSeek V4 reasoning parser.",
+        "args": [
+          "--reasoning-parser",
+          "deepseek_v4",
+          "--reasoning-config",
+          "{\"reasoning_parser\":\"deepseek_v4\",\"reasoning_start_str\":\"\",\"reasoning_end_str\":\"\"}"
+        ]
+      },
+      "spec_decoding": {
+        "description": "Speculative decoding \u2014 pick a drafting method.",
+        "default_mode": "mtp",
+        "modes": {
+          "mtp": {
+            "label": "MTP",
+            "description": "Built-in Multi-Token Prediction, 2 draft tokens (1 on Hopper).",
+            "hardware": {
+              "rtx_pro_6000_8x": "unsupported"
+            },
+            "variants": [
+              "fp8",
+              "nvfp4"
+            ],
+            "args": [
+              "--speculative-config",
+              "{\"method\":\"mtp\",\"num_speculative_tokens\":2}"
+            ],
+            "hardware_overrides": {
+              "hopper": {
+                "args": [
+                  "--speculative-config",
+                  "{\"method\":\"mtp\",\"num_speculative_tokens\":1}"
+                ]
+              },
+              "npu": {
+                "args": [
+                  "--speculative-config",
+                  "{\"method\":\"mtp\",\"num_speculative_tokens\":1,\"enforce_eager\":true}"
+                ]
+              }
+            }
+          },
+          "dspark": {
+            "label": "DSpark",
+            "description": "DSpark drafting, 7 draft tokens, probabilistic sampling. Requires the DSpark or 0731 checkpoint (Variant row).",
+            "variants": [
+              "default",
+              "dspark"
+            ],
+            "args": [
+              "--speculative-config",
+              "{\"method\":\"dspark\",\"num_speculative_tokens\":7,\"draft_sample_method\":\"probabilistic\"}"
+            ],
+            "hardware_overrides": {
+              "dgx_spark_gb10": {
+                "args": [
+                  "--speculative-config",
+                  "{\"method\":\"dspark\",\"num_speculative_tokens\":5,\"draft_sample_method\":\"probabilistic\",\"attention_backend\":\"B12X_MLA_SPARSE\"}"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "opt_in_features": [
+      "spec_decoding"
+    ],
+    "variants": {
+      "default": {
+        "model_id": "deepseek-ai/DeepSeek-V4-Flash-0731",
+        "label": "FP8 (0731)",
+        "precision": "fp8",
+        "vram_minimum_gb": 200,
+        "description": "Official DeepSeek-V4-Flash release (2026-07-31) superseding the preview \u2014 substantially stronger agentic performance, with the DSpark draft module attached.",
+        "supported_hardware": [
+          "h200",
+          "b200",
+          "gb200",
+          "b300",
+          "gb300",
+          "dgx_station_gb300",
+          "dgx_spark_gb10",
+          "rtx_pro_6000_8x",
+          "mi300x",
+          "mi325x",
+          "mi355x"
+        ],
+        "min_vllm_version": "0.25.0",
+        "docker_image": "vllm/vllm-openai:v0.28.0",
+        "default_modes": {
+          "spec_decoding": "dspark"
+        },
+        "hardware_overrides": {
+          "rtx_pro_6000_8x": {
+            "docker_image": "vllm/vllm-openai:nightly"
+          },
+          "dgx_spark_gb10": {
+            "docker_image": "eugr/spark-vllm-b12x:latest",
+            "install": {
+              "pip": false
+            },
+            "extra_args": [
+              "--max-num-seqs",
+              "8",
+              "--max-num-batched-tokens",
+              "8192",
+              "--gpu-memory-utilization",
+              "0.85",
+              "--enable-prefix-caching",
+              "--default-chat-template-kwargs.thinking=true",
+              "--default-chat-template-kwargs.reasoning_effort=high",
+              "--load-format",
+              "instanttensor",
+              "--moe-backend",
+              "b12x",
+              "--linear-backend",
+              "b12x",
+              "--attention-backend",
+              "B12X_MLA_SPARSE",
+              "--max-cudagraph-capture-size",
+              "64",
+              "--compilation-config",
+              "{\"cudagraph_mode\":\"FULL_AND_PIECEWISE\",\"custom_ops\":[\"all\"]}"
+            ],
+            "extra_env": {
+              "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
+              "CUTE_DSL_ARCH": "sm_121a",
+              "VLLM_USE_AOT_COMPILE": "1",
+              "VLLM_USE_BREAKABLE_CUDAGRAPH": "0",
+              "VLLM_USE_MEGA_AOT_ARTIFACT": "-1",
+              "VLLM_MEMORY_PROFILE_INCLUDE_ATTN": "1",
+              "VLLM_USE_FLASHINFER_SAMPLER": "1",
+              "VLLM_USE_B12X_WO_PROJECTION": "1",
+              "VLLM_USE_B12X_MHC": "1",
+              "VLLM_USE_B12X_FP8_GEMM": "1",
+              "VLLM_USE_B12X_MOE": "1",
+              "VLLM_USE_B12X_SPARSE_INDEXER": "1",
+              "VLLM_USE_V2_MODEL_RUNNER": "1",
+              "B12X_MLA_SM120_UNIFIED": "1",
+              "B12X_MOE_FORCE_A8": "1",
+              "GLOO_SOCKET_IFNAME": "$IFACE_NAME",
+              "MN_IF_NAME": "$IFACE_NAME",
+              "NCCL_IB_DISABLE": "0",
+              "NCCL_IB_HCA": "$IB_IF",
+              "NCCL_IGNORE_CPU_AFFINITY": "1",
+              "NCCL_SOCKET_IFNAME": "$IFACE_NAME",
+              "OMPI_MCA_btl_tcp_if_include": "$IFACE_NAME",
+              "TP_SOCKET_IFNAME": "$IFACE_NAME",
+              "UCX_NET_DEVICES": "$IFACE_NAME"
+            }
+          },
+          "blackwell": {
+            "extra_args": [
+              "--moe-backend",
+              "deep_gemm_mega_moe"
+            ]
+          }
+        },
+        "json": "/deepseek-ai/DeepSeek-V4-Flash-0731.json"
+      },
+      "fp8": {
+        "label": "FP8 (Preview)",
+        "precision": "fp8",
+        "vram_minimum_gb": 170,
+        "description": "Native FP4+FP8 mixed checkpoint (MoE experts FP4, remaining params FP8)",
+        "hardware_overrides": {
+          "dgx_spark_gb10": {
+            "docker_image": "eugr/spark-vllm-b12x:latest",
+            "install": {
+              "pip": false
+            },
+            "extra_args": [
+              "--max-num-seqs",
+              "8",
+              "--max-num-batched-tokens",
+              "8192",
+              "--gpu-memory-utilization",
+              "0.85",
+              "--enable-prefix-caching",
+              "--default-chat-template-kwargs.thinking=true",
+              "--default-chat-template-kwargs.reasoning_effort=high",
+              "--load-format",
+              "instanttensor",
+              "--moe-backend",
+              "b12x",
+              "--linear-backend",
+              "b12x",
+              "--attention-backend",
+              "B12X_MLA_SPARSE",
+              "--max-cudagraph-capture-size",
+              "64",
+              "--compilation-config",
+              "{\"cudagraph_mode\":\"FULL_AND_PIECEWISE\",\"custom_ops\":[\"all\"]}"
+            ],
+            "extra_env": {
+              "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
+              "CUTE_DSL_ARCH": "sm_121a",
+              "VLLM_USE_AOT_COMPILE": "1",
+              "VLLM_USE_BREAKABLE_CUDAGRAPH": "0",
+              "VLLM_USE_MEGA_AOT_ARTIFACT": "-1",
+              "VLLM_MEMORY_PROFILE_INCLUDE_ATTN": "1",
+              "VLLM_USE_FLASHINFER_SAMPLER": "1",
+              "VLLM_USE_B12X_WO_PROJECTION": "1",
+              "VLLM_USE_B12X_MHC": "1",
+              "VLLM_USE_B12X_FP8_GEMM": "1",
+              "VLLM_USE_B12X_MOE": "1",
+              "VLLM_USE_B12X_SPARSE_INDEXER": "1",
+              "VLLM_USE_V2_MODEL_RUNNER": "1",
+              "B12X_MLA_SM120_UNIFIED": "1",
+              "B12X_MOE_FORCE_A8": "1",
+              "GLOO_SOCKET_IFNAME": "$IFACE_NAME",
+              "MN_IF_NAME": "$IFACE_NAME",
+              "NCCL_IB_DISABLE": "0",
+              "NCCL_IB_HCA": "$IB_IF",
+              "NCCL_IGNORE_CPU_AFFINITY": "1",
+              "NCCL_SOCKET_IFNAME": "$IFACE_NAME",
+              "OMPI_MCA_btl_tcp_if_include": "$IFACE_NAME",
+              "TP_SOCKET_IFNAME": "$IFACE_NAME",
+              "UCX_NET_DEVICES": "$IFACE_NAME"
+            }
+          },
+          "blackwell": {
+            "extra_args": [
+              "--moe-backend",
+              "deep_gemm_mega_moe"
+            ]
+          },
+          "ascend_950dt_8x": {
+            "docker_image": "quay.io/ascend/vllm-ascend:v0.23.0-a5",
+            "install": {
+              "pip": false
+            }
+          },
+          "ascend_950pr_8x": {
+            "docker_image": "quay.io/ascend/vllm-ascend:v0.23.0-a5",
+            "install": {
+              "pip": false
+            }
+          }
+        }
+      },
+      "nvfp4": {
+        "model_id": "nvidia/DeepSeek-V4-Flash-NVFP4",
+        "precision": "nvfp4",
+        "vram_minimum_gb": 170,
+        "description": "NVIDIA modelopt NVFP4 checkpoint (MoE experts NVFP4; attention, shared experts, router head, and MTP stay FP8) for Blackwell GPUs.",
+        "supported_hardware": [
+          "h200",
+          "b200",
+          "gb200",
+          "b300",
+          "gb300",
+          "dgx_station_gb300",
+          "dgx_spark_gb10",
+          "rtx_pro_6000_8x",
+          "mi300x",
+          "mi325x",
+          "mi355x"
+        ],
+        "hardware_overrides": {
+          "dgx_spark_gb10": {
+            "docker_image": "eugr/spark-vllm-b12x:latest",
+            "install": {
+              "pip": false
+            },
+            "extra_args": [
+              "--max-num-seqs",
+              "8",
+              "--max-num-batched-tokens",
+              "8192",
+              "--gpu-memory-utilization",
+              "0.85",
+              "--enable-prefix-caching",
+              "--default-chat-template-kwargs.thinking=true",
+              "--default-chat-template-kwargs.reasoning_effort=high",
+              "--load-format",
+              "instanttensor",
+              "--moe-backend",
+              "b12x",
+              "--linear-backend",
+              "b12x",
+              "--attention-backend",
+              "B12X_MLA_SPARSE",
+              "--max-cudagraph-capture-size",
+              "64",
+              "--compilation-config",
+              "{\"cudagraph_mode\":\"FULL_AND_PIECEWISE\",\"custom_ops\":[\"all\"]}"
+            ],
+            "extra_env": {
+              "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
+              "CUTE_DSL_ARCH": "sm_121a",
+              "VLLM_USE_AOT_COMPILE": "1",
+              "VLLM_USE_BREAKABLE_CUDAGRAPH": "0",
+              "VLLM_USE_MEGA_AOT_ARTIFACT": "-1",
+              "VLLM_MEMORY_PROFILE_INCLUDE_ATTN": "1",
+              "VLLM_USE_FLASHINFER_SAMPLER": "1",
+              "VLLM_USE_B12X_WO_PROJECTION": "1",
+              "VLLM_USE_B12X_MHC": "1",
+              "VLLM_USE_B12X_FP8_GEMM": "1",
+              "VLLM_USE_B12X_MOE": "1",
+              "VLLM_USE_B12X_SPARSE_INDEXER": "1",
+              "VLLM_USE_V2_MODEL_RUNNER": "1",
+              "B12X_MLA_SM120_UNIFIED": "1",
+              "B12X_MOE_FORCE_A8": "1",
+              "GLOO_SOCKET_IFNAME": "$IFACE_NAME",
+              "MN_IF_NAME": "$IFACE_NAME",
+              "NCCL_IB_DISABLE": "0",
+              "NCCL_IB_HCA": "$IB_IF",
+              "NCCL_IGNORE_CPU_AFFINITY": "1",
+              "NCCL_SOCKET_IFNAME": "$IFACE_NAME",
+              "OMPI_MCA_btl_tcp_if_include": "$IFACE_NAME",
+              "TP_SOCKET_IFNAME": "$IFACE_NAME",
+              "UCX_NET_DEVICES": "$IFACE_NAME"
+            }
+          }
+        },
+        "json": "/nvidia/DeepSeek-V4-Flash-NVFP4.json"
+      },
+      "dspark": {
+        "model_id": "deepseek-ai/DeepSeek-V4-Flash-DSpark",
+        "label": "DSpark",
+        "precision": "fp8",
+        "vram_minimum_gb": 200,
+        "description": "Preview FP4+FP8 weights with the DSpark draft module baked in \u2014 same base checkpoint as the default variant plus a fused speculative decoder.",
+        "supported_hardware": [
+          "h200",
+          "b200",
+          "gb200",
+          "b300",
+          "gb300",
+          "dgx_station_gb300",
+          "dgx_spark_gb10",
+          "rtx_pro_6000_8x",
+          "mi300x",
+          "mi325x",
+          "mi355x"
+        ],
+        "min_vllm_version": "0.25.0",
+        "default_modes": {
+          "spec_decoding": "dspark"
+        },
+        "hardware_overrides": {
+          "dgx_spark_gb10": {
+            "docker_image": "eugr/spark-vllm-b12x:latest",
+            "install": {
+              "pip": false
+            },
+            "extra_args": [
+              "--max-num-seqs",
+              "8",
+              "--max-num-batched-tokens",
+              "8192",
+              "--gpu-memory-utilization",
+              "0.85",
+              "--enable-prefix-caching",
+              "--default-chat-template-kwargs.thinking=true",
+              "--default-chat-template-kwargs.reasoning_effort=high",
+              "--load-format",
+              "instanttensor",
+              "--moe-backend",
+              "b12x",
+              "--linear-backend",
+              "b12x",
+              "--attention-backend",
+              "B12X_MLA_SPARSE",
+              "--max-cudagraph-capture-size",
+              "64",
+              "--compilation-config",
+              "{\"cudagraph_mode\":\"FULL_AND_PIECEWISE\",\"custom_ops\":[\"all\"]}"
+            ],
+            "extra_env": {
+              "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
+              "CUTE_DSL_ARCH": "sm_121a",
+              "VLLM_USE_AOT_COMPILE": "1",
+              "VLLM_USE_BREAKABLE_CUDAGRAPH": "0",
+              "VLLM_USE_MEGA_AOT_ARTIFACT": "-1",
+              "VLLM_MEMORY_PROFILE_INCLUDE_ATTN": "1",
+              "VLLM_USE_FLASHINFER_SAMPLER": "1",
+              "VLLM_USE_B12X_WO_PROJECTION": "1",
+              "VLLM_USE_B12X_MHC": "1",
+              "VLLM_USE_B12X_FP8_GEMM": "1",
+              "VLLM_USE_B12X_MOE": "1",
+              "VLLM_USE_B12X_SPARSE_INDEXER": "1",
+              "VLLM_USE_V2_MODEL_RUNNER": "1",
+              "B12X_MLA_SM120_UNIFIED": "1",
+              "B12X_MOE_FORCE_A8": "1",
+              "GLOO_SOCKET_IFNAME": "$IFACE_NAME",
+              "MN_IF_NAME": "$IFACE_NAME",
+              "NCCL_IB_DISABLE": "0",
+              "NCCL_IB_HCA": "$IB_IF",
+              "NCCL_IGNORE_CPU_AFFINITY": "1",
+              "NCCL_SOCKET_IFNAME": "$IFACE_NAME",
+              "OMPI_MCA_btl_tcp_if_include": "$IFACE_NAME",
+              "TP_SOCKET_IFNAME": "$IFACE_NAME",
+              "UCX_NET_DEVICES": "$IFACE_NAME"
+            }
+          },
+          "blackwell": {
+            "extra_args": [
+              "--moe-backend",
+              "deep_gemm_mega_moe"
+            ]
+          }
+        },
+        "json": "/deepseek-ai/DeepSeek-V4-Flash-DSpark.json"
+      }
+    },
+    "strategy_hardware": {
+      "multi_node_tp": {
+        "dgx_spark_gb10": "supported"
+      },
+      "single_node_tp": {
+        "npu": "unsupported"
+      },
+      "single_node_tep": {
+        "npu": "unsupported"
+      },
+      "multi_node_dep": {
+        "npu": "unsupported"
+      },
+      "pd_cluster": {
+        "rtx_pro_6000_8x": "unsupported",
+        "npu": "unsupported"
+      }
+    },
+    "hardware_overrides": {
+      "blackwell": {
+        "extra_args": [
+          "--attention_config.use_fp4_indexer_cache",
+          "True"
+        ]
+      },
+      "amd": {
+        "extra_args": [
+          "--distributed-executor-backend",
+          "mp",
+          "--gpu-memory-utilization",
+          "0.9",
+          "--max-num-seqs",
+          "512",
+          "--max-num-batched-tokens",
+          "8192",
+          "--compilation-config",
+          "{\"mode\": 3, \"cudagraph_mode\": \"FULL_DECODE_ONLY\"}"
+        ],
+        "extra_env": {
+          "VLLM_ROCM_USE_AITER": "1"
+        }
+      },
+      "npu": {
+        "extra_env": {
+          "PYTORCH_NPU_ALLOC_CONF": "expandable_segments:True",
+          "OMP_PROC_BIND": "false",
+          "OMP_NUM_THREADS": "10",
+          "HCCL_BUFFSIZE": "1024",
+          "ASCEND_RT_VISIBLE_DEVICES": "0,1,2,3"
+        }
+      }
+    },
+    "meta": {
+      "title": "DeepSeek-V4-Flash",
+      "date_added": "2026-07-31",
+      "date_updated": "2026-08-29",
+      "hardware": {
+        "h200": "verified",
+        "b200": "verified",
+        "gb200": "verified",
+        "b300": "verified",
+        "gb300": "verified",
+        "dgx_station_gb300": "verified",
+        "dgx_spark_gb10": "verified",
+        "rtx_pro_6000_8x": "verified",
+        "mi300x": "verified",
+        "mi325x": "verified",
+        "mi355x": "verified",
+        "ascend_950dt_8x": "verified",
+        "ascend_950pr_8x": "verified"
+      }
+    },
+    "recommended_command": {
+      "hardware": "h200",
+      "strategy": "single_node_tep",
+      "variant": "default",
+      "node_count": 1,
+      "deploy_type": "single_node",
+      "env": {},
+      "docker_image": "vllm/vllm-openai:v0.28.0",
+      "command": "vllm serve deepseek-ai/DeepSeek-V4-Flash-0731 \\\n  --trust-remote-code \\\n  --kv-cache-dtype fp8 \\\n  --block-size 256 \\\n  --enable-expert-parallel \\\n  --tensor-parallel-size 8 \\\n  --tokenizer-mode deepseek_v4 \\\n  --tool-call-parser deepseek_v4 \\\n  --enable-auto-tool-choice \\\n  --reasoning-parser deepseek_v4 \\\n  --reasoning-config '{\"reasoning_parser\":\"deepseek_v4\",\"reasoning_start_str\":\"\",\"reasoning_end_str\":\"\"}' \\\n  --speculative-config '{\"method\":\"dspark\",\"num_speculative_tokens\":7,\"draft_sample_method\":\"probabilistic\"}'",
+      "argv": [
+        "vllm",
+        "serve",
+        "deepseek-ai/DeepSeek-V4-Flash-0731",
+        "--trust-remote-code",
+        "--kv-cache-dtype",
+        "fp8",
+        "--block-size",
+        "256",
+        "--enable-expert-parallel",
+        "--tensor-parallel-size",
+        "8",
+        "--tokenizer-mode",
+        "deepseek_v4",
+        "--tool-call-parser",
+        "deepseek_v4",
+        "--enable-auto-tool-choice",
+        "--reasoning-parser",
+        "deepseek_v4",
+        "--reasoning-config",
+        "{\"reasoning_parser\":\"deepseek_v4\",\"reasoning_start_str\":\"\",\"reasoning_end_str\":\"\"}",
+        "--speculative-config",
+        "{\"method\":\"dspark\",\"num_speculative_tokens\":7,\"draft_sample_method\":\"probabilistic\"}"
+      ],
+      "by_hardware": {
+        "h200": "/deepseek-ai/DeepSeek-V4-Flash/hw/h200.json",
+        "b200": "/deepseek-ai/DeepSeek-V4-Flash/hw/b200.json",
+        "gb200": "/deepseek-ai/DeepSeek-V4-Flash/hw/gb200.json",
+        "b300": "/deepseek-ai/DeepSeek-V4-Flash/hw/b300.json",
+        "gb300": "/deepseek-ai/DeepSeek-V4-Flash/hw/gb300.json",
+        "dgx_station_gb300": "/deepseek-ai/DeepSeek-V4-Flash/hw/dgx_station_gb300.json",
+        "dgx_spark_gb10": "/deepseek-ai/DeepSeek-V4-Flash/hw/dgx_spark_gb10.json",
+        "rtx_pro_6000_8x": "/deepseek-ai/DeepSeek-V4-Flash/hw/rtx_pro_6000_8x.json",
+        "mi300x": "/deepseek-ai/DeepSeek-V4-Flash/hw/mi300x.json",
+        "mi325x": "/deepseek-ai/DeepSeek-V4-Flash/hw/mi325x.json",
+        "mi355x": "/deepseek-ai/DeepSeek-V4-Flash/hw/mi355x.json"
+      }
+    },
+    "guide_excerpts": []
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

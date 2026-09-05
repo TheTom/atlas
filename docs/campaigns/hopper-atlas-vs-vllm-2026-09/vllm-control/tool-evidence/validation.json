@@ -1,0 +1,82 @@
+{
+  "schema": "vllm-control-cpu-validation-v1",
+  "host": "macOS-27.0-arm64-arm-64bit-Mach-O",
+  "python_version": "3.14.6",
+  "source_commit": "5ca7d27c15a354d61a2a1f98426b98f3eac445d7",
+  "source_hashes": {
+    "bench/hopper_ab/time_to_ready.sh": "ed99b019f6ee02a21ec3adb5bb3916f3890041a2f6df5be97fa3f49aa919a20b",
+    "bench/hopper_ab/readiness_selftest.py": "1f9d428a3f8a3035fc379b79c68d94a30f765f2d0553fc968dff63e0ad4e1b9f",
+    "bench/hopper_ab/coherency_gate.py": "b04c5abd0e3b1882a6cbffe74bb92e701272fde63e13869268dafebac63a4018",
+    "bench/hopper_ab/compare.py": "777835df7c383c625b32b5c1a57efa841b2e3acef64b3ce0f6b644956a6c6b0c",
+    "bench/ladder38/harness_w55_conc_ladder.py": "1f10d4887b39a86ee946bc2aa0395e31c43ce1b3dfac778f51abbad11832d880"
+  },
+  "oracle": "Named known-answer HTTP fixtures, arithmetic/shape/parity/request-usage fixtures, and saved HF blobs responses. These are not real-engine measurements.",
+  "checks": [
+    {
+      "name": "readiness-final",
+      "argv": [
+        "bash",
+        "bench/hopper_ab/time_to_ready.sh",
+        "--selftest"
+      ],
+      "started_utc": "2026-09-05T02:56:31.599127+00:00",
+      "exit_code": 0,
+      "output": "readiness-final.txt",
+      "output_sha256": "b3368069a8528df949ecc20d589ea1b30a2978096c661ea49b40351d0579071b",
+      "source_commit": "29fbf639a10c827808851ab970e953c57d16dde3"
+    },
+    {
+      "name": "coherency-final",
+      "argv": [
+        "python3",
+        "bench/hopper_ab/coherency_gate.py",
+        "--selftest"
+      ],
+      "started_utc": "2026-09-05T03:02:33.596760+00:00",
+      "exit_code": 0,
+      "output": "coherency-final.txt",
+      "output_sha256": "d5ceaa73f71b551d3ce7ea531542eb12d74712bbe240c537eeea245d3413d345",
+      "source_commit": "5ca7d27c15a354d61a2a1f98426b98f3eac445d7"
+    },
+    {
+      "name": "compare-final",
+      "argv": [
+        "python3",
+        "bench/hopper_ab/compare.py",
+        "--selftest"
+      ],
+      "started_utc": "2026-09-05T02:56:35.842656+00:00",
+      "exit_code": 0,
+      "output": "compare-final.txt",
+      "output_sha256": "83cc96504d6c55b7168a0f47de6217ec320d72fc517a3e24ea504b4a5153669d",
+      "source_commit": "29fbf639a10c827808851ab970e953c57d16dde3"
+    },
+    {
+      "name": "weight-negative",
+      "argv": [
+        "python3",
+        "docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/weight-evidence/verify.py",
+        "--selftest"
+      ],
+      "started_utc": "2026-09-05T02:56:35.892566+00:00",
+      "exit_code": 0,
+      "output": "weight-negative.txt",
+      "output_sha256": "1b24f121808d0a2d88a7bd5139dbd775bdf6e8e60a3072d5a7baed264da80659",
+      "source_commit": "29fbf639a10c827808851ab970e953c57d16dde3"
+    },
+    {
+      "name": "weight-audit",
+      "argv": [
+        "python3",
+        "docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/weight-evidence/verify.py"
+      ],
+      "started_utc": "2026-09-05T02:56:35.937937+00:00",
+      "exit_code": 0,
+      "output": "weight-audit.txt",
+      "output_sha256": "0ac9729a513a9c023b3315913dc7d90075d136272bf12a18baa61779097b173d",
+      "source_commit": "29fbf639a10c827808851ab970e953c57d16dde3"
+    }
+  ],
+  "passed": true,
+  "note": "Each check names its execution commit. Unchanged source files were not retested merely for later unrelated changes; coherency was rerun after its final fixes."
+}

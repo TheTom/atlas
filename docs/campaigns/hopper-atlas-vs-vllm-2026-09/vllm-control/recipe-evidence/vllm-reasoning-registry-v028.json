@@ -1,0 +1,14 @@
+{
+  "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.28.0/vllm/reasoning/__init__.py",
+  "retrieved_utc": "2026-09-05T02:42:44.145660+00:00",
+  "status": 200,
+  "sha256": "29f470f3dd49e6ec48841dd8a98b90131077cdc6c0ae96d16bae27b7ef06b8ab",
+  "excerpts": [
+    {
+      "start_line": 112,
+      "end_line": 118,
+      "text": "        \"mistral_reasoning_parser\",\n        \"MistralParserReasoningAdapter\",\n    ),\n    \"nemotron_v3\": (\n        \"nemotron_v3_engine_reasoning_parser\",\n        \"NemotronV3ParserReasoningAdapter\",\n    ),"
+    }
+  ],
+  "stored_content": "Selected excerpts; sha256 hashes the original complete HTTP response body."
+}

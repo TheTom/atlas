@@ -1,0 +1,19 @@
+{
+  "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.28.0/vllm/models/deepseek_v4/attention.py",
+  "retrieved_utc": "2026-09-05T02:43:42.885646+00:00",
+  "status": 200,
+  "sha256": "51add6614dc2835e4b714b58e784bd607375efa94ed44dcbae6361a08c3e073a",
+  "excerpts": [
+    {
+      "start_line": 91,
+      "end_line": 121,
+      "text": "def _resolve_dsv4_kv_cache_dtype(\n    use_fp8_ds_mla_layout: bool,\n    kv_cache_dtype: str,\n    cache_config: CacheConfig | None,\n) -> tuple[str, torch.dtype]:\n    \"\"\"Map ``(layout, --kv-cache-dtype)`` to ``(cache_dtype_str, torch_dtype)``.\n\n    Both layouts are paged; they differ in the per-token block format. The\n    ``fp8_ds_mla`` format is UE8M0 block-scaled fp8 packed as ``uint8`` (the\n    canonical ``fp8_ds_mla`` string is written back onto ``cache_config`` so the\n    page-size specs pick the 576B per-token slot). Plain-row backends store each\n    token's KV row in its element dtype: bf16 or per-tensor FP8 E4M3.\n    \"\"\"\n    if use_fp8_ds_mla_layout:\n        # fp8_ds_mla block format: UE8M0 block-scaled fp8 packed as uint8.\n        assert kv_cache_dtype.startswith(\"fp8\"), (\n            f\"DeepseekV4 fp8_ds_mla layout only supports fp8 kv-cache, \"\n            f\"got {kv_cache_dtype}\"\n        )\n        if kv_cache_dtype != \"fp8_ds_mla\":\n            if cache_config is not None:\n                cache_config.cache_dtype = \"fp8_ds_mla\"\n            kv_cache_dtype = \"fp8_ds_mla\"\n            logger.info_once(\"Using DeepSeek's fp8_ds_mla KV cache format.\")\n        return kv_cache_dtype, torch.uint8\n\n    # Plain bf16 / per-tensor fp8 KV row (FlashInfer).\n    if kv_cache_dtype.startswith(\"fp8\"):\n        return kv_cache_dtype, torch.float8_e4m3fn\n    # auto / bfloat16 -> plain bf16 KV row.\n    return kv_cache_dtype, torch.bfloat16"
+    },
+    {
+      "start_line": 138,
+      "end_line": 144,
+      "text": "    # Backend for the SWA cache layer; None uses the default SWA backend.\n    swa_backend_cls: ClassVar[type[AttentionBackend] | None] = None\n    # KV-cache per-token block format (both layouts are paged). True (default)\n    # = fp8_ds_mla (UE8M0 block-scaled fp8 packed as uint8); False = plain\n    # bf16 / per-tensor fp8 KV row. Backends can override the instance hook when\n    # a single attention class dispatches across arch-specific layouts.\n    use_fp8_ds_mla_layout: ClassVar[bool] = True"
+    }
+  ],
+  "stored_content": "Selected excerpts; sha256 hashes the original complete HTTP response body."
+}

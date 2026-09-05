@@ -1,0 +1,57 @@
+{
+  "url": "https://api.github.com/repos/vllm-project/vllm/issues/47648/comments",
+  "retrieved_utc": "2026-09-05T02:43:24.405820+00:00",
+  "status": 200,
+  "sha256": "a643062b7a76d511e5184ca6680d2fe1546ee35fa0be98c93cf4e71ae2ee1b0a",
+  "comments": [
+    {
+      "html_url": "https://github.com/vllm-project/vllm/issues/47648#issuecomment-4886275279",
+      "created_at": "2026-07-05T13:50:49Z",
+      "updated_at": "2026-07-05T13:50:49Z",
+      "opening": "## Update: root causes identified and fixed locally"
+    },
+    {
+      "html_url": "https://github.com/vllm-project/vllm/issues/47648#issuecomment-4886402351",
+      "created_at": "2026-07-05T14:35:36Z",
+      "updated_at": "2026-07-05T14:35:36Z",
+      "opening": "Closing this issue \u2014 both root causes have already been fixed in the latest vllm-main:"
+    },
+    {
+      "html_url": "https://github.com/vllm-project/vllm/issues/47648#issuecomment-4886474635",
+      "created_at": "2026-07-05T14:58:58Z",
+      "updated_at": "2026-07-05T14:58:58Z",
+      "opening": "Re-opening \u2014 I was too quick to close this."
+    },
+    {
+      "html_url": "https://github.com/vllm-project/vllm/issues/47648#issuecomment-4887097391",
+      "created_at": "2026-07-05T18:13:19Z",
+      "updated_at": "2026-07-05T18:13:19Z",
+      "opening": "Could you please re-open the issue? I am still encountering the `RuntimeError: kv must have shape (num_blocks, page_block_size, h_kv, bytes_per_token)` on latest main (8974ed89cd0b17615ae48cf09ef824cd8e3ec521) even after adding `kv_quant_mode=get_kv_quant_mode(self.kv_cache_dtype)`. I think a recent commit broke it completely."
+    },
+    {
+      "html_url": "https://github.com/vllm-project/vllm/issues/47648#issuecomment-4889844790",
+      "created_at": "2026-07-06T06:42:22Z",
+      "updated_at": "2026-07-06T06:42:22Z",
+      "opening": "RuntimeError: Worker failed with error 'kv must have shape (num_blocks, page_block_size, h_kv, bytes_per_token)', please check the stack trace above for the root cause\n/usr/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 8 leaked shared_memo"
+    },
+    {
+      "html_url": "https://github.com/vllm-project/vllm/issues/47648#issuecomment-4890508698",
+      "created_at": "2026-07-06T08:08:33Z",
+      "updated_at": "2026-07-06T08:08:33Z",
+      "opening": "I can confirm the root cause on the current nightly wheel (`0.23.1rc1.dev799+g69715823d`) with 8\u00d7H200."
+    },
+    {
+      "html_url": "https://github.com/vllm-project/vllm/issues/47648#issuecomment-4890843420",
+      "created_at": "2026-07-06T08:49:12Z",
+      "updated_at": "2026-07-06T08:49:12Z",
+      "opening": "> RuntimeError: Worker failed with error 'kv must have shape (num_blocks, page_block_size, h_kv, bytes_per_token)', please check the stack trace above for the root cause /usr/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 8 leaked shared_memo\n> \n> I tried adding kv_quant_mode=get_kv_quant_mode(self.kv_cache_dtype) with 0.23.1rc1.dev803+gd9c1767cd."
+    },
+    {
+      "html_url": "https://github.com/vllm-project/vllm/issues/47648#issuecomment-4895994977",
+      "created_at": "2026-07-06T17:55:45Z",
+      "updated_at": "2026-07-06T17:55:45Z",
+      "opening": "Same issue on 2 x H200 without DSpark"
+    }
+  ],
+  "stored_content": "Selected public comment metadata and short opening excerpts; sha256 hashes full HTTP response body."
+}

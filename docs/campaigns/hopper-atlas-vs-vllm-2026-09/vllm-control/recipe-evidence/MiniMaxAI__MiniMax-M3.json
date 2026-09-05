@@ -1,0 +1,310 @@
+{
+  "url": "https://recipes.vllm.ai/MiniMaxAI/MiniMax-M3.json",
+  "retrieved_utc": "2026-09-05T02:40:06.814785+00:00",
+  "status": 200,
+  "final_url": "https://recipes.vllm.ai/MiniMaxAI/MiniMax-M3.json",
+  "sha256": "aabfdb1ac71be38941fba2a72544f5b65a4364e160fb900ce23923165e1b3f93",
+  "data": {
+    "hf_id": "MiniMaxAI/MiniMax-M3",
+    "model": {
+      "model_id": "MiniMaxAI/MiniMax-M3",
+      "min_vllm_version": "0.24.0",
+      "docker_image": {
+        "nvidia": "vllm/vllm-openai:minimax-m3",
+        "amd": "vllm/vllm-openai-rocm:minimax-m3"
+      },
+      "architecture": "moe",
+      "parameter_count": "427B",
+      "active_parameters": "26B",
+      "context_length": 1048576,
+      "base_args": [
+        "--block-size",
+        "128"
+      ],
+      "base_env": {},
+      "install": {
+        "pip": {
+          "command": "uv venv\nsource .venv/bin/activate\nuv pip install -U vllm --torch-backend auto"
+        },
+        "docker": {
+          "command": "docker pull vllm/vllm-openai:minimax-m3"
+        }
+      }
+    },
+    "features": {
+      "tool_calling": {
+        "description": "MiniMax M3 tool call parser with automatic tool choice",
+        "args": [
+          "--tool-call-parser",
+          "minimax_m3",
+          "--enable-auto-tool-choice"
+        ]
+      },
+      "reasoning": {
+        "description": "MiniMax M3 reasoning parser (supports `thinking` and `non-thinking` modes, switchable per request)",
+        "args": [
+          "--reasoning-parser",
+          "minimax_m3"
+        ]
+      },
+      "spec_decoding": {
+        "description": "Eagle3 speculative decoding with an Inferact MiniMax-M3 draft head \u2014 accelerates decoding. Choose between the standard MHA head and the GQA head (16\u00d7 smaller draft KV cache \u2014 better for long-context or high-batch deployments).",
+        "default_mode": "eagle3",
+        "modes": {
+          "eagle3": {
+            "label": "MHA",
+            "description": "Standard Eagle3 draft head (Multi-Head Attention, 64 KV heads).",
+            "args": [
+              "--speculative-config",
+              "{\"method\": \"eagle3\", \"model\": \"Inferact/MiniMax-M3-EAGLE3\", \"num_speculative_tokens\": 3, \"attention_backend\": \"FLASH_ATTN\"}"
+            ],
+            "hardware_overrides": {
+              "amd": {
+                "args": [
+                  "--speculative-config",
+                  "{\"method\": \"eagle3\", \"model\": \"Inferact/MiniMax-M3-EAGLE3\", \"num_speculative_tokens\": 3, \"attention_backend\": \"TRITON_ATTN\"}"
+                ]
+              }
+            }
+          },
+          "eagle3_gqa": {
+            "label": "GQA",
+            "description": "GQA Eagle3 draft head (Grouped Query Attention, 4 KV heads vs 64) \u2014 16\u00d7 smaller draft KV cache. Prefer for long-context or large-batch deployments where draft KV memory is the constraint.",
+            "args": [
+              "--speculative-config",
+              "{\"method\": \"eagle3\", \"model\": \"Inferact/MiniMax-M3-EAGLE3-GQA\", \"num_speculative_tokens\": 3, \"attention_backend\": \"FLASH_ATTN\"}"
+            ],
+            "hardware_overrides": {
+              "amd": {
+                "args": [
+                  "--speculative-config",
+                  "{\"method\": \"eagle3\", \"model\": \"Inferact/MiniMax-M3-EAGLE3-GQA\", \"num_speculative_tokens\": 3, \"attention_backend\": \"TRITON_ATTN\"}"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "text_only": {
+        "description": "Skip loading the vision encoder for text-only workloads \u2014 frees VRAM for KV cache. Mutually exclusive with encoder_parallel.",
+        "args": [
+          "--language-model-only"
+        ]
+      },
+      "thinking_always_on": {
+        "description": "Pin `thinking_mode: enabled` server-side \u2014 every turn reasons before answering, including after tool results. Recommended for agentic workflows.",
+        "args": [
+          "--default-chat-template-kwargs",
+          "{\"thinking_mode\": \"enabled\"}"
+        ]
+      },
+      "encoder_parallel": {
+        "description": "Run the vision encoder data-parallel instead of tensor-parallel \u2014 avoids TP comm overhead on the small encoder. Also enables the host-shared-memory multimodal processor cache and the per-brand encoder attention backend (FlashInfer on NVIDIA, AITER FlashAttention on AMD). Mutually exclusive with text_only.",
+        "hardware_overrides": {
+          "nvidia": {
+            "args": [
+              "--mm-encoder-attn-backend",
+              "FLASHINFER",
+              "--mm-processor-cache-type",
+              "shm",
+              "--mm-encoder-tp-mode",
+              "data"
+            ]
+          },
+          "amd": {
+            "args": [
+              "--mm-encoder-attn-backend",
+              "ROCM_AITER_FA",
+              "--mm-processor-cache-type",
+              "shm",
+              "--mm-encoder-tp-mode",
+              "data"
+            ]
+          }
+        }
+      }
+    },
+    "opt_in_features": [
+      "spec_decoding",
+      "text_only",
+      "thinking_always_on",
+      "encoder_parallel"
+    ],
+    "variants": {
+      "default": {
+        "precision": "bf16",
+        "vram_minimum_gb": 1025,
+        "description": "Native BF16 checkpoint \u2014 multi-node TP recommended for long-context headroom"
+      },
+      "mxfp8": {
+        "model_id": "MiniMaxAI/MiniMax-M3-MXFP8",
+        "precision": "mxfp8",
+        "vram_minimum_gb": 513,
+        "description": "NVIDIA-quantized MXFP8 weights \u2014 Blackwell (B200/B300) for native MX tensor cores, and AMD CDNA4 (MI350X/MI355X, gfx950) for native MXFP8 Matrix Cores.",
+        "extra_args": [
+          "--attention_config.indexer_kv_dtype",
+          "fp8"
+        ],
+        "hardware_overrides": {
+          "blackwell": {
+            "extra_env": {
+              "VLLM_FLOAT32_MATMUL_PRECISION": "high"
+            }
+          },
+          "h100": {
+            "extra_args": [
+              "--max-model-len",
+              "131072"
+            ]
+          },
+          "mi300x": {
+            "docker_image": "vllm/vllm-openai-rocm:nightly",
+            "extra_args": [
+              "--language-model-only",
+              "--async-scheduling",
+              "--max-num-batched-tokens",
+              "16384"
+            ],
+            "extra_env": {
+              "VLLM_ENGINE_READY_TIMEOUT_S": "3600",
+              "VLLM_USE_BREAKABLE_CUDAGRAPH": "0",
+              "VLLM_ROCM_USE_AITER": "1",
+              "VLLM_ROCM_USE_AITER_MHA": "0",
+              "TORCH_BLAS_PREFER_HIPBLASLT": "1",
+              "NCCL_MIN_NCHANNELS": "112",
+              "GPU_MAX_HW_QUEUES": "2"
+            }
+          },
+          "mi355x": {
+            "docker_image": "vllm/vllm-openai-rocm:nightly",
+            "extra_args": [
+              "--linear-backend",
+              "emulation"
+            ],
+            "extra_env": {
+              "VLLM_ROCM_USE_AITER": "1",
+              "VLLM_ROCM_USE_AITER_FUSION_SHARED_EXPERTS": "1",
+              "VLLM_ROCM_QUICK_REDUCE_QUANTIZATION": "INT4"
+            }
+          }
+        },
+        "json": "/MiniMaxAI/MiniMax-M3-MXFP8.json"
+      },
+      "nvfp4": {
+        "model_id": "nvidia/MiniMax-M3-NVFP4",
+        "precision": "nvfp4",
+        "vram_minimum_gb": 257,
+        "description": "NVIDIA-quantized NVFP4 weights (ModelOpt) for Blackwell (B200/B300) \u2014 native FP4 tensor cores, ~half the VRAM of MXFP8.",
+        "extra_args": [
+          "--trust-remote-code",
+          "--kv-cache-dtype",
+          "fp8",
+          "--attention_config.backend",
+          "FLASHINFER",
+          "--attention_config.use_trtllm_attention",
+          "true",
+          "--attention_config.indexer_kv_dtype",
+          "fp8",
+          "--attention_config.minimax_m3_msa_decode_backend",
+          "cutlass"
+        ],
+        "extra_env": {
+          "VLLM_FLOAT32_MATMUL_PRECISION": "high",
+          "VLLM_FLASHINFER_ALLREDUCE_BACKEND": "trtllm"
+        },
+        "json": "/nvidia/MiniMax-M3-NVFP4.json"
+      },
+      "mxfp4": {
+        "model_id": "amd/MiniMax-M3-MXFP4",
+        "precision": "mxfp4",
+        "vram_minimum_gb": 257,
+        "description": "AMD Quark OCP MXFP4 weights and dynamic MXFP4 activations for MI355X (gfx950).",
+        "supported_hardware": [
+          "mi355x"
+        ],
+        "tp": 8,
+        "hardware_overrides": {
+          "mi355x": {
+            "docker_image": "vllm/vllm-openai-rocm:nightly-8a728663c1c3eeace834a95f5654fa653cc1998c",
+            "extra_args": [
+              "--trust-remote-code",
+              "--compilation-config",
+              "{\"cudagraph_mode\":\"FULL_DECODE_ONLY\"}",
+              "--mm-encoder-tp-mode",
+              "data",
+              "--mm-encoder-attn-backend",
+              "ROCM_AITER_FA"
+            ]
+          }
+        },
+        "json": "/amd/MiniMax-M3-MXFP4.json"
+      }
+    },
+    "hardware_overrides": {
+      "amd": {
+        "extra_args": [
+          "--attention-backend",
+          "TRITON_ATTN"
+        ],
+        "extra_env": {
+          "VLLM_USE_BREAKABLE_CUDAGRAPH": "0",
+          "VLLM_ROCM_USE_AITER_MOE": "1",
+          "VLLM_ROCM_USE_AITER_FUSION_SHARED_EXPERTS": "1"
+        }
+      }
+    },
+    "meta": {
+      "title": "MiniMax-M3",
+      "date_added": "2026-06-12",
+      "date_updated": "2026-08-29",
+      "hardware": {
+        "h200": "verified",
+        "b200": "verified",
+        "b300": "verified",
+        "mi300x": "verified",
+        "mi355x": "verified"
+      }
+    },
+    "recommended_command": {
+      "hardware": "h200",
+      "strategy": "single_node_tp",
+      "variant": "default",
+      "node_count": 1,
+      "deploy_type": "single_node",
+      "env": {},
+      "docker_image": "vllm/vllm-openai:minimax-m3",
+      "command": "vllm serve MiniMaxAI/MiniMax-M3 \\\n  --block-size 128 \\\n  --tensor-parallel-size 8 \\\n  --tool-call-parser minimax_m3 \\\n  --enable-auto-tool-choice \\\n  --reasoning-parser minimax_m3",
+      "argv": [
+        "vllm",
+        "serve",
+        "MiniMaxAI/MiniMax-M3",
+        "--block-size",
+        "128",
+        "--tensor-parallel-size",
+        "8",
+        "--tool-call-parser",
+        "minimax_m3",
+        "--enable-auto-tool-choice",
+        "--reasoning-parser",
+        "minimax_m3"
+      ],
+      "by_hardware": {
+        "h200": "/MiniMaxAI/MiniMax-M3/hw/h200.json",
+        "h100": "/MiniMaxAI/MiniMax-M3/hw/h100.json",
+        "b200": "/MiniMaxAI/MiniMax-M3/hw/b200.json",
+        "gb200": "/MiniMaxAI/MiniMax-M3/hw/gb200.json",
+        "b300": "/MiniMaxAI/MiniMax-M3/hw/b300.json",
+        "gb300": "/MiniMaxAI/MiniMax-M3/hw/gb300.json",
+        "mi300x": "/MiniMaxAI/MiniMax-M3/hw/mi300x.json",
+        "mi325x": "/MiniMaxAI/MiniMax-M3/hw/mi325x.json",
+        "mi355x": "/MiniMaxAI/MiniMax-M3/hw/mi355x.json"
+      }
+    },
+    "guide_excerpts": [
+      "## FP8 KV Cache",
+      "AMD ROCm notes: Native context is 512K. To go past it, supply a YaRN rope_scaling on the text config\n(a top-level override silently misses the decoder's config) and allow the long max length.\nTP=8 + fp8 KV is the practical combo at 1M:",
+      "Selecting the AITER MXFP4 MoE backend (`--moe-backend aiter`) is a\nkernel-selection choice (same MXFP4 math, faster kernel), not a precision\nreduction. The INT4 all-reduce and fp8 KV-cache levers are throughput\noptimizations for high concurrency and are **kept out of the default command\npending accuracy validation**. Performance figures on the InferenceX dashboard\nare **reported externally by SemiAnalysis and have not been reproduced in this\nrepository.**"
+    ]
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}
