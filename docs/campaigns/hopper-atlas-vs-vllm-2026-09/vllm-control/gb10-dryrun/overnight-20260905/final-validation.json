@@ -1,0 +1,14 @@
+{
+  "timestamp_utc": "2026-09-05T05:19:49.943194+00:00",
+  "selftests_passed": 4,
+  "rehearsal_tree_identical_across_rebase": true,
+  "rehearsal_tree_object": "6a2f58ec204cd09bd45246b96830aff74f27ac29",
+  "export_hashes_verified": 10,
+  "links_checked": 92,
+  "all_links_resolve": true,
+  "all_new_gpu_gates_unrun": true,
+  "final_gpu_idle": false,
+  "step_b_status": "BLOCKED_GPU_OCCUPIED_AND_TARGET_SELECTION",
+  "step_c_status": "NOT_RUN_PREREQUISITE_BLOCKED",
+  "audit_correction": "Removed unsupported graphics-only idle claim after inspecting compute processes in cleanup and final occupancy receipts."
+}

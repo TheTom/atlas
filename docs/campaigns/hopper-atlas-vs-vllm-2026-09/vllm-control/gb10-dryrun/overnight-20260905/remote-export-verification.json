@@ -1,0 +1,56 @@
+{
+  "all_hashes_match": true,
+  "files": [
+    {
+      "name": "clone-job.json",
+      "sha256": "c3640ccab0e9a297a3afb8a7038529d7b0efce78fe1b156533b762c7f43a2fd2",
+      "bytes": 333
+    },
+    {
+      "name": "clone-launch.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "name": "clone.after.df.txt",
+      "sha256": "3a5614173a08dbff16215a731f5144073e14780a49fcad23002d287fbbe18b78",
+      "bytes": 89
+    },
+    {
+      "name": "clone.before.df.txt",
+      "sha256": "ee676f7e15349472b475af6373b7dc1d85816399290e65fb09d986c0173f3b52",
+      "bytes": 89
+    },
+    {
+      "name": "clone.done.json",
+      "sha256": "1ab1fbc909dce5a75ac410605d52144f06ef1111dad165567ce4e670a10ce07d",
+      "bytes": 652
+    },
+    {
+      "name": "clone.log",
+      "sha256": "0b941b2f336a3e95b229aa7bc8ca5ef927a50e5371660cbc0a16ae93ad36555e",
+      "bytes": 43
+    },
+    {
+      "name": "clone.resources.jsonl",
+      "sha256": "12a12b20869bdb28f201d872b8d2d1eede152c17cdcd4361866b319d6ad17518",
+      "bytes": 5244
+    },
+    {
+      "name": "clone.started.json",
+      "sha256": "884fdd69b4f4f2581e835ee173ee4c2da37d6c23e1d900c393d88d9cb848c3b6",
+      "bytes": 514
+    },
+    {
+      "name": "control_remote_job.py",
+      "sha256": "87ef3d47be58acaa7a827a7957398634e420068ea8636e9858902c945e67cc6c",
+      "bytes": 2965
+    },
+    {
+      "name": "initial-owned-workspace.json",
+      "sha256": "dd28afda934a4a9826de0b21a03c8f38a5e7fb772e2129a8957d1a27d6217be2",
+      "bytes": 2214
+    }
+  ],
+  "df": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  807G   63G  93% /\n"
+}

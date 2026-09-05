@@ -1,0 +1,13 @@
+{
+  "step": "C",
+  "status": "NOT_RUN_PREREQUISITE_BLOCKED",
+  "reason": "StepB has not built or passed its check-kernels prerequisite while the target selection is pending. The generated target_ptx.rs and driver resolution report do not exist for this run. Spark2 is also occupied by an unowned compute process; the idle-box prerequisite is false.",
+  "ptx_gate_executed": false,
+  "registry_entrypoint_comparison": null,
+  "driver_resolution_comparison": null,
+  "is_ptxas_stricter_than_driver_jit": null,
+  "are_entrypoints_dead": null,
+  "question_report": "../inferspark-smem-question.md",
+  "timestamp_utc": "2026-09-05T05:15:42.282116+00:00",
+  "occupancy_receipt": "final-occupancy.json"
+}

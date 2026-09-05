@@ -7,3 +7,7 @@
 5. After each step: record df, status and REPORT update, commit and push, refresh the control draft PR. Clean all task-owned remote allocations at night end; preserve existing user workloads and files.
 
 Step B disposition: BLOCKED_TARGET_SELECTION; fresh clean clone retained for resumption. Source prerequisites are now inventoried. No gate or kernel audit was executed, so no result record exists to commit on campaign/gb10-gate-records-792579b. The control draft PR is https://github.com/TheTom/atlas/pull/2.
+
+Step C disposition: NOT_RUN_PREREQUISITE_BLOCKED; no build registry or driver audit exists. Inferspark question remains unanswered. Remote orchestration scratch removed after verified export. The clean 127,952,036-byte /home/pidtom/atlas-gates clone remains under the user's explicit exception; no targets/models/images/containers from this phase exist. Build target question remains pending.
+
+Additional final blocker: Spark2 is not idle. cleanup.json shows unowned compute PID 206212 with 16,076 MiB at 05:13:56 UTC; final-occupancy.json shows PID 207906 with 9,169 MiB at 05:17:31 UTC. No process was signalled or modified. Step B and Step C remain blocked; recheck occupancy before any later GPU work.

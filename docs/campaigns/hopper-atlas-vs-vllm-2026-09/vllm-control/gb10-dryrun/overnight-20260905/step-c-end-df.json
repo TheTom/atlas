@@ -1,0 +1,12 @@
+{
+  "step": "C",
+  "timestamp_utc": "2026-09-05T05:13:56.496576+00:00",
+  "argv": [
+    "df",
+    "-h",
+    "/"
+  ],
+  "stdout": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  807G   63G  93% /\n",
+  "exit_code": 0,
+  "source": "cleanup.json"
+}

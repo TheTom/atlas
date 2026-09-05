@@ -164,20 +164,30 @@ The overnight request reuses the completed Step A rehearsal above, including Atl
 
 ## Overnight follow-on — Step B blocked before build
 
-The clean Spark 2 clone is at `8b7405ca159a6ab8bb3e593a740f4d20f93996fd`, size 127,952,036 bytes. No cargo build, model download, kernel audit or GPU gate was started. The target remains unresolved: the request names `792579b24164d8696083760073b5c85b29cd968a`, which predates the new architecture preflight, while also requiring measurement at the current campaign tip. The pending user question requests a choice. [Step B status](gb10-dryrun/overnight-20260905/step-b.status.json) records the block; [clone verification](gb10-dryrun/overnight-20260905/clone-verification.json) records clean status, SHA and size. No `.benchmarks` result or gate-record PR was fabricated.
+The clean Spark 2 clone is at `8b7405ca159a6ab8bb3e593a740f4d20f93996fd`, size 127,952,036 bytes. No cargo build, model download, kernel audit or GPU gate was started. The target remains unresolved: the request names `792579b24164d8696083760073b5c85b29cd968a`, which predates the new architecture preflight, while also requiring measurement at the current campaign tip. The pending user question requests a choice. A later occupancy check adds an independent blocker: Spark 2 now hosts unowned compute work. [Step B status](gb10-dryrun/overnight-20260905/step-b.status.json) records the block; [clone verification](gb10-dryrun/overnight-20260905/clone-verification.json) records clean status, SHA and size. No `.benchmarks` result or gate-record PR was fabricated.
 
 | Gate | Overnight verdict | Duration | Measured hardware block |
 |---|---|---|---|
-| `concurrency-sweep` | NOT_RUN: build target unresolved | — | — |
-| `decode-floor` | NOT_RUN: build target unresolved | — | — |
-| `ttft-warm-gate` | NOT_RUN: build target unresolved | — | — |
-| `ttft-cold-gate` | NOT_RUN: build target unresolved | — | — |
-| `bfcl-subset` | NOT_RUN: build target unresolved | — | — |
-| `bfcl-subset-echolp` | NOT_RUN: build target unresolved | — | — |
-| `ssm-state-poisoning-gate` | NOT_RUN: build target unresolved | — | — |
-| `agentic-webserver` | NOT_RUN: build target unresolved | — | — |
-| `vision-fidelity` | NOT_RUN: build target unresolved | — | — |
-| `video-fidelity` | NOT_RUN: build target unresolved | — | — |
-| `concurrency-sweep-dflash2` | NOT_RUN: build target unresolved | — | — |
+| `concurrency-sweep` | NOT_RUN: target unresolved; GPU occupied | — | — |
+| `decode-floor` | NOT_RUN: target unresolved; GPU occupied | — | — |
+| `ttft-warm-gate` | NOT_RUN: target unresolved; GPU occupied | — | — |
+| `ttft-cold-gate` | NOT_RUN: target unresolved; GPU occupied | — | — |
+| `bfcl-subset` | NOT_RUN: target unresolved; GPU occupied | — | — |
+| `bfcl-subset-echolp` | NOT_RUN: target unresolved; GPU occupied | — | — |
+| `ssm-state-poisoning-gate` | NOT_RUN: target unresolved; GPU occupied | — | — |
+| `agentic-webserver` | NOT_RUN: target unresolved; GPU occupied | — | — |
+| `vision-fidelity` | NOT_RUN: target unresolved; GPU occupied | — | — |
+| `video-fidelity` | NOT_RUN: target unresolved; GPU occupied | — | — |
+| `concurrency-sweep-dflash2` | NOT_RUN: target unresolved; GPU occupied | — | — |
 
 The source inventory found several prerequisites the supplied plan does not account for. `--check-kernels` runs after loading the full model, so a missing-cache invocation before the proposed prefetch cannot produce a kernel audit. The current source requires eleven gates, including DFlash2. Per-gate registered defaults match their newest records but select three main checkpoints and a separate draft model; they do not all use the one Qwen3.8 checkpoint. That checkpoint alone is 23.44 GB. The agentic gate executes unconfined `sh -c` with inherited environment; its temporary working directory is not an OS sandbox. These are source findings, not executed failures or permission to change thresholds or checkpoints. See [gate inventory](gb10-dryrun/overnight-20260905/gate-source-inventory.md) and [model/check-kernels prerequisites](gb10-dryrun/overnight-20260905/qwen-preflight-prerequisites.md). The unrun audit has a [status file](gb10-dryrun/check-kernels-gb10.status.json), not a fabricated raw result. [End-of-step df](gb10-dryrun/overnight-20260905/step-b-end-df.json) is recorded.
+
+## Overnight follow-on — Step C not run; workspace cleanup
+
+Step C was not eligible because Step B has not built or run its sanity check; the later unowned compute workload also makes the idle-box condition false. No PTX gate, generated-registry comparison or driver-resolution comparison ran. The [Inferspark question](gb10-dryrun/inferspark-smem-question.md) remains explicitly unanswered: the available evidence establishes neither stricter ptxas behavior nor dead entry points. [Step C status](gb10-dryrun/overnight-20260905/step-c.status.json) records null results.
+
+The owned orchestration directory was exported with matching hashes and removed. The fresh, clean `/home/pidtom/atlas-gates` clone was retained under the user's explicit under-1-GB exception: **127,952,036 bytes**. There is no `target/`, downloaded checkpoint, pulled image or created container from this phase. The cleanup GPU receipt shows an unowned compute process, PID `206212`, using 16,076 MiB. A later [occupancy check](gb10-dryrun/overnight-20260905/final-occupancy.json) at 05:17:31 UTC shows compute PID `207906`, using 9,169 MiB. The box is not idle despite 0% instantaneous utilization. Neither process was created or touched by this task. [Cleanup](gb10-dryrun/overnight-20260905/cleanup.json) and [resource summary](gb10-dryrun/overnight-20260905/resource-summary.json) record exact values.
+
+Disk observations distinguish the completed rehearsal from the overnight setup. Step A ended at **82 GiB free** after removing its models and images. The first overnight observation was **80 GiB**. Before this task created its new clone workspace, free space had fallen to **63 GiB**; root used bytes had increased by **18,373,816,320 bytes with no task-created remote allocation**. After cloning and removing orchestration scratch, `df -h /` showed **63 GiB free**. Do not attribute the earlier unrelated host activity to this clone. Guard samples remained within the 70 GB new-use cap and above the 12 GB free floor; sampling is not a continuous allocation trace. [Step C end df](gb10-dryrun/overnight-20260905/step-c-end-df.json) is retained.
+
+The control branch and [draft fork PR #2](https://github.com/TheTom/atlas/pull/2) contain Step A and the Step B/C blocked statuses. No gate-record branch/PR exists because there are no new measured `.benchmarks` records. To resume Step B, Spark 2 must be idle and the pending question must resolve the explicit 792579b pin versus the current 8b7405ca tip; preserve these unrun statuses until execution supplies actual evidence.
