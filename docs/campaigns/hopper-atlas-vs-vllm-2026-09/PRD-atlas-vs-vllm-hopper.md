@@ -17,10 +17,11 @@ The first draft assumed an Atlas Hopper build exists and that every listed model
 | Draft assumption | Repo evidence | Consequence |
 |---|---|---|
 | "Atlas (Hopper / SM90 build)" exists | Only NVIDIA target is `kernels/gb10/HARDWARE.toml` (`arch = "sm_121f"`). No `sm_90`, no fatbin, no H100 image; the only published image is `avarok/atlas-gb10` (aarch64). | Phase 0 (bring-up) added. Campaign cannot start until the companion PR compiles `sm_90a` / `sm_100a` PTX. |
-| Qwen3.8-Flash-Next is P0 | No `qwen3.8-flash-next` target, `model_type`, or mention anywhere in the tree. Closest: `kernels/gb10/qwen3-next-80b-a3b` and `qwen3.8-27b`. | Demoted to **P2, blocked on model support**. Qwen3-Next-80B-A3B substitutes as the GDN+MoE representative. |
-| MiniMax M3 conditional | Tree has MiniMax **M2.7** only (`kernels/gb10/minimax-m2-229b`). | Conditional row becomes M2.7. |
+| Qwen3.8-Flash-Next is P0 | The checkpoint is real (`Qwen/Qwen3.8-Flash-Next-FP8`, 125B, GDN + 512-expert MoE + 51B per-layer embedding, vLLM recipe needs nightly ≥ 0.29) but Atlas has no `qwen3.8-flash-next` target, `model_type`, or mention anywhere in the tree. Closest: `kernels/gb10/qwen3-next-80b-a3b`. | Demoted to **P2, blocked on a `spark-model` port**. Qwen3-Next-80B-A3B substitutes as the GDN+MoE representative. vLLM-only cells for Flash-Next are allowed as a reference row, labelled as such. |
+| MiniMax M3 conditional | `MiniMaxAI/MiniMax-M3` exists with a vLLM recipe (427B/26B, H200+ only); the Atlas tree has MiniMax **M2.7** only (`kernels/gb10/minimax-m2-229b`). | Atlas row becomes M2.7; M3 is vLLM-only reference until ported. |
 | NVFP4 vs FP8 quant choice open | `crates/spark-runtime/cuda/cutlass_nvfp4_gemm.cu` is gated `CUTLASS_ARCH_MMA_SM120/121_SUPPORTED`; `docs/adr/0004-nvfp4-fp8-quantization.md` says NVFP4 tensor cores are Blackwell-only. | Hopper A/B is **FP8 checkpoints only**. B200 A/B runs FP8 (parity with Hopper) and NVFP4 (Atlas's home quant, native on both engines). |
 | vLLM baseline = whatever recipe says | `bench/ladder38/RESULTS.md`: with MTP on for both engines Atlas wins 2/8 rungs on GB10; the README "3.6× vs vLLM" came from a vLLM run with spec-decode off. | Spec-decode must be **on for both or off for both**; never mixed. Mixed cells are not publishable. |
+| Super runs on 2×H100 | vLLM's official FP8 recipe for Super is **TP4 on H100** (the 2×H100 variant is an NVIDIA cookbook with a Triton attention override); FP8 fits one H200 / one B200 per the model card. | Default Super boxes: 4×H100 (recipe-max) with a 2×H100 matched-topology row, 1×H200, 1×B200. |
 | 8×GPU nodes are routine | Every multi-GPU Atlas run to date is 2 ranks, one GPU per node, over RoCE (`docs/DEPLOYMENT.md:51-62`). NCCL env in `scripts/start-ep2.sh` disables NVLS/GDR and pins Ring (GB10 pessimizations). No intra-node NVLink run exists. | Topology ladder: 1 GPU → 2 GPU (TP or EP) → 4 → 8, each a gate. DeepSeek V4-Flash (EP only; `num_key_value_heads=1`) is the riskiest. |
 | Thinking-off row is free | `kernels/gb10/nemotron-super-120b-a12b/MODEL.toml`: Super is thinking-first; forcing `enable_thinking=false` in the prompt "prematurely closes the think block" and degrades answers. | For Super the primary row is think-on with the reasoning parser stripping `<think>`; think-off is a secondary row and its coherency gate may fail legitimately. |
 
@@ -58,16 +59,17 @@ Win condition is an honest Pareto, not "always faster". A C=1 loss with a C=16 w
 | Priority | Model | Checkpoint (A/B quant) | Atlas target dir | Default box |
 |---|---|---|---|---|
 | Plumbing | Nemotron 3 Nano 30B-A3B | `nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8` | `nemotron-3-nano-30b-a3b` | 1×H100, then 1×B200 |
-| P0 | Nemotron 3 Super 120B-A12B | `nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8` | `nemotron-super-120b-a12b` | 2×H100 → 2×H200 → 2×B200 |
+| P0 | Nemotron 3 Super 120B-A12B | `nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8` | `nemotron-super-120b-a12b` | 4×H100 (recipe-max; 2×H100 matched) → 1×H200 → 1×B200 |
 | P0 | Qwen3.6-35B-A3B (flagship, native FP8, MTP) | `Qwen/Qwen3.6-35B-A3B-FP8` | `qwen3.6-35b-a3b` | 1×H100, 1×B200 |
 | P1 | Qwen3-Next-80B-A3B (GDN + MoE stand-in for Flash-Next) | `Qwen/Qwen3-Next-80B-A3B-Instruct-FP8` | `qwen3-next-80b-a3b` | 2×H100 / 1×H200 / 1×B200 |
-| P1 | DeepSeek V4-Flash | `deepseek-ai/DeepSeek-V4-Flash` (FP8) or Hopper FP8 sibling | `deepseek-v4-flash` | 8×H200, 4×B200 (EP only) |
+| P1 | DeepSeek V4-Flash | `deepseek-ai/DeepSeek-V4-Flash-0731` (FP8; vLLM has **no H100 recipe**) | `deepseek-v4-flash` | 8×H200, 8×B200 per recipe (Atlas EP only) |
 | B200 extra | Any P0 model, NVFP4 checkpoint | `nvidia/*-NVFP4` per `MODEL.toml hf_id` | same | B200 only |
 
 ### 3.2 Conditional (Phase D only)
 
 - MiniMax M2.7 (`MiniMaxAI/MiniMax-M2.7`, `kernels/gb10/minimax-m2-229b`) on 8×H200 — only if Super and Qwen3.6 are green and Atlas boots it inside 30 minutes. KV must stay BF16 per recipe fixture.
-- Qwen3.8-Flash-Next — only after a `spark-model` port lands (separate PR); not a campaign task.
+- Qwen3.8-Flash-Next (`Qwen/Qwen3.8-Flash-Next-FP8`, 250 GB FP8: 4×H100 + PLE CPU offload, 8×H200 TEP8, 4×B200) — Atlas cell only after a `spark-model` port lands (separate PR). vLLM reference row may be collected while the box is rented.
+- MiniMax M3 (`MiniMaxAI/MiniMax-M3`, 8×H200 BF16 / 8×B200 NVFP4) — vLLM reference row only; Atlas has M2.7.
 
 ### 3.3 Out of scope (separate PRD)
 
@@ -172,7 +174,16 @@ Think-off rows add `--disable-thinking`. Spec-on rows add `--speculative --num-d
 
 ## 7. vLLM recipes (control)
 
-Use only the official recipe image and flags for the model; pin the image digest in the artifact. Flags in this section are filled from the recipe research pass (see `VLLM-RECIPES.md` in this directory once landed); until then treat every line as **UNVERIFIED — reconstruct from recipes.vllm.ai before the run**.
+Use only the official recipe image and flags for the model; pin the image digest in the artifact. Full per-SKU commands, flag tables, conflicts and URLs are in `VLLM-RECIPES.md` (same directory). Summary:
+
+| Model | SKU | Recipe line (verbatim source) | Spec-matched form |
+|---|---|---|---|
+| Nemotron 3 Super FP8 | 4×H100 / 8×H200 / 8×B200 | `vllm serve nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8 --kv-cache-dtype fp8 --tensor-parallel-size {4,8,8} --trust-remote-code --enable-auto-tool-choice --tool-call-parser qwen3_xml --reasoning-parser nemotron_v3` (recipes.vllm.ai) | add `--speculative-config '{"method":"mtp","num_speculative_tokens":3}'` on both engines or neither |
+| Nemotron 3 Super FP8 | 1×H200 / 1×B200 | model-card form with `--tensor-parallel-size 1`, `--mamba-ssm-cache-dtype float32`, `--kv-cache-dtype fp8` | same |
+| Nemotron 3 Nano FP8 | 1×H100 / 1×H200 | `vllm serve nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8 --trust-remote-code --async-scheduling --kv-cache-dtype fp8 --tensor-parallel-size 1 --moe-backend flashinfer_cutlass` | spec off both |
+| Qwen3.6-35B-A3B FP8 | 1 GPU | no dedicated recipe found — use the ladder38 pattern: `--max-model-len 65536 --max-num-seqs 128 --gpu-memory-utilization 0.90 --enable-prefix-caching --kv-cache-dtype fp8 --tool-call-parser qwen3_coder --reasoning-parser qwen3` (reconstructed) | `'{"method":"mtp","num_speculative_tokens":2}'` to match Atlas `--num-drafts 2` |
+| Qwen3-Next-80B-A3B FP8 | 1×H200 / 2×H100 | vLLM recipe for Qwen3-Next (reconstruct day-of; `--tool-call-parser hermes --reasoning-parser qwen3`) | MTP K matched |
+| DeepSeek V4-Flash FP8 | 8×H200 / 8×B200 | `vllm serve deepseek-ai/DeepSeek-V4-Flash-0731 --trust-remote-code --kv-cache-dtype fp8 --block-size 256 --enable-expert-parallel --tensor-parallel-size 8 --tokenizer-mode deepseek_v4 --tool-call-parser deepseek_v4 --enable-auto-tool-choice --reasoning-parser deepseek_v4 --reasoning-config '{...}'`; B200 adds `--attention_config.use_fp4_indexer_cache True --moe-backend deep_gemm_mega_moe` | spec **off** both (Atlas has no V4 MTP; vLLM DSpark is broken on SM90) |
 
 Fairness pins for the client, both engines (from `bench/ladder38/harness_w55_conc_ladder.py`):
 
@@ -183,16 +194,14 @@ per-request nonce in the prompt (defeats prefix cache on both engines)
 usage from stream_options.include_usage, not counted deltas
 ```
 
-Spec parity: if Atlas runs `--num-drafts 3`, vLLM runs `--speculative-config '{"method":"mtp","num_speculative_tokens":3}'`; otherwise neither.
-
-Known levers to cap vLLM warm-up time: `--no-enable-flashinfer-autotune`, a bounded `--compilation-config`, `--max-model-len` no larger than the cell needs.
+Known conflicts to resolve before the run and record in the artifact: Super tool parser (`qwen3_xml` recipe vs `qwen3_coder` card), Super reasoning parser (`nemotron_v3` vs `super_v3` plugin), Super B200 GPU count (TP8 recipe vs TP1 card), DeepSeek `fp8` vs `fp8_ds_mla`. Warm-up caps: `--no-enable-flashinfer-autotune`, `VLLM_CACHE_ROOT` compile cache reused across reps, `--max-model-len` no larger than the cell needs. Cross-check client: `vllm bench serve --backend openai ... --random-range-ratio 0.0 --ignore-eos` against both engines (see `VLLM-RECIPES.md`).
 
 ## 8. Hardware / topology matrix
 
 | SKU | Mem | BW | Arch | Atlas target | Quant on both engines | Notes |
 |---|---|---|---|---|---|---|
-| H100 SXM | 80 GB | 3.35 TB/s | 9.0 | `hopper` (sm_90a) | FP8 | Super needs 2 GPUs; V4-Flash does not fit 8×80 GB with useful KV — use H200 |
-| H200 SXM | 141 GB | 4.8 TB/s | 9.0 | `hopper` (sm_90a) | FP8 | Super fits 1 GPU; V4-Flash 8 GPUs EP=8 |
+| H100 SXM | 80 GB | 3.35 TB/s | 9.0 | `hopper` (sm_90a) | FP8 | Super recipe-max is TP4; V4-Flash and M3 have no H100 recipe — use H200 |
+| H200 SXM | 141 GB | 4.8 TB/s | 9.0 | `hopper` (sm_90a) | FP8 | Super fits 1 GPU; V4-Flash 8 GPUs (vLLM TEP8, Atlas EP=8); NVFP4 is Marlin-emulated and buggy in vLLM here — never benchmark it |
 | B200 SXM | 180 GB | 8 TB/s | 10.0 | `b200` (sm_100a) | FP8 and NVFP4 | NVFP4 needs an Sm100 CUTLASS port in Atlas before the NVFP4 rows run; FP8 rows do not |
 
 ## 9. Client and methodology
@@ -273,10 +282,21 @@ Not allowed: "faster than vLLM" without SKU, C, quant and spec matching; calling
 
 ## 15. Decision
 
-- Run: Nano (plumbing) → Qwen3.6-35B → Super → Qwen3-Next-80B → V4-Flash, on H100 → H200 → B200 in that order.
+- Run: Nano (plumbing) → Qwen3.6-35B → Super → Qwen3-Next-80B → V4-Flash, on H100 → H200 → B200 in that order. Single-GPU cells before any multi-GPU cell (see §16).
 - A/B: vLLM using §7 only, spec-matched, same client.
-- Skip: Qwen3.8-Max, K3, V4-Pro, B300. Flash-Next blocked on model support. M3 → M2.7 overflow.
+- Skip: Qwen3.8-Max, K3, V4-Pro, B300. Flash-Next and M3 are vLLM-reference rows only until Atlas ports land.
 - Next artifacts: the companion PR (targets, preflight, gate, driver) and `RESULTS-TEMPLATE.md` in this directory.
+
+## 16. Sequencing input from the team (2026-09-04) and how this PRD absorbs it
+
+A team developer proposed a different order: (1) two-node DGX Spark cluster to build and measure speculative decoding across ranks (bit-exact sharded verify, expert dispatch over the fabric, decode all-reduce latency), (2) one H200 for a 27B head-to-head against a published H200 number, (3) one node with GLM 5.3 and speculation on. Their reading of the tree matches ours: EP=2 today replicates compute and all-reduces, EP=4 is not a runnable recipe, and no speculative multiplier under EP has ever been measured.
+
+What this PRD takes from it:
+
+- **Single-GPU cells first, multi-GPU cells last.** Every multi-GPU Atlas cell inherits the all-reduce-bound EP=2 design; a loss there is expected and is a development finding, not a benchmark finding. The certified receipts this campaign can honestly produce today are 1×H100 / 1×H200 / 1×B200 cells (Nano, Qwen3.6-35B, Super on H200/B200, Qwen3-Next on H200/B200).
+- **The 1×H200 27B head-to-head is adopted as the first paid cell** (`Qwen/Qwen3.8-27B-FP8`, target `qwen3.8-27b`, MTP K matched; NVFP4 excluded on Hopper). It is the cheapest datacenter receipt and reuses the ladder38 methodology unchanged.
+- **Cross-rank speculative decoding, expert dispatch and all-reduce work are a development track on the two Sparks, not a campaign gate.** They are prerequisites for publishable 8-GPU cells and are tracked outside this PRD; this PRD reports 8-GPU Atlas cells as NO-GO or PARTIAL if they fail the boot/coherency gates rather than waiting for that work.
+- **GLM 5.3 is out of scope here**: no `glm` `model_type` exists in `crates/spark-model/src/factory.rs`; it needs a port before it can be a cell.
 
 ## Appendix A — RST context intake
 
