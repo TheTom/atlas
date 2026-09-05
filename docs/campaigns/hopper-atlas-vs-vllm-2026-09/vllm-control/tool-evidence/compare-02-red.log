@@ -1,0 +1,52 @@
+$ python3 bench/hopper_ab/compare.py --selftest
+### ISL 1024 / OSL 256 (temp 0.0, seed 42)
+
+| C | Atlas tok/s | vLLM tok/s | ratio | Atlas TTFT p50/p99 ms | vLLM TTFT p50/p99 ms | Atlas TPOT p50 ms | vLLM TPOT p50 ms | rung |
+|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| 1 | 40.00 | 20.00 | 2.00x | 100 / 140 | 130 / 180 | 24.00 | 48.00 | **WIN** |
+| 16 | 200.00 | 400.00 | 0.50x | 300 / 480 | 260 / 400 | 60.00 | 34.00 | **LOSS** |
+
+1/2 rungs won.
+
+REFUSED vllm_tiny_mismatched.json: - osl: atlas=256 vs vllm=512
+REFUSED vllm_tiny_no_thinking_key.json: - chat_template_kwargs: atlas={'enable_thinking': False} vllm='<absent>' (absent is not a match -- the run cannot show it used this value)
+FAIL: validity oracle: atlas rung errors must be INVALID, unscored, with reasons
+FAIL: validity oracle: vllm rung errors must be INVALID, unscored, with reasons
+FAIL: validity oracle: atlas rep errors must be INVALID, unscored, with reasons
+FAIL: validity oracle: vllm rep errors must be INVALID, unscored, with reasons
+FAIL: validity oracle: atlas missing errors must be INVALID, unscored, with reasons
+FAIL: validity oracle: vllm missing errors must be INVALID, unscored, with reasons
+FAIL: validity oracle: atlas vacuity must be INVALID, unscored, with reasons
+FAIL: validity oracle: vllm vacuity must be INVALID, unscored, with reasons
+FAIL: validity oracle: atlas missing usage must be INVALID, unscored, with reasons
+FAIL: validity oracle: vllm missing usage must be INVALID, unscored, with reasons
+FAIL: validity oracle: atlas missing requests must be INVALID, unscored, with reasons
+FAIL: validity oracle: vllm missing requests must be INVALID, unscored, with reasons
+FAIL: validity oracle: atlas incomplete reps must be INVALID, unscored, with reasons
+FAIL: validity oracle: vllm incomplete reps must be INVALID, unscored, with reasons
+FAIL: validity oracle: atlas empty reps must be INVALID, unscored, with reasons
+FAIL: validity oracle: vllm empty reps must be INVALID, unscored, with reasons
+FAIL: validity oracle: atlas zero throughput must be INVALID, unscored, with reasons
+FAIL: validity oracle: vllm zero throughput must be INVALID, unscored, with reasons
+FAIL: validity oracle: atlas nonfinite throughput must be INVALID, unscored, with reasons
+FAIL: validity oracle: vllm nonfinite throughput must be INVALID, unscored, with reasons
+FAIL: validity oracle: atlas nonfinite latency must be INVALID, unscored, with reasons
+FAIL: validity oracle: vllm nonfinite latency must be INVALID, unscored, with reasons
+FAIL: validity oracle: atlas unstable reps must be INVALID, unscored, with reasons
+FAIL: validity oracle: vllm unstable reps must be INVALID, unscored, with reasons
+FAIL: vacuity oracle: one short request at C=16 must fail despite a full average
+FAIL: rung identity oracle: empty rungs must be refused
+FAIL: rung identity oracle: duplicate rungs must be refused
+Traceback (most recent call last):
+  File "/private/tmp/atlas-vllm-control/bench/hopper_ab/compare.py", line 290, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/private/tmp/atlas-vllm-control/bench/hopper_ab/compare.py", line 270, in main
+    selftest()
+    ~~~~~~~~^^
+  File "/private/tmp/atlas-vllm-control/bench/hopper_ab/compare.py", line 256, in selftest
+    assert not failures, "; ".join(failures)
+           ^^^^^^^^^^^^
+AssertionError: validity oracle: atlas rung errors must be INVALID, unscored, with reasons; validity oracle: vllm rung errors must be INVALID, unscored, with reasons; validity oracle: atlas rep errors must be INVALID, unscored, with reasons; validity oracle: vllm rep errors must be INVALID, unscored, with reasons; validity oracle: atlas missing errors must be INVALID, unscored, with reasons; validity oracle: vllm missing errors must be INVALID, unscored, with reasons; validity oracle: atlas vacuity must be INVALID, unscored, with reasons; validity oracle: vllm vacuity must be INVALID, unscored, with reasons; validity oracle: atlas missing usage must be INVALID, unscored, with reasons; validity oracle: vllm missing usage must be INVALID, unscored, with reasons; validity oracle: atlas missing requests must be INVALID, unscored, with reasons; validity oracle: vllm missing requests must be INVALID, unscored, with reasons; validity oracle: atlas incomplete reps must be INVALID, unscored, with reasons; validity oracle: vllm incomplete reps must be INVALID, unscored, with reasons; validity oracle: atlas empty reps must be INVALID, unscored, with reasons; validity oracle: vllm empty reps must be INVALID, unscored, with reasons; validity oracle: atlas zero throughput must be INVALID, unscored, with reasons; validity oracle: vllm zero throughput must be INVALID, unscored, with reasons; validity oracle: atlas nonfinite throughput must be INVALID, unscored, with reasons; validity oracle: vllm nonfinite throughput must be INVALID, unscored, with reasons; validity oracle: atlas nonfinite latency must be INVALID, unscored, with reasons; validity oracle: vllm nonfinite latency must be INVALID, unscored, with reasons; validity oracle: atlas unstable reps must be INVALID, unscored, with reasons; validity oracle: vllm unstable reps must be INVALID, unscored, with reasons; vacuity oracle: one short request at C=16 must fail despite a full average; rung identity oracle: empty rungs must be refused; rung identity oracle: duplicate rungs must be refused
+
+exit: 1

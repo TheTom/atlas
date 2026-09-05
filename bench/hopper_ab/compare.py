@@ -22,6 +22,7 @@ Usage:
 import argparse
 import copy
 import json
+import math
 import pathlib
 import statistics
 import sys
@@ -68,7 +69,11 @@ def assert_comparable(a, b, a_name="atlas", b_name="vllm"):
         )
 
 
-def rung_stats(rung):
+def finite_number(value):
+    return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
+
+
+def rung_stats(rung, expected_reps, osl):
     """One rung's headline numbers, aggregated over its timed reps.
 
     tok/s comes from the harness's own mean over the rep series. The latency
@@ -77,25 +82,69 @@ def rung_stats(rung):
     the reading that matters.
     """
     reps = rung.get("reps") or []
+    if not isinstance(reps, list) or any(not isinstance(r, dict) for r in reps):
+        raise Mismatch("rung reps must be a list of records")
+    issues = []
+    if not reps or len(reps) != expected_reps:
+        issues.append(f"expected {expected_reps} timed reps, got {len(reps)}")
+    if rung.get("errors_total") != 0:
+        issues.append("errors_total is absent or nonzero")
+    rates = []
+    for i, rep in enumerate(reps):
+        if rep.get("n_err") != 0 or rep.get("n_ok") != rung["concurrency"]:
+            issues.append(f"rep {i}: request errors or incomplete request count")
+        tokens = rep.get("completion_tokens_per_req")
+        if (not isinstance(tokens, list) or len(tokens) != rung["concurrency"]
+                or any(type(n) is not int or n < 0 for n in tokens)):
+            issues.append(f"rep {i}: missing or invalid per-request completion usage")
+        elif any(n < 0.8 * osl for n in tokens):
+            issues.append(f"rep {i}: vacuity (a request returned <80% of OSL {osl})")
+        rate = rep.get("tok_s")
+        if not finite_number(rate) or rate <= 0:
+            issues.append(f"rep {i}: throughput must be finite and positive")
+        else:
+            rates.append(rate)
+    if rates and (max(rates) - min(rates)) / statistics.fmean(rates) > 0.10:
+        issues.append("timed throughput spread exceeds 10%")
+    throughput = rung.get("tok_s_mean")
+    if not finite_number(throughput) or throughput <= 0:
+        issues.append("tok_s_mean must be finite and positive")
+        throughput = None
 
     def mean_of(key):
-        vals = [r[key] for r in reps if r.get(key) is not None]
+        vals = [r[key] for r in reps if finite_number(r.get(key)) and r[key] >= 0]
+        if len(vals) != len(reps):
+            issues.append(f"{key}: missing, negative or nonfinite latency")
         return statistics.fmean(vals) if vals else None
 
     return {
         "concurrency": rung["concurrency"],
-        "tok_s": rung.get("tok_s_mean"),
+        "tok_s": throughput,
         "ttft_p50_ms": mean_of("ttft_p50_ms"),
         "ttft_p99_ms": mean_of("ttft_p99_ms"),
         "tpot_p50_ms": mean_of("tpot_p50_ms"),
-        "errors": rung.get("errors_total", 0),
+        "errors": rung.get("errors_total"),
+        "issues": issues,
     }
+
+
+def index_rungs(run):
+    rungs = run.get("rungs")
+    if not isinstance(rungs, list) or not rungs:
+        raise Mismatch("rungs must be a nonempty list")
+    by_c = {}
+    for rung in rungs:
+        c = rung.get("concurrency") if isinstance(rung, dict) else None
+        if type(c) is not int or c <= 0 or c in by_c:
+            raise Mismatch(f"invalid or duplicate concurrency: {c!r}")
+        by_c[c] = rung_stats(rung, run["reps"], run["osl"])
+    return by_c
 
 
 def compare(atlas, vllm):
     assert_comparable(atlas, vllm)
-    atlas_by_c = {r["concurrency"]: rung_stats(r) for r in atlas["rungs"]}
-    vllm_by_c = {r["concurrency"]: rung_stats(r) for r in vllm["rungs"]}
+    atlas_by_c = index_rungs(atlas)
+    vllm_by_c = index_rungs(vllm)
     rows = []
     for concurrency in sorted(atlas_by_c.keys() | vllm_by_c.keys()):
         a = atlas_by_c.get(concurrency)
@@ -108,7 +157,8 @@ def compare(atlas, vllm):
                          **{f"vllm_{k}": v for k, v in (b or {}).items()},
                          "concurrency": concurrency, "verdict": "NO-PAIR"})
             continue
-        ratio = (a["tok_s"] / b["tok_s"]) if (a["tok_s"] and b["tok_s"]) else None
+        invalid = bool(a["issues"] or b["issues"])
+        ratio = None if invalid else a["tok_s"] / b["tok_s"]
         rows.append({
             "concurrency": a["concurrency"],
             "atlas_tok_s": a["tok_s"], "vllm_tok_s": b["tok_s"],
@@ -116,12 +166,13 @@ def compare(atlas, vllm):
             "atlas_ttft_p99_ms": a["ttft_p99_ms"], "vllm_ttft_p99_ms": b["ttft_p99_ms"],
             "atlas_tpot_p50_ms": a["tpot_p50_ms"], "vllm_tpot_p50_ms": b["tpot_p50_ms"],
             "atlas_errors": a["errors"], "vllm_errors": b["errors"],
+            "atlas_issues": a["issues"], "vllm_issues": b["issues"],
             "ratio": ratio,
             # Throughput decides the label because that is what the campaign's
             # scoreboard is scored on; the latency columns sit beside it so a
             # win bought by a TTFT regression is visible in the same row rather
             # than in a footnote.
-            "verdict": ("TIE" if ratio == 1.0 else
+            "verdict": ("INVALID" if invalid else "TIE" if ratio == 1.0 else
                         "WIN" if ratio is not None and ratio > 1.0 else "LOSS"),
         })
     return {
@@ -154,13 +205,17 @@ def to_markdown(result):
             continue
         lines.append(
             f"| {r['concurrency']} | {num(r['atlas_tok_s'])} | {num(r['vllm_tok_s'])} "
-            f"| {num(r['ratio'])}x "
+            f"| {num(r['ratio']) + 'x' if r['ratio'] is not None else '--'} "
             f"| {num(r['atlas_ttft_p50_ms'], 0)} / {num(r['atlas_ttft_p99_ms'], 0)} "
             f"| {num(r['vllm_ttft_p50_ms'], 0)} / {num(r['vllm_ttft_p99_ms'], 0)} "
             f"| {num(r['atlas_tpot_p50_ms'])} | {num(r['vllm_tpot_p50_ms'])} "
             f"| **{r['verdict']}** |"
         )
     lines += ["", f"{result['rungs_won']}/{result['rungs_compared']} rungs won.", ""]
+    for r in result["rows"]:
+        for side in ("atlas", "vllm"):
+            if r.get(f"{side}_issues"):
+                lines.append(f"C={r['concurrency']} {side}: " + "; ".join(r[f"{side}_issues"]))
     return "\n".join(lines)
 
 
@@ -210,10 +265,51 @@ def selftest():
             failures.append(f"rung-union oracle: {name} C=16 must remain NO-PAIR")
         elif name == "vllm-only" and "200.00" not in to_markdown(unpaired):
             failures.append("rung-union oracle: vllm-only throughput must render in its column")
+    # PRD sections 4/9: no errors, every request >=80% OSL, <=10% spread.
+    # Mutate raw ladder fields, including a dishonest errors_total=0 summary.
+    invalid_cases = [
+        ("rung errors", lambda r: r.update(errors_total=1)),
+        ("rep errors", lambda r: r["reps"][0].update(n_err=1)),
+        ("missing errors", lambda r: r.pop("errors_total")),
+        ("vacuity", lambda r: r["reps"][0].update(completion_tokens_per_req=[204])),
+        ("missing usage", lambda r: r["reps"][0].pop("completion_tokens_per_req")),
+        ("missing requests", lambda r: r["reps"][0].update(n_ok=0)),
+        ("incomplete reps", lambda r: r.update(reps=r["reps"][:1])),
+        ("empty reps", lambda r: r.update(reps=[])),
+        ("zero throughput", lambda r: r.update(tok_s_mean=0)),
+        ("nonfinite throughput", lambda r: r.update(tok_s_mean=float("nan"))),
+        ("nonfinite latency", lambda r: r["reps"][0].update(ttft_p50_ms=float("inf"))),
+        ("unstable reps", lambda r: r["reps"][0].update(tok_s=80.0)),
+    ]
+    for name, mutate in invalid_cases:
+        bad = copy.deepcopy(atlas)
+        mutate(bad["rungs"][0])
+        for side, a, b in (("atlas", bad, atlas), ("vllm", atlas, bad)):
+            result_bad = compare(a, b)
+            row = result_bad["rows"][0]
+            if (row["verdict"] != "INVALID" or row.get("ratio") is not None
+                    or not row.get(f"{side}_issues") or result_bad["rungs_compared"] != 1):
+                failures.append(f"validity oracle: {side} {name} must be INVALID, unscored, with reasons")
+    # The 80% floor is per request, not an average; 205/256 passes.
+    boundary = copy.deepcopy(atlas)
+    boundary["rungs"][0]["reps"][0]["completion_tokens_per_req"] = [205]
+    if compare(boundary, atlas)["rows"][0]["verdict"] != "TIE":
+        failures.append("vacuity oracle: the first integer at or above 80% must pass")
+    mixed = copy.deepcopy(atlas)
+    mixed["rungs"][1]["reps"][0]["completion_tokens_per_req"][0] = 204
+    if compare(mixed, atlas)["rows"][1]["verdict"] != "INVALID":
+        failures.append("vacuity oracle: one short request at C=16 must fail despite a full average")
+    for name, rungs in (("empty", []), ("duplicate", atlas["rungs"] * 2)):
+        try:
+            compare({**atlas, "rungs": rungs}, atlas)
+        except Mismatch:
+            pass
+        else:
+            failures.append(f"rung identity oracle: {name} rungs must be refused")
     for failure in failures:
         print("FAIL:", failure)
     assert not failures, "; ".join(failures)
-    print("SELFTEST OK: arithmetic, parity refusal, A/A identity and symmetric rung union")
+    print("SELFTEST OK: arithmetic, parity refusal, A/A identity, symmetric rung union and validity exclusions")
 
 
 def main():
