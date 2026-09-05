@@ -242,6 +242,6 @@ URL="${URL%/}"
 
 if [ -n "$OUT" ]; then
   measure | tee "$OUT"
-  exit "${PIPESTATUS[0]}"
+  exit "$?"  # pipefail preserves either measurement failure or tee write failure
 fi
 measure

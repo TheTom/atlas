@@ -1,0 +1,177 @@
+{
+  "schema": 1,
+  "engine": "selftest",
+  "url": "http://127.0.0.1:50649",
+  "model": "stub-model",
+  "start_epoch": 1788576601.410199,
+  "time_to_ready_s": 2.041,
+  "first_token_s": 0.01,
+  "polls": 3,
+  "http_codes_seen": [
+    "503",
+    "200"
+  ],
+  "timeout_s": 30.0,
+  "status": "ready",
+  "passed": true,
+  "total_s": 2.051
+}
+SELFTEST OK: measured 2.041 s over 3 polls ['503', '200']
+{
+  "clean": {
+    "exit_code": 0,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:50661/clean",
+      "model": "stub-model",
+      "start_epoch": 1788576603.552462,
+      "time_to_ready_s": 0.043,
+      "first_token_s": 0.009,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "ready",
+      "passed": true,
+      "total_s": 0.052
+    }
+  },
+  "http500": {
+    "exit_code": 1,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:50661/http500",
+      "model": "stub-model",
+      "start_epoch": 1788576603.608194,
+      "time_to_ready_s": 0.042,
+      "first_token_s": null,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "first-token-failed",
+      "passed": false,
+      "total_s": 0.051,
+      "detail": "curl exit 22: curl: (22) The requested URL returned error: 500"
+    }
+  },
+  "error200": {
+    "exit_code": 1,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:50661/error200",
+      "model": "stub-model",
+      "start_epoch": 1788576603.662967,
+      "time_to_ready_s": 0.041,
+      "first_token_s": null,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "first-token-failed",
+      "passed": false,
+      "total_s": 0.051,
+      "detail": "invalid first-token completion: completion returned an error or a non-object"
+    }
+  },
+  "empty": {
+    "exit_code": 1,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:50661/empty",
+      "model": "stub-model",
+      "start_epoch": 1788576603.717603,
+      "time_to_ready_s": 0.041,
+      "first_token_s": null,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "first-token-failed",
+      "passed": false,
+      "total_s": 0.05,
+      "detail": "invalid first-token completion: empty first-token reply"
+    }
+  },
+  "invalid": {
+    "exit_code": 1,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:50661/invalid",
+      "model": "stub-model",
+      "start_epoch": 1788576603.771232,
+      "time_to_ready_s": 0.041,
+      "first_token_s": null,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 5.0,
+      "status": "first-token-failed",
+      "passed": false,
+      "total_s": 0.05,
+      "detail": "invalid first-token completion: Expecting value: line 1 column 1 (char 0)"
+    }
+  },
+  "expired": {
+    "exit_code": 1,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:50661/expired",
+      "model": "stub-model",
+      "start_epoch": 1788576601.824907,
+      "time_to_ready_s": null,
+      "first_token_s": null,
+      "polls": 0,
+      "http_codes_seen": [],
+      "timeout_s": 0.4,
+      "status": "timeout",
+      "passed": false,
+      "total_s": 2.033,
+      "detail": "health did not pass within process-start deadline"
+    }
+  },
+  "slow": {
+    "exit_code": 1,
+    "artifact": {
+      "schema": 1,
+      "engine": "selftest",
+      "url": "http://127.0.0.1:50661/slow",
+      "model": "stub-model",
+      "start_epoch": 1788576603.8617542,
+      "time_to_ready_s": 0.041,
+      "first_token_s": null,
+      "polls": 1,
+      "http_codes_seen": [
+        "200"
+      ],
+      "timeout_s": 0.4,
+      "status": "timeout",
+      "passed": false,
+      "total_s": 0.415,
+      "detail": "first completion exceeded process-start deadline"
+    }
+  },
+  "unwritable-artifact": {
+    "exit_code": 0,
+    "stderr": "tee: /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpy_vo4onl/missing/boot.json: No such file or directory\n"
+  }
+}
+Traceback (most recent call last):
+  File "/private/tmp/atlas-vllm-control/bench/hopper_ab/readiness_selftest.py", line 90, in <module>
+    selftest()
+    ~~~~~~~~^^
+  File "/private/tmp/atlas-vllm-control/bench/hopper_ab/readiness_selftest.py", line 85, in selftest
+    assert not failures, '\n'.join(failures)
+           ^^^^^^^^^^^^
+AssertionError: unwritable-artifact: output failure must make the command fail

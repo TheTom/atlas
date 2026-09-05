@@ -4,6 +4,7 @@ import json
 import pathlib
 import subprocess
 import threading
+import tempfile
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
@@ -65,6 +66,13 @@ def selftest():
                 failures.append(f'{mode}: expected pass={expected}, got exit {proc.returncode}, status {result["status"]}')
             if mode == 'slow' and elapsed > 0.65:
                 failures.append(f'slow: first-token request exceeded whole-boot deadline ({elapsed:.3f}s)')
+        with tempfile.TemporaryDirectory() as tmp:
+            command = ['bash', str(script), '--url', f'http://127.0.0.1:{server.server_port}/clean',
+                       '--model', 'stub-model', '--out', str(pathlib.Path(tmp) / 'missing' / 'boot.json')]
+            proc = subprocess.run(command, capture_output=True, text=True, timeout=10)
+            results['unwritable-artifact'] = {'exit_code': proc.returncode, 'stderr': proc.stderr}
+            if proc.returncode == 0:
+                failures.append('unwritable-artifact: output failure must make the command fail')
         for key, expected in {'presence_penalty': 0.0, 'frequency_penalty': 0.0,
                               'chat_template_kwargs': {'enable_thinking': False}}.items():
             if observed[0].get(key) != expected:
