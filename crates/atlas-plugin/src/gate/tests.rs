@@ -21,6 +21,9 @@ pub(super) fn hw() -> Hardware {
         gpu: "NVIDIA GB10".to_string(),
         driver: "580.126.09".to_string(),
         sm_clock_mhz: Some(2405.0),
+        // Single-card, like every committed record. The multi-GPU case has its
+        // own fixture in `override_tests`.
+        gpu_count: Some(1),
         source: "nvidia-smi".to_string(),
     }
 }
