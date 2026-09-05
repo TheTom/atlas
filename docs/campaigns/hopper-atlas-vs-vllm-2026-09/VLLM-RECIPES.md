@@ -120,18 +120,33 @@ vllm serve MiniMaxAI/MiniMax-M3 --block-size 128 --tensor-parallel-size 8 \
 # Text-only A/B: add --language-model-only. EAGLE3 draft: Inferact/MiniMax-M3-EAGLE3 (num_speculative_tokens 3).
 ```
 
-## Kimi K3 — `moonshotai/Kimi-K3` (exists; recipe verified 2026-09-04 via `recipes.vllm.ai/moonshotai/Kimi-K3.json`)
+## Kimi K3 — `moonshotai/Kimi-K3` (team spec 2026-09-04; recipe facts from `recipes.vllm.ai/moonshotai/Kimi-K3.json`)
 
-2.8T MoE, 16 of 896 experts active, Kimi Delta Attention + Attention Residuals, 1M context, native vision. `min_vllm_version 0.27.1`, image `vllm/vllm-openai:kimi-k3` (cu130 build, r580+ driver). Variants: default **MXFP4** (1680 GB min VRAM; H100/H200/B200/B300/GB200/GB300/MI3xx listed), `RedHatAI` **NVFP4** (1650 GB, Blackwell only), Ascend W4A8. Base args `--trust-remote-code --gpu-memory-utilization 0.95`. Features: `--enable-auto-tool-choice --tool-call-parser kimi_k3 --reasoning-parser kimi_k3`; speculative default DSpark `num_speculative_tokens 8`.
+Pick one checkpoint: `moonshotai/Kimi-K3`, **native MXFP4 (QAT from SFT)** — MXFP4 experts + MXFP8 activations, attention / shared experts / lm_head higher precision. It is what Moonshot shipped, what vLLM's day-0 recipe optimizes, and what published numbers use. A VESSL W4AFP8 or Ascend W4A8 requant is a different model for sales purposes; never A/B it against the MXFP4 checkpoint.
 
-| Hardware | Recipe profile | Reality check |
-|---|---|---|
-| 8×H200 | `--max-model-len 32768 --max-num-seqs 5`; FP8 KV needs `--kv-cache-dtype fp8 --attention-config '{"use_prefill_query_quantization":true,"mla_prefill_backend":"flashinfer"}'` (blog) | 1128 GB for a 1680 GB checkpoint — weights spill / KV starved; cannot run C=16 or 4K-prompt agent cells |
-| 8×B200 / GB200 / GB300 | single_node_tp, `--prefix-match-unit 128` on Blackwell; 1M window only in the Blackwell profile | 8×B200 = 1440 GB, still under 1680 — recipe lists it, verify fit/offload day-of; GB300 (8×288 GB) is the comfortable single node |
-| 16 GPUs | TP/DP and DEP strategies, multi-node | production profile; outside this campaign |
-| H100 | listed in the variant's hardware set but 8×80 GB = 640 GB | no single-node H100 profile is possible |
+| Field | Value |
+|---|---|
+| Model | 2.8T MoE, 16 of 896 experts active, Kimi Delta Attention + Attention Residuals, 1M ctx, native vision (`--language-model-only` for the text A/B) |
+| Weights | 1.56 TB → 8×H200 short by ~430 GB, 8×B200 short by ~120 GB. Single-node is not an option |
+| Image | `vllm/vllm-openai:kimi-k3` (CUDA 13 / cu130, r580+ driver), vLLM ≥ 0.27.1 |
+| Parsers | `--tool-call-parser kimi_k3 --reasoning-parser kimi_k3` |
+| Compare box | **2×8 B200 (16 GPUs), TP8 + PP2** |
+| Context cap | `--max-model-len 49152` for the A/B |
+| Spec | Off for the scored row; DSpark (`num_speculative_tokens 8`, recipe default) as a second row only |
+| Hopper | 16×H200 with `--moe-backend marlin` (MXFP4 emulated) — label the row "Hopper emulate"; the recipe's 8×H200 profile (`--max-model-len 32768 --max-num-seqs 5`) is a bring-up curiosity, not a receipt |
 
-UNVERIFIED: exact per-SKU generated command strings (the JSON fetch returned profile metadata, not the rendered command); reconstruct from the recipe page before the run. Atlas: no Kimi / KDA `model_type` — vLLM-only row.
+```bash
+# vLLM control — run on both nodes with RANK 0/1 (team-supplied; verify against the recipe page day-of)
+vllm serve moonshotai/Kimi-K3 \
+  --served-model-name kimi-k3 --trust-remote-code --language-model-only \
+  --tensor-parallel-size 8 --pipeline-parallel-size 2 \
+  --nnodes 2 --node-rank $RANK --master-addr $MASTER --master-port 29501 \
+  --moe-backend flashinfer_trtllm --disable-custom-all-reduce \
+  --kv-cache-dtype fp8 --enable-prefix-caching --max-model-len 49152 \
+  --enable-auto-tool-choice --tool-call-parser kimi_k3 --reasoning-parser kimi_k3
+```
+
+Atlas leg: same checkpoint, same GPU count, same max len, thinking + tool parsers on. Atlas has TP and EP but **no pipeline parallel**, so the matched layout is TP8 + EP2 with a footnote. If Atlas cannot load MXFP4 KDA / LatentMoE in 30 minutes: `ATLAS_UNSUPPORTED`, do not rent the 16-GPU node for it.
 
 Sources: https://recipes.vllm.ai/moonshotai/Kimi-K3 · https://recipes.vllm.ai/moonshotai/Kimi-K3.json · https://vllm.ai/blog/2026-07-27-k3
 
