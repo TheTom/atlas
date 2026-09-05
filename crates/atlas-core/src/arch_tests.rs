@@ -155,12 +155,47 @@ fn the_mismatch_message_hints_gb10_for_a_twelve_one_device() {
     assert!(msg.contains("ATLAS_TARGET_HW=gb10"), "{msg}");
 }
 
+/// The third shipped target. Oracle: `kernels/b200/HARDWARE.toml` —
+/// `compute_capability = "10.0"`, `arch = "sm_100a"`.
+///
+/// This is the hint an operator most needs and was least likely to get: CC
+/// 10.0 is where BOTH other NVIDIA targets fail (`sm_121f` is a different
+/// major family, `sm_90a` never travels forward), so before `kernels/b200`
+/// existed a B200 got "no shipped target matches compute capability 10.0" from
+/// every image Atlas published.
+#[test]
+fn a_blackwell_datacentre_device_is_pointed_at_the_b200_target() {
+    assert_eq!(target_hint((10, 0)), Some("b200"));
+    for compiled in ["sm_121f", "sm_90a"] {
+        let msg = ptx_arch_runs_on_device(compiled, (10, 0))
+            .expect_err("neither shipped arch runs on CC 10.0")
+            .to_string();
+        assert!(msg.contains("ATLAS_TARGET_HW=b200"), "{msg}");
+    }
+}
+
+/// B300 / GB300 are SM 10.3 and Atlas compiles nothing for them. The hint must
+/// stay silent rather than nominate `b200`: `sm_100a` is architecture-specific
+/// and does not run on 10.3, so pointing an operator at that build would send
+/// them to rebuild an image that fails the same way.
+#[test]
+fn blackwell_ultra_has_no_shipped_target_and_is_not_pointed_at_b200() {
+    assert_eq!(target_hint((10, 3)), None);
+    let msg = ptx_arch_runs_on_device("sm_100a", (10, 3))
+        .expect_err("sm_100a cannot run on CC 10.3")
+        .to_string();
+    assert!(msg.contains("no shipped target"), "{msg}");
+    assert!(!msg.contains("ATLAS_TARGET_HW="), "{msg}");
+}
+
 /// A CC with no shipped target says so instead of naming a target that does
-/// not exist. Oracle: `kernels/` ships gb10 (12.1) and hopper (9.0) only.
+/// not exist. Oracle: `kernels/` ships gb10 (12.1), hopper (9.0) and b200
+/// (10.0) — nothing for a Turing 7.5.
 #[test]
 fn a_compute_capability_with_no_shipped_target_says_so() {
     assert_eq!(target_hint((9, 0)), Some("hopper"));
     assert_eq!(target_hint((12, 1)), Some("gb10"));
+    assert_eq!(target_hint((10, 0)), Some("b200"));
     assert_eq!(target_hint((7, 5)), None);
     let msg = ptx_arch_runs_on_device("sm_121f", (7, 5))
         .expect_err("mismatch expected")

@@ -22,7 +22,7 @@ use super::*;
 #[test]
 fn a_registered_box_class_with_no_record_says_to_go_measure_it() {
     let b = baseline(&[("gb10", "m", Some("r"))]);
-    for hw in ["h100", "h200"] {
+    for hw in ["h100", "h200", "b200"] {
         let err = resolve(&b, "bfcl-subset", Some(hw), None).expect_err("refused");
         let msg = format!("{err:#}");
         assert!(msg.contains(hw), "names what was asked for: {msg}");

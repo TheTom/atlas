@@ -115,17 +115,26 @@ sm_100 for Blackwell datacenter — requires:
    name = "gb10"                   # matches the directory name
    vendor = "nvidia"               # picks the compiler: nvidia | apple | amd | hip
    arch = "sm_121f"                # forwarded verbatim to `nvcc -arch=`
-   compute_capability = "12.1"     # documentation — nothing reads it
+   compute_capability = "12.1"     # the device CC this target serves
    memory_bandwidth_gbps = 273     # documentation / roofline input
    memory_type = "LPDDR5X"
    memory_gb = 120
    ```
-   Only `arch` and `vendor` are load-bearing: `arch` becomes `-arch=` (and,
-   with any `a`/`f` feature suffix stripped, `KernelTarget.arch`), and
+   Only `arch` and `vendor` are load-bearing at build time: `arch` becomes
+   `-arch=` (and reaches the registry twice — verbatim as `TargetPtxSet.ptx_arch`
+   and, with any `a`/`f` feature suffix stripped, as `KernelTarget.arch`), and
    `vendor` selects the `ComputeTarget` impl in `build_target.rs` and the
-   per-vendor KERNEL.toml flag key (`extra_nvcc_flags` vs
-   `extra_metal_flags`). The remaining keys have **no reader anywhere in the
-   repo** — they are documentation, and `kernels/strix/HARDWARE.toml` records
+   per-vendor KERNEL.toml flag key (`extra_nvcc_flags` vs `extra_metal_flags`).
+
+   `compute_capability` has ONE reader, and it is a test:
+   `crates/atlas-kernels/tests/target_hints.rs` asserts that every
+   `vendor = "nvidia"` set's declared CC is what `atlas_core::arch::target_hint`
+   maps back to that directory name — so the "rebuild with `ATLAS_TARGET_HW=…`"
+   line an operator gets on an arch mismatch cannot drift from the tree. Get it
+   right; it is no longer decoration.
+
+   The `memory_*` keys still have **no reader anywhere in the repo** — they are
+   documentation and roofline input, and `kernels/strix/HARDWARE.toml` records
    what happened to two keys that pretended otherwise.
 
    Get the SM number right. Hopper is **sm_90** (`sm_90a` with the

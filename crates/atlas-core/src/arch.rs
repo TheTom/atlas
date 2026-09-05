@@ -74,10 +74,28 @@ pub fn parse_sm_arch(arch: &str) -> Option<SmArch> {
 ///
 /// Deliberately tiny and explicit — it exists so the mismatch message can tell
 /// an operator what to rebuild instead of leaving them to guess. `None` means
-/// Atlas ships nothing for that GPU.
+/// Atlas ships nothing for that GPU, and is the honest answer for every CC not
+/// listed: naming a target that cannot run either would send someone to
+/// rebuild an image that fails the same way (SM 10.3 Blackwell Ultra against
+/// the 10.0 `sm_100a` build is the live example).
+///
+/// HAND-MAINTAINED, and deliberately so, even though
+/// `kernels/<hw>/HARDWARE.toml` already declares `compute_capability` for each
+/// of these. Deriving it would mean either a build script that reads the
+/// kernels tree — atlas-core is a leaf crate with no build script and no TOML
+/// parser, and this function has to work inside a shipped binary that carries
+/// no `kernels/` at all — or baking the table in at build time, which trades a
+/// three-line table for a code generator. The gap that choice leaves is that
+/// the two can silently disagree, and
+/// `atlas-kernels/tests/target_hints.rs` closes it: it reads every
+/// `vendor = "nvidia"` HARDWARE.toml and asserts this function maps its
+/// declared `compute_capability` back to its own directory name.
 pub fn target_hint(device_cc: (u32, u32)) -> Option<&'static str> {
     match device_cc {
         (9, 0) => Some("hopper"),
+        // Blackwell datacentre. NOT (10, 3): B300/GB300 are `sm_103a`, a
+        // separate arch-specific target that does not exist in `kernels/`.
+        (10, 0) => Some("b200"),
         (12, 1) => Some("gb10"),
         _ => None,
     }

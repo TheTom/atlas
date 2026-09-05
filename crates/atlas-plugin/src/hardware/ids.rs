@@ -33,10 +33,30 @@
 /// wider than that tree: `h100` and `h200` are registered before any Hopper
 /// kernels land, so the resolver can tell an operator "no record yet" instead
 /// of "unknown hardware" for the whole span of the porting campaign.
-pub const KNOWN_HARDWARE_IDS: [&str; 8] = [
+///
+/// TWO KINDS OF ID LIVE HERE, and the difference is worth stating because it
+/// is not visible from the strings:
+///
+/// * **architecture classes** — `gb10`, `hopper`, `b200`, `metal`, `strix`.
+///   These are `kernels/<hw>/` directory names. One kernel set is compiled per
+///   architecture, so this is the unit a `-arch=` and a PTX artefact exist for.
+/// * **bench SKUs** — `h100`, `h200`, `gh200`, `b200`, `gb200`, `mi300x`.
+///   These are what an operator types at `--hardware`, what
+///   `GateBaseline.hardware` is keyed by, and what the campaign results
+///   template's columns are. This is the unit a THRESHOLD is meaningful for.
+///
+/// They coincide for `gb10` and `b200` and diverge for `hopper`, which is one
+/// architecture (SM 9.0) across two SKUs whose memory bandwidth differs by
+/// 43%. Both kinds must be registered: the arch classes because
+/// `every_kernel_hardware_dir_is_registered` demands it, the SKUs because
+/// `--hardware` validates against this list.
+pub const KNOWN_HARDWARE_IDS: [&str; 11] = [
     // NVIDIA GB10 / DGX Spark — the box every committed record was measured on.
+    // Architecture class and SKU at once.
     "gb10",
-    // NVIDIA Hopper. Two ids, not one: H200 is the same SM with 141 GB of
+    // NVIDIA Hopper, the architecture class: `kernels/hopper/` (sm_90a).
+    "hopper",
+    // …and its two SKUs. Two ids, not one: H200 is the same SM with 141 GB of
     // HBM3e at 4.8 TB/s against H100's 80 GB at 3.35 TB/s, and every metric a
     // gate carries (TTFT, TPOT, node tok/s) moves with memory bandwidth. One
     // shared id would score an H100 run against H200 numbers.
@@ -46,6 +66,16 @@ pub const KNOWN_HARDWARE_IDS: [&str; 8] = [
     // sits behind NVLink-C2C against LPDDR5X Grace memory rather than a PCIe
     // host, so a TTFT ceiling measured on an H100 board says nothing about it.
     "gh200",
+    // NVIDIA Blackwell datacentre, SM 10.0 — `kernels/b200/` (sm_100a). Here
+    // the architecture class and the discrete SXM SKU are the same id, so this
+    // entry wears both hats. GB200 is the Grace-Blackwell superchip: same
+    // silicon and same kernel set, its own baseline key, for exactly the
+    // reason `gh200` has one. B300 / GB300 are SM 10.3 and get NEITHER — a
+    // different arch (`sm_103a`, not forward-compatible from `sm_100a`) that
+    // Atlas ships no target for, so registering them would promise a build
+    // that does not exist.
+    "b200",
+    "gb200",
     // Apple Silicon, via the Metal backend.
     "metal",
     // AMD Strix Halo — Vulkan and HIP are separate targets and separate
@@ -70,11 +100,13 @@ pub const KNOWN_HARDWARE_IDS: [&str; 8] = [
 /// and generation in the key (`a100sxm480gb`) and so cannot silently merge two
 /// parts. Absent is therefore the SAFE default, and the reason this returns
 /// `Option` rather than guessing.
-const SKU_TOKENS: [(&str, &str); 5] = [
+const SKU_TOKENS: [(&str, &str); 7] = [
     ("gb10", "gb10"),
     ("h100", "h100"),
     ("h200", "h200"),
     ("gh200", "gh200"),
+    ("b200", "b200"),
+    ("gb200", "gb200"),
     ("mi300x", "mi300x"),
 ];
 
@@ -89,9 +121,11 @@ const SKU_TOKENS: [(&str, &str); 5] = [
 /// `h100` and `h200` entries sit unused.
 ///
 /// `None` means "no opinion", not "unknown box": the caller keeps its existing
-/// normalisation, which never merges two parts. That is why `"NVIDIA B200"`
+/// normalisation, which never merges two parts. That is why `"NVIDIA B300"`
 /// and the A100 capacities are absent rather than mapped — a wrong merge is
-/// silent, a missing entry costs one line.
+/// silent, a missing entry costs one line. B300/GB300 are SM 10.3 and Atlas
+/// compiles nothing for them; the A100 capacities differ only in memory, so a
+/// family-level guess would merge two parts whose numbers are not comparable.
 ///
 /// One SKU family, one id. `H100 PCIe` and `H100 SXM` share `h100` even though
 /// their bandwidths differ, because the campaign's unit of comparison is the
@@ -139,7 +173,30 @@ mod tests {
         assert!(!is_known_hardware_id("h800"));
         assert!(!is_known_hardware_id("H100"));
         assert!(!is_known_hardware_id(""));
-        assert!(!is_known_hardware_id("b200"));
+        // B300 / GB300 are SM 10.3 (`sm_103a`), a different architecture from
+        // B200's 10.0 with no forward compatibility between them, and Atlas
+        // ships no target for either. They hold the slot `b200` held before
+        // `kernels/b200/` landed.
+        assert!(!is_known_hardware_id("b300"));
+        assert!(!is_known_hardware_id("gb300"));
+    }
+
+    /// Oracle: the two things this registry is asked about. `hopper` and
+    /// `b200` are `kernels/<hw>/` directory names — architecture classes,
+    /// which is the unit a kernel set is compiled for. `h100`, `h200` and
+    /// `b200` are what an operator types at `--hardware` and what the campaign
+    /// results template columns are — SKUs, which is the unit a THRESHOLD is
+    /// meaningful for. `b200` is both, because on Blackwell datacentre the two
+    /// units coincide; `hopper` is one arch across two SKUs, and that is why
+    /// this list holds all of them rather than one set.
+    #[test]
+    fn the_kernel_arch_classes_and_the_bench_skus_are_both_registered() {
+        for arch_class in ["gb10", "hopper", "b200"] {
+            assert!(is_known_hardware_id(arch_class), "{arch_class}");
+        }
+        for sku in ["h100", "h200", "b200", "gb200"] {
+            assert!(is_known_hardware_id(sku), "{sku}");
+        }
     }
 
     /// Oracle: the GPU-name strings `nvidia-smi --query-gpu=name` actually
@@ -189,8 +246,12 @@ mod tests {
     #[test]
     fn an_unlisted_part_answers_none_rather_than_the_nearest_id() {
         for name in [
-            "NVIDIA B200",
-            "NVIDIA GB200",
+            // Blackwell ULTRA. B300/GB300 are SM 10.3 and `sm_103a` PTX is a
+            // different, non-interchangeable target from B200's `sm_100a`;
+            // Atlas compiles neither. Filing them under `b200` would score a
+            // box Atlas cannot even build for against B200 thresholds.
+            "NVIDIA B300",
+            "NVIDIA GB300",
             "NVIDIA A100-SXM4-40GB",
             "NVIDIA A100-SXM4-80GB",
             "NVIDIA L40S",
@@ -199,6 +260,58 @@ mod tests {
         ] {
             let got = hardware_id_from_gpu_name(name);
             assert!(got.is_none(), "{name:?} must not map anywhere, got {got:?}");
+        }
+    }
+
+    /// Oracle: the GPU-name strings `nvidia-smi --query-gpu=name` answers on
+    /// Blackwell datacentre parts, and NVIDIA's own product separation.
+    ///
+    /// B200 is a discrete SXM board; GB200 is the Grace-Blackwell superchip,
+    /// where the GPU sits behind NVLink-C2C against Grace LPDDR5X instead of a
+    /// PCIe host. Same reasoning that gave GH200 its own id rather than
+    /// folding it into `h100`: the interconnect and the host memory are what
+    /// TTFT is made of, so a ceiling measured on one says nothing about the
+    /// other. They share `kernels/b200/` (both are SM 10.0) and they do NOT
+    /// share a baseline key.
+    ///
+    /// `gb200` also has to survive the substring trap `gh200` had: it CONTAINS
+    /// `b200`, and a substring match would file every Grace-Blackwell run
+    /// under the B200 baseline.
+    #[test]
+    fn each_blackwell_datacentre_spelling_lands_on_its_box_class() {
+        for name in [
+            "NVIDIA B200",
+            "NVIDIA B200 180GB HBM3e",
+            "NVIDIA B200-SXM-180GB",
+        ] {
+            assert_eq!(hardware_id_from_gpu_name(name), Some("b200"), "{name}");
+        }
+        for name in ["NVIDIA GB200", "NVIDIA GB200 NVL72"] {
+            assert_eq!(hardware_id_from_gpu_name(name), Some("gb200"), "{name}");
+        }
+    }
+
+    /// ★ Oracle: the known-bad this table's `None` default was protecting
+    /// while B200 had no entry. Now that it HAS one, the wrong answer is no
+    /// longer `None` — it is `h100` or `h200`.
+    ///
+    /// Blackwell datacentre is SM 10.0; Hopper is 9.0. A B200 run scored
+    /// against Hopper thresholds would pass a gate it never met, and nothing
+    /// in the record would say so. Asserted as its own case rather than left
+    /// implied by the equality above, because this is the failure that costs
+    /// something.
+    #[test]
+    fn a_blackwell_datacentre_part_is_never_filed_under_hopper() {
+        for name in [
+            "NVIDIA B200",
+            "NVIDIA B200 180GB HBM3e",
+            "NVIDIA GB200",
+            "NVIDIA GB200 NVL72",
+        ] {
+            let got = hardware_id_from_gpu_name(name);
+            assert_ne!(got, Some("h100"), "{name}");
+            assert_ne!(got, Some("h200"), "{name}");
+            assert_ne!(got, Some("gh200"), "{name}");
         }
     }
 

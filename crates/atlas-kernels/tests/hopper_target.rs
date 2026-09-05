@@ -69,12 +69,15 @@ fn hardware_toml_declares_an_nvidia_sm90a_target() {
     );
 }
 
-/// The keys gb10's HARDWARE.toml carries, hopper carries too. Nothing in the
-/// tree READS `compute_capability` or the `memory_*` keys — verified by grep
-/// over the whole repo — so this pins the documented shape rather than a
-/// behaviour, exactly as strix's file does. The strix precedent is that an
-/// unread key must at least be honest: two were deleted there for having no
-/// reader, and these three survive as roofline/documentation input.
+/// The keys gb10's HARDWARE.toml carries, hopper carries too. The `memory_*`
+/// keys have no reader in the tree, so this pins the documented shape rather
+/// than a behaviour, exactly as strix's file does. The strix precedent is that
+/// an unread key must at least be honest: two were deleted there for having no
+/// reader, and these survive as roofline/documentation input.
+///
+/// `compute_capability` is no longer among them —
+/// `tests/target_hints.rs` reads it and holds
+/// `atlas_core::arch::target_hint` to it, so the value has to be right.
 #[test]
 fn hardware_toml_carries_the_same_key_set_as_gb10() {
     let hopper = hardware_toml();
