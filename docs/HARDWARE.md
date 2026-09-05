@@ -104,10 +104,10 @@ variant, etc.), you'll also need to:
 ## Adding a new hardware target
 
 Atlas's NVIDIA targets are **GB10 (Blackwell, sm_121)**, **Hopper
-(H100/H200, sm_90a)** and **B200 (B200/GB200, sm_100a)**; `strix`/`strix-hip`
-(AMD gfx1151) and `metal` are the non-NVIDIA sets. Adding another — say sm_120
-for a consumer Blackwell board, or sm_103 for Blackwell Ultra (B300/GB300) —
-requires:
+(H100/H200, sm_90a)**, **B200 (B200/GB200, sm_100a)** and **RTX PRO 6000
+(workstation Blackwell, sm_120a)**; `strix`/`strix-hip` (AMD gfx1151) and
+`metal` are the non-NVIDIA sets. Adding another — say sm_103 for Blackwell
+Ultra (B300/GB300) — requires:
 
 1. **`kernels/<new-hw>/HARDWARE.toml`**. The keys are exactly the ones
    `crates/atlas-kernels/build.rs` reads, plus documentation:
@@ -140,11 +140,14 @@ requires:
 
    Get the SM number right. Hopper is **sm_90** (`sm_90a` with the
    arch-specific feature set); **sm_100** is Blackwell datacenter (B200/GB200),
-   **sm_103** is Blackwell Ultra (B300/GB300), sm_120 is consumer Blackwell,
-   sm_121 is GB10. PTX built for an `a`-suffixed arch does not run forward onto
-   a later architecture — and these are not a ladder: sm_100a and sm_120a are
+   **sm_103** is Blackwell Ultra (B300/GB300), **sm_120** is consumer and
+   workstation Blackwell (RTX PRO 6000, RTX 50-series), sm_121 is GB10. PTX
+   built for an `a`-suffixed arch does not run forward onto a later
+   architecture — and these are not a ladder: sm_100a and sm_120a are
    siblings, each with instructions the other lacks (see the B200 section
-   below).
+   below). sm_120 and sm_121 share an instruction set and still need separate
+   targets, because gb10's `sm_121f` is FAMILY PTX with a CC 12.1 floor (see
+   the RTX PRO 6000 section).
 
    The value also has to be reachable: `crates/atlas-kernels/tests/target_hints.rs`
    asserts that `atlas_core::arch::target_hint` maps this file's
@@ -394,6 +397,84 @@ run on CC 10.3, `atlas_core::arch::target_hint` returns `None` for it on
 purpose, and `hardware_id_from_gpu_name` maps neither part — a B300 gets "no
 shipped target" rather than a rebuild instruction that would fail the same way.
 
+## The RTX PRO 6000 (sm_120a) target
+
+`kernels/rtx-pro-6000/` is the RTX PRO 6000 Blackwell workstation family —
+Max-Q Workstation, Workstation and Server Edition, all one GB202 die at
+**SM 12.0**, 96 GB of GDDR7 at 1792 GB/s, PCIe Gen5, no NVLink. Built exactly
+like `kernels/hopper/` and `kernels/b200/`: 218 relative symlinks into
+`kernels/gb10/` (the 181-entry `common/` plus each of the same five P0 models'
+`nvfp4/`), with a real `MODEL.toml` per model whose header records that its
+`[expected_absent]` tables were harvested on GB10 and **not** re-harvested on
+this hardware. `crates/atlas-kernels/tests/inherited_targets.rs` holds all
+three trees to the same assertions.
+
+**Why it is not gb10, when the ISA is gb10's.** GB10 is CC 12.1 and builds
+`sm_121f` — *family* PTX, which runs on 12.x devices at CC >= 12.1. A CC 12.0
+card is one step BELOW that floor, so `sm_121f` PTX does not load on it at all:
+`atlas_core::arch::ptx_arch_runs_on_device` refuses it in the preflight, and
+without a target of its own an operator would be told "no shipped target
+matches compute capability 12.0". `sm_120a` is arch-specific and does not
+travel the other way either, onto a GB10. Two targets, one instruction set.
+
+**It keeps the whole kernel set — no `ATLAS_NO_WARP_BLOCKSCALE_MMA`.** This is
+the one way it differs from Hopper and B200, and it is the reason `sm_120a` is
+not just another datacentre port. The warp-level
+`mma.sync ... .kind::mxf4nvf4.block_scale` and `cvt.rn.satfinite.e2m1x2.f32`
+that ptxas rejects on sm_90a and sm_100a are *consumer/workstation Blackwell*
+instructions — CUTLASS gates them as `CUTLASS_ARCH_MMA_SM120_SUPPORTED`, and
+the table in the B200 section above has them present in the sm_120a/sm_121
+column. So `kernels/rtx-pro-6000/HARDWARE.toml` declares no `[build]` table,
+the W4A4 tail of `qwen3.6-35b-a3b/nvfp4/moe_w4a16_grouped_gemm.cu` is compiled
+IN, and `moe_w4a16_fused_gate_up_t_k64_fp4` / `moe_w4a16_down_t_k64_fp4` are
+**not** declared `[expected_absent]`. Adding the define here would delete two
+kernels the hardware can run;
+`inherited_targets_w4a4.rs::each_inherited_target_guards_the_block_scale_path_only_if_its_isa_must`
+is what stops it being copied across with the rest of the target.
+
+The NVFP4 CUTLASS wrappers in
+`crates/spark-runtime/cuda/cutlass_nvfp4_gemm.cu` are gated on
+`CUTLASS_ARCH_MMA_SM120_SUPPORTED || CUTLASS_ARCH_MMA_SM121_SUPPORTED`, so
+unlike Hopper and B200 they DO compile here. Untested: nothing in this campaign
+has built them for sm_120a.
+
+**What the gate found, 2026-09-05** (CUDA 13.0.88, receipt
+`receipts/ptx_gate_rtx-pro-6000_strict_2026-09-05.*`): **871 of 871** kernels
+across the five P0 targets emitted PTX and assembled for sm_120a, under
+`--strict` — `--Werror all-warnings`, what the real build adds. Clean on the
+first pass, and the only one of the four NVIDIA targets that is: Hopper and
+B200 are 870/871 before their W4A4 define, and gb10 is 151/173 on
+`qwen3.6-35b-a3b` alone. `moe_w4a16_grouped_gemm` — the one kernel Hopper and
+B200 lose — assembles here, which is the ISA claim above, measured.
+
+**The 22 gb10 shared-memory rejections do NOT reproduce here, and the reason is
+the arch SUFFIX, not the architecture.** This target was expected to inherit
+them: workstation Blackwell is the same family as GB10, and the 22
+`inferspark_prefill*` stems are rejected for `sm_121f` with `uses too much
+shared data (0x16000 bytes, 0xc000 max)`. It does not happen. `ptxas` 13.0.88
+gives an `a`-suffixed Blackwell target a **99 KiB** (`0x18c00`) static shared
+budget and a plain or `f`-suffixed one **48 KiB** (`0xc000`), measured with a
+single `__shared__` array bisected per arch:
+
+| arch | static `__shared__` ceiling |
+|---|---|
+| `sm_120a`, `sm_121a` | `0x18c00` (99 KiB) |
+| `sm_120`, `sm_121`, `sm_121f` | `0xc000` (48 KiB) |
+
+Confirmed end to end on the same tree and toolchain: the gate over gb10's
+`qwen3.6-35b-a3b` is **151/173 at `sm_121f`** (22 files, 42 rejected entry
+functions) and **173/173 at `sm_121a`**, changing nothing but `--arch`
+(`receipts/ptx_gate_gb10_sm121a_shmem_control_2026-09-05.*`). So the
+"pre-existing gb10 finding" of Avarok-Cybersecurity/atlas#899 is narrower than
+it looked — it is a property of the `f` spelling GB10 ships, not of Blackwell,
+and `sm_121a` is a lever on it that this target's result found by accident.
+Whether GB10 should move to `sm_121a` is a separate question with a real cost:
+family PTX is what lets one gb10 build serve future 12.x parts, and `sm_121a`
+would give that up. Not decided here.
+
+Compilation is not correctness. Nothing here has run on RTX PRO 6000 silicon,
+and no `--check-kernels` audit has been taken on the box.
+
 ## Adding a new quantization scheme
 
 Atlas supports NVFP4 (E2M1 + FP8 scales), FP8 block-scaled, BF16 raw.
@@ -424,13 +505,20 @@ data`). The limit is per target: `ptxas` reports 48 KiB (`0xc000`) for
 Hopper and fail for gb10. The
 `MAX_DYNAMIC_SHARED_SIZE_BYTES` opt-in does not rescue a fixed-size array.
 
+It is per TARGET STRING, not per architecture, which is finer than it sounds:
+on CUDA 13.0.88 the same Blackwell silicon gets `0x18c00` (99 KiB) spelled
+`sm_120a`/`sm_121a` and `0xc000` (48 KiB) spelled `sm_120`/`sm_121`/`sm_121f`.
+That is the whole difference between gb10's 151/173 and the 173/173 the same
+files give at `sm_121a` — see the RTX PRO 6000 section.
+
 `scripts/hopper_ptx_gate.sh` closes that gap for a hardware set by running
 `ptxas` on every emitted module. On 2026-09-05 it found 22 of 173 gb10
 `qwen3.6-35b-a3b` modules (42 entry functions, the BR=64 prefill variants and
 their BR=32 siblings) rejected for `sm_121f` on CUDA 13.0.88. That is a
-pre-existing gb10 finding, independent of the Hopper and B200 targets; the
-inventory, receipts and runtime trace live with the campaign notes in
-Avarok-Cybersecurity/atlas#899.
+pre-existing gb10 finding, independent of the Hopper, B200 and RTX PRO 6000
+targets; the inventory, receipts and runtime trace live with the campaign notes
+in Avarok-Cybersecurity/atlas#899. The same 173 files are 173/173 at `sm_121a`,
+which narrows the finding to the arch spelling rather than the chip.
 
 ### Device validation
 
