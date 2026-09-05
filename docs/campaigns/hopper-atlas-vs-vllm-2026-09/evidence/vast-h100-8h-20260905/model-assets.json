@@ -1,0 +1,73 @@
+[
+  {
+    "model_key": "nemotron-3-super-fp8",
+    "repo_id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
+    "revision": "744b1880a37996c5d56bf454ae164dfd74d77c4e",
+    "gated": false,
+    "weight_files": 26,
+    "weight_bytes": 128350001680,
+    "all_repo_bytes": 128379949011,
+    "metadata_source": {
+      "url": "https://huggingface.co/api/models/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8/revision/744b1880a37996c5d56bf454ae164dfd74d77c4e?blobs=true",
+      "observed_utc": "2026-09-05T16:18:22.150004+00:00",
+      "status": 200,
+      "sha256": "b6d4e939fd9cb60f749d2e80f6a004500bc73040e977c2fe57b65e72535c56ca",
+      "bytes": 26888
+    },
+    "external_reasoning_parser": {
+      "repo_path": "super_v3_reasoning_parser.py",
+      "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8/raw/744b1880a37996c5d56bf454ae164dfd74d77c4e/super_v3_reasoning_parser.py",
+      "retrieved_utc": "2026-09-05T16:23:05.637554+00:00",
+      "status": 200,
+      "bytes": 1878,
+      "sha256": "4e83f1249a66b7b8af2bc7ee8b679a6ff3da8e85f807594c5abc5dfdf956b46e"
+    },
+    "selected_image_digest": null,
+    "selected_image_support": "unobserved"
+  },
+  {
+    "model_key": "nemotron-3-nano-fp8",
+    "repo_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+    "revision": "9bee19446c0dfd01f356e10979d225b2a6621944",
+    "gated": false,
+    "weight_files": 10,
+    "weight_bytes": 32682163544,
+    "all_repo_bytes": 32703351602,
+    "metadata_source": {
+      "url": "https://huggingface.co/api/models/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8/revision/9bee19446c0dfd01f356e10979d225b2a6621944?blobs=true",
+      "observed_utc": "2026-09-05T16:18:22.150053+00:00",
+      "status": 200,
+      "sha256": "b35bc2d982c12540c5666f3f56bc80c90a2aa9ec16ca4292c576556b29c6739f",
+      "bytes": 31312
+    },
+    "external_reasoning_parser": {
+      "repo_path": "nano_v3_reasoning_parser.py",
+      "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8/raw/9bee19446c0dfd01f356e10979d225b2a6621944/nano_v3_reasoning_parser.py",
+      "observed_utc": "2026-09-05T16:18:22.149935+00:00",
+      "status": 200,
+      "sha256": "aafb12208054504f619cbdd01837e1532a482ad937ed987bfe9a13fb812ae2b7",
+      "bytes": 798
+    },
+    "selected_image_digest": null,
+    "selected_image_support": "unobserved"
+  },
+  {
+    "model_key": "qwen3.6-35b-a3b-fp8",
+    "repo_id": "Qwen/Qwen3.6-35B-A3B-FP8",
+    "revision": "95a723d08a9490559dae23d0cff1d9466213d989",
+    "gated": false,
+    "weight_files": 42,
+    "weight_bytes": 37463662160,
+    "all_repo_bytes": 37493015668,
+    "metadata_source": {
+      "url": "https://huggingface.co/api/models/Qwen/Qwen3.6-35B-A3B-FP8/revision/95a723d08a9490559dae23d0cff1d9466213d989?blobs=true",
+      "observed_utc": "2026-09-05T16:18:22.150091+00:00",
+      "status": 200,
+      "sha256": "650bb1d2f4b5ba46703fb940e8e97fb558b4816cb86338bc50e2cfd7377ef91e",
+      "bytes": 57859
+    },
+    "external_reasoning_parser": null,
+    "selected_image_digest": null,
+    "selected_image_support": "unobserved"
+  }
+]

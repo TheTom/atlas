@@ -5,13 +5,20 @@ GPU-free selftest, a receipt already measured on Spark 1, or an explicit "first
 time on silicon" step. Nothing below has run on Hopper or B200 yet; the point of
 the runbook is that the first run is a checklist, not an exploration.
 
+For Tom's proposed **Vast.ai 2×H100 SXM, eight-hour booking**, follow
+[VAST-H100-8H-PLAN.md](VAST-H100-8H-PLAN.md) for provider setup, model order,
+readiness prerequisites and time limits. It supersedes this generic provisioning
+sequence for that pilot: standard Vast container rentals do not support the nested
+Docker launches used below. The pilot remains on hold pending a tested execution
+path and pinned model-specific binaries.
+
 ## 0. Before renting (all done off the GPU clock)
 
 | Item | Where | State |
 |---|---|---|
 | Kernels compile for sm_90a and sm_100a | `scripts/hopper_ptx_gate.sh`, receipts in the PR | 871/871 both arches, `--strict` on Super and Qwen3.6 |
 | Wrong image fails loudly | `atlas-core::arch` + `spark-runtime` preflight | unit-tested; never seen a real mismatch |
-| x86_64 `spark` binary for hopper / b200 | `.github/workflows/datacenter-binaries.yml` artifact, or `docker/hopper`, `docker/b200` | workflow authored; first CI run pending |
+| x86_64 `spark` binary for hopper / b200 | `.github/workflows/datacenter-binaries.yml` artifact, or `docker/hopper`, `docker/b200` | first Super-target Hopper artifact recovered and hashed; see [recovery report](LEAD-RECOVERY-REPORT.md); selected model/final-tree builds still required |
 | vLLM control commands per (model, SKU) | `bench/campaign/vllm_control.sh` + `vllm_recipes.json` (from the verified recipe JSON) | rendered, digests must be pinned day-of |
 | One-command cell | `bench/campaign/run_cell.sh` | dry-run tested |
 | Artifact schema + validator | `bench/campaign/artifact.schema.json`, `validate_artifact.py` | selftests incl. known-bad |

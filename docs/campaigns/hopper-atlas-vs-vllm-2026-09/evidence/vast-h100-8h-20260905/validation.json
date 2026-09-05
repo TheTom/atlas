@@ -1,0 +1,134 @@
+{
+  "source_head": "8d125b31d291bdbfe0185894b5e9f3c6dceab8a4",
+  "scope": "Docs publication; no code changes",
+  "cpu_checks": [
+    {
+      "name": "campaign",
+      "command": [
+        "bash",
+        "bench/campaign/campaign_test.sh"
+      ],
+      "exit_code": 0,
+      "seconds": 48.242
+    },
+    {
+      "name": "launcher",
+      "command": [
+        "bash",
+        "scripts/start_node_ep_test.sh"
+      ],
+      "exit_code": 0,
+      "seconds": 9.604
+    },
+    {
+      "name": "dockerfiles",
+      "command": [
+        "bash",
+        "docker/datacenter_dockerfiles_test.sh"
+      ],
+      "exit_code": 0,
+      "seconds": 0.382
+    },
+    {
+      "name": "atlas-render",
+      "command": [
+        "python3",
+        "bench/campaign/atlas_render.py",
+        "--selftest"
+      ],
+      "exit_code": 0,
+      "seconds": 0.072
+    },
+    {
+      "name": "validator",
+      "command": [
+        "python3",
+        "bench/campaign/validate_artifact.py",
+        "--selftest"
+      ],
+      "exit_code": 0,
+      "seconds": 0.089
+    },
+    {
+      "name": "assembler",
+      "command": [
+        "python3",
+        "bench/campaign/cell_assemble.py",
+        "--selftest"
+      ],
+      "exit_code": 0,
+      "seconds": 2.812
+    },
+    {
+      "name": "fmt",
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 2.887
+    },
+    {
+      "name": "typos",
+      "command": [
+        "typos"
+      ],
+      "exit_code": 0,
+      "seconds": 0.259
+    },
+    {
+      "name": "vllm-render-corrected-invocation",
+      "command": [
+        "python3",
+        "bench/campaign/vllm_render.py",
+        "--recipes",
+        "bench/campaign/vllm_recipes.json",
+        "--selftest"
+      ],
+      "exit_code": 0,
+      "seconds": 0.04048762500042358,
+      "prior_invocation": "Missing required --recipes argument; exit 2, preserved separately. No code changes."
+    }
+  ],
+  "assertion_counts": {
+    "campaign": 77,
+    "launcher": 30,
+    "datacenter_dockerfiles": 17,
+    "atlas_render": 329,
+    "vllm_render": 253,
+    "validator": 26,
+    "assembler_test_methods": 8,
+    "hopper_ptx_suite": 7
+  },
+  "hopper_ptx": {
+    "code_head": "8d125b31d291bdbfe0185894b5e9f3c6dceab8a4",
+    "clean_worktree_before_suite": true,
+    "command": "bash scripts/hopper_ptx_gate_test.sh",
+    "host": "Spark 1, 192.168.50.125, CPU only",
+    "exit_code": 0,
+    "assertions_passed": 7,
+    "known_bad_oracles": "Unknown model exits2; both ptxas errors retained with error_count=2 and rejected_entries=2.",
+    "shellcheck": "Skipped on Spark1 because absent; parent owns local gate.",
+    "worktree_removed": true,
+    "gpu_work": false,
+    "before_available_bytes": 7725715456,
+    "after_available_bytes": 7725375488,
+    "new_usage_bytes": 339968,
+    "note": "Normal read-only Git fetch populated shared Git objects; warm checkout files and shared cargo target were not modified."
+  },
+  "local_shellcheck": {
+    "command": [
+      "shellcheck",
+      "-S",
+      "warning",
+      "scripts/hopper_ptx_gate.sh",
+      "scripts/hopper_ptx_gate_test.sh"
+    ],
+    "exit_code": 0
+  },
+  "gpu_execution": false,
+  "measurement": "Existing suites include known-bad fixtures; no new benchmark or process-launch tests implemented."
+}

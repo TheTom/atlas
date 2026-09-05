@@ -1,0 +1,160 @@
+{
+  "source_head": "8d125b31d291bdbfe0185894b5e9f3c6dceab8a4",
+  "retrieved_utc": "2026-09-05T16:23:43.601248+00:00",
+  "files": {
+    "bench/campaign/atlas_recipes.json": "fd97ab4b9f865e69bfe484d1ae24717c2eeefc93970eb2cd0a3d465e294387ee",
+    "bench/campaign/vllm_recipes.json": "2cdb7e62913bb37c2b4197fe6cbd8dca8ac191d9686685cab3b069ce38ea7221"
+  },
+  "runs": [
+    {
+      "command": [
+        "bash",
+        "bench/campaign/run_cell.sh",
+        "--engine",
+        "atlas",
+        "--model",
+        "nemotron-3-nano-fp8",
+        "--sku",
+        "h100",
+        "--workload",
+        "lat",
+        "--concurrency",
+        "1",
+        "--spec",
+        "off",
+        "--think",
+        "off",
+        "--out",
+        "/Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8",
+        "--dry-run"
+      ],
+      "exit_code": 0,
+      "log": "current-atlas-nemotron-3-nano-fp8.dryrun.log"
+    },
+    {
+      "command": [
+        "bash",
+        "bench/campaign/run_cell.sh",
+        "--engine",
+        "atlas",
+        "--model",
+        "nemotron-3-super-fp8",
+        "--sku",
+        "h100",
+        "--workload",
+        "lat",
+        "--concurrency",
+        "1",
+        "--spec",
+        "off",
+        "--think",
+        "off",
+        "--out",
+        "/Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-super-fp8",
+        "--dry-run"
+      ],
+      "exit_code": 0,
+      "log": "current-atlas-nemotron-3-super-fp8.dryrun.log"
+    },
+    {
+      "command": [
+        "bash",
+        "bench/campaign/run_cell.sh",
+        "--engine",
+        "atlas",
+        "--model",
+        "qwen3.6-35b-a3b-fp8",
+        "--sku",
+        "h100",
+        "--workload",
+        "lat",
+        "--concurrency",
+        "1",
+        "--spec",
+        "off",
+        "--think",
+        "off",
+        "--out",
+        "/Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-qwen3.6-35b-a3b-fp8",
+        "--dry-run"
+      ],
+      "exit_code": 0,
+      "log": "current-atlas-qwen3.6-35b-a3b-fp8.dryrun.log"
+    },
+    {
+      "command": [
+        "bash",
+        "bench/campaign/run_cell.sh",
+        "--engine",
+        "vllm",
+        "--model",
+        "nemotron-3-nano-fp8",
+        "--sku",
+        "h100",
+        "--workload",
+        "lat",
+        "--concurrency",
+        "1",
+        "--spec",
+        "off",
+        "--think",
+        "off",
+        "--out",
+        "/Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-vllm-nemotron-3-nano-fp8",
+        "--dry-run"
+      ],
+      "exit_code": 0,
+      "log": "current-vllm-nemotron-3-nano-fp8.dryrun.log"
+    },
+    {
+      "command": [
+        "bash",
+        "bench/campaign/run_cell.sh",
+        "--engine",
+        "vllm",
+        "--model",
+        "nemotron-3-super-fp8",
+        "--sku",
+        "h100",
+        "--workload",
+        "lat",
+        "--concurrency",
+        "1",
+        "--spec",
+        "off",
+        "--think",
+        "off",
+        "--out",
+        "/Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-vllm-nemotron-3-super-fp8",
+        "--dry-run"
+      ],
+      "exit_code": 0,
+      "log": "current-vllm-nemotron-3-super-fp8.dryrun.log"
+    },
+    {
+      "command": [
+        "bash",
+        "bench/campaign/run_cell.sh",
+        "--engine",
+        "vllm",
+        "--model",
+        "qwen3.6-35b-a3b-fp8",
+        "--sku",
+        "h100",
+        "--workload",
+        "lat",
+        "--concurrency",
+        "1",
+        "--spec",
+        "off",
+        "--think",
+        "off",
+        "--out",
+        "/Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-vllm-qwen3.6-35b-a3b-fp8",
+        "--dry-run"
+      ],
+      "exit_code": 0,
+      "log": "current-vllm-qwen3.6-35b-a3b-fp8.dryrun.log"
+    }
+  ]
+}

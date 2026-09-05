@@ -1,0 +1,13 @@
+{
+  "budget.json": "da1566e8dd53bd0a62cc2b13bc82ca18fcad289ac7ec18cf5c52f5b1aa199998",
+  "current-atlas-nemotron-3-nano-fp8.dryrun.log": "f590721310641804caa631d38427c7c29e3e208da108634bb336ca6bf17e58eb",
+  "current-atlas-nemotron-3-super-fp8.dryrun.log": "40f0fe34fd45ab4ca64a6765cfffc98727125167d12f04b72fcf220f6c27b9c6",
+  "current-atlas-qwen3.6-35b-a3b-fp8.dryrun.log": "e40af37bb6749847a3c8d1bb659e08e65747c20f79fce3b2c9b9fecc962cdd9d",
+  "current-render-receipt.json": "f92e61a1b7ebfe3c3949da2c5b4ae8fffffe9e8626dd2adcf7f1fcf468ccd2f5",
+  "current-vllm-nemotron-3-nano-fp8.dryrun.log": "41d33a5af499cf138c8cce7810e95a397a54c138592aee1f274978d50e22f0b7",
+  "current-vllm-nemotron-3-super-fp8.dryrun.log": "da707dd06b515355583574cf79a0688a9e330639cb2b109b7f6e17b6d439e5ca",
+  "current-vllm-qwen3.6-35b-a3b-fp8.dryrun.log": "32a21a4e64d5ab895d505b1872548f964a10902dcf63caae611b1eba2ce7113c",
+  "model-assets.json": "88dcbb264788b2497fe50234e05b0065424f338713a1633fd0ac0ea13ef53fe1",
+  "qwen-build-dispatch.json": "4cbb6325bd48f5ac5e7b53a41752a85e7cf75e7c6d476b0a5dd70fdab790276c",
+  "validation.json": "93317d4f13617e8fe34df3bef929c59b044d9b50c82bbcdb291283d08faa5d58"
+}

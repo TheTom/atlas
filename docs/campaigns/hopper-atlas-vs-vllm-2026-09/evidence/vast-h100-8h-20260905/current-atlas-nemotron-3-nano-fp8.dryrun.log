@@ -1,0 +1,63 @@
+$ bash bench/campaign/run_cell.sh --engine atlas --model nemotron-3-nano-fp8 --sku h100 --workload lat --concurrency 1 --spec off --think off --out '/Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8' --dry-run
+exit_code=0
+
+STDOUT
+=== campaign cell atlas.nemotron-3-nano-fp8.h100.lat.c1.specoff.thinkoff ===
+engine:      atlas
+model:       nemotron-3-nano-fp8 -> nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8
+sku:         h100
+workload:    lat  isl=1024 osl=256  C=1  reps=3 warmup=1
+spec:        off     think: off
+boot cap:    1800s
+out:         /Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8
+client url:  http://127.0.0.1:8888
+mode:        DRY RUN (nothing is launched, nothing is written)
+
+
+--- stage 1/7 preflight ---
+$ nvidia-smi -q > /Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8/nvidia-smi-q.txt
+$ df -h /Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8 > /Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8/df.txt
+$ git -C /Users/tom/Documents/New project/atlas-campaign-code rev-parse HEAD
+$ sha256sum /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py
+
+--- stage 2/7 serve ---
+$ env NGPUS=1 EP_SIZE=1 TP_SIZE=1 PORT_BASE=8888 BIND=0.0.0.0 NCCL_PROFILE=default BOOT_TIMEOUT_S=1800 EXTRA_ARGS=--request-timeout 0 --gpu-memory-utilization 0.90 --max-num-seqs 128 --max-batch-size 32 --enable-prefix-caching true --scheduling-policy slai --kv-cache-dtype fp8 --kv-high-precision-layers auto --max-seq-len 32768 --fp8-kv-calibration-tokens 256 --disable-thinking ATLAS_NODE_RUN_DIR=/Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8/node-ep-45278 WARMUP_PROMPT=/Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/warmup_1024.txt bash /Users/tom/Documents/New project/atlas-campaign-code/scripts/start-node-ep.sh --check-kernels nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8
+$ env NGPUS=1 EP_SIZE=1 TP_SIZE=1 PORT_BASE=8888 BIND=0.0.0.0 NCCL_PROFILE=default BOOT_TIMEOUT_S=1800 EXTRA_ARGS=--request-timeout 0 --gpu-memory-utilization 0.90 --max-num-seqs 128 --max-batch-size 32 --enable-prefix-caching true --scheduling-policy slai --kv-cache-dtype fp8 --kv-high-precision-layers auto --max-seq-len 32768 --fp8-kv-calibration-tokens 256 --disable-thinking ATLAS_NODE_RUN_DIR=/Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8/node-ep-45278 WARMUP_PROMPT=/Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/warmup_1024.txt bash /Users/tom/Documents/New project/atlas-campaign-code/scripts/start-node-ep.sh nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8   # backgrounded; time_to_ready.sh owns the boot clock
+  | === Atlas single-node launch ===
+  | Model:         nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8
+  | GPUs (ranks):  1   (rank i -> --gpu-ordinal i)
+  | Topology:      TP=1 EP=1 world=1
+  | Ports:         8888..8888  (only rank 0 on 8888 serves clients)
+  | NCCL bootstrap: 127.0.0.1:29500
+  | NCCL profile:  default
+  | Mode:          local binary (./target/release/spark)
+  | Run dir:       /Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8/node-ep-45278
+  | 
+  | # rank 0 (head, serves HTTP)
+  | env RUST_LOG=warn ./target/release/spark serve nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8 --rank 0 --world-size 1 --ep-size 1 --tp-size 1 --gpu-ordinal 0 --port 8888 --master-addr 127.0.0.1 --master-port 29500 --no-tui --bind 0.0.0.0 --warmup-prompt '/Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/warmup_1024.txt' --request-timeout 0 --gpu-memory-utilization 0.90 --max-num-seqs 128 --max-batch-size 32 --enable-prefix-caching true --scheduling-policy slai --kv-cache-dtype fp8 --kv-high-precision-layers auto --max-seq-len 32768 --fp8-kv-calibration-tokens 256 --disable-thinking
+  | 
+  | health poll:   http://127.0.0.1:8888/health (1 s interval, 1800s cap)
+  | summary: model=nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8 ngpus=1 tp=1 ep=1 ports=8888-8888 nccl_profile=default time_to_ready_s=dry-run
+  | rank0_command: env RUST_LOG=warn ./target/release/spark serve nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8 --rank 0 --world-size 1 --ep-size 1 --tp-size 1 --gpu-ordinal 0 --port 8888 --master-addr 127.0.0.1 --master-port 29500 --no-tui --bind 0.0.0.0 --warmup-prompt '/Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/warmup_1024.txt' --request-timeout 0 --gpu-memory-utilization 0.90 --max-num-seqs 128 --max-batch-size 32 --enable-prefix-caching true --scheduling-policy slai --kv-cache-dtype fp8 --kv-high-precision-layers auto --max-seq-len 32768 --fp8-kv-calibration-tokens 256 --disable-thinking
+  | 
+  | dry-run: nothing launched.
+
+--- stage 3/7 boot gate (cap 1800s) ---
+$ bash /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/time_to_ready.sh --url http://127.0.0.1:8888 --model nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8 --engine atlas --start-epoch <serve-start> --timeout-s 1800 --out /Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8/boot.json
+
+--- stage 4/7 coherency gate ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/coherency_gate.py --url http://127.0.0.1:8888 --model nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8 --think off --out /Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8/coherency.json
+
+--- stage 5/7 latency pack ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py --url http://127.0.0.1:8888 --model nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8 --label atlas.nemotron-3-nano-fp8.h100.lat.c1.specoff.thinkoff --out /Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8/ladder.json --concs 1 --reps 3 --isl 1024 --osl 256 --warmup 1 
+
+--- stage 6/7 teardown ---
+$ env ATLAS_NODE_RUN_DIR=/Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8/node-ep-45278 bash /Users/tom/Documents/New project/atlas-campaign-code/scripts/start-node-ep.sh --stop
+
+--- stage 7/7 assemble and validate ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble.py --engine atlas --model-key nemotron-3-nano-fp8 --sku h100 --workload lat --concurrency 1 --spec off --think off --out /Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8/artifact.json --workloads /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/workloads.json --atlas-recipes /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_recipes.json --vllm-recipes /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/vllm_recipes.json --client /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py --serve-argv /Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8/serve.argv --serve-env /Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8/serve.env --nvidia-smi-q /Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8/nvidia-smi-q.txt --boot-json /Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8/boot.json --coherency-json /Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8/coherency.json --ladder-json /Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8/ladder.json
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/validate_artifact.py /Users/tom/Documents/New project/atlas-campaign-evidence/rental8h/research/NOT-RUN-atlas-nemotron-3-nano-fp8/artifact.json
+
+dry-run: nothing launched, nothing written.
+
+STDERR

@@ -1,0 +1,28 @@
+{
+  "conclusion": "",
+  "createdAt": "2026-09-05T16:38:59Z",
+  "databaseId": 33978523017,
+  "event": "workflow_dispatch",
+  "headSha": "8d125b31d291bdbfe0185894b5e9f3c6dceab8a4",
+  "status": "in_progress",
+  "url": "https://github.com/TheTom/atlas/actions/runs/33978523017",
+  "requested_inputs": {
+    "hw": "hopper",
+    "model": "qwen3.6-35b-a3b"
+  },
+  "dispatch_command": [
+    "gh",
+    "workflow",
+    "run",
+    "datacenter-binaries.yml",
+    "--repo",
+    "TheTom/atlas",
+    "--ref",
+    "hopper/sm90-target-tdd-2026-09",
+    "-f",
+    "hw=hopper",
+    "-f",
+    "model=qwen3.6-35b-a3b"
+  ],
+  "artifact_verified": false
+}

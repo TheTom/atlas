@@ -152,3 +152,26 @@ For the pinned vLLM 0.28.0 source, [`calculate_metrics`](https://github.com/vllm
 - Loaded model identity (P1): Atlas recipe revisions remain intended metadata. The assembler only records a launched revision from owned container argv plus successful matching boot evidence. Atlas requires an explicit pinned HF snapshot path for that proof; a floating HF ID stays null. The Docker projection excludes environment secrets. This identifies the launched snapshot, not a fresh hash of every weight byte.
 - First H200 Qwen3.8-27B pair: both spec-off recipes now exist. The official FP8 recipe and compiled target do not establish MTP support; a spec-on first-cell variant remains RECIPE_GAP. Atlas effective context is 24576; the same checkpoint is intended for both engines, with Atlas FP8 KV calibration 256.
 - Nano vLLM parser provisioning remains an open P0 dependency in discussion3939764399. This recovery does not turn a named parser path into an available image file.
+
+## Vast rental integration, 2026-09-05
+
+- **P0 execution:** standard Vast container instances do not support nested Docker,
+  but the current vLLM renderer/launcher creates a Docker container for every cell.
+  The Qwen H100 dry render exits 0 and still emits `docker run`; that is rendering
+  evidence, not a successful Vast launch. A prepared direct process execution path
+  is needed before booking this offer class. No paid-instance failure was observed.
+  [Provider rule](https://docs.vast.ai/guides/instances/manage-instances#can-i-run-docker-inside-my-instance),
+  [exact dry-run output](../evidence/vast-h100-8h-20260905/current-vllm-qwen3.6-35b-a3b-fp8.dryrun.log).
+- **P1 provenance:** the current assembler proves launched model revision through
+  owned Docker inspection fields and a successful matching boot. A process launcher
+  also needs executable/environment identity, actual argv and snapshot path, and
+  process ownership/start evidence, with stale, foreign and failed-boot cases tested
+  red first. Do not synthesize a Docker inspection record or fill `model.revision`
+  from the recipe to make such a run certify. The schema and frozen ladder remain
+  unchanged by this planning update.
+- **P0 two-GPU profile:** current Super H100 vLLM catalog uses TP8. NVIDIA publishes
+  a complete TP2 cookbook profile with a different dependency/parser/attention setup.
+  Integrate and freeze that full profile, including alias/port/effective context and
+  matched prefix-cache/thinking policy, before attempting Super on the quoted box.
+  A TP-only edit is not source parity. Details and stopping rules are in the
+  [eight-hour plan](../VAST-H100-8H-PLAN.md).

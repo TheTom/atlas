@@ -1,0 +1,37 @@
+{
+  "observed_date": "2026-09-05",
+  "source": "User supplied screenshot; user confirmed Vast.ai and both H100 SXM GPUs together",
+  "rental_created": false,
+  "offer_id": null,
+  "template": null,
+  "gpu_count": 2,
+  "gpu": "H100 SXM",
+  "hours_max": 8,
+  "currency": "USD",
+  "quoted_rates": {
+    "gpu_per_hour": 3.734,
+    "instance_disk_gb": 500,
+    "instance_disk_per_hour": 0.093,
+    "volume_gb": 500,
+    "volume_per_hour": 0.139,
+    "volume_per_day": 3.334,
+    "total_per_hour": 3.965,
+    "internet_in_per_decimal_tb": 13.654,
+    "internet_out_per_decimal_tb": 13.654
+  },
+  "estimates": {
+    "eight_hours_base": 31.72,
+    "base_plus_200_decimal_gb_total_traffic": 34.45,
+    "base_plus_500_decimal_gb_total_traffic": 38.55,
+    "qwen_and_super_all_repo_bytes": 165872964679,
+    "qwen_theoretical_download_seconds_at_1_gbps": 299.944125344,
+    "qwen_and_super_theoretical_download_seconds_at_1_gbps": 1326.983717432
+  },
+  "readiness": "HOLD: process-mode launch and provenance, targeted binary/environment, exact offer unproven",
+  "notes": [
+    "Rates transcribed from user quote; total used rather than sum of rounded component rates.",
+    "Traffic includes both upload and download, including images, retries and staging.",
+    "No runtime or downloaded-byte verification; metadata only.",
+    "No approved spend or automatic provider-level cap."
+  ]
+}
