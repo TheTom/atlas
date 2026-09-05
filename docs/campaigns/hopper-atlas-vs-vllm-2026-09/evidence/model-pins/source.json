@@ -1,0 +1,8 @@
+{
+  "code_commit": "b2c17cfe30c33c53d28c4fbec35f6204b8cfb14b",
+  "docs_commit": "0b21f2a5163a739b266fc4d4c5afb61f2fc996e4",
+  "recipe_sha256": {
+    "atlas_recipes.json": "220b0b6c8a9634eddfe32f67a7ad0521334894d191d35321956ea4c88b8dab20",
+    "vllm_recipes.json": "67ffb75e9132428e19fe4d6812afd4edacc725160f4cc8cb941fe1b3f15fd873"
+  }
+}

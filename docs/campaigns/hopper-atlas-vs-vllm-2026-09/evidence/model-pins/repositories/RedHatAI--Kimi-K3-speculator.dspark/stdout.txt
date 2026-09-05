@@ -1,0 +1,1 @@
+{"gated": false, "private": false, "repo_id": "RedHatAI/Kimi-K3-speculator.dspark", "sha": "48beb88daae33227c148ea2b78a2ac2f493dbccb", "sibling_count": 5, "status": "ok"}

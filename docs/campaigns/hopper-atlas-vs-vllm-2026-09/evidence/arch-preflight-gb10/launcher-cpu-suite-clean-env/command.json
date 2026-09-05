@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "env",
+    "-u",
+    "RUST_LOG",
+    "bash",
+    "scripts/start_node_ep_test.sh"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 8.797796708066016,
+  "oracle": "Existing launcher assertions; ambient RUST_LOG removed after observed literal-info assertion failure"
+}

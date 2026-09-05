@@ -1,0 +1,13 @@
+$ python3 /private/tmp/atlas-rental-readiness-20260905/docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/dryrun-matrix/audit.py known-bad-atlas
+exit_code: 1
+--- stdout ---
+
+--- stderr ---
+Traceback (most recent call last):
+  File "/private/tmp/atlas-rental-readiness-20260905/docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/dryrun-matrix/audit.py", line 68, in <module>
+    e=AM[('nemotron-3-nano-fp8','h100')]; observed=[['spark','serve',e['hf_id'],'--world-size','1','--ep-size','1','--tp-size','1','--disable-thinking']]; atlas_audit(observed,e,'off','off')
+                                                                                                                                                           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/atlas-rental-readiness-20260905/docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/dryrun-matrix/audit.py", line 48, in atlas_audit
+    if entry['quant']=='fp8': assert val(argv,'--fp8-kv-calibration-tokens')=='256', 'FP8 checkpoint missing calibration 256'
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: FP8 checkpoint missing calibration 256

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "known-bad-vllm",
+    "command": "python3 /private/tmp/atlas-rental-readiness-20260905/docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/dryrun-matrix/audit.py known-bad-vllm",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/private/tmp/atlas-rental-readiness-20260905/docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/dryrun-matrix/audit.py\", line 66, in <module>\n    observed=expected_vllm(e,'on'); observed[0][observed[0].index('--tensor-parallel-size')+1]='99'; vllm_audit(observed,e,'on')\n                                                                                                     ~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/private/tmp/atlas-rental-readiness-20260905/docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/dryrun-matrix/audit.py\", line 40, in vllm_audit\n    assert observed==expected, f'vLLM argv differs from recipe: expected {expected!r}; observed {observed!r}'\n           ^^^^^^^^^^^^^^^^^^\nAssertionError: vLLM argv differs from recipe: expected [['vllm', 'serve', 'Qwen/Qwen3.6-35B-A3B-FP8', '--trust-remote-code', '--tensor-parallel-size', '1', '--enable-auto-tool-choice', '--tool-call-parser', 'qwen3_xml', '--reasoning-parser', 'qwen3', '--mm-encoder-tp-mode', 'data', '--speculative-config', '{\"method\":\"mtp\",\"num_speculative_tokens\":3,\"moe_backend\":\"triton\"}']]; observed [['vllm', 'serve', 'Qwen/Qwen3.6-35B-A3B-FP8', '--trust-remote-code', '--tensor-parallel-size', '99', '--enable-auto-tool-choice', '--tool-call-parser', 'qwen3_xml', '--reasoning-parser', 'qwen3', '--mm-encoder-tp-mode', 'data', '--speculative-config', '{\"method\":\"mtp\",\"num_speculative_tokens\":3,\"moe_backend\":\"triton\"}']]\n",
+    "passed": true
+  },
+  {
+    "id": "known-bad-atlas",
+    "command": "python3 /private/tmp/atlas-rental-readiness-20260905/docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/dryrun-matrix/audit.py known-bad-atlas",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/private/tmp/atlas-rental-readiness-20260905/docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/dryrun-matrix/audit.py\", line 68, in <module>\n    e=AM[('nemotron-3-nano-fp8','h100')]; observed=[['spark','serve',e['hf_id'],'--world-size','1','--ep-size','1','--tp-size','1','--disable-thinking']]; atlas_audit(observed,e,'off','off')\n                                                                                                                                                           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/private/tmp/atlas-rental-readiness-20260905/docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/dryrun-matrix/audit.py\", line 48, in atlas_audit\n    if entry['quant']=='fp8': assert val(argv,'--fp8-kv-calibration-tokens')=='256', 'FP8 checkpoint missing calibration 256'\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: FP8 checkpoint missing calibration 256\n",
+    "passed": true
+  },
+  {
+    "id": "known-bad-ladder",
+    "command": "python3 /private/tmp/atlas-rental-readiness-20260905/docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/dryrun-matrix/audit.py known-bad-ladder",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/private/tmp/atlas-rental-readiness-20260905/docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/dryrun-matrix/audit.py\", line 70, in <module>\n    ladder_audit('$ python3 /tmp/harness_w55_conc_ladder.py --isl 999 --osl 256 --concs 1 --reps 3 --warmup 1',{'workload':'lat','concurrency':1,'think':'off'})\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/private/tmp/atlas-rental-readiness-20260905/docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/dryrun-matrix/audit.py\", line 58, in ladder_audit\n    assert val(argv,flag)==str(value), f'ladder {flag} differs'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ladder --isl differs\n",
+    "passed": true
+  }
+]

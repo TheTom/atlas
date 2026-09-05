@@ -1,0 +1,7 @@
+{
+  "argv": [
+    "nvidia-smi",
+    "-q"
+  ],
+  "exit_code": 0
+}

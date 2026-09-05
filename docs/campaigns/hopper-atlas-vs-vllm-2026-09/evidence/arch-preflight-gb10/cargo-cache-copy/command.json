@@ -1,0 +1,12 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "pidtom@192.168.50.36",
+    "set -eu\nnvidia-smi\nif pgrep -a -x spark; then exit 90; fi\ndocker ps\ntest -z \"$(docker ps -q)\"\ntest -z \"$(nvidia-smi --query-compute-apps=pid --format=csv,noheader)\"\ndf -h /\nmkdir /home/pidtom/atlas-step-d-20260905-1249/cargo-home\ncp -a /home/pidtom/.cargo/registry /home/pidtom/.cargo/git /home/pidtom/atlas-step-d-20260905-1249/cargo-home/\ndf -h /\ndu -sh /home/pidtom/atlas-step-d-20260905-1249/cargo-home"
+  ],
+  "started_utc": "2026-09-05T12:53:02.118078+00:00",
+  "wall_seconds": 4.8191834999015555,
+  "exit_code": 0
+}

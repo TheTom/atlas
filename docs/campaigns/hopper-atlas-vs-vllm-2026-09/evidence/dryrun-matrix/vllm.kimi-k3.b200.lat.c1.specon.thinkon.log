@@ -1,0 +1,122 @@
+{
+  "model": "kimi-k3",
+  "sku": "b200",
+  "prd_source": "3.1 L67; 3.2 L76; 7 L194; 16 L311",
+  "role": "Phase-D-vllm-reference",
+  "atlas_expectation": "ATLAS_UNSUPPORTED",
+  "key_status": "canonical",
+  "id": "vllm.kimi-k3.b200.lat.c1.specon.thinkon",
+  "engine": "vllm",
+  "workload": "lat",
+  "concurrency": 1,
+  "spec": "on",
+  "think": "on",
+  "category": "conditional-alternative",
+  "policy_notes": [
+    "DSpark second row only; recipe excludes TP8+PP2 (3.2 L76;7 L194)"
+  ]
+}
+
+=== run_cell ===
+$ bash bench/campaign/run_cell.sh --engine vllm --model kimi-k3 --sku b200 --workload lat --concurrency 1 --spec on --think on --out /tmp/atlas-step-d-dryrun-not-created/vllm.kimi-k3.b200.lat.c1.specon.thinkon --dry-run
+started_utc: 2026-09-05T12:55:02.614760+00:00
+exit_code: 0
+wall_seconds: 0.387729
+--- stdout ---
+=== campaign cell vllm.kimi-k3.b200.lat.c1.specon.thinkon ===
+engine:      vllm
+model:       kimi-k3 -> moonshotai/Kimi-K3
+sku:         b200
+workload:    lat  isl=1024 osl=256  C=1  reps=3 warmup=1
+spec:        on     think: on
+boot cap:    1800s
+out:         /tmp/atlas-step-d-dryrun-not-created/vllm.kimi-k3.b200.lat.c1.specon.thinkon
+client url:  http://127.0.0.1:8000
+mode:        DRY RUN (nothing is launched, nothing is written)
+
+
+--- stage 1/7 preflight ---
+$ nvidia-smi -q > /tmp/atlas-step-d-dryrun-not-created/vllm.kimi-k3.b200.lat.c1.specon.thinkon/nvidia-smi-q.txt
+$ df -h /tmp/atlas-step-d-dryrun-not-created/vllm.kimi-k3.b200.lat.c1.specon.thinkon > /tmp/atlas-step-d-dryrun-not-created/vllm.kimi-k3.b200.lat.c1.specon.thinkon/df.txt
+$ git -C /private/tmp/atlas-rental-readiness-20260905 rev-parse HEAD
+$ sha256sum /private/tmp/atlas-rental-readiness-20260905/bench/ladder38/harness_w55_conc_ladder.py
+
+--- stage 2/7 serve ---
+$ VLLM_CONTAINER=atlas-campaign-kimi-k3-b200-lat-c1-specon-thinkon-21477 bash /private/tmp/atlas-rental-readiness-20260905/bench/campaign/vllm_control.sh kimi-k3 b200 --spec on --label atlas-campaign.run=vllm.kimi-k3.b200.lat.c1.specon.thinkon-1788612902-21477 --id-file /tmp/atlas-step-d-dryrun-not-created/vllm.kimi-k3.b200.lat.c1.specon.thinkon/container.id --image-file /tmp/atlas-step-d-dryrun-not-created/vllm.kimi-k3.b200.lat.c1.specon.thinkon/container.image
+  | === vLLM control leg (recipe render, not a composed command) ===
+  | model_key:   kimi-k3
+  | sku:         b200
+  | hf_id:       moonshotai/Kimi-K3
+  | quant:       mxfp4
+  | topology:    gpus=16 nnodes=2 tp=8 pp=2 dp=1 (multi_node_tp_pp)
+  | verdict:     verbatim
+  | source:      https://recipes.vllm.ai/moonshotai/Kimi-K3/hw/b200/strategies/multi_node_tp_pp.json
+  | retrieved:   2026-09-05T02:43:24.405867+00:00  evidence sha256 700e6327dcd3aa4d8f2241ee4cc59e4072f45abe97e2578022759aaccd7850cc
+  | image:       vllm/vllm-openai:latest
+  | image_ref:   vllm/vllm-openai:latest   (tag only -- a non-dry run will be REFUSED, exit 5)
+  | spec:        on   (recipe renders spec off; the switchable group is --speculative-config '{"model":"RedHatAI/Kimi-K3-speculator.dspark", "num_speculative_tokens":8, "method": "dspark", "draft_sample_method": "probabilistic", "rejection_sample_method": "block"}')
+  | extra:       (none)
+  | flag audit:  0 not-in-recipe in the entry, 0 not-in-recipe in --extra
+  | 
+  | # node 0 -- head (node-rank 0, serves HTTP)
+  | # $HEAD_IP is a PLACEHOLDER left verbatim from the recipe: resolve it on the booked cluster.
+  | docker run -d --name atlas-campaign-kimi-k3-b200-lat-c1-specon-thinkon-21477 --label atlas-campaign.run=vllm.kimi-k3.b200.lat.c1.specon.thinkon-1788612902-21477 --gpus all --ipc=host --network host -v /tmp/atlas-step-d-dryrun-hf-cache-not-created:/root/.cache/huggingface -e 'GLOO_SOCKET_IFNAME=$IFACE_NAME' -e NCCL_CUMEM_ENABLE=1 -e 'NCCL_SOCKET_IFNAME=$IFACE_NAME' -e VLLM_ALLREDUCE_USE_FLASHINFER=1 -e VLLM_ENGINE_READY_TIMEOUT_S=3600 -e VLLM_EXECUTE_MODEL_TIMEOUT_SECONDS=1800 -e VLLM_USE_RUST_FRONTEND=1 -e VLLM_USE_V2_MODEL_RUNNER=1 --entrypoint vllm vllm/vllm-openai:latest serve moonshotai/Kimi-K3 --trust-remote-code --tensor-parallel-size 8 --pipeline-parallel-size 2 --nnodes 2 --node-rank 0 --master-addr '$HEAD_IP' --gpu-memory-utilization 0.90 --max-num-batched-tokens 8192 --load-format fastsafetensors --no-enable-flashinfer-autotune --max-model-len 1048576 --kv-cache-dtype fp8 --attention-config '{"use_prefill_query_quantization":true,"mla_prefill_backend":"flashinfer"}' --enable-prefix-caching --prefix-match-unit 128 --enable-auto-tool-choice --tool-call-parser kimi_k3 --reasoning-parser kimi_k3 --speculative-config '{"model":"RedHatAI/Kimi-K3-speculator.dspark", "num_speculative_tokens":8, "method": "dspark", "draft_sample_method": "probabilistic", "rejection_sample_method": "block"}'
+  | 
+  | # node 1 -- worker node-rank 1 (--headless)
+  | # $HEAD_IP is a PLACEHOLDER left verbatim from the recipe: resolve it on the booked cluster.
+  | docker run -d --name atlas-campaign-kimi-k3-b200-lat-c1-specon-thinkon-21477-node1 --label atlas-campaign.run=vllm.kimi-k3.b200.lat.c1.specon.thinkon-1788612902-21477 --gpus all --ipc=host --network host -v /tmp/atlas-step-d-dryrun-hf-cache-not-created:/root/.cache/huggingface -e 'GLOO_SOCKET_IFNAME=$IFACE_NAME' -e NCCL_CUMEM_ENABLE=1 -e 'NCCL_SOCKET_IFNAME=$IFACE_NAME' -e VLLM_ALLREDUCE_USE_FLASHINFER=1 -e VLLM_ENGINE_READY_TIMEOUT_S=3600 -e VLLM_EXECUTE_MODEL_TIMEOUT_SECONDS=1800 -e VLLM_USE_RUST_FRONTEND=1 -e VLLM_USE_V2_MODEL_RUNNER=1 --entrypoint vllm vllm/vllm-openai:latest serve moonshotai/Kimi-K3 --trust-remote-code --tensor-parallel-size 8 --pipeline-parallel-size 2 --nnodes 2 --node-rank 1 --master-addr '$HEAD_IP' --headless --gpu-memory-utilization 0.90 --max-num-batched-tokens 8192 --load-format fastsafetensors --no-enable-flashinfer-autotune --max-model-len 1048576 --kv-cache-dtype fp8 --attention-config '{"use_prefill_query_quantization":true,"mla_prefill_backend":"flashinfer"}' --enable-prefix-caching --prefix-match-unit 128 --enable-auto-tool-choice --tool-call-parser kimi_k3 --reasoning-parser kimi_k3 --speculative-config '{"model":"RedHatAI/Kimi-K3-speculator.dspark", "num_speculative_tokens":8, "method": "dspark", "draft_sample_method": "probabilistic", "rejection_sample_method": "block"}'
+  | 
+  | dry-run: nothing launched.
+
+--- stage 3/7 boot gate (cap 1800s) ---
+$ bash /private/tmp/atlas-rental-readiness-20260905/bench/hopper_ab/time_to_ready.sh --url http://127.0.0.1:8000 --model moonshotai/Kimi-K3 --engine vllm --start-epoch <serve-start> --timeout-s 1800 --out /tmp/atlas-step-d-dryrun-not-created/vllm.kimi-k3.b200.lat.c1.specon.thinkon/boot.json
+
+--- stage 4/7 coherency gate ---
+$ python3 /private/tmp/atlas-rental-readiness-20260905/bench/hopper_ab/coherency_gate.py --url http://127.0.0.1:8000 --model moonshotai/Kimi-K3 --out /tmp/atlas-step-d-dryrun-not-created/vllm.kimi-k3.b200.lat.c1.specon.thinkon/coherency.json
+
+--- stage 5/7 latency pack ---
+$ python3 /private/tmp/atlas-rental-readiness-20260905/bench/ladder38/harness_w55_conc_ladder.py --url http://127.0.0.1:8000 --model moonshotai/Kimi-K3 --label vllm.kimi-k3.b200.lat.c1.specon.thinkon --out /tmp/atlas-step-d-dryrun-not-created/vllm.kimi-k3.b200.lat.c1.specon.thinkon/ladder.json --concs 1 --reps 3 --isl 1024 --osl 256 --warmup 1 --enable-thinking
+
+--- stage 6/7 teardown ---
+$ docker stop <id from docker run -d> && docker rm <the same id>
+
+--- stage 7/7 assemble and validate ---
+$ python3 /private/tmp/atlas-rental-readiness-20260905/bench/campaign/cell_assemble.py --engine vllm --model-key kimi-k3 --sku b200 --workload lat --concurrency 1 --spec on --think on --out /tmp/atlas-step-d-dryrun-not-created/vllm.kimi-k3.b200.lat.c1.specon.thinkon/artifact.json --workloads /private/tmp/atlas-rental-readiness-20260905/bench/hopper_ab/workloads.json --atlas-recipes /private/tmp/atlas-rental-readiness-20260905/bench/campaign/atlas_recipes.json --vllm-recipes /private/tmp/atlas-rental-readiness-20260905/bench/campaign/vllm_recipes.json --client /private/tmp/atlas-rental-readiness-20260905/bench/ladder38/harness_w55_conc_ladder.py --serve-argv /tmp/atlas-step-d-dryrun-not-created/vllm.kimi-k3.b200.lat.c1.specon.thinkon/serve.argv --serve-env /tmp/atlas-step-d-dryrun-not-created/vllm.kimi-k3.b200.lat.c1.specon.thinkon/serve.env --nvidia-smi-q /tmp/atlas-step-d-dryrun-not-created/vllm.kimi-k3.b200.lat.c1.specon.thinkon/nvidia-smi-q.txt --boot-json /tmp/atlas-step-d-dryrun-not-created/vllm.kimi-k3.b200.lat.c1.specon.thinkon/boot.json --coherency-json /tmp/atlas-step-d-dryrun-not-created/vllm.kimi-k3.b200.lat.c1.specon.thinkon/coherency.json --ladder-json /tmp/atlas-step-d-dryrun-not-created/vllm.kimi-k3.b200.lat.c1.specon.thinkon/ladder.json
+$ python3 /private/tmp/atlas-rental-readiness-20260905/bench/campaign/validate_artifact.py /tmp/atlas-step-d-dryrun-not-created/vllm.kimi-k3.b200.lat.c1.specon.thinkon/artifact.json
+
+dry-run: nothing launched, nothing written.
+
+--- stderr ---
+
+=== vllm_control ===
+$ bash bench/campaign/vllm_control.sh kimi-k3 b200 --spec on --dry-run
+started_utc: 2026-09-05T12:55:03.002524+00:00
+exit_code: 0
+wall_seconds: 0.111371
+--- stdout ---
+=== vLLM control leg (recipe render, not a composed command) ===
+model_key:   kimi-k3
+sku:         b200
+hf_id:       moonshotai/Kimi-K3
+quant:       mxfp4
+topology:    gpus=16 nnodes=2 tp=8 pp=2 dp=1 (multi_node_tp_pp)
+verdict:     verbatim
+source:      https://recipes.vllm.ai/moonshotai/Kimi-K3/hw/b200/strategies/multi_node_tp_pp.json
+retrieved:   2026-09-05T02:43:24.405867+00:00  evidence sha256 700e6327dcd3aa4d8f2241ee4cc59e4072f45abe97e2578022759aaccd7850cc
+image:       vllm/vllm-openai:latest
+image_ref:   vllm/vllm-openai:latest   (tag only -- a non-dry run will be REFUSED, exit 5)
+spec:        on   (recipe renders spec off; the switchable group is --speculative-config '{"model":"RedHatAI/Kimi-K3-speculator.dspark", "num_speculative_tokens":8, "method": "dspark", "draft_sample_method": "probabilistic", "rejection_sample_method": "block"}')
+extra:       (none)
+flag audit:  0 not-in-recipe in the entry, 0 not-in-recipe in --extra
+
+# node 0 -- head (node-rank 0, serves HTTP)
+# $HEAD_IP is a PLACEHOLDER left verbatim from the recipe: resolve it on the booked cluster.
+docker run -d --name vllm-control-kimi-k3-b200 --gpus all --ipc=host --network host -v /tmp/atlas-step-d-dryrun-hf-cache-not-created:/root/.cache/huggingface -e 'GLOO_SOCKET_IFNAME=$IFACE_NAME' -e NCCL_CUMEM_ENABLE=1 -e 'NCCL_SOCKET_IFNAME=$IFACE_NAME' -e VLLM_ALLREDUCE_USE_FLASHINFER=1 -e VLLM_ENGINE_READY_TIMEOUT_S=3600 -e VLLM_EXECUTE_MODEL_TIMEOUT_SECONDS=1800 -e VLLM_USE_RUST_FRONTEND=1 -e VLLM_USE_V2_MODEL_RUNNER=1 --entrypoint vllm vllm/vllm-openai:latest serve moonshotai/Kimi-K3 --trust-remote-code --tensor-parallel-size 8 --pipeline-parallel-size 2 --nnodes 2 --node-rank 0 --master-addr '$HEAD_IP' --gpu-memory-utilization 0.90 --max-num-batched-tokens 8192 --load-format fastsafetensors --no-enable-flashinfer-autotune --max-model-len 1048576 --kv-cache-dtype fp8 --attention-config '{"use_prefill_query_quantization":true,"mla_prefill_backend":"flashinfer"}' --enable-prefix-caching --prefix-match-unit 128 --enable-auto-tool-choice --tool-call-parser kimi_k3 --reasoning-parser kimi_k3 --speculative-config '{"model":"RedHatAI/Kimi-K3-speculator.dspark", "num_speculative_tokens":8, "method": "dspark", "draft_sample_method": "probabilistic", "rejection_sample_method": "block"}'
+
+# node 1 -- worker node-rank 1 (--headless)
+# $HEAD_IP is a PLACEHOLDER left verbatim from the recipe: resolve it on the booked cluster.
+docker run -d --name vllm-control-kimi-k3-b200-node1 --gpus all --ipc=host --network host -v /tmp/atlas-step-d-dryrun-hf-cache-not-created:/root/.cache/huggingface -e 'GLOO_SOCKET_IFNAME=$IFACE_NAME' -e NCCL_CUMEM_ENABLE=1 -e 'NCCL_SOCKET_IFNAME=$IFACE_NAME' -e VLLM_ALLREDUCE_USE_FLASHINFER=1 -e VLLM_ENGINE_READY_TIMEOUT_S=3600 -e VLLM_EXECUTE_MODEL_TIMEOUT_SECONDS=1800 -e VLLM_USE_RUST_FRONTEND=1 -e VLLM_USE_V2_MODEL_RUNNER=1 --entrypoint vllm vllm/vllm-openai:latest serve moonshotai/Kimi-K3 --trust-remote-code --tensor-parallel-size 8 --pipeline-parallel-size 2 --nnodes 2 --node-rank 1 --master-addr '$HEAD_IP' --headless --gpu-memory-utilization 0.90 --max-num-batched-tokens 8192 --load-format fastsafetensors --no-enable-flashinfer-autotune --max-model-len 1048576 --kv-cache-dtype fp8 --attention-config '{"use_prefill_query_quantization":true,"mla_prefill_backend":"flashinfer"}' --enable-prefix-caching --prefix-match-unit 128 --enable-auto-tool-choice --tool-call-parser kimi_k3 --reasoning-parser kimi_k3 --speculative-config '{"model":"RedHatAI/Kimi-K3-speculator.dspark", "num_speculative_tokens":8, "method": "dspark", "draft_sample_method": "probabilistic", "rejection_sample_method": "block"}'
+
+dry-run: nothing launched.
+
+--- stderr ---

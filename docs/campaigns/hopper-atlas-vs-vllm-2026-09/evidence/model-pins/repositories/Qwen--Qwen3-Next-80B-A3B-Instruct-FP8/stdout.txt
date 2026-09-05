@@ -1,0 +1,1 @@
+{"gated": false, "private": false, "repo_id": "Qwen/Qwen3-Next-80B-A3B-Instruct-FP8", "sha": "c5f5f263bdd5cc134092897864e8905d8fe7b928", "sibling_count": 18, "status": "ok"}

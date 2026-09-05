@@ -1,0 +1,36 @@
+{
+  "repo_id": "moonshotai/Kimi-K3",
+  "started_utc": "2026-09-05T12:52:31.289499+00:00",
+  "python_version": "3.14.6",
+  "huggingface_hub_version": "1.8.0",
+  "httpx_version": "0.28.1",
+  "authentication": false,
+  "api_call": "HfApi(token=False).model_info(repo_id, files_metadata=True, token=False, timeout=60)",
+  "revision_argument": null,
+  "revision_meaning": "Current default-branch head at request time, not proof of loaded bytes",
+  "http_responses": [
+    {
+      "url": "https://huggingface.co/api/models/moonshotai/Kimi-K3?blobs=true",
+      "method": "GET",
+      "status_code": 200,
+      "captured_utc": "2026-09-05T12:52:31.463473+00:00",
+      "body_path": "response-1.json",
+      "body_bytes": 29259,
+      "body_sha256": "be29301f380122a7dbb3ebe2801ba93ee54e2c60d76b9adfe497aa4686cd5dac",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Sat, 05 Sep 2026 12:52:31 GMT",
+        "etag": "W/\"724b-qbtgx8gRTvchVp/smtoqDIv/mOE\"",
+        "x-request-id": "Root=1-6a9c108f-0263c8034e7cd5fc545925af"
+      }
+    }
+  ],
+  "status": "ok",
+  "sha": "f831ab66814297da540d832a5235f8e904f29d06",
+  "gated": false,
+  "private": false,
+  "sibling_count": 119,
+  "finished_utc": "2026-09-05T12:52:31.465022+00:00",
+  "wall_seconds": 0.17524091701488942,
+  "exit_code": 0
+}

@@ -1,0 +1,1 @@
+python3 docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/model-pins/fetch_metadata.py --repo moonshotai/Kimi-K3 --out docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/model-pins/repositories/moonshotai--Kimi-K3

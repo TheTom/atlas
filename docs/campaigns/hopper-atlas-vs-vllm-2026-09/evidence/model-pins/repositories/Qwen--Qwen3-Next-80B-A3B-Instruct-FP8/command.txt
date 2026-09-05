@@ -1,0 +1,1 @@
+python3 docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/model-pins/fetch_metadata.py --repo Qwen/Qwen3-Next-80B-A3B-Instruct-FP8 --out docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/model-pins/repositories/Qwen--Qwen3-Next-80B-A3B-Instruct-FP8

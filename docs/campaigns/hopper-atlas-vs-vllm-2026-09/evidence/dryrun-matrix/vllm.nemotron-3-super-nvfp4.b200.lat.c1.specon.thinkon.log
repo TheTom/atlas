@@ -1,0 +1,39 @@
+{
+  "model": "nemotron-3-super-nvfp4",
+  "sku": "b200",
+  "prd_source": "3.1 L69; 5 L125; 8 L214",
+  "role": "NVFP4-unallocated-probe",
+  "atlas_expectation": "ATLAS_UNSUPPORTED",
+  "key_status": "unallocated-proposal",
+  "id": "vllm.nemotron-3-super-nvfp4.b200.lat.c1.specon.thinkon",
+  "engine": "vllm",
+  "workload": "lat",
+  "concurrency": 1,
+  "spec": "on",
+  "think": "on",
+  "category": "policy-probe",
+  "policy_notes": [
+    "NVFP4-unallocated-probe",
+    "canonical model key not allocated by recipe JSON"
+  ]
+}
+
+=== run_cell ===
+$ bash bench/campaign/run_cell.sh --engine vllm --model nemotron-3-super-nvfp4 --sku b200 --workload lat --concurrency 1 --spec on --think on --out /tmp/atlas-step-d-dryrun-not-created/vllm.nemotron-3-super-nvfp4.b200.lat.c1.specon.thinkon --dry-run
+started_utc: 2026-09-05T12:55:38.778667+00:00
+exit_code: 3
+wall_seconds: 0.218157
+--- stdout ---
+no rendered profile for nemotron-3-super-nvfp4 on b200
+
+--- stderr ---
+
+=== vllm_control ===
+$ bash bench/campaign/vllm_control.sh nemotron-3-super-nvfp4 b200 --spec on --dry-run
+started_utc: 2026-09-05T12:55:38.996886+00:00
+exit_code: 3
+wall_seconds: 0.061277
+--- stdout ---
+no rendered profile for nemotron-3-super-nvfp4 on b200
+
+--- stderr ---

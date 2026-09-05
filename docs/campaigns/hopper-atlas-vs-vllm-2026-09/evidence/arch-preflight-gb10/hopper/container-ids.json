@@ -1,0 +1,8 @@
+{
+  "argv": [
+    "docker",
+    "ps",
+    "-q"
+  ],
+  "exit_code": 0
+}

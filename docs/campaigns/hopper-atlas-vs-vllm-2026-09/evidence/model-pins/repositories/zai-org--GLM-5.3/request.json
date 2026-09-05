@@ -1,0 +1,36 @@
+{
+  "repo_id": "zai-org/GLM-5.3",
+  "started_utc": "2026-09-05T12:52:32.085456+00:00",
+  "python_version": "3.14.6",
+  "huggingface_hub_version": "1.8.0",
+  "httpx_version": "0.28.1",
+  "authentication": false,
+  "api_call": "HfApi(token=False).model_info(repo_id, files_metadata=True, token=False, timeout=60)",
+  "revision_argument": null,
+  "revision_meaning": "Current default-branch head at request time, not proof of loaded bytes",
+  "http_responses": [
+    {
+      "url": "https://huggingface.co/api/models/zai-org/GLM-5.3?blobs=true",
+      "method": "GET",
+      "status_code": 200,
+      "captured_utc": "2026-09-05T12:52:32.298528+00:00",
+      "body_path": "response-1.json",
+      "body_bytes": 69760,
+      "body_sha256": "2e571a995be5d847bbe4cc2a1a34f71f79e955f645efa410cde0e394b9aed1e7",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Sat, 05 Sep 2026 12:52:32 GMT",
+        "etag": "W/\"11080-RBneMRD302lJZvYzKcqu0g68Sbk\"",
+        "x-request-id": "Root=1-6a9c1090-1d2f95b2683d83db2c4567d1"
+      }
+    }
+  ],
+  "status": "ok",
+  "sha": "aca966e4e02791568aa6a4ced368624b3d897f42",
+  "gated": false,
+  "private": false,
+  "sibling_count": 155,
+  "finished_utc": "2026-09-05T12:52:32.299980+00:00",
+  "wall_seconds": 0.2144479159032926,
+  "exit_code": 0
+}

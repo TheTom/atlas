@@ -1,0 +1,1 @@
+python3 docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/model-pins/fetch_metadata.py --repo MiniMaxAI/MiniMax-M3 --out docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/model-pins/repositories/MiniMaxAI--MiniMax-M3

@@ -1,0 +1,8 @@
+{
+  "hardware_target": "gb10",
+  "compiled_arch_expected": "sm_121f",
+  "build": "not_started",
+  "runtime_oracles": "not_observed",
+  "reason": "Foreign GPU tenant appeared; hard occupancy stopping rule applied before further heavy steps.",
+  "evidence": "../foreign-occupancy/stdout.txt"
+}

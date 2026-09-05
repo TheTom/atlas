@@ -1,0 +1,1 @@
+{"gated": false, "private": false, "repo_id": "Inferact/MiniMax-M3-EAGLE3", "sha": "44cafa5ace418d8b22e2958df0c6aa1f2476842c", "sibling_count": 5, "status": "ok"}

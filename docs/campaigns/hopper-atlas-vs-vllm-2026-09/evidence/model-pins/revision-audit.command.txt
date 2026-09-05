@@ -1,0 +1,1 @@
+python3 docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/model-pins/check_recipe_pins.py bench/campaign/vllm_recipes.json

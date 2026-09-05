@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "url": "http://127.0.0.1:52822",
+  "model": "D2-POLICY-SENSITIVE-STUB",
+  "checked_utc": "2026-09-05T12:59:06Z",
+  "details": {
+    "determinism_ok": "23 chars reproduced exactly, no degeneration signals",
+    "toolcall_ok": "1 get_weather call(s), required argument types valid",
+    "think_leak_ok": "43 chars, no leak signals",
+    "known_answer_ok": "'391' OK; 'Tokyo' OK; 'rotaregirfer' OK"
+  },
+  "http_exchanges": [
+    {
+      "check": "determinism_ok",
+      "request_json": "{\"model\": \"D2-POLICY-SENSITIVE-STUB\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"101, 103, 107, 109, 113\"}, \"finish_reason\": \"stop\"}]}",
+      "response_complete": true
+    },
+    {
+      "check": "determinism_ok",
+      "request_json": "{\"model\": \"D2-POLICY-SENSITIVE-STUB\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"101, 103, 107, 109, 113\"}, \"finish_reason\": \"stop\"}]}",
+      "response_complete": true
+    },
+    {
+      "check": "toolcall_ok",
+      "request_json": "{\"model\": \"D2-POLICY-SENSITIVE-STUB\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+      "response_status": 200,
+      "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"\", \"tool_calls\": [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"arguments\": \"{\\\"city\\\": \\\"Reykjavik\\\", \\\"days\\\": 3}\"}}]}, \"finish_reason\": \"tool_calls\"}]}",
+      "response_complete": true
+    },
+    {
+      "check": "think_leak_ok",
+      "request_json": "{\"model\": \"D2-POLICY-SENSITIVE-STUB\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"To measure a system under a fixed workload.\"}, \"finish_reason\": \"stop\"}]}",
+      "response_complete": true
+    },
+    {
+      "check": "known_answer_ok",
+      "request_json": "{\"model\": \"D2-POLICY-SENSITIVE-STUB\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a careful, precise assistant. Answer the question directly and correctly. Work step by step when a question needs it, and state the final answer explicitly. Do not refuse or hedge on simple factual or arithmetic questions.\"}, {\"role\": \"user\", \"content\": \"What is 17 * 23? Reply with the number, then explain your working.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"391\\n\\nWorking: 17 * 20 = 340, and 17 * 3 = 51. Adding the two partial products gives 391.\"}, \"finish_reason\": \"stop\"}]}",
+      "response_complete": true
+    },
+    {
+      "check": "known_answer_ok",
+      "request_json": "{\"model\": \"D2-POLICY-SENSITIVE-STUB\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a careful, precise assistant. Answer the question directly and correctly. Work step by step when a question needs it, and state the final answer explicitly. Do not refuse or hedge on simple factual or arithmetic questions.\"}, {\"role\": \"user\", \"content\": \"Name the capital city of Japan, then describe it in a few sentences.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"Tokyo\\n\\nTokyo is the capital of Japan and the seat of its national government. It grew out of the castle town of Edo and now spreads around the head of its bay. The metropolitan area is the largest in the world by population.\"}, \"finish_reason\": \"stop\"}]}",
+      "response_complete": true
+    },
+    {
+      "check": "known_answer_ok",
+      "request_json": "{\"model\": \"D2-POLICY-SENSITIVE-STUB\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a careful, precise assistant. Answer the question directly and correctly. Work step by step when a question needs it, and state the final answer explicitly. Do not refuse or hedge on simple factual or arithmetic questions.\"}, {\"role\": \"user\", \"content\": \"Spell the word 'refrigerator' backwards, then explain how you did it.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"rotaregirfer\\n\\nI read the letters of the word from the last one back to the first and wrote them down in that order.\"}, \"finish_reason\": \"stop\"}]}",
+      "response_complete": true
+    }
+  ],
+  "determinism_ok": true,
+  "toolcall_ok": true,
+  "think_leak_ok": true,
+  "known_answer_ok": true,
+  "passed": true
+}

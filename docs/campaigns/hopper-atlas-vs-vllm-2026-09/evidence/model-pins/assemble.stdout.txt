@@ -1,0 +1,3 @@
+PASS: 15 captured repositories passed response hash, revision, unique-file and payload-size oracles
+WROTE: 10 model-key objects, 46 profiles
+MISSING PRIMARY REVISION: 29 vLLM profiles

@@ -1,0 +1,36 @@
+{
+  "repo_id": "Inferact/MiniMax-M3-EAGLE3",
+  "started_utc": "2026-09-05T12:52:30.810443+00:00",
+  "python_version": "3.14.6",
+  "huggingface_hub_version": "1.8.0",
+  "httpx_version": "0.28.1",
+  "authentication": false,
+  "api_call": "HfApi(token=False).model_info(repo_id, files_metadata=True, token=False, timeout=60)",
+  "revision_argument": null,
+  "revision_meaning": "Current default-branch head at request time, not proof of loaded bytes",
+  "http_responses": [
+    {
+      "url": "https://huggingface.co/api/models/Inferact/MiniMax-M3-EAGLE3?blobs=true",
+      "method": "GET",
+      "status_code": 200,
+      "captured_utc": "2026-09-05T12:52:31.056731+00:00",
+      "body_path": "response-1.json",
+      "body_bytes": 2029,
+      "body_sha256": "df81e1672b419d92a17c0439824d5ea571633d70a68c714f3958e12ac9d309b2",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Sat, 05 Sep 2026 12:52:31 GMT",
+        "etag": "W/\"7ed-p5nXfzki82SGnzTZ5OuTUy+cb7k\"",
+        "x-request-id": "Root=1-6a9c108f-4f82796807b06504275d4005"
+      }
+    }
+  ],
+  "status": "ok",
+  "sha": "44cafa5ace418d8b22e2958df0c6aa1f2476842c",
+  "gated": false,
+  "private": false,
+  "sibling_count": 5,
+  "finished_utc": "2026-09-05T12:52:31.059447+00:00",
+  "wall_seconds": 0.24884391692467034,
+  "exit_code": 0
+}

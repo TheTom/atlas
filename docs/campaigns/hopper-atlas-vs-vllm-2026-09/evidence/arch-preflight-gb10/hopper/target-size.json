@@ -1,0 +1,8 @@
+{
+  "argv": [
+    "du",
+    "-sb",
+    "/home/pidtom/atlas-step-d-20260905-1249/target-hopper"
+  ],
+  "exit_code": 0
+}

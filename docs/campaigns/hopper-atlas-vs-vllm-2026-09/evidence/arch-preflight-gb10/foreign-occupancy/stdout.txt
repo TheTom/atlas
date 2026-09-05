@@ -1,0 +1,53 @@
+Sat Sep  5 07:55:58 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.173.02             Driver Version: 580.173.02     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GB10                    On  |   0000000F:01:00.0 Off |                  N/A |
+| N/A   58C    P0             14W /  N/A  | Not Supported          |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            2649      G   /usr/lib/xorg/Xorg                       18MiB |
+|    0   N/A  N/A            2748      G   /usr/bin/gnome-shell                      6MiB |
+|    0   N/A  N/A          233007      C   ...lector_model-5f27772cdf230715        170MiB |
++-----------------------------------------------------------------------------------------+
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  916G  812G   58G  94% /
+    PID    PPID                  STARTED COMMAND
+233007, /home/pidtom/butter-selectors/rust/target/debug/deps/iron_selector_model-5f27772cdf230715, 170 MiB
+ 223873  223872 python3 /home/pidtom/atlas-step-d-20260905-1249/run_build.py hopper
+ 223903  223873 /usr/bin/time -v -o /home/pidtom/atlas-step-d-20260905-1249/evidence/hopper/build.time.txt /home/pidtom/.cargo/bin/cargo build --locked --release -p spark-server --bin spark --no-default-features --features cuda,nccl
+ 226719  223904 /home/pidtom/atlas-step-d-20260905-1249/target-hopper/release/build/atlas-kernels-cbda69329127da65/build-script-build
+ 226928  226719 /usr/local/cuda/bin/nvcc --ptx -arch sm_90a -O3 -DATLAS_NO_WARP_BLOCKSCALE_MMA --fmad false -DTQ_PLUS_SIGNS -DHDIM=128 --Werror all-warnings /home/pidtom/atlas-step-d-20260905-1249/repo/kernels/hopper/common/gated_delta_rule_fla.cu -o /home/pidtom/atlas-step-d-20260905-1249/target-hopper/release/build/atlas-kernels-2956e195ddd53c57/out/t0__gated_delta_rule_fla.ptx
+ 227086  226928 sh -c -- "$CICC_PATH/cicc" --c++17 --static-host-stub --device-hidden-visibility --gnu_version=130300 --promote_warnings --display_error_number --orig_src_file_name "/home/pidtom/atlas-step-d-20260905-1249/repo/kernels/hopper/common/gated_delta_rule_fla.cu" --orig_src_path_name "/home/pidtom/atlas-step-d-20260905-1249/repo/kernels/gb10/common/gated_delta_rule_fla.cu" --allow_managed --unsigned_chars --unsigned_wchar_t   -arch compute_90a -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=0 --include_file_name "tmpxft_00037670_00000000-3_gated_delta_rule_fla.fatbin.c" -tused --gen_module_id_file --module_id_file_name "/tmp/tmpxft_00037670_00000000-4_gated_delta_rule_fla.module_id"  "/tmp/tmpxft_00037670_00000000-7_gated_delta_rule_fla.cpp1.ii" -o "/home/pidtom/atlas-step-d-20260905-1249/target-hopper/release/build/atlas-kernels-2956e195ddd53c57/out/t0__gated_delta_rule_fla.ptx"
+ 227088  227086 /usr/local/cuda/bin/../nvvm/bin/cicc --c++17 --static-host-stub --device-hidden-visibility --gnu_version=130300 --promote_warnings --display_error_number --orig_src_file_name /home/pidtom/atlas-step-d-20260905-1249/repo/kernels/hopper/common/gated_delta_rule_fla.cu --orig_src_path_name /home/pidtom/atlas-step-d-20260905-1249/repo/kernels/gb10/common/gated_delta_rule_fla.cu --allow_managed --unsigned_chars --unsigned_wchar_t -arch compute_90a -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=0 --include_file_name tmpxft_00037670_00000000-3_gated_delta_rule_fla.fatbin.c -tused --gen_module_id_file --module_id_file_name /tmp/tmpxft_00037670_00000000-4_gated_delta_rule_fla.module_id /tmp/tmpxft_00037670_00000000-7_gated_delta_rule_fla.cpp1.ii -o /home/pidtom/atlas-step-d-20260905-1249/target-hopper/release/build/atlas-kernels-2956e195ddd53c57/out/t0__gated_delta_rule_fla.ptx
+   Compiling tracing-log v0.2.0
+   Compiling serde_path_to_error v0.1.20
+   Compiling thread_local v1.1.9
+   Compiling utf8-zero v0.8.1
+   Compiling daachorse v1.0.1
+   Compiling unicode_categories v0.1.1
+   Compiling matchit v0.8.4
+   Compiling nu-ansi-term v0.50.3
+   Compiling memo-map v0.3.3
+   Compiling axum v0.8.9
+   Compiling minijinja v2.21.0
+   Compiling tracing-subscriber v0.3.23
+   Compiling tokenizers v0.23.1
+   Compiling ureq v3.3.0
+   Compiling clap v4.6.6
+   Compiling atlas-plugin v1.0.0-beta-preview (/home/pidtom/atlas-step-d-20260905-1249/repo/crates/atlas-plugin)
+   Compiling xgrammar v1.0.0-beta-preview (/home/pidtom/atlas-step-d-20260905-1249/repo/crates/xgrammar)
+   Compiling tui-textarea v0.7.0
+   Compiling tower-http v0.7.0
+   Compiling tokio-stream v0.1.19

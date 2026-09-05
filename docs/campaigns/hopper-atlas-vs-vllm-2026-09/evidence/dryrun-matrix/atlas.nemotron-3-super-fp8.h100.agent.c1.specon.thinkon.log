@@ -1,0 +1,29 @@
+{
+  "model": "nemotron-3-super-fp8",
+  "sku": "h100",
+  "prd_source": "3.1 L62; 5 L127; 6.1 L161; 7 L187-188",
+  "role": "P0",
+  "atlas_expectation": "runnable",
+  "key_status": "canonical",
+  "id": "atlas.nemotron-3-super-fp8.h100.agent.c1.specon.thinkon",
+  "engine": "atlas",
+  "workload": "agent",
+  "concurrency": 1,
+  "spec": "on",
+  "think": "on",
+  "category": "conditional-alternative",
+  "policy_notes": [
+    "spec on conflicts with Atlas support; default off (6.1 L161 vs 7 L187)"
+  ]
+}
+
+=== run_cell ===
+$ bash bench/campaign/run_cell.sh --engine atlas --model nemotron-3-super-fp8 --sku h100 --workload agent --concurrency 1 --spec on --think on --out /tmp/atlas-step-d-dryrun-not-created/atlas.nemotron-3-super-fp8.h100.agent.c1.specon.thinkon --dry-run
+started_utc: 2026-09-05T12:54:12.117022+00:00
+exit_code: 4
+wall_seconds: 0.426634
+--- stdout ---
+
+--- stderr ---
+ERROR: --spec on, but the Atlas recipe for nemotron-3-super-fp8 on h100 declares no speculative support.
+       EP=2 is the only validated Super layout. Tool parser is bare_json, not the fixture's qwen3_coder: MODEL.toml pins bare_json and documents the qwen3_coder token loop. Spec is off by default -- the fixture's `speculative: true` conflicts with MTP_SUPPORTED_MODEL_TYPES in crates/spark-model/src/preflight.rs and has to be verified on the box before it can be turned on. The paired vLLM recipe DOES declare MTP K3, so both-or-neither resolves to spec off for the pair. FP8 KV calibration: FP8 checkpoints that ship no *.k_scale tensors get scale 1.0, which clips BF16 into E4M3 (spark-runtime weights.rs fp8_kv_scale_count); the GB10 rehearsal of 2026-09-05 (Nano FP8 through the nvfp4 bundle, 'missing FP8 KV scale tensors, default 1.0') produced degenerate output. 256 calibration tokens is the value kernels/gb10/qwen3.6-35b-a3b/MODEL.toml uses for its FP8 checkpoint. Applies only with --kv-cache-dtype fp8.

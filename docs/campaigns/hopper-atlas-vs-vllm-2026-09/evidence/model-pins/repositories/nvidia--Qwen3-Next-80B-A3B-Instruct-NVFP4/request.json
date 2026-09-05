@@ -1,0 +1,36 @@
+{
+  "repo_id": "nvidia/Qwen3-Next-80B-A3B-Instruct-NVFP4",
+  "started_utc": "2026-09-05T12:52:32.083227+00:00",
+  "python_version": "3.14.6",
+  "huggingface_hub_version": "1.8.0",
+  "httpx_version": "0.28.1",
+  "authentication": false,
+  "api_call": "HfApi(token=False).model_info(repo_id, files_metadata=True, token=False, timeout=60)",
+  "revision_argument": null,
+  "revision_meaning": "Current default-branch head at request time, not proof of loaded bytes",
+  "http_responses": [
+    {
+      "url": "https://huggingface.co/api/models/nvidia/Qwen3-Next-80B-A3B-Instruct-NVFP4?blobs=true",
+      "method": "GET",
+      "status_code": 200,
+      "captured_utc": "2026-09-05T12:52:32.288696+00:00",
+      "body_path": "response-1.json",
+      "body_bytes": 17346,
+      "body_sha256": "3e5f1544300b5be1a112c298d813bbdb71a97148f510e37b282da8529919ba47",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Sat, 05 Sep 2026 12:52:32 GMT",
+        "etag": "W/\"43c2-Qw+30/OqBM1SfaJTneDkThmz3hM\"",
+        "x-request-id": "Root=1-6a9c1090-6fe58d0b0a84bacc71118eb1"
+      }
+    }
+  ],
+  "status": "ok",
+  "sha": "8fb2682f136cf94d932a498f18cb1e428832a912",
+  "gated": false,
+  "private": false,
+  "sibling_count": 24,
+  "finished_utc": "2026-09-05T12:52:32.290288+00:00",
+  "wall_seconds": 0.20693079195916653,
+  "exit_code": 0
+}

@@ -1,0 +1,12 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "pidtom@192.168.50.36",
+    "set -eu\ncd /home/pidtom/atlas-step-d-20260905-1249/repo\ngit rev-parse HEAD\ngit status --short\nfile /home/pidtom/atlas-step-d-20260905-1249/binaries/hopper/spark\nsha256sum /home/pidtom/atlas-step-d-20260905-1249/binaries/hopper/spark\ndu -sb /home/pidtom/atlas-step-d-20260905-1249\ncd /home/pidtom/atlas-step-d-20260905-1249\nfind evidence -type f -exec sha256sum {} +"
+  ],
+  "started_utc": "2026-09-05T12:59:15.266773+00:00",
+  "wall_seconds": 1.202944166958332,
+  "exit_code": 0
+}

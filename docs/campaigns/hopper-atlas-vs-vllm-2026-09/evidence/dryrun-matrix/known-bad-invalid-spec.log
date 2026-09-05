@@ -1,0 +1,16 @@
+{
+  "id": "invalid-spec",
+  "oracle_expected_exit": 2,
+  "observed_exit": 2,
+  "oracle_passed": true
+}
+
+=== known-bad ===
+$ bash bench/campaign/run_cell.sh --engine vllm --model nemotron-3-nano-fp8 --sku h100 --workload lat --concurrency 1 --spec invalid --think off --out /tmp/atlas-step-d-dryrun-not-created/negative --dry-run
+started_utc: 2026-09-05T12:53:58.520795+00:00
+exit_code: 2
+wall_seconds: 0.013991
+--- stdout ---
+
+--- stderr ---
+ERROR: --spec must be on or off (got 'invalid')

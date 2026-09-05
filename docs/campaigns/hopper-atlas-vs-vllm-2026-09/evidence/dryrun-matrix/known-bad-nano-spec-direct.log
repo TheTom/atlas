@@ -1,0 +1,17 @@
+{
+  "id": "nano-spec-direct",
+  "oracle_expected_exit": 4,
+  "observed_exit": 4,
+  "oracle_passed": true
+}
+
+=== known-bad ===
+$ bash bench/campaign/vllm_control.sh nemotron-3-nano-fp8 h100 --spec on --dry-run
+started_utc: 2026-09-05T12:53:58.535228+00:00
+exit_code: 4
+wall_seconds: 0.153107
+--- stdout ---
+
+--- stderr ---
+ERROR: --spec on, but the recipe for nemotron-3-nano-fp8 on h100 renders no speculative profile.
+       Speculation is both-or-neither: run BOTH legs spec off, or pick a model whose recipe has one.

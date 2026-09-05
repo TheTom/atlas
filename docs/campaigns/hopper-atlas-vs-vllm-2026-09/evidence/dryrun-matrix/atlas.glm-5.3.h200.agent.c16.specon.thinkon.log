@@ -1,0 +1,26 @@
+{
+  "model": "glm-5.3",
+  "sku": "h200",
+  "prd_source": "3.2 L77; 4 L101; 7 L192; 16 L312",
+  "role": "Phase-D-vllm-reference",
+  "atlas_expectation": "ATLAS_UNSUPPORTED",
+  "key_status": "canonical",
+  "id": "atlas.glm-5.3.h200.agent.c16.specon.thinkon",
+  "engine": "atlas",
+  "workload": "agent",
+  "concurrency": 16,
+  "spec": "on",
+  "think": "on",
+  "category": "scoring-envelope",
+  "policy_notes": []
+}
+
+=== run_cell ===
+$ bash bench/campaign/run_cell.sh --engine atlas --model glm-5.3 --sku h200 --workload agent --concurrency 16 --spec on --think on --out /tmp/atlas-step-d-dryrun-not-created/atlas.glm-5.3.h200.agent.c16.specon.thinkon --dry-run
+started_utc: 2026-09-05T12:54:55.527135+00:00
+exit_code: 3
+wall_seconds: 0.217692
+--- stdout ---
+no rendered profile for glm-5.3 on h200
+
+--- stderr ---

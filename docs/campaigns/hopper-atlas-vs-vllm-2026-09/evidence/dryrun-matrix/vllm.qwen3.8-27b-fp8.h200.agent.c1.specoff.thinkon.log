@@ -1,0 +1,38 @@
+{
+  "model": "qwen3.8-27b-fp8",
+  "sku": "h200",
+  "prd_source": "16 L309",
+  "role": "first-paid-cell",
+  "atlas_expectation": "runnable",
+  "key_status": "unallocated-proposal",
+  "id": "vllm.qwen3.8-27b-fp8.h200.agent.c1.specoff.thinkon",
+  "engine": "vllm",
+  "workload": "agent",
+  "concurrency": 1,
+  "spec": "off",
+  "think": "on",
+  "category": "scoring-envelope",
+  "policy_notes": [
+    "canonical model key not allocated by recipe JSON"
+  ]
+}
+
+=== run_cell ===
+$ bash bench/campaign/run_cell.sh --engine vllm --model qwen3.8-27b-fp8 --sku h200 --workload agent --concurrency 1 --spec off --think on --out /tmp/atlas-step-d-dryrun-not-created/vllm.qwen3.8-27b-fp8.h200.agent.c1.specoff.thinkon --dry-run
+started_utc: 2026-09-05T12:55:23.037987+00:00
+exit_code: 3
+wall_seconds: 0.233892
+--- stdout ---
+no rendered profile for qwen3.8-27b-fp8 on h200
+
+--- stderr ---
+
+=== vllm_control ===
+$ bash bench/campaign/vllm_control.sh qwen3.8-27b-fp8 h200 --spec off --dry-run
+started_utc: 2026-09-05T12:55:23.271937+00:00
+exit_code: 3
+wall_seconds: 0.068981
+--- stdout ---
+no rendered profile for qwen3.8-27b-fp8 on h200
+
+--- stderr ---

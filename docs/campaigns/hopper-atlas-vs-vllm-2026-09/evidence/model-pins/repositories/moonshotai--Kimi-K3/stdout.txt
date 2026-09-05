@@ -1,0 +1,1 @@
+{"gated": false, "private": false, "repo_id": "moonshotai/Kimi-K3", "sha": "f831ab66814297da540d832a5235f8e904f29d06", "sibling_count": 119, "status": "ok"}

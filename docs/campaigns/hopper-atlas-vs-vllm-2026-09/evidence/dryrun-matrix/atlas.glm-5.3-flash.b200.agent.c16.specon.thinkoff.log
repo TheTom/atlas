@@ -1,0 +1,29 @@
+{
+  "model": "glm-5.3-flash",
+  "sku": "b200",
+  "prd_source": "recipe JSON only; PRD 3.1 names H200",
+  "role": "recipe-only-probe",
+  "atlas_expectation": "ATLAS_UNSUPPORTED",
+  "key_status": "canonical",
+  "id": "atlas.glm-5.3-flash.b200.agent.c16.specon.thinkoff",
+  "engine": "atlas",
+  "workload": "agent",
+  "concurrency": 16,
+  "spec": "on",
+  "think": "off",
+  "category": "policy-probe",
+  "policy_notes": [
+    "recipe-only-probe",
+    "always-thinking; think off blocked pending frozen policy (4 L101)"
+  ]
+}
+
+=== run_cell ===
+$ bash bench/campaign/run_cell.sh --engine atlas --model glm-5.3-flash --sku b200 --workload agent --concurrency 16 --spec on --think off --out /tmp/atlas-step-d-dryrun-not-created/atlas.glm-5.3-flash.b200.agent.c16.specon.thinkoff --dry-run
+started_utc: 2026-09-05T12:55:27.495567+00:00
+exit_code: 3
+wall_seconds: 0.268229
+--- stdout ---
+no rendered profile for glm-5.3-flash on b200
+
+--- stderr ---

@@ -1,0 +1,12 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "pidtom@192.168.50.36",
+    "python3 /home/pidtom/atlas-step-d-20260905-1249/run_build.py hopper"
+  ],
+  "started_utc": "2026-09-05T12:53:19.498606+00:00",
+  "wall_seconds": 210.9272664169548,
+  "exit_code": 0
+}

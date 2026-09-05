@@ -1,0 +1,29 @@
+{
+  "model": "nemotron-3-super-fp8",
+  "sku": "b200",
+  "prd_source": "3.1 L62; 5 L127; 6.1 L161; 7 L187-188",
+  "role": "P0",
+  "atlas_expectation": "runnable",
+  "key_status": "canonical",
+  "id": "atlas.nemotron-3-super-fp8.b200.lat.c16.specon.thinkon",
+  "engine": "atlas",
+  "workload": "lat",
+  "concurrency": 16,
+  "spec": "on",
+  "think": "on",
+  "category": "conditional-alternative",
+  "policy_notes": [
+    "spec on conflicts with Atlas support; default off (6.1 L161 vs 7 L187)"
+  ]
+}
+
+=== run_cell ===
+$ bash bench/campaign/run_cell.sh --engine atlas --model nemotron-3-super-fp8 --sku b200 --workload lat --concurrency 16 --spec on --think on --out /tmp/atlas-step-d-dryrun-not-created/atlas.nemotron-3-super-fp8.b200.lat.c16.specon.thinkon --dry-run
+started_utc: 2026-09-05T12:54:19.276342+00:00
+exit_code: 4
+wall_seconds: 0.446328
+--- stdout ---
+
+--- stderr ---
+ERROR: --spec on, but the Atlas recipe for nemotron-3-super-fp8 on b200 declares no speculative support.
+       The paired vLLM b200 recipe is TP1 on one GPU, so this is the one Super row where the topologies match. recipe_max is false all the same: EP=2 is the layout the PRD calls validated, and one GPU is a step down from it. FP8 KV calibration: FP8 checkpoints that ship no *.k_scale tensors get scale 1.0, which clips BF16 into E4M3 (spark-runtime weights.rs fp8_kv_scale_count); the GB10 rehearsal of 2026-09-05 (Nano FP8 through the nvfp4 bundle, 'missing FP8 KV scale tensors, default 1.0') produced degenerate output. 256 calibration tokens is the value kernels/gb10/qwen3.6-35b-a3b/MODEL.toml uses for its FP8 checkpoint. Applies only with --kv-cache-dtype fp8.
