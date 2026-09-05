@@ -103,10 +103,11 @@ variant, etc.), you'll also need to:
 
 ## Adding a new hardware target
 
-Atlas's NVIDIA targets are **GB10 (Blackwell, sm_121)** and **Hopper
-(H100/H200, sm_90a)**; `strix`/`strix-hip` (AMD gfx1151) and `metal` are the
-non-NVIDIA sets. Adding another — say sm_120 for a consumer Blackwell, or
-sm_100 for Blackwell datacenter — requires:
+Atlas's NVIDIA targets are **GB10 (Blackwell, sm_121)**, **Hopper
+(H100/H200, sm_90a)** and **B200 (B200/GB200, sm_100a)**; `strix`/`strix-hip`
+(AMD gfx1151) and `metal` are the non-NVIDIA sets. Adding another — say sm_120
+for a consumer Blackwell board, or sm_103 for Blackwell Ultra (B300/GB300) —
+requires:
 
 1. **`kernels/<new-hw>/HARDWARE.toml`**. The keys are exactly the ones
    `crates/atlas-kernels/build.rs` reads, plus documentation:
@@ -138,9 +139,17 @@ sm_100 for Blackwell datacenter — requires:
    what happened to two keys that pretended otherwise.
 
    Get the SM number right. Hopper is **sm_90** (`sm_90a` with the
-   arch-specific feature set); sm_100 is Blackwell **datacenter**, sm_120 is
-   consumer Blackwell, sm_121 is GB10. PTX built for an `a`-suffixed arch does
-   not run forward onto a later architecture.
+   arch-specific feature set); **sm_100** is Blackwell datacenter (B200/GB200),
+   **sm_103** is Blackwell Ultra (B300/GB300), sm_120 is consumer Blackwell,
+   sm_121 is GB10. PTX built for an `a`-suffixed arch does not run forward onto
+   a later architecture — and these are not a ladder: sm_100a and sm_120a are
+   siblings, each with instructions the other lacks (see the B200 section
+   below).
+
+   The value also has to be reachable: `crates/atlas-kernels/tests/target_hints.rs`
+   asserts that `atlas_core::arch::target_hint` maps this file's
+   `compute_capability` back to the directory name, so an operator whose GPU
+   fails the arch preflight is told which target to rebuild.
 
 2. **Kernel sources**: `kernels/<new-hw>/common/` for the shared set and
    `kernels/<new-hw>/<model>/<quant>/` for per-model shadows. If the new
@@ -241,12 +250,101 @@ It runs a **self-test first, always**: one fixture that must compile for any
 arch and one that must NOT compile for this one
 (`scripts/fixtures/hopper_gate/`). If either verdict is wrong the gate refuses
 to report results. A gate whose failure path has never executed is not
-evidence — and the negative fixture is arch-specific, so pointing the gate at
-the architecture the fixture happens to be valid on is itself caught.
+evidence.
+
+The negative fixture is chosen **per arch**, because no single instruction is
+absent from every architecture Atlas targets:
+
+| arch under test | negative fixture | why it fails there |
+|---|---|---|
+| `sm_90a`, `sm_120a`, `sm_121*` | `known_bad_post_hopper.cu` | `redux.sync.max.abs.f32` exists only on sm_100a |
+| `sm_100a` | `known_bad_post_blackwell_dc.cu` | warp-level `mma ... .kind::mxf4nvf4.block_scale` exists only on sm_120a/sm_121a |
+| anything else | — | the gate REFUSES to run |
+
+Each fixture carries its own measured table of which arches it passes and
+fails on, and the ledger records which one was used. An arch with no
+registered fixture is refused rather than waved through: a gate with no
+failure path proves nothing.
 
 Compilation is not correctness. A green gate says these kernels exist for
 sm_90a; it says nothing about whether they produce the right numbers or run
 well. Receipts live in `docs/campaigns/`.
+
+## The B200 (sm_100a) target
+
+`kernels/b200/` is B200 and GB200 — both SM 10.0, datacenter Blackwell. It is
+built exactly like `kernels/hopper/`: 218 relative symlinks into
+`kernels/gb10/` (the 181-entry `common/` plus each of the five P0 models'
+`nvfp4/`), with a real `MODEL.toml` per model whose header records that its
+`[expected_absent]` tables were harvested on GB10 and **not** re-harvested on a
+B200. `crates/atlas-kernels/tests/inherited_targets.rs` holds both trees to the
+same assertions.
+
+**sm_100a, and why it is not a step up from sm_121.** The `a` suffix opts into
+datacenter Blackwell's arch-specific set — tcgen05, TMA, the native NVFP4
+instructions. The two Blackwell architectures are **siblings, not a ladder**:
+
+| instruction | sm_90a | sm_100a | sm_120a / sm_121 |
+|---|---|---|---|
+| `cvt.rn.satfinite.e2m1x2.f32` | ✗ | ✓ | ✓ |
+| `mma.sync ... .kind::mxf4nvf4.block_scale` | ✗ | **✗** | ✓ |
+| `redux.sync.max.abs.f32` | ✗ | ✓ | ✗ |
+| `tcgen05.*` | ✗ | ✓ | ✗ |
+
+(measured with nvcc/ptxas 13.0.88 on 2026-09-05; the first three are pinned by
+the gate fixtures.) Warp-level block-scaled MMA is a consumer-Blackwell
+instruction; on sm_100a the same work goes through `tcgen05.mma` against tensor
+memory. So `sm_100a` PTX is not "sm_121 PTX that also runs on a B200", and
+neither arch's PTX runs on the other.
+
+**What the gate found, 2026-09-05** (CUDA 13.0.88, receipts in
+`docs/campaigns/hopper-atlas-vs-vllm-2026-09/receipts/ptx_gate_b200_2026-09-05.*`):
+**870 of 871** kernels across the five P0 targets emit PTX and assemble for
+sm_100a — the same count as Hopper, and the same single kernel failing, but for
+a **different reason**:
+
+```
+Instruction 'mma with block scale' not supported on .target 'sm_100a'
+```
+
+`kernels/gb10/qwen3.6-35b-a3b/nvfp4/moe_w4a16_grouped_gemm.cu` fails on Hopper
+because sm_90a has no `cvt .e2m1x2` at all; on sm_100a that conversion is fine
+and the *block-scaled MMA* is what is missing. The fix is therefore different
+per architecture: Hopper needs an Sm90 MoE grouped GEMM with no FP4 path at
+all, B200 needs the same math re-expressed through tcgen05. Until one exists,
+qwen3.6-35b-a3b does not build for either. `nemotron-super-120b-a12b` passes
+under `--strict` (`--Werror all-warnings`, as the real build) on both.
+
+**Register pressure moves between the two arches, in both directions.** 574 of
+871 kernels differ in max registers or spill bytes; 32 sit at the 255-register
+ceiling on each, and 42 spill on each. Total spill across the set is 12,056
+bytes at sm_90a against 19,400 at sm_100a, and the movement is concentrated:
+
+| kernel | sm_90a regs/spill | sm_100a regs/spill |
+|---|---:|---:|
+| `gated_delta_rule_persistent` | 255 / 124 | 255 / **2256** |
+| `gated_delta_rule_fla` | 255 / 324 | 254 / **0** |
+| `gated_delta_rule_wy3_resident` | 255 / 204 | 255 / 16 |
+| `gated_delta_rule` | 255 / 1552 | 255 / 1396 |
+| `w4a16_gemm` | 168 / 624 | 168 / 492 |
+
+`gated_delta_rule_persistent` is the one to look at first on real silicon: an
+18x spill increase in the persistent GDN decode kernel is the shape of a
+scheduling regression, and it is invisible to a pass/fail gate. `_fla` moving
+the other way (324 bytes to none) is the same phenomenon with the opposite
+sign. None of this has been timed — spill bytes are a hint, not a measurement.
+
+**NVFP4 on B200 is a hand-kernel path only.** The CUTLASS wrappers in
+`crates/spark-runtime/cuda/cutlass_nvfp4_gemm.cu` are gated on
+`CUTLASS_ARCH_MMA_SM120_SUPPORTED || CUTLASS_ARCH_MMA_SM121_SUPPORTED` and
+compile to nothing for sm_100a, exactly as they do for sm_90a. Porting them
+needs `cutlass::arch::Sm100` collectives behind
+`CUTLASS_ARCH_MMA_SM100_SUPPORTED`; that is not done here.
+
+B300 and GB300 are **sm_103a** and are NOT this target. `sm_100a` PTX does not
+run on CC 10.3, `atlas_core::arch::target_hint` returns `None` for it on
+purpose, and `hardware_id_from_gpu_name` maps neither part — a B300 gets "no
+shipped target" rather than a rebuild instruction that would fail the same way.
 
 ## Adding a new quantization scheme
 
