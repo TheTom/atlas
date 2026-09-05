@@ -60,7 +60,7 @@ Win condition is an honest Pareto, not "always faster". A C=1 loss with a C=16 w
 |---|---|---|---|---|
 | Plumbing | Nemotron 3 Nano 30B-A3B | `nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8` | `nemotron-3-nano-30b-a3b` | 1×H100, then 1×B200 |
 | P0 | Nemotron 3 Super 120B-A12B | `nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8` | `nemotron-super-120b-a12b` | 4×H100 (recipe-max; 2×H100 matched) → 1×H200 → 1×B200 |
-| P0 | Qwen3.6-35B-A3B (flagship, native FP8, MTP) | `Qwen/Qwen3.6-35B-A3B-FP8` | `qwen3.6-35b-a3b` | 1×H100, 1×B200 |
+| P0 → **blocked** | Qwen3.6-35B-A3B (flagship, native FP8, MTP) | `Qwen/Qwen3.6-35B-A3B-FP8` | `qwen3.6-35b-a3b` — one NVFP4 MoE kernel fails to compile on sm_90a **and** sm_100a (see §12) | 1×H100, 1×B200 once the Sm90 / tcgen05 grouped GEMM lands |
 | P1 | Qwen3-Next-80B-A3B (GDN + MoE stand-in for Flash-Next) | `Qwen/Qwen3-Next-80B-A3B-Instruct-FP8` | `qwen3-next-80b-a3b` | 2×H100 / 1×H200 / 1×B200 |
 | P1 | DeepSeek V4-Flash | `deepseek-ai/DeepSeek-V4-Flash-0731` (FP8; vLLM has **no H100 recipe**) | `deepseek-v4-flash` | 8×H200, 8×B200 per recipe (Atlas EP only) |
 | P1 (vLLM ref until ported) | GLM-5.3-Flash (~320B / 18B active) | `zai-org/GLM-5.3-Flash` FP8 | **none — `ATLAS_UNSUPPORTED`** (no `glm` `model_type` in `crates/spark-model/src/factory.rs`) | 4–8×H200, same booking as Flash-Next |
@@ -95,7 +95,7 @@ A cell is certified only if every gate passes. Each gate names its oracle.
 
 | Gate | Bar | Oracle |
 |---|---|---|
-| Compile (Phase 0) | Every kernel in `kernels/<hw>/common` and the model's `nvfp4/` dir emits PTX and passes `ptxas` for the target arch | `scripts/hopper_ptx_gate.sh` ledger; gate self-test proves a known sm_120-only kernel fails |
+| Compile (Phase 0) | Every kernel in `kernels/<hw>/common` and the model's `nvfp4/` dir emits PTX and passes `ptxas` for the target arch | `scripts/hopper_ptx_gate.sh` ledger; per-arch negative fixture must fail (`redux.sync.max.abs.f32` for sm_90a/sm_12x, `mma.block_scale` for sm_100a). **Result 2026-09-05 (Spark 1, CUDA 13.0.88): sm_90a 870/871, sm_100a 870/871; the one failure is `qwen3.6-35b-a3b/nvfp4/moe_w4a16_grouped_gemm.cu` on both** — receipts in `receipts/` |
 | Preflight | `spark serve --check-kernels` exits 0 on the box; compiled arch matches device CC | `--check-kernels` JSON (`compiled_arch`, `device_cc`); mismatch message is the negative case |
 | Boot | `/health` returns 200 and a 1-token request completes ≤ 30 min after weights are local | `bench/hopper_ab/time_to_ready.sh` JSON; else NO-GO, tear down |
 | Coherency | Two greedy runs, same prompt, byte-identical. Tool-call JSON parses with `finish_reason == "tool_calls"`. No `<think>` in content when thinking is off. GLM rows add: think-on and think-off through the `glm45` reasoning parser, one `glm47`-format tool call | `bench/hopper_ab/coherency_gate.py` (derived from `scripts/test_coherence.py`); known-answer probes from `bench/agentic/coherence_check.py` (391 / Tokyo / rotaregirfer) |
@@ -210,7 +210,7 @@ Known conflicts to resolve before the run and record in the artifact: Super tool
 |---|---|---|---|---|---|---|
 | H100 SXM | 80 GB | 3.35 TB/s | 9.0 | `hopper` (sm_90a) | FP8 | Super recipe-max is TP4; V4-Flash and M3 have no H100 recipe — use H200 |
 | H200 SXM | 141 GB | 4.8 TB/s | 9.0 | `hopper` (sm_90a) | FP8 | Super fits 1 GPU; V4-Flash 8 GPUs (vLLM TEP8, Atlas EP=8); NVFP4 is Marlin-emulated and buggy in vLLM here — never benchmark it |
-| B200 SXM | 180 GB | 8 TB/s | 10.0 | `b200` (sm_100a) | FP8 and NVFP4 | NVFP4 needs an Sm100 CUTLASS port in Atlas before the NVFP4 rows run; FP8 rows do not |
+| B200 SXM | 180 GB | 8 TB/s | 10.0 | `b200` (sm_100a) | FP8 now; NVFP4 after a port | **Measured 2026-09-05:** Atlas's hand-written NVFP4 MoE GEMM uses the warp-level `mma.kind::mxf4nvf4.block_scale`, a consumer-Blackwell (sm_120/121) instruction that ptxas rejects on sm_100a; datacenter Blackwell needs a `tcgen05` path, and the CUTLASS wrappers need `Sm100`. So Atlas B200 rows are FP8 until that port; vLLM NVFP4 rows on B200 are reference-only |
 
 ## 9. Client and methodology
 
@@ -265,6 +265,8 @@ The companion PR is built RST-style: every check names its oracle and has a demo
 | Side-object arch | build-script fallback test | `ATLAS_CUDA_ARCH` / `ATLAS_PREDICTOR_ARCH` default from HARDWARE.toml | Mac / CI |
 | Bench ids | `h100`/`h200`/`b200` resolve; `h800` refused; GPU-name → id mapping incl. B200 ≠ h100 | `bench_resolve`, `hardware_id_from_gpu_name`, `gpu_count` in records | Mac / CI |
 | Campaign driver | each script `--selftest` | `bench/hopper_ab/` | Mac; then the box |
+
+Gate results (2026-09-05): Nemotron Super, Nano, DeepSeek V4-Flash and Qwen3-Next compile completely for both sm_90a and sm_100a; Qwen3.6-35B-A3B fails one kernel on each (Hopper: no `cvt.e2m1x2`; B200: no warp-level `mma.block_scale`), so it is **blocked on Hopper and B200 until an Sm90 and a tcgen05 MoE grouped GEMM exist** — Qwen3-Next-80B takes its P0 slot as the GDN + MoE model. Register pressure: `gated_delta_rule_persistent` spills 124 B on sm_90a vs 2256 B on sm_100a — first thing to profile on silicon.
 
 Open engineering items surfaced by the gate, in likely order: kernels using sm_121-specific SMEM/tile assumptions (ptxas spills on sm_90), CUTLASS Sm120 wrappers compiled out (fine for FP8/BF16; blocks NVFP4 rows), FlashInfer/CuTe-DSL side objects pinned to `sm_121a`, `.benchmarks` perf-gate records invalidated by touching `kernels/` (CI `pr-benchmark-gate` needs a GB10 re-measure before merge).
 
