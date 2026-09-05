@@ -37,8 +37,7 @@ fn gb10_dir() -> PathBuf {
 
 fn hardware_toml() -> toml::Value {
     let path = hopper_dir().join("HARDWARE.toml");
-    let text = std::fs::read_to_string(&path)
-        .unwrap_or_else(|e| panic!("{}: {e}", path.display()));
+    let text = std::fs::read_to_string(&path).unwrap_or_else(|e| panic!("{}: {e}", path.display()));
     toml::from_str(&text).unwrap_or_else(|e| panic!("bad TOML in {}: {e}", path.display()))
 }
 
@@ -178,7 +177,10 @@ fn common_mirrors_every_gb10_common_file() {
 fn common_carries_the_headers_and_the_kernel_toml() {
     let dir = hopper_dir().join("common");
     let mut by_ext = std::collections::BTreeMap::<String, usize>::new();
-    for entry in std::fs::read_dir(&dir).expect("kernels/hopper/common").flatten() {
+    for entry in std::fs::read_dir(&dir)
+        .expect("kernels/hopper/common")
+        .flatten()
+    {
         let path = entry.path();
         let ext = path
             .extension()
@@ -186,7 +188,10 @@ fn common_carries_the_headers_and_the_kernel_toml() {
             .unwrap_or_default();
         *by_ext.entry(ext).or_default() += 1;
     }
-    assert!(dir.join("KERNEL.toml").exists(), "KERNEL.toml is the flag base");
+    assert!(
+        dir.join("KERNEL.toml").exists(),
+        "KERNEL.toml is the flag base"
+    );
     assert!(
         by_ext.get("cuh").copied().unwrap_or(0) > 0,
         "no .cuh headers mirrored: {by_ext:?}"
@@ -262,4 +267,192 @@ fn the_mirror_check_reports_missing_entries_and_regular_files() {
             "missing.cu: present in origin, absent from mirror".to_string(),
         ]
     );
+}
+
+// ── (c) the P0 model targets ──
+
+/// The five P0 models of the Hopper campaign. Hopper inherits gb10's kernels,
+/// so this is a curated subset, not gb10's full 26 — adding a model here means
+/// adding its directory, and this list is what says so.
+const HOPPER_MODELS: &[&str] = &[
+    "deepseek-v4-flash",
+    "nemotron-3-nano-30b-a3b",
+    "nemotron-super-120b-a12b",
+    "qwen3-next-80b-a3b",
+    "qwen3.6-35b-a3b",
+];
+
+/// Model directories under `kernels/hopper`, by the rule `build.rs` uses to
+/// expand `ATLAS_TARGET_MODEL=*`: a subdirectory that has a MODEL.toml.
+fn hopper_model_dirs() -> Vec<String> {
+    let mut names: Vec<String> = std::fs::read_dir(hopper_dir())
+        .expect("kernels/hopper")
+        .flatten()
+        .filter_map(|e| {
+            let name = e.file_name().to_string_lossy().to_string();
+            e.path().join("MODEL.toml").exists().then_some(name)
+        })
+        .collect();
+    names.sort();
+    names
+}
+
+/// ORACLE: `HOPPER_MODELS`, the campaign's declared P0 set. A wildcard build
+/// (`ATLAS_TARGET_MODEL=*`) compiles exactly the directories that carry a
+/// MODEL.toml, so this set IS what a Hopper image would serve.
+#[test]
+fn the_p0_model_targets_are_the_ones_declared() {
+    assert_eq!(hopper_model_dirs(), HOPPER_MODELS);
+}
+
+/// Each MODEL.toml is a REAL file (behaviour and sampling are a per-target
+/// decision, not something to inherit by link) whose `[model].name` matches
+/// its directory — the invariant `resolve.rs` reports targets by.
+#[test]
+fn every_model_toml_is_a_real_file_naming_its_own_directory() {
+    for model in HOPPER_MODELS {
+        let path = hopper_dir().join(model).join("MODEL.toml");
+        assert!(
+            std::fs::read_link(&path).is_err(),
+            "{model}/MODEL.toml is a symlink; per-target behaviour must be editable \
+             for Hopper without moving gb10"
+        );
+        let toml: toml::Value = toml::from_str(&std::fs::read_to_string(&path).unwrap())
+            .unwrap_or_else(|e| panic!("bad TOML in {}: {e}", path.display()));
+        assert_eq!(
+            toml.get("model")
+                .and_then(|m| m.get("name"))
+                .and_then(|v| v.as_str()),
+            Some(*model)
+        );
+    }
+}
+
+/// The copied MODEL.toml must say where it came from and what has NOT been
+/// done. `[expected_absent]` is harvested per hardware (`spark serve
+/// --check-kernels` on the real device) and these tables were harvested on
+/// GB10 — carrying them over silently would let a kernel that is genuinely
+/// missing on Hopper read as an expected absence.
+#[test]
+fn every_model_toml_records_its_hopper_provenance() {
+    for model in HOPPER_MODELS {
+        let path = hopper_dir().join(model).join("MODEL.toml");
+        let text = std::fs::read_to_string(&path).unwrap();
+        let head: String = text.lines().take(6).collect::<Vec<_>>().join("\n");
+        assert!(
+            head.contains("Hopper target: kernel set inherited from gb10 via symlink"),
+            "{model}/MODEL.toml does not open with the inheritance note:\n{head}"
+        );
+        assert!(
+            head.contains("--check-kernels"),
+            "{model}/MODEL.toml does not say expected_absent is unharvested on Hopper"
+        );
+    }
+}
+
+/// ORACLE: `kernels/gb10/<model>/nvfp4`. Same mirror rule as `common/`, per
+/// model: every file individually symlinked, so a future Hopper-tuned kernel
+/// replaces ONE link instead of forking the whole directory.
+///
+/// The `nvfp4` dir despite Hopper having no NVFP4 path: the runtime's
+/// weight-format gate is that an nvfp4-built bundle also serves FP8 and BF16
+/// checkpoints, so FP8 Hopper checkpoints run through these kernels. An `fp8/`
+/// quant dir would be a second name for the same files.
+#[test]
+fn every_model_nvfp4_dir_mirrors_gb10() {
+    for model in HOPPER_MODELS {
+        let faults = mirror_faults(
+            &hopper_dir().join(model).join("nvfp4"),
+            &gb10_dir().join(model).join("nvfp4"),
+        );
+        assert!(
+            faults.is_empty(),
+            "kernels/hopper/{model}/nvfp4 has drifted from gb10's:\n  {}",
+            faults.join("\n  ")
+        );
+    }
+}
+
+// ── (d) what build.rs would resolve ──
+
+/// Mirror of `build.rs::resolve_targets` for the GPU-free runner, which never
+/// reaches it: `ATLAS_SKIP_BUILD=1` returns from `main()` before target
+/// resolution runs, so a hardware set can be structurally broken and every
+/// existing test still passes.
+///
+/// Reproduces the parts that decide WHAT gets compiled — HARDWARE.toml `arch`,
+/// the `MODEL.toml`-carrying subdirectory scan, the `[model] kernel_source`
+/// redirect, and the default `nvfp4` quant — and returns `(model, quant, arch,
+/// kernel dir)` per target.
+fn resolved_targets(hw: &str, quant: &str) -> Vec<(String, String, String, PathBuf)> {
+    let hw_dir = kernels_root().join(hw);
+    let hw_toml: toml::Value =
+        toml::from_str(&std::fs::read_to_string(hw_dir.join("HARDWARE.toml")).unwrap())
+            .expect("valid HARDWARE.toml");
+    let arch = hw_toml["hardware"]["arch"].as_str().unwrap().to_string();
+
+    let mut models: Vec<String> = std::fs::read_dir(&hw_dir)
+        .unwrap()
+        .flatten()
+        .filter_map(|e| {
+            let name = e.file_name().to_string_lossy().to_string();
+            e.path().join("MODEL.toml").exists().then_some(name)
+        })
+        .collect();
+    models.sort();
+
+    models
+        .into_iter()
+        .map(|model| {
+            let model_dir = hw_dir.join(&model);
+            let toml: toml::Value =
+                toml::from_str(&std::fs::read_to_string(model_dir.join("MODEL.toml")).unwrap())
+                    .unwrap();
+            let src = toml
+                .get("model")
+                .and_then(|m| m.get("kernel_source"))
+                .and_then(|v| v.as_str())
+                .map(|s| hw_dir.join(s))
+                .unwrap_or(model_dir);
+            let kernel_dir = src.join(quant);
+            (model, quant.to_string(), arch.clone(), kernel_dir)
+        })
+        .collect()
+}
+
+/// A wildcard hopper build resolves the five P0 targets, all at `sm_90a`, each
+/// with a kernel directory that exists. This is the assertion the real build
+/// would make on a CUDA host, made where CI can actually run it.
+#[test]
+fn a_wildcard_hopper_build_resolves_five_sm90a_targets() {
+    let targets = resolved_targets("hopper", "nvfp4");
+    let names: Vec<&str> = targets.iter().map(|(m, ..)| m.as_str()).collect();
+    assert_eq!(names, HOPPER_MODELS);
+    for (model, quant, arch, kernel_dir) in &targets {
+        assert_eq!(arch, "sm_90a", "{model}");
+        assert_eq!(quant, "nvfp4", "{model}");
+        assert!(
+            kernel_dir.is_dir(),
+            "{model}: no kernel directory at {}",
+            kernel_dir.display()
+        );
+    }
+}
+
+/// No hopper MODEL.toml redirects with `kernel_source`. Redirects are a
+/// WITHIN-hardware mechanism — `build.rs` resolves the name against
+/// `kernels/<hw>/` — so one here would have to name another hopper target, not
+/// a gb10 one. Hopper reuses gb10 through the filesystem instead, which is why
+/// the kernel dirs above resolve to hopper's own paths.
+#[test]
+fn no_hopper_target_redirects_its_kernel_source() {
+    let targets = resolved_targets("hopper", "nvfp4");
+    assert!(!targets.is_empty(), "no hopper targets resolved at all");
+    for (model, _, _, kernel_dir) in targets {
+        assert_eq!(
+            kernel_dir,
+            hopper_dir().join(&model).join("nvfp4"),
+            "{model}: kernel_source redirect changes where kernels come from"
+        );
+    }
 }
