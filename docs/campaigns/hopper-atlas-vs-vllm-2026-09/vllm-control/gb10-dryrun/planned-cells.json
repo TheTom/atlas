@@ -1,0 +1,214 @@
+{
+  "schema": "vllm-control-planned-cells-v1",
+  "note": "Execution plan only. These are not section 10 measured cell artifacts; ISL is the unchanged ladder nominal argument, not an observed tokenizer count.",
+  "cells": [
+    {
+      "run": "A",
+      "engine": "vllm",
+      "hardware_id": "gb10",
+      "model_hf_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+      "model_revision": "9bee19446c0dfd01f356e10979d225b2a6621944",
+      "workload": {
+        "name": "lat",
+        "isl": 1024,
+        "osl": 256,
+        "concurrency": 1,
+        "reps": 3,
+        "warmup": 1,
+        "temperature": 0.0,
+        "seed": 42,
+        "enable_thinking": false,
+        "spec": {
+          "on": false,
+          "k": 0
+        }
+      },
+      "status": "NOT_RUN",
+      "metrics": null,
+      "boot": null,
+      "coherency": null
+    },
+    {
+      "run": "A",
+      "engine": "vllm",
+      "hardware_id": "gb10",
+      "model_hf_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+      "model_revision": "9bee19446c0dfd01f356e10979d225b2a6621944",
+      "workload": {
+        "name": "lat",
+        "isl": 1024,
+        "osl": 256,
+        "concurrency": 16,
+        "reps": 3,
+        "warmup": 1,
+        "temperature": 0.0,
+        "seed": 42,
+        "enable_thinking": false,
+        "spec": {
+          "on": false,
+          "k": 0
+        }
+      },
+      "status": "NOT_RUN",
+      "metrics": null,
+      "boot": null,
+      "coherency": null
+    },
+    {
+      "run": "A",
+      "engine": "vllm",
+      "hardware_id": "gb10",
+      "model_hf_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+      "model_revision": "9bee19446c0dfd01f356e10979d225b2a6621944",
+      "workload": {
+        "name": "agent",
+        "isl": 4096,
+        "osl": 512,
+        "concurrency": 1,
+        "reps": 3,
+        "warmup": 1,
+        "temperature": 0.0,
+        "seed": 42,
+        "enable_thinking": false,
+        "spec": {
+          "on": false,
+          "k": 0
+        }
+      },
+      "status": "NOT_RUN",
+      "metrics": null,
+      "boot": null,
+      "coherency": null
+    },
+    {
+      "run": "A",
+      "engine": "vllm",
+      "hardware_id": "gb10",
+      "model_hf_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+      "model_revision": "9bee19446c0dfd01f356e10979d225b2a6621944",
+      "workload": {
+        "name": "agent",
+        "isl": 4096,
+        "osl": 512,
+        "concurrency": 16,
+        "reps": 3,
+        "warmup": 1,
+        "temperature": 0.0,
+        "seed": 42,
+        "enable_thinking": false,
+        "spec": {
+          "on": false,
+          "k": 0
+        }
+      },
+      "status": "NOT_RUN",
+      "metrics": null,
+      "boot": null,
+      "coherency": null
+    },
+    {
+      "run": "B",
+      "engine": "vllm",
+      "hardware_id": "gb10",
+      "model_hf_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+      "model_revision": "9bee19446c0dfd01f356e10979d225b2a6621944",
+      "workload": {
+        "name": "lat",
+        "isl": 1024,
+        "osl": 256,
+        "concurrency": 1,
+        "reps": 3,
+        "warmup": 1,
+        "temperature": 0.0,
+        "seed": 42,
+        "enable_thinking": false,
+        "spec": {
+          "on": false,
+          "k": 0
+        }
+      },
+      "status": "NOT_RUN",
+      "metrics": null,
+      "boot": null,
+      "coherency": null
+    },
+    {
+      "run": "B",
+      "engine": "vllm",
+      "hardware_id": "gb10",
+      "model_hf_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+      "model_revision": "9bee19446c0dfd01f356e10979d225b2a6621944",
+      "workload": {
+        "name": "lat",
+        "isl": 1024,
+        "osl": 256,
+        "concurrency": 16,
+        "reps": 3,
+        "warmup": 1,
+        "temperature": 0.0,
+        "seed": 42,
+        "enable_thinking": false,
+        "spec": {
+          "on": false,
+          "k": 0
+        }
+      },
+      "status": "NOT_RUN",
+      "metrics": null,
+      "boot": null,
+      "coherency": null
+    },
+    {
+      "run": "B",
+      "engine": "vllm",
+      "hardware_id": "gb10",
+      "model_hf_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+      "model_revision": "9bee19446c0dfd01f356e10979d225b2a6621944",
+      "workload": {
+        "name": "agent",
+        "isl": 4096,
+        "osl": 512,
+        "concurrency": 1,
+        "reps": 3,
+        "warmup": 1,
+        "temperature": 0.0,
+        "seed": 42,
+        "enable_thinking": false,
+        "spec": {
+          "on": false,
+          "k": 0
+        }
+      },
+      "status": "NOT_RUN",
+      "metrics": null,
+      "boot": null,
+      "coherency": null
+    },
+    {
+      "run": "B",
+      "engine": "vllm",
+      "hardware_id": "gb10",
+      "model_hf_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+      "model_revision": "9bee19446c0dfd01f356e10979d225b2a6621944",
+      "workload": {
+        "name": "agent",
+        "isl": 4096,
+        "osl": 512,
+        "concurrency": 16,
+        "reps": 3,
+        "warmup": 1,
+        "temperature": 0.0,
+        "seed": 42,
+        "enable_thinking": false,
+        "spec": {
+          "on": false,
+          "k": 0
+        }
+      },
+      "status": "NOT_RUN",
+      "metrics": null,
+      "boot": null,
+      "coherency": null
+    }
+  ]
+}
