@@ -1,0 +1,15 @@
+Verified at 2026-09-05T02:45:10.949237+00:00
+Oracle: saved raw HF API response bodies; no network and no weight downloads.
+
+$ python3 verify.py --selftest
+PASS negative: missing size rejected: missing or invalid file size
+PASS negative: LFS pointer/payload mismatch rejected: LFS payload size differs
+PASS negative: incorrect total rejected: all_files_bytes differs from saved API metadata
+PASS negative: wrong revision rejected: revision differs
+PASS positive: 13 total bytes includes 10 safetensors bytes plus 3 config bytes
+exit 0
+
+$ python3 verify.py
+PASS: 15 API responses, hashes, revisions, file ledgers and exact byte totals
+exit 0
+
