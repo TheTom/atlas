@@ -1,0 +1,53 @@
+UTC: 2026-09-05T03:38:11.626748+00:00
+Synthetic fixture checks only; no GPU or engine used.
+
+$ python3 /private/tmp/atlas-vllm-control/bench/hopper_ab/assemble.py --selftest
+PASS positive: raw reps retained, mean-per-rep latency labelled, unknown provenance null
+PASS positive: one artifact per C=1 and C=16 rung
+PASS negative: frozen workload mismatch rejected
+PASS negative: client hash mismatch rejected
+PASS negative: boot engine mismatch rejected
+PASS negative: gate model mismatch rejected
+PASS negative: Hopper wrongly labelled GB10 rejected
+PASS negative: nonfinite metric rejected
+PASS negative: inconsistent gate verdict rejected
+PASS negative: vacuous measured request retained as failed cell
+PASS negative: missing completion usage retained as failed cell
+PASS negative: missing TPOT retained as failed cell
+PASS negative: stale throughput summary retained as failed cell
+PASS negative: boot exceeds campaign cap retained as failed cell
+PASS negative: failed actual coherency gate retained as failed cell
+SELFTEST OK: synthetic fixtures only; no engine or GPU used
+exit 0
+
+$ python3 /private/tmp/atlas-vllm-control/bench/hopper_ab/assemble.py --ladder /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/ladder.json --boot /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/boot.json --coherency /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/coherency.json --provenance /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/provenance.json --workload lat --run-id valid --out-dir /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/cells
+/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/cells/valid-vllm-lat-c1.json: PASS (PARTIAL)
+exit 0
+
+PASS CLI output: raw rung unchanged, real input checksum matched, unknown image digest null
+
+$ python3 /private/tmp/atlas-vllm-control/bench/hopper_ab/assemble.py --ladder /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/ladder.json --boot /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/boot.json --coherency /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/coherency.json --provenance /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/provenance.json --workload lat --run-id valid --out-dir /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/cells
+refusing assembly: output already exists; use a new run ID or directory
+exit 2
+
+PASS CLI negative: existing output refused
+
+$ python3 /private/tmp/atlas-vllm-control/bench/hopper_ab/assemble.py --ladder /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/ladder.json --boot /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/boot.json --coherency /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/coherency.json --provenance /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/provenance.json --workload lat --run-id bad-usage --out-dir /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/cells
+/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/cells/bad-usage-vllm-lat-c1.json: FAIL (NO-GO)
+exit 1
+
+PASS CLI negative: vacuous request retained as NO-GO artifact
+
+$ python3 /private/tmp/atlas-vllm-control/bench/hopper_ab/assemble.py --ladder /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/ladder.json --boot /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/boot.json --coherency /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/coherency.json --provenance /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/provenance.json --workload lat --run-id mismatch --out-dir /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/cells
+refusing assembly: osl disagrees with frozen lat workload
+exit 2
+
+PASS CLI negative: frozen workload mismatch rejected without artifact
+
+$ python3 /private/tmp/atlas-vllm-control/bench/hopper_ab/assemble.py --ladder /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/ladder.json --boot /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/boot.json --coherency /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/coherency.json --provenance /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/provenance.json --workload lat --run-id incomplete --out-dir /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/cells
+/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/assemble-selftest-d_zwx3_r/cells/incomplete-vllm-lat-c1.json: INCOMPLETE (PARTIAL)
+exit 1
+
+PASS CLI incomplete: missing boot timing stays null/INCOMPLETE, not measured failure
+
+PASS: all assembler selftest and CLI checks passed.
