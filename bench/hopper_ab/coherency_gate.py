@@ -28,6 +28,7 @@ Exits non-zero if any check fails, so a driver can `set -e` around it.
 
 import argparse
 import importlib.util
+import http.client
 import json
 import pathlib
 import subprocess
@@ -229,7 +230,7 @@ def run(url, model, timeout):
     for key, fn in checks:
         try:
             ok, detail = fn(url, model, timeout)
-        except (urllib.error.URLError, OSError, TimeoutError, ValueError, KeyError) as e:
+        except (urllib.error.URLError, http.client.HTTPException, OSError, TimeoutError, ValueError, KeyError) as e:
             # A transport failure is a FAILED check, never a skipped one: the
             # gate's whole job is to refuse to certify what it could not see.
             ok, detail = False, f"{type(e).__name__}: {e}"
@@ -288,7 +289,7 @@ class H(BaseHTTPRequestHandler):
         raw = json.dumps(body).encode()
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
-        self.send_header("Content-Length", str(len(raw)))
+        self.send_header("Content-Length", str(len(raw) + (100 if MODE == "truncated" else 0)))
         self.end_headers()
         self.wfile.write(raw)
 
@@ -330,7 +331,7 @@ def selftest():
         stub = pathlib.Path(d) / "stub.py"
         stub.write_text(STUB)
         results = {}
-        for mode in ("clean", "leak", "missing-args", "wrong-types", "wrong-name", "wrong-call-type", "extra-bad-call", "nondeterministic", "empty", "malformed"):
+        for mode in ("clean", "leak", "missing-args", "wrong-types", "wrong-name", "wrong-call-type", "extra-bad-call", "nondeterministic", "empty", "malformed", "truncated"):
             port = _free_port()
             proc = subprocess.Popen([sys.executable, str(stub), str(port), mode])
             try:
@@ -350,7 +351,7 @@ def selftest():
     for mode in ("missing-args", "wrong-types", "wrong-name", "wrong-call-type", "extra-bad-call"):
         if results[mode]["toolcall_ok"] or results[mode]["passed"]:
             failures.append(f"{mode} must fail the tool-call gate")
-    for mode, key in (("nondeterministic", "determinism_ok"), ("empty", "determinism_ok"), ("malformed", "determinism_ok")):
+    for mode, key in (("nondeterministic", "determinism_ok"), ("empty", "determinism_ok"), ("malformed", "determinism_ok"), ("truncated", "determinism_ok")):
         if results[mode][key] or results[mode]["passed"]:
             failures.append(f"{mode} must fail {key}")
     assert not failures, "\n".join(failures)
