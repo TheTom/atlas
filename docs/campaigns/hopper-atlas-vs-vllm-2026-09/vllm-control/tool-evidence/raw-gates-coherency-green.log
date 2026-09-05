@@ -1,0 +1,601 @@
+$ python3 bench/hopper_ab/coherency_gate.py --selftest
+{
+  "clean": {
+    "schema": 1,
+    "url": "http://127.0.0.1:61070",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T03:35:34Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "1 get_weather call(s), required argument types valid",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "http_exchanges": [
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"101, 103, 107, 109, 113\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"101, 103, 107, 109, 113\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "toolcall_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"\", \"tool_calls\": [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"arguments\": \"{\\\"city\\\": \\\"Reykjavik\\\", \\\"days\\\": 3}\"}}]}, \"finish_reason\": \"tool_calls\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "think_leak_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"To measure a system under a fixed workload.\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      }
+    ],
+    "determinism_ok": true,
+    "toolcall_ok": true,
+    "think_leak_ok": true,
+    "passed": true
+  },
+  "leak": {
+    "schema": 1,
+    "url": "http://127.0.0.1:61077",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T03:35:34Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "1 get_weather call(s), required argument types valid",
+      "think_leak_ok": "leaked <think> tags"
+    },
+    "http_exchanges": [
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"101, 103, 107, 109, 113\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"101, 103, 107, 109, 113\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "toolcall_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"\", \"tool_calls\": [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"arguments\": \"{\\\"city\\\": \\\"Reykjavik\\\", \\\"days\\\": 3}\"}}]}, \"finish_reason\": \"tool_calls\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "think_leak_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"<think>the user wants a definition</think> To measure a system.\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      }
+    ],
+    "determinism_ok": true,
+    "toolcall_ok": true,
+    "think_leak_ok": false,
+    "passed": false
+  },
+  "missing-args": {
+    "schema": 1,
+    "url": "http://127.0.0.1:61085",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T03:35:34Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "missing required argument: city",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "http_exchanges": [
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"101, 103, 107, 109, 113\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"101, 103, 107, 109, 113\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "toolcall_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"\", \"tool_calls\": [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"arguments\": \"{}\"}}]}, \"finish_reason\": \"tool_calls\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "think_leak_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"To measure a system under a fixed workload.\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      }
+    ],
+    "determinism_ok": true,
+    "toolcall_ok": false,
+    "think_leak_ok": true,
+    "passed": false
+  },
+  "wrong-types": {
+    "schema": 1,
+    "url": "http://127.0.0.1:61092",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T03:35:35Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "city must be string",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "http_exchanges": [
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"101, 103, 107, 109, 113\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"101, 103, 107, 109, 113\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "toolcall_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"\", \"tool_calls\": [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"arguments\": \"{\\\"city\\\": 4, \\\"days\\\": true}\"}}]}, \"finish_reason\": \"tool_calls\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "think_leak_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"To measure a system under a fixed workload.\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      }
+    ],
+    "determinism_ok": true,
+    "toolcall_ok": false,
+    "think_leak_ok": true,
+    "passed": false
+  },
+  "wrong-name": {
+    "schema": 1,
+    "url": "http://127.0.0.1:61099",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T03:35:35Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "tool name must be get_weather",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "http_exchanges": [
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"101, 103, 107, 109, 113\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"101, 103, 107, 109, 113\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "toolcall_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"\", \"tool_calls\": [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"delete_files\", \"arguments\": \"{\\\"city\\\": \\\"Reykjavik\\\", \\\"days\\\": 3}\"}}]}, \"finish_reason\": \"tool_calls\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "think_leak_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"To measure a system under a fixed workload.\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      }
+    ],
+    "determinism_ok": true,
+    "toolcall_ok": false,
+    "think_leak_ok": true,
+    "passed": false
+  },
+  "wrong-call-type": {
+    "schema": 1,
+    "url": "http://127.0.0.1:61106",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T03:35:35Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "each tool call must be a function object",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "http_exchanges": [
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"101, 103, 107, 109, 113\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"101, 103, 107, 109, 113\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "toolcall_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"\", \"tool_calls\": [{\"id\": \"call_0\", \"type\": \"custom\", \"function\": {\"name\": \"get_weather\", \"arguments\": \"{\\\"city\\\": \\\"Reykjavik\\\", \\\"days\\\": 3}\"}}]}, \"finish_reason\": \"tool_calls\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "think_leak_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"To measure a system under a fixed workload.\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      }
+    ],
+    "determinism_ok": true,
+    "toolcall_ok": false,
+    "think_leak_ok": true,
+    "passed": false
+  },
+  "extra-bad-call": {
+    "schema": 1,
+    "url": "http://127.0.0.1:61114",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T03:35:35Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "missing required argument: city",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "http_exchanges": [
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"101, 103, 107, 109, 113\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"101, 103, 107, 109, 113\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "toolcall_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"\", \"tool_calls\": [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"arguments\": \"{\\\"city\\\": \\\"Reykjavik\\\", \\\"days\\\": 3}\"}}, {\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"arguments\": \"{}\"}}]}, \"finish_reason\": \"tool_calls\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "think_leak_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"To measure a system under a fixed workload.\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      }
+    ],
+    "determinism_ok": true,
+    "toolcall_ok": false,
+    "think_leak_ok": true,
+    "passed": false
+  },
+  "nondeterministic": {
+    "schema": 1,
+    "url": "http://127.0.0.1:61121",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T03:35:35Z",
+    "details": {
+      "determinism_ok": "diverged at char 1: '01, 103, 107, 109, 113' vs '27'",
+      "toolcall_ok": "1 get_weather call(s), required argument types valid",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "http_exchanges": [
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"101, 103, 107, 109, 113\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"127\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "toolcall_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"\", \"tool_calls\": [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"arguments\": \"{\\\"city\\\": \\\"Reykjavik\\\", \\\"days\\\": 3}\"}}]}, \"finish_reason\": \"tool_calls\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "think_leak_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"To measure a system under a fixed workload.\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      }
+    ],
+    "determinism_ok": false,
+    "toolcall_ok": true,
+    "think_leak_ok": true,
+    "passed": false
+  },
+  "empty": {
+    "schema": 1,
+    "url": "http://127.0.0.1:61128",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T03:35:35Z",
+    "details": {
+      "determinism_ok": "empty reply -- nothing to compare",
+      "toolcall_ok": "finish_reason was 'stop', not 'tool_calls'",
+      "think_leak_ok": "empty reply -- a leak check over no text proves nothing"
+    },
+    "http_exchanges": [
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "toolcall_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      },
+      {
+        "check": "think_leak_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": true
+      }
+    ],
+    "determinism_ok": false,
+    "toolcall_ok": false,
+    "think_leak_ok": false,
+    "passed": false
+  },
+  "malformed": {
+    "schema": 1,
+    "url": "http://127.0.0.1:61137",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T03:35:35Z",
+    "details": {
+      "determinism_ok": "ValueError: response must contain a nonempty choices array of objects",
+      "toolcall_ok": "ValueError: response must contain a nonempty choices array of objects",
+      "think_leak_ok": "ValueError: response must contain a nonempty choices array of objects"
+    },
+    "http_exchanges": [
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [7]}",
+        "response_complete": true
+      },
+      {
+        "check": "toolcall_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [7]}",
+        "response_complete": true
+      },
+      {
+        "check": "think_leak_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [7]}",
+        "response_complete": true
+      }
+    ],
+    "determinism_ok": false,
+    "toolcall_ok": false,
+    "think_leak_ok": false,
+    "passed": false
+  },
+  "truncated": {
+    "schema": 1,
+    "url": "http://127.0.0.1:61144",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T03:35:35Z",
+    "details": {
+      "determinism_ok": "IncompleteRead: IncompleteRead(124 bytes read, 100 more expected)",
+      "toolcall_ok": "IncompleteRead: IncompleteRead(253 bytes read, 100 more expected)",
+      "think_leak_ok": "IncompleteRead: IncompleteRead(144 bytes read, 100 more expected)"
+    },
+    "http_exchanges": [
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"101, 103, 107, 109, 113\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": false
+      },
+      {
+        "check": "toolcall_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"\", \"tool_calls\": [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"arguments\": \"{\\\"city\\\": \\\"Reykjavik\\\", \\\"days\\\": 3}\"}}]}, \"finish_reason\": \"tool_calls\"}]}",
+        "response_complete": false
+      },
+      {
+        "check": "think_leak_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"To measure a system under a fixed workload.\"}, \"finish_reason\": \"stop\"}]}",
+        "response_complete": false
+      }
+    ],
+    "determinism_ok": false,
+    "toolcall_ok": false,
+    "think_leak_ok": false,
+    "passed": false
+  },
+  "invalid": {
+    "schema": 1,
+    "url": "http://127.0.0.1:61150",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T03:35:35Z",
+    "details": {
+      "determinism_ok": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "toolcall_ok": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "think_leak_ok": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+    },
+    "http_exchanges": [
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "not json",
+        "response_complete": true
+      },
+      {
+        "check": "toolcall_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+        "response_status": 200,
+        "response_body": "not json",
+        "response_complete": true
+      },
+      {
+        "check": "think_leak_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "not json",
+        "response_complete": true
+      }
+    ],
+    "determinism_ok": false,
+    "toolcall_ok": false,
+    "think_leak_ok": false,
+    "passed": false
+  },
+  "http500": {
+    "schema": 1,
+    "url": "http://127.0.0.1:61157",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T03:35:35Z",
+    "details": {
+      "determinism_ok": "HTTPError: HTTP Error 500: Internal Server Error",
+      "toolcall_ok": "HTTPError: HTTP Error 500: Internal Server Error",
+      "think_leak_ok": "HTTPError: HTTP Error 500: Internal Server Error"
+    },
+    "http_exchanges": [
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 500,
+        "response_body": "{\"error\": \"known failure\"}",
+        "response_complete": true
+      },
+      {
+        "check": "toolcall_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+        "response_status": 500,
+        "response_body": "{\"error\": \"known failure\"}",
+        "response_complete": true
+      },
+      {
+        "check": "think_leak_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 500,
+        "response_body": "{\"error\": \"known failure\"}",
+        "response_complete": true
+      }
+    ],
+    "determinism_ok": false,
+    "toolcall_ok": false,
+    "think_leak_ok": false,
+    "passed": false
+  },
+  "error200": {
+    "schema": 1,
+    "url": "http://127.0.0.1:61164",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T03:35:35Z",
+    "details": {
+      "determinism_ok": "ValueError: response must be a completion object without an error",
+      "toolcall_ok": "ValueError: response must be a completion object without an error",
+      "think_leak_ok": "ValueError: response must be a completion object without an error"
+    },
+    "http_exchanges": [
+      {
+        "check": "determinism_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"error\": \"known failure\"}",
+        "response_complete": true
+      },
+      {
+        "check": "toolcall_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+        "response_status": 200,
+        "response_body": "{\"error\": \"known failure\"}",
+        "response_complete": true
+      },
+      {
+        "check": "think_leak_ok",
+        "request_json": "{\"model\": \"stub-model\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+        "response_status": 200,
+        "response_body": "{\"error\": \"known failure\"}",
+        "response_complete": true
+      }
+    ],
+    "determinism_ok": false,
+    "toolcall_ok": false,
+    "think_leak_ok": false,
+    "passed": false
+  }
+}
+SELFTEST OK: clean passes; every known-bad response and a clean-stub crash fail
+
+exit: 0
