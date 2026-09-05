@@ -228,9 +228,15 @@ fi
 
 # ── Task list ──
 # Mirrors build.rs: the per-quant file set is common/ overridden by the model
-# dir BY FILE STEM, and the flag list is common/KERNEL.toml's
-# [build] extra_nvcc_flags with the model's appended, deduped, model last
-# (build_parse.rs `parse_kernel_toml` + resolve_targets' merge).
+# dir BY FILE STEM, and the flag list has THREE layers, merged
+# least-specific-first and deduped — HARDWARE.toml's [build] extra_nvcc_flags,
+# then common/KERNEL.toml's, then the model quant dir's
+# (build_flags.rs `merge_extra_flags` + build_parse.rs `parse_kernel_toml`).
+#
+# The hardware layer is what makes this gate answer the question it claims to.
+# kernels/hopper and kernels/b200 define -DATLAS_NO_WARP_BLOCKSCALE_MMA there,
+# compiling out a W4A4 region neither ISA can assemble; a gate that ignored
+# that layer would keep reporting a failure the real build does not have.
 #
 # Identical (source, flags) pairs are compiled ONCE. Several gb10 models share
 # one physical kernel through symlinks — deepseek-v4-flash's w4a16_gemm.cu is
@@ -241,25 +247,29 @@ hw_dir, work = sys.argv[1], sys.argv[2]
 models = sys.argv[3:]
 common = os.path.join(hw_dir, "common")
 
-def flags(d):
-    p = os.path.join(d, "KERNEL.toml")
-    if not os.path.exists(p):
+def build_flags(path):
+    """[build] extra_nvcc_flags from one TOML file; [] if it has none."""
+    if not os.path.exists(path):
         return []
-    with open(p, "rb") as f:
+    with open(path, "rb") as f:
         t = tomllib.load(f)
     return list(t.get("build", {}).get("extra_nvcc_flags", []))
+
+def flags(d):
+    return build_flags(os.path.join(d, "KERNEL.toml"))
 
 def cu(d):
     if not os.path.isdir(d):
         return {}
     return {f[:-3]: os.path.join(d, f) for f in os.listdir(d) if f.endswith(".cu")}
 
+hw_flags = build_flags(os.path.join(hw_dir, "HARDWARE.toml"))
 base_flags = flags(common)
 tasks, mapping = {}, []
 for model in models:
     mdir = os.path.join(hw_dir, model, "nvfp4")
-    merged = list(base_flags)
-    for f in flags(mdir):
+    merged = []
+    for f in hw_flags + base_flags + flags(mdir):
         if f not in merged:
             merged.append(f)
     files = cu(common)
@@ -279,8 +289,13 @@ with open(os.path.join(work, "tasks.tsv"), "w") as f:
 with open(os.path.join(work, "map.tsv"), "w") as f:
     for m in mapping:
         f.write("\t".join(m) + "\n")
+# The hardware flag layer, for the ledger: a receipt that does not say the
+# compile line cannot be checked against the build it claims to predict.
+with open(os.path.join(work, "hw_flags.txt"), "w") as f:
+    f.write("\n".join(hw_flags))
 print(f"{len(mapping)} kernel(s) across {len(models)} model(s); "
-      f"{len(tasks)} unique compile(s) after dedup")
+      f"{len(tasks)} unique compile(s) after dedup"
+      + (f"; hardware flags: {' '.join(hw_flags)}" if hw_flags else ""))
 PY
 
 # ── Compile ──
@@ -343,10 +358,17 @@ for r in results:
     b["pass" if (r["ptx_ok"] and r["ptxas_ok"]) else "fail"] += 1
 failures = [r for r in results if not (r["ptx_ok"] and r["ptxas_ok"])]
 
+hw_flags_path = os.path.join(work, "hw_flags.txt")
+hw_flags = [l for l in open(hw_flags_path).read().split("\n") if l] \
+    if os.path.exists(hw_flags_path) else []
+
 ledger = {
     "generated_utc": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
     "host": socket.gethostname(),
     "hw": hw, "arch": arch, "nvcc": nvcc_version,
+    # HARDWARE.toml [build] extra_nvcc_flags — the layer under common/ and the
+    # model's. On hopper/b200 this is what compiles out the W4A4 region.
+    "hardware_flags": hw_flags,
     "strict": strict == "1",
     "selftest": {
         "bad_failed": self_bad == "true",
@@ -374,6 +396,9 @@ L.append(f"# Atlas PTX gate — `{hw}` @ `{arch}`\n")
 L.append(f"* generated: {ledger['generated_utc']} on `{ledger['host']}`")
 L.append(f"* toolchain: {nvcc_version}")
 L.append(f"* strict (`--Werror all-warnings`, as build.rs): {ledger['strict']}")
+if hw_flags:
+    L.append("* HARDWARE.toml `[build] extra_nvcc_flags`: `"
+             + " ".join(hw_flags) + "`")
 L.append(f"* self-test: known_good passed={ledger['selftest']['good_passed']}, "
          f"`{bad_fixture}` failed={ledger['selftest']['bad_failed']}")
 L.append(f"* **{ledger['summary']['pass']}/{ledger['summary']['total']} kernels compiled**"
