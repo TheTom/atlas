@@ -35,7 +35,7 @@
 # Usage: bash scripts/start_node_ep_test.sh
 set -uo pipefail
 
-SCRIPT="$(cd "$(dirname "$0")/.." && pwd)/start-node-ep.sh"
+SCRIPT="$(cd "$(dirname "$0")" && pwd)/start-node-ep.sh"
 MODEL="nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8"
 tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
