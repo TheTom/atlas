@@ -1,0 +1,11 @@
+
+running 1 test
+test tokenizer::tests::native_tool_prompt::native_qwen_tool_prompt_ownership_tracks_actual_template_selection ... FAILED
+
+failures:
+
+failures:
+    tokenizer::tests::native_tool_prompt::native_qwen_tool_prompt_ownership_tracks_actual_template_selection
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 2357 filtered out; finished in 0.01s
+

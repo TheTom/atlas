@@ -1,0 +1,24 @@
+   Compiling cudarc v0.19.2 (/home/pidtom/atlas-qwen-tool-prompt-20260905/vendor/cudarc)
+   Compiling atlas-core v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/atlas-core)
+   Compiling atlas-closure v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/atlas-closure)
+   Compiling atlas-rdma v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/atlas-rdma)
+   Compiling spark-runtime v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/spark-runtime)
+   Compiling spark-storage v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/spark-storage)
+   Compiling cufile-sys v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/cufile-sys)
+   Compiling atlas-tier v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/atlas-tier)
+   Compiling spark-model v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/spark-model)
+   Compiling atlas-governance v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/atlas-governance)
+   Compiling spark-comm v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/spark-comm)
+   Compiling xgrammar v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/xgrammar)
+   Compiling atlas-plugin v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/atlas-plugin)
+   Compiling atlas-kernels v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/atlas-kernels)
+   Compiling spark-server v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/spark-server)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 38.56s
+     Running unittests src/main.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/spark-8a5b8b10b61861ba)
+
+thread 'tokenizer::tests::native_tool_prompt::native_qwen_tool_prompt_has_one_instruction_source' (1193419) panicked at crates/spark-server/src/tokenizer/tests/native_tool_prompt.rs:78:5:
+assertion `left == right` failed: duplicate tool instructions
+  left: 2
+ right: 1
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `-p spark-server --bin spark`

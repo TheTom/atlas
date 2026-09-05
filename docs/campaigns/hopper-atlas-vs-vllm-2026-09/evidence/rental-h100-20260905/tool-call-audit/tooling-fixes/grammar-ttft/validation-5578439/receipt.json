@@ -1,0 +1,146 @@
+{
+  "head": "57d9c1cfbaf851afa1255653aba80715681ae058",
+  "tree": "fe291d213e15eac282c55435f27761c43e70b1d5",
+  "working_tree": "clean before and after gate run",
+  "checks": [
+    {
+      "name": "campaign",
+      "command": "bash bench/campaign/campaign_test.sh",
+      "exit_code": 0,
+      "passed_count": 85,
+      "source_head": "57d9c1cfbaf851afa1255653aba80715681ae058",
+      "log": "campaign-green-57d9c1c.log",
+      "sha256": "4a79871486713811217f062b270c6742deea9044f1f7acfb9659d7b583714461",
+      "oracle": "ALL 85 assertions passed."
+    },
+    {
+      "name": "launcher",
+      "command": "bash scripts/start_node_ep_test.sh",
+      "exit_code": 0,
+      "passed_count": 30,
+      "source_head": "55784398c278e8b4162cff161c498d99d1b4ca44",
+      "log": "launcher.log",
+      "sha256": "df9753a14ceb021e7ef5ee43a4b09a09432d0c4822feb7594882201341a042f5",
+      "oracle": "ALL 30 assertions passed."
+    },
+    {
+      "name": "dockerfiles",
+      "command": "bash docker/datacenter_dockerfiles_test.sh",
+      "exit_code": 0,
+      "passed_count": 17,
+      "source_head": "55784398c278e8b4162cff161c498d99d1b4ca44",
+      "log": "dockerfiles.log",
+      "sha256": "c4141fae15a7e8f4c0ca18891a13b75980cadfd52fd433fe22946cdfe4976ea6",
+      "oracle": "17 assertions"
+    },
+    {
+      "name": "atlas-render",
+      "command": "python3 bench/campaign/atlas_render.py --selftest",
+      "exit_code": 0,
+      "passed_count": 346,
+      "source_head": "55784398c278e8b4162cff161c498d99d1b4ca44",
+      "log": "atlas-render.log",
+      "sha256": "ccc9b6dde4677083938045dfa92550ba16a59f0cd7865031a6f567ec5af40304",
+      "oracle": "346/346 checks passed over 19 entries"
+    },
+    {
+      "name": "vllm-render",
+      "command": "python3 bench/campaign/vllm_render.py --recipes bench/campaign/vllm_recipes.json --selftest",
+      "exit_code": 0,
+      "passed_count": 258,
+      "source_head": "55784398c278e8b4162cff161c498d99d1b4ca44",
+      "log": "vllm-render.log",
+      "sha256": "f890a628adeba75726f426d30114afe0ac1f1b937b8b81bf24cc6d18b62948cd",
+      "oracle": "258/258 checks passed over 31 rendered entries"
+    },
+    {
+      "name": "artifact-validator",
+      "command": "python3 bench/campaign/validate_artifact.py --selftest",
+      "exit_code": 0,
+      "passed_count": 26,
+      "source_head": "55784398c278e8b4162cff161c498d99d1b4ca44",
+      "log": "validator.log",
+      "sha256": "80024a3903b09caa008d7ec01906a45745c53370096a0143f51c06d58956856c",
+      "oracle": "26/26 checks passed (7 known-bad fixtures)"
+    },
+    {
+      "name": "assembler",
+      "command": "python3 bench/campaign/cell_assemble.py --selftest",
+      "exit_code": 0,
+      "passed_count": 16,
+      "source_head": "55784398c278e8b4162cff161c498d99d1b4ca44",
+      "log": "assembler.log",
+      "sha256": "877c9e2798a4886164756e11d5ac08c2a073c16af8409af92e2c156bddc2668f",
+      "oracle": "16/16 test methods passed"
+    },
+    {
+      "name": "ptx",
+      "command": "bash scripts/hopper_ptx_gate_test.sh",
+      "exit_code": 0,
+      "passed_count": 7,
+      "source_head": "55784398c278e8b4162cff161c498d99d1b4ca44",
+      "log": "ptx/ptx.log",
+      "sha256": "09810a2a1dd12af723eca61043b4d8aa2cede7a953e2d6479aa8850c6e21db86",
+      "oracle": "ALL 7 assertions passed."
+    },
+    {
+      "name": "fmt",
+      "command": "cargo fmt --all -- --check",
+      "exit_code": 0,
+      "passed_count": null,
+      "source_head": "57d9c1cfbaf851afa1255653aba80715681ae058",
+      "log": "format-57d9c1c.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "oracle": "Command exits 0 with no diagnostics."
+    },
+    {
+      "name": "typos",
+      "command": "typos bench/campaign crates/spark-server/src crates/spark-server/test_data/chat_templates/qwen3.6-35b-a3b-fp8.jinja",
+      "exit_code": 0,
+      "passed_count": null,
+      "source_head": "57d9c1cfbaf851afa1255653aba80715681ae058",
+      "log": "typos-57d9c1c.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "oracle": "Command exits 0 with no diagnostics."
+    },
+    {
+      "name": "shellcheck",
+      "command": "shellcheck -x bench/campaign/run_cell.sh bench/campaign/campaign_test.sh bench/hopper_ab/time_to_ready.sh scripts/hopper_ptx_gate.sh scripts/hopper_ptx_gate_test.sh",
+      "exit_code": 0,
+      "passed_count": null,
+      "source_head": "55784398c278e8b4162cff161c498d99d1b4ca44",
+      "log": "shellcheck.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "oracle": "Command exits 0 with no diagnostics."
+    }
+  ],
+  "known_bad": {
+    "log": "campaign.log",
+    "source_head": "55784398c278e8b4162cff161c498d99d1b4ca44",
+    "exit_code": 1,
+    "actual": "AssertionError: 38 != 37",
+    "resolution": "57d9c1c updates only expected pinned command inventory to 38 after new H100 recipe; per-command pinned revision assertions already passed."
+  },
+  "reuse": {
+    "base": "55784398c278e8b4162cff161c498d99d1b4ca44",
+    "target": "57d9c1cfbaf851afa1255653aba80715681ae058",
+    "diff": "reuse-diff.txt",
+    "reason": "Only one campaign test inventory count and Rust test registration/visibility changed. Launcher, Docker, renderers, schema/assembler, PTX scripts and all selected kernel inputs are unchanged. Full campaign, fmt and scoped typos reran on final head. No .sh changed since published 231d869."
+  },
+  "ptx": {
+    "host": "Spark1 CPU-only, pidtom@192.168.50.125",
+    "owned_fixture": "/home/pidtom/atlas-prepush-final-h029l56H",
+    "size": "5.4M",
+    "nvcc": "CUDA 13.0 V13.0.88",
+    "source_count": 228,
+    "source_manifest": "ptx-source-manifest.json",
+    "source_verified": "ptx/source-verification.txt",
+    "known_bad": "Two real ptxas-rejected entries preserved in error ledger (error_count=2, rejected_entries=2).",
+    "cleanup": "Owned fixture removed and nonexistence verified; df before/after/test/cleanup retained under ptx/. No GPU action, query, or shared checkout mutation.",
+    "remote_shellcheck": "Not installed; identical scripts passed shellcheck locally."
+  },
+  "exclusions": [
+    "Broad Rust tests and rustdoc owned by vllm_boot_diagnosis; not claimed by this receipt.",
+    "GPU correctness, coherency and scored measurements owned by parent; CPU gates do not prove them."
+  ]
+}

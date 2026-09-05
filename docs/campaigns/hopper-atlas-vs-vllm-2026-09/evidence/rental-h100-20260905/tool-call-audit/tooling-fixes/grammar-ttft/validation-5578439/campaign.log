@@ -1,0 +1,107 @@
+test_a_vllm_spec_refusal_survives_finalizer (__main__.DryRunFailureTest.test_a_vllm_spec_refusal_survives_finalizer) ... ok
+test_b_atlas_launcher_error_survives_finalizer (__main__.DryRunFailureTest.test_b_atlas_launcher_error_survives_finalizer) ... ok
+test_c_valid_cells_still_render (__main__.DryRunFailureTest.test_c_valid_cells_still_render) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.912s
+
+OK
+  ok [dryrun] 3 dry-run exit regressions passed (both engines, refusal before boot)
+test_failed_preflight_never_launches_and_writes_no_go (__main__.AdmissionTests.test_failed_preflight_never_launches_and_writes_no_go) ... {"case": "atlas-process", "preflight_ok": false, "runner_exit": 1, "engine_launches": [], "verdict": "NO-GO", "failing_stage": "preflight"}
+{"case": "atlas-binary", "preflight_ok": false, "runner_exit": 1, "engine_launches": [], "verdict": "NO-GO", "failing_stage": "preflight"}
+{"case": "atlas-container", "preflight_ok": false, "runner_exit": 1, "engine_launches": [], "verdict": "NO-GO", "failing_stage": "preflight"}
+{"case": "vllm-container", "preflight_ok": false, "runner_exit": 1, "engine_launches": [], "verdict": "NO-GO", "failing_stage": "preflight"}
+ok
+test_successful_preflight_reaches_selected_serve_path (__main__.AdmissionTests.test_successful_preflight_reaches_selected_serve_path) ... {"case": "atlas-binary", "preflight_ok": true, "runner_exit": 1, "engine_launches": [["/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-admission-a9co6plx/bin/spark", "serve", "Qwen/Qwen3.6-35B-A3B-FP8", "--rank", "0", "--world-size", "1", "--ep-size", "1", "--tp-size", "1", "--gpu-ordinal", "0", "--port", "52636", "--master-addr", "127.0.0.1", "--master-port", "29500", "--no-tui", "--check-kernels", "--warmup-prompt", "/Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/warmup_1024.txt", "--request-timeout", "0", "--gpu-memory-utilization", "0.90", "--max-num-seqs", "128", "--max-batch-size", "32", "--enable-prefix-caching", "true", "--scheduling-policy", "slai", "--kv-cache-dtype", "fp8", "--kv-high-precision-layers", "auto", "--max-seq-len", "65536", "--max-prefill-tokens", "32768", "--fp8-kv-calibration-tokens", "256", "--disable-thinking"]], "verdict": "NO-GO", "failing_stage": "serve"}
+{"case": "atlas-container", "preflight_ok": true, "runner_exit": 1, "engine_launches": [["/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-admission-0jqg8aww/bin/docker", "run", "--rm", "--gpus", "all", "--ipc=host", "--network", "host", "-e", "RUST_LOG=info", "-v", "/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-admission-0jqg8aww/hub:/root/.cache/huggingface", "-v", "/Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/warmup_1024.txt:/warmup/warmup_1024.txt:ro", "admission-test:never-contacted", "serve", "Qwen/Qwen3.6-35B-A3B-FP8", "--rank", "0", "--world-size", "1", "--ep-size", "1", "--tp-size", "1", "--gpu-ordinal", "0", "--port", "52640", "--master-addr", "127.0.0.1", "--master-port", "29500", "--no-tui", "--check-kernels", "--warmup-prompt", "/warmup/warmup_1024.txt", "--request-timeout", "0", "--gpu-memory-utilization", "0.90", "--max-num-seqs", "128", "--max-batch-size", "32", "--enable-prefix-caching", "true", "--scheduling-policy", "slai", "--kv-cache-dtype", "fp8", "--kv-high-precision-layers", "auto", "--max-seq-len", "65536", "--max-prefill-tokens", "32768", "--fp8-kv-calibration-tokens", "256", "--disable-thinking"]], "verdict": "NO-GO", "failing_stage": "serve"}
+{"case": "vllm-container", "preflight_ok": true, "runner_exit": 1, "engine_launches": [["/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-admission-3rzsa_io/bin/docker", "run", "-d", "--name", "atlas-campaign-qwen3-6-35b-a3b-fp8-h100-lat-c1-specoff-thinkoff-6189", "--label", "atlas-campaign.run=vllm.qwen3.6-35b-a3b-fp8.h100.lat.c1.specoff.thinkoff-1788643684-6189", "--gpus", "all", "--ipc=host", "--network", "host", "-v", "/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-admission-3rzsa_io/hub:/root/.cache/huggingface", "--entrypoint", "vllm", "vllm/vllm-openai@sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "serve", "Qwen/Qwen3.6-35B-A3B-FP8", "--trust-remote-code", "--tensor-parallel-size", "1", "--enable-auto-tool-choice", "--tool-call-parser", "qwen3_xml", "--reasoning-parser", "qwen3", "--mm-encoder-tp-mode", "data", "--revision", "95a723d08a9490559dae23d0cff1d9466213d989"]], "verdict": "NO-GO", "failing_stage": "serve"}
+ok
+test_successful_process_preflight_reaches_engine_audit (__main__.AdmissionTests.test_successful_process_preflight_reaches_engine_audit) ... skipped 'process endpoint admission requires Linux /proc'
+
+----------------------------------------------------------------------
+Ran 3 tests in 6.414s
+
+OK (skipped=1)
+  ok [admission] failed preflight never launches either engine
+test_first_role_is_not_first_content (__main__.StreamTests.test_first_role_is_not_first_content) ... ok
+test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) ... ok
+test_multitoken_content_is_not_counted_as_one_token (__main__.StreamTests.test_multitoken_content_is_not_counted_as_one_token) ... ok
+test_real_http_retains_exact_request_and_wire_bytes (__main__.StreamTests.test_real_http_retains_exact_request_and_wire_bytes) ... ok
+test_tool_arguments_must_form_json (__main__.StreamTests.test_tool_arguments_must_form_json) ... ok
+test_total_deadline_rejects_trickling_headers (__main__.StreamTests.test_total_deadline_rejects_trickling_headers) ... ok
+test_utf8_and_crlf_split_at_every_byte (__main__.StreamTests.test_utf8_and_crlf_split_at_every_byte) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.118s
+
+OK
+  ok [stream] raw streaming diagnostic rejects incomplete replies and bounds trickling input
+test_a_forbidden_modes_refuse_before_stages (__main__.ThinkingPolicyTest.test_a_forbidden_modes_refuse_before_stages) ... ok
+test_b_atlas_renderer_cannot_bypass_policy (__main__.ThinkingPolicyTest.test_b_atlas_renderer_cannot_bypass_policy) ... ok
+test_c_permitted_modes_render (__main__.ThinkingPolicyTest.test_c_permitted_modes_render) ... ok
+test_d_absent_recipe_still_names_missing_pair (__main__.ThinkingPolicyTest.test_d_absent_recipe_still_names_missing_pair) ... ok
+test_e_catalog_covers_exact_recipe_models (__main__.ThinkingPolicyTest.test_e_catalog_covers_exact_recipe_models) ... ok
+test_f_real_refusal_also_precedes_resource_creation (__main__.ThinkingPolicyTest.test_f_real_refusal_also_precedes_resource_creation) ... ok
+test_g_minimax_unmapped_request_policy_refuses_all_skus (__main__.ThinkingPolicyTest.test_g_minimax_unmapped_request_policy_refuses_all_skus) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 6.396s
+
+OK
+  ok [policy] campaign thinking eligibility refuses excluded modes before launch
+test_broken_think_on_path_refuses (__main__.CoherencyPolicyTest.test_broken_think_on_path_refuses) ... ok
+test_clean_both_modes_pass (__main__.CoherencyPolicyTest.test_clean_both_modes_pass) ... ok
+test_dedicated_think_off_leak_refuses_in_both_modes (__main__.CoherencyPolicyTest.test_dedicated_think_off_leak_refuses_in_both_modes) ... ok
+test_default_remains_think_off (__main__.CoherencyPolicyTest.test_default_remains_think_off) ... ok
+test_known_wrong_answers_refuse_in_both_modes (__main__.CoherencyPolicyTest.test_known_wrong_answers_refuse_in_both_modes) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 4.604s
+
+OK
+test_a_opposite_coherency_mode_is_no_go (__main__.CoherencyEvidenceTest.test_a_opposite_coherency_mode_is_no_go) ... ok
+test_b_legacy_coherency_cannot_certify_think_on (__main__.CoherencyEvidenceTest.test_b_legacy_coherency_cannot_certify_think_on) ... ok
+test_c_inconsistent_or_missing_per_check_policy_refuses (__main__.CoherencyEvidenceTest.test_c_inconsistent_or_missing_per_check_policy_refuses) ... ok
+test_d_malformed_policy_does_not_become_true (__main__.CoherencyEvidenceTest.test_d_malformed_policy_does_not_become_true) ... ok
+test_e_malformed_ladder_policy_is_partial (__main__.CoherencyEvidenceTest.test_e_malformed_ladder_policy_is_partial) ... ok
+test_e_opposite_ladder_mode_is_partial (__main__.CoherencyEvidenceTest.test_e_opposite_ladder_mode_is_partial) ... ok
+test_f_matched_modes_and_legacy_off_still_certify (__main__.CoherencyEvidenceTest.test_f_matched_modes_and_legacy_off_still_certify) ... ok
+test_g_driver_passes_policy_to_gate (__main__.CoherencyEvidenceTest.test_g_driver_passes_policy_to_gate) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 3.912s
+
+OK
+  ok [coherency] gate requests and artifact certification match the cell's thinking mode
+test_branch_name_pin_refused (__main__.PinTests.test_branch_name_pin_refused) ... ok
+test_duplicate_primary_flag_refused (__main__.PinTests.test_duplicate_primary_flag_refused) ... ok
+test_every_head_and_worker_uses_declared_full_revision (__main__.PinTests.test_every_head_and_worker_uses_declared_full_revision) ... FAIL
+test_external_draft_missing_revision_refused (__main__.PinTests.test_external_draft_missing_revision_refused) ... ok
+test_external_draft_repo_mismatch_refused (__main__.PinTests.test_external_draft_repo_mismatch_refused) ... ok
+test_external_draft_revision_and_exact_spec_arithmetic (__main__.PinTests.test_external_draft_revision_and_exact_spec_arithmetic) ... ok
+test_identity_overrides_refused (__main__.PinTests.test_identity_overrides_refused) ... ok
+test_internal_spec_cannot_override_primary_revision (__main__.PinTests.test_internal_spec_cannot_override_primary_revision) ... ok
+test_missing_pin_refused (__main__.PinTests.test_missing_pin_refused) ... ok
+test_missing_primary_flag_refused (__main__.PinTests.test_missing_primary_flag_refused) ... ok
+test_non_identity_extra_remains_available (__main__.PinTests.test_non_identity_extra_remains_available) ... ok
+test_same_repo_different_pin_refused (__main__.PinTests.test_same_repo_different_pin_refused) ... ok
+test_short_pin_refused (__main__.PinTests.test_short_pin_refused) ... ok
+test_spec_args_cannot_override_primary_identity (__main__.PinTests.test_spec_args_cannot_override_primary_identity) ... ok
+test_stale_embedded_spec_config_refused_even_when_off (__main__.PinTests.test_stale_embedded_spec_config_refused_even_when_off) ... ok
+test_worker_pin_mismatch_refused (__main__.PinTests.test_worker_pin_mismatch_refused) ... ok
+test_wrong_repo_refused (__main__.PinTests.test_wrong_repo_refused) ... ok
+
+======================================================================
+FAIL: test_every_head_and_worker_uses_declared_full_revision (__main__.PinTests.test_every_head_and_worker_uses_declared_full_revision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/vllm_pins_test.py", line 56, in test_every_head_and_worker_uses_declared_full_revision
+    self.assertEqual(commands, 37)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: 38 != 37
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.074s
+
+FAILED (failures=1)
+ASSERT FAILED [pins]: vLLM revision identity regression

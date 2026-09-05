@@ -1,0 +1,8 @@
+   Compiling spark-server v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/spark-server)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 14.82s
+     Running unittests src/main.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/spark-8a5b8b10b61861ba)
+
+thread 'tokenizer::tests::native_tool_prompt::native_qwen_tool_prompt_ownership_tracks_actual_template_selection' (1194950) panicked at crates/spark-server/src/tokenizer/tests/native_tool_prompt.rs:183:5:
+a custom checkpoint template without tools needs parser instructions
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `-p spark-server --bin spark`

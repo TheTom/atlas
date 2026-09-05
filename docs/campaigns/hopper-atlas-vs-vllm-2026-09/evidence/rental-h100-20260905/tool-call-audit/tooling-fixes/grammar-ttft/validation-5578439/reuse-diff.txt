@@ -1,0 +1,6 @@
+M	bench/campaign/vllm_pins_test.py
+M	crates/spark-server/src/api/chat/prepare.rs
+M	crates/spark-server/src/tokenizer.rs
+M	crates/spark-server/src/tokenizer/jinja_helpers.rs
+M	crates/spark-server/src/tokenizer/tests.rs
+M	crates/spark-server/src/tokenizer/tests/native_tool_prompt.rs

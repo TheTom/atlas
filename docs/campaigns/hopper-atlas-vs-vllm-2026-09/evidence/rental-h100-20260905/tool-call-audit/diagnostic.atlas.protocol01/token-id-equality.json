@@ -1,0 +1,6 @@
+{
+  "exact_token_ids_equal": true,
+  "count": 78,
+  "oracle": "Offline pinned HF AutoTokenizer IDs versus live Atlas /tokenize on the exact failed chat messages",
+  "scope": "text-only think-off prompt; does not cover tools"
+}

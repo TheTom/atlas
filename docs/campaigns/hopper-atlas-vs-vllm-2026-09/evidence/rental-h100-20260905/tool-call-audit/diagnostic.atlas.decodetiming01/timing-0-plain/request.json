@@ -1,0 +1,21 @@
+{
+  "model": "Qwen/Qwen3.6-35B-A3B-FP8",
+  "messages": [
+    {
+      "role": "user",
+      "content": "List exactly five prime numbers greater than one hundred, comma separated, with no other words."
+    }
+  ],
+  "temperature": 0.0,
+  "seed": 42,
+  "presence_penalty": 0.0,
+  "frequency_penalty": 0.0,
+  "max_tokens": 256,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  },
+  "stream": true,
+  "stream_options": {
+    "include_usage": true
+  }
+}

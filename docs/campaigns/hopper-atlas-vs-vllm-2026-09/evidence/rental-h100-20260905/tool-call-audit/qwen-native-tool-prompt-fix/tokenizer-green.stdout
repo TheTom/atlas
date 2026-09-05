@@ -1,0 +1,58 @@
+
+running 52 tests
+test tokenizer::tests::deepseek_v4::non_thinking_generation_is_preclosed ... ok
+test tokenizer::tests::deepseek_v4::reasoning_effort_prefixes_are_distinct_and_generation_suffix_is_native ... ok
+test tokenizer::tests::native_tool_prompt::native_qwen_tool_prompt_keeps_required_and_named_choices ... ok
+test tokenizer::tests::native_tool_prompt::native_qwen_tool_prompt_preserves_user_system_message ... ok
+test tokenizer::tests::normalize_tool_call_arguments_invalid_json_string_left_alone ... ok
+test tokenizer::tests::normalize_tool_call_arguments_parses_string_to_dict ... ok
+test tokenizer::tests::normalize_tool_call_arguments_leaves_non_tool_messages_alone ... ok
+test tokenizer::tests::normalize_tool_call_arguments_passes_through_already_dict ... ok
+test tokenizer::tests::mistral_effort::unset_effort_thinking_off_renders_none_settings ... ok
+test tokenizer::tests::mistral_effort::unset_effort_thinking_on_renders_high_settings ... ok
+test tokenizer::tests::mistral_effort::explicit_medium_maps_to_high_settings ... ok
+test tokenizer::tests::laguna::laguna_template_renders_native_tool_round_trip ... ok
+test tokenizer::tests::deepseek_v4_reasoning_primer_is_opt_in ... ok
+test tokenizer::tests::deepseek_v4_reasoning_parser_is_registered ... ok
+test tokenizer::tests::deepseek_v4::official_encoding_fixtures_are_byte_exact ... ok
+test tokenizer::tests::laguna::laguna_template_uses_checkpoint_tool_json_and_reasoning_controls ... ok
+test tokenizer::tests::qwen_dense::q36_default_strips_history_think ... ok
+test tokenizer::tests::qwen_dense::q36_preserve_thinking_true_rehydrates_history_think ... ok
+test tokenizer::tests::mistral_effort::unsupported_explicit_tiers_still_raise ... ok
+test tokenizer::tests::qwen_dense::q36_thinking_off_closes_think_tail_only ... ok
+test tokenizer::tests::native_tool_prompt::native_qwen_tool_prompt_preserves_fallback_tscg_and_other_parsers ... ok
+test tokenizer::tests::qwen_dense::q38_preserve_thinking_false_strips_history_think ... ok
+test tokenizer::tests::qwen_dense::q38_thinking_off_skips_effort_validator_and_sentence ... ok
+test tokenizer::tests::qwen_dense::q38_string_tool_args_are_normalized_before_strict_validation ... ok
+test tokenizer::tests::qwen_dense::q38_default_keeps_history_think_and_injects_no_effort_sentence ... ok
+RENDER_RECEIPT={"actual":"<|im_start|>system\n# Tools\n\nYou have access to the following functions:\n\n<tools>\n{\"type\":\"function\",\"function\":{\"name\":\"get_weather\",\"description\":\"Look up the current weather for a city.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"city\":{\"type\":\"string\",\"description\":\"City name.\"},\"days\":{\"type\":\"integer\",\"description\":\"Forecast horizon in days.\"}},\"required\":[\"city\",\"days\"]}}}\n</tools>\n\nIf you choose to call a function ONLY reply in the following format with NO suffix:\n\n<tool_call>\n<function=example_function_name>\n<parameter=example_parameter_1>\nvalue_1\n</parameter>\n<parameter=example_parameter_2>\nThis is the value for the second parameter\nthat can span\nmultiple lines\n</parameter>\n</function>\n</tool_call>\n\n<IMPORTANT>\nReminder:\n- Function calls MUST follow the specified format: an inner <function=...></function> block must be nested within <tool_call></tool_call> XML tags\n- Required parameters MUST be specified\n- You may provide optional reasoning for your function call in natural language BEFORE the function call, but NOT after\n- If there is no function call available, answer the question like normal with your current knowledge and do not tell the user about function calls\n</IMPORTANT><|im_end|>\n<|im_start|>user\nWhat is the weather in Reykjavik over the next three days? Use the tool.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n","native_compact":"<|im_start|>system\n# Tools\n\nYou have access to the following functions:\n\n<tools>\n{\"type\":\"function\",\"function\":{\"name\":\"get_weather\",\"description\":\"Look up the current weather for a city.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"city\":{\"type\":\"string\",\"description\":\"City name.\"},\"days\":{\"type\":\"integer\",\"description\":\"Forecast horizon in days.\"}},\"required\":[\"city\",\"days\"]}}}\n</tools>\n\nIf you choose to call a function ONLY reply in the following format with NO suffix:\n\n<tool_call>\n<function=example_function_name>\n<parameter=example_parameter_1>\nvalue_1\n</parameter>\n<parameter=example_parameter_2>\nThis is the value for the second parameter\nthat can span\nmultiple lines\n</parameter>\n</function>\n</tool_call>\n\n<IMPORTANT>\nReminder:\n- Function calls MUST follow the specified format: an inner <function=...></function> block must be nested within <tool_call></tool_call> XML tags\n- Required parameters MUST be specified\n- You may provide optional reasoning for your function call in natural language BEFORE the function call, but NOT after\n- If there is no function call available, answer the question like normal with your current knowledge and do not tell the user about function calls\n</IMPORTANT><|im_end|>\n<|im_start|>user\nWhat is the weather in Reykjavik over the next three days? Use the tool.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n","native_hf_spaced":"<|im_start|>system\n# Tools\n\nYou have access to the following functions:\n\n<tools>\n{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}\n</tools>\n\nIf you choose to call a function ONLY reply in the following format with NO suffix:\n\n<tool_call>\n<function=example_function_name>\n<parameter=example_parameter_1>\nvalue_1\n</parameter>\n<parameter=example_parameter_2>\nThis is the value for the second parameter\nthat can span\nmultiple lines\n</parameter>\n</function>\n</tool_call>\n\n<IMPORTANT>\nReminder:\n- Function calls MUST follow the specified format: an inner <function=...></function> block must be nested within <tool_call></tool_call> XML tags\n- Required parameters MUST be specified\n- You may provide optional reasoning for your function call in natural language BEFORE the function call, but NOT after\n- If there is no function call available, answer the question like normal with your current knowledge and do not tell the user about function calls\n</IMPORTANT><|im_end|>\n<|im_start|>user\nWhat is the weather in Reykjavik over the next three days? Use the tool.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"}
+test tokenizer::tests::qwen_dense_parity::fleet_parity_inline_think_split_without_reasoning_content ... ok
+test tokenizer::tests::native_tool_prompt::native_qwen_tool_prompt_has_one_instruction_source ... ok
+test tokenizer::tests::qwen_dense_parity::divergence_null_arg_value_official_renders_null_not_none ... ok
+test tokenizer::tests::qwen_dense_parity::divergence_unparseable_string_args_raw_vs_dropped_vs_error ... ok
+test tokenizer::tests::render_gemma4_template_with_assistant_and_null_tool_content ... ok
+test tokenizer::tests::qwen_dense_parity::fleet_parity_multiple_tool_calls_and_consecutive_results ... ok
+test tokenizer::tests::qwen_dense_parity::fleet_parity_multiple_tools_and_thinking_off ... ok
+test tokenizer::tests::tojson_filter_default_compact_hf_ref_opt_in ... ok
+test tokenizer::tests::qwen_dense::q38_unset_equals_explicit_medium ... ok
+test tokenizer::tests::qwen_dense::q36_render_matches_retired_override_bytes ... ok
+test tokenizer::tests::render_minimax_openai_template_closes_think_prompt_when_disabled ... ok
+test tokenizer::tests::render_minimax_template_with_string_tool_call_args ... ok
+test tokenizer::tests::render_minimax_openai_template_omits_think_prompt_with_tools_when_disabled ... ok
+test tokenizer::tests::qwen_dense::q38_raw_max_effort_string_raises ... ok
+test tokenizer::tests::render_minimax_openai_template_opens_think_prompt_when_enabled ... ok
+test tokenizer::tests::qwen_dense_parity::fleet_parity_tool_result_as_final_message ... ok
+test tokenizer::tests::qwen_dense_parity::fleet_parity_scalar_and_structured_tool_args ... ok
+test tokenizer::tests::render_holo_template_accepts_vllm_thinking_controls ... ok
+test tokenizer::tests::render_holo_template_autocloses_think_before_tool_call ... ok
+test tokenizer::tests::qwen_dense_parity::fleet_parity_continue_final_assistant_message ... ok
+test tokenizer::tests::qwen_dense_parity::divergence_two_system_messages_error_before_merge_on_unsloth_now ... ok
+test tokenizer::tests::qwen_dense_parity::fleet_parity_null_content_list_content_and_no_system ... ok
+test tokenizer::tests::qwen_dense::q38_explicit_efforts_render_their_sentences ... ok
+test tokenizer::tests::qwen_dense_parity::fleet_parity_assistant_content_and_tool_calls_together ... ok
+test tokenizer::tests::qwen_dense_parity::fleet_parity_on_the_baseline_fixture_conversation ... ok
+test tokenizer::tests::qwen_dense_parity::fleet_parity_empty_tools_slice_matches_absent_tools ... ok
+test tokenizer::tests::native_tool_prompt::native_qwen_tool_prompt_ownership_tracks_actual_template_selection ... ok
+
+test result: ok. 52 passed; 0 failed; 0 ignored; 0 measured; 2306 filtered out; finished in 0.03s
+

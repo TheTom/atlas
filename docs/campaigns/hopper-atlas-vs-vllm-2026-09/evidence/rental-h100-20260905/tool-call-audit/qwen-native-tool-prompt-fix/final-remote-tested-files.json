@@ -1,0 +1,24 @@
+{
+  "source_commit": "4823185256cbece103062020754892dd29f1a998",
+  "files": {
+    "bench/campaign/atlas_recipes.json": "06abdb87f357b964f03f2535c4ea3bf9883222b86d308ac2815f8519f88a3f84",
+    "bench/campaign/vllm_recipes.json": "d11b5e14cfa07aefb1ccbf5f9d0fea10acbc270ae2cdc0a9b018022c0080c18f",
+    "crates/spark-server/src/api/chat/mod.rs": "c2d5bcc0b6cdd3f39827e4500ab90481b2fc5cd5d3bd79e4a1398393bc4f0e1c",
+    "crates/spark-server/src/api/chat/prepare.rs": "c74fab2e1d2c7692e6729abb54768da898bd2fdbfeaebd0fbadb2ebacd723983",
+    "crates/spark-server/src/scheduler/lifecycle_tests.rs": "815809367e66521112f09397dbf7615f4234ee7e30a94a265afc2185ea1955e2",
+    "crates/spark-server/src/scheduler/mod.rs": "61bf9141fd79c929512761e2467e0a09f0df2a256e7d4b90357360aa81065a73",
+    "crates/spark-server/src/scheduler/prefill_a_step.rs": "edd9aefffaf109b6134b5d69b858f02f7e712fa0a0a4196db3d6aa7d54e07311",
+    "crates/spark-server/src/scheduler/prefill_b_step.rs": "3cc72e2455fd736c1bc5b4f11647158dc38420d39cfc559f493f8e97f6df63a7",
+    "crates/spark-server/src/scheduler/prefill_timing_tests.rs": "126b4393580084e54471323d0dcba99bf7c11a8c6b3041017dc777eae1b7c42b",
+    "crates/spark-server/src/tokenizer.rs": "dafbeee98ce9ecea7e653d4a13f245bdd4368774902592fc8706caf8da78f6e5",
+    "crates/spark-server/src/tokenizer/chat_impl.rs": "0bd1b87c26849c75c41af6feb0ff4a0a42f7f623f8448fa7051a9fc4f2633647",
+    "crates/spark-server/src/tokenizer/jinja_helpers.rs": "631d069600d30474b9ce5124b9f2de0ec41b05f804dc3f33db14932a2818b368",
+    "crates/spark-server/src/tokenizer/tests.rs": "27a873241e1a4197034dcc774892713bd24ad89a865661081f127ea52931d384",
+    "crates/spark-server/src/tokenizer/tests/native_tool_prompt.rs": "dc11b46fd991572564a6ee590e94ae9b3253036909b5b5ea111d94adc3c43268",
+    "crates/spark-server/src/tool_parser.rs": "081bdb3f4f5fa4c32d6d80274587871233eeab0821cd6f1c0f95983a71aeed01",
+    "crates/spark-server/src/tool_parser/helpers_a.rs": "005c9d6d4955aab2e02f6ae7e375795e924c30cb458fcc63f1f4476175f64ac8",
+    "crates/spark-server/src/tool_parser/helpers_b.rs": "31702a3e6285ea2631d7aee7e54f48fd837da8331a2e2dc0a102ee0d85915345",
+    "crates/spark-server/test_data/chat_templates/qwen3.6-35b-a3b-fp8.jinja": "e84f32a23fdda27689f868aa4a1a5621f41133e51a48d7f3efcbea2839574259"
+  },
+  "all_match": true
+}

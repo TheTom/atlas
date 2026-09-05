@@ -1,0 +1,4 @@
+warning: atlas-kernels@1.0.0-beta-preview: atlas-kernels: compiled 173 kernels for target 0 (hopper, qwen3.6-35b-a3b, nvfp4) (5 model-specific overrides)
+warning: atlas-kernels@1.0.0-beta-preview: atlas-kernels: dedup+parallel: 173/173 unique nvcc invocations (0 cache hits, 1.0× dedup), 23 parallel workers
+   Compiling spark-server v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/spark-server)
+    Finished `release` profile [optimized] target(s) in 39.16s

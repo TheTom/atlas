@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "url": "http://127.0.0.1:8888",
+  "model": "Qwen/Qwen3.6-35B-A3B-FP8",
+  "checked_utc": "2026-09-05T21:33:20Z",
+  "request_policy": {
+    "think": "off",
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "check_request_policy": {
+    "determinism_ok": {
+      "think": "off",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "toolcall_ok": {
+      "think": "off",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "think_leak_ok": {
+      "think": "off",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "known_answer_ok": {
+      "think": "off",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    }
+  },
+  "details": {
+    "determinism_ok": "23 chars reproduced exactly, no degeneration signals",
+    "toolcall_ok": "1 get_weather call(s), required argument types valid",
+    "think_leak_ok": "116 chars, no leak signals",
+    "known_answer_ok": "'391' OK; 'Tokyo' OK; 'rotaregirfer' FAIL (answer not stated: \"The word 'refrigerator' spelled backwards is: **rotarefiger**\\n\\n### Explanation o\")"
+  },
+  "http_exchanges": [
+    {
+      "check": "determinism_ok",
+      "request_json": "{\"model\": \"Qwen/Qwen3.6-35B-A3B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-dc73619e-f47e-43ae-b0b6-31d987bfa4a4\",\"object\":\"chat.completion\",\"created\":1788644001,\"model\":\"Qwen/Qwen3.6-35B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"101, 103, 107, 109, 113\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":30,\"completion_tokens\":24,\"total_tokens\":54,\"prompt_tokens_details\":{\"cached_tokens\":0,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":71.56718199999999,\"response_token/s\":247.17313724923574}}",
+      "response_complete": true
+    },
+    {
+      "check": "determinism_ok",
+      "request_json": "{\"model\": \"Qwen/Qwen3.6-35B-A3B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-ede1109e-9ad8-4404-8935-6698fc04cd74\",\"object\":\"chat.completion\",\"created\":1788644001,\"model\":\"Qwen/Qwen3.6-35B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"101, 103, 107, 109, 113\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":30,\"completion_tokens\":24,\"total_tokens\":54,\"prompt_tokens_details\":{\"cached_tokens\":16,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":70.293273,\"response_token/s\":248.92249568655197}}",
+      "response_complete": true
+    },
+    {
+      "check": "toolcall_ok",
+      "request_json": "{\"model\": \"Qwen/Qwen3.6-35B-A3B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-7a95fd56-f69a-4ba4-bf84-f0a70c4a830d\",\"object\":\"chat.completion\",\"created\":1788644002,\"model\":\"Qwen/Qwen3.6-35B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":null,\"tool_calls\":[{\"id\":\"call_000000000000000c\",\"type\":\"function\",\"function\":{\"name\":\"get_weather\",\"arguments\":\"{\\\"city\\\":\\\"Reykjavik\\\",\\\"days\\\":3}\"}}]},\"finish_reason\":\"tool_calls\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":298,\"completion_tokens\":41,\"total_tokens\":339,\"prompt_tokens_details\":{\"cached_tokens\":298,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":306.716351,\"response_token/s\":56.140357732226136}}",
+      "response_complete": true
+    },
+    {
+      "check": "think_leak_ok",
+      "request_json": "{\"model\": \"Qwen/Qwen3.6-35B-A3B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-7ec53fbe-e12e-496b-9a17-d0e9468412e9\",\"object\":\"chat.completion\",\"created\":1788644002,\"model\":\"Qwen/Qwen3.6-35B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"A benchmark harness is used to automate the execution and measurement of performance tests for software or hardware.\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":25,\"completion_tokens\":20,\"total_tokens\":45,\"prompt_tokens_details\":{\"cached_tokens\":0,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":62.104925,\"response_token/s\":248.02138330715314}}",
+      "response_complete": true
+    },
+    {
+      "check": "known_answer_ok",
+      "request_json": "{\"model\": \"Qwen/Qwen3.6-35B-A3B-FP8\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a careful, precise assistant. Answer the question directly and correctly. Work step by step when a question needs it, and state the final answer explicitly. Do not refuse or hedge on simple factual or arithmetic questions.\"}, {\"role\": \"user\", \"content\": \"What is 17 * 23? Reply with the number, then explain your working.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-969694f4-5472-4e0b-ab55-bf9aa8de542a\",\"object\":\"chat.completion\",\"created\":1788644003,\"model\":\"Qwen/Qwen3.6-35B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"391\\n\\n**Working:**\\n\\nTo calculate $17 \\\\times 23$, we can use the standard multiplication method or break it down using the distributive property:\\n\\n$$17 \\\\times 23 = 17 \\\\times (20 + 3)$$\\n\\n1.  Multiply 17 by 20:\\n    $$17 \\\\times 20 = 340$$\\n\\n2.  Multiply 17 by 3:\\n    $$17 \\\\times 3 = 51$$\\n\\n3.  Add the two results together:\\n    $$340 + 51 = 391$$\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":81,\"completion_tokens\":141,\"total_tokens\":222,\"prompt_tokens_details\":{\"cached_tokens\":0,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":170.718426,\"response_token/s\":244.4832093140447}}",
+      "response_complete": true
+    },
+    {
+      "check": "known_answer_ok",
+      "request_json": "{\"model\": \"Qwen/Qwen3.6-35B-A3B-FP8\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a careful, precise assistant. Answer the question directly and correctly. Work step by step when a question needs it, and state the final answer explicitly. Do not refuse or hedge on simple factual or arithmetic questions.\"}, {\"role\": \"user\", \"content\": \"Name the capital city of Japan, then describe it in a few sentences.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-d2e37743-8f83-4051-a57e-8dd279e17fb7\",\"object\":\"chat.completion\",\"created\":1788644003,\"model\":\"Qwen/Qwen3.6-35B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"The capital city of Japan is **Tokyo**.\\n\\nTokyo is a sprawling metropolis that seamlessly blends ultramodern technology and neon-lit skyscrapers with traditional temples and quiet gardens. As the world's most populous metropolitan area, it serves as Japan's economic, political, and cultural hub, offering a unique mix of historic charm and futuristic innovation.\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":76,\"completion_tokens\":74,\"total_tokens\":150,\"prompt_tokens_details\":{\"cached_tokens\":48,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":161.971911,\"response_token/s\":246.0652423383483}}",
+      "response_complete": true
+    },
+    {
+      "check": "known_answer_ok",
+      "request_json": "{\"model\": \"Qwen/Qwen3.6-35B-A3B-FP8\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a careful, precise assistant. Answer the question directly and correctly. Work step by step when a question needs it, and state the final answer explicitly. Do not refuse or hedge on simple factual or arithmetic questions.\"}, {\"role\": \"user\", \"content\": \"Spell the word 'refrigerator' backwards, then explain how you did it.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 200,
+      "response_body": "{\"id\":\"chatcmpl-ec6550d0-3532-456e-9ab1-41e9a74955f0\",\"object\":\"chat.completion\",\"created\":1788644004,\"model\":\"Qwen/Qwen3.6-35B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"The word 'refrigerator' spelled backwards is: **rotarefiger**\\n\\n### Explanation of the Process:\\n\\nTo spell a word backwards, you read the letters from the last letter to the first letter, in reverse order.\\n\\n1.  Start with the original word: **r e f r i g e r a t o r**\\n2.  Identify the last letter: **r**\\n3.  Move to the second-to-last letter: **o**\\n4.  Continue moving backwards through the word:\\n    *   3rd from end: **t**\\n    *   4th from end: **a**\\n    *   5th from end: **r**\\n    *   6th from end: **e**\\n    *   7th from end: **g**\\n    *   8th from end: **i**\\n    *   9th from end: **r**\\n    *   10th from end: **f**\\n    *   11th from end: **e**\\n    *   12th from end (first letter): **r**\\n5.  Combine these letters in the order\"},\"finish_reason\":\"length\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":78,\"completion_tokens\":256,\"total_tokens\":334,\"prompt_tokens_details\":{\"cached_tokens\":48,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":165.486139,\"response_token/s\":242.75974903302938}}",
+      "response_complete": true
+    }
+  ],
+  "determinism_ok": true,
+  "toolcall_ok": true,
+  "think_leak_ok": true,
+  "known_answer_ok": false,
+  "passed": false
+}

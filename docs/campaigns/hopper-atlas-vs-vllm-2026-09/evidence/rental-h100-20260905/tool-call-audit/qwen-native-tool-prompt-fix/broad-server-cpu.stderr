@@ -1,0 +1,117 @@
+   Compiling atlas-core v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/atlas-core)
+   Compiling spark-runtime v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/spark-runtime)
+   Compiling spark-storage v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/spark-storage)
+   Compiling spark-model v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/spark-model)
+   Compiling spark-comm v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/spark-comm)
+   Compiling atlas-kernels v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/atlas-kernels)
+   Compiling spark-server v1.0.0-beta-preview (/home/pidtom/atlas-qwen-tool-prompt-20260905/crates/spark-server)
+error[E0433]: failed to resolve: could not find `api` in the crate root
+ --> crates/spark-server/src/tokenizer/tests/native_tool_prompt.rs:9:12
+  |
+9 | use crate::api::chat::prepare::{inject_tool_system_prompt, parser_tool_prompt};
+  |            ^^^ could not find `api` in the crate root
+
+error[E0433]: failed to resolve: could not find `cuda_backend` in `spark_runtime`
+  --> crates/spark-server/tests/integration.rs:61:24
+   |
+61 |         spark_runtime::cuda_backend::AtlasCudaBackend::new(0, &ptx_modules)?,
+   |                        ^^^^^^^^^^^^ could not find `cuda_backend` in `spark_runtime`
+   |
+note: found an item that was configured out
+  --> /home/pidtom/atlas-qwen-tool-prompt-20260905/crates/spark-runtime/src/lib.rs:15:9
+   |
+14 | #[cfg(feature = "cuda")]
+   |       ---------------- the item is gated behind the `cuda` feature
+15 | pub mod cuda_backend;
+   |         ^^^^^^^^^^^^
+
+error[E0432]: unresolved import `crate::ir`
+  --> crates/spark-server/src/tokenizer/tests/native_tool_prompt.rs:10:12
+   |
+10 | use crate::ir::{ContentPart, Message, Role};
+   |            ^^ could not find `ir` in the crate root
+
+error[E0432]: unresolved import `crate::tool_parser`
+  --> crates/spark-server/src/tokenizer/tests/native_tool_prompt.rs:11:12
+   |
+11 | use crate::tool_parser::{
+   |            ^^^^^^^^^^^ could not find `tool_parser` in the crate root
+
+For more information about this error, try `rustc --explain E0433`.
+error: could not compile `spark-server` (test "integration") due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.
+error: could not compile `spark-server` (lib test) due to 3 previous errors
+error[E0432]: unresolved import `preflight::init_gpu_backend`
+   --> crates/spark-server/src/main_modules/serve_phases/mod.rs:30:23
+    |
+ 30 |     ReservePreflight, init_gpu_backend, post_load_memory_audit, preflight_reserve,
+    |                       ^^^^^^^^^^^^^^^^ no `init_gpu_backend` in `main_modules::serve_phases::preflight`
+    |
+note: found an item that was configured out
+   --> crates/spark-server/src/main_modules/serve_phases/preflight.rs:315:15
+    |
+314 | #[cfg(feature = "cuda")]
+    |       ---------------- the item is gated behind the `cuda` feature
+315 | pub(crate) fn init_gpu_backend(
+    |               ^^^^^^^^^^^^^^^^
+note: found an item that was configured out
+   --> crates/spark-server/src/main_modules/serve_phases/preflight.rs:356:15
+    |
+355 | #[cfg(all(feature = "metal", not(feature = "cuda")))]
+    |           ----------------- the item is gated behind the `metal` feature
+356 | pub(crate) fn init_gpu_backend(
+    |               ^^^^^^^^^^^^^^^^
+
+error[E0432]: unresolved import `topology::init_nccl_comm`
+   --> crates/spark-server/src/main_modules/serve_phases/mod.rs:37:37
+    |
+ 37 | pub(super) use topology::{Topology, init_nccl_comm, resolve_topology};
+    |                                     ^^^^^^^^^^^^^^ no `init_nccl_comm` in `main_modules::serve_phases::topology`
+    |
+note: found an item that was configured out
+   --> crates/spark-server/src/main_modules/serve_phases/topology.rs:162:15
+    |
+161 | #[cfg(feature = "nccl")]
+    |       ---------------- the item is gated behind the `nccl` feature
+162 | pub(crate) fn init_nccl_comm(
+    |               ^^^^^^^^^^^^^^
+note: found an item that was configured out
+   --> crates/spark-server/src/main_modules/serve_phases/topology.rs:213:15
+    |
+212 | #[cfg(all(feature = "cuda", not(feature = "nccl")))]
+    |           ---------------- the item is gated behind the `cuda` feature
+213 | pub(crate) fn init_nccl_comm(
+    |               ^^^^^^^^^^^^^^
+note: found an item that was configured out
+   --> crates/spark-server/src/main_modules/serve_phases/topology.rs:236:15
+    |
+235 | #[cfg(all(feature = "metal", not(feature = "cuda")))]
+    |           ----------------- the item is gated behind the `metal` feature
+236 | pub(crate) fn init_nccl_comm(
+    |               ^^^^^^^^^^^^^^
+
+error: unused import: `Context`
+ --> crates/spark-server/src/main_modules/serve_phases/preflight.rs:5:14
+  |
+5 | use anyhow::{Context, Result};
+  |              ^^^^^^^
+  |
+note: the lint level is defined here
+ --> crates/spark-server/src/main.rs:3:9
+  |
+3 | #![deny(warnings)]
+  |         ^^^^^^^^
+  = note: `#[deny(unused_imports)]` implied by `#[deny(warnings)]`
+
+error[E0282]: type annotations needed
+   --> crates/spark-server/src/main_modules/serve_load.rs:432:9
+    |
+432 |         gpu.as_ref(),
+    |         ^^^ cannot infer type
+
+Some errors have detailed explanations: E0282, E0432.
+For more information about an error, try `rustc --explain E0282`.
+error: could not compile `spark-server` (bin "spark") due to 4 previous errors
+error: could not compile `spark-server` (bin "spark" test) due to 4 previous errors

@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "errors": [],
+  "first_role_s": 0.008093757001915947,
+  "first_reasoning_s": null,
+  "first_content_s": null,
+  "first_tool_s": 1.3585492749989498,
+  "finish_s": 2.037844264006708,
+  "usage_s": 2.0375817870080937,
+  "done_s": 2.037974723003572,
+  "content": "",
+  "reasoning": "",
+  "tool_calls": {
+    "0": {
+      "id": "call_0000000000000004",
+      "name": "get_weather",
+      "arguments": "{\"city\":\"Reykjavik\",\"days\":3}"
+    }
+  },
+  "content_events": 0,
+  "usage": {
+    "prompt_tokens": 329,
+    "completion_tokens": 41,
+    "total_tokens": 370,
+    "prompt_tokens_details": {
+      "cached_tokens": 256,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "time_to_first_token_ms": 1317.856159,
+    "response_token/s": 56.215335981292085
+  },
+  "finish_reason": "tool_calls",
+  "scope": "single diagnostic stream; structural completion, not semantic correctness or campaign scoring",
+  "url": "http://127.0.0.1:8888/v1/chat/completions",
+  "http_status": 200,
+  "received_bytes": 2444,
+  "elapsed_s": 2.038651519018458,
+  "request_sha256": "42f788a1b0c30f0a35900cdf3634d766c36678fe7ebaa0e278f306d3b4d8b262"
+}

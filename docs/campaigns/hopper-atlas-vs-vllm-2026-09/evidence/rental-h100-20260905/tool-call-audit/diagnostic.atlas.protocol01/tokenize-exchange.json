@@ -1,0 +1,25 @@
+{
+  "request": {
+    "model": "Qwen/Qwen3.6-35B-A3B-FP8",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a careful, precise assistant. Answer the question directly and correctly. Work step by step when a question needs it, and state the final answer explicitly. Do not refuse or hedge on simple factual or arithmetic questions."
+      },
+      {
+        "role": "user",
+        "content": "Spell the word 'refrigerator' backwards, then explain how you did it."
+      }
+    ]
+  },
+  "status": 200,
+  "headers": {
+    "content-type": "application/json",
+    "access-control-allow-origin": "*",
+    "connection": "close",
+    "transfer-encoding": "chunked",
+    "date": "Sat, 05 Sep 2026 21:09:44 GMT"
+  },
+  "body": "{\"tokens\":[248045,8678,198,2523,513,264,16097,11,22825,17313,13,21134,279,3296,5774,321,12083,13,5374,2923,539,2923,948,264,3296,3749,424,11,321,1528,279,1534,4087,20335,13,3054,524,24272,466,40289,383,4145,57879,466,33633,4602,13,248046,198,248045,846,198,28081,279,3299,359,1062,61787,824,6,27484,11,1179,10033,1204,488,1467,424,13,248046,198,248045,74455,198,248068,271,248069,271],\"count\":78}",
+  "elapsed_s": 0.04142068399232812
+}

@@ -1,0 +1,23 @@
+{
+  "count": 18,
+  "tests": [
+    "test model_download::net_tests::a_cancelled_download_leaves_no_refs_main ... ignored, network",
+    "test model_download::net_tests::a_gated_repo_is_reported_as_gated_and_not_as_a_network_fault ... ignored, network",
+    "test model_download::net_tests::a_real_download_produces_a_model_the_resolver_accepts ... ignored, network",
+    "test model_download::net_tests::a_stale_token_still_resolves_and_fetches_a_public_repo ... ignored, network",
+    "test recipe::fetch::tests::a_concurrent_refresh_is_ordered_and_complete ... ignored, needs the network",
+    "test recipe::fetch::tests::live_fetch_against_github ... ignored, needs the network",
+    "test recipe::fetch::tests::measure_refresh_wall_time ... ignored, needs the network",
+    "test recipe::tests::the_commit_date_fallback_resolves_against_the_real_repo ... ignored, network",
+    "test tool_parser::tests::streaming_frag_env::kill_switch_buffers_full_args_no_fragments ... ignored, mutates process-global ATLAS_BUFFER_TOOL_ARGS; run serially with --ignored --test-threads=1",
+    "test tui::download_state::tests::a_failed_download_settles_and_explains_itself ... ignored, network",
+    "test tui::download_state::tests::a_real_download_settles_as_finished ... ignored, network",
+    "test tui::lib_dates::tests::the_real_flow_dates_a_real_recipe ... ignored, network",
+    "test coherence_test_capital_of_france ... ignored",
+    "test prompt_logprobs_collection_during_prefill ... ignored",
+    "test smoke_test_single_decode ... ignored",
+    "test speculative_decode_coherence ... ignored",
+    "test streaming_coherence_test ... ignored",
+    "test teardown_returns_the_vram_it_took ... ignored"
+  ]
+}

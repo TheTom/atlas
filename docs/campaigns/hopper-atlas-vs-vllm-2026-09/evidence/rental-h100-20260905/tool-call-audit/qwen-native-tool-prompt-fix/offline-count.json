@@ -1,0 +1,17 @@
+{
+  "actual": {
+    "tokens": 1135,
+    "chars": 4931,
+    "utf8_sha256": "b4b81c29cb375909dfe51634981468731e54a3ee03e47afe2fe16f21f465b0a0"
+  },
+  "native_compact": {
+    "tokens": 298,
+    "chars": 1361,
+    "utf8_sha256": "e3a9db72084f9fa6b0628f25465d0d50c6ac50db2decbc76379e157065a0705c"
+  },
+  "native_hf_spaced": {
+    "tokens": 320,
+    "chars": 1384,
+    "utf8_sha256": "6c6c1dbd415b4098c49cd2d0df77b8d42e643d0464fb323d8ee38e5a8b0bfef6"
+  }
+}

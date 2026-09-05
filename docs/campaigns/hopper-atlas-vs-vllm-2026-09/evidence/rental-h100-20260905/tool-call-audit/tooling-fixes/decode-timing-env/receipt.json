@@ -1,0 +1,55 @@
+{
+  "commit": "a6e3e3568477968621170fde05a05d11e4528165",
+  "tree": "d9288114ead31fc29a8f72cab58a34dd4e12b0f5",
+  "parent_cherry_pick": "f66a262048ac0a6aee4c67444fd0ea5740b46b30",
+  "tree_equal": true,
+  "red": {
+    "exit_code": 1,
+    "log": "red.log",
+    "oracle": "Old production launcher rejects the requested ATLAS_DECODE_TIMING key before launching."
+  },
+  "green": {
+    "exit_code": 0,
+    "log": "green.log",
+    "tests": 14,
+    "passed": 13,
+    "skipped": 1,
+    "skip": "Optional setproctitle package not installed; existing test unchanged.",
+    "oracle": "Real Linux /proc environment, owner proof and later capture all include ATLAS_DECODE_TIMING=1; unknown key refuses before creation; owned process is stopped and absent."
+  },
+  "campaign": {
+    "command": "bash bench/campaign/campaign_test.sh",
+    "exit_code": 0,
+    "passed": 85,
+    "log": "campaign.log"
+  },
+  "other_checks": {
+    "python3 -m py_compile process_launch.py process_launch_proc.py process_launch_test.py": 0,
+    "typos bench/campaign/process_launch_proc.py bench/campaign/process_launch_test.py": 0,
+    "git diff --check": 0
+  },
+  "reused_validation": "../grammar-ttft/validation-5578439/receipt.json",
+  "reuse_reason": "Only process environment allowlist and its real Linux regression changed from 57d9c1c. Full campaign reran. Rust, PTX/kernel input, renderer/recipe, launcher, Docker, validator and assembler source unchanged.",
+  "scope": "Exactly one observability key added; no engine, recipe, grammar mask, threshold, or behavior-setting change.",
+  "remote": {
+    "host": "Spark1 CPU-only",
+    "owned_path": "/home/pidtom/atlas-decode-timing-env-wItKtbGQ",
+    "size": "124K",
+    "cleanup_verified": true,
+    "df_receipts": [
+      "df-before.txt",
+      "df-after-test.txt",
+      "df-after-cleanup.txt"
+    ],
+    "gpu_actions": false
+  },
+  "logs_sha256": {
+    "red.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "red.log": "37e02c6f33ae8d82f751d20ae6efc03ef9c5807151d545c59e9ddc1e82c5c4bc",
+    "green-sources.sha256": "4225d47a97dcd0a0c5bbf30eae758d966137bdcc2c2a7493280466bb2360de44",
+    "green.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "green.log": "03f3a878cd5e9e51ca0bc51edb0ef2990f2c2646749e5ee049ae2d52a74fb08c",
+    "red-sources.sha256": "c47c182142907d2da819206854af43ede4651184104eb16522263a5d6e0df051",
+    "campaign.log": "1181c5e31addd11e25abc4a2db717a13b313a5008de356225d272eb954b4f17a"
+  }
+}

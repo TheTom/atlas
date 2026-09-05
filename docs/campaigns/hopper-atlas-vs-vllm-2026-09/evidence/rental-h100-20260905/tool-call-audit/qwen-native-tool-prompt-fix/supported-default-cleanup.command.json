@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "pidtom@192.168.50.125",
+    "df -h / && git -c core.hooksPath=/dev/null -C /home/pidtom/atlas-hopper-gate-full worktree remove --force /home/pidtom/atlas-qwen-tool-prompt-20260905 && df -h /"
+  ]
+}

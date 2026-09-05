@@ -1,0 +1,18 @@
+test_decode_timing_is_explicit_and_preserved_in_actual_process_evidence (process_launch_test.ProcessLaunchTests.test_decode_timing_is_explicit_and_preserved_in_actual_process_evidence) ... FAIL
+
+======================================================================
+FAIL: test_decode_timing_is_explicit_and_preserved_in_actual_process_evidence (process_launch_test.ProcessLaunchTests.test_decode_timing_is_explicit_and_preserved_in_actual_process_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/pidtom/atlas-decode-timing-env-wItKtbGQ/process_launch_test.py", line 109, in test_decode_timing_is_explicit_and_preserved_in_actual_process_evidence
+    snapshot = self.start("import time; time.sleep(300)", "--env-json", str(env_file))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pidtom/atlas-decode-timing-env-wItKtbGQ/process_launch_test.py", line 56, in start
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : {"status": "error", "error": "environment key is not allowed: ATLAS_DECODE_TIMING"}
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.060s
+
+FAILED (failures=1)

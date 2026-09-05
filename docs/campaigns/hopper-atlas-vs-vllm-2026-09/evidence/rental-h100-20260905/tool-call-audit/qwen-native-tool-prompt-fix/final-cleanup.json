@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "pidtom@192.168.50.125",
+    "df -h /; git -c core.hooksPath=/dev/null -C /home/pidtom/atlas-hopper-gate-full worktree remove --force /home/pidtom/atlas-qwen-tool-prompt-20260905; df -h /"
+  ],
+  "exit_code": 0,
+  "stdout": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  864G  5.7G 100% /\nFilesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  864G  5.8G 100% /\n",
+  "stderr": "",
+  "shared_target_preserved": true
+}

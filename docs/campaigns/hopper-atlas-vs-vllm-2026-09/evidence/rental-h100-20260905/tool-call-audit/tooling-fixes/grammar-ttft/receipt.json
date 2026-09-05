@@ -1,0 +1,49 @@
+{
+  "recorded_at": "2026-09-05T21:26:46.836044+00:00",
+  "commit": "ad852945b184e695312bda97deee85bcf4b24c5b",
+  "base": "231d86950af4b2bd48a1169c1daadbbba61fcfb0",
+  "problem": "The scheduler created request_start after synchronous grammar compilation and mask warmup, excluding them from service TTFT.",
+  "clock_contract": "Service origin immediately before grammar preparation; excludes HTTP handling and scheduler queue delay. Existing decode_start and decode duration are unchanged. Streaming and blocking terminal reports both use decode_start minus request_start once.",
+  "change": "Move existing Instant::now declarations before compile_grammar_state in chunked and legacy prefill. No grammar/mask/sampling/scheduling flag changes.",
+  "red": {
+    "command": "CUDA_VISIBLE_DEVICES=\"\" ATLAS_SKIP_BUILD=1 CUDARC_CUDA_VERSION=13000 CARGO_TARGET_DIR=/home/pidtom/atlas-hopper-gate-full/target cargo test --locked -p spark-server --bin spark deferred_prefill_clock_includes -- --nocapture",
+    "exit_code": 101,
+    "log": "atlas-grammar-ttft-red.log",
+    "oracle": "Real deferred-prefill entry point must return request_start preceding real grammar-parser compile entry. Old code fails the causal-order assertion."
+  },
+  "green": {
+    "command": "CUDA_VISIBLE_DEVICES=\"\" ATLAS_SKIP_BUILD=1 CUDARC_CUDA_VERSION=13000 CARGO_TARGET_DIR=/home/pidtom/atlas-hopper-gate-full/target cargo test --locked -p spark-server --bin spark scheduler:: -- --nocapture",
+    "exit_code": 0,
+    "passed": 240,
+    "failed": 0,
+    "ignored": 0,
+    "log": "atlas-grammar-ttft-green.log"
+  },
+  "test_scope": "New behavioral test covers cold and cached real grammar compilation through CPU-only deferred chunked prefill with the existing host Model stub. Legacy timer is the symmetric reviewed source change; no separate GPU execution claimed.",
+  "hygiene": [
+    "cargo fmt --all -- --check exit0",
+    "typos touched sources exit0",
+    "git diff --check exit0"
+  ],
+  "source_hashes_verified": true,
+  "remote_host": "pidtom@192.168.50.125",
+  "remote_worktree_removed": "/home/pidtom/atlas-grammar-ttft-20260905",
+  "shared_cargo_target": "Preserved; lock released for other agent combined-source full tests/rustdoc.",
+  "df_before_free": "6.7GB",
+  "df_after_cleanup": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  863G  6.3G 100% /",
+  "diagnostic_evidence": {
+    "root": "/workspace/atlas-rental/results/diagnostic.atlas.protocol01",
+    "request_utc": "2026-09-05T21:09:38.385887Z",
+    "session_utc": "2026-09-05T21:09:38.393791Z",
+    "grammar_active_utc": "2026-09-05T21:09:42.864449Z",
+    "prefill_start_utc": "2026-09-05T21:09:42.864477Z",
+    "first_token_utc": "2026-09-05T21:09:43.312097Z",
+    "done_utc": "2026-09-05T21:09:44.041178Z",
+    "session_to_grammar_s": 4.470658,
+    "prefill_to_first_token_s": 0.44762,
+    "client_first_tool_s": 4.964216281019617,
+    "client_total_s": 5.659904559026472,
+    "reported_ttft_ms": 447.63582
+  },
+  "attribution_limit": "Existing INFO logs isolate a4.47s pre-prefill interval but do not separately profile grammar compiler, state/mask warmup or queue time. Synchronous top512mask warmup is a strong source-supported hypothesis. Parent owns cold/hot live confirmation; this patch corrects accounting without claiming speedup."
+}

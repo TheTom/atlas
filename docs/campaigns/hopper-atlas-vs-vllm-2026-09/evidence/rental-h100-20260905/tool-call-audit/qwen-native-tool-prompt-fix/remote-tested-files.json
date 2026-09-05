@@ -1,0 +1,19 @@
+{
+  "remote_worktree": "/home/pidtom/atlas-qwen-tool-prompt-20260905",
+  "source_git_metadata_base": "e2cf12073d5a554e4599ea14f304214601031b25",
+  "source_transferred_from": "/Users/tom/Documents/New project/atlas-qwen-tool-prompt-fix",
+  "source_commit": "387e5e885db2f08a3f4491f940c9ec375d106425",
+  "hash_match": true,
+  "files": {
+    "crates/spark-server/src/api/chat/mod.rs": "c2d5bcc0b6cdd3f39827e4500ab90481b2fc5cd5d3bd79e4a1398393bc4f0e1c",
+    "crates/spark-server/src/api/chat/prepare.rs": "939b4aea66cdf16f1c57f927cdd611ee8b08dab9a36347c334aacdccfc90f342",
+    "crates/spark-server/src/tokenizer.rs": "62422d0c0fe179b888773a5b7ac0d5a2c068d059a19d7304a8e2de5ccf71143d",
+    "crates/spark-server/src/tokenizer/chat_impl.rs": "0bd1b87c26849c75c41af6feb0ff4a0a42f7f623f8448fa7051a9fc4f2633647",
+    "crates/spark-server/src/tokenizer/tests.rs": "15cc59bac9418001a57680e830d3fd1e1528d54e93f7b58b77874628dd2ab617",
+    "crates/spark-server/src/tool_parser.rs": "081bdb3f4f5fa4c32d6d80274587871233eeab0821cd6f1c0f95983a71aeed01",
+    "crates/spark-server/src/tool_parser/helpers_a.rs": "005c9d6d4955aab2e02f6ae7e375795e924c30cb458fcc63f1f4476175f64ac8",
+    "crates/spark-server/src/tool_parser/helpers_b.rs": "31702a3e6285ea2631d7aee7e54f48fd837da8331a2e2dc0a102ee0d85915345",
+    "crates/spark-server/src/tokenizer/tests/native_tool_prompt.rs": "342b658042cfb33072d5b890f8dee7c25a6487241b3542dfb316f3779a663d40",
+    "crates/spark-server/test_data/chat_templates/qwen3.6-35b-a3b-fp8.jinja": "e84f32a23fdda27689f868aa4a1a5621f41133e51a48d7f3efcbea2839574259"
+  }
+}

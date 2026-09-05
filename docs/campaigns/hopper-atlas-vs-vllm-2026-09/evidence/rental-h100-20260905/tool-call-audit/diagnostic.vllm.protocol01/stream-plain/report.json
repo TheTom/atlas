@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "errors": [],
+  "first_role_s": 0.1642444689932745,
+  "first_reasoning_s": null,
+  "first_content_s": 0.16456780501175672,
+  "first_tool_s": null,
+  "finish_s": 0.251627763005672,
+  "usage_s": 0.2518659950001165,
+  "done_s": 0.2520419250067789,
+  "content": "101, 103, 107, 109, 113",
+  "reasoning": "",
+  "tool_calls": {},
+  "content_events": 23,
+  "usage": {
+    "prompt_tokens": 30,
+    "total_tokens": 54,
+    "completion_tokens": 24,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    }
+  },
+  "finish_reason": "stop",
+  "scope": "single diagnostic stream; structural completion, not semantic correctness or campaign scoring",
+  "url": "http://127.0.0.1:8000/v1/chat/completions",
+  "http_status": 200,
+  "received_bytes": 6200,
+  "elapsed_s": 0.25275771401356906,
+  "request_sha256": "d773a7c98b0f01de66d862914bd228b1c5dea2583ea454d70fdb910c76a8a33d"
+}
