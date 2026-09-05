@@ -221,7 +221,8 @@ CUDA_HOME=/usr/local/cuda scripts/hopper_ptx_gate.sh \
 ```
 
 It resolves each model's file set the way `build.rs` does (common/ overridden
-by the model directory by file stem, `KERNEL.toml` flags merged common-first),
+by the model directory by file stem, and the three flag layers — HARDWARE.toml,
+common/KERNEL.toml, the model's KERNEL.toml — merged least-specific-first),
 runs `nvcc --ptx -arch=<arch>` then `ptxas -arch=<arch> -v`, and writes a JSON
 ledger plus a markdown summary with per-model pass/fail counts, the first error
 line of every failure, and the worst register/spill numbers. It exits non-zero
@@ -229,9 +230,10 @@ if anything failed.
 
 **What it found, 2026-09-05** (CUDA 13.0.88, receipts in
 `docs/campaigns/hopper-atlas-vs-vllm-2026-09/receipts/`): **870 of 871** kernels
-across the five P0 targets emit PTX and assemble for sm_90a. The one that does
-not is `kernels/gb10/qwen3.6-35b-a3b/nvfp4/moe_w4a16_grouped_gemm.cu`, which
-ptxas rejects with
+across the five P0 targets emitted PTX and assembled for sm_90a on the first
+pass. The one that did not was
+`kernels/gb10/qwen3.6-35b-a3b/nvfp4/moe_w4a16_grouped_gemm.cu`, which ptxas
+rejected with
 
 ```
 Instruction 'cvt with .e2m1x2' not supported on .target 'sm_90a'
@@ -239,12 +241,33 @@ Instruction 'mma with block scale' not supported on .target 'sm_90a'
 Feature '.kind::mxf4nvf4' not supported on .target 'sm_90a'
 ```
 
-— the NVFP4 block-scaled MMA path, Blackwell-only by construction. It is the
-same gap as the CUTLASS wrappers above, reached through a hand-written kernel
-instead: qwen3.6-35b-a3b needs an Sm90 MoE grouped GEMM before it serves on
-Hopper. The other four P0 targets are complete, and
-`nemotron-super-120b-a12b` also passes under `--strict`, i.e. with the
-`--Werror all-warnings` the real build adds.
+— the NVFP4 block-scaled MMA path, Blackwell-only by construction, and the
+same gap as the CUTLASS wrappers above reached through a hand-written kernel.
+
+**That kernel is now 173/173.** Only its W4A4 *tail* uses those instructions
+(FP4 weights AND FP4 activations: the two entry points
+`moe_w4a16_fused_gate_up_t_k64_fp4` and `moe_w4a16_down_t_k64_fp4`).
+Everything above them is W4A16 — 4-bit weights dequantised to BF16, plain
+`mma.sync` — and assembles at the SM80 floor. The tail sits inside
+`#ifndef ATLAS_NO_WARP_BLOCKSCALE_MMA`, and `kernels/hopper/HARDWARE.toml`
+defines that macro in `[build] extra_nvcc_flags`, so it is compiled out here
+and compiled in on GB10, whose PTX for the file is byte-identical across the
+change (sha256 `137b44c2762d1996c9a1551a906a692cb067edae0b4ee4beee9098d303de4b3a`,
+`nvcc --ptx -arch=sm_121f -O3 --fmad=false -DTQ_PLUS_SIGNS`, before and after).
+The two absent entry points are declared in
+`kernels/hopper/qwen3.6-35b-a3b/MODEL.toml` `[expected_absent.moe_w4a16]` with
+the ptxas error as the reason, so the boot audit reports them as an expected
+absence rather than refusing to serve. Both are `try_kernel` lookups fired only
+behind a default-off opt-in (`ATLAS_HOLO_MOE_GATEUP_FP4` /
+`ATLAS_HOLO_MOE_DOWN_FP4`); what Hopper loses is the FP4 escape hatch, and the
+FP8 path serves. Receipt:
+`receipts/ptx_gate_hopper_qwen36_w4a4guard_2026-09-05.*` — 173/173 under
+`--strict`, i.e. with the `--Werror all-warnings` the real build adds.
+`nemotron-super-120b-a12b` passes `--strict` too.
+
+This does NOT make Hopper an NVFP4 target. It removes a compile-time
+blocker; an Sm90 block-scaled path still does not exist, and nothing here has
+run on H100/H200 silicon.
 
 It runs a **self-test first, always**: one fixture that must compile for any
 arch and one that must NOT compile for this one
@@ -269,6 +292,19 @@ failure path proves nothing.
 Compilation is not correctness. A green gate says these kernels exist for
 sm_90a; it says nothing about whether they produce the right numbers or run
 well. Receipts live in `docs/campaigns/`.
+
+**`--hw gb10` is not yet usable as a control.** The gate takes any set under
+`kernels/`, and pointing it at gb10 for the first time (2026-09-05, sm_121f,
+`--strict`) gave 151/173: 22 `inferspark_prefill*` kernels are rejected at
+their `_64` entry point for shared-memory size (`0x16000 bytes, 0xc000 max`),
+all of them after passing `nvcc --ptx`. GB10 is the shipping target, so either
+the gate's `ptxas` stage is stricter than the shipped pipeline — which emits
+PTX and lets the driver JIT it, where a kernel may opt into >48 KB shared
+memory at runtime — or those entry points are dead on GB10. That is open. It is
+not caused by anything in this campaign: the same 22 stems fail against the
+tree before it. Receipts:
+`receipts/ptx_gate_gb10_qwen36_w4a4guard_2026-09-05.*` and
+`receipts/ptx_gate_gb10_qwen36_preguard_control_2026-09-05.*`.
 
 ## The B200 (sm_100a) target
 
@@ -299,9 +335,9 @@ neither arch's PTX runs on the other.
 
 **What the gate found, 2026-09-05** (CUDA 13.0.88, receipts in
 `docs/campaigns/hopper-atlas-vs-vllm-2026-09/receipts/ptx_gate_b200_2026-09-05.*`):
-**870 of 871** kernels across the five P0 targets emit PTX and assemble for
-sm_100a — the same count as Hopper, and the same single kernel failing, but for
-a **different reason**:
+**870 of 871** kernels across the five P0 targets emitted PTX and assembled for
+sm_100a on the first pass — the same count as Hopper, and the same single
+kernel failing, but for a **different reason**:
 
 ```
 Instruction 'mma with block scale' not supported on .target 'sm_100a'
@@ -309,11 +345,23 @@ Instruction 'mma with block scale' not supported on .target 'sm_100a'
 
 `kernels/gb10/qwen3.6-35b-a3b/nvfp4/moe_w4a16_grouped_gemm.cu` fails on Hopper
 because sm_90a has no `cvt .e2m1x2` at all; on sm_100a that conversion is fine
-and the *block-scaled MMA* is what is missing. The fix is therefore different
-per architecture: Hopper needs an Sm90 MoE grouped GEMM with no FP4 path at
-all, B200 needs the same math re-expressed through tcgen05. Until one exists,
-qwen3.6-35b-a3b does not build for either. `nemotron-super-120b-a12b` passes
-under `--strict` (`--Werror all-warnings`, as the real build) on both.
+and the *warp-level block-scaled MMA* is what is missing.
+
+**It is now 173/173 here too**, by the same mechanism as Hopper:
+`kernels/b200/HARDWARE.toml` defines `-DATLAS_NO_WARP_BLOCKSCALE_MMA`, the
+W4A4 tail of that file is compiled out, and its two entry points are declared
+`[expected_absent.moe_w4a16]` in `kernels/b200/qwen3.6-35b-a3b/MODEL.toml`.
+Receipt: `receipts/ptx_gate_b200_qwen36_w4a4guard_2026-09-05.*`, `--strict`.
+One define covers both architectures because neither has the warp-level form —
+Hopper for want of an NVFP4 datapath, B200 because it issues block-scaled MMA
+through tcgen05 — so an arch comparison would get one of them wrong.
+
+The remaining work is still different per architecture, and neither is done
+here: Hopper would need an Sm90 MoE grouped GEMM, B200 the same math
+re-expressed through tcgen05. What has changed is that the W4A16 path — which
+is what these targets actually serve — is no longer blocked by a W4A4 kernel
+they were never going to run. `nemotron-super-120b-a12b` passes under
+`--strict` (`--Werror all-warnings`, as the real build) on both.
 
 **Register pressure moves between the two arches, in both directions.** 574 of
 871 kernels differ in max registers or spill bytes; 32 sit at the 255-register

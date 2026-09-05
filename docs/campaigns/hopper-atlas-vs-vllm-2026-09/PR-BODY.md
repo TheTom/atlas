@@ -67,6 +67,11 @@ Measured on `spark1` (DGX Spark, GB10, aarch64), CUDA 13.0.88 / nvcc V13.0.88,
 2026-09-05, `--jobs 4`. Receipts are committed under
 `docs/campaigns/hopper-atlas-vs-vllm-2026-09/receipts/`.
 
+The two tables below are the **first-pass** run, which is what found the one
+failure. "Both targets are now 173/173" further down is the same gate after
+that failure was addressed; the tables are left as measured rather than
+restated.
+
 ### Hopper — `sm_90a`
 
 | model | kernels | pass | fail |
@@ -117,11 +122,38 @@ memory instead. The two Blackwell architectures are siblings, not a ladder:
 | `redux.sync.max.abs.f32` | ✗ | ✓ | ✗ |
 
 The going-in expectation was that this kernel would pass on sm_100a because
-`.e2m1x2` is a Blackwell instruction. It does not. The fix is therefore
-different per architecture — Hopper needs an Sm90 MoE grouped GEMM with no FP4
-path, B200 needs the same math re-expressed through tcgen05 — and until one
-exists, qwen3.6-35b-a3b builds for neither. The other four P0 targets are
-complete on both.
+`.e2m1x2` is a Blackwell instruction. It does not.
+
+### Both targets are now 173/173
+
+Only the **W4A4 tail** of that file needs those instructions — FP4 weights AND
+FP4 activations, two entry points: `moe_w4a16_fused_gate_up_t_k64_fp4` and
+`moe_w4a16_down_t_k64_fp4`. Everything above them is W4A16 (4-bit weights
+dequantised to BF16, plain `mma.sync`) and assembles at the SM80 floor. So the
+tail sits inside `#ifndef ATLAS_NO_WARP_BLOCKSCALE_MMA`, and both hardware
+targets define that macro in HARDWARE.toml's new `[build] extra_nvcc_flags` —
+one define for both, because neither has the warp-level form and an arch
+comparison would get one of them wrong.
+
+GB10's PTX for the file is byte-identical across the change:
+`sha256 137b44c2762d1996c9a1551a906a692cb067edae0b4ee4beee9098d303de4b3a`
+(`nvcc --ptx -arch=sm_121f -O3 --fmad=false -DTQ_PLUS_SIGNS`, Spark 1, CUDA
+13.0.88, before and after). The two absent entry points are declared in each
+target's `MODEL.toml` `[expected_absent.moe_w4a16]` with that architecture's
+ptxas error as the reason, so the boot audit calls them an expected absence
+instead of refusing to serve. Both are `try_kernel` lookups fired only behind a
+default-off opt-in (`ATLAS_HOLO_MOE_GATEUP_FP4` / `ATLAS_HOLO_MOE_DOWN_FP4`):
+what is lost on Hopper and B200 is the FP4 escape hatch, and the FP8 path
+serves.
+
+Receipts, both `--strict`:
+`receipts/ptx_gate_hopper_qwen36_w4a4guard_2026-09-05.*` (173/173, sm_90a) and
+`receipts/ptx_gate_b200_qwen36_w4a4guard_2026-09-05.*` (173/173, sm_100a).
+
+This removes a compile-time blocker; it does not make either target an NVFP4
+target. The real fix is still different per architecture — Hopper an Sm90 MoE
+grouped GEMM, B200 the same math through tcgen05 — and neither is done here.
+The other four P0 targets were already complete on both.
 
 ### Register pressure
 
