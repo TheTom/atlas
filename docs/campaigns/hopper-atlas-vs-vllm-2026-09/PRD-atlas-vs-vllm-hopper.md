@@ -168,6 +168,7 @@ Think-off rows add `--disable-thinking`. Spec-on rows add `--speculative --num-d
 - Atlas ranks are separate processes (`--rank i --world-size N --master-addr 127.0.0.1 --master-port 29500`), one per GPU: use `CUDA_VISIBLE_DEVICES=i` per rank or `--gpu-ordinal i`. Spec flags must be identical across ranks (`QUICKSTART.md:328-333`).
 - Undo the GB10 NCCL pessimizations from `scripts/start-ep2.sh`: do not set `NCCL_SOCKET_IFNAME=enp1s0f0np0`, `NCCL_NVLS_ENABLE=0`, `NCCL_NET_GDR_LEVEL=0`, `NCCL_ALGO=Ring`, `NCCL_PROTO=Simple`. Start with NCCL defaults; record `NCCL_DEBUG=INFO` for the first boot. NCCL ≥ 2.28 is required by the image gate.
 - Only rank 0 serves HTTP; point the client at it.
+- Launcher: `scripts/start-node-ep.sh` implements exactly this (rank i on `--gpu-ordinal i`, `NCCL_PROFILE=default|debug|gb10-roce`, `/health` poll to the 30-min cap, prints the rank-0 `serve_command`); rationale and first-boot order are in the "Single node, N GPUs (Hopper / B200)" section of `docs/DEPLOYMENT.md`.
 
 ### 6.3 Time-to-testing shortcuts
 
