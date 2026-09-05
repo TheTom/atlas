@@ -32,7 +32,7 @@
 #       ready would report ~0 and make every boot number in the campaign a
 #       fiction.
 #
-# Usage: bash scripts/tests/start_node_ep_dryrun.sh
+# Usage: bash scripts/start_node_ep_test.sh
 set -uo pipefail
 
 SCRIPT="$(cd "$(dirname "$0")/.." && pwd)/start-node-ep.sh"

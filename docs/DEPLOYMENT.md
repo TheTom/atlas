@@ -337,6 +337,6 @@ you build one — happy to merge.
 - [`QUICKSTART.md`](../QUICKSTART.md) — copy-paste recipes for each supported model.
 - [`docs/GB10_DEPLOYMENT_GUIDE.md`](GB10_DEPLOYMENT_GUIDE.md) — §7 diagnoses multi-rank (EP=2) issues; §2 is the model×quant compatibility matrix; §4 is the OOM / context ladder.
 - [`scripts/start-node-ep.sh`](../scripts/start-node-ep.sh) — the single-node,
-  N-GPU launcher described above; `scripts/tests/start_node_ep_dryrun.sh` is its
+  N-GPU launcher described above; `scripts/start_node_ep_test.sh` is its
   GPU-free test.
 - [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) — what's running inside the binary.
