@@ -2,6 +2,8 @@
 
 Source of truth is `recipes.vllm.ai` (each recipe has a `.json` twin that renders the exact command per SKU). Confidence per block: **verbatim** = copied from the recipe JSON or the HF model card; **reconstructed** = assembled from secondary sources; **UNVERIFIED** = could not confirm. Re-check the recipe the day of the run; pin the image digest in the artifact.
 
+Verification update (2026-09-05 UTC): [RECIPE-VERIFICATION.md](vllm-control/RECIPE-VERIFICATION.md) contains the exact hardware JSON commands, source hashes, version-scoped resolutions, and remaining gaps. A generated SKU command is not a hardware validation receipt.
+
 Client-side pins for every run (both engines): `temperature 0.0`, `seed 42`, `presence_penalty 0.0`, `frequency_penalty 0.0`, `chat_template_kwargs: {"enable_thinking": false}` for think-off rows, per-request nonce, usage from `stream_options.include_usage`.
 
 ## Nemotron 3 Super 120B-A12B FP8 — `nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8`
@@ -9,12 +11,12 @@ Client-side pins for every run (both engines): `temperature 0.0`, `seed 42`, `pr
 Recipe key `nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16`, variant `fp8`. `min_vllm_version 0.17.1`, image `vllm/vllm-openai:latest`. FP8 VRAM floor 149 GB. Verified hardware: H100, H200, B200, RTX Pro 6000, GB300, GB10.
 
 ```bash
-# 4x H100 FP8 (verbatim, recipes.vllm.ai)
+# TP4 FP8 (verbatim recipe guide example; current hardware JSON defaults differ)
 vllm serve nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8 \
   --kv-cache-dtype fp8 --tensor-parallel-size 4 --trust-remote-code \
   --enable-auto-tool-choice --tool-call-parser qwen3_xml --reasoning-parser nemotron_v3
 
-# 8x H200 FP8 and 8x B200 FP8: identical flags with --tensor-parallel-size 8 (verbatim)
+# Current FP8 hardware JSON: H100 TP8, H200 TP8, B200 TP1; exact commands in RECIPE-VERIFICATION.md.
 # 2x B200 NVFP4 (verbatim; no --kv-cache-dtype):
 vllm serve nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4 \
   --tensor-parallel-size 2 --trust-remote-code \
@@ -22,7 +24,7 @@ vllm serve nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4 \
 ```
 
 ```bash
-# HF model card variant (verbatim) — fuller flag set, H100 cluster
+# HF model card variant (card-derived: MODEL_CKPT substituted) — fuller flag set, TP4
 vllm serve nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8 \
   --served-model-name nvidia/nemotron-3-super --async-scheduling --dtype auto \
   --kv-cache-dtype fp8 --tensor-parallel-size 4 --max-model-len 262144 \
@@ -37,13 +39,13 @@ NVIDIA cookbook 2×H100 variant adds `--attention-backend TRITON_ATTN --max-num-
 
 | Flag | Value | Note |
 |---|---|---|
-| `--tensor-parallel-size` | H100 4 · H200 8 · B200 8 (recipe) vs B200 1 (card) | conflict: pick one source per cell and cite it |
+| `--tensor-parallel-size` | H100 8 · H200 8 · B200 1 (hardware JSON); TP4 guide/card example | choose and cite one complete profile; card does not establish H200 TP1 |
 | `--kv-cache-dtype` | `fp8` | |
 | `--mamba-ssm-cache-dtype` | `float32` | Mamba-2 stability (card) |
 | `--mamba-cache-mode` | `align` | only mode that supports prefix caching on hybrids (experimental) |
 | `--speculative-config` | `'{"method":"mtp","num_speculative_tokens":3}'` | opt-in; required for spec-matched cells |
-| `--tool-call-parser` | `qwen3_xml` (recipe) vs `qwen3_coder` (card, cookbook) | conflict |
-| `--reasoning-parser` | `nemotron_v3` (built-in) vs `super_v3` plugin | conflict |
+| `--tool-call-parser` | `qwen3_xml` (recipe) / `qwen3_coder` (card) | aliases for the same class in vLLM v0.28.0 |
+| `--reasoning-parser` | `nemotron_v3` (built-in recipe/card command) | custom `super_v3` is a separate alternative; equivalence unverified |
 | Dynamo recipe | H200: TP4 FP8 `--moe-backend FLASHINFER_CUTLASS`; B200: TP4 NVFP4 `--moe-backend FLASHINFER_TRTLLM`; MTP draft 3 | image `vllm-runtime:1.3.0-nemotron-super-dev.1` |
 
 ## Nemotron 3 Nano 30B-A3B FP8 — `nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8`
@@ -59,7 +61,11 @@ vllm serve nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8 \
 #   --reasoning-parser-plugin nano_v3_reasoning_parser.py --reasoning-parser nano_v3 --max-model-len 262144
 ```
 
-No MTP documented for Nano → spec off on both engines.
+No MTP documented for Nano → spec off on both engines. Current recipe commands also include `--enable-auto-tool-choice --tool-call-parser qwen3_coder --reasoning-parser-plugin nano_v3_reasoning_parser.py --reasoning-parser nano_v3`; fetch the plugin at the pinned model revision. Nano has no GB10 hardware JSON (404). The Super NVFP4 GB10 image example is not a verified Nano FP8 profile.
+
+## Qwen3.6-35B-A3B FP8 and Qwen3-Next Instruct FP8
+
+Dedicated FP8 recipes exist. Qwen3.6 hardware JSON renders TP1 on H100/H200/B200 with `qwen3_xml`, `qwen3` and encoder DP; its opt-in MTP is K3 with Triton draft MoE. Campaign K2/context/cache overrides are reconstructed. Qwen3-Next Instruct FP8 renders H100 TP8, H200 TP1 and B200 TP1, with Hermes tool parsing and no reasoning parser; its card supports only non-thinking mode. Its MTP feature is `qwen3_next_mtp` K2 plus `--no-enable-chunked-prefill`. Exact commands and verified-hardware distinctions are in [RECIPE-VERIFICATION.md](vllm-control/RECIPE-VERIFICATION.md).
 
 ## Qwen3.8-Flash-Next FP8 — `Qwen/Qwen3.8-Flash-Next-FP8` (exists)
 
@@ -72,9 +78,9 @@ VLLM_PLE_CPU_OFFLOAD=1 vllm serve Qwen/Qwen3.8-Flash-Next-FP8 \
   --max-num-seqs 256 --enable-prefix-caching --no-enable-flashinfer-autotune \
   --enable-auto-tool-choice --tool-call-parser qwen3_xml --reasoning-parser qwen3
 
-# 8x H200 FP8 — TEP8 (plain TP8 is INCOMPATIBLE with the FP8 checkpoint) (verbatim)
+# 4x H200 FP8 — current hardware JSON default is TP4 (exact rendering in RECIPE-VERIFICATION.md)
 vllm serve Qwen/Qwen3.8-Flash-Next-FP8 \
-  --tensor-parallel-size 8 --enable-expert-parallel --moe-backend triton \
+  --tensor-parallel-size 4 --moe-backend triton \
   --gpu-memory-utilization 0.85 --max-num-seqs 256 --enable-prefix-caching \
   --no-enable-flashinfer-autotune --enable-auto-tool-choice \
   --tool-call-parser qwen3_xml --reasoning-parser qwen3
@@ -106,7 +112,7 @@ vllm serve deepseek-ai/DeepSeek-V4-Flash-0731 \
 #   --attention_config.use_fp4_indexer_cache True --moe-backend deep_gemm_mega_moe
 ```
 
-Notes: MTP form is `'{"method":"mtp","num_speculative_tokens":2}'`. **DSpark is broken on SM90** (vllm#47648, open) → for Hopper spec-matched cells use MTP or spec-off on both. `--kv-cache-dtype fp8` (recipe) vs `fp8_ds_mla` (LMCache docs): UNVERIFIED which a given vLLM version requires. DP8 proposal (recipes#762) is not the default.
+Notes: MTP form is `'{"method":"mtp","num_speculative_tokens":2}'`. vllm#47648 records historical SM90 DSpark failures; its current API status is closed, which is not fresh hardware validation. Campaign baseline remains spec-off on both. In v0.28.0, the packed DeepSeek MLA backend accepts `fp8` as an alias and normalizes it to `fp8_ds_mla`; record the effective backend/layout. LMCache uses the canonical spelling for its connector. DP8 proposal (recipes#762) is not the default.
 
 ## MiniMax M3 — `MiniMaxAI/MiniMax-M3` (exists; Atlas has M2.7 only)
 
@@ -128,15 +134,16 @@ Pick one checkpoint: `moonshotai/Kimi-K3`, **native MXFP4 (QAT from SFT)** — M
 |---|---|
 | Model | 2.8T MoE, 16 of 896 experts active, Kimi Delta Attention + Attention Residuals, 1M ctx, native vision (`--language-model-only` for the text A/B) |
 | Weights | 1.56 TB → 8×H200 short by ~430 GB, 8×B200 short by ~120 GB. Single-node is not an option |
-| Image | `vllm/vllm-openai:kimi-k3` (CUDA 13 / cu130, r580+ driver), vLLM ≥ 0.27.1 |
+| Image | Source conflict: hardware JSON says `vllm/vllm-openai:latest`; guide says `kimi-k3` (CUDA 13, r580+). Inspect and pin a real digest before use. |
 | Parsers | `--tool-call-parser kimi_k3 --reasoning-parser kimi_k3` |
 | Compare box | **2×8 B200 (16 GPUs), TP8 + PP2** |
 | Context cap | `--max-model-len 49152` for the A/B |
-| Spec | Off for the scored row; DSpark (`num_speculative_tokens 8`, recipe default) as a second row only |
-| Hopper | 16×H200 with `--moe-backend marlin` (MXFP4 emulated) — label the row "Hopper emulate"; the recipe's 8×H200 profile (`--max-model-len 32768 --max-num-seqs 5`) is a bring-up curiosity, not a receipt |
+| Spec | Off is the rendered default. DSpark is opt-in with `RedHatAI/Kimi-K3-speculator.dspark`, K8; its strategy list excludes TP8+PP2, so that second row is unverified. |
+| Hopper | Current JSON: 16×H200 TP16, Marlin, `--max-model-len 32768 --max-num-seqs 5`; label "Hopper emulate". These caps belong to the two-node profile. |
 
 ```bash
-# vLLM control — run on both nodes with RANK 0/1 (team-supplied; verify against the recipe page day-of)
+# RECONSTRUCTED team proposal — superseded by exact head/worker commands in RECIPE-VERIFICATION.md.
+# Worker requires --headless; FP8 KV requires recipe attention-config. Do not execute this stale sketch.
 vllm serve moonshotai/Kimi-K3 \
   --served-model-name kimi-k3 --trust-remote-code --language-model-only \
   --tensor-parallel-size 8 --pipeline-parallel-size 2 \
@@ -150,12 +157,14 @@ Atlas leg: same checkpoint, same GPU count, same max len, thinking + tool parser
 
 Sources: https://recipes.vllm.ai/moonshotai/Kimi-K3 · https://recipes.vllm.ai/moonshotai/Kimi-K3.json · https://vllm.ai/blog/2026-07-27-k3
 
-## GLM (Z.ai) — `zai-org/GLM-5.3`, `GLM-5.3-Flash`, `GLM-4.5-Air-FP8` (team-supplied 2026-09-04; **reconstructed — verify on recipes.vllm.ai before the run**)
+## GLM (Z.ai) — `zai-org/GLM-5.3`, `GLM-5.3-Flash`, `GLM-4.5-Air-FP8`
+
+Exact GLM-5.3/Flash hardware commands are now in [RECIPE-VERIFICATION.md](vllm-control/RECIPE-VERIFICATION.md). Dotted speculative config is valid vLLM v0.28.0 syntax; GLM-5.3 renders JSON MTP K5 only when opted in. The sketches below are reconstructed. Air FP8 dedicated recipe endpoints return 404; its card command targets BF16 Air TP8, so FP8 H100/H200 sizing remains unverified.
 
 No "GLM 3.5" enterprise SKU exists; the line is 4.5 → 4.7 → 5 → 5.3. Atlas has no `glm` `model_type` — every GLM cell is vLLM-only until a port boots.
 
 ```bash
-# GLM-5.3 FP8 — 8x H200 (published Hopper default). Baseline row = no speculative flags; spec row = MTP 5. Never mixed.
+# GLM-5.3 FP8 — generated 8x H200 profile, absent from verified-hardware map. Baseline removes both speculative flags.
 vllm serve zai-org/GLM-5.3 --kv-cache-dtype fp8 --tensor-parallel-size 8 \
   --speculative-config.method mtp --speculative-config.num_speculative_tokens 5 \
   --tool-call-parser glm47 --reasoning-parser glm45 --enable-auto-tool-choice --served-model-name glm-5.3
@@ -176,7 +185,7 @@ vllm serve zai-org/GLM-4.5-Air-FP8 --tensor-parallel-size 2 --tool-call-parser g
 | GLM-4.5-Air FP8 | 106B / 12B | 2×H100 / 1×H200 | canary only |
 | GLM-4.5 FP8 | 358B / 32B | 8×H100 / 4×H200 | skip unless a customer names it |
 
-Hopper uses `--kv-cache-dtype fp8` (not a Blackwell-specific e4m3 spelling). Coherency extras: think-on/off via `glm45`, one `glm47` tool call, same greedy A/A rule.
+GLM-5.3 uses FP8 KV on Hopper; GLM-5.3-Flash explicitly uses BF16 KV on Hopper and FP8 KV on Blackwell. GLM-5.3 and Flash are always-thinking models controlled by reasoning_effort, so the campaign think-off cells need a separate matched policy or remain blocked. GLM-4.5-Air supports thinking on/off. A parser hiding reasoning from content does not prove thinking was disabled.
 
 ## Hopper vs Blackwell behaviour in vLLM
 
@@ -208,8 +217,8 @@ vllm bench serve --backend openai --base-url http://localhost:8888 --endpoint /v
 
 ## Open conflicts to carry as risks
 
-1. Nemotron Super tool parser `qwen3_xml` vs `qwen3_coder`; reasoning parser `nemotron_v3` vs `super_v3` plugin; B200 GPU count TP8 (recipe) vs TP1 (card).
-2. DeepSeek V4-Flash `fp8` vs `fp8_ds_mla`; DSpark broken on SM90; no H100 recipe.
+1. Nemotron Super tool names alias in v0.28.0; built-in nemotron_v3 exists. Custom plugin equivalence remains unverified. Current B200 FP8 hardware JSON agrees with card TP1.
+2. DeepSeek V4-Flash packed MLA alias resolved on v0.28.0; spec-on runtime and H100 remain unverified. Kimi image/PP speculation conflicts and GLM-5.3 think-off incompatibility remain open.
 3. MiniMax M3 exists for vLLM; Atlas has M2.7 → M3 is a vLLM-only cell until Atlas ports it.
 4. `VLLM_USE_FLASHINFER_MOE_FP4`, `VLLM_USE_TRTLLM_ATTENTION`, `VLLM_ATTENTION_BACKEND` are absent from the official env-var page — UNVERIFIED.
 
