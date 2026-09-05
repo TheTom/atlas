@@ -1,0 +1,1 @@
+SELFTEST OK: known low-space and excess-new-usage cases rejected

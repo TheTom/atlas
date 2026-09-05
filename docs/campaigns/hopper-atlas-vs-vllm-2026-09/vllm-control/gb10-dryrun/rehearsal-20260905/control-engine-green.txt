@@ -1,0 +1,1 @@
+SELFTEST OK: observed process failure retains null timing and failed verdict
