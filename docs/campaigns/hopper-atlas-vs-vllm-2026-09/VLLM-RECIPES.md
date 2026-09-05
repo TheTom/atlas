@@ -120,6 +120,34 @@ vllm serve MiniMaxAI/MiniMax-M3 --block-size 128 --tensor-parallel-size 8 \
 # Text-only A/B: add --language-model-only. EAGLE3 draft: Inferact/MiniMax-M3-EAGLE3 (num_speculative_tokens 3).
 ```
 
+## GLM (Z.ai) — `zai-org/GLM-5.3`, `GLM-5.3-Flash`, `GLM-4.5-Air-FP8` (team-supplied 2026-09-04; **reconstructed — verify on recipes.vllm.ai before the run**)
+
+No "GLM 3.5" enterprise SKU exists; the line is 4.5 → 4.7 → 5 → 5.3. Atlas has no `glm` `model_type` — every GLM cell is vLLM-only until a port boots.
+
+```bash
+# GLM-5.3 FP8 — 8x H200 (published Hopper default). Baseline row = no speculative flags; spec row = MTP 5. Never mixed.
+vllm serve zai-org/GLM-5.3 --kv-cache-dtype fp8 --tensor-parallel-size 8 \
+  --speculative-config.method mtp --speculative-config.num_speculative_tokens 5 \
+  --tool-call-parser glm47 --reasoning-parser glm45 --enable-auto-tool-choice --served-model-name glm-5.3
+
+# GLM-5.1 / 5.2 FP8 fallback if the 5.3 image is flaky (same box; image vllm/vllm-openai:glm51|glm52 or v0.28.0 per recipe page)
+vllm serve zai-org/GLM-5.1-FP8 --tensor-parallel-size 8 --kv-cache-dtype fp8 \
+  --speculative-config.method mtp --speculative-config.num_speculative_tokens 3 \
+  --tool-call-parser glm47 --reasoning-parser glm45 --enable-auto-tool-choice --chat-template-content-format=string
+
+# GLM-4.5-Air FP8 — 2x H100 or 1x H200 (cheap canary)
+vllm serve zai-org/GLM-4.5-Air-FP8 --tensor-parallel-size 2 --tool-call-parser glm45 --reasoning-parser glm45 --enable-auto-tool-choice
+```
+
+| Variant | Size | Hopper fit | Campaign slot |
+|---|---|---|---|
+| GLM-5.3-Flash | ~320B / 18B active, multimodal | 4–8×H200 | P1, shares the Flash-Next booking |
+| GLM-5.3 | ~743B / 39B active | 8×H200 FP8 single node; tight on 8×H100 | Phase D, same rental as V4-Flash |
+| GLM-4.5-Air FP8 | 106B / 12B | 2×H100 / 1×H200 | canary only |
+| GLM-4.5 FP8 | 358B / 32B | 8×H100 / 4×H200 | skip unless a customer names it |
+
+Hopper uses `--kv-cache-dtype fp8` (not a Blackwell-specific e4m3 spelling). Coherency extras: think-on/off via `glm45`, one `glm47` tool call, same greedy A/A rule.
+
 ## Hopper vs Blackwell behaviour in vLLM
 
 - Default attention: SM90 `FLASH_ATTN` (FA3); SM100 `FLASHINFER` (FA4 / trtllm-gen). Override `--attention-backend`.

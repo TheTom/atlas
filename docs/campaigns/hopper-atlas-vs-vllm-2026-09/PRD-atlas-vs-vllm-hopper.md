@@ -63,6 +63,8 @@ Win condition is an honest Pareto, not "always faster". A C=1 loss with a C=16 w
 | P0 | Qwen3.6-35B-A3B (flagship, native FP8, MTP) | `Qwen/Qwen3.6-35B-A3B-FP8` | `qwen3.6-35b-a3b` | 1×H100, 1×B200 |
 | P1 | Qwen3-Next-80B-A3B (GDN + MoE stand-in for Flash-Next) | `Qwen/Qwen3-Next-80B-A3B-Instruct-FP8` | `qwen3-next-80b-a3b` | 2×H100 / 1×H200 / 1×B200 |
 | P1 | DeepSeek V4-Flash | `deepseek-ai/DeepSeek-V4-Flash-0731` (FP8; vLLM has **no H100 recipe**) | `deepseek-v4-flash` | 8×H200, 8×B200 per recipe (Atlas EP only) |
+| P1 (vLLM ref until ported) | GLM-5.3-Flash (~320B / 18B active) | `zai-org/GLM-5.3-Flash` FP8 | **none — `ATLAS_UNSUPPORTED`** (no `glm` `model_type` in `crates/spark-model/src/factory.rs`) | 4–8×H200, same booking as Flash-Next |
+| Canary (vLLM ref) | GLM-4.5-Air FP8 (106B / 12B) | `zai-org/GLM-4.5-Air-FP8` | none | 2×H100 or 1×H200 |
 | B200 extra | Any P0 model, NVFP4 checkpoint | `nvidia/*-NVFP4` per `MODEL.toml hf_id` | same | B200 only |
 
 ### 3.2 Conditional (Phase D only)
@@ -70,6 +72,7 @@ Win condition is an honest Pareto, not "always faster". A C=1 loss with a C=16 w
 - MiniMax M2.7 (`MiniMaxAI/MiniMax-M2.7`, `kernels/gb10/minimax-m2-229b`) on 8×H200 — only if Super and Qwen3.6 are green and Atlas boots it inside 30 minutes. KV must stay BF16 per recipe fixture.
 - Qwen3.8-Flash-Next (`Qwen/Qwen3.8-Flash-Next-FP8`, 250 GB FP8: 4×H100 + PLE CPU offload, 8×H200 TEP8, 4×B200) — Atlas cell only after a `spark-model` port lands (separate PR). vLLM reference row may be collected while the box is rented.
 - MiniMax M3 (`MiniMaxAI/MiniMax-M3`, 8×H200 BF16 / 8×B200 NVFP4) — vLLM reference row only; Atlas has M2.7.
+- GLM-5.3 (~743B / 39B active, `zai-org/GLM-5.3`, official Hopper default 8×H200 FP8) — **same 8×H200 rental as DeepSeek V4-Flash; pick one per booking or reuse the node overnight.** Atlas cell only if a GLM port boots inside 30 min; otherwise vLLM-only receipt. GLM-4.5 (358B) and any "GLM 3.5" are not on the list — there is no enterprise GLM 3.5 SKU; the line went 4.5 → 4.7 → 5 → 5.3.
 
 ### 3.3 Out of scope (separate PRD)
 
@@ -93,7 +96,7 @@ A cell is certified only if every gate passes. Each gate names its oracle.
 | Compile (Phase 0) | Every kernel in `kernels/<hw>/common` and the model's `nvfp4/` dir emits PTX and passes `ptxas` for the target arch | `scripts/hopper_ptx_gate.sh` ledger; gate self-test proves a known sm_120-only kernel fails |
 | Preflight | `spark serve --check-kernels` exits 0 on the box; compiled arch matches device CC | `--check-kernels` JSON (`compiled_arch`, `device_cc`); mismatch message is the negative case |
 | Boot | `/health` returns 200 and a 1-token request completes ≤ 30 min after weights are local | `bench/hopper_ab/time_to_ready.sh` JSON; else NO-GO, tear down |
-| Coherency | Two greedy runs, same prompt, byte-identical. Tool-call JSON parses with `finish_reason == "tool_calls"`. No `<think>` in content when thinking is off | `bench/hopper_ab/coherency_gate.py` (derived from `scripts/test_coherence.py`); known-answer probes from `bench/agentic/coherence_check.py` (391 / Tokyo / rotaregirfer) |
+| Coherency | Two greedy runs, same prompt, byte-identical. Tool-call JSON parses with `finish_reason == "tool_calls"`. No `<think>` in content when thinking is off. GLM rows add: think-on and think-off through the `glm45` reasoning parser, one `glm47`-format tool call | `bench/hopper_ab/coherency_gate.py` (derived from `scripts/test_coherence.py`); known-answer probes from `bench/agentic/coherence_check.py` (391 / Tokyo / rotaregirfer) |
 | Latency pack | `lat` and `agent` at C=1 and C=16, 1 warmup + 3 reps, spread ≤ 10 % | `bench/ladder38/harness_w55_conc_ladder.py` output; vacuity floor 0.8 from `crates/atlas-plugin/src/benchmarks/concurrency.rs` |
 | A/B | vLLM leg with §7 flags, same shapes, same box, within 24 h, spec-matched | `bench/hopper_ab/compare.py` refuses mismatched isl/osl/seed/temperature/kwargs |
 | Artifact | JSON per cell + full serve command + `nvidia-smi -q` + image digest + `git sha` + PTX ledger sha | §10 schema; `GateRecord` hardware block |
@@ -119,7 +122,7 @@ SLO misses are reported, not hidden. A cell that misses SLO but beats vLLM is a 
 | C vLLM A/B | same box, Atlas torn down | vLLM ladder JSON + compare table | Recipe-max fails on Atlas topology → matched topology, footnote |
 | D Overflow | leftover hours | M2.7, NVFP4-on-B200, ladder to C=128 | Budget exhausted |
 
-Order of boxes: 1×H100 (Nano, Qwen3.6) → 2×H100 (Super) → 2×H200 (Super, Qwen3-Next) → 1×B200 (Nano, Qwen3.6, NVFP4 rows) → 2×B200 (Super) → 8×H200 / 4×B200 (V4-Flash). Never start an 8-GPU rental before the 2-GPU cells are certified.
+Order of boxes: 1×H100 (Nano, Qwen3.6; GLM-4.5-Air canary on 2×H100 if a GLM number is wanted cheaply) → 4×H100 / 2×H100 (Super) → 1×H200 (Super, Qwen3-Next, the 27B head-to-head) → 4–8×H200 (Flash-Next vLLM ref, GLM-5.3-Flash) → 1×B200 (Nano, Qwen3.6, NVFP4 rows) → 2×B200 (Super) → one 8×H200 booking for V4-Flash **or** GLM-5.3 (not both as separate weeks) → 8×B200. Never start an 8-GPU rental before the 1- and 2-GPU cells are certified.
 
 ## 6. Atlas recipes (best guesses to cut time-to-first-token; verify on the box)
 
@@ -183,6 +186,8 @@ Use only the official recipe image and flags for the model; pin the image digest
 | Nemotron 3 Nano FP8 | 1×H100 / 1×H200 | `vllm serve nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8 --trust-remote-code --async-scheduling --kv-cache-dtype fp8 --tensor-parallel-size 1 --moe-backend flashinfer_cutlass` | spec off both |
 | Qwen3.6-35B-A3B FP8 | 1 GPU | no dedicated recipe found — use the ladder38 pattern: `--max-model-len 65536 --max-num-seqs 128 --gpu-memory-utilization 0.90 --enable-prefix-caching --kv-cache-dtype fp8 --tool-call-parser qwen3_coder --reasoning-parser qwen3` (reconstructed) | `'{"method":"mtp","num_speculative_tokens":2}'` to match Atlas `--num-drafts 2` |
 | Qwen3-Next-80B-A3B FP8 | 1×H200 / 2×H100 | vLLM recipe for Qwen3-Next (reconstruct day-of; `--tool-call-parser hermes --reasoning-parser qwen3`) | MTP K matched |
+| GLM-5.3 FP8 | 8×H200 | `vllm serve zai-org/GLM-5.3 --kv-cache-dtype fp8 --tensor-parallel-size 8 --tool-call-parser glm47 --reasoning-parser glm45 --enable-auto-tool-choice --served-model-name glm-5.3` (team-supplied; verify on recipes.vllm.ai day-of; image `vllm/vllm-openai:glm53` or the recipe pin) | `--speculative-config.method mtp --speculative-config.num_speculative_tokens 5` on both or neither |
+| GLM-4.5-Air FP8 | 2×H100 / 1×H200 | `vllm serve zai-org/GLM-4.5-Air-FP8 --tensor-parallel-size 2 --tool-call-parser glm45 --reasoning-parser glm45 --enable-auto-tool-choice` (team-supplied) | spec off both |
 | DeepSeek V4-Flash FP8 | 8×H200 / 8×B200 | `vllm serve deepseek-ai/DeepSeek-V4-Flash-0731 --trust-remote-code --kv-cache-dtype fp8 --block-size 256 --enable-expert-parallel --tensor-parallel-size 8 --tokenizer-mode deepseek_v4 --tool-call-parser deepseek_v4 --enable-auto-tool-choice --reasoning-parser deepseek_v4 --reasoning-config '{...}'`; B200 adds `--attention_config.use_fp4_indexer_cache True --moe-backend deep_gemm_mega_moe` | spec **off** both (Atlas has no V4 MTP; vLLM DSpark is broken on SM90) |
 
 Fairness pins for the client, both engines (from `bench/ladder38/harness_w55_conc_ladder.py`):
@@ -264,7 +269,7 @@ Open engineering items surfaced by the gate, in likely order: kernels using sm_1
 
 Allowed: "Nemotron 3 Super FP8 on 2×H100 and 2×H200, Atlas vs vLLM recipe, workloads lat/agent, C=1 and C=16, spec-matched, coherency passed" — with the cell table and artifact hashes.
 
-Not allowed: "faster than vLLM" without SKU, C, quant and spec matching; calling GB10 or B200 numbers Hopper data; listing Flash-Next / Max / K3 / Pro / M3 as tested; reusing the README 3.6× figure (superseded by `bench/ladder38/RESULTS.md`).
+Not allowed: "faster than vLLM" without SKU, C, quant and spec matching; calling GB10 or B200 numbers Hopper data; listing Flash-Next / Max / K3 / Pro / M3 / GLM as Atlas-tested unless an Atlas cell certified; writing "GLM 3.5" anywhere; reusing the README 3.6× figure (superseded by `bench/ladder38/RESULTS.md`).
 
 ## 14. Risks
 
@@ -296,7 +301,7 @@ What this PRD takes from it:
 - **Single-GPU cells first, multi-GPU cells last.** Every multi-GPU Atlas cell inherits the all-reduce-bound EP=2 design; a loss there is expected and is a development finding, not a benchmark finding. The certified receipts this campaign can honestly produce today are 1×H100 / 1×H200 / 1×B200 cells (Nano, Qwen3.6-35B, Super on H200/B200, Qwen3-Next on H200/B200).
 - **The 1×H200 27B head-to-head is adopted as the first paid cell** (`Qwen/Qwen3.8-27B-FP8`, target `qwen3.8-27b`, MTP K matched; NVFP4 excluded on Hopper). It is the cheapest datacenter receipt and reuses the ladder38 methodology unchanged.
 - **Cross-rank speculative decoding, expert dispatch and all-reduce work are a development track on the two Sparks, not a campaign gate.** They are prerequisites for publishable 8-GPU cells and are tracked outside this PRD; this PRD reports 8-GPU Atlas cells as NO-GO or PARTIAL if they fail the boot/coherency gates rather than waiting for that work.
-- **GLM 5.3 is out of scope here**: no `glm` `model_type` exists in `crates/spark-model/src/factory.rs`; it needs a port before it can be a cell.
+- **GLM is in scope as vLLM-reference rows and as an Atlas cell only once it boots** (decision 2026-09-04): no `glm` `model_type` exists in `crates/spark-model/src/factory.rs`, so GLM-5.3-Flash / GLM-5.3 / GLM-4.5-Air are `ATLAS_UNSUPPORTED` until a port lands; the 30-minute boot cap decides whether an Atlas GLM cell exists in this campaign. The sales line after a green cell is "GLM-5.3 FP8 on 8×H200, Atlas vs vLLM recipe, lat/agent, C=1 and C=16" — never "GLM 3.5".
 
 ## Appendix A — RST context intake
 
