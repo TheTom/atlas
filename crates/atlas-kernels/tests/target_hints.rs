@@ -119,3 +119,21 @@ fn every_nvidia_hardware_set_is_reachable_from_its_declared_compute_capability()
          walk is broken rather than the hints"
     );
 }
+/// The other direction, for the arms this repo can check: a hint must name a
+/// directory that exists. A `match` arm pointing at a removed or renamed
+/// hardware set is a rebuild instruction that cannot be followed.
+#[test]
+fn every_target_hint_names_a_hardware_set_that_exists() {
+    // The CCs the match arms answer for. Listed rather than enumerated
+    // because the function is a `match` over a sparse space, not a table —
+    // and a CC listed here that stops being hinted fails the test above.
+    for cc in [(9, 0), (10, 0), (12, 1)] {
+        let hw = atlas_core::arch::target_hint(cc)
+            .unwrap_or_else(|| panic!("target_hint({cc:?}) answered None"));
+        assert!(
+            kernels_root().join(hw).join("HARDWARE.toml").is_file(),
+            "target_hint({cc:?}) says to build ATLAS_TARGET_HW={hw}, but \
+             kernels/{hw}/HARDWARE.toml does not exist"
+        );
+    }
+}
