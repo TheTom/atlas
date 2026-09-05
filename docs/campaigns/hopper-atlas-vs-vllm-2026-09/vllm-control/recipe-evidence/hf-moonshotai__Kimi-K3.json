@@ -1,0 +1,35 @@
+{
+  "url": "https://huggingface.co/moonshotai/Kimi-K3/raw/main/README.md",
+  "retrieved_utc": "2026-09-05T02:41:39.297110+00:00",
+  "status": 200,
+  "final_url": "https://huggingface.co/moonshotai/Kimi-K3/raw/main/README.md",
+  "sha256": "57de265b5842dfa465c6e73b368b0e15a89b8793b5450528dad577da202cc6fe",
+  "vllm_command_blocks": [],
+  "card_excerpts": [
+    {
+      "line": 131,
+      "text": "<td align=\"center\" style=\"vertical-align: middle; text-align: center\">MXFP4 weights / MXFP8 activations<br>(quantization-aware training)</td>"
+    },
+    {
+      "line": 613,
+      "text": "Kimi K3 applies quantization-aware training from the SFT stage onward, using MXFP4 weights with MXFP8 activations for broad hardware compatibility."
+    },
+    {
+      "line": 620,
+      "text": "- [vLLM](https://github.com/vllm-project/vllm) \u2014 see [recipes](https://recipes.vllm.ai/moonshotai/Kimi-K3)"
+    },
+    {
+      "line": 622,
+      "text": "- [TokenSpeed](https://github.com/lightseekorg/tokenspeed) \u2014 see [recipes](https://lightseek.org/tokenspeed/recipes/models#kimi-k3)"
+    },
+    {
+      "line": 627,
+      "text": "Kimi K3 always has thinking enabled, and will return `reasoning_content`. Thinking effort is configured with the top-level `reasoning_effort` request field, which supports `\"low\"`, `\"high\"`, and `\"max\"` (default `\"max\"`)."
+    },
+    {
+      "line": 656,
+      "text": "        reasoning_effort=\"max\","
+    }
+  ],
+  "stored_content": "Selected excerpts; sha256 hashes the original complete HTTP response body."
+}

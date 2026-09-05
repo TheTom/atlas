@@ -1,0 +1,67 @@
+{
+  "url": "https://recipes.vllm.ai/zai-org/GLM-5.3/hw/h100.json",
+  "retrieved_utc": "2026-09-05T02:41:14.395519+00:00",
+  "status": 200,
+  "final_url": "https://recipes.vllm.ai/zai-org/GLM-5.3/hw/h100.json",
+  "sha256": "60fbd2573711bec9c8ddb88b0b41c1458627245542d5106b5d1ff0bdffd11724",
+  "data": {
+    "hardware": "h100",
+    "strategy": "multi_node_tp",
+    "variant": "default",
+    "node_count": 2,
+    "deploy_type": "multi_node",
+    "env": {
+      "GLOO_SOCKET_IFNAME": "$IFACE_NAME",
+      "NCCL_SOCKET_IFNAME": "$IFACE_NAME"
+    },
+    "docker_image": "vllm/vllm-openai:v0.28.0",
+    "head_command": "vllm serve zai-org/GLM-5.3 \\\n  --tensor-parallel-size 16 \\\n  --nnodes 2 \\\n  --node-rank 0 \\\n  --master-addr $HEAD_IP \\\n  --kv-cache-dtype fp8 \\\n  --tool-call-parser glm47 \\\n  --enable-auto-tool-choice \\\n  --reasoning-parser glm45",
+    "worker_commands": [
+      "vllm serve zai-org/GLM-5.3 \\\n  --tensor-parallel-size 16 \\\n  --nnodes 2 \\\n  --node-rank 1 \\\n  --master-addr $HEAD_IP \\\n  --headless \\\n  --kv-cache-dtype fp8 \\\n  --tool-call-parser glm47 \\\n  --enable-auto-tool-choice \\\n  --reasoning-parser glm45"
+    ],
+    "head_argv": [
+      "vllm",
+      "serve",
+      "zai-org/GLM-5.3",
+      "--tensor-parallel-size",
+      "16",
+      "--nnodes",
+      "2",
+      "--node-rank",
+      "0",
+      "--master-addr",
+      "$HEAD_IP",
+      "--kv-cache-dtype",
+      "fp8",
+      "--tool-call-parser",
+      "glm47",
+      "--enable-auto-tool-choice",
+      "--reasoning-parser",
+      "glm45"
+    ],
+    "worker_argvs": [
+      [
+        "vllm",
+        "serve",
+        "zai-org/GLM-5.3",
+        "--tensor-parallel-size",
+        "16",
+        "--nnodes",
+        "2",
+        "--node-rank",
+        "1",
+        "--master-addr",
+        "$HEAD_IP",
+        "--headless",
+        "--kv-cache-dtype",
+        "fp8",
+        "--tool-call-parser",
+        "glm47",
+        "--enable-auto-tool-choice",
+        "--reasoning-parser",
+        "glm45"
+      ]
+    ]
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

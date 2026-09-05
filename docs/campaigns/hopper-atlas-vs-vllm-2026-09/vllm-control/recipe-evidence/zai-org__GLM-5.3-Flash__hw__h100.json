@@ -1,0 +1,33 @@
+{
+  "url": "https://recipes.vllm.ai/zai-org/GLM-5.3-Flash/hw/h100.json",
+  "retrieved_utc": "2026-09-05T02:41:14.650686+00:00",
+  "status": 200,
+  "final_url": "https://recipes.vllm.ai/zai-org/GLM-5.3-Flash/hw/h100.json",
+  "sha256": "277ccfd992e29bd8035e9f7131b27f2abb9a9c64dc4c421e9a60cb601641feb7",
+  "data": {
+    "hardware": "h100",
+    "strategy": "single_node_tp",
+    "variant": "default",
+    "node_count": 1,
+    "deploy_type": "single_node",
+    "env": {
+      "VLLM_ENGINE_READY_TIMEOUT_S": "3600"
+    },
+    "docker_image": "vllm/vllm-openai:glm53-flash",
+    "command": "vllm serve zai-org/GLM-5.3-Flash \\\n  --tensor-parallel-size 8 \\\n  --no-enable-flashinfer-autotune \\\n  --tool-call-parser glm47 \\\n  --enable-auto-tool-choice \\\n  --reasoning-parser glm45",
+    "argv": [
+      "vllm",
+      "serve",
+      "zai-org/GLM-5.3-Flash",
+      "--tensor-parallel-size",
+      "8",
+      "--no-enable-flashinfer-autotune",
+      "--tool-call-parser",
+      "glm47",
+      "--enable-auto-tool-choice",
+      "--reasoning-parser",
+      "glm45"
+    ]
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

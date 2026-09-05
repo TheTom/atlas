@@ -1,0 +1,181 @@
+{
+  "url": "https://recipes.vllm.ai/Qwen/Qwen3.6-35B-A3B-FP8.json",
+  "retrieved_utc": "2026-09-05T02:40:06.081411+00:00",
+  "status": 200,
+  "final_url": "https://recipes.vllm.ai/Qwen/Qwen3.6-35B-A3B-FP8.json",
+  "sha256": "a071fa6343fa7ab1e85350dd74ac6fcbf31bd8234ec891c806323254229148e6",
+  "data": {
+    "hf_id": "Qwen/Qwen3.6-35B-A3B-FP8",
+    "model": {
+      "model_id": "Qwen/Qwen3.6-35B-A3B-FP8",
+      "min_vllm_version": "0.17.0",
+      "architecture": "moe",
+      "parameter_count": "35B",
+      "active_parameters": "3B",
+      "context_length": 262144,
+      "base_args": [
+        "--trust-remote-code"
+      ],
+      "base_env": {},
+      "install": {
+        "pip": {
+          "command": "uv venv\nsource .venv/bin/activate\nuv pip install -U vllm --torch-backend auto"
+        },
+        "docker": {
+          "command": "docker pull vllm/vllm-openai:latest"
+        }
+      }
+    },
+    "features": {
+      "tool_calling": {
+        "description": "Enable automatic tool choice with Qwen3 XML parser",
+        "args": [
+          "--enable-auto-tool-choice",
+          "--tool-call-parser",
+          "qwen3_xml"
+        ]
+      },
+      "reasoning": {
+        "description": "Enable chain-of-thought reasoning with Qwen3 parser",
+        "args": [
+          "--reasoning-parser",
+          "qwen3"
+        ]
+      },
+      "spec_decoding": {
+        "description": "Multi-token prediction speculative decoding for lower latency",
+        "modes": {
+          "mtp": {
+            "args": [
+              "--speculative-config",
+              "{\"method\":\"mtp\",\"num_speculative_tokens\":3,\"moe_backend\":\"triton\"}"
+            ],
+            "hardware_overrides": {
+              "rtx_pro_6000": {
+                "args": [
+                  "--speculative-config",
+                  "{\"method\":\"mtp\",\"num_speculative_tokens\":4,\"moe_backend\":\"flashinfer_cutlass\"}"
+                ]
+              },
+              "rtx_5090": {
+                "args": [
+                  "--speculative-config",
+                  "{\"method\":\"mtp\",\"num_speculative_tokens\":4,\"moe_backend\":\"flashinfer_cutlass\"}"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "text_only": {
+        "description": "Skip loading the vision encoder for text-only workloads \u2014 frees VRAM for KV cache. Mutually exclusive with encoder_parallel.",
+        "args": [
+          "--language-model-only"
+        ]
+      },
+      "encoder_parallel": {
+        "description": "Run the vision encoder in data-parallel mode \u2014 avoids TP comm overhead on the small encoder. Mutually exclusive with text_only.",
+        "args": [
+          "--mm-encoder-tp-mode",
+          "data"
+        ]
+      }
+    },
+    "opt_in_features": [
+      "spec_decoding",
+      "text_only"
+    ],
+    "variants": {
+      "default": {
+        "precision": "fp8",
+        "vram_minimum_gb": 42,
+        "description": "Qwen official FP8 checkpoint \u2014 single-GPU serving",
+        "hardware_overrides": {
+          "rtx_pro_6000": {
+            "extra_env": {
+              "VLLM_USE_DEEP_GEMM": "0"
+            }
+          }
+        }
+      }
+    },
+    "hardware_overrides": {
+      "amd": {
+        "extra_args": [],
+        "extra_env": {
+          "VLLM_ROCM_USE_AITER": "1"
+        }
+      },
+      "xpu": {
+        "extra_args": [
+          "--enforce-eager"
+        ]
+      }
+    },
+    "meta": {
+      "title": "Qwen3.6-35B-A3B",
+      "date_added": "2026-04-16",
+      "date_updated": "2026-09-02",
+      "hardware": {
+        "dgx_spark_gb10": "verified",
+        "h100": "verified",
+        "h200": "verified",
+        "mi300x": "verified",
+        "mi325x": "verified",
+        "mi355x": "verified",
+        "rtx_pro_6000": "verified",
+        "dgx_station_gb300": "verified",
+        "rtx_5090": "verified",
+        "arc_pro_b60": "verified",
+        "arc_pro_b70": "verified"
+      }
+    },
+    "recommended_command": {
+      "hardware": "h200",
+      "strategy": "single_node_tp",
+      "variant": "fp8",
+      "node_count": 1,
+      "deploy_type": "single_node",
+      "env": {},
+      "docker_image": "vllm/vllm-openai:latest",
+      "command": "vllm serve Qwen/Qwen3.6-35B-A3B-FP8 \\\n  --trust-remote-code \\\n  --tensor-parallel-size 1 \\\n  --enable-auto-tool-choice \\\n  --tool-call-parser qwen3_xml \\\n  --reasoning-parser qwen3 \\\n  --mm-encoder-tp-mode data",
+      "argv": [
+        "vllm",
+        "serve",
+        "Qwen/Qwen3.6-35B-A3B-FP8",
+        "--trust-remote-code",
+        "--tensor-parallel-size",
+        "1",
+        "--enable-auto-tool-choice",
+        "--tool-call-parser",
+        "qwen3_xml",
+        "--reasoning-parser",
+        "qwen3",
+        "--mm-encoder-tp-mode",
+        "data"
+      ],
+      "by_hardware": {
+        "h200": "/Qwen/Qwen3.6-35B-A3B-FP8/hw/h200.json",
+        "h100": "/Qwen/Qwen3.6-35B-A3B-FP8/hw/h100.json",
+        "b200": "/Qwen/Qwen3.6-35B-A3B-FP8/hw/b200.json",
+        "gb200": "/Qwen/Qwen3.6-35B-A3B-FP8/hw/gb200.json",
+        "b300": "/Qwen/Qwen3.6-35B-A3B-FP8/hw/b300.json",
+        "gb300": "/Qwen/Qwen3.6-35B-A3B-FP8/hw/gb300.json",
+        "dgx_station_gb300": "/Qwen/Qwen3.6-35B-A3B-FP8/hw/dgx_station_gb300.json",
+        "dgx_spark_gb10": "/Qwen/Qwen3.6-35B-A3B-FP8/hw/dgx_spark_gb10.json",
+        "rtx_pro_6000": "/Qwen/Qwen3.6-35B-A3B-FP8/hw/rtx_pro_6000.json",
+        "rtx_5090": "/Qwen/Qwen3.6-35B-A3B-FP8/hw/rtx_5090.json",
+        "mi300x": "/Qwen/Qwen3.6-35B-A3B-FP8/hw/mi300x.json",
+        "mi325x": "/Qwen/Qwen3.6-35B-A3B-FP8/hw/mi325x.json",
+        "mi355x": "/Qwen/Qwen3.6-35B-A3B-FP8/hw/mi355x.json",
+        "arc_pro_b60": "/Qwen/Qwen3.6-35B-A3B-FP8/hw/arc_pro_b60.json",
+        "arc_pro_b70": "/Qwen/Qwen3.6-35B-A3B-FP8/hw/arc_pro_b70.json"
+      }
+    },
+    "guide_excerpts": [
+      "- **vLLM version:** >= 0.17.0\n- **NVFP4 vLLM version:** >= 0.28.0. 0.24.0 loads the checkpoint, but\n  FlashInfer only selects its XQA decode kernel on SM120 GPUs from 0.28.0.\n- **Hardware (BF16):** 1x H200, 2x H100, 4x Intel Arc Pro B60 / B70\n- **Hardware (FP8):** single H100/H200 or 1x MI300X/MI325X/MI355X\n- **Hardware (NVFP4):** NVIDIA Blackwell GPUs, including DGX Spark (GB10)",
+      "The GB10 profile above was re-measured on 2026-08-31 with aiperf 0.12.0 on\nvLLM 0.28.0 (Ubuntu 24.04.4, driver 580.159.03, CUDA 13.0), one GB10 at TP1,\nserving from `vllm/vllm-openai:v0.28.0`. On SPEED-Bench at 8K input / 256\noutput tokens and concurrency 1, it sustained 6,265 prefill tok/s and 97.7\ndecode tok/s at a 3.95 s mean end-to-end latency. The flag set is unchanged \u2014\nthe sweep confirms the tuning rather than revising it, so the command the\nbuilder emits for GB10 is the one that produced these numbers."
+    ]
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

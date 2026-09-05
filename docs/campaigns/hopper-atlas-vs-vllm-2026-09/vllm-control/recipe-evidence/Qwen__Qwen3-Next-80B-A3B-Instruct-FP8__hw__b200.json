@@ -1,0 +1,34 @@
+{
+  "url": "https://recipes.vllm.ai/Qwen/Qwen3-Next-80B-A3B-Instruct-FP8/hw/b200.json",
+  "retrieved_utc": "2026-09-05T02:41:14.067678+00:00",
+  "status": 200,
+  "final_url": "https://recipes.vllm.ai/Qwen/Qwen3-Next-80B-A3B-Instruct-FP8/hw/b200.json",
+  "sha256": "c9a5439ae6ac376e45daed37f8e5e3d283f9e550daa0839565e33dd3ed5b9eb9",
+  "data": {
+    "hardware": "b200",
+    "strategy": "single_node_tp",
+    "variant": "fp8",
+    "node_count": 1,
+    "deploy_type": "single_node",
+    "env": {
+      "VLLM_USE_DEEP_GEMM": "0"
+    },
+    "docker_image": "vllm/vllm-openai:latest",
+    "command": "vllm serve Qwen/Qwen3-Next-80B-A3B-Instruct-FP8 \\\n  --tensor-parallel-size 1 \\\n  --moe-backend flashinfer_trtllm \\\n  --attention-backend FLASH_ATTN \\\n  --enable-auto-tool-choice \\\n  --tool-call-parser hermes",
+    "argv": [
+      "vllm",
+      "serve",
+      "Qwen/Qwen3-Next-80B-A3B-Instruct-FP8",
+      "--tensor-parallel-size",
+      "1",
+      "--moe-backend",
+      "flashinfer_trtllm",
+      "--attention-backend",
+      "FLASH_ATTN",
+      "--enable-auto-tool-choice",
+      "--tool-call-parser",
+      "hermes"
+    ]
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

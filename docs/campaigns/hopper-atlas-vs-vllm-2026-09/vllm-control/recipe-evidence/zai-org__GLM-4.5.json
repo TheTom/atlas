@@ -1,0 +1,121 @@
+{
+  "url": "https://recipes.vllm.ai/zai-org/GLM-4.5.json",
+  "retrieved_utc": "2026-09-05T02:41:14.937355+00:00",
+  "status": 200,
+  "final_url": "https://recipes.vllm.ai/zai-org/GLM-4.5.json",
+  "sha256": "34836276374f92c7e8a30b930a3d5658057353623fbdd164322b39a1187e2964",
+  "data": {
+    "hf_id": "zai-org/GLM-4.5",
+    "model": {
+      "model_id": "zai-org/GLM-4.5",
+      "min_vllm_version": "0.11.0",
+      "architecture": "moe",
+      "parameter_count": "358B",
+      "active_parameters": "32B",
+      "context_length": 131072,
+      "base_args": [
+        "--trust-remote-code"
+      ],
+      "base_env": {},
+      "install": {
+        "pip": {
+          "command": "uv venv\nsource .venv/bin/activate\nuv pip install -U vllm --torch-backend auto"
+        },
+        "docker": {
+          "command": "docker pull vllm/vllm-openai:latest"
+        }
+      }
+    },
+    "features": {
+      "tool_calling": {
+        "description": "GLM-4.5 tool call parser with automatic tool choice",
+        "args": [
+          "--tool-call-parser",
+          "glm45",
+          "--enable-auto-tool-choice"
+        ]
+      },
+      "reasoning": {
+        "description": "GLM-4.5 reasoning parser for chain-of-thought extraction",
+        "args": [
+          "--reasoning-parser",
+          "glm45"
+        ]
+      },
+      "spec_decoding": {
+        "description": "Multi-Token Prediction speculative decoding using the model's built-in MTP layers",
+        "args": [
+          "--speculative-config.method",
+          "mtp",
+          "--speculative-config.num_speculative_tokens",
+          "1"
+        ]
+      }
+    },
+    "opt_in_features": [
+      "spec_decoding"
+    ],
+    "variants": {
+      "default": {
+        "precision": "bf16",
+        "vram_minimum_gb": 859,
+        "description": "Full precision BF16 on 8xH200 or equivalent"
+      },
+      "fp8": {
+        "model_id": "zai-org/GLM-4.5-FP8",
+        "precision": "fp8",
+        "vram_minimum_gb": 430,
+        "description": "Native FP8 checkpoint with minimal accuracy loss \u2014 recommended for cost-efficient serving",
+        "json": "/zai-org/GLM-4.5-FP8.json"
+      }
+    },
+    "hardware_overrides": {},
+    "meta": {
+      "title": "GLM-4.5",
+      "date_added": "2025-08-12",
+      "date_updated": "2026-04-17",
+      "hardware": {
+        "h200": "verified",
+        "mi300x": "verified",
+        "mi325x": "verified",
+        "mi355x": "verified"
+      }
+    },
+    "recommended_command": {
+      "hardware": "h200",
+      "strategy": "single_node_tp",
+      "variant": "default",
+      "node_count": 1,
+      "deploy_type": "single_node",
+      "env": {},
+      "docker_image": "vllm/vllm-openai:latest",
+      "command": "vllm serve zai-org/GLM-4.5 \\\n  --trust-remote-code \\\n  --tensor-parallel-size 8 \\\n  --tool-call-parser glm45 \\\n  --enable-auto-tool-choice \\\n  --reasoning-parser glm45",
+      "argv": [
+        "vllm",
+        "serve",
+        "zai-org/GLM-4.5",
+        "--trust-remote-code",
+        "--tensor-parallel-size",
+        "8",
+        "--tool-call-parser",
+        "glm45",
+        "--enable-auto-tool-choice",
+        "--reasoning-parser",
+        "glm45"
+      ],
+      "by_hardware": {
+        "h200": "/zai-org/GLM-4.5/hw/h200.json",
+        "h100": "/zai-org/GLM-4.5/hw/h100.json",
+        "b200": "/zai-org/GLM-4.5/hw/b200.json",
+        "gb200": "/zai-org/GLM-4.5/hw/gb200.json",
+        "b300": "/zai-org/GLM-4.5/hw/b300.json",
+        "gb300": "/zai-org/GLM-4.5/hw/gb300.json",
+        "mi300x": "/zai-org/GLM-4.5/hw/mi300x.json",
+        "mi325x": "/zai-org/GLM-4.5/hw/mi325x.json",
+        "mi355x": "/zai-org/GLM-4.5/hw/mi355x.json"
+      }
+    },
+    "guide_excerpts": []
+  },
+  "stored_content": "Selected original JSON fields; command strings and argv are unchanged. sha256 hashes the original complete HTTP response body."
+}

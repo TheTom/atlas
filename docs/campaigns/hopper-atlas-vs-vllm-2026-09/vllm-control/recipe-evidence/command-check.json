@@ -1,0 +1,186 @@
+{
+  "date_utc": "2026-09-05T02:53:59.416886+00:00",
+  "oracle": "Saved original JSON command fields and argv; report bash block must equal source field byte-for-byte. shlex after shell line-continuation removal must equal source argv.",
+  "scope": "Transcription only; no vLLM runtime or hardware validation.",
+  "positive": [
+    {
+      "evidence": "nvidia__NVIDIA-Nemotron-3-Super-120B-A12B-FP8__hw__h100.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "nvidia__NVIDIA-Nemotron-3-Super-120B-A12B-FP8__hw__b200.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "nvidia__NVIDIA-Nemotron-3-Nano-30B-A3B-FP8__hw__h100.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "Qwen__Qwen3.6-35B-A3B-FP8__hw__h100.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "Qwen__Qwen3-Next-80B-A3B-Instruct-FP8__hw__h100.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "Qwen__Qwen3-Next-80B-A3B-Instruct-FP8__hw__h200.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "Qwen__Qwen3-Next-80B-A3B-Instruct-FP8__hw__b200.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "zai-org__GLM-5.3__hw__h100.json",
+      "field": "head_command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "zai-org__GLM-5.3__hw__h100.json",
+      "field": "worker_commands[0]",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "zai-org__GLM-5.3__hw__h200.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "zai-org__GLM-5.3__hw__b200.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "zai-org__GLM-5.3-Flash__hw__h100.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "zai-org__GLM-5.3-Flash__hw__b200.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "zai-org__GLM-5.1-FP8__hw__h200.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "zai-org__GLM-5.2__hw__h200.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "moonshotai__Kimi-K3__hw__h200.json",
+      "field": "head_command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "moonshotai__Kimi-K3__hw__h200.json",
+      "field": "worker_commands[0]",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "moonshotai__Kimi-K3__hw__b200.json",
+      "field": "head_command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "moonshotai__Kimi-K3__hw__b200.json",
+      "field": "worker_commands[0]",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "kimi-tppp-b200.json",
+      "field": "head_command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "kimi-tppp-b200.json",
+      "field": "worker_commands[0]",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "deepseek-ai__DeepSeek-V4-Flash__hw__h200.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "deepseek-ai__DeepSeek-V4-Flash__hw__b200.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "Qwen__Qwen3.8-Flash-Next-FP8__hw__h100.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "Qwen__Qwen3.8-Flash-Next-FP8__hw__h200.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "Qwen__Qwen3.8-Flash-Next-FP8__hw__b200.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "MiniMaxAI__MiniMax-M3__hw__h200.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "MiniMaxAI__MiniMax-M3__hw__b200.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    },
+    {
+      "evidence": "minimax-nvfp4-b200.json",
+      "field": "command",
+      "transcription_equal": true,
+      "argv_equal": true
+    }
+  ],
+  "negative": {
+    "mutation": "Replace first command model ID with known-bad/model",
+    "equality_rejected": true
+  },
+  "proposed_patch_git_apply_check": "passed; original documents not modified"
+}
