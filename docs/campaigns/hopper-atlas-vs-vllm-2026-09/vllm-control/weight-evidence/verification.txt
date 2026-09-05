@@ -12,4 +12,3 @@ exit 0
 $ python3 verify.py
 PASS: 15 API responses, hashes, revisions, file ledgers and exact byte totals
 exit 0
-
