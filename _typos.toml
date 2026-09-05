@@ -162,6 +162,14 @@ ue4m3 = "ue4m3"
 [files]
 extend-exclude = [
     "test_data/",
+    # Verbatim evidence captured from external sources for the datacenter
+    # benchmark campaign (recipe JSON as served by recipes.vllm.ai, HF API
+    # responses with etags/request ids, nvidia-smi -q dumps). Their text is
+    # the oracle and must not be edited to satisfy a spell checker.
+    "docs/campaigns/*/vllm-control/recipe-evidence/",
+    "docs/campaigns/*/vllm-control/weight-evidence/",
+    "docs/campaigns/*/vllm-control/tool-evidence/",
+    "docs/campaigns/*/vllm-control/gb10-dryrun/",
     "vendor/",
     "target/",
     "book/output/",
