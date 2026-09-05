@@ -22,7 +22,8 @@
 #                    [--start-epoch SECS] [--timeout-s 1800] [--out FILE]
 #   time_to_ready.sh --selftest
 #
-# Exits non-zero when the endpoint has not answered 200 within --timeout-s.
+# Exits non-zero unless health and a nonempty one-token completion both pass
+# within --timeout-s of the caller-supplied process start.
 set -uo pipefail
 
 URL=""
@@ -49,71 +50,108 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-# `date +%s.%N` is a GNU extension -- BSD date (macOS, where the selftest is
-# run) prints a literal "N". python3 answers the same question everywhere, and
-# this repo never invokes bare `python`.
-now() { python3 -c 'import time; print(f"{time.time():.3f}")'; }
-
-# Emit one JSON object. Built here rather than by string-concatenation so a
-# model id containing a quote cannot produce a file that does not parse.
-emit() { # $1 ready_s|null  $2 first_token_s|null  $3 polls  $4 codes  $5 status
-  python3 - "$ENGINE" "$URL" "$MODEL" "$1" "$2" "$3" "$4" "$5" "$TIMEOUT_S" <<'PY'
-import json, sys
-eng, url, model, ready, first, polls, codes, status, timeout = sys.argv[1:10]
-num = lambda v: None if v in ("", "null") else float(v)
-print(json.dumps({
-    "schema": 1,
-    "engine": eng,
-    "url": url,
-    "model": model,
-    "time_to_ready_s": num(ready),
-    "first_token_s": num(first),
-    "polls": int(polls),
-    "http_codes_seen": [c for c in codes.split(",") if c],
-    "timeout_s": float(timeout),
-    "status": status,
-}, indent=2))
-PY
-}
-
 measure() {
-  local t0 codes="" polls=0 code ready="" first="null"
-  t0="${START_EPOCH:-$(now)}"
-  while :; do
-    # --max-time bounds a hung accept; -o /dev/null keeps the body out of the
-    # code. A refused connection makes curl print nothing, hence the default.
-    code="$(curl -s -o /dev/null -m 5 -w '%{http_code}' "$URL/health" 2>/dev/null)"
-    # curl writes 000 when it never got a response line at all -- a refused
-    # connection or a timed-out one. Recorded under its own name because on the
-    # vLLM leg it IS the loading state and a reader must not mistake a normal
-    # boot for a run of transport failures.
-    [ -z "$code" ] || [ "$code" = "000" ] && code="conn-refused"
-    polls=$((polls + 1))
-    case ",$codes," in *",$code,"*) ;; *) codes="${codes:+$codes,}$code" ;; esac
-    if [ "$code" = "200" ]; then
-      ready="$(python3 -c "import sys;print(f'{float(sys.argv[1])-float(sys.argv[2]):.3f}')" "$(now)" "$t0")"
-      break
-    fi
-    if [ "$(python3 -c "import sys;print(int(float(sys.argv[1])-float(sys.argv[2])>=float(sys.argv[3])))" "$(now)" "$t0" "$TIMEOUT_S")" = "1" ]; then
-      emit null null "$polls" "$codes" "timeout"
-      echo "NOT READY after ${TIMEOUT_S}s (${polls} polls, codes: ${codes})" >&2
-      return 1
-    fi
-    sleep 1
-  done
+  # curl supplies a total request deadline (including a slowly streamed body).
+  # Python owns JSON validation and the single process-start deadline so a
+  # healthy endpoint with a failed first completion cannot pass the boot gate.
+  python3 - "$ENGINE" "$URL" "$MODEL" "$START_EPOCH" "$TIMEOUT_S" <<'PY'
+import json
+import math
+import subprocess
+import sys
+import time
 
-  # Ready is not the same as usable. One token, measured separately.
-  if [ -n "$MODEL" ]; then
-    local a b
-    a="$(now)"
-    if curl -s -o /dev/null -m 120 -X POST "$URL/v1/chat/completions" \
-        -H 'Content-Type: application/json' \
-        -d "$(python3 -c 'import json,sys; print(json.dumps({"model": sys.argv[1], "messages":[{"role":"user","content":"hi"}], "max_tokens":1, "temperature":0, "seed":42}))' "$MODEL")"; then
-      b="$(now)"
-      first="$(python3 -c "import sys;print(f'{float(sys.argv[1])-float(sys.argv[2]):.3f}')" "$b" "$a")"
-    fi
-  fi
-  emit "$ready" "$first" "$polls" "$codes" "ready"
+engine, url, model, start, timeout = sys.argv[1:]
+now = time.time()
+try:
+    started = float(start) if start else now
+    budget = float(timeout)
+    if not math.isfinite(started) or not math.isfinite(budget) or budget <= 0 or started > now:
+        raise ValueError('start must not be in the future; timeout must be finite and positive')
+except ValueError as exc:
+    sys.exit(f'invalid timing arguments: {exc}')
+if not model:
+    sys.exit('--model is required to verify the first-token gate')
+clock = time.monotonic()
+deadline = clock + budget - (now - started)
+out = dict(schema=1, engine=engine, url=url, model=model, start_epoch=started,
+           time_to_ready_s=None, first_token_s=None, polls=0,
+           http_codes_seen=[], timeout_s=budget, status='timeout', passed=False)
+
+
+def elapsed():
+    return now - started + time.monotonic() - clock
+
+
+def emit(status, detail=None):
+    out['status'] = status
+    out['passed'] = status == 'ready'
+    out['total_s'] = round(elapsed(), 3)
+    if detail:
+        out['detail'] = detail
+    print(json.dumps(out, indent=2))
+    sys.exit(0 if out['passed'] else 1)
+
+
+def request(path, payload=None):
+    remaining = deadline - time.monotonic()
+    if remaining <= 0:
+        emit('timeout', 'process-start deadline exhausted')
+    cmd = ['curl', '--silent', '--show-error', '--max-time', str(remaining)]
+    if payload is None:
+        cmd += ['--output', '/dev/null', '--write-out', '%{http_code}',
+                '--max-time', str(min(5, remaining))]
+    else:
+        cmd += ['--fail', '--header', 'Content-Type: application/json', '--data-binary', '@-']
+    cmd.append(url + path)
+    return subprocess.run(cmd, input=None if payload is None else json.dumps(payload),
+                          text=True, capture_output=True)
+
+
+while time.monotonic() < deadline:
+    resp = request('/health')
+    code = resp.stdout.strip() or '000'
+    if code == '000':
+        # Includes refusal, reset and timeout; curl does not distinguish them
+        # through its HTTP code. Preserve the exit code rather than guessing.
+        code = 'transport-error'
+    out['polls'] += 1
+    if code not in out['http_codes_seen']:
+        out['http_codes_seen'].append(code)
+    if resp.returncode:
+        out['last_health_curl_exit'] = resp.returncode
+    if time.monotonic() >= deadline:
+        emit('timeout', 'health did not pass within process-start deadline')
+    if resp.returncode == 0 and code == '200':
+        out['time_to_ready_s'] = round(elapsed(), 3)
+        break
+    time.sleep(min(1, max(0, deadline - time.monotonic())))
+else:
+    emit('timeout', 'health did not pass within process-start deadline')
+
+payload = dict(model=model, messages=[dict(role='user', content='hi')], max_tokens=1,
+               temperature=0.0, seed=42, presence_penalty=0.0, frequency_penalty=0.0,
+               chat_template_kwargs={'enable_thinking': False})
+token_start = time.monotonic()
+resp = request('/v1/chat/completions', payload)
+if time.monotonic() >= deadline or resp.returncode == 28:
+    emit('timeout', 'first completion exceeded process-start deadline')
+if resp.returncode:
+    emit('first-token-failed', f'curl exit {resp.returncode}: {resp.stderr.strip()}')
+try:
+    result = json.loads(resp.stdout)
+    if not isinstance(result, dict) or result.get('error'):
+        raise ValueError('completion returned an error or a non-object')
+    content = result['choices'][0]['message']['content']
+    if not isinstance(content, str) or not content.strip():
+        raise ValueError('empty first-token reply')
+except (ValueError, KeyError, IndexError, TypeError) as exc:
+    emit('first-token-failed', f'invalid first-token completion: {exc}')
+# This is one-token, non-streaming completion latency, including response
+# framing. It is not the ladder's SSE TTFT measurement.
+out['first_token_s'] = round(time.monotonic() - token_start, 3)
+emit('ready')
+PY
 }
 
 selftest() {
@@ -194,7 +232,8 @@ PY
 }
 
 if [ "$SELFTEST" = "1" ]; then
-  selftest
+  selftest || exit $?
+  python3 "$(dirname "$0")/readiness_selftest.py"
   exit $?
 fi
 
