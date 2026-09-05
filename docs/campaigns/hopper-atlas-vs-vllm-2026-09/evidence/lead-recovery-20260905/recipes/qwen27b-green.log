@@ -1,0 +1,9 @@
+test_atlas_uses_target_context_and_calibration (__main__.Qwen27BRecipeTest.test_atlas_uses_target_context_and_calibration) ... ok
+test_both_engines_refuse_unevidenced_mtp (__main__.Qwen27BRecipeTest.test_both_engines_refuse_unevidenced_mtp) ... ok
+test_both_recipes_pin_same_fp8_checkpoint (__main__.Qwen27BRecipeTest.test_both_recipes_pin_same_fp8_checkpoint) ... ok
+test_vllm_matches_captured_h200_argv (__main__.Qwen27BRecipeTest.test_vllm_matches_captured_h200_argv) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.862s
+
+OK

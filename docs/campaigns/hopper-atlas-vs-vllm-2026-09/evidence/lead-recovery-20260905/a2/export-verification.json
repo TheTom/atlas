@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "files": {
+    "download_pinned.py": "8f644482761bc8aa995b57da5caddb7da5246d669875dca7080a8c3103e028fc",
+    "pull-atlas.done.json": "c5c2a5b4e99d90b9037d673ff81f3be7ca7b03945b144b41d3b8433c1531458c",
+    "nano-expected-files.json": "e8eb67ac6388c92ce4b0edd068c5cfecc83b9efa6251f1dd348e4eb3b1b095b2",
+    "download-occupancy.json": "6cf31fb7b173d78fa31d7dce7df3a8069978cc72980c14527aee67e4842ac07d",
+    "control_remote_job.py": "56e5e58399fe6dcd7c42b1f78c4d5667a56c43b2a03ae203efd0703ef359506f",
+    "pull-atlas.before.df.txt": "b7fd465e6e29502ec7e7f33c205a9218f6f77d07dd1571dd181d3e733335e539",
+    "pull-job.json": "142c760580158076e176f95e544c6d5e868096d9aed59e592ef16631e11a76e0",
+    "baseline.json": "8cd719cebeb1001f768ac8ed462be05b1f1fded2081a2ca4220bcf8be5170c58",
+    "pull-occupancy.json": "627a105555437152e3c395500dfc08964b35e583a590ad5b0accb8a38bd02291",
+    "pull-atlas.after.df.txt": "8de592b94623337333f61605ebe5126393cc871b0b68988032761de04cf84372",
+    "pull-atlas.log": "8ff28ae8e41fa8d8894a4b1f087a735793869a03b3baa4b55421cc3b4e29dd51",
+    "pull-atlas.resources.jsonl": "cd1044c26de8b59e7e35f39fc130f8341d06228b6192cb266a181548b5490de7",
+    "pull-atlas.started.json": "b273177c4373e3b719083716be996a13a4515609a74b441ba03072d792513c62",
+    "download-occupancy-current.json": "43bb34df6633b033b0ea2efdad6b54c0e5ef0bf1ecd48046e6f1a026a1b3834a"
+  }
+}

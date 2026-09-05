@@ -1,0 +1,523 @@
+cell_assemble selftest: -9/8 test methods passed
+test_a_unowned_launch_cannot_certify (__main__.AssemblyTest.test_a_unowned_launch_cannot_certify) ... 
+  test_a_unowned_launch_cannot_certify (__main__.AssemblyTest.test_a_unowned_launch_cannot_certify) (field='id') ... FAIL
+  test_a_unowned_launch_cannot_certify (__main__.AssemblyTest.test_a_unowned_launch_cannot_certify) (field='label') ... FAIL
+test_b_unstarted_or_malformed_launch_cannot_certify (__main__.AssemblyTest.test_b_unstarted_or_malformed_launch_cannot_certify) ... 
+  test_b_unstarted_or_malformed_launch_cannot_certify (__main__.AssemblyTest.test_b_unstarted_or_malformed_launch_cannot_certify) (evidence=[]) ... FAIL
+  test_b_unstarted_or_malformed_launch_cannot_certify (__main__.AssemblyTest.test_b_unstarted_or_malformed_launch_cannot_certify) (evidence={}) ... FAIL
+  test_b_unstarted_or_malformed_launch_cannot_certify (__main__.AssemblyTest.test_b_unstarted_or_malformed_launch_cannot_certify) (evidence=[7]) ... FAIL
+  test_b_unstarted_or_malformed_launch_cannot_certify (__main__.AssemblyTest.test_b_unstarted_or_malformed_launch_cannot_certify) (evidence=[{'Id': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'Config': {'Entrypoint': ['vllm'], 'Cmd': ['serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'], 'Labels': {'atlas-cell.run': 'launch-proof-fixture'}}, 'State': {'Running': False, 'Pid': 1234, 'StartedAt': '2026-09-05T11:00:00.123456789Z'}}]) ... FAIL
+  test_b_unstarted_or_malformed_launch_cannot_certify (__main__.AssemblyTest.test_b_unstarted_or_malformed_launch_cannot_certify) (evidence=[{'Id': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'Config': {'Entrypoint': ['vllm'], 'Cmd': ['serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'], 'Labels': {'atlas-cell.run': 'launch-proof-fixture'}}, 'State': {'Running': True, 'Pid': 0, 'StartedAt': '2026-09-05T11:00:00.123456789Z'}}]) ... FAIL
+  test_b_unstarted_or_malformed_launch_cannot_certify (__main__.AssemblyTest.test_b_unstarted_or_malformed_launch_cannot_certify) (evidence=[{'Id': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'Config': {'Entrypoint': ['vllm'], 'Cmd': ['serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'], 'Labels': {'atlas-cell.run': 'launch-proof-fixture'}}, 'State': {'Running': True, 'Pid': 1234, 'StartedAt': '0001-01-01T00:00:00Z'}}]) ... FAIL
+test_c_wrong_model_or_competing_revision_cannot_certify (__main__.AssemblyTest.test_c_wrong_model_or_competing_revision_cannot_certify) ... 
+  test_c_wrong_model_or_competing_revision_cannot_certify (__main__.AssemblyTest.test_c_wrong_model_or_competing_revision_cannot_certify) (command=['serve', 'another/model', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb']) ... FAIL
+  test_c_wrong_model_or_competing_revision_cannot_certify (__main__.AssemblyTest.test_c_wrong_model_or_competing_revision_cannot_certify) (command=['serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'main']) ... FAIL
+  test_c_wrong_model_or_competing_revision_cannot_certify (__main__.AssemblyTest.test_c_wrong_model_or_competing_revision_cannot_certify) (command=['serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', '--revision', 'dddddddddddddddddddddddddddddddddddddddd']) ... FAIL
+  test_c_wrong_model_or_competing_revision_cannot_certify (__main__.AssemblyTest.test_c_wrong_model_or_competing_revision_cannot_certify) (command=['serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', '--model', 'another/model']) ... FAIL
+test_d_failed_boot_does_not_prove_loaded_revision (__main__.AssemblyTest.test_d_failed_boot_does_not_prove_loaded_revision) ... FAIL
+test_e_recipe_pins_alone_are_not_launch_proof (__main__.AssemblyTest.test_e_recipe_pins_alone_are_not_launch_proof) ... ok
+test_f_owned_launched_pin_and_boot_prove_revision (__main__.AssemblyTest.test_f_owned_launched_pin_and_boot_prove_revision) ... 
+  test_f_owned_launched_pin_and_boot_prove_revision (__main__.AssemblyTest.test_f_owned_launched_pin_and_boot_prove_revision) (engine='vllm') ... FAIL
+  test_f_owned_launched_pin_and_boot_prove_revision (__main__.AssemblyTest.test_f_owned_launched_pin_and_boot_prove_revision) (engine='atlas') ... FAIL
+test_g_floating_launch_keeps_revision_null (__main__.AssemblyTest.test_g_floating_launch_keeps_revision_null) ... 
+  test_g_floating_launch_keeps_revision_null (__main__.AssemblyTest.test_g_floating_launch_keeps_revision_null) (engine='vllm') ... FAIL
+  test_g_floating_launch_keeps_revision_null (__main__.AssemblyTest.test_g_floating_launch_keeps_revision_null) (engine='atlas') ... FAIL
+test_h_failed_known_answer_remains_no_go (__main__.AssemblyTest.test_h_failed_known_answer_remains_no_go) ... ok
+
+======================================================================
+FAIL: test_a_unowned_launch_cannot_certify (__main__.AssemblyTest.test_a_unowned_launch_cannot_certify) (field='id')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 85, in test_a_unowned_launch_cannot_certify
+    result = self.assemble(evidence)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 71, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] --engine {atlas,vllm} --model-key MODEL_KEY
+                        --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpcd2cjora/model-launch.json --model-launch-container-id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --model-launch-label atlas-cell.run=launch-proof-fixture
+
+
+======================================================================
+FAIL: test_a_unowned_launch_cannot_certify (__main__.AssemblyTest.test_a_unowned_launch_cannot_certify) (field='label')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 85, in test_a_unowned_launch_cannot_certify
+    result = self.assemble(evidence)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 71, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] --engine {atlas,vllm} --model-key MODEL_KEY
+                        --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpukppke30/model-launch.json --model-launch-container-id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --model-launch-label atlas-cell.run=launch-proof-fixture
+
+
+======================================================================
+FAIL: test_b_unstarted_or_malformed_launch_cannot_certify (__main__.AssemblyTest.test_b_unstarted_or_malformed_launch_cannot_certify) (evidence=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 98, in test_b_unstarted_or_malformed_launch_cannot_certify
+    result = self.assemble(evidence)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 71, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] --engine {atlas,vllm} --model-key MODEL_KEY
+                        --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpm60p_n3c/model-launch.json --model-launch-container-id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --model-launch-label atlas-cell.run=launch-proof-fixture
+
+
+======================================================================
+FAIL: test_b_unstarted_or_malformed_launch_cannot_certify (__main__.AssemblyTest.test_b_unstarted_or_malformed_launch_cannot_certify) (evidence={})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 98, in test_b_unstarted_or_malformed_launch_cannot_certify
+    result = self.assemble(evidence)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 71, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] --engine {atlas,vllm} --model-key MODEL_KEY
+                        --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpcwn6f5r_/model-launch.json --model-launch-container-id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --model-launch-label atlas-cell.run=launch-proof-fixture
+
+
+======================================================================
+FAIL: test_b_unstarted_or_malformed_launch_cannot_certify (__main__.AssemblyTest.test_b_unstarted_or_malformed_launch_cannot_certify) (evidence=[7])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 98, in test_b_unstarted_or_malformed_launch_cannot_certify
+    result = self.assemble(evidence)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 71, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] --engine {atlas,vllm} --model-key MODEL_KEY
+                        --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpj3ww8_jj/model-launch.json --model-launch-container-id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --model-launch-label atlas-cell.run=launch-proof-fixture
+
+
+======================================================================
+FAIL: test_b_unstarted_or_malformed_launch_cannot_certify (__main__.AssemblyTest.test_b_unstarted_or_malformed_launch_cannot_certify) (evidence=[{'Id': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'Config': {'Entrypoint': ['vllm'], 'Cmd': ['serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'], 'Labels': {'atlas-cell.run': 'launch-proof-fixture'}}, 'State': {'Running': False, 'Pid': 1234, 'StartedAt': '2026-09-05T11:00:00.123456789Z'}}])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 98, in test_b_unstarted_or_malformed_launch_cannot_certify
+    result = self.assemble(evidence)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 71, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] --engine {atlas,vllm} --model-key MODEL_KEY
+                        --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpablo613u/model-launch.json --model-launch-container-id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --model-launch-label atlas-cell.run=launch-proof-fixture
+
+
+======================================================================
+FAIL: test_b_unstarted_or_malformed_launch_cannot_certify (__main__.AssemblyTest.test_b_unstarted_or_malformed_launch_cannot_certify) (evidence=[{'Id': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'Config': {'Entrypoint': ['vllm'], 'Cmd': ['serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'], 'Labels': {'atlas-cell.run': 'launch-proof-fixture'}}, 'State': {'Running': True, 'Pid': 0, 'StartedAt': '2026-09-05T11:00:00.123456789Z'}}])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 98, in test_b_unstarted_or_malformed_launch_cannot_certify
+    result = self.assemble(evidence)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 71, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] --engine {atlas,vllm} --model-key MODEL_KEY
+                        --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp2n29cq5z/model-launch.json --model-launch-container-id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --model-launch-label atlas-cell.run=launch-proof-fixture
+
+
+======================================================================
+FAIL: test_b_unstarted_or_malformed_launch_cannot_certify (__main__.AssemblyTest.test_b_unstarted_or_malformed_launch_cannot_certify) (evidence=[{'Id': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'Config': {'Entrypoint': ['vllm'], 'Cmd': ['serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'], 'Labels': {'atlas-cell.run': 'launch-proof-fixture'}}, 'State': {'Running': True, 'Pid': 1234, 'StartedAt': '0001-01-01T00:00:00Z'}}])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 98, in test_b_unstarted_or_malformed_launch_cannot_certify
+    result = self.assemble(evidence)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 71, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] --engine {atlas,vllm} --model-key MODEL_KEY
+                        --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpjgag4ux0/model-launch.json --model-launch-container-id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --model-launch-label atlas-cell.run=launch-proof-fixture
+
+
+======================================================================
+FAIL: test_c_wrong_model_or_competing_revision_cannot_certify (__main__.AssemblyTest.test_c_wrong_model_or_competing_revision_cannot_certify) (command=['serve', 'another/model', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 111, in test_c_wrong_model_or_competing_revision_cannot_certify
+    result = self.assemble(evidence)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 71, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] --engine {atlas,vllm} --model-key MODEL_KEY
+                        --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpcxlwyb57/model-launch.json --model-launch-container-id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --model-launch-label atlas-cell.run=launch-proof-fixture
+
+
+======================================================================
+FAIL: test_c_wrong_model_or_competing_revision_cannot_certify (__main__.AssemblyTest.test_c_wrong_model_or_competing_revision_cannot_certify) (command=['serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'main'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 111, in test_c_wrong_model_or_competing_revision_cannot_certify
+    result = self.assemble(evidence)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 71, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] --engine {atlas,vllm} --model-key MODEL_KEY
+                        --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp59x4w3dw/model-launch.json --model-launch-container-id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --model-launch-label atlas-cell.run=launch-proof-fixture
+
+
+======================================================================
+FAIL: test_c_wrong_model_or_competing_revision_cannot_certify (__main__.AssemblyTest.test_c_wrong_model_or_competing_revision_cannot_certify) (command=['serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', '--revision', 'dddddddddddddddddddddddddddddddddddddddd'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 111, in test_c_wrong_model_or_competing_revision_cannot_certify
+    result = self.assemble(evidence)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 71, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] --engine {atlas,vllm} --model-key MODEL_KEY
+                        --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp2lavimh0/model-launch.json --model-launch-container-id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --model-launch-label atlas-cell.run=launch-proof-fixture
+
+
+======================================================================
+FAIL: test_c_wrong_model_or_competing_revision_cannot_certify (__main__.AssemblyTest.test_c_wrong_model_or_competing_revision_cannot_certify) (command=['serve', 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8', '--revision', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', '--model', 'another/model'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 111, in test_c_wrong_model_or_competing_revision_cannot_certify
+    result = self.assemble(evidence)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 71, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] --engine {atlas,vllm} --model-key MODEL_KEY
+                        --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpz__scckf/model-launch.json --model-launch-container-id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --model-launch-label atlas-cell.run=launch-proof-fixture
+
+
+======================================================================
+FAIL: test_d_failed_boot_does_not_prove_loaded_revision (__main__.AssemblyTest.test_d_failed_boot_does_not_prove_loaded_revision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 116, in test_d_failed_boot_does_not_prove_loaded_revision
+    result = self.assemble(launch(), boot=fixture("stub_boot_timeout.json"))
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 71, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] --engine {atlas,vllm} --model-key MODEL_KEY
+                        --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp0kb2xk5i/model-launch.json --model-launch-container-id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --model-launch-label atlas-cell.run=launch-proof-fixture
+
+
+======================================================================
+FAIL: test_f_owned_launched_pin_and_boot_prove_revision (__main__.AssemblyTest.test_f_owned_launched_pin_and_boot_prove_revision) (engine='vllm')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 128, in test_f_owned_launched_pin_and_boot_prove_revision
+    result = self.assemble(launch(engine), engine=engine)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 71, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] --engine {atlas,vllm} --model-key MODEL_KEY
+                        --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpweste47f/model-launch.json --model-launch-container-id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --model-launch-label atlas-cell.run=launch-proof-fixture
+
+
+======================================================================
+FAIL: test_f_owned_launched_pin_and_boot_prove_revision (__main__.AssemblyTest.test_f_owned_launched_pin_and_boot_prove_revision) (engine='atlas')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 128, in test_f_owned_launched_pin_and_boot_prove_revision
+    result = self.assemble(launch(engine), engine=engine)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 71, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] --engine {atlas,vllm} --model-key MODEL_KEY
+                        --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpgfm30f7u/model-launch.json --model-launch-container-id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --model-launch-label atlas-cell.run=launch-proof-fixture
+
+
+======================================================================
+FAIL: test_g_floating_launch_keeps_revision_null (__main__.AssemblyTest.test_g_floating_launch_keeps_revision_null) (engine='vllm')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 138, in test_g_floating_launch_keeps_revision_null
+    result = self.assemble(evidence, engine=engine)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 71, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] --engine {atlas,vllm} --model-key MODEL_KEY
+                        --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp7wo4ljxo/model-launch.json --model-launch-container-id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --model-launch-label atlas-cell.run=launch-proof-fixture
+
+
+======================================================================
+FAIL: test_g_floating_launch_keeps_revision_null (__main__.AssemblyTest.test_g_floating_launch_keeps_revision_null) (engine='atlas')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 138, in test_g_floating_launch_keeps_revision_null
+    result = self.assemble(evidence, engine=engine)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble_test.py", line 71, in assemble
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: cell_assemble.py [-h] --engine {atlas,vllm} --model-key MODEL_KEY
+                        --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: unrecognized arguments: --model-launch-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp3ump725n/model-launch.json --model-launch-container-id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --model-launch-label atlas-cell.run=launch-proof-fixture
+
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.209s
+
+FAILED (failures=17)

@@ -1,0 +1,24 @@
+   Compiling atlas-core v1.0.0-beta-preview (/home/pidtom/atlas-campaign-gates-20260905/crates/atlas-core)
+   Compiling spark-runtime v1.0.0-beta-preview (/home/pidtom/atlas-campaign-gates-20260905/crates/spark-runtime)
+   Compiling spark-storage v1.0.0-beta-preview (/home/pidtom/atlas-campaign-gates-20260905/crates/spark-storage)
+   Compiling atlas-plugin v1.0.0-beta-preview (/home/pidtom/atlas-campaign-gates-20260905/crates/atlas-plugin)
+   Compiling atlas-kernels v1.0.0-beta-preview (/home/pidtom/atlas-campaign-gates-20260905/crates/atlas-kernels)
+   Compiling spark-model v1.0.0-beta-preview (/home/pidtom/atlas-campaign-gates-20260905/crates/spark-model)
+   Compiling spark-server v1.0.0-beta-preview (/home/pidtom/atlas-campaign-gates-20260905/crates/spark-server)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 38.91s
+     Running unittests src/main.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/spark-8a5b8b10b61861ba)
+
+thread 'main_modules::serve_phases::kernel_gate::tests::early_arch_refusals_report_the_same_numeric_device_contract' (952233) panicked at crates/spark-server/src/main_modules/serve_phases/kernel_gate.rs:386:18:
+--check-kernels must retain preflight mismatch JSON
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'main_modules::serve_phases::kernel_gate::tests::the_check_line_reports_the_compiled_arch_and_the_device' (952234) panicked at crates/spark-server/src/main_modules/serve_phases/kernel_gate.rs:332:9:
+assertion `left == right` failed
+  left: String("12.1")
+ right: Array [Number(12), Number(1)]
+
+thread 'main_modules::serve_phases::kernel_gate::tests::the_pre_existing_fields_are_unchanged' (952236) panicked at crates/spark-server/src/main_modules/serve_phases/kernel_gate.rs:373:9:
+assertion `left == right` failed
+  left: String("12.1")
+ right: Array [Number(12), Number(1)]
+error: test failed, to rerun pass `-p spark-server --bin spark`

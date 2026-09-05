@@ -1,0 +1,196 @@
+test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) ... 
+  test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='nemotron-3-nano-fp8', sku='h100') ... FAIL
+  test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='nemotron-3-nano-fp8', sku='h200') ... FAIL
+  test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='nemotron-3-nano-fp8', sku='b200') ... FAIL
+  test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='nemotron-3-nano-fp8', sku='gb10') ... FAIL
+  test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='nemotron-3-super-fp8', sku='h100') ... FAIL
+  test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='nemotron-3-super-fp8', sku='h200') ... FAIL
+  test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='nemotron-3-super-fp8', sku='b200') ... FAIL
+  test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='nemotron-3-super-fp8', sku='gb10') ... FAIL
+  test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='qwen3.6-35b-a3b-fp8', sku='h100') ... FAIL
+  test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='qwen3.6-35b-a3b-fp8', sku='h200') ... FAIL
+  test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='qwen3.6-35b-a3b-fp8', sku='b200') ... FAIL
+  test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='qwen3.6-35b-a3b-fp8', sku='gb10') ... FAIL
+  test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='qwen3-next-80b-fp8', sku='h200') ... FAIL
+  test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='qwen3-next-80b-fp8', sku='b200') ... FAIL
+  test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='qwen3-next-80b-fp8', sku='gb10') ... FAIL
+  test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='deepseek-v4-flash', sku='h200') ... FAIL
+  test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='deepseek-v4-flash', sku='b200') ... FAIL
+test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) ... ERROR
+test_metadata_does_not_claim_loaded_bytes (__main__.AtlasRevisionTest.test_metadata_does_not_claim_loaded_bytes) ... FAIL
+
+======================================================================
+ERROR: test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_revision_test.py", line 19, in test_every_hf_artifact_has_consistent_full_revision
+    fp8 = revisions['nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8']
+          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8'
+
+======================================================================
+FAIL: test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='nemotron-3-nano-fp8', sku='h100')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_revision_test.py", line 17, in test_every_hf_artifact_has_consistent_full_revision
+    self.assertRegex(entry.get('revision', ''), r'^[0-9a-f]{40}$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '^[0-9a-f]{40}$' not found in ''
+
+======================================================================
+FAIL: test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='nemotron-3-nano-fp8', sku='h200')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_revision_test.py", line 17, in test_every_hf_artifact_has_consistent_full_revision
+    self.assertRegex(entry.get('revision', ''), r'^[0-9a-f]{40}$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '^[0-9a-f]{40}$' not found in ''
+
+======================================================================
+FAIL: test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='nemotron-3-nano-fp8', sku='b200')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_revision_test.py", line 17, in test_every_hf_artifact_has_consistent_full_revision
+    self.assertRegex(entry.get('revision', ''), r'^[0-9a-f]{40}$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '^[0-9a-f]{40}$' not found in ''
+
+======================================================================
+FAIL: test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='nemotron-3-nano-fp8', sku='gb10')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_revision_test.py", line 17, in test_every_hf_artifact_has_consistent_full_revision
+    self.assertRegex(entry.get('revision', ''), r'^[0-9a-f]{40}$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '^[0-9a-f]{40}$' not found in ''
+
+======================================================================
+FAIL: test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='nemotron-3-super-fp8', sku='h100')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_revision_test.py", line 17, in test_every_hf_artifact_has_consistent_full_revision
+    self.assertRegex(entry.get('revision', ''), r'^[0-9a-f]{40}$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '^[0-9a-f]{40}$' not found in ''
+
+======================================================================
+FAIL: test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='nemotron-3-super-fp8', sku='h200')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_revision_test.py", line 17, in test_every_hf_artifact_has_consistent_full_revision
+    self.assertRegex(entry.get('revision', ''), r'^[0-9a-f]{40}$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '^[0-9a-f]{40}$' not found in ''
+
+======================================================================
+FAIL: test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='nemotron-3-super-fp8', sku='b200')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_revision_test.py", line 17, in test_every_hf_artifact_has_consistent_full_revision
+    self.assertRegex(entry.get('revision', ''), r'^[0-9a-f]{40}$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '^[0-9a-f]{40}$' not found in ''
+
+======================================================================
+FAIL: test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='nemotron-3-super-fp8', sku='gb10')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_revision_test.py", line 17, in test_every_hf_artifact_has_consistent_full_revision
+    self.assertRegex(entry.get('revision', ''), r'^[0-9a-f]{40}$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '^[0-9a-f]{40}$' not found in ''
+
+======================================================================
+FAIL: test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='qwen3.6-35b-a3b-fp8', sku='h100')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_revision_test.py", line 17, in test_every_hf_artifact_has_consistent_full_revision
+    self.assertRegex(entry.get('revision', ''), r'^[0-9a-f]{40}$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '^[0-9a-f]{40}$' not found in ''
+
+======================================================================
+FAIL: test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='qwen3.6-35b-a3b-fp8', sku='h200')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_revision_test.py", line 17, in test_every_hf_artifact_has_consistent_full_revision
+    self.assertRegex(entry.get('revision', ''), r'^[0-9a-f]{40}$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '^[0-9a-f]{40}$' not found in ''
+
+======================================================================
+FAIL: test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='qwen3.6-35b-a3b-fp8', sku='b200')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_revision_test.py", line 17, in test_every_hf_artifact_has_consistent_full_revision
+    self.assertRegex(entry.get('revision', ''), r'^[0-9a-f]{40}$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '^[0-9a-f]{40}$' not found in ''
+
+======================================================================
+FAIL: test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='qwen3.6-35b-a3b-fp8', sku='gb10')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_revision_test.py", line 17, in test_every_hf_artifact_has_consistent_full_revision
+    self.assertRegex(entry.get('revision', ''), r'^[0-9a-f]{40}$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '^[0-9a-f]{40}$' not found in ''
+
+======================================================================
+FAIL: test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='qwen3-next-80b-fp8', sku='h200')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_revision_test.py", line 17, in test_every_hf_artifact_has_consistent_full_revision
+    self.assertRegex(entry.get('revision', ''), r'^[0-9a-f]{40}$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '^[0-9a-f]{40}$' not found in ''
+
+======================================================================
+FAIL: test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='qwen3-next-80b-fp8', sku='b200')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_revision_test.py", line 17, in test_every_hf_artifact_has_consistent_full_revision
+    self.assertRegex(entry.get('revision', ''), r'^[0-9a-f]{40}$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '^[0-9a-f]{40}$' not found in ''
+
+======================================================================
+FAIL: test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='qwen3-next-80b-fp8', sku='gb10')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_revision_test.py", line 17, in test_every_hf_artifact_has_consistent_full_revision
+    self.assertRegex(entry.get('revision', ''), r'^[0-9a-f]{40}$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '^[0-9a-f]{40}$' not found in ''
+
+======================================================================
+FAIL: test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='deepseek-v4-flash', sku='h200')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_revision_test.py", line 17, in test_every_hf_artifact_has_consistent_full_revision
+    self.assertRegex(entry.get('revision', ''), r'^[0-9a-f]{40}$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '^[0-9a-f]{40}$' not found in ''
+
+======================================================================
+FAIL: test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) (model='deepseek-v4-flash', sku='b200')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_revision_test.py", line 17, in test_every_hf_artifact_has_consistent_full_revision
+    self.assertRegex(entry.get('revision', ''), r'^[0-9a-f]{40}$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '^[0-9a-f]{40}$' not found in ''
+
+======================================================================
+FAIL: test_metadata_does_not_claim_loaded_bytes (__main__.AtlasRevisionTest.test_metadata_does_not_claim_loaded_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_revision_test.py", line 26, in test_metadata_does_not_claim_loaded_bytes
+    self.assertIs(doc.get('revision_adaptation', {}).get('loaded_bytes_proven'), False)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None is not False
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+FAILED (failures=18, errors=1)

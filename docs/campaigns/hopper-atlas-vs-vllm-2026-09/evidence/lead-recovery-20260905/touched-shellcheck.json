@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "shellcheck",
+    "-x",
+    "-S",
+    "warning",
+    "bench/campaign/campaign_test.sh",
+    "bench/campaign/cell_finalize.sh",
+    "bench/campaign/cell_identity.sh",
+    "bench/campaign/cell_lifecycle.sh",
+    "bench/campaign/fixtures/campaign/cases_docker_setup.sh",
+    "bench/campaign/fixtures/campaign/cases_identity_cleanup.sh",
+    "bench/campaign/fixtures/campaign/cases_interruption.sh",
+    "bench/campaign/fixtures/campaign/cases_render_assemble.sh",
+    "bench/campaign/run_cell.sh",
+    "scripts/fixtures/start_node_ep/cases_ownership.sh",
+    "scripts/start_node_ep_test.sh"
+  ],
+  "exit_code": 0
+}

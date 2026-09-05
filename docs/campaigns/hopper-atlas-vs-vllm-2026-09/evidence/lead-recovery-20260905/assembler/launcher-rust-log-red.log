@@ -1,0 +1,28 @@
+ASSERT FAILED [a]: expected 4 rank commands, got 0:
+=== Atlas single-node launch ===
+Model:         nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8
+GPUs (ranks):  4   (rank i -> --gpu-ordinal i)
+Topology:      TP=1 EP=4 world=4
+Ports:         8888..8891  (only rank 0 on 8888 serves clients)
+NCCL bootstrap: 127.0.0.1:29500
+NCCL profile:  default
+Mode:          local binary (./target/release/spark)
+Run dir:       /tmp/atlas-node-ep
+
+# rank 3 (worker)
+env RUST_LOG=error ./target/release/spark serve nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8 --rank 3 --world-size 4 --ep-size 4 --tp-size 1 --gpu-ordinal 3 --port 8891 --master-addr 127.0.0.1 --master-port 29500 --no-tui
+
+# rank 2 (worker)
+env RUST_LOG=error ./target/release/spark serve nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8 --rank 2 --world-size 4 --ep-size 4 --tp-size 1 --gpu-ordinal 2 --port 8890 --master-addr 127.0.0.1 --master-port 29500 --no-tui
+
+# rank 1 (worker)
+env RUST_LOG=error ./target/release/spark serve nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8 --rank 1 --world-size 4 --ep-size 4 --tp-size 1 --gpu-ordinal 1 --port 8889 --master-addr 127.0.0.1 --master-port 29500 --no-tui
+
+# rank 0 (head, serves HTTP)
+env RUST_LOG=error ./target/release/spark serve nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8 --rank 0 --world-size 4 --ep-size 4 --tp-size 1 --gpu-ordinal 0 --port 8888 --master-addr 127.0.0.1 --master-port 29500 --no-tui --bind 127.0.0.1
+
+health poll:   http://127.0.0.1:8888/health (1 s interval, 1800s cap)
+summary: model=nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8 ngpus=4 tp=1 ep=4 ports=8888-8891 nccl_profile=default time_to_ready_s=dry-run
+rank0_command: env RUST_LOG=error ./target/release/spark serve nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8 --rank 0 --world-size 4 --ep-size 4 --tp-size 1 --gpu-ordinal 0 --port 8888 --master-addr 127.0.0.1 --master-port 29500 --no-tui --bind 127.0.0.1
+
+dry-run: nothing launched.

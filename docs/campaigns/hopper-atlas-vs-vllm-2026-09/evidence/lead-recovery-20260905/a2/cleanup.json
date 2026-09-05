@@ -1,0 +1,38 @@
+{
+  "before_df": {
+    "exit_code": 0,
+    "stdout": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  825G   45G  95% /\n",
+    "stderr": ""
+  },
+  "containers": {
+    "exit_code": 0,
+    "stdout": "CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES\n",
+    "stderr": ""
+  },
+  "owned_image_users": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "remove_image": {
+    "exit_code": 0,
+    "stdout": "Untagged: avarok/atlas-gb10@sha256:faa6e5820c42dd86d0ae9e12cbaf2a2e9f32d0f7a9ab348a75ee54d4253929a6\nDeleted: sha256:dd2e31034f052e7f3e35b8c6cd1e435353ba0faea57915aab12499f3cec01e7d\nDeleted: sha256:34506aeeb89392e718bdc22d6ed7fc5ddbdc87c2b27b4c9e406630b52c75b272\nDeleted: sha256:00243339781a48947e556b7dd14a0280d0f99d6a2fc93ad3bacb5cbdf5d7b4d7\nDeleted: sha256:ea5ace8d955fc5c85781e47047494a95ede1aa776b3749a3269187dd1854c4ec\nDeleted: sha256:57757528835b9c37ade463bbd33269d90012dbc34f51eb24076c48cfca507452\nDeleted: sha256:ad402baf9aba0975fde537fc7bba180dcafb6053b67603e1e146265b44d7d9c0\nDeleted: sha256:8b526a0f0aaaeebcc5c22607e67f90fbff818af03820a96c97c5475d63a27cc1\nDeleted: sha256:f4d96fc9e3f5b46fbfc393443fcc17acb1cd932b2a0265d87308f33e4d9317ff\nDeleted: sha256:38f10aee0f0edc61e9f93aa206c15e08b7b860c8fbf0d6f84dd29e2ed8b73377\nDeleted: sha256:1a43e488b7513448946340ac368072142103f84a8b55920c98b22c8dba11c353\nDeleted: sha256:ce2eaf089f7588f064739e63c3d1874c7a4b6f8db5c2ee3bbc83464b40a7af15\nDeleted: sha256:cb1b5e3b726b7e9742d4407d047934d9f4a6f1969f76da164e2682a5bc01a928\nDeleted: sha256:04f6e0a87462da5459d2f56b40dac88df0be437b4f987e6db2bf72128645e1dd\nDeleted: sha256:b2497ab6678bb99ebe88ba1de1811bfceba5477b1cd5a16ba676a15f4b25a3da\nDeleted: sha256:f938656f385ef839075702193b749dad80f71362a3316b96702c58c070312e22\n",
+    "stderr": ""
+  },
+  "owned_root_absent": true,
+  "after_df": {
+    "exit_code": 0,
+    "stdout": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  822G   48G  95% /\n",
+    "stderr": ""
+  },
+  "images": {
+    "exit_code": 0,
+    "stdout": "REPOSITORY                        TAG                          DIGEST                                                                    IMAGE ID       CREATED         SIZE\nghcr.io/anemll/dspark-vllm-gx10   0.1.1                        <none>                                                                    3430d6614a8e   7 weeks ago     18.8GB\nnvidia/cuda                       13.0.1-devel-ubuntu24.04     sha256:7d2f6a8c2071d911524f95061a0db363e24d27aa51ec831fcccf9e76eb72bc92   d1f3dc428c53   12 months ago   6.59GB\nnvidia/cuda                       13.0.1-runtime-ubuntu24.04   sha256:c3fde347d52d578c84fd644bc177bc7ec333feaf11550d990da4084d7612e4c7   55e3a0bc92ce   12 months ago   2.55GB\n",
+    "stderr": ""
+  },
+  "gpu": {
+    "exit_code": 0,
+    "stdout": "Sat Sep  5 10:54:33 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 580.173.02             Driver Version: 580.173.02     CUDA Version: 13.0     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GB10                    On  |   0000000F:01:00.0 Off |                  N/A |\n| N/A   53C    P8              6W /  N/A  | Not Supported          |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|    0   N/A  N/A            2649      G   /usr/lib/xorg/Xorg                       18MiB |\n|    0   N/A  N/A            2748      G   /usr/bin/gnome-shell                      6MiB |\n+-----------------------------------------------------------------------------------------+\n",
+    "stderr": ""
+  }
+}

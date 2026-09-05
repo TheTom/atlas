@@ -1,0 +1,70 @@
+docker.io/avarok/atlas-gb10@sha256:faa6e5820c42dd86d0ae9e12cbaf2a2e9f32d0f7a9ab348a75ee54d4253929a6: Pulling from avarok/atlas-gb10
+e3bd89a9dac5: Pulling fs layer
+7388693f29f9: Pulling fs layer
+2ab05901de2a: Pulling fs layer
+652943dea480: Pulling fs layer
+13e8f87efde8: Pulling fs layer
+652943dea480: Waiting
+eeb7c7586928: Pulling fs layer
+bc96c5cba8de: Pulling fs layer
+b00b8bab1407: Pulling fs layer
+c31d48f5d410: Pulling fs layer
+13e8f87efde8: Waiting
+eeb7c7586928: Waiting
+e566fb00645a: Pulling fs layer
+b00b8bab1407: Waiting
+4aaf153538c2: Pulling fs layer
+bc96c5cba8de: Waiting
+c31d48f5d410: Waiting
+e566fb00645a: Waiting
+3f0cf0931678: Pulling fs layer
+c78077f5ea74: Pulling fs layer
+d2cf3a744059: Pulling fs layer
+4aaf153538c2: Waiting
+3f0cf0931678: Waiting
+c78077f5ea74: Waiting
+d2cf3a744059: Waiting
+7388693f29f9: Verifying Checksum
+7388693f29f9: Download complete
+652943dea480: Verifying Checksum
+652943dea480: Download complete
+13e8f87efde8: Verifying Checksum
+13e8f87efde8: Download complete
+e3bd89a9dac5: Verifying Checksum
+e3bd89a9dac5: Download complete
+bc96c5cba8de: Verifying Checksum
+bc96c5cba8de: Download complete
+b00b8bab1407: Verifying Checksum
+b00b8bab1407: Download complete
+c31d48f5d410: Verifying Checksum
+c31d48f5d410: Download complete
+e3bd89a9dac5: Pull complete
+7388693f29f9: Pull complete
+2ab05901de2a: Download complete
+2ab05901de2a: Pull complete
+652943dea480: Pull complete
+13e8f87efde8: Pull complete
+4aaf153538c2: Verifying Checksum
+4aaf153538c2: Download complete
+3f0cf0931678: Verifying Checksum
+3f0cf0931678: Download complete
+c78077f5ea74: Verifying Checksum
+c78077f5ea74: Download complete
+d2cf3a744059: Verifying Checksum
+d2cf3a744059: Download complete
+e566fb00645a: Verifying Checksum
+e566fb00645a: Download complete
+eeb7c7586928: Verifying Checksum
+eeb7c7586928: Download complete
+eeb7c7586928: Pull complete
+bc96c5cba8de: Pull complete
+b00b8bab1407: Pull complete
+c31d48f5d410: Pull complete
+e566fb00645a: Pull complete
+4aaf153538c2: Pull complete
+3f0cf0931678: Pull complete
+c78077f5ea74: Pull complete
+d2cf3a744059: Pull complete
+Digest: sha256:faa6e5820c42dd86d0ae9e12cbaf2a2e9f32d0f7a9ab348a75ee54d4253929a6
+Status: Downloaded newer image for avarok/atlas-gb10@sha256:faa6e5820c42dd86d0ae9e12cbaf2a2e9f32d0f7a9ab348a75ee54d4253929a6
+docker.io/avarok/atlas-gb10@sha256:faa6e5820c42dd86d0ae9e12cbaf2a2e9f32d0f7a9ab348a75ee54d4253929a6

@@ -1,0 +1,60 @@
+{
+  "gpu": {
+    "argv": [
+      "nvidia-smi"
+    ],
+    "exit_code": 0,
+    "stdout": "Sat Sep  5 10:31:23 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 580.173.02             Driver Version: 580.173.02     CUDA Version: 13.0     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GB10                    On  |   0000000F:01:00.0 Off |                  N/A |\n| N/A   51C    P8              5W /  N/A  | Not Supported          |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|    0   N/A  N/A            2649      G   /usr/lib/xorg/Xorg                       18MiB |\n|    0   N/A  N/A            2748      G   /usr/bin/gnome-shell                      6MiB |\n+-----------------------------------------------------------------------------------------+\n",
+    "stderr": ""
+  },
+  "spark": {
+    "argv": [
+      "pgrep",
+      "-a",
+      "-x",
+      "spark"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "containers": {
+    "argv": [
+      "docker",
+      "ps"
+    ],
+    "exit_code": 0,
+    "stdout": "CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES\n",
+    "stderr": ""
+  },
+  "compute": {
+    "argv": [
+      "nvidia-smi",
+      "--query-compute-apps=pid,process_name",
+      "--format=csv,noheader"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "running": {
+    "argv": [
+      "docker",
+      "ps",
+      "-q"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "df": {
+    "argv": [
+      "df",
+      "-h",
+      "/"
+    ],
+    "exit_code": 0,
+    "stdout": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  823G   47G  95% /\n",
+    "stderr": ""
+  }
+}

@@ -1,0 +1,13 @@
+# PR904 watchdog delta review
+
+PR904 latest head `caf461d59f5b48948796a1ecf4cb28b1c67579ed` consists of first fix `356a9bd9` (a cherry-pick of campaign `c4c1b56`), watchdog extension `0c9f05ed431fc75e42353b2f9510a329174c3e52`, and a main merge. Recommendation: incorporate exactly the watchdog extension before the campaign's final perf-tree tag; do not duplicate the first fix or import the merge.
+
+Rental impact: discrete H100/H200/B200 memory polls still take the maximum of device memory and unrelated host RAM at c4c1b56. This can prevent the OOM watchdog reaching its threshold and misreport the TUI GPU memory gauge. The extension centralizes the integrated-device predicate and effective-free calculation. The backend continues to fail on driver errors, while the poll conservatively uses device memory when integrated status is unknown. There is no changed threshold, allocation tuning, or overlap with recovered arch-preflight files. No actionable defect found in this delta.
+
+Red-first reproduction uses the PR's three CPU poll tests with the pre-fix unconditional-max expression reinstated at the extracted pure poll boundary. It is a mutation check of the old decision, not a claim that CUDA memory was polled on hardware. Exit 101: discrete and unknown-integration tests fail, returning 1063361470464 bytes where 4588568576 are required; integrated control passes. Restoring the exact PR implementation makes all spark-runtime tests green: 292 passed, 0 failed, 5 ignored plus 1 ignored doctest. Workspace cargo doc --workspace --no-deps also passes. All raw commands/stdout/stderr/exit codes are alongside this report.
+
+`tested-source-files.json` checks every previously recovered arch/memory source plus the three watchdog files against the tested remote tree. Expected watchdog files were derived by applying the exact 0c9f05 patch to c4c1b56 files in a disposable fixture; this retains the campaign's arch_preflight module and cuDeviceGet declarations, which are absent from PR904's main-based source. The shared Mac checkout was not edited by this review.
+
+The root-owned Spark1 CPU worktree contains the green change; the temporary red mutation was restored. No GPU work, git commit/cherry-pick, or GitHub write was performed by this review. Live watchdog firing remains unobserved on a rental GPU.
+
+PR903 is documentation only: it corrects Hopper's architecture example and records the measured suffix-dependent static shared-memory limits. Its receipts overlap the existing campaign/issue899 GB10 shared-memory findings. Keep that PR separate; no duplicate campaign change is required and the RTX track remains untouched.

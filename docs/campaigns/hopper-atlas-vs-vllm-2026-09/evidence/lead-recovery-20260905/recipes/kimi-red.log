@@ -1,0 +1,45 @@
+test_kimi_context (__main__.KimiContextTest.test_kimi_context) ... 
+  test_kimi_context (__main__.KimiContextTest.test_kimi_context) (sku='h100') ... FAIL
+  test_kimi_context (__main__.KimiContextTest.test_kimi_context) (sku='h200') ... FAIL
+  test_kimi_context (__main__.KimiContextTest.test_kimi_context) (sku='b200') ... FAIL
+
+======================================================================
+FAIL: test_kimi_context (__main__.KimiContextTest.test_kimi_context) (sku='h100')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/kimi_context_test.py", line 22, in test_kimi_context
+    self.assertEqual(argv[argv.index('--max-model-len') + 1], '49152')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '32768' != '49152'
+- 32768
++ 49152
+
+
+======================================================================
+FAIL: test_kimi_context (__main__.KimiContextTest.test_kimi_context) (sku='h200')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/kimi_context_test.py", line 22, in test_kimi_context
+    self.assertEqual(argv[argv.index('--max-model-len') + 1], '49152')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '32768' != '49152'
+- 32768
++ 49152
+
+
+======================================================================
+FAIL: test_kimi_context (__main__.KimiContextTest.test_kimi_context) (sku='b200')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/kimi_context_test.py", line 22, in test_kimi_context
+    self.assertEqual(argv[argv.index('--max-model-len') + 1], '49152')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '1048576' != '49152'
+- 1048576
++ 49152
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+FAILED (failures=3)

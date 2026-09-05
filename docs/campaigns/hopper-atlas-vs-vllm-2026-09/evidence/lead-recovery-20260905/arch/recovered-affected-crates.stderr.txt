@@ -1,0 +1,25 @@
+   Compiling spark-runtime v1.0.0-beta-preview (/home/pidtom/atlas-campaign-gates-20260905/crates/spark-runtime)
+   Compiling atlas-kernels v1.0.0-beta-preview (/home/pidtom/atlas-campaign-gates-20260905/crates/atlas-kernels)
+   Compiling spark-storage v1.0.0-beta-preview (/home/pidtom/atlas-campaign-gates-20260905/crates/spark-storage)
+   Compiling spark-model v1.0.0-beta-preview (/home/pidtom/atlas-campaign-gates-20260905/crates/spark-model)
+   Compiling spark-server v1.0.0-beta-preview (/home/pidtom/atlas-campaign-gates-20260905/crates/spark-server)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 41.64s
+     Running unittests src/lib.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/atlas_kernels-0174263e0dd621cf)
+     Running tests/blockscale_mma_guard.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/blockscale_mma_guard-234ea99d4efb3a55)
+     Running tests/hopper_27b.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/hopper_27b-a55da111acafa7fc)
+     Running tests/inherited_targets.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/inherited_targets-877b03b53a912d51)
+     Running tests/inherited_targets_w4a4.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/inherited_targets_w4a4-03051c25b310d170)
+     Running tests/kernel_arity.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/kernel_arity-d7f14ea39c942ee6)
+     Running tests/kernel_build_flags.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/kernel_build_flags-b2463694caa3835f)
+     Running tests/kernel_shadow_detector.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/kernel_shadow_detector-57cb81581e3b2718)
+     Running tests/kernel_target_arch.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/kernel_target_arch-9f1de7c75c8da974)
+     Running tests/target_hints.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/target_hints-d6219276fc154385)
+     Running tests/target_resolution.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/target_resolution-7af28f5bffc48ea3)
+     Running unittests src/lib.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/spark_runtime-d47c36768a4c285c)
+     Running unittests src/lib.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/spark_server-c90cdeaedd66afe6)
+     Running unittests src/main.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/spark-86c9042c5ce3e5e3)
+     Running tests/closure_attestation.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/closure_attestation-0ccaf966a7438ec4)
+     Running tests/integration.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/integration-b3d3d401b10ad517)
+   Doc-tests atlas_kernels
+   Doc-tests spark_runtime
+   Doc-tests spark_server

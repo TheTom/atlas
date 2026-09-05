@@ -1,0 +1,77 @@
+[
+  {
+    "name": "campaign",
+    "command": [
+      "bash",
+      "bench/campaign/campaign_test.sh"
+    ],
+    "exit_code": 0,
+    "seconds": 44.16209602355957
+  },
+  {
+    "name": "launcher",
+    "command": [
+      "bash",
+      "scripts/start_node_ep_test.sh"
+    ],
+    "exit_code": 0,
+    "seconds": 8.839706182479858
+  },
+  {
+    "name": "dockerfiles",
+    "command": [
+      "bash",
+      "docker/datacenter_dockerfiles_test.sh"
+    ],
+    "exit_code": 0,
+    "seconds": 0.2550027370452881
+  },
+  {
+    "name": "atlas-render",
+    "command": [
+      "python3",
+      "bench/campaign/atlas_render.py",
+      "--selftest"
+    ],
+    "exit_code": 0,
+    "seconds": 0.04721188545227051
+  },
+  {
+    "name": "validator",
+    "command": [
+      "python3",
+      "bench/campaign/validate_artifact.py",
+      "--selftest"
+    ],
+    "exit_code": 0,
+    "seconds": 0.04641103744506836
+  },
+  {
+    "name": "assembler",
+    "command": [
+      "python3",
+      "bench/campaign/cell_assemble.py",
+      "--selftest"
+    ],
+    "exit_code": 0,
+    "seconds": 2.135118246078491
+  },
+  {
+    "name": "fmt",
+    "command": [
+      "cargo",
+      "fmt",
+      "--check"
+    ],
+    "exit_code": 0,
+    "seconds": 2.194683074951172
+  },
+  {
+    "name": "typos",
+    "command": [
+      "typos"
+    ],
+    "exit_code": 0,
+    "seconds": 0.18121004104614258
+  }
+]

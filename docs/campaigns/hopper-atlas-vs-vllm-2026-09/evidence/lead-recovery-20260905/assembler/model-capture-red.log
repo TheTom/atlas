@@ -1,0 +1,35 @@
+test_a_owned_capture_precedes_teardown_and_reaches_assembler (__main__.ModelCaptureTest.test_a_owned_capture_precedes_teardown_and_reaches_assembler) ... FAIL
+test_b_failed_inspect_does_not_forge_proof (__main__.ModelCaptureTest.test_b_failed_inspect_does_not_forge_proof) ... FAIL
+test_c_unknown_inspect_does_not_forge_proof (__main__.ModelCaptureTest.test_c_unknown_inspect_does_not_forge_proof) ... FAIL
+
+======================================================================
+FAIL: test_a_owned_capture_precedes_teardown_and_reaches_assembler (__main__.ModelCaptureTest.test_a_owned_capture_precedes_teardown_and_reaches_assembler)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-evidence/recovery/assembler/baseline-capture-fixture/bench/campaign/model_capture_test.py", line 138, in test_a_owned_capture_precedes_teardown_and_reaches_assembler
+    self.assertIsNotNone(proof, "runner discarded actual launch identity before teardown")
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : runner discarded actual launch identity before teardown
+
+======================================================================
+FAIL: test_b_failed_inspect_does_not_forge_proof (__main__.ModelCaptureTest.test_b_failed_inspect_does_not_forge_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-evidence/recovery/assembler/baseline-capture-fixture/bench/campaign/model_capture_test.py", line 155, in test_b_failed_inspect_does_not_forge_proof
+    self.assertIn(["inspect", CID], calls, "runner did not attempt actual identity capture")
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ['inspect', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'] not found in [['run', '-d', '--name', 'atlas-campaign-nemotron-3-nano-fp8-h100-lat-c1-specoff-thinkoff-40993', '--label', 'atlas-campaign.run=vllm.nemotron-3-nano-fp8.h100.lat.c1.specoff.thinkoff-1788621695-40993', '--gpus', 'all', '--ipc=host', '--network', 'host', '-v', '/Users/tom/.cache/huggingface:/root/.cache/huggingface', '--entrypoint', 'vllm', 'vllm/vllm-openai@sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', 'serve', 'nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8', '--trust-remote-code', '--async-scheduling', '--kv-cache-dtype', 'fp8', '--tensor-parallel-size', '1', '--moe-backend', 'flashinfer_cutlass', '--enable-auto-tool-choice', '--tool-call-parser', 'qwen3_coder', '--reasoning-parser-plugin', 'nano_v3_reasoning_parser.py', '--reasoning-parser', 'nano_v3', '--revision', '9bee19446c0dfd01f356e10979d225b2a6621944'], ['inspect', '--format', '{{.Image}}', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'], ['inspect', '--format', '{{.Config.Image}}', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'], ['image', 'inspect', '--format', '{{index .Config.Labels "org.opencontainers.image.version"}}', 'sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'], ['stop', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'], ['rm', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa']] : runner did not attempt actual identity capture
+
+======================================================================
+FAIL: test_c_unknown_inspect_does_not_forge_proof (__main__.ModelCaptureTest.test_c_unknown_inspect_does_not_forge_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-evidence/recovery/assembler/baseline-capture-fixture/bench/campaign/model_capture_test.py", line 161, in test_c_unknown_inspect_does_not_forge_proof
+    self.assertIn(["inspect", CID], calls, "runner did not attempt actual identity capture")
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ['inspect', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'] not found in [['run', '-d', '--name', 'atlas-campaign-nemotron-3-nano-fp8-h100-lat-c1-specoff-thinkoff-41163', '--label', 'atlas-campaign.run=vllm.nemotron-3-nano-fp8.h100.lat.c1.specoff.thinkoff-1788621696-41163', '--gpus', 'all', '--ipc=host', '--network', 'host', '-v', '/Users/tom/.cache/huggingface:/root/.cache/huggingface', '--entrypoint', 'vllm', 'vllm/vllm-openai@sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', 'serve', 'nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8', '--trust-remote-code', '--async-scheduling', '--kv-cache-dtype', 'fp8', '--tensor-parallel-size', '1', '--moe-backend', 'flashinfer_cutlass', '--enable-auto-tool-choice', '--tool-call-parser', 'qwen3_coder', '--reasoning-parser-plugin', 'nano_v3_reasoning_parser.py', '--reasoning-parser', 'nano_v3', '--revision', '9bee19446c0dfd01f356e10979d225b2a6621944'], ['inspect', '--format', '{{.Image}}', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'], ['inspect', '--format', '{{.Config.Image}}', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'], ['image', 'inspect', '--format', '{{index .Config.Labels "org.opencontainers.image.version"}}', 'sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'], ['stop', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'], ['rm', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa']] : runner did not attempt actual identity capture
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.255s
+
+FAILED (failures=3)

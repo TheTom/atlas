@@ -1,0 +1,19 @@
+test_b200_uses_captured_nvfp4_recipe (__main__.MiniMaxNvfp4Test.test_b200_uses_captured_nvfp4_recipe) ... FAIL
+test_hopper_profiles_keep_their_original_bf16_checkpoint (__main__.MiniMaxNvfp4Test.test_hopper_profiles_keep_their_original_bf16_checkpoint) ... ok
+
+======================================================================
+FAIL: test_b200_uses_captured_nvfp4_recipe (__main__.MiniMaxNvfp4Test.test_b200_uses_captured_nvfp4_recipe)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/minimax_nvfp4_test.py", line 14, in test_b200_uses_captured_nvfp4_recipe
+    self.assertEqual(entry['hf_id'], 'nvidia/MiniMax-M3-NVFP4')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'MiniMaxAI/MiniMax-M3' != 'nvidia/MiniMax-M3-NVFP4'
+- MiniMaxAI/MiniMax-M3
++ nvidia/MiniMax-M3-NVFP4
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=1)

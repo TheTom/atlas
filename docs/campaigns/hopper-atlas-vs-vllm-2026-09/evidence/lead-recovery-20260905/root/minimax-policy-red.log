@@ -1,0 +1,434 @@
+test_a_forbidden_modes_refuse_before_stages (__main__.ThinkingPolicyTest.test_a_forbidden_modes_refuse_before_stages) ... ok
+test_b_atlas_renderer_cannot_bypass_policy (__main__.ThinkingPolicyTest.test_b_atlas_renderer_cannot_bypass_policy) ... ok
+test_c_permitted_modes_render (__main__.ThinkingPolicyTest.test_c_permitted_modes_render) ... ok
+test_d_absent_recipe_still_names_missing_pair (__main__.ThinkingPolicyTest.test_d_absent_recipe_still_names_missing_pair) ... ok
+test_e_catalog_covers_exact_recipe_models (__main__.ThinkingPolicyTest.test_e_catalog_covers_exact_recipe_models) ... ok
+test_f_real_refusal_also_precedes_resource_creation (__main__.ThinkingPolicyTest.test_f_real_refusal_also_precedes_resource_creation) ... ok
+test_g_minimax_unmapped_request_policy_refuses_all_skus (__main__.ThinkingPolicyTest.test_g_minimax_unmapped_request_policy_refuses_all_skus) ... 
+  test_g_minimax_unmapped_request_policy_refuses_all_skus (__main__.ThinkingPolicyTest.test_g_minimax_unmapped_request_policy_refuses_all_skus) (sku='h100', think='on') ... FAIL
+  test_g_minimax_unmapped_request_policy_refuses_all_skus (__main__.ThinkingPolicyTest.test_g_minimax_unmapped_request_policy_refuses_all_skus) (sku='h100', think='off') ... FAIL
+  test_g_minimax_unmapped_request_policy_refuses_all_skus (__main__.ThinkingPolicyTest.test_g_minimax_unmapped_request_policy_refuses_all_skus) (sku='h200', think='on') ... FAIL
+  test_g_minimax_unmapped_request_policy_refuses_all_skus (__main__.ThinkingPolicyTest.test_g_minimax_unmapped_request_policy_refuses_all_skus) (sku='h200', think='off') ... FAIL
+  test_g_minimax_unmapped_request_policy_refuses_all_skus (__main__.ThinkingPolicyTest.test_g_minimax_unmapped_request_policy_refuses_all_skus) (sku='b200', think='on') ... FAIL
+  test_g_minimax_unmapped_request_policy_refuses_all_skus (__main__.ThinkingPolicyTest.test_g_minimax_unmapped_request_policy_refuses_all_skus) (sku='b200', think='off') ... FAIL
+
+======================================================================
+FAIL: test_g_minimax_unmapped_request_policy_refuses_all_skus (__main__.ThinkingPolicyTest.test_g_minimax_unmapped_request_policy_refuses_all_skus) (sku='h100', think='on')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/thinking_policy_test.py", line 97, in test_g_minimax_unmapped_request_policy_refuses_all_skus
+    self.assertEqual(result.returncode, 9, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 9 : === campaign cell vllm.minimax-m3.h100.lat.c1.specoff.thinkon ===
+engine:      vllm
+model:       minimax-m3 -> MiniMaxAI/MiniMax-M3
+sku:         h100
+workload:    lat  isl=1024 osl=256  C=1  reps=3 warmup=1
+spec:        off     think: on
+boot cap:    1800s
+out:         /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmppeqb4ahg/cell
+client url:  http://127.0.0.1:8000
+mode:        DRY RUN (nothing is launched, nothing is written)
+
+
+--- stage 1/7 preflight ---
+$ nvidia-smi -q > /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmppeqb4ahg/cell/nvidia-smi-q.txt
+$ df -h /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmppeqb4ahg/cell > /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmppeqb4ahg/cell/df.txt
+$ git -C /Users/tom/Documents/New project/atlas-campaign-code rev-parse HEAD
+$ sha256sum /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py
+
+--- stage 2/7 serve ---
+$ VLLM_CONTAINER=atlas-campaign-minimax-m3-h100-lat-c1-specoff-thinkon-45107 bash /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/vllm_control.sh minimax-m3 h100 --spec off --label atlas-campaign.run=vllm.minimax-m3.h100.lat.c1.specoff.thinkon-1788621810-45107 --id-file /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmppeqb4ahg/cell/container.id --image-file /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmppeqb4ahg/cell/container.image
+  | === vLLM control leg (recipe with declared campaign adaptations) ===
+  | model_key:   minimax-m3
+  | sku:         h100
+  | hf_id:       MiniMaxAI/MiniMax-M3
+  | revision:    f0e1c1e04d40177e4673a22097036854f536e9c0 (intended identity; not loaded-byte proof)
+  | quant:       bf16
+  | topology:    gpus=16 nnodes=2 tp=16 pp=1 dp=1 (multi_node_tp)
+  | verdict:     revision_adaptation
+  | source:      https://recipes.vllm.ai/MiniMaxAI/MiniMax-M3/hw/h100.json
+  | retrieved:   2026-09-05T02:41:14.728512+00:00  original recipe evidence sha256 5fae16e15c8702a54ba5bebcc9f830cddf7a269fb45e2fc58263e39a70295013
+  | image:       vllm/vllm-openai:minimax-m3
+  | image_ref:   vllm/vllm-openai:minimax-m3   (tag only -- a non-dry run will be REFUSED, exit 5)
+  | draft pin:   Inferact/MiniMax-M3-EAGLE3@44cafa5ace418d8b22e2958df0c6aa1f2476842c (selected image support unproven)
+  | spec:        off (external draft config is not launched)
+  | extra:       (none)
+  | flag audit:  0 not-in-recipe in the entry, 0 not-in-recipe in --extra
+  | 
+  | # node 0 -- head (node-rank 0, serves HTTP)
+  | # $HEAD_IP is a PLACEHOLDER left verbatim from the recipe: resolve it on the booked cluster.
+  | docker run -d --name atlas-campaign-minimax-m3-h100-lat-c1-specoff-thinkon-45107 --label atlas-campaign.run=vllm.minimax-m3.h100.lat.c1.specoff.thinkon-1788621810-45107 --gpus all --ipc=host --network host -v /Users/tom/.cache/huggingface:/root/.cache/huggingface -e 'GLOO_SOCKET_IFNAME=$IFACE_NAME' -e 'NCCL_SOCKET_IFNAME=$IFACE_NAME' --entrypoint vllm vllm/vllm-openai:minimax-m3 serve MiniMaxAI/MiniMax-M3 --block-size 128 --tensor-parallel-size 16 --nnodes 2 --node-rank 0 --master-addr '$HEAD_IP' --tool-call-parser minimax_m3 --enable-auto-tool-choice --reasoning-parser minimax_m3 --revision f0e1c1e04d40177e4673a22097036854f536e9c0
+  | 
+  | # node 1 -- worker node-rank 1 (--headless)
+  | # $HEAD_IP is a PLACEHOLDER left verbatim from the recipe: resolve it on the booked cluster.
+  | docker run -d --name atlas-campaign-minimax-m3-h100-lat-c1-specoff-thinkon-45107-node1 --label atlas-campaign.run=vllm.minimax-m3.h100.lat.c1.specoff.thinkon-1788621810-45107 --gpus all --ipc=host --network host -v /Users/tom/.cache/huggingface:/root/.cache/huggingface -e 'GLOO_SOCKET_IFNAME=$IFACE_NAME' -e 'NCCL_SOCKET_IFNAME=$IFACE_NAME' --entrypoint vllm vllm/vllm-openai:minimax-m3 serve MiniMaxAI/MiniMax-M3 --block-size 128 --tensor-parallel-size 16 --nnodes 2 --node-rank 1 --master-addr '$HEAD_IP' --headless --tool-call-parser minimax_m3 --enable-auto-tool-choice --reasoning-parser minimax_m3 --revision f0e1c1e04d40177e4673a22097036854f536e9c0
+  | 
+  | dry-run: nothing launched.
+
+--- stage 3/7 boot gate (cap 1800s) ---
+$ bash /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/time_to_ready.sh --url http://127.0.0.1:8000 --model MiniMaxAI/MiniMax-M3 --engine vllm --start-epoch <serve-start> --timeout-s 1800 --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmppeqb4ahg/cell/boot.json
+
+--- stage 4/7 coherency gate ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/coherency_gate.py --url http://127.0.0.1:8000 --model MiniMaxAI/MiniMax-M3 --think on --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmppeqb4ahg/cell/coherency.json
+
+--- stage 5/7 latency pack ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py --url http://127.0.0.1:8000 --model MiniMaxAI/MiniMax-M3 --label vllm.minimax-m3.h100.lat.c1.specoff.thinkon --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmppeqb4ahg/cell/ladder.json --concs 1 --reps 3 --isl 1024 --osl 256 --warmup 1 --enable-thinking
+
+--- stage 6/7 teardown ---
+$ docker stop <id from docker run -d> && docker rm <the same id>
+
+--- stage 7/7 assemble and validate ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble.py --engine vllm --model-key minimax-m3 --sku h100 --workload lat --concurrency 1 --spec off --think on --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmppeqb4ahg/cell/artifact.json --workloads /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/workloads.json --atlas-recipes /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_recipes.json --vllm-recipes /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/vllm_recipes.json --client /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py --serve-argv /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmppeqb4ahg/cell/serve.argv --serve-env /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmppeqb4ahg/cell/serve.env --nvidia-smi-q /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmppeqb4ahg/cell/nvidia-smi-q.txt --boot-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmppeqb4ahg/cell/boot.json --coherency-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmppeqb4ahg/cell/coherency.json --ladder-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmppeqb4ahg/cell/ladder.json
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/validate_artifact.py /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmppeqb4ahg/cell/artifact.json
+
+dry-run: nothing launched, nothing written.
+
+
+======================================================================
+FAIL: test_g_minimax_unmapped_request_policy_refuses_all_skus (__main__.ThinkingPolicyTest.test_g_minimax_unmapped_request_policy_refuses_all_skus) (sku='h100', think='off')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/thinking_policy_test.py", line 97, in test_g_minimax_unmapped_request_policy_refuses_all_skus
+    self.assertEqual(result.returncode, 9, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 9 : === campaign cell vllm.minimax-m3.h100.lat.c1.specoff.thinkoff ===
+engine:      vllm
+model:       minimax-m3 -> MiniMaxAI/MiniMax-M3
+sku:         h100
+workload:    lat  isl=1024 osl=256  C=1  reps=3 warmup=1
+spec:        off     think: off
+boot cap:    1800s
+out:         /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpbqly4i4g/cell
+client url:  http://127.0.0.1:8000
+mode:        DRY RUN (nothing is launched, nothing is written)
+
+
+--- stage 1/7 preflight ---
+$ nvidia-smi -q > /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpbqly4i4g/cell/nvidia-smi-q.txt
+$ df -h /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpbqly4i4g/cell > /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpbqly4i4g/cell/df.txt
+$ git -C /Users/tom/Documents/New project/atlas-campaign-code rev-parse HEAD
+$ sha256sum /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py
+
+--- stage 2/7 serve ---
+$ VLLM_CONTAINER=atlas-campaign-minimax-m3-h100-lat-c1-specoff-thinkoff-45179 bash /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/vllm_control.sh minimax-m3 h100 --spec off --label atlas-campaign.run=vllm.minimax-m3.h100.lat.c1.specoff.thinkoff-1788621811-45179 --id-file /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpbqly4i4g/cell/container.id --image-file /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpbqly4i4g/cell/container.image
+  | === vLLM control leg (recipe with declared campaign adaptations) ===
+  | model_key:   minimax-m3
+  | sku:         h100
+  | hf_id:       MiniMaxAI/MiniMax-M3
+  | revision:    f0e1c1e04d40177e4673a22097036854f536e9c0 (intended identity; not loaded-byte proof)
+  | quant:       bf16
+  | topology:    gpus=16 nnodes=2 tp=16 pp=1 dp=1 (multi_node_tp)
+  | verdict:     revision_adaptation
+  | source:      https://recipes.vllm.ai/MiniMaxAI/MiniMax-M3/hw/h100.json
+  | retrieved:   2026-09-05T02:41:14.728512+00:00  original recipe evidence sha256 5fae16e15c8702a54ba5bebcc9f830cddf7a269fb45e2fc58263e39a70295013
+  | image:       vllm/vllm-openai:minimax-m3
+  | image_ref:   vllm/vllm-openai:minimax-m3   (tag only -- a non-dry run will be REFUSED, exit 5)
+  | draft pin:   Inferact/MiniMax-M3-EAGLE3@44cafa5ace418d8b22e2958df0c6aa1f2476842c (selected image support unproven)
+  | spec:        off (external draft config is not launched)
+  | extra:       (none)
+  | flag audit:  0 not-in-recipe in the entry, 0 not-in-recipe in --extra
+  | 
+  | # node 0 -- head (node-rank 0, serves HTTP)
+  | # $HEAD_IP is a PLACEHOLDER left verbatim from the recipe: resolve it on the booked cluster.
+  | docker run -d --name atlas-campaign-minimax-m3-h100-lat-c1-specoff-thinkoff-45179 --label atlas-campaign.run=vllm.minimax-m3.h100.lat.c1.specoff.thinkoff-1788621811-45179 --gpus all --ipc=host --network host -v /Users/tom/.cache/huggingface:/root/.cache/huggingface -e 'GLOO_SOCKET_IFNAME=$IFACE_NAME' -e 'NCCL_SOCKET_IFNAME=$IFACE_NAME' --entrypoint vllm vllm/vllm-openai:minimax-m3 serve MiniMaxAI/MiniMax-M3 --block-size 128 --tensor-parallel-size 16 --nnodes 2 --node-rank 0 --master-addr '$HEAD_IP' --tool-call-parser minimax_m3 --enable-auto-tool-choice --reasoning-parser minimax_m3 --revision f0e1c1e04d40177e4673a22097036854f536e9c0
+  | 
+  | # node 1 -- worker node-rank 1 (--headless)
+  | # $HEAD_IP is a PLACEHOLDER left verbatim from the recipe: resolve it on the booked cluster.
+  | docker run -d --name atlas-campaign-minimax-m3-h100-lat-c1-specoff-thinkoff-45179-node1 --label atlas-campaign.run=vllm.minimax-m3.h100.lat.c1.specoff.thinkoff-1788621811-45179 --gpus all --ipc=host --network host -v /Users/tom/.cache/huggingface:/root/.cache/huggingface -e 'GLOO_SOCKET_IFNAME=$IFACE_NAME' -e 'NCCL_SOCKET_IFNAME=$IFACE_NAME' --entrypoint vllm vllm/vllm-openai:minimax-m3 serve MiniMaxAI/MiniMax-M3 --block-size 128 --tensor-parallel-size 16 --nnodes 2 --node-rank 1 --master-addr '$HEAD_IP' --headless --tool-call-parser minimax_m3 --enable-auto-tool-choice --reasoning-parser minimax_m3 --revision f0e1c1e04d40177e4673a22097036854f536e9c0
+  | 
+  | dry-run: nothing launched.
+
+--- stage 3/7 boot gate (cap 1800s) ---
+$ bash /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/time_to_ready.sh --url http://127.0.0.1:8000 --model MiniMaxAI/MiniMax-M3 --engine vllm --start-epoch <serve-start> --timeout-s 1800 --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpbqly4i4g/cell/boot.json
+
+--- stage 4/7 coherency gate ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/coherency_gate.py --url http://127.0.0.1:8000 --model MiniMaxAI/MiniMax-M3 --think off --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpbqly4i4g/cell/coherency.json
+
+--- stage 5/7 latency pack ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py --url http://127.0.0.1:8000 --model MiniMaxAI/MiniMax-M3 --label vllm.minimax-m3.h100.lat.c1.specoff.thinkoff --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpbqly4i4g/cell/ladder.json --concs 1 --reps 3 --isl 1024 --osl 256 --warmup 1 
+
+--- stage 6/7 teardown ---
+$ docker stop <id from docker run -d> && docker rm <the same id>
+
+--- stage 7/7 assemble and validate ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble.py --engine vllm --model-key minimax-m3 --sku h100 --workload lat --concurrency 1 --spec off --think off --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpbqly4i4g/cell/artifact.json --workloads /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/workloads.json --atlas-recipes /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_recipes.json --vllm-recipes /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/vllm_recipes.json --client /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py --serve-argv /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpbqly4i4g/cell/serve.argv --serve-env /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpbqly4i4g/cell/serve.env --nvidia-smi-q /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpbqly4i4g/cell/nvidia-smi-q.txt --boot-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpbqly4i4g/cell/boot.json --coherency-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpbqly4i4g/cell/coherency.json --ladder-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpbqly4i4g/cell/ladder.json
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/validate_artifact.py /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpbqly4i4g/cell/artifact.json
+
+dry-run: nothing launched, nothing written.
+
+
+======================================================================
+FAIL: test_g_minimax_unmapped_request_policy_refuses_all_skus (__main__.ThinkingPolicyTest.test_g_minimax_unmapped_request_policy_refuses_all_skus) (sku='h200', think='on')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/thinking_policy_test.py", line 97, in test_g_minimax_unmapped_request_policy_refuses_all_skus
+    self.assertEqual(result.returncode, 9, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 9 : === campaign cell vllm.minimax-m3.h200.lat.c1.specoff.thinkon ===
+engine:      vllm
+model:       minimax-m3 -> MiniMaxAI/MiniMax-M3
+sku:         h200
+workload:    lat  isl=1024 osl=256  C=1  reps=3 warmup=1
+spec:        off     think: on
+boot cap:    1800s
+out:         /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpns82j65r/cell
+client url:  http://127.0.0.1:8000
+mode:        DRY RUN (nothing is launched, nothing is written)
+
+
+--- stage 1/7 preflight ---
+$ nvidia-smi -q > /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpns82j65r/cell/nvidia-smi-q.txt
+$ df -h /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpns82j65r/cell > /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpns82j65r/cell/df.txt
+$ git -C /Users/tom/Documents/New project/atlas-campaign-code rev-parse HEAD
+$ sha256sum /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py
+
+--- stage 2/7 serve ---
+$ VLLM_CONTAINER=atlas-campaign-minimax-m3-h200-lat-c1-specoff-thinkon-45209 bash /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/vllm_control.sh minimax-m3 h200 --spec off --label atlas-campaign.run=vllm.minimax-m3.h200.lat.c1.specoff.thinkon-1788621811-45209 --id-file /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpns82j65r/cell/container.id --image-file /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpns82j65r/cell/container.image
+  | === vLLM control leg (recipe with declared campaign adaptations) ===
+  | model_key:   minimax-m3
+  | sku:         h200
+  | hf_id:       MiniMaxAI/MiniMax-M3
+  | revision:    f0e1c1e04d40177e4673a22097036854f536e9c0 (intended identity; not loaded-byte proof)
+  | quant:       bf16
+  | topology:    gpus=8 nnodes=1 tp=8 pp=1 dp=1 (single_node_tp)
+  | verdict:     revision_adaptation
+  | source:      https://recipes.vllm.ai/MiniMaxAI/MiniMax-M3/hw/h200.json
+  | retrieved:   2026-09-05T02:41:14.744947+00:00  original recipe evidence sha256 e02a2add94f4a0b7b8acf1f650968991962d67cf37f8cf81337fb93e65a2089f
+  | image:       vllm/vllm-openai:minimax-m3
+  | image_ref:   vllm/vllm-openai:minimax-m3   (tag only -- a non-dry run will be REFUSED, exit 5)
+  | draft pin:   Inferact/MiniMax-M3-EAGLE3@44cafa5ace418d8b22e2958df0c6aa1f2476842c (selected image support unproven)
+  | spec:        off (external draft config is not launched)
+  | extra:       (none)
+  | flag audit:  0 not-in-recipe in the entry, 0 not-in-recipe in --extra
+  | 
+  | # node 0 -- head (node-rank 0, serves HTTP)
+  | docker run -d --name atlas-campaign-minimax-m3-h200-lat-c1-specoff-thinkon-45209 --label atlas-campaign.run=vllm.minimax-m3.h200.lat.c1.specoff.thinkon-1788621811-45209 --gpus all --ipc=host --network host -v /Users/tom/.cache/huggingface:/root/.cache/huggingface --entrypoint vllm vllm/vllm-openai:minimax-m3 serve MiniMaxAI/MiniMax-M3 --block-size 128 --tensor-parallel-size 8 --tool-call-parser minimax_m3 --enable-auto-tool-choice --reasoning-parser minimax_m3 --revision f0e1c1e04d40177e4673a22097036854f536e9c0
+  | 
+  | dry-run: nothing launched.
+
+--- stage 3/7 boot gate (cap 1800s) ---
+$ bash /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/time_to_ready.sh --url http://127.0.0.1:8000 --model MiniMaxAI/MiniMax-M3 --engine vllm --start-epoch <serve-start> --timeout-s 1800 --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpns82j65r/cell/boot.json
+
+--- stage 4/7 coherency gate ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/coherency_gate.py --url http://127.0.0.1:8000 --model MiniMaxAI/MiniMax-M3 --think on --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpns82j65r/cell/coherency.json
+
+--- stage 5/7 latency pack ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py --url http://127.0.0.1:8000 --model MiniMaxAI/MiniMax-M3 --label vllm.minimax-m3.h200.lat.c1.specoff.thinkon --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpns82j65r/cell/ladder.json --concs 1 --reps 3 --isl 1024 --osl 256 --warmup 1 --enable-thinking
+
+--- stage 6/7 teardown ---
+$ docker stop <id from docker run -d> && docker rm <the same id>
+
+--- stage 7/7 assemble and validate ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble.py --engine vllm --model-key minimax-m3 --sku h200 --workload lat --concurrency 1 --spec off --think on --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpns82j65r/cell/artifact.json --workloads /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/workloads.json --atlas-recipes /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_recipes.json --vllm-recipes /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/vllm_recipes.json --client /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py --serve-argv /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpns82j65r/cell/serve.argv --serve-env /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpns82j65r/cell/serve.env --nvidia-smi-q /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpns82j65r/cell/nvidia-smi-q.txt --boot-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpns82j65r/cell/boot.json --coherency-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpns82j65r/cell/coherency.json --ladder-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpns82j65r/cell/ladder.json
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/validate_artifact.py /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpns82j65r/cell/artifact.json
+
+dry-run: nothing launched, nothing written.
+
+
+======================================================================
+FAIL: test_g_minimax_unmapped_request_policy_refuses_all_skus (__main__.ThinkingPolicyTest.test_g_minimax_unmapped_request_policy_refuses_all_skus) (sku='h200', think='off')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/thinking_policy_test.py", line 97, in test_g_minimax_unmapped_request_policy_refuses_all_skus
+    self.assertEqual(result.returncode, 9, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 9 : === campaign cell vllm.minimax-m3.h200.lat.c1.specoff.thinkoff ===
+engine:      vllm
+model:       minimax-m3 -> MiniMaxAI/MiniMax-M3
+sku:         h200
+workload:    lat  isl=1024 osl=256  C=1  reps=3 warmup=1
+spec:        off     think: off
+boot cap:    1800s
+out:         /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpmp6emoz9/cell
+client url:  http://127.0.0.1:8000
+mode:        DRY RUN (nothing is launched, nothing is written)
+
+
+--- stage 1/7 preflight ---
+$ nvidia-smi -q > /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpmp6emoz9/cell/nvidia-smi-q.txt
+$ df -h /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpmp6emoz9/cell > /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpmp6emoz9/cell/df.txt
+$ git -C /Users/tom/Documents/New project/atlas-campaign-code rev-parse HEAD
+$ sha256sum /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py
+
+--- stage 2/7 serve ---
+$ VLLM_CONTAINER=atlas-campaign-minimax-m3-h200-lat-c1-specoff-thinkoff-45241 bash /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/vllm_control.sh minimax-m3 h200 --spec off --label atlas-campaign.run=vllm.minimax-m3.h200.lat.c1.specoff.thinkoff-1788621811-45241 --id-file /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpmp6emoz9/cell/container.id --image-file /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpmp6emoz9/cell/container.image
+  | === vLLM control leg (recipe with declared campaign adaptations) ===
+  | model_key:   minimax-m3
+  | sku:         h200
+  | hf_id:       MiniMaxAI/MiniMax-M3
+  | revision:    f0e1c1e04d40177e4673a22097036854f536e9c0 (intended identity; not loaded-byte proof)
+  | quant:       bf16
+  | topology:    gpus=8 nnodes=1 tp=8 pp=1 dp=1 (single_node_tp)
+  | verdict:     revision_adaptation
+  | source:      https://recipes.vllm.ai/MiniMaxAI/MiniMax-M3/hw/h200.json
+  | retrieved:   2026-09-05T02:41:14.744947+00:00  original recipe evidence sha256 e02a2add94f4a0b7b8acf1f650968991962d67cf37f8cf81337fb93e65a2089f
+  | image:       vllm/vllm-openai:minimax-m3
+  | image_ref:   vllm/vllm-openai:minimax-m3   (tag only -- a non-dry run will be REFUSED, exit 5)
+  | draft pin:   Inferact/MiniMax-M3-EAGLE3@44cafa5ace418d8b22e2958df0c6aa1f2476842c (selected image support unproven)
+  | spec:        off (external draft config is not launched)
+  | extra:       (none)
+  | flag audit:  0 not-in-recipe in the entry, 0 not-in-recipe in --extra
+  | 
+  | # node 0 -- head (node-rank 0, serves HTTP)
+  | docker run -d --name atlas-campaign-minimax-m3-h200-lat-c1-specoff-thinkoff-45241 --label atlas-campaign.run=vllm.minimax-m3.h200.lat.c1.specoff.thinkoff-1788621811-45241 --gpus all --ipc=host --network host -v /Users/tom/.cache/huggingface:/root/.cache/huggingface --entrypoint vllm vllm/vllm-openai:minimax-m3 serve MiniMaxAI/MiniMax-M3 --block-size 128 --tensor-parallel-size 8 --tool-call-parser minimax_m3 --enable-auto-tool-choice --reasoning-parser minimax_m3 --revision f0e1c1e04d40177e4673a22097036854f536e9c0
+  | 
+  | dry-run: nothing launched.
+
+--- stage 3/7 boot gate (cap 1800s) ---
+$ bash /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/time_to_ready.sh --url http://127.0.0.1:8000 --model MiniMaxAI/MiniMax-M3 --engine vllm --start-epoch <serve-start> --timeout-s 1800 --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpmp6emoz9/cell/boot.json
+
+--- stage 4/7 coherency gate ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/coherency_gate.py --url http://127.0.0.1:8000 --model MiniMaxAI/MiniMax-M3 --think off --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpmp6emoz9/cell/coherency.json
+
+--- stage 5/7 latency pack ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py --url http://127.0.0.1:8000 --model MiniMaxAI/MiniMax-M3 --label vllm.minimax-m3.h200.lat.c1.specoff.thinkoff --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpmp6emoz9/cell/ladder.json --concs 1 --reps 3 --isl 1024 --osl 256 --warmup 1 
+
+--- stage 6/7 teardown ---
+$ docker stop <id from docker run -d> && docker rm <the same id>
+
+--- stage 7/7 assemble and validate ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble.py --engine vllm --model-key minimax-m3 --sku h200 --workload lat --concurrency 1 --spec off --think off --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpmp6emoz9/cell/artifact.json --workloads /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/workloads.json --atlas-recipes /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_recipes.json --vllm-recipes /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/vllm_recipes.json --client /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py --serve-argv /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpmp6emoz9/cell/serve.argv --serve-env /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpmp6emoz9/cell/serve.env --nvidia-smi-q /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpmp6emoz9/cell/nvidia-smi-q.txt --boot-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpmp6emoz9/cell/boot.json --coherency-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpmp6emoz9/cell/coherency.json --ladder-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpmp6emoz9/cell/ladder.json
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/validate_artifact.py /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmpmp6emoz9/cell/artifact.json
+
+dry-run: nothing launched, nothing written.
+
+
+======================================================================
+FAIL: test_g_minimax_unmapped_request_policy_refuses_all_skus (__main__.ThinkingPolicyTest.test_g_minimax_unmapped_request_policy_refuses_all_skus) (sku='b200', think='on')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/thinking_policy_test.py", line 97, in test_g_minimax_unmapped_request_policy_refuses_all_skus
+    self.assertEqual(result.returncode, 9, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 9 : === campaign cell vllm.minimax-m3.b200.lat.c1.specoff.thinkon ===
+engine:      vllm
+model:       minimax-m3 -> nvidia/MiniMax-M3-NVFP4
+sku:         b200
+workload:    lat  isl=1024 osl=256  C=1  reps=3 warmup=1
+spec:        off     think: on
+boot cap:    1800s
+out:         /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp0a8g4j2d/cell
+client url:  http://127.0.0.1:8000
+mode:        DRY RUN (nothing is launched, nothing is written)
+
+
+--- stage 1/7 preflight ---
+$ nvidia-smi -q > /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp0a8g4j2d/cell/nvidia-smi-q.txt
+$ df -h /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp0a8g4j2d/cell > /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp0a8g4j2d/cell/df.txt
+$ git -C /Users/tom/Documents/New project/atlas-campaign-code rev-parse HEAD
+$ sha256sum /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py
+
+--- stage 2/7 serve ---
+$ VLLM_CONTAINER=atlas-campaign-minimax-m3-b200-lat-c1-specoff-thinkon-45271 bash /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/vllm_control.sh minimax-m3 b200 --spec off --label atlas-campaign.run=vllm.minimax-m3.b200.lat.c1.specoff.thinkon-1788621812-45271 --id-file /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp0a8g4j2d/cell/container.id --image-file /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp0a8g4j2d/cell/container.image
+  | === vLLM control leg (recipe with declared campaign adaptations) ===
+  | model_key:   minimax-m3
+  | sku:         b200
+  | hf_id:       nvidia/MiniMax-M3-NVFP4
+  | revision:    901464083161bf8612a29ff7ad29914cd4ab4a85 (intended identity; not loaded-byte proof)
+  | quant:       nvfp4
+  | topology:    gpus=8 nnodes=1 tp=8 pp=1 dp=1 (single_node_tp)
+  | verdict:     revision_adaptation
+  | source:      https://recipes.vllm.ai/nvidia/MiniMax-M3-NVFP4/hw/b200.json
+  | retrieved:   2026-09-05T14:02:15.083529+00:00  original recipe evidence sha256 e551db9fc18e7572d4f7cffae01fd50068ff5dc8907bf6f6bc6e161ac6a833f6
+  | image:       vllm/vllm-openai:minimax-m3
+  | image_ref:   vllm/vllm-openai:minimax-m3   (tag only -- a non-dry run will be REFUSED, exit 5)
+  | spec:        off   (this recipe has NO speculative profile -- `--spec on` exits 4)
+  | extra:       (none)
+  | flag audit:  0 not-in-recipe in the entry, 0 not-in-recipe in --extra
+  | 
+  | # node 0 -- head (node-rank 0, serves HTTP)
+  | docker run -d --name atlas-campaign-minimax-m3-b200-lat-c1-specoff-thinkon-45271 --label atlas-campaign.run=vllm.minimax-m3.b200.lat.c1.specoff.thinkon-1788621812-45271 --gpus all --ipc=host --network host -v /Users/tom/.cache/huggingface:/root/.cache/huggingface -e VLLM_FLASHINFER_ALLREDUCE_BACKEND=trtllm -e VLLM_FLOAT32_MATMUL_PRECISION=high --entrypoint vllm vllm/vllm-openai:minimax-m3 serve nvidia/MiniMax-M3-NVFP4 --block-size 128 --trust-remote-code --kv-cache-dtype fp8 --attention_config.backend FLASHINFER --attention_config.use_trtllm_attention true --attention_config.indexer_kv_dtype fp8 --attention_config.minimax_m3_msa_decode_backend cutlass --tensor-parallel-size 8 --tool-call-parser minimax_m3 --enable-auto-tool-choice --reasoning-parser minimax_m3 --revision 901464083161bf8612a29ff7ad29914cd4ab4a85
+  | 
+  | dry-run: nothing launched.
+
+--- stage 3/7 boot gate (cap 1800s) ---
+$ bash /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/time_to_ready.sh --url http://127.0.0.1:8000 --model nvidia/MiniMax-M3-NVFP4 --engine vllm --start-epoch <serve-start> --timeout-s 1800 --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp0a8g4j2d/cell/boot.json
+
+--- stage 4/7 coherency gate ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/coherency_gate.py --url http://127.0.0.1:8000 --model nvidia/MiniMax-M3-NVFP4 --think on --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp0a8g4j2d/cell/coherency.json
+
+--- stage 5/7 latency pack ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py --url http://127.0.0.1:8000 --model nvidia/MiniMax-M3-NVFP4 --label vllm.minimax-m3.b200.lat.c1.specoff.thinkon --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp0a8g4j2d/cell/ladder.json --concs 1 --reps 3 --isl 1024 --osl 256 --warmup 1 --enable-thinking
+
+--- stage 6/7 teardown ---
+$ docker stop <id from docker run -d> && docker rm <the same id>
+
+--- stage 7/7 assemble and validate ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble.py --engine vllm --model-key minimax-m3 --sku b200 --workload lat --concurrency 1 --spec off --think on --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp0a8g4j2d/cell/artifact.json --workloads /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/workloads.json --atlas-recipes /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_recipes.json --vllm-recipes /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/vllm_recipes.json --client /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py --serve-argv /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp0a8g4j2d/cell/serve.argv --serve-env /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp0a8g4j2d/cell/serve.env --nvidia-smi-q /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp0a8g4j2d/cell/nvidia-smi-q.txt --boot-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp0a8g4j2d/cell/boot.json --coherency-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp0a8g4j2d/cell/coherency.json --ladder-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp0a8g4j2d/cell/ladder.json
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/validate_artifact.py /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp0a8g4j2d/cell/artifact.json
+
+dry-run: nothing launched, nothing written.
+
+
+======================================================================
+FAIL: test_g_minimax_unmapped_request_policy_refuses_all_skus (__main__.ThinkingPolicyTest.test_g_minimax_unmapped_request_policy_refuses_all_skus) (sku='b200', think='off')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/thinking_policy_test.py", line 97, in test_g_minimax_unmapped_request_policy_refuses_all_skus
+    self.assertEqual(result.returncode, 9, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 9 : === campaign cell vllm.minimax-m3.b200.lat.c1.specoff.thinkoff ===
+engine:      vllm
+model:       minimax-m3 -> nvidia/MiniMax-M3-NVFP4
+sku:         b200
+workload:    lat  isl=1024 osl=256  C=1  reps=3 warmup=1
+spec:        off     think: off
+boot cap:    1800s
+out:         /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmphza3xy3o/cell
+client url:  http://127.0.0.1:8000
+mode:        DRY RUN (nothing is launched, nothing is written)
+
+
+--- stage 1/7 preflight ---
+$ nvidia-smi -q > /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmphza3xy3o/cell/nvidia-smi-q.txt
+$ df -h /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmphza3xy3o/cell > /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmphza3xy3o/cell/df.txt
+$ git -C /Users/tom/Documents/New project/atlas-campaign-code rev-parse HEAD
+$ sha256sum /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py
+
+--- stage 2/7 serve ---
+$ VLLM_CONTAINER=atlas-campaign-minimax-m3-b200-lat-c1-specoff-thinkoff-45298 bash /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/vllm_control.sh minimax-m3 b200 --spec off --label atlas-campaign.run=vllm.minimax-m3.b200.lat.c1.specoff.thinkoff-1788621812-45298 --id-file /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmphza3xy3o/cell/container.id --image-file /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmphza3xy3o/cell/container.image
+  | === vLLM control leg (recipe with declared campaign adaptations) ===
+  | model_key:   minimax-m3
+  | sku:         b200
+  | hf_id:       nvidia/MiniMax-M3-NVFP4
+  | revision:    901464083161bf8612a29ff7ad29914cd4ab4a85 (intended identity; not loaded-byte proof)
+  | quant:       nvfp4
+  | topology:    gpus=8 nnodes=1 tp=8 pp=1 dp=1 (single_node_tp)
+  | verdict:     revision_adaptation
+  | source:      https://recipes.vllm.ai/nvidia/MiniMax-M3-NVFP4/hw/b200.json
+  | retrieved:   2026-09-05T14:02:15.083529+00:00  original recipe evidence sha256 e551db9fc18e7572d4f7cffae01fd50068ff5dc8907bf6f6bc6e161ac6a833f6
+  | image:       vllm/vllm-openai:minimax-m3
+  | image_ref:   vllm/vllm-openai:minimax-m3   (tag only -- a non-dry run will be REFUSED, exit 5)
+  | spec:        off   (this recipe has NO speculative profile -- `--spec on` exits 4)
+  | extra:       (none)
+  | flag audit:  0 not-in-recipe in the entry, 0 not-in-recipe in --extra
+  | 
+  | # node 0 -- head (node-rank 0, serves HTTP)
+  | docker run -d --name atlas-campaign-minimax-m3-b200-lat-c1-specoff-thinkoff-45298 --label atlas-campaign.run=vllm.minimax-m3.b200.lat.c1.specoff.thinkoff-1788621812-45298 --gpus all --ipc=host --network host -v /Users/tom/.cache/huggingface:/root/.cache/huggingface -e VLLM_FLASHINFER_ALLREDUCE_BACKEND=trtllm -e VLLM_FLOAT32_MATMUL_PRECISION=high --entrypoint vllm vllm/vllm-openai:minimax-m3 serve nvidia/MiniMax-M3-NVFP4 --block-size 128 --trust-remote-code --kv-cache-dtype fp8 --attention_config.backend FLASHINFER --attention_config.use_trtllm_attention true --attention_config.indexer_kv_dtype fp8 --attention_config.minimax_m3_msa_decode_backend cutlass --tensor-parallel-size 8 --tool-call-parser minimax_m3 --enable-auto-tool-choice --reasoning-parser minimax_m3 --revision 901464083161bf8612a29ff7ad29914cd4ab4a85
+  | 
+  | dry-run: nothing launched.
+
+--- stage 3/7 boot gate (cap 1800s) ---
+$ bash /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/time_to_ready.sh --url http://127.0.0.1:8000 --model nvidia/MiniMax-M3-NVFP4 --engine vllm --start-epoch <serve-start> --timeout-s 1800 --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmphza3xy3o/cell/boot.json
+
+--- stage 4/7 coherency gate ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/coherency_gate.py --url http://127.0.0.1:8000 --model nvidia/MiniMax-M3-NVFP4 --think off --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmphza3xy3o/cell/coherency.json
+
+--- stage 5/7 latency pack ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py --url http://127.0.0.1:8000 --model nvidia/MiniMax-M3-NVFP4 --label vllm.minimax-m3.b200.lat.c1.specoff.thinkoff --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmphza3xy3o/cell/ladder.json --concs 1 --reps 3 --isl 1024 --osl 256 --warmup 1 
+
+--- stage 6/7 teardown ---
+$ docker stop <id from docker run -d> && docker rm <the same id>
+
+--- stage 7/7 assemble and validate ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble.py --engine vllm --model-key minimax-m3 --sku b200 --workload lat --concurrency 1 --spec off --think off --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmphza3xy3o/cell/artifact.json --workloads /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/workloads.json --atlas-recipes /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_recipes.json --vllm-recipes /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/vllm_recipes.json --client /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py --serve-argv /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmphza3xy3o/cell/serve.argv --serve-env /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmphza3xy3o/cell/serve.env --nvidia-smi-q /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmphza3xy3o/cell/nvidia-smi-q.txt --boot-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmphza3xy3o/cell/boot.json --coherency-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmphza3xy3o/cell/coherency.json --ladder-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmphza3xy3o/cell/ladder.json
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/validate_artifact.py /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmphza3xy3o/cell/artifact.json
+
+dry-run: nothing launched, nothing written.
+
+
+----------------------------------------------------------------------
+Ran 7 tests in 8.032s
+
+FAILED (failures=6)

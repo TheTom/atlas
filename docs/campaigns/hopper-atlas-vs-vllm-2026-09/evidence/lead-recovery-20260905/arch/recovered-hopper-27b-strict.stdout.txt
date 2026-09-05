@@ -1,0 +1,6 @@
+self-test @ sm_90a: known_good passed=true  known_bad_post_hopper.cu failed=true
+181 kernel(s) across 1 model(s); 181 unique compile(s) after dedup; hardware flags: -DATLAS_NO_WARP_BLOCKSCALE_MMA
+compiling for sm_90a with 4 job(s), strict=1 — Build cuda_13.0.r13.0/compiler.36424714_0
+181/181 kernels compiled for sm_90a; 0 failed (0 rejected entry function(s))
+ledger:  recovery-hopper-27b-ptx.json
+summary: recovery-hopper-27b-ptx.md

@@ -1,0 +1,1 @@
+ssh pidtom@192.168.50.125 'cd /home/pidtom/atlas-campaign-gates-20260905 && export PATH="$HOME/.cargo/bin:/usr/local/cuda/bin:$PATH" && bash scripts/hopper_ptx_gate_test.sh'

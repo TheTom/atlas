@@ -1,0 +1,8 @@
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  916G  857G   13G  99% /
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2025 NVIDIA Corporation
+Built on Wed_Aug_20_01:57:39_PM_PDT_2025
+Cuda compilation tools, release 13.0, V13.0.88
+Build cuda_13.0.r13.0/compiler.36424714_0
+4b13cfed7cecff0a8c1a3c25cc98337088cd7d9926dec50d3cc1ac8e8c6d0035  recovery-w4a4-before.ptx

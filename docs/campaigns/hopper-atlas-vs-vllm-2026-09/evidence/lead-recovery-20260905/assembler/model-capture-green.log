@@ -1,0 +1,8 @@
+test_a_owned_capture_precedes_teardown_and_reaches_assembler (__main__.ModelCaptureTest.test_a_owned_capture_precedes_teardown_and_reaches_assembler) ... ok
+test_b_failed_inspect_does_not_forge_proof (__main__.ModelCaptureTest.test_b_failed_inspect_does_not_forge_proof) ... ok
+test_c_unknown_inspect_does_not_forge_proof (__main__.ModelCaptureTest.test_c_unknown_inspect_does_not_forge_proof) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.684s
+
+OK

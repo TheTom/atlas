@@ -1,0 +1,28 @@
+[
+  {
+    "repo_id": "Qwen/Qwen3.8-27B-FP8",
+    "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "gated": false,
+    "license": "apache-2.0",
+    "weight_bytes": 30866866928,
+    "estimated_download_seconds": {
+      "2": 123.467,
+      "10": 24.693,
+      "25": 9.877
+    },
+    "loaded_bytes_proven": false
+  },
+  {
+    "repo_id": "nvidia/MiniMax-M3-NVFP4",
+    "revision": "901464083161bf8612a29ff7ad29914cd4ab4a85",
+    "gated": false,
+    "license": "other",
+    "weight_bytes": 250103762320,
+    "estimated_download_seconds": {
+      "2": 1000.415,
+      "10": 200.083,
+      "25": 80.033
+    },
+    "loaded_bytes_proven": false
+  }
+]

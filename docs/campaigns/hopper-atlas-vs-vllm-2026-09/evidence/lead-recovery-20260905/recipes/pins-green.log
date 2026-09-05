@@ -1,0 +1,22 @@
+test_branch_name_pin_refused (__main__.PinTests.test_branch_name_pin_refused) ... ok
+test_duplicate_primary_flag_refused (__main__.PinTests.test_duplicate_primary_flag_refused) ... ok
+test_every_head_and_worker_uses_declared_full_revision (__main__.PinTests.test_every_head_and_worker_uses_declared_full_revision) ... ok
+test_external_draft_missing_revision_refused (__main__.PinTests.test_external_draft_missing_revision_refused) ... ok
+test_external_draft_repo_mismatch_refused (__main__.PinTests.test_external_draft_repo_mismatch_refused) ... ok
+test_external_draft_revision_and_exact_spec_arithmetic (__main__.PinTests.test_external_draft_revision_and_exact_spec_arithmetic) ... ok
+test_identity_overrides_refused (__main__.PinTests.test_identity_overrides_refused) ... ok
+test_internal_spec_cannot_override_primary_revision (__main__.PinTests.test_internal_spec_cannot_override_primary_revision) ... ok
+test_missing_pin_refused (__main__.PinTests.test_missing_pin_refused) ... ok
+test_missing_primary_flag_refused (__main__.PinTests.test_missing_primary_flag_refused) ... ok
+test_non_identity_extra_remains_available (__main__.PinTests.test_non_identity_extra_remains_available) ... ok
+test_same_repo_different_pin_refused (__main__.PinTests.test_same_repo_different_pin_refused) ... ok
+test_short_pin_refused (__main__.PinTests.test_short_pin_refused) ... ok
+test_spec_args_cannot_override_primary_identity (__main__.PinTests.test_spec_args_cannot_override_primary_identity) ... ok
+test_stale_embedded_spec_config_refused_even_when_off (__main__.PinTests.test_stale_embedded_spec_config_refused_even_when_off) ... ok
+test_worker_pin_mismatch_refused (__main__.PinTests.test_worker_pin_mismatch_refused) ... ok
+test_wrong_repo_refused (__main__.PinTests.test_wrong_repo_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.063s
+
+OK

@@ -1,0 +1,12 @@
+
+running 7 tests
+test main_modules::serve_phases::kernel_gate::tests::a_count_of_256_does_not_report_as_a_clean_pass ... ok
+test main_modules::serve_phases::kernel_gate::tests::the_exit_code_is_the_unresolved_count ... ok
+test main_modules::serve_phases::kernel_gate::tests::an_unrelated_error_does_not_invent_device_facts ... ok
+test main_modules::serve_phases::kernel_gate::tests::a_host_with_no_device_reports_a_null_device_cc ... ok
+test main_modules::serve_phases::kernel_gate::tests::the_pre_existing_fields_are_unchanged ... ok
+test main_modules::serve_phases::kernel_gate::tests::the_check_line_reports_the_compiled_arch_and_the_device ... ok
+test main_modules::serve_phases::kernel_gate::tests::early_arch_refusals_report_the_same_numeric_device_contract ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 2346 filtered out; finished in 0.01s
+

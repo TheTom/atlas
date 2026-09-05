@@ -1,0 +1,98 @@
+{
+  "verification": "Remote sources match prior recovered arch receipt, updated by applying exact GitHub 0c9f05 patch to campaign c4c1b56 versions in a disposable local fixture. Campaign arch_preflight module and cuDeviceGet declarations are retained. No shared Mac source was edited by this review.",
+  "files": {
+    "crates/atlas-kernels/tests/blockscale_mma_guard.rs": {
+      "sha256": "722f45f09414a943524bbc2859ed9e2012514aaf4d308db115ec7b938eb7ec0a"
+    },
+    "crates/atlas-kernels/tests/hopper_27b.rs": {
+      "sha256": "9bd764e457e8a27d0ea04c4e7c355e92ac12dc9e52ad2d0faf1c7055779a57d7"
+    },
+    "crates/atlas-kernels/tests/inherited_targets.rs": {
+      "sha256": "1d1d1384c2412ad91353b8b933c3b0762a1bae67e814abc099df190c92d80e99"
+    },
+    "crates/atlas-kernels/tests/support/inherited.rs": {
+      "sha256": "66ff2665cd1c5a9dbad0b4e20345b1c1f0d429fd848e7592e5ccd68c6ae7433c"
+    },
+    "crates/spark-model/src/factory/build.rs": {
+      "sha256": "b1e257f5543daf20f74962e8b08079a93c9bcc15d90c5fbd7487dcfa9cdb13ab"
+    },
+    "crates/spark-runtime/src/cuda_backend/arch_preflight.rs": {
+      "sha256": "b5e74d72795249165d5a703863426eab8da5e5e4bf35c0c116e4182f8b155fc8"
+    },
+    "crates/spark-runtime/src/cuda_backend/gpu_impl_graph.rs": {
+      "sha256": "e65b7ffcf82a959e017214f1ae517959225ff33b172a8fa777bc749156814cd2"
+    },
+    "crates/spark-server/src/main_modules/serve_phases/kernel_gate.rs": {
+      "sha256": "62a6d9b75477e2f8461f79ca6c5360a6bc49d7c485c3af5ec9e3aa1365837ead"
+    },
+    "crates/spark-server/src/main_modules/serve_phases/preflight.rs": {
+      "sha256": "255ff08c36446d1e5140ff83ddab24b1553a205eed702d044cf3033157189ed3"
+    },
+    "kernels/gb10/qwen3.6-27b/nvfp4/nvfp4_mmq.cu": {
+      "sha256": "8cb13bfb0e49fc61efb03f6de480132f18449abe016ab50df313f4dc7849f68c"
+    },
+    "kernels/gb10/qwen3.6-27b/nvfp4/w4a4_gemm.cu": {
+      "sha256": "d20be792f2c3e2be09936b78f307e2dc03f71fd97f28d75b3b369a567e878761"
+    },
+    "kernels/hopper/qwen3.6-27b/MODEL.toml": {
+      "sha256": "35d1d6c306d20cba001a8f8d10a102758b65f4855def20f8f7de12f63a0658b5"
+    },
+    "kernels/hopper/qwen3.6-27b/nvfp4/KERNEL.toml": {
+      "symlink": "../../../gb10/qwen3.6-27b/nvfp4/KERNEL.toml"
+    },
+    "kernels/hopper/qwen3.6-27b/nvfp4/gated_delta_rule.cu": {
+      "symlink": "../../../gb10/qwen3.6-27b/nvfp4/gated_delta_rule.cu"
+    },
+    "kernels/hopper/qwen3.6-27b/nvfp4/gated_delta_rule_snap.cu": {
+      "symlink": "../../../gb10/qwen3.6-27b/nvfp4/gated_delta_rule_snap.cu"
+    },
+    "kernels/hopper/qwen3.6-27b/nvfp4/gated_delta_rule_wy17.cu": {
+      "symlink": "../../../gb10/qwen3.6-27b/nvfp4/gated_delta_rule_wy17.cu"
+    },
+    "kernels/hopper/qwen3.6-27b/nvfp4/gdn_verify_fused_conv_kn_f32.cu": {
+      "symlink": "../../../gb10/qwen3.6-27b/nvfp4/gdn_verify_fused_conv_kn_f32.cu"
+    },
+    "kernels/hopper/qwen3.6-27b/nvfp4/inferspark_prefill_paged_indirect.cu": {
+      "symlink": "../../../gb10/qwen3.6-27b/nvfp4/inferspark_prefill_paged_indirect.cu"
+    },
+    "kernels/hopper/qwen3.6-27b/nvfp4/moe_w4a16_grouped_gemm.cu": {
+      "symlink": "../../../gb10/qwen3.6-27b/nvfp4/moe_w4a16_grouped_gemm.cu"
+    },
+    "kernels/hopper/qwen3.6-27b/nvfp4/nvfp4_mmq.cu": {
+      "symlink": "../../../gb10/qwen3.6-27b/nvfp4/nvfp4_mmq.cu"
+    },
+    "kernels/hopper/qwen3.6-27b/nvfp4/q2_0_mmq.cu": {
+      "symlink": "../../../gb10/qwen3.6-27b/nvfp4/q2_0_mmq.cu"
+    },
+    "kernels/hopper/qwen3.6-27b/nvfp4/q4k_mmq.cu": {
+      "symlink": "../../../gb10/qwen3.6-27b/nvfp4/q4k_mmq.cu"
+    },
+    "kernels/hopper/qwen3.6-27b/nvfp4/q4k_quantize.cu": {
+      "symlink": "../../../gb10/qwen3.6-27b/nvfp4/q4k_quantize.cu"
+    },
+    "kernels/hopper/qwen3.6-27b/nvfp4/q4k_vendor": {
+      "symlink": "../../../gb10/qwen3.6-27b/nvfp4/q4k_vendor"
+    },
+    "kernels/hopper/qwen3.6-27b/nvfp4/vision_encoder.cu": {
+      "symlink": "../../../gb10/qwen3.6-27b/nvfp4/vision_encoder.cu"
+    },
+    "kernels/hopper/qwen3.6-27b/nvfp4/w4a16_gemm.cu": {
+      "symlink": "../../../gb10/qwen3.6-27b/nvfp4/w4a16_gemm.cu"
+    },
+    "kernels/hopper/qwen3.6-27b/nvfp4/w4a16_gemm_v2.cu": {
+      "symlink": "../../../gb10/qwen3.6-27b/nvfp4/w4a16_gemm_v2.cu"
+    },
+    "kernels/hopper/qwen3.6-27b/nvfp4/w4a4_gemm.cu": {
+      "symlink": "../../../gb10/qwen3.6-27b/nvfp4/w4a4_gemm.cu"
+    },
+    "kernels/hopper/qwen3.8-27b/MODEL.toml": {
+      "sha256": "dedbac813b1f5d5aa2044830653f2945a1a07348aa6d9fe4a33eabaa2d9bb8a4"
+    },
+    "crates/spark-runtime/src/cuda_backend.rs": {
+      "sha256": "886a43906c648d581f8d44ba5eb4f29ee10b10ca8f2298d6397ef3f3199acd04"
+    },
+    "crates/spark-runtime/src/cuda_backend/tests.rs": {
+      "sha256": "7e1dd14c51f5f1aefc666952c52c8991d4102793acd49d5a4406734e1817ecc1"
+    }
+  }
+}

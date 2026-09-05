@@ -1,0 +1,16 @@
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  916G  858G   12G  99% /
+
+running 3 tests
+test cuda_backend::tests::watchdog_poll_on_an_integrated_device_still_takes_the_max ... ok
+test cuda_backend::tests::watchdog_poll_with_unknown_integration_is_treated_as_discrete ... FAILED
+test cuda_backend::tests::watchdog_poll_on_a_discrete_device_reports_device_memory ... FAILED
+
+failures:
+
+failures:
+    cuda_backend::tests::watchdog_poll_on_a_discrete_device_reports_device_memory
+    cuda_backend::tests::watchdog_poll_with_unknown_integration_is_treated_as_discrete
+
+test result: FAILED. 1 passed; 2 failed; 0 ignored; 0 measured; 294 filtered out; finished in 0.00s
+

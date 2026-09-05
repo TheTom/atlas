@@ -1,0 +1,5 @@
+usage: atlas_render.py [-h] --recipes RECIPES [--model MODEL] [--sku SKU]
+                       [--spec {on,off}] [--think {on,off}] [--probe]
+                       [--field FIELD] [--extra-args] [--describe]
+                       [--selftest]
+atlas_render.py: error: the following arguments are required: --recipes

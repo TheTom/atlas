@@ -1,0 +1,14 @@
+test_a_unowned_launch_cannot_certify (cell_assemble_test.AssemblyTest.test_a_unowned_launch_cannot_certify) ... ok
+test_b_unstarted_or_malformed_launch_cannot_certify (cell_assemble_test.AssemblyTest.test_b_unstarted_or_malformed_launch_cannot_certify) ... ok
+test_c_wrong_model_or_competing_revision_cannot_certify (cell_assemble_test.AssemblyTest.test_c_wrong_model_or_competing_revision_cannot_certify) ... ok
+test_d_failed_boot_does_not_prove_loaded_revision (cell_assemble_test.AssemblyTest.test_d_failed_boot_does_not_prove_loaded_revision) ... ok
+test_e_recipe_pins_alone_are_not_launch_proof (cell_assemble_test.AssemblyTest.test_e_recipe_pins_alone_are_not_launch_proof) ... ok
+test_f_owned_launched_pin_and_boot_prove_revision (cell_assemble_test.AssemblyTest.test_f_owned_launched_pin_and_boot_prove_revision) ... ok
+test_g_floating_launch_keeps_revision_null (cell_assemble_test.AssemblyTest.test_g_floating_launch_keeps_revision_null) ... ok
+test_h_failed_known_answer_remains_no_go (cell_assemble_test.AssemblyTest.test_h_failed_known_answer_remains_no_go) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 2.064s
+
+OK
+cell_assemble selftest: 8/8 test methods passed

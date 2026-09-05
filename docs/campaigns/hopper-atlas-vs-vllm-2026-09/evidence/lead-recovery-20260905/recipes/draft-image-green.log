@@ -1,0 +1,7 @@
+test_synthetic_support_receipt_must_match_image_and_digest (__main__.DraftImageSupportTest.test_synthetic_support_receipt_must_match_image_and_digest) ... ok
+test_unverified_external_drafts_refuse_before_staging (__main__.DraftImageSupportTest.test_unverified_external_drafts_refuse_before_staging) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.008s
+
+OK

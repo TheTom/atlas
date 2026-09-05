@@ -1,0 +1,12 @@
+test_a_forbidden_modes_refuse_before_stages (__main__.ThinkingPolicyTest.test_a_forbidden_modes_refuse_before_stages) ... ok
+test_b_atlas_renderer_cannot_bypass_policy (__main__.ThinkingPolicyTest.test_b_atlas_renderer_cannot_bypass_policy) ... ok
+test_c_permitted_modes_render (__main__.ThinkingPolicyTest.test_c_permitted_modes_render) ... ok
+test_d_absent_recipe_still_names_missing_pair (__main__.ThinkingPolicyTest.test_d_absent_recipe_still_names_missing_pair) ... ok
+test_e_catalog_covers_exact_recipe_models (__main__.ThinkingPolicyTest.test_e_catalog_covers_exact_recipe_models) ... ok
+test_f_real_refusal_also_precedes_resource_creation (__main__.ThinkingPolicyTest.test_f_real_refusal_also_precedes_resource_creation) ... ok
+test_g_minimax_unmapped_request_policy_refuses_all_skus (__main__.ThinkingPolicyTest.test_g_minimax_unmapped_request_policy_refuses_all_skus) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 7.108s
+
+OK

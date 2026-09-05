@@ -1,0 +1,378 @@
+{
+  "inspected_head": "47b171dcdb806c9d4d3dde21baadc2f16e6917ea",
+  "oracle": "required constant and each gate's measured default=true BENCH.toml row; historical records are timing hints only",
+  "gates": [
+    {
+      "id": "agentic-webserver",
+      "target_model": "qwen3.6-35b-a3b",
+      "checkpoint": "Qwen/Qwen3.6-35B-A3B-FP8",
+      "recipe": "qwen3.6/qwen3.6-35b-a3b-fp8-bf16head",
+      "bench_source": "kernels/gb10/qwen3.6-35b-a3b/BENCH.toml",
+      "source_line": 21,
+      "serve_overrides": {},
+      "param_overrides": {},
+      "thresholds": {
+        "followed_directions": {
+          "min": 10.0
+        },
+        "iterations": {
+          "min": 10.0,
+          "max": 10.0
+        },
+        "sum_wall_s": {
+          "max": 1800.0
+        },
+        "sum_turns": {
+          "max": 250.0
+        },
+        "s_per_turn": {
+          "max": 8.5
+        },
+        "webserver_ok": {
+          "min": 10.0
+        }
+      },
+      "command": "spark-gb10-qwen3.6-35b-a3b benchmark run agentic-webserver --hardware gb10 --pull-request-gate --yes",
+      "latest_record": ".benchmarks/agentic-webserver/2026-09-02-025b8acfdf.json",
+      "latest_elapsed_s": 646
+    },
+    {
+      "id": "vision-fidelity",
+      "target_model": "qwen3.6-35b-a3b",
+      "checkpoint": "Qwen/Qwen3.6-35B-A3B-FP8",
+      "recipe": "qwen3.6/qwen3.6-35b-a3b-fp8-bf16head",
+      "bench_source": "kernels/gb10/qwen3.6-35b-a3b/BENCH.toml",
+      "source_line": 551,
+      "serve_overrides": {},
+      "param_overrides": {},
+      "thresholds": {
+        "geometry_matched": {
+          "min": 14.0
+        },
+        "geometry_asserted": {
+          "min": 14.0
+        },
+        "integrity_passed": {
+          "min": 10.0
+        },
+        "integrity_measured": {
+          "min": 10.0
+        },
+        "probes_passed": {
+          "min": 3.0
+        },
+        "control_held": {
+          "min": 1.0
+        }
+      },
+      "command": "spark-gb10-qwen3.6-35b-a3b benchmark run vision-fidelity --hardware gb10 --pull-request-gate",
+      "latest_record": ".benchmarks/vision-fidelity/2026-09-02-025b8acfdf.json",
+      "latest_elapsed_s": 55
+    },
+    {
+      "id": "video-fidelity",
+      "target_model": "qwen3.6-27b",
+      "checkpoint": "unsloth/Qwen3.6-27B-NVFP4",
+      "recipe": "qwen3.6/qwen3.6-27b-nvfp4-unsloth",
+      "bench_source": "kernels/gb10/qwen3.6-27b/BENCH.toml",
+      "source_line": 300,
+      "serve_overrides": {},
+      "param_overrides": {},
+      "thresholds": {
+        "legs_passed": {
+          "min": 13.0
+        },
+        "legs_skipped": {
+          "max": 0.0
+        },
+        "control_held": {
+          "min": 1.0
+        }
+      },
+      "command": "spark-gb10-qwen3.6-27b benchmark run video-fidelity --hardware gb10 --pull-request-gate",
+      "latest_record": ".benchmarks/video-fidelity/2026-09-02-025b8acfdf.json",
+      "latest_elapsed_s": 16
+    },
+    {
+      "id": "ttft-warm-gate",
+      "target_model": "qwen3.6-35b-a3b",
+      "checkpoint": "Qwen/Qwen3.6-35B-A3B-FP8",
+      "recipe": "qwen3.6/qwen3.6-35b-a3b-fp8-bf16head",
+      "bench_source": "kernels/gb10/qwen3.6-35b-a3b/BENCH.toml",
+      "source_line": 246,
+      "serve_overrides": {},
+      "param_overrides": {},
+      "thresholds": {
+        "median_ms": {
+          "max": 1559.32
+        },
+        "p90_ms": {
+          "max": 4507.44
+        }
+      },
+      "command": "spark-gb10-qwen3.6-35b-a3b benchmark run ttft-warm-gate --hardware gb10 --pull-request-gate",
+      "latest_record": ".benchmarks/ttft-warm-gate/2026-09-02-025b8acfdf.json",
+      "latest_elapsed_s": 92
+    },
+    {
+      "id": "ttft-cold-gate",
+      "target_model": "qwen3.6-35b-a3b",
+      "checkpoint": "Qwen/Qwen3.6-35B-A3B-FP8",
+      "recipe": "qwen3.6/qwen3.6-35b-a3b-fp8-bf16head",
+      "bench_source": "kernels/gb10/qwen3.6-35b-a3b/BENCH.toml",
+      "source_line": 180,
+      "serve_overrides": {},
+      "param_overrides": {},
+      "thresholds": {
+        "median_ms": {
+          "max": 1623.59
+        },
+        "p90_ms": {
+          "max": 4482.03
+        }
+      },
+      "command": "spark-gb10-qwen3.6-35b-a3b benchmark run ttft-cold-gate --hardware gb10 --pull-request-gate",
+      "latest_record": ".benchmarks/ttft-cold-gate/2026-09-02-025b8acfdf.json",
+      "latest_elapsed_s": 48
+    },
+    {
+      "id": "bfcl-subset",
+      "target_model": "qwen3.8-27b",
+      "checkpoint": "unsloth/Qwen3.8-27B-NVFP4",
+      "recipe": "qwen3.8/qwen3.8-27b-nvfp4-unsloth-bfcl",
+      "bench_source": "kernels/gb10/qwen3.8-27b/BENCH.toml",
+      "source_line": 110,
+      "serve_overrides": {},
+      "param_overrides": {},
+      "thresholds": {
+        "samples": {
+          "min": 995.0,
+          "max": 995.0
+        },
+        "overall_accuracy": {
+          "min": 83.82,
+          "noise": 0.4
+        },
+        "normalized_single_turn_score": {
+          "min": 83.72,
+          "noise": 0.4
+        }
+      },
+      "command": "spark-gb10-qwen3.8-27b benchmark run bfcl-subset --hardware gb10 --pull-request-gate",
+      "latest_record": ".benchmarks/bfcl-subset/2026-09-02-025b8acfdf.json",
+      "latest_elapsed_s": 5851
+    },
+    {
+      "id": "bfcl-subset-echolp",
+      "target_model": "qwen3.6-35b-a3b",
+      "checkpoint": "Qwen/Qwen3.6-35B-A3B-FP8",
+      "recipe": "qwen3.6/qwen3.6-35b-a3b-fp8-bf16head",
+      "bench_source": "kernels/gb10/qwen3.6-35b-a3b/BENCH.toml",
+      "source_line": 124,
+      "serve_overrides": {
+        "ssm_cache_slots": "256"
+      },
+      "param_overrides": {},
+      "thresholds": {
+        "normalized_single_turn_score": {
+          "min": 86.9,
+          "noise": 0.4
+        },
+        "overall_accuracy": {
+          "min": 86.5,
+          "noise": 0.4
+        },
+        "samples": {
+          "min": 1004,
+          "max": 1004
+        }
+      },
+      "command": "spark-gb10-qwen3.6-35b-a3b benchmark run bfcl-subset-echolp --hardware gb10 --pull-request-gate",
+      "latest_record": ".benchmarks/bfcl-subset-echolp/2026-09-02-025b8acfdf.json",
+      "latest_elapsed_s": 8826
+    },
+    {
+      "id": "ssm-state-poisoning-gate",
+      "target_model": "qwen3.6-35b-a3b",
+      "checkpoint": "Qwen/Qwen3.6-35B-A3B-FP8",
+      "recipe": "qwen3.6/qwen3.6-35b-a3b-fp8-bf16head",
+      "bench_source": "kernels/gb10/qwen3.6-35b-a3b/BENCH.toml",
+      "source_line": 350,
+      "serve_overrides": {
+        "disable_thinking": "true",
+        "ssm_cache_slots": "256"
+      },
+      "param_overrides": {},
+      "thresholds": {
+        "rounds": {
+          "min": 12.0,
+          "max": 12.0
+        },
+        "collapsed": {
+          "max": 0.0
+        },
+        "unmeasured": {
+          "max": 0.0
+        },
+        "min_cached_prompt_tokens": {
+          "min": 1.0
+        },
+        "sum_wall_s": {
+          "max": 1200.0
+        }
+      },
+      "command": "spark-gb10-qwen3.6-35b-a3b benchmark run ssm-state-poisoning-gate --hardware gb10 --pull-request-gate",
+      "latest_record": ".benchmarks/ssm-state-poisoning-gate/2026-09-02-025b8acfdf.json",
+      "latest_elapsed_s": 84
+    },
+    {
+      "id": "decode-floor",
+      "target_model": "qwen3.8-27b",
+      "checkpoint": "unsloth/Qwen3.8-27B-NVFP4",
+      "recipe": "qwen3.8/qwen3.8-27b-nvfp4-unsloth",
+      "bench_source": "kernels/gb10/qwen3.8-27b/BENCH.toml",
+      "source_line": 191,
+      "serve_overrides": {},
+      "param_overrides": {},
+      "thresholds": {
+        "server_decode_tok_s": {
+          "min": 21.0,
+          "noise": 0.5
+        },
+        "output_tokens": {
+          "min": 750.0
+        },
+        "runs": {
+          "min": 3.0,
+          "max": 3.0
+        }
+      },
+      "command": "spark-gb10-qwen3.8-27b benchmark run decode-floor --hardware gb10 --pull-request-gate",
+      "latest_record": ".benchmarks/decode-floor/2026-09-01-025b8acfdf.json",
+      "latest_elapsed_s": 120
+    },
+    {
+      "id": "concurrency-sweep",
+      "target_model": "qwen3.8-27b",
+      "checkpoint": "unsloth/Qwen3.8-27B-NVFP4",
+      "recipe": "qwen3.8/qwen3.8-27b-nvfp4-unsloth",
+      "bench_source": "kernels/gb10/qwen3.8-27b/BENCH.toml",
+      "source_line": 270,
+      "serve_overrides": {
+        "max_batch_size": "128",
+        "kv_cache_dtype": "fp8",
+        "ssm_cache_slots": "8",
+        "max_model_len": "4096"
+      },
+      "param_overrides": {
+        "concurrencies": "1,2,4,8,16,32,64,128",
+        "isls": "512",
+        "osl": "320"
+      },
+      "thresholds": {
+        "c1_aggregate_tok_s": {
+          "min": 17.5,
+          "noise": 0.3
+        },
+        "c2_aggregate_tok_s": {
+          "min": 25.0,
+          "noise": 0.95
+        },
+        "c4_aggregate_tok_s": {
+          "min": 37.5,
+          "noise": 1.8
+        },
+        "c8_aggregate_tok_s": {
+          "min": 48.0,
+          "noise": 2.3
+        },
+        "c16_aggregate_tok_s": {
+          "min": 84.0,
+          "noise": 1.45
+        },
+        "c32_aggregate_tok_s": {
+          "min": 98.5,
+          "noise": 1.7
+        },
+        "c64_aggregate_tok_s": {
+          "min": 109.5,
+          "noise": 1.9
+        },
+        "c128_aggregate_tok_s": {
+          "min": 109.5,
+          "noise": 1.9
+        },
+        "peak_aggregate_tok_s": {
+          "min": 109.5,
+          "noise": 1.9
+        },
+        "min_completion_tokens": {
+          "min": 260.0
+        },
+        "vacuous_cells": {
+          "max": 0.0
+        }
+      },
+      "command": "spark-gb10-qwen3.8-27b benchmark run concurrency-sweep --hardware gb10 --pull-request-gate",
+      "latest_record": ".benchmarks/concurrency-sweep/2026-09-02-025b8acfdf.json",
+      "latest_elapsed_s": 1498
+    },
+    {
+      "id": "concurrency-sweep-dflash2",
+      "target_model": "qwen3.8-27b",
+      "checkpoint": "unsloth/Qwen3.8-27B-NVFP4",
+      "recipe": "qwen3.8/qwen3.8-27b-nvfp4-dflash2",
+      "bench_source": "kernels/gb10/qwen3.8-27b/BENCH.toml",
+      "source_line": 472,
+      "serve_overrides": {
+        "max_batch_size": "16",
+        "kv_cache_dtype": "fp8",
+        "ssm_cache_slots": "8",
+        "max_model_len": "4096",
+        "dflash": "true",
+        "draft_model": "incoai/Qwen3.8-27B-DFlash2",
+        "dflash_gamma": "8"
+      },
+      "param_overrides": {
+        "concurrencies": "1,2,4,8,16",
+        "isls": "512",
+        "osl": "200"
+      },
+      "thresholds": {
+        "c1_aggregate_tok_s": {
+          "min": 20.0,
+          "noise": 0.95
+        },
+        "c2_aggregate_tok_s": {
+          "min": 36.0,
+          "noise": 0.62
+        },
+        "c4_aggregate_tok_s": {
+          "min": 42.5,
+          "noise": 0.73
+        },
+        "c8_aggregate_tok_s": {
+          "min": 50.5,
+          "noise": 0.88
+        },
+        "c16_aggregate_tok_s": {
+          "min": 58.0,
+          "noise": 1.0
+        },
+        "peak_aggregate_tok_s": {
+          "min": 58.0,
+          "noise": 1.0
+        },
+        "min_completion_tokens": {
+          "min": 164.0
+        },
+        "vacuous_cells": {
+          "max": 0.0
+        }
+      },
+      "command": "spark-gb10-qwen3.8-27b benchmark run concurrency-sweep-dflash2 --hardware gb10 --pull-request-gate",
+      "latest_record": ".benchmarks/concurrency-sweep-dflash2/2026-09-02-025b8acfdf.json",
+      "latest_elapsed_s": 237
+    }
+  ]
+}

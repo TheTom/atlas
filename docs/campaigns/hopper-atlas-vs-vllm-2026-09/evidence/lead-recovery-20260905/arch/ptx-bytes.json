@@ -1,0 +1,22 @@
+{
+  "recovery-w4a4-before.ptx": {
+    "sha256": "4b13cfed7cecff0a8c1a3c25cc98337088cd7d9926dec50d3cc1ac8e8c6d0035",
+    "bytes": 39926,
+    "stored_path": "ptx/recovery-w4a4-before.ptx.gz"
+  },
+  "recovery-w4a4-after.ptx": {
+    "sha256": "4b13cfed7cecff0a8c1a3c25cc98337088cd7d9926dec50d3cc1ac8e8c6d0035",
+    "bytes": 39926,
+    "stored_path": "ptx/recovery-w4a4-after.ptx.gz"
+  },
+  "recovery-w4a4-red.ptx": {
+    "sha256": "00e46ae89a88a39e8d66dde3f3707c95174bec801c6b9f911480f62adaf2840f",
+    "bytes": 55678,
+    "stored_path": "ptx/recovery-w4a4-red.ptx.gz"
+  },
+  "recovery-w4a4-green.ptx": {
+    "sha256": "10b97d49a9cf955c3a7575ab6559ef44f6580f02a902f75590473f2dc128c228",
+    "bytes": 202,
+    "stored_path": "ptx/recovery-w4a4-green.ptx.gz"
+  }
+}

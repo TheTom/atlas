@@ -1,0 +1,17 @@
+   Compiling atlas-core v1.0.0-beta-preview (/home/pidtom/atlas-campaign-gates-20260905/crates/atlas-core)
+   Compiling spark-runtime v1.0.0-beta-preview (/home/pidtom/atlas-campaign-gates-20260905/crates/spark-runtime)
+   Compiling atlas-kernels v1.0.0-beta-preview (/home/pidtom/atlas-campaign-gates-20260905/crates/atlas-kernels)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.46s
+     Running unittests src/lib.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/spark_runtime-97a07cbf76499dd4)
+
+thread 'cuda_backend::tests::watchdog_poll_on_a_discrete_device_reports_device_memory' (988298) panicked at crates/spark-runtime/src/cuda_backend/tests.rs:87:5:
+assertion `left == right` failed
+  left: 1063361470464
+ right: 4588568576
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'cuda_backend::tests::watchdog_poll_with_unknown_integration_is_treated_as_discrete' (988300) panicked at crates/spark-runtime/src/cuda_backend/tests.rs:99:5:
+assertion `left == right` failed: an unknown integrated/discrete answer must never inflate device free memory
+  left: 1063361470464
+ right: 4588568576
+error: test failed, to rerun pass `-p spark-runtime --lib`

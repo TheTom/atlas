@@ -1,0 +1,19 @@
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  916G  858G   12G  99% /
+ M crates/atlas-kernels/tests/blockscale_mma_guard.rs
+ M crates/atlas-kernels/tests/inherited_targets.rs
+ M crates/atlas-kernels/tests/support/inherited.rs
+ M crates/spark-model/src/factory/build.rs
+ M crates/spark-runtime/src/cuda_backend.rs
+ M crates/spark-runtime/src/cuda_backend/arch_preflight.rs
+ M crates/spark-runtime/src/cuda_backend/gpu_impl_graph.rs
+ M crates/spark-runtime/src/cuda_backend/tests.rs
+ M crates/spark-server/src/main_modules/serve_phases/kernel_gate.rs
+ M crates/spark-server/src/main_modules/serve_phases/preflight.rs
+ M kernels/gb10/qwen3.6-27b/nvfp4/nvfp4_mmq.cu
+ M kernels/gb10/qwen3.6-27b/nvfp4/w4a4_gemm.cu
+?? crates/atlas-kernels/tests/hopper_27b.rs
+?? kernels/hopper/qwen3.6-27b/
+?? kernels/hopper/qwen3.8-27b/
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  916G  858G   12G  99% /

@@ -1,0 +1,79 @@
+[
+  {
+    "engine": "vllm",
+    "argv": [
+      "/usr/local/bin/vllm",
+      "serve",
+      "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
+      "--revision=bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    ],
+    "observed": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "passed": true
+  },
+  {
+    "engine": "atlas",
+    "argv": [
+      "spark",
+      "serve",
+      "/cache/models--nvidia--NVIDIA-Nemotron-3-Super-120B-A12B-FP8/snapshots/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    ],
+    "observed": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "passed": true
+  },
+  {
+    "engine": "vllm",
+    "argv": [
+      "python3",
+      "-m",
+      "vllm.entrypoints.openai.api_server",
+      "--model",
+      "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
+      "--revision",
+      "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    ],
+    "observed": "actual command is not vllm serve MODEL",
+    "passed": true
+  },
+  {
+    "engine": "atlas",
+    "argv": [
+      "spark",
+      "serve",
+      "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
+      "--revision",
+      "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    ],
+    "observed": "Atlas has no --revision option; use an explicit HF snapshot path",
+    "passed": true
+  },
+  {
+    "engine": "vllm",
+    "argv": [
+      "vllm",
+      "serve",
+      "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
+      "--rev",
+      "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    ],
+    "observed": "actual command carries competing identity option --rev",
+    "passed": true
+  },
+  {
+    "boot": {
+      "passed": true,
+      "engine": "atlas",
+      "model": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8"
+    },
+    "observed": "boot evidence does not identify this engine and model",
+    "passed": true
+  },
+  {
+    "boot": {
+      "passed": true,
+      "engine": "vllm",
+      "model": "wrong/model"
+    },
+    "observed": "boot evidence does not identify this engine and model",
+    "passed": true
+  }
+]

@@ -1,0 +1,75 @@
+{
+  "hardware": "h200",
+  "strategy": "single_node_tp",
+  "variant": "fp8",
+  "node_count": 1,
+  "deploy_type": "single_node",
+  "env": {},
+  "docker_image": "vllm/vllm-openai:qwen38",
+  "command": "vllm serve Qwen/Qwen3.8-27B-FP8 \\\n  --tensor-parallel-size 1 \\\n  --enable-auto-tool-choice \\\n  --tool-call-parser qwen3_coder \\\n  --reasoning-parser qwen3 \\\n  --mm-encoder-tp-mode data",
+  "argv": [
+    "vllm",
+    "serve",
+    "Qwen/Qwen3.8-27B-FP8",
+    "--tensor-parallel-size",
+    "1",
+    "--enable-auto-tool-choice",
+    "--tool-call-parser",
+    "qwen3_coder",
+    "--reasoning-parser",
+    "qwen3",
+    "--mm-encoder-tp-mode",
+    "data"
+  ],
+  "docker_command": "docker run --gpus all \\\n  --privileged --ipc=host -p 8000:8000 \\\n  -v ~/.cache/huggingface:/root/.cache/huggingface \\\n  vllm/vllm-openai:qwen38 Qwen/Qwen3.8-27B-FP8 \\\n  --tensor-parallel-size 1 \\\n  --enable-auto-tool-choice \\\n  --tool-call-parser qwen3_coder \\\n  --reasoning-parser qwen3 \\\n  --mm-encoder-tp-mode data",
+  "docker_argv": [
+    "docker",
+    "run",
+    "--gpus",
+    "all",
+    "--privileged",
+    "--ipc=host",
+    "-p",
+    "8000:8000",
+    "-v",
+    "~/.cache/huggingface:/root/.cache/huggingface",
+    "vllm/vllm-openai:qwen38",
+    "Qwen/Qwen3.8-27B-FP8",
+    "--tensor-parallel-size",
+    "1",
+    "--enable-auto-tool-choice",
+    "--tool-call-parser",
+    "qwen3_coder",
+    "--reasoning-parser",
+    "qwen3",
+    "--mm-encoder-tp-mode",
+    "data"
+  ],
+  "strategy_spec": {
+    "name": "single_node_tp",
+    "deploy_type": "single_node",
+    "display_name": "Tensor Parallel",
+    "orientation": "latency",
+    "description": "Single-node tensor parallel. Splits the model across all local GPUs. TP size is set to the GPU count at deploy time. The simplest multi-GPU strategy — works for all model architectures.\n",
+    "hardware_match": {
+      "min_gpus": 1,
+      "max_gpus": 8,
+      "multi_node": false
+    },
+    "vllm_args": [],
+    "parallel_flag": "--tensor-parallel-size"
+  },
+  "hardware_profile": {
+    "brand": "NVIDIA",
+    "generation": "hopper",
+    "display_name": "H200",
+    "description": "NVIDIA H200 SXM 141 GB HBM3e · 8-GPU HGX node",
+    "gpu_count": 8,
+    "vram_gb": 1128,
+    "multi_node": false
+  },
+  "alternatives": {
+    "kv_store_centralized_mooncake": "/Qwen/Qwen3.8-27B-FP8/strategies/kv_store_centralized_mooncake.json",
+    "kv_store_distributed_mooncake": "/Qwen/Qwen3.8-27B-FP8/strategies/kv_store_distributed_mooncake.json"
+  }
+}

@@ -1,0 +1,18 @@
+usage: cell_assemble.py [-h] --engine {atlas,vllm} --model-key MODEL_KEY
+                        --sku SKU --workload {lat,agent}
+                        --concurrency CONCURRENCY --spec {on,off}
+                        --think {on,off} --out OUT --workloads WORKLOADS
+                        --atlas-recipes ATLAS_RECIPES
+                        --vllm-recipes VLLM_RECIPES --client CLIENT
+                        [--serve-argv SERVE_ARGV] [--serve-env SERVE_ENV]
+                        [--nvidia-smi-q NVIDIA_SMI_Q] [--git-sha GIT_SHA]
+                        [--harness-git-sha HARNESS_GIT_SHA] [--binary BINARY]
+                        [--image-digest IMAGE_DIGEST]
+                        [--vllm-version VLLM_VERSION] [--boot-json BOOT_JSON]
+                        [--coherency-json COHERENCY_JSON]
+                        [--ladder-json LADDER_JSON]
+                        [--ptx-receipt PTX_RECEIPT]
+                        [--paired-artifact PAIRED_ARTIFACT]
+                        [--failing-stage FAILING_STAGE]
+                        [--extra-note EXTRA_NOTE]
+cell_assemble.py: error: the following arguments are required: --engine, --model-key, --sku, --workload, --concurrency, --spec, --think, --out, --workloads, --atlas-recipes, --vllm-recipes, --client

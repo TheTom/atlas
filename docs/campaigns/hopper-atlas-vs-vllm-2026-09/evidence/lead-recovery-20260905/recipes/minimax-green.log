@@ -1,0 +1,7 @@
+test_b200_uses_captured_nvfp4_recipe (__main__.MiniMaxNvfp4Test.test_b200_uses_captured_nvfp4_recipe) ... ok
+test_hopper_profiles_keep_their_original_bf16_checkpoint (__main__.MiniMaxNvfp4Test.test_hopper_profiles_keep_their_original_bf16_checkpoint) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+OK

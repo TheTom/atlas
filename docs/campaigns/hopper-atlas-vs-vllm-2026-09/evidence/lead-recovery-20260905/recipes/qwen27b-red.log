@@ -1,0 +1,77 @@
+test_atlas_uses_target_context_and_calibration (__main__.Qwen27BRecipeTest.test_atlas_uses_target_context_and_calibration) ... FAIL
+test_both_engines_refuse_unevidenced_mtp (__main__.Qwen27BRecipeTest.test_both_engines_refuse_unevidenced_mtp) ... 
+  test_both_engines_refuse_unevidenced_mtp (__main__.Qwen27BRecipeTest.test_both_engines_refuse_unevidenced_mtp) (engine='atlas') ... FAIL
+  test_both_engines_refuse_unevidenced_mtp (__main__.Qwen27BRecipeTest.test_both_engines_refuse_unevidenced_mtp) (engine='vllm') ... FAIL
+test_both_recipes_pin_same_fp8_checkpoint (__main__.Qwen27BRecipeTest.test_both_recipes_pin_same_fp8_checkpoint) ... 
+  test_both_recipes_pin_same_fp8_checkpoint (__main__.Qwen27BRecipeTest.test_both_recipes_pin_same_fp8_checkpoint) (engine='atlas') ... FAIL
+  test_both_recipes_pin_same_fp8_checkpoint (__main__.Qwen27BRecipeTest.test_both_recipes_pin_same_fp8_checkpoint) (engine='vllm') ... FAIL
+test_vllm_matches_captured_h200_argv (__main__.Qwen27BRecipeTest.test_vllm_matches_captured_h200_argv) ... FAIL
+
+======================================================================
+FAIL: test_atlas_uses_target_context_and_calibration (__main__.Qwen27BRecipeTest.test_atlas_uses_target_context_and_calibration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/qwen27b_recipe_test.py", line 30, in test_atlas_uses_target_context_and_calibration
+    entry = self.recipe('atlas')
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/qwen27b_recipe_test.py", line 19, in recipe
+    self.assertIsNotNone(entry, 'PRD first paid H200 pair has no recipe')
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : PRD first paid H200 pair has no recipe
+
+======================================================================
+FAIL: test_both_engines_refuse_unevidenced_mtp (__main__.Qwen27BRecipeTest.test_both_engines_refuse_unevidenced_mtp) (engine='atlas')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/qwen27b_recipe_test.py", line 56, in test_both_engines_refuse_unevidenced_mtp
+    self.assertEqual(result.returncode, 4, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 3 != 4 : no rendered profile for qwen3.8-27b-fp8 on h200
+
+
+======================================================================
+FAIL: test_both_engines_refuse_unevidenced_mtp (__main__.Qwen27BRecipeTest.test_both_engines_refuse_unevidenced_mtp) (engine='vllm')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/qwen27b_recipe_test.py", line 56, in test_both_engines_refuse_unevidenced_mtp
+    self.assertEqual(result.returncode, 4, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 3 != 4 : no rendered profile for qwen3.8-27b-fp8 on h200
+
+
+======================================================================
+FAIL: test_both_recipes_pin_same_fp8_checkpoint (__main__.Qwen27BRecipeTest.test_both_recipes_pin_same_fp8_checkpoint) (engine='atlas')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/qwen27b_recipe_test.py", line 25, in test_both_recipes_pin_same_fp8_checkpoint
+    entry = self.recipe(engine)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/qwen27b_recipe_test.py", line 19, in recipe
+    self.assertIsNotNone(entry, 'PRD first paid H200 pair has no recipe')
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : PRD first paid H200 pair has no recipe
+
+======================================================================
+FAIL: test_both_recipes_pin_same_fp8_checkpoint (__main__.Qwen27BRecipeTest.test_both_recipes_pin_same_fp8_checkpoint) (engine='vllm')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/qwen27b_recipe_test.py", line 25, in test_both_recipes_pin_same_fp8_checkpoint
+    entry = self.recipe(engine)
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/qwen27b_recipe_test.py", line 19, in recipe
+    self.assertIsNotNone(entry, 'PRD first paid H200 pair has no recipe')
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : PRD first paid H200 pair has no recipe
+
+======================================================================
+FAIL: test_vllm_matches_captured_h200_argv (__main__.Qwen27BRecipeTest.test_vllm_matches_captured_h200_argv)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/qwen27b_recipe_test.py", line 40, in test_vllm_matches_captured_h200_argv
+    entry = self.recipe('vllm')
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/qwen27b_recipe_test.py", line 19, in recipe
+    self.assertIsNotNone(entry, 'PRD first paid H200 pair has no recipe')
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : PRD first paid H200 pair has no recipe
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.373s
+
+FAILED (failures=6)

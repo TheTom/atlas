@@ -1,0 +1,4 @@
+   Compiling spark-runtime v1.0.0-beta-preview (/home/pidtom/atlas-campaign-gates-20260905/crates/spark-runtime)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.58s
+     Running unittests src/lib.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/spark_runtime-97a07cbf76499dd4)
+   Doc-tests spark_runtime

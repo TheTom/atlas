@@ -1,0 +1,4 @@
+  ok [n] a failed kernel audit starts no normal launcher
+  ok [n] a refused launch leaves the prior run's rank and its record untouched
+  ok [n] the artifact is a valid NO-GO at 'serve'
+ALL 3 focused assertions passed.

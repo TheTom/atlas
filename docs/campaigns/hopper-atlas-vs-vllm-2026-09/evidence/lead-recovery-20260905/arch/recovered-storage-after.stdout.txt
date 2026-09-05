@@ -1,0 +1,5 @@
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  916G  858G   12G  99% /
+Filesystem        1B-blocks         Used   Available Use% Mounted on
+/dev/nvme0n1p2 982819848192 920493768704 12326043648  99% /
+35G	/home/pidtom/atlas-hopper-gate-full/target

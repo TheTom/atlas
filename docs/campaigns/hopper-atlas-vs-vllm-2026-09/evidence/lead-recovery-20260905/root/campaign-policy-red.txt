@@ -1,0 +1,3 @@
+Oracle: handoff names campaign_policy.json.
+test -f bench/campaign/campaign_policy.json
+exit: 1

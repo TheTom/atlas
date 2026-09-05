@@ -1,0 +1,10 @@
+{
+  "root": "/home/pidtom/atlas-campaign-a2-20260905",
+  "phase": "pull-atlas",
+  "baseline_used": 872782536704,
+  "argv": [
+    "docker",
+    "pull",
+    "avarok/atlas-gb10@sha256:faa6e5820c42dd86d0ae9e12cbaf2a2e9f32d0f7a9ab348a75ee54d4253929a6"
+  ]
+}

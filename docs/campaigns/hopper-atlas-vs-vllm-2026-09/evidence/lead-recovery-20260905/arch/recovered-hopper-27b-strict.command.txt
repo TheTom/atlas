@@ -1,0 +1,1 @@
+ssh pidtom@192.168.50.125 'cd /home/pidtom/atlas-campaign-gates-20260905 && export PATH="$HOME/.cargo/bin:/usr/local/cuda/bin:$PATH" && bash scripts/hopper_ptx_gate.sh --hw hopper --model qwen3.8-27b --strict --jobs 4 --out recovery-hopper-27b-ptx.json'

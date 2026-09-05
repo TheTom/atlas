@@ -143,3 +143,12 @@ remain written owner proposals. The assembler preserves and labels the
 existing observations; it does not implement those measurement changes.
 
 For the pinned vLLM 0.28.0 source, [`calculate_metrics`](https://github.com/vllm-project/vllm/blob/v0.28.0/vllm/benchmarks/serve.py#L589) computes TPOT as `(latency - ttft) / (output_len - 1)`. The [`openai` request function](https://github.com/vllm-project/vllm/blob/v0.28.0/vllm/benchmarks/lib/endpoint_request_func.py#L227) counts the first choices-bearing chunk for TTFT even if its text is empty, and ends latency at the last choices-bearing chunk. The ladder times first/last **nonempty content**. Neither formula alone guarantees the two values are equivalent.
+
+
+## Lead recovery findings, 2026-09-05
+
+- MiniMax M3 request policy (P1): both pinned BF16 and NVFP4 templates use `thinking_mode`; `enable_thinking=true` and `false` produce the same adaptive prompt. The driver now refuses both on/off labels with exit9 until a verified adapter exists. The shared ladder was not changed. [Exact template experiment](../evidence/lead-recovery-20260905/recipes/minimax-thinking-recovery.json).
+- External draft pins (P1): primary pins alone do not prove a selected image accepts a draft revision. Spec-on is refused for the five remaining external-draft profiles unless the exact immutable image has a recorded support receipt. Current allowlists are empty; no runtime image support is claimed.
+- Loaded model identity (P1): Atlas recipe revisions remain intended metadata. The assembler only records a launched revision from owned container argv plus successful matching boot evidence. Atlas requires an explicit pinned HF snapshot path for that proof; a floating HF ID stays null. The Docker projection excludes environment secrets. This identifies the launched snapshot, not a fresh hash of every weight byte.
+- First H200 Qwen3.8-27B pair: both spec-off recipes now exist. The official FP8 recipe and compiled target do not establish MTP support; a spec-on first-cell variant remains RECIPE_GAP. Atlas effective context is 24576; the same checkpoint is intended for both engines, with Atlas FP8 KV calibration 256.
+- Nano vLLM parser provisioning remains an open P0 dependency in discussion3939764399. This recovery does not turn a named parser path into an available image file.

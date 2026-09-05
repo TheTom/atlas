@@ -1,0 +1,24 @@
+{
+  "job": {
+    "root": "/home/pidtom/atlas-campaign-a2-20260905",
+    "phase": "pull-atlas",
+    "baseline_used": 872782536704,
+    "argv": [
+      "docker",
+      "pull",
+      "avarok/atlas-gb10@sha256:faa6e5820c42dd86d0ae9e12cbaf2a2e9f32d0f7a9ab348a75ee54d4253929a6"
+    ]
+  },
+  "before": {
+    "utc": "2026-09-05T15:26:30.515684+00:00",
+    "used": 872782548992,
+    "available": 60037263360
+  },
+  "pid": 255449,
+  "exit_code": 0,
+  "after": {
+    "utc": "2026-09-05T15:28:46.607305+00:00",
+    "used": 879109980160,
+    "available": 53709832192
+  }
+}

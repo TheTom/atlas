@@ -1,0 +1,7 @@
+test_every_hf_artifact_has_consistent_full_revision (__main__.AtlasRevisionTest.test_every_hf_artifact_has_consistent_full_revision) ... ok
+test_metadata_does_not_claim_loaded_bytes (__main__.AtlasRevisionTest.test_metadata_does_not_claim_loaded_bytes) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK

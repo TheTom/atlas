@@ -1,0 +1,50 @@
+ASSERT FAILED [n]: normal serving was started after the failed kernel audit:
+=== campaign cell atlas.nemotron-3-nano-fp8.h100.lat.c1.specoff.thinkoff ===
+engine:      atlas
+model:       nemotron-3-nano-fp8 -> nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8
+sku:         h100
+workload:    lat  isl=1024 osl=256  C=1  reps=3 warmup=1
+spec:        off     think: off
+boot cap:    1800s
+out:         /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/refused
+client url:  http://127.0.0.1:8888
+
+
+--- stage 1/7 preflight ---
+$ nvidia-smi -q > /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/refused/nvidia-smi-q.txt
+$ df -h /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/refused > /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/refused/df.txt
+$ git -C /Users/tom/Documents/New project/atlas-campaign-code rev-parse HEAD
+$ sha256sum /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py
+NOTE: the tree is dirty; harness.git_sha f6995ce3f4e90892a4c8b687063752d54336d5cf does not fully
+  describe it.
+
+--- stage 2/7 serve ---
+$ env NGPUS=1 EP_SIZE=1 TP_SIZE=1 PORT_BASE=8888 BIND=0.0.0.0 NCCL_PROFILE=default BOOT_TIMEOUT_S=1800 EXTRA_ARGS=--request-timeout 0 --gpu-memory-utilization 0.90 --max-num-seqs 128 --max-batch-size 32 --enable-prefix-caching true --scheduling-policy slai --kv-cache-dtype fp8 --kv-high-precision-layers auto --max-seq-len 32768 --fp8-kv-calibration-tokens 256 --disable-thinking ATLAS_NODE_RUN_DIR=/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/prior-node-ep-50234 WARMUP_PROMPT=/Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/warmup_1024.txt SPARK_BIN=/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/stub-spark bash /Users/tom/Documents/New project/atlas-campaign-code/scripts/start-node-ep.sh --check-kernels nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8
+$ env NGPUS=1 EP_SIZE=1 TP_SIZE=1 PORT_BASE=8888 BIND=0.0.0.0 NCCL_PROFILE=default BOOT_TIMEOUT_S=1800 EXTRA_ARGS=--request-timeout 0 --gpu-memory-utilization 0.90 --max-num-seqs 128 --max-batch-size 32 --enable-prefix-caching true --scheduling-policy slai --kv-cache-dtype fp8 --kv-high-precision-layers auto --max-seq-len 32768 --fp8-kv-calibration-tokens 256 --disable-thinking ATLAS_NODE_RUN_DIR=/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/prior-node-ep-50234 WARMUP_PROMPT=/Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/warmup_1024.txt SPARK_BIN=/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/stub-spark bash /Users/tom/Documents/New project/atlas-campaign-code/scripts/start-node-ep.sh nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8   # backgrounded; time_to_ready.sh owns the boot clock
+run dir:     /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/prior-node-ep-50234 (reserved by this cell)
+STAGE FAILED: serve
+launcher pid 50297; log /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/refused/serve.log
+
+--- stage 3/7 boot gate (cap 1800s) ---
+$ bash /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/time_to_ready.sh --url http://127.0.0.1:8888 --model nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8 --engine atlas --start-epoch <serve-start> --timeout-s 1800 --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/refused/boot.json
+
+--- stage 4/7 coherency gate ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/coherency_gate.py --url http://127.0.0.1:8888 --model nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8 --think off --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/refused/coherency.json
+
+--- stage 5/7 latency pack ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py --url http://127.0.0.1:8888 --model nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8 --label atlas.nemotron-3-nano-fp8.h100.lat.c1.specoff.thinkoff --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/refused/ladder.json --concs 1 --reps 3 --isl 1024 --osl 256 --warmup 1 
+
+--- stage 6/7 teardown ---
+killing pid 50297, started by this cell
+$ env ATLAS_NODE_RUN_DIR=/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/prior-node-ep-50234 bash /Users/tom/Documents/New project/atlas-campaign-code/scripts/start-node-ep.sh --stop
+the launcher recorded no rank or create intent in /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/prior-node-ep-50234 -- it
+  refused or failed before creating anything, so this cell owns nothing
+  to stop.
+
+--- stage 7/7 assemble and validate ---
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/cell_assemble.py --engine atlas --model-key nemotron-3-nano-fp8 --sku h100 --workload lat --concurrency 1 --spec off --think off --out /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/refused/artifact.json --workloads /Users/tom/Documents/New project/atlas-campaign-code/bench/hopper_ab/workloads.json --atlas-recipes /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/atlas_recipes.json --vllm-recipes /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/vllm_recipes.json --client /Users/tom/Documents/New project/atlas-campaign-code/bench/ladder38/harness_w55_conc_ladder.py --serve-argv /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/refused/serve.argv --serve-env /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/refused/serve.env --nvidia-smi-q /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/refused/nvidia-smi-q.txt --boot-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/refused/boot.json --coherency-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/refused/coherency.json --ladder-json /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/refused/ladder.json --harness-git-sha f6995ce3f4e90892a4c8b687063752d54336d5cf --binary /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/stub-spark --failing-stage serve
+$ python3 /Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/validate_artifact.py /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/refused/artifact.json
+# wrote /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/refused/artifact.json at 2026-09-05T15:26:47Z
+VALID: /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/refused/artifact.json
+
+=== atlas.nemotron-3-nano-fp8.h100.lat.c1.specoff.thinkoff: FAILED at stage 'serve'; artifact written to /var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/tmp.21HgKwzUBO/refused/artifact.json ===
