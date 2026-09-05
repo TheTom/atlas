@@ -277,6 +277,30 @@ Three tests were reported earlier in the campaign as pre-existing failures
 the branch tip runs 2446 green. Whatever produced those failures was not the
 base commit.
 
+## Control leg (vLLM) tooling validation
+
+Merged from the fork branch `campaign/vllm-control-gb10-2026-09` (TheTom/atlas#1),
+scoped to `bench/hopper_ab/` and `docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/`:
+
+- 12 tooling fixes to the campaign driver, each with a selftest that failed
+  first (crash and truncated-body handling in the coherency gate, tie and
+  unpaired-rung handling in `compare.py`, provenance matching, artifact write
+  failures in `time_to_ready.sh`).
+- 29 vLLM recipe commands verified against the rendered hardware JSON on
+  recipes.vllm.ai and vLLM v0.28.0 source (`vllm-control/RECIPE-VERIFICATION.md`,
+  with captured evidence). Corrections were applied to the PRD and
+  `VLLM-RECIPES.md`: Nemotron Super FP8 renders TP8 on H100/H200 and TP1 on
+  B200; the Super parser names are v0.28.0 aliases; Qwen3.6-35B and Qwen3-Next
+  have dedicated FP8 recipes; DeepSeek `fp8` normalizes to `fp8_ds_mla`.
+- A pinned weights manifest (15 checkpoints, HF API sizes) and a schema-gaps
+  report for the section 10 artifact.
+- The GB10 dry run against a live vLLM did NOT run: it was blocked by a 40 GB
+  storage cap that has since been raised to 70 GB; it is the next control-leg
+  step. Nothing in this PR is a measured latency number.
+
+`_typos.toml` excludes the verbatim evidence captures under `vllm-control/`;
+their text is the oracle and is not ours to spell-correct.
+
 ## Follow-ups
 
 1. **Re-measure the `.benchmarks/` gates on GB10** at the final commit and
