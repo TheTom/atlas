@@ -105,6 +105,14 @@ fn every_real_target_resolves_a_nonempty_source_set() {
             "hopper/qwen3.8-27b/nvfp4",
             "metal/nllb-200-3.3b/bf16",
             "metal/qwen3-5-4b-vlm-mlx-int8/mlx_int8",
+            // The RTX PRO 6000 (sm_120a) P0 five. Same symlinked sources
+            // again — this hardware set adds no flags of its own, so its
+            // compile line differs from gb10's only in `-arch=`.
+            "rtx-pro-6000/deepseek-v4-flash/nvfp4",
+            "rtx-pro-6000/nemotron-3-nano-30b-a3b/nvfp4",
+            "rtx-pro-6000/nemotron-super-120b-a12b/nvfp4",
+            "rtx-pro-6000/qwen3-next-80b-a3b/nvfp4",
+            "rtx-pro-6000/qwen3.6-35b-a3b/nvfp4",
             "strix/qwen3.6-27b/nvfp4",
             "strix/qwen3.6-35b-a3b/nvfp4",
             "strix-hip/qwen3.6-27b/nvfp4",

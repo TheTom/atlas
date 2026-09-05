@@ -188,14 +188,37 @@ fn blackwell_ultra_has_no_shipped_target_and_is_not_pointed_at_b200() {
     assert!(!msg.contains("ATLAS_TARGET_HW="), "{msg}");
 }
 
+/// The fourth shipped target. Oracle: `kernels/rtx-pro-6000/HARDWARE.toml` —
+/// `arch = "sm_120a"`, `compute_capability = "12.0"`, the RTX PRO 6000
+/// Blackwell workstation parts.
+///
+/// ★ The trap this pins is that gb10 looks like the answer and is not. GB10 is
+/// `sm_121f`, FAMILY PTX: it runs on 12.x at CC >= 12.1, so a CC 12.0 device
+/// is BELOW its floor and the load fails. Same instruction set, same major
+/// family, different target — which is why the hint must not fall back to
+/// gb10 for a 12.0 card.
+#[test]
+fn a_workstation_blackwell_device_is_pointed_at_its_own_target() {
+    assert_eq!(target_hint((12, 0)), Some("rtx-pro-6000"));
+    let msg = ptx_arch_runs_on_device("sm_121f", (12, 0))
+        .expect_err("sm_121f family PTX cannot run below CC 12.1")
+        .to_string();
+    assert!(msg.contains("ATLAS_TARGET_HW=rtx-pro-6000"), "{msg}");
+    // …and the reverse: sm_120a is arch-specific, so it does not travel onto
+    // a GB10 either.
+    ptx_arch_runs_on_device("sm_120a", (12, 0)).expect("sm_120a runs on CC 12.0");
+    ptx_arch_runs_on_device("sm_120a", (12, 1)).expect_err("sm_120a is CC 12.0 only");
+}
+
 /// A CC with no shipped target says so instead of naming a target that does
-/// not exist. Oracle: `kernels/` ships gb10 (12.1), hopper (9.0) and b200
-/// (10.0) — nothing for a Turing 7.5.
+/// not exist. Oracle: `kernels/` ships gb10 (12.1), hopper (9.0), b200 (10.0)
+/// and rtx-pro-6000 (12.0) — nothing for a Turing 7.5.
 #[test]
 fn a_compute_capability_with_no_shipped_target_says_so() {
     assert_eq!(target_hint((9, 0)), Some("hopper"));
     assert_eq!(target_hint((12, 1)), Some("gb10"));
     assert_eq!(target_hint((10, 0)), Some("b200"));
+    assert_eq!(target_hint((12, 0)), Some("rtx-pro-6000"));
     assert_eq!(target_hint((7, 5)), None);
     let msg = ptx_arch_runs_on_device("sm_121f", (7, 5))
         .expect_err("mismatch expected")

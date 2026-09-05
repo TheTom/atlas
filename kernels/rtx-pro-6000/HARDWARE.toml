@@ -1,0 +1,24 @@
+[hardware]
+name = "rtx-pro-6000"
+vendor = "nvidia"
+# RTX PRO 6000 Blackwell — Max-Q Workstation, Workstation and Server Edition,
+# all GB202 at SM 12.0. `sm_120a` opts into consumer/workstation Blackwell's
+# arch-specific set, which is where the warp-level
+# `mma.sync ... .kind::mxf4nvf4.block_scale` lives (CUTLASS gates it as
+# CUTLASS_ARCH_MMA_SM120_SUPPORTED) — so this target keeps gb10's kernel set
+# WHOLE, W4A4 tail included, and adds no [build] flags below.
+#
+# NOT gb10's `sm_121f`. That is FAMILY PTX: it runs on 12.x at CC >= 12.1, so
+# it does not load on a CC 12.0 device at all. Same instruction set, one step
+# below the family floor. And `sm_120a` is arch-specific, so it does not
+# travel forward onto GB10 either — the two are separate targets in both
+# directions. `atlas_core::arch::target_hint((12, 0))` names this directory.
+arch = "sm_120a"
+compute_capability = "12.0"
+# Measured on a three-card host, 2026-09-05 (driver 595.71): 97887 MiB per
+# card, PCIe Gen5, no NVLink. GDDR7 at 1792 GB/s is NVIDIA's board figure.
+# Documentation + roofline input only; the runtime reads real free memory via
+# cuMemGetInfo, which is why 96 is recorded rather than the 95.6 GiB usable.
+memory_bandwidth_gbps = 1792
+memory_type = "GDDR7"
+memory_gb = 96

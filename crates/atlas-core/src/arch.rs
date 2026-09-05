@@ -96,6 +96,11 @@ pub fn target_hint(device_cc: (u32, u32)) -> Option<&'static str> {
         // Blackwell datacentre. NOT (10, 3): B300/GB300 are `sm_103a`, a
         // separate arch-specific target that does not exist in `kernels/`.
         (10, 0) => Some("b200"),
+        // Workstation Blackwell — RTX PRO 6000 Blackwell, `sm_120a`. NOT
+        // gb10: gb10's `sm_121f` is family PTX, which needs CC >= 12.1 within
+        // the 12.x family, so it does not load on a 12.0 device. Same
+        // instruction set, different target.
+        (12, 0) => Some("rtx-pro-6000"),
         (12, 1) => Some("gb10"),
         _ => None,
     }
