@@ -339,14 +339,28 @@ def selftest():
                 try:
                     results[mode] = run(f"http://127.0.0.1:{port}", "stub-model", 30)
                 except Exception as exc:
-                    results[mode] = {"passed": True, "determinism_ok": True, "toolcall_ok": True,
-                                     "crashed": f"{type(exc).__name__}: {exc}"}
+                    results[mode] = {"crashed": f"{type(exc).__name__}: {exc}"}
             finally:
                 proc.terminate()
                 proc.wait(timeout=10)
 
-    clean, leak = results["clean"], results["leak"]
     print(json.dumps(results, indent=2))
+    _assert_stub_results(results)
+    # Validate the selftest's own exception sentinel against a known bad case.
+    crashed = {**results, "clean": {"passed": True, "crashed": "known clean-path failure"}}
+    try:
+        _assert_stub_results(crashed)
+    except AssertionError:
+        pass
+    else:
+        raise AssertionError("a clean-stub crash must fail the selftest")
+    print("SELFTEST OK: clean passes; every known-bad response and a clean-stub crash fail")
+
+
+def _assert_stub_results(results):
+    for mode, result in results.items():
+        assert "crashed" not in result, f"{mode} stub crashed: {result}"
+    clean, leak = results["clean"], results["leak"]
     failures = []
     for mode in ("missing-args", "wrong-types", "wrong-name", "wrong-call-type", "extra-bad-call"):
         if results[mode]["toolcall_ok"] or results[mode]["passed"]:
@@ -361,7 +375,6 @@ def selftest():
     assert leak["toolcall_ok"], f"the leak must not disturb tool calls: {leak}"
     assert not leak["think_leak_ok"], leak
     assert "think" in leak["details"]["think_leak_ok"], leak["details"]
-    print("SELFTEST OK: clean passes; leak, nondeterminism, empty/malformed replies and invalid tool calls fail")
 
 
 def main():

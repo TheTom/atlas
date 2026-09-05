@@ -1,0 +1,177 @@
+{
+  "clean": {
+    "schema": 1,
+    "url": "http://127.0.0.1:51774",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:59:16Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "1 get_weather call(s), required argument types valid",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "determinism_ok": true,
+    "toolcall_ok": true,
+    "think_leak_ok": true,
+    "passed": true
+  },
+  "leak": {
+    "schema": 1,
+    "url": "http://127.0.0.1:51784",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:59:16Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "1 get_weather call(s), required argument types valid",
+      "think_leak_ok": "leaked <think> tags"
+    },
+    "determinism_ok": true,
+    "toolcall_ok": true,
+    "think_leak_ok": false,
+    "passed": false
+  },
+  "missing-args": {
+    "schema": 1,
+    "url": "http://127.0.0.1:51793",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:59:16Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "missing required argument: city",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "determinism_ok": true,
+    "toolcall_ok": false,
+    "think_leak_ok": true,
+    "passed": false
+  },
+  "wrong-types": {
+    "schema": 1,
+    "url": "http://127.0.0.1:51800",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:59:16Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "city must be string",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "determinism_ok": true,
+    "toolcall_ok": false,
+    "think_leak_ok": true,
+    "passed": false
+  },
+  "wrong-name": {
+    "schema": 1,
+    "url": "http://127.0.0.1:51807",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:59:17Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "tool name must be get_weather",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "determinism_ok": true,
+    "toolcall_ok": false,
+    "think_leak_ok": true,
+    "passed": false
+  },
+  "wrong-call-type": {
+    "schema": 1,
+    "url": "http://127.0.0.1:51814",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:59:17Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "each tool call must be a function object",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "determinism_ok": true,
+    "toolcall_ok": false,
+    "think_leak_ok": true,
+    "passed": false
+  },
+  "extra-bad-call": {
+    "schema": 1,
+    "url": "http://127.0.0.1:51821",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:59:17Z",
+    "details": {
+      "determinism_ok": "23 chars reproduced exactly",
+      "toolcall_ok": "missing required argument: city",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "determinism_ok": true,
+    "toolcall_ok": false,
+    "think_leak_ok": true,
+    "passed": false
+  },
+  "nondeterministic": {
+    "schema": 1,
+    "url": "http://127.0.0.1:51828",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:59:17Z",
+    "details": {
+      "determinism_ok": "diverged at char 1: '01, 103, 107, 109, 113' vs '27'",
+      "toolcall_ok": "1 get_weather call(s), required argument types valid",
+      "think_leak_ok": "43 chars, no leak signals"
+    },
+    "determinism_ok": false,
+    "toolcall_ok": true,
+    "think_leak_ok": true,
+    "passed": false
+  },
+  "empty": {
+    "schema": 1,
+    "url": "http://127.0.0.1:51835",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:59:17Z",
+    "details": {
+      "determinism_ok": "empty reply -- nothing to compare",
+      "toolcall_ok": "finish_reason was 'stop', not 'tool_calls'",
+      "think_leak_ok": "empty reply -- a leak check over no text proves nothing"
+    },
+    "determinism_ok": false,
+    "toolcall_ok": false,
+    "think_leak_ok": false,
+    "passed": false
+  },
+  "malformed": {
+    "schema": 1,
+    "url": "http://127.0.0.1:51842",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:59:17Z",
+    "details": {
+      "determinism_ok": "ValueError: response must contain a nonempty choices array of objects",
+      "toolcall_ok": "ValueError: response must contain a nonempty choices array of objects",
+      "think_leak_ok": "ValueError: response must contain a nonempty choices array of objects"
+    },
+    "determinism_ok": false,
+    "toolcall_ok": false,
+    "think_leak_ok": false,
+    "passed": false
+  },
+  "truncated": {
+    "schema": 1,
+    "url": "http://127.0.0.1:51848",
+    "model": "stub-model",
+    "checked_utc": "2026-09-05T02:59:17Z",
+    "details": {
+      "determinism_ok": "IncompleteRead: IncompleteRead(124 bytes read, 100 more expected)",
+      "toolcall_ok": "IncompleteRead: IncompleteRead(253 bytes read, 100 more expected)",
+      "think_leak_ok": "IncompleteRead: IncompleteRead(144 bytes read, 100 more expected)"
+    },
+    "determinism_ok": false,
+    "toolcall_ok": false,
+    "think_leak_ok": false,
+    "passed": false
+  }
+}
+Traceback (most recent call last):
+  File "/private/tmp/atlas-vllm-control/bench/hopper_ab/coherency_gate.py", line 403, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/private/tmp/atlas-vllm-control/bench/hopper_ab/coherency_gate.py", line 389, in main
+    selftest()
+    ~~~~~~~~^^
+  File "/private/tmp/atlas-vllm-control/bench/hopper_ab/coherency_gate.py", line 357, in selftest
+    raise AssertionError("a clean-stub crash must fail the selftest")
+AssertionError: a clean-stub crash must fail the selftest
