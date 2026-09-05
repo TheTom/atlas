@@ -1,0 +1,26 @@
+{
+  "model": "glm-5.3-flash",
+  "sku": "h200",
+  "prd_source": "3.1 L66; 4 L101; 5 L127; 16 L312",
+  "role": "P1-vllm-reference",
+  "atlas_expectation": "ATLAS_UNSUPPORTED",
+  "key_status": "canonical",
+  "id": "atlas.glm-5.3-flash.h200.lat.c16.specoff.thinkon",
+  "engine": "atlas",
+  "workload": "lat",
+  "concurrency": 16,
+  "spec": "off",
+  "think": "on",
+  "category": "scoring-envelope",
+  "policy_notes": []
+}
+
+=== run_cell ===
+$ bash bench/campaign/run_cell.sh --engine atlas --model glm-5.3-flash --sku h200 --workload lat --concurrency 16 --spec off --think on --out /tmp/atlas-step-d-dryrun-not-created/atlas.glm-5.3-flash.h200.lat.c16.specoff.thinkon --dry-run
+started_utc: 2026-09-05T12:54:52.173592+00:00
+exit_code: 3
+wall_seconds: 0.200478
+--- stdout ---
+no rendered profile for glm-5.3-flash on h200
+
+--- stderr ---

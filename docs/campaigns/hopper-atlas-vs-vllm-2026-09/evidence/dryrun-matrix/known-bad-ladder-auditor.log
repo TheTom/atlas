@@ -1,0 +1,13 @@
+$ python3 /private/tmp/atlas-rental-readiness-20260905/docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/dryrun-matrix/audit.py known-bad-ladder
+exit_code: 1
+--- stdout ---
+
+--- stderr ---
+Traceback (most recent call last):
+  File "/private/tmp/atlas-rental-readiness-20260905/docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/dryrun-matrix/audit.py", line 70, in <module>
+    ladder_audit('$ python3 /tmp/harness_w55_conc_ladder.py --isl 999 --osl 256 --concs 1 --reps 3 --warmup 1',{'workload':'lat','concurrency':1,'think':'off'})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/atlas-rental-readiness-20260905/docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/dryrun-matrix/audit.py", line 58, in ladder_audit
+    assert val(argv,flag)==str(value), f'ladder {flag} differs'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ladder --isl differs

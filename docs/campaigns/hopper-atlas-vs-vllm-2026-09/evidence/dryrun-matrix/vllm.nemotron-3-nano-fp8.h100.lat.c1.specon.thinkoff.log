@@ -1,0 +1,78 @@
+{
+  "model": "nemotron-3-nano-fp8",
+  "sku": "h100",
+  "prd_source": "3.1 L61; 6.1 L160; 7 L189",
+  "role": "plumbing",
+  "atlas_expectation": "runnable",
+  "key_status": "canonical",
+  "id": "vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff",
+  "engine": "vllm",
+  "workload": "lat",
+  "concurrency": 1,
+  "spec": "on",
+  "think": "off",
+  "category": "policy-probe",
+  "policy_notes": [
+    "Nano has no MTP: spec off required (6.1 L160)"
+  ]
+}
+
+=== run_cell ===
+$ bash bench/campaign/run_cell.sh --engine vllm --model nemotron-3-nano-fp8 --sku h100 --workload lat --concurrency 1 --spec on --think off --out /tmp/atlas-step-d-dryrun-not-created/vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff --dry-run
+started_utc: 2026-09-05T12:54:01.448676+00:00
+exit_code: 0
+wall_seconds: 0.423248
+--- stdout ---
+=== campaign cell vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff ===
+engine:      vllm
+model:       nemotron-3-nano-fp8 -> nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8
+sku:         h100
+workload:    lat  isl=1024 osl=256  C=1  reps=3 warmup=1
+spec:        on     think: off
+boot cap:    1800s
+out:         /tmp/atlas-step-d-dryrun-not-created/vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff
+client url:  http://127.0.0.1:8000
+mode:        DRY RUN (nothing is launched, nothing is written)
+
+
+--- stage 1/7 preflight ---
+$ nvidia-smi -q > /tmp/atlas-step-d-dryrun-not-created/vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff/nvidia-smi-q.txt
+$ df -h /tmp/atlas-step-d-dryrun-not-created/vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff > /tmp/atlas-step-d-dryrun-not-created/vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff/df.txt
+$ git -C /private/tmp/atlas-rental-readiness-20260905 rev-parse HEAD
+$ sha256sum /private/tmp/atlas-rental-readiness-20260905/bench/ladder38/harness_w55_conc_ladder.py
+
+--- stage 2/7 serve ---
+$ VLLM_CONTAINER=atlas-campaign-nemotron-3-nano-fp8-h100-lat-c1-specon-thinkoff-3929 bash /private/tmp/atlas-rental-readiness-20260905/bench/campaign/vllm_control.sh nemotron-3-nano-fp8 h100 --spec on --label atlas-campaign.run=vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff-1788612841-3929 --id-file /tmp/atlas-step-d-dryrun-not-created/vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff/container.id --image-file /tmp/atlas-step-d-dryrun-not-created/vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff/container.image
+  | ERROR: --spec on, but the recipe for nemotron-3-nano-fp8 on h100 renders no speculative profile.
+  |        Speculation is both-or-neither: run BOTH legs spec off, or pick a model whose recipe has one.
+
+--- stage 3/7 boot gate (cap 1800s) ---
+$ bash /private/tmp/atlas-rental-readiness-20260905/bench/hopper_ab/time_to_ready.sh --url http://127.0.0.1:8000 --model nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8 --engine vllm --start-epoch <serve-start> --timeout-s 1800 --out /tmp/atlas-step-d-dryrun-not-created/vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff/boot.json
+
+--- stage 4/7 coherency gate ---
+$ python3 /private/tmp/atlas-rental-readiness-20260905/bench/hopper_ab/coherency_gate.py --url http://127.0.0.1:8000 --model nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8 --out /tmp/atlas-step-d-dryrun-not-created/vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff/coherency.json
+
+--- stage 5/7 latency pack ---
+$ python3 /private/tmp/atlas-rental-readiness-20260905/bench/ladder38/harness_w55_conc_ladder.py --url http://127.0.0.1:8000 --model nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8 --label vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff --out /tmp/atlas-step-d-dryrun-not-created/vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff/ladder.json --concs 1 --reps 3 --isl 1024 --osl 256 --warmup 1 
+
+--- stage 6/7 teardown ---
+$ docker stop <id from docker run -d> && docker rm <the same id>
+
+--- stage 7/7 assemble and validate ---
+$ python3 /private/tmp/atlas-rental-readiness-20260905/bench/campaign/cell_assemble.py --engine vllm --model-key nemotron-3-nano-fp8 --sku h100 --workload lat --concurrency 1 --spec on --think off --out /tmp/atlas-step-d-dryrun-not-created/vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff/artifact.json --workloads /private/tmp/atlas-rental-readiness-20260905/bench/hopper_ab/workloads.json --atlas-recipes /private/tmp/atlas-rental-readiness-20260905/bench/campaign/atlas_recipes.json --vllm-recipes /private/tmp/atlas-rental-readiness-20260905/bench/campaign/vllm_recipes.json --client /private/tmp/atlas-rental-readiness-20260905/bench/ladder38/harness_w55_conc_ladder.py --serve-argv /tmp/atlas-step-d-dryrun-not-created/vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff/serve.argv --serve-env /tmp/atlas-step-d-dryrun-not-created/vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff/serve.env --nvidia-smi-q /tmp/atlas-step-d-dryrun-not-created/vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff/nvidia-smi-q.txt --boot-json /tmp/atlas-step-d-dryrun-not-created/vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff/boot.json --coherency-json /tmp/atlas-step-d-dryrun-not-created/vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff/coherency.json --ladder-json /tmp/atlas-step-d-dryrun-not-created/vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff/ladder.json
+$ python3 /private/tmp/atlas-rental-readiness-20260905/bench/campaign/validate_artifact.py /tmp/atlas-step-d-dryrun-not-created/vllm.nemotron-3-nano-fp8.h100.lat.c1.specon.thinkoff/artifact.json
+
+dry-run: nothing launched, nothing written.
+
+--- stderr ---
+
+=== vllm_control ===
+$ bash bench/campaign/vllm_control.sh nemotron-3-nano-fp8 h100 --spec on --dry-run
+started_utc: 2026-09-05T12:54:01.871973+00:00
+exit_code: 4
+wall_seconds: 0.107978
+--- stdout ---
+
+--- stderr ---
+ERROR: --spec on, but the recipe for nemotron-3-nano-fp8 on h100 renders no speculative profile.
+       Speculation is both-or-neither: run BOTH legs spec off, or pick a model whose recipe has one.

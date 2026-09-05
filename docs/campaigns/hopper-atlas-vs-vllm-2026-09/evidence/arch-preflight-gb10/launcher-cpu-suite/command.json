@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "bash",
+    "scripts/start_node_ep_test.sh"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 0.035628458019346,
+  "oracle": "Existing launcher assertions, including failed rank and cleanup negative cases; not real-GPU proof"
+}

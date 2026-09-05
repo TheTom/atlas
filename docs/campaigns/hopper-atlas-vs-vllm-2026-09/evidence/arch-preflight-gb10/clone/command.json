@@ -1,0 +1,12 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "pidtom@192.168.50.36",
+    "set -eu\nnvidia-smi\nif pgrep -a -x spark; then exit 90; fi\ndocker ps\ntest -z \"$(docker ps -q)\"\ntest -z \"$(nvidia-smi --query-compute-apps=pid --format=csv,noheader)\"\ndf -h /\ntest \"$(df -B1 --output=avail / | tail -1)\" -gt 20000000000\nmkdir /home/pidtom/atlas-step-d-20260905-1249\nGIT_LFS_SKIP_SMUDGE=1 git -c core.hooksPath=/dev/null clone --reference-if-able /home/pidtom/atlas-gates --dissociate --no-checkout https://github.com/TheTom/atlas.git /home/pidtom/atlas-step-d-20260905-1249/repo\ncd /home/pidtom/atlas-step-d-20260905-1249/repo\nGIT_LFS_SKIP_SMUDGE=1 git -c core.hooksPath=/dev/null checkout --detach b2c17cfe30c33c53d28c4fbec35f6204b8cfb14b\ngit rev-parse HEAD\ngit status --short\ndf -h /\ndf -B1 /\ndu -sh /home/pidtom/atlas-step-d-20260905-1249"
+  ],
+  "started_utc": "2026-09-05T12:51:49.986897+00:00",
+  "wall_seconds": 2.7059503339696676,
+  "exit_code": 0
+}

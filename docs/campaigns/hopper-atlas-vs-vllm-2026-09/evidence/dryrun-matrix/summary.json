@@ -1,0 +1,51 @@
+{
+  "created_utc": "2026-09-05T13:09:33.232541+00:00",
+  "cells": 1088,
+  "commands": 1632,
+  "checks": {
+    "atlas_rank0_recipe": 144,
+    "atlas_fp8_calibration_256": 144,
+    "ladder_frozen_shape_and_think": 552,
+    "vllm_complete_argv": 816,
+    "paired_spec_depth": 40
+  },
+  "verdicts": {
+    "RENDER_PASS": 164,
+    "BLOCKED": 500,
+    "EXPECTED_SPEC_REFUSAL": 64,
+    "FAIL": 88,
+    "EXPECTED_UNSUPPORTED": 272
+  },
+  "issues": {
+    "driver-exit-mismatch": 24,
+    "Instruct-think-on-accepted": 16,
+    "blocked-GLM-think-off-accepted": 48
+  },
+  "flags": {
+    "coherency-think-off": 276,
+    "Nano-parser-not-provisioned": 24,
+    "paired-GPU-count-differs": 48,
+    "requested-H100-topology-unallocated": 16,
+    "named-cell-missing-recipe": 80,
+    "policy-probe-accepted": 156,
+    "Kimi-context-1048576-vs-49152": 16,
+    "manual-multinode-required": 16,
+    "Kimi-TP8PP2-DSpark-unverified": 8,
+    "M3-BF16-vs-PRD-NVFP4": 16
+  },
+  "categories": {
+    "scoring-envelope": 552,
+    "policy-probe": 472,
+    "conditional-alternative": 64
+  },
+  "known_bad_auditor": 3,
+  "source_hashes": {
+    "bench/campaign/run_cell.sh": "3a08e9180c677e8e8ea6b54a7795e72a7125589a1a6823aa4537bcbd95eeaed4",
+    "bench/campaign/vllm_control.sh": "080cfe50b9488a67bd926f16a74d83456ed601ae8df144b3cc94c02032e3d0b6",
+    "bench/campaign/atlas_recipes.json": "220b0b6c8a9634eddfe32f67a7ad0521334894d191d35321956ea4c88b8dab20",
+    "bench/campaign/vllm_recipes.json": "67ffb75e9132428e19fe4d6812afd4edacc725160f4cc8cb941fe1b3f15fd873",
+    "bench/hopper_ab/workloads.json": "355e7b9e2f1ae3f223d5012f9a5d856a2c5ea8ed86ce8a2dda1106aefcbd08c2",
+    "bench/hopper_ab/coherency_gate.py": "02d563282bd96f7f77ad14ee53725ea1946c73b5ab5da1d70c447dc58f970ff7",
+    "bench/ladder38/harness_w55_conc_ladder.py": "7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb"
+  }
+}

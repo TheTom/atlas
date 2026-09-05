@@ -1,0 +1,12 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "pidtom@192.168.50.36",
+    "set +e\nls -ld /home/pidtom/.cache/huggingface/hub/models--nvidia--*Nano* /home/pidtom/models/*Nano* /home/pidtom/atlas-vllm-control*/models/*Nano*\nls -d /home/pidtom/.cache/huggingface/hub/models--* /home/pidtom/models/*\n/usr/local/cuda/bin/nvcc --version\n/home/pidtom/.cargo/bin/rustc +1.93.1 --version\n/usr/bin/time --version\ncommand -v strace"
+  ],
+  "started_utc": "2026-09-05T12:55:39.062002+00:00",
+  "wall_seconds": 0.30958291701972485,
+  "exit_code": 0
+}

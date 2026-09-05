@@ -1,0 +1,7 @@
+{
+  "argv": [
+    "/usr/local/cuda/bin/nvcc",
+    "--version"
+  ],
+  "exit_code": 0
+}

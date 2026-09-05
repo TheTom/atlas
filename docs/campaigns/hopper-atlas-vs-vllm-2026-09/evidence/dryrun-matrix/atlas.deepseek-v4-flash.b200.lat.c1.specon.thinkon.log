@@ -1,0 +1,29 @@
+{
+  "model": "deepseek-v4-flash",
+  "sku": "b200",
+  "prd_source": "3.1 L65; 6.1 L164; 7 L195",
+  "role": "P1",
+  "atlas_expectation": "runnable",
+  "key_status": "canonical",
+  "id": "atlas.deepseek-v4-flash.b200.lat.c1.specon.thinkon",
+  "engine": "atlas",
+  "workload": "lat",
+  "concurrency": 1,
+  "spec": "on",
+  "think": "on",
+  "category": "policy-probe",
+  "policy_notes": [
+    "scored pair requires spec off (6.1 L164; 7 L195)"
+  ]
+}
+
+=== run_cell ===
+$ bash bench/campaign/run_cell.sh --engine atlas --model deepseek-v4-flash --sku b200 --workload lat --concurrency 1 --spec on --think on --out /tmp/atlas-step-d-dryrun-not-created/atlas.deepseek-v4-flash.b200.lat.c1.specon.thinkon --dry-run
+started_utc: 2026-09-05T12:54:48.201803+00:00
+exit_code: 4
+wall_seconds: 0.410454
+--- stdout ---
+
+--- stderr ---
+ERROR: --spec on, but the Atlas recipe for deepseek-v4-flash on b200 declares no speculative support.
+       The paired vLLM b200 recipe is TEP8 on eight GPUs, so topology.matched is false for this row -- a footnoted matched-topology cell. recipe_max stays true: EP=4 on four B200s is what the PRD's own Atlas row renders, not a step down from it. Spec off on both, as on H200. FP8 KV calibration: FP8 checkpoints that ship no *.k_scale tensors get scale 1.0, which clips BF16 into E4M3 (spark-runtime weights.rs fp8_kv_scale_count); the GB10 rehearsal of 2026-09-05 (Nano FP8 through the nvfp4 bundle, 'missing FP8 KV scale tensors, default 1.0') produced degenerate output. 256 calibration tokens is the value kernels/gb10/qwen3.6-35b-a3b/MODEL.toml uses for its FP8 checkpoint. Applies only with --kv-cache-dtype fp8.

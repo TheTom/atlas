@@ -1,0 +1,18 @@
+=== Atlas single-node launch ===
+Model:         /home/pidtom/atlas-step-d-20260905-1249/nano-fp8
+GPUs (ranks):  1   (rank i -> --gpu-ordinal i)
+Topology:      TP=1 EP=1 world=1
+Ports:         18888..18888  (only rank 0 on 18888 serves clients)
+NCCL bootstrap: 127.0.0.1:19500
+NCCL profile:  default
+Mode:          local binary (/home/pidtom/atlas-step-d-20260905-1249/binaries/hopper/spark)
+Run dir:       /home/pidtom/atlas-step-d-20260905-1249/launcher-hopper
+
+# rank 0 (head, serves HTTP)
+env RUST_LOG=info /home/pidtom/atlas-step-d-20260905-1249/binaries/hopper/spark serve /home/pidtom/atlas-step-d-20260905-1249/nano-fp8 --rank 0 --world-size 1 --ep-size 1 --tp-size 1 --gpu-ordinal 0 --port 18888 --master-addr 127.0.0.1 --master-port 19500 --no-tui --bind 127.0.0.1
+
+health poll:   http://127.0.0.1:18888/health (1 s interval, 1800s cap)
+summary: model=/home/pidtom/atlas-step-d-20260905-1249/nano-fp8 ngpus=1 tp=1 ep=1 ports=18888-18888 nccl_profile=default time_to_ready_s=dry-run
+rank0_command: env RUST_LOG=info /home/pidtom/atlas-step-d-20260905-1249/binaries/hopper/spark serve /home/pidtom/atlas-step-d-20260905-1249/nano-fp8 --rank 0 --world-size 1 --ep-size 1 --tp-size 1 --gpu-ordinal 0 --port 18888 --master-addr 127.0.0.1 --master-port 19500 --no-tui --bind 127.0.0.1
+
+dry-run: nothing launched.

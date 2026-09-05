@@ -1,0 +1,8 @@
+{
+  "argv": [
+    "nvidia-smi",
+    "--query-compute-apps=pid",
+    "--format=csv,noheader"
+  ],
+  "exit_code": 0
+}

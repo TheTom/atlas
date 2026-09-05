@@ -1,0 +1,38 @@
+{
+  "model": "glm-4.5-air-fp8",
+  "sku": "h100",
+  "prd_source": "3.1 L68; 4 L101; 7 L193; 16 L312",
+  "role": "canary-vllm-reference",
+  "atlas_expectation": "ATLAS_UNSUPPORTED",
+  "key_status": "canonical",
+  "id": "vllm.glm-4.5-air-fp8.h100.lat.c16.specon.thinkon",
+  "engine": "vllm",
+  "workload": "lat",
+  "concurrency": 16,
+  "spec": "on",
+  "think": "on",
+  "category": "policy-probe",
+  "policy_notes": [
+    "Air spec off required (7 L193)"
+  ]
+}
+
+=== run_cell ===
+$ bash bench/campaign/run_cell.sh --engine vllm --model glm-4.5-air-fp8 --sku h100 --workload lat --concurrency 16 --spec on --think on --out /tmp/atlas-step-d-dryrun-not-created/vllm.glm-4.5-air-fp8.h100.lat.c16.specon.thinkon --dry-run
+started_utc: 2026-09-05T12:54:58.847989+00:00
+exit_code: 3
+wall_seconds: 0.207775
+--- stdout ---
+no rendered profile for glm-4.5-air-fp8 on h100
+
+--- stderr ---
+
+=== vllm_control ===
+$ bash bench/campaign/vllm_control.sh glm-4.5-air-fp8 h100 --spec on --dry-run
+started_utc: 2026-09-05T12:54:59.055807+00:00
+exit_code: 3
+wall_seconds: 0.059094
+--- stdout ---
+no rendered profile for glm-4.5-air-fp8 on h100
+
+--- stderr ---

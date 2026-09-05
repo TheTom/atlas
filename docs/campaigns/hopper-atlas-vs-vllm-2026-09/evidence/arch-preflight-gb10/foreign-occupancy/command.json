@@ -1,0 +1,12 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "pidtom@192.168.50.36",
+    "nvidia-smi; pgrep -a -x spark; docker ps; df -h /; ps -p 231116 -o pid,ppid,lstart,args; readlink /proc/231116/cwd; nvidia-smi --query-compute-apps=pid,process_name,used_memory --format=csv,noheader; ps -eo pid,ppid,args | grep -F /home/pidtom/atlas-step-d-20260905-1249 | grep -v grep; tail -20 /home/pidtom/atlas-step-d-20260905-1249/evidence/hopper/build.stderr.txt"
+  ],
+  "started_utc": "2026-09-05T12:55:58.442374+00:00",
+  "wall_seconds": 0.45331050001550466,
+  "exit_code": 0
+}

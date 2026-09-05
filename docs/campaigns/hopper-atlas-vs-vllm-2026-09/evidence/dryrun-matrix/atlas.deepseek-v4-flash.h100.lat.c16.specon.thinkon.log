@@ -1,0 +1,29 @@
+{
+  "model": "deepseek-v4-flash",
+  "sku": "h100",
+  "prd_source": "3.1 L65; 8 L212 explicit no-H100-recipe",
+  "role": "negative-SKU-probe",
+  "atlas_expectation": "unsupported-SKU",
+  "key_status": "canonical",
+  "id": "atlas.deepseek-v4-flash.h100.lat.c16.specon.thinkon",
+  "engine": "atlas",
+  "workload": "lat",
+  "concurrency": 16,
+  "spec": "on",
+  "think": "on",
+  "category": "policy-probe",
+  "policy_notes": [
+    "negative-SKU-probe",
+    "scored pair requires spec off (6.1 L164; 7 L195)"
+  ]
+}
+
+=== run_cell ===
+$ bash bench/campaign/run_cell.sh --engine atlas --model deepseek-v4-flash --sku h100 --workload lat --concurrency 16 --spec on --think on --out /tmp/atlas-step-d-dryrun-not-created/atlas.deepseek-v4-flash.h100.lat.c16.specon.thinkon --dry-run
+started_utc: 2026-09-05T12:55:36.182550+00:00
+exit_code: 3
+wall_seconds: 0.214873
+--- stdout ---
+no rendered profile for deepseek-v4-flash on h100
+
+--- stderr ---

@@ -1,0 +1,3 @@
+# Raw command transcripts preserve their observed whitespace byte for byte.
+*.log -whitespace
+*.txt -whitespace

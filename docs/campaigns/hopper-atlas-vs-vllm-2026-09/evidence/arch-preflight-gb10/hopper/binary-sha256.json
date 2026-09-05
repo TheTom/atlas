@@ -1,0 +1,7 @@
+{
+  "argv": [
+    "sha256sum",
+    "/home/pidtom/atlas-step-d-20260905-1249/binaries/hopper/spark"
+  ],
+  "exit_code": 0
+}

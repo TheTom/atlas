@@ -1,0 +1,28 @@
+{
+  "model": "glm-5.3-flash",
+  "sku": "h100",
+  "prd_source": "recipe JSON only; PRD 3.1 names H200",
+  "role": "recipe-only-probe",
+  "atlas_expectation": "ATLAS_UNSUPPORTED",
+  "key_status": "canonical",
+  "id": "atlas.glm-5.3-flash.h100.lat.c1.specoff.thinkon",
+  "engine": "atlas",
+  "workload": "lat",
+  "concurrency": 1,
+  "spec": "off",
+  "think": "on",
+  "category": "policy-probe",
+  "policy_notes": [
+    "recipe-only-probe"
+  ]
+}
+
+=== run_cell ===
+$ bash bench/campaign/run_cell.sh --engine atlas --model glm-5.3-flash --sku h100 --workload lat --concurrency 1 --spec off --think on --out /tmp/atlas-step-d-dryrun-not-created/atlas.glm-5.3-flash.h100.lat.c1.specoff.thinkon --dry-run
+started_utc: 2026-09-05T12:55:23.675485+00:00
+exit_code: 3
+wall_seconds: 0.252098
+--- stdout ---
+no rendered profile for glm-5.3-flash on h100
+
+--- stderr ---

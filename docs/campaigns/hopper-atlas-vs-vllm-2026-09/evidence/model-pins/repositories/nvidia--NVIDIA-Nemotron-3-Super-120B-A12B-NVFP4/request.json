@@ -1,0 +1,36 @@
+{
+  "repo_id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4",
+  "started_utc": "2026-09-05T12:52:31.710243+00:00",
+  "python_version": "3.14.6",
+  "huggingface_hub_version": "1.8.0",
+  "httpx_version": "0.28.1",
+  "authentication": false,
+  "api_call": "HfApi(token=False).model_info(repo_id, files_metadata=True, token=False, timeout=60)",
+  "revision_argument": null,
+  "revision_meaning": "Current default-branch head at request time, not proof of loaded bytes",
+  "http_responses": [
+    {
+      "url": "https://huggingface.co/api/models/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4?blobs=true",
+      "method": "GET",
+      "status_code": 200,
+      "captured_utc": "2026-09-05T12:52:32.287650+00:00",
+      "body_path": "response-1.json",
+      "body_bytes": 1979047,
+      "body_sha256": "bcb01be3f5d9a871d2841415e6b03ab26aea55c26182b85e569c8010cdcfad17",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Sat, 05 Sep 2026 12:52:32 GMT",
+        "etag": "W/\"1e32a7-PnHMcahDsng4D5iBsgMsrnWrGPU\"",
+        "x-request-id": "Root=1-6a9c108f-2b214e043250d7e04d347a2b"
+      }
+    }
+  ],
+  "status": "ok",
+  "sha": "ff433f5493e25d631c9f12b5d55c674229923d02",
+  "gated": false,
+  "private": false,
+  "sibling_count": 36,
+  "finished_utc": "2026-09-05T12:52:32.293786+00:00",
+  "wall_seconds": 0.5834706659661606,
+  "exit_code": 0
+}

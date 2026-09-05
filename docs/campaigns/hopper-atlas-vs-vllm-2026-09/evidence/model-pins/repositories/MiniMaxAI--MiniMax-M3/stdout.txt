@@ -1,0 +1,1 @@
+{"gated": false, "private": false, "repo_id": "MiniMaxAI/MiniMax-M3", "sha": "f0e1c1e04d40177e4673a22097036854f536e9c0", "sibling_count": 82, "status": "ok"}

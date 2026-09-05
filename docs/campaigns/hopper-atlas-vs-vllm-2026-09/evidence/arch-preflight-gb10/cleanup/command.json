@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "pidtom@192.168.50.36",
+    "python3 -"
+  ],
+  "stdin": "cleanup.py",
+  "exit_code": 0,
+  "wall_seconds": 1.5212927079992369,
+  "verified_evidence_files": 39
+}

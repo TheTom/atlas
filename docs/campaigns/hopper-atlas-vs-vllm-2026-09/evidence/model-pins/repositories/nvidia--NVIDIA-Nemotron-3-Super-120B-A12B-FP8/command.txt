@@ -1,0 +1,1 @@
+python3 docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/model-pins/fetch_metadata.py --repo nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8 --out docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/model-pins/repositories/nvidia--NVIDIA-Nemotron-3-Super-120B-A12B-FP8

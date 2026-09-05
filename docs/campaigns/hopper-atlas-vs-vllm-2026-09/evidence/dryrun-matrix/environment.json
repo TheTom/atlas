@@ -1,0 +1,36 @@
+{
+  "inherited_safe_values": {
+    "RUST_LOG": "warn",
+    "VLLM_IMAGE_DIGEST": null,
+    "VLLM_IMAGE": null,
+    "VLLM_RECIPES": null,
+    "ATLAS_PORT": null,
+    "VLLM_PORT": null,
+    "SPARK_BIN": null,
+    "IMAGE": null,
+    "HF_CACHE": null,
+    "ATLAS_NODE_RUN_DIR": null,
+    "DOCKER": null,
+    "RUST_BACKTRACE": null,
+    "NCCL_PROFILE": null,
+    "NCCL_DEBUG": null,
+    "CUDA_VISIBLE_DEVICES": null
+  },
+  "removed_before_each_cell": [
+    "VLLM_IMAGE_DIGEST",
+    "VLLM_IMAGE",
+    "VLLM_RECIPES",
+    "ATLAS_PORT",
+    "VLLM_PORT",
+    "SPARK_BIN",
+    "IMAGE",
+    "HF_CACHE",
+    "ATLAS_NODE_RUN_DIR",
+    "DOCKER"
+  ],
+  "set_before_each_cell": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "HF_CACHE": "/tmp/atlas-step-d-dryrun-hf-cache-not-created"
+  },
+  "note": "RUST_LOG=warn is preserved and recorded; all matrix subprocesses inherit the same value. No test suite is run under this setting. The setting only changes the printed launcher log verbosity."
+}

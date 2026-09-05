@@ -1,0 +1,12 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "pidtom@192.168.50.36",
+    "set -eu\nnvidia-smi\nif pgrep -a -x spark; then exit 90; fi\ndocker ps\ntest -z \"$(docker ps -q)\"\ntest -z \"$(nvidia-smi --query-compute-apps=pid --format=csv,noheader)\"\ndf -h /\nmkdir /home/pidtom/atlas-step-d-20260905-1249/nano-fp8\ncurl --fail --location --max-time 60 https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8/resolve/9bee19446c0dfd01f356e10979d225b2a6621944/config.json -o /home/pidtom/atlas-step-d-20260905-1249/nano-fp8/config.json\ndf -h /\nsha256sum /home/pidtom/atlas-step-d-20260905-1249/nano-fp8/config.json\nwc -c /home/pidtom/atlas-step-d-20260905-1249/nano-fp8/config.json"
+  ],
+  "started_utc": "2026-09-05T12:55:39.410564+00:00",
+  "wall_seconds": 0.3887987920315936,
+  "exit_code": 1
+}

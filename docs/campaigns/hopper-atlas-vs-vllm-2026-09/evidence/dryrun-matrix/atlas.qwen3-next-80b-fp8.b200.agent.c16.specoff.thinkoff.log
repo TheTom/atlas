@@ -1,0 +1,82 @@
+{
+  "model": "qwen3-next-80b-fp8",
+  "sku": "b200",
+  "prd_source": "3.1 L64; 6.1 L163; 7 L191",
+  "role": "P1",
+  "atlas_expectation": "runnable",
+  "key_status": "canonical",
+  "id": "atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff",
+  "engine": "atlas",
+  "workload": "agent",
+  "concurrency": 16,
+  "spec": "off",
+  "think": "off",
+  "category": "scoring-envelope",
+  "policy_notes": []
+}
+
+=== run_cell ===
+$ bash bench/campaign/run_cell.sh --engine atlas --model qwen3-next-80b-fp8 --sku b200 --workload agent --concurrency 16 --spec off --think off --out /tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff --dry-run
+started_utc: 2026-09-05T12:54:42.218506+00:00
+exit_code: 0
+wall_seconds: 0.434971
+--- stdout ---
+=== campaign cell atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff ===
+engine:      atlas
+model:       qwen3-next-80b-fp8 -> Qwen/Qwen3-Next-80B-A3B-Instruct-FP8
+sku:         b200
+workload:    agent  isl=4096 osl=512  C=16  reps=3 warmup=1
+spec:        off     think: off
+boot cap:    1800s
+out:         /tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff
+client url:  http://127.0.0.1:8888
+mode:        DRY RUN (nothing is launched, nothing is written)
+
+
+--- stage 1/7 preflight ---
+$ nvidia-smi -q > /tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff/nvidia-smi-q.txt
+$ df -h /tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff > /tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff/df.txt
+$ git -C /private/tmp/atlas-rental-readiness-20260905 rev-parse HEAD
+$ sha256sum /private/tmp/atlas-rental-readiness-20260905/bench/ladder38/harness_w55_conc_ladder.py
+
+--- stage 2/7 serve ---
+$ env NGPUS=1 EP_SIZE=1 TP_SIZE=1 PORT_BASE=8888 BIND=0.0.0.0 NCCL_PROFILE=default BOOT_TIMEOUT_S=1800 EXTRA_ARGS=--request-timeout 0 --gpu-memory-utilization 0.90 --max-num-seqs 128 --max-batch-size 32 --enable-prefix-caching true --scheduling-policy slai --kv-cache-dtype fp8 --kv-high-precision-layers auto --max-seq-len 32768 --fp8-kv-calibration-tokens 256 --disable-thinking ATLAS_NODE_RUN_DIR=/tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff/node-ep-15289 WARMUP_PROMPT=/private/tmp/atlas-rental-readiness-20260905/bench/hopper_ab/warmup_1024.txt bash /private/tmp/atlas-rental-readiness-20260905/scripts/start-node-ep.sh --check-kernels Qwen/Qwen3-Next-80B-A3B-Instruct-FP8
+$ env NGPUS=1 EP_SIZE=1 TP_SIZE=1 PORT_BASE=8888 BIND=0.0.0.0 NCCL_PROFILE=default BOOT_TIMEOUT_S=1800 EXTRA_ARGS=--request-timeout 0 --gpu-memory-utilization 0.90 --max-num-seqs 128 --max-batch-size 32 --enable-prefix-caching true --scheduling-policy slai --kv-cache-dtype fp8 --kv-high-precision-layers auto --max-seq-len 32768 --fp8-kv-calibration-tokens 256 --disable-thinking ATLAS_NODE_RUN_DIR=/tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff/node-ep-15289 WARMUP_PROMPT=/private/tmp/atlas-rental-readiness-20260905/bench/hopper_ab/warmup_1024.txt bash /private/tmp/atlas-rental-readiness-20260905/scripts/start-node-ep.sh Qwen/Qwen3-Next-80B-A3B-Instruct-FP8   # backgrounded; time_to_ready.sh owns the boot clock
+  | === Atlas single-node launch ===
+  | Model:         Qwen/Qwen3-Next-80B-A3B-Instruct-FP8
+  | GPUs (ranks):  1   (rank i -> --gpu-ordinal i)
+  | Topology:      TP=1 EP=1 world=1
+  | Ports:         8888..8888  (only rank 0 on 8888 serves clients)
+  | NCCL bootstrap: 127.0.0.1:29500
+  | NCCL profile:  default
+  | Mode:          local binary (./target/release/spark)
+  | Run dir:       /tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff/node-ep-15289
+  | 
+  | # rank 0 (head, serves HTTP)
+  | env RUST_LOG=warn ./target/release/spark serve Qwen/Qwen3-Next-80B-A3B-Instruct-FP8 --rank 0 --world-size 1 --ep-size 1 --tp-size 1 --gpu-ordinal 0 --port 8888 --master-addr 127.0.0.1 --master-port 29500 --no-tui --bind 0.0.0.0 --warmup-prompt /private/tmp/atlas-rental-readiness-20260905/bench/hopper_ab/warmup_1024.txt --request-timeout 0 --gpu-memory-utilization 0.90 --max-num-seqs 128 --max-batch-size 32 --enable-prefix-caching true --scheduling-policy slai --kv-cache-dtype fp8 --kv-high-precision-layers auto --max-seq-len 32768 --fp8-kv-calibration-tokens 256 --disable-thinking
+  | 
+  | health poll:   http://127.0.0.1:8888/health (1 s interval, 1800s cap)
+  | summary: model=Qwen/Qwen3-Next-80B-A3B-Instruct-FP8 ngpus=1 tp=1 ep=1 ports=8888-8888 nccl_profile=default time_to_ready_s=dry-run
+  | rank0_command: env RUST_LOG=warn ./target/release/spark serve Qwen/Qwen3-Next-80B-A3B-Instruct-FP8 --rank 0 --world-size 1 --ep-size 1 --tp-size 1 --gpu-ordinal 0 --port 8888 --master-addr 127.0.0.1 --master-port 29500 --no-tui --bind 0.0.0.0 --warmup-prompt /private/tmp/atlas-rental-readiness-20260905/bench/hopper_ab/warmup_1024.txt --request-timeout 0 --gpu-memory-utilization 0.90 --max-num-seqs 128 --max-batch-size 32 --enable-prefix-caching true --scheduling-policy slai --kv-cache-dtype fp8 --kv-high-precision-layers auto --max-seq-len 32768 --fp8-kv-calibration-tokens 256 --disable-thinking
+  | 
+  | dry-run: nothing launched.
+
+--- stage 3/7 boot gate (cap 1800s) ---
+$ bash /private/tmp/atlas-rental-readiness-20260905/bench/hopper_ab/time_to_ready.sh --url http://127.0.0.1:8888 --model Qwen/Qwen3-Next-80B-A3B-Instruct-FP8 --engine atlas --start-epoch <serve-start> --timeout-s 1800 --out /tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff/boot.json
+
+--- stage 4/7 coherency gate ---
+$ python3 /private/tmp/atlas-rental-readiness-20260905/bench/hopper_ab/coherency_gate.py --url http://127.0.0.1:8888 --model Qwen/Qwen3-Next-80B-A3B-Instruct-FP8 --out /tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff/coherency.json
+
+--- stage 5/7 latency pack ---
+$ python3 /private/tmp/atlas-rental-readiness-20260905/bench/ladder38/harness_w55_conc_ladder.py --url http://127.0.0.1:8888 --model Qwen/Qwen3-Next-80B-A3B-Instruct-FP8 --label atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff --out /tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff/ladder.json --concs 16 --reps 3 --isl 4096 --osl 512 --warmup 1 
+
+--- stage 6/7 teardown ---
+$ env ATLAS_NODE_RUN_DIR=/tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff/node-ep-15289 bash /private/tmp/atlas-rental-readiness-20260905/scripts/start-node-ep.sh --stop
+
+--- stage 7/7 assemble and validate ---
+$ python3 /private/tmp/atlas-rental-readiness-20260905/bench/campaign/cell_assemble.py --engine atlas --model-key qwen3-next-80b-fp8 --sku b200 --workload agent --concurrency 16 --spec off --think off --out /tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff/artifact.json --workloads /private/tmp/atlas-rental-readiness-20260905/bench/hopper_ab/workloads.json --atlas-recipes /private/tmp/atlas-rental-readiness-20260905/bench/campaign/atlas_recipes.json --vllm-recipes /private/tmp/atlas-rental-readiness-20260905/bench/campaign/vllm_recipes.json --client /private/tmp/atlas-rental-readiness-20260905/bench/ladder38/harness_w55_conc_ladder.py --serve-argv /tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff/serve.argv --serve-env /tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff/serve.env --nvidia-smi-q /tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff/nvidia-smi-q.txt --boot-json /tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff/boot.json --coherency-json /tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff/coherency.json --ladder-json /tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff/ladder.json
+$ python3 /private/tmp/atlas-rental-readiness-20260905/bench/campaign/validate_artifact.py /tmp/atlas-step-d-dryrun-not-created/atlas.qwen3-next-80b-fp8.b200.agent.c16.specoff.thinkoff/artifact.json
+
+dry-run: nothing launched, nothing written.
+
+--- stderr ---

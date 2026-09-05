@@ -1,0 +1,11 @@
+{
+  "cell_logs": 1088,
+  "command_records": 1632,
+  "raw_index_hash_matches": true,
+  "source_helper_ast_parse": "3 passed",
+  "report_links_resolve": 1115,
+  "dryrun_output_and_hf_cache_dirs_absent": true,
+  "missing_recipe_stdout_one_line": 448,
+  "no_recipe_edits": true,
+  "scope": "CPU-only dry renders; HTTP loopback fixture"
+}

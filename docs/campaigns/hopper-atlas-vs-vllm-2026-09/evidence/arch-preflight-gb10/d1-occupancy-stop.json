@@ -1,0 +1,19 @@
+{
+  "recorded_utc": "2026-09-05T12:57:29.508070+00:00",
+  "status": "GPU probes and additional heavy steps blocked",
+  "reason": "A foreign compute tenant appeared after the authorized CPU-only Hopper build started. The before-download guard refused before mkdir/curl.",
+  "foreign_executable": "/home/pidtom/butter-selectors/rust/target/debug/deps/iron_selector_model-5f27772cdf230715",
+  "observed_pids": [
+    231116,
+    233007
+  ],
+  "gpu_memory_mib_at_first_stop": 20408,
+  "action": "Do not start a model download or GPU operation; preserve existing CPU-only build evidence; move to D2/D3. No foreign process was signalled.",
+  "checkpoint_download_started": false,
+  "gpu_engine_invocations": 0,
+  "evidence": [
+    "nano-config-prefetch/command.json",
+    "nano-config-prefetch/stdout.txt",
+    "foreign-occupancy/stdout.txt"
+  ]
+}

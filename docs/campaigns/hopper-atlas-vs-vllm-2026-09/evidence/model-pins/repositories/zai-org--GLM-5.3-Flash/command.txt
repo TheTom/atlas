@@ -1,0 +1,1 @@
+python3 docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/model-pins/fetch_metadata.py --repo zai-org/GLM-5.3-Flash --out docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/model-pins/repositories/zai-org--GLM-5.3-Flash

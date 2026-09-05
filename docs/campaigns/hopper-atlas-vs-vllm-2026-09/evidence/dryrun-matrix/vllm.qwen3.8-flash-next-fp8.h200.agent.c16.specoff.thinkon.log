@@ -1,0 +1,110 @@
+{
+  "model": "qwen3.8-flash-next-fp8",
+  "sku": "h200",
+  "prd_source": "3.2 L74; 5 L127",
+  "role": "Phase-D-vllm-reference",
+  "atlas_expectation": "ATLAS_UNSUPPORTED",
+  "key_status": "canonical",
+  "id": "vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon",
+  "engine": "vllm",
+  "workload": "agent",
+  "concurrency": 16,
+  "spec": "off",
+  "think": "on",
+  "category": "scoring-envelope",
+  "policy_notes": []
+}
+
+=== run_cell ===
+$ bash bench/campaign/run_cell.sh --engine vllm --model qwen3.8-flash-next-fp8 --sku h200 --workload agent --concurrency 16 --spec off --think on --out /tmp/atlas-step-d-dryrun-not-created/vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon --dry-run
+started_utc: 2026-09-05T12:55:11.897914+00:00
+exit_code: 0
+wall_seconds: 0.411723
+--- stdout ---
+=== campaign cell vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon ===
+engine:      vllm
+model:       qwen3.8-flash-next-fp8 -> Qwen/Qwen3.8-Flash-Next-FP8
+sku:         h200
+workload:    agent  isl=4096 osl=512  C=16  reps=3 warmup=1
+spec:        off     think: on
+boot cap:    1800s
+out:         /tmp/atlas-step-d-dryrun-not-created/vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon
+client url:  http://127.0.0.1:8000
+mode:        DRY RUN (nothing is launched, nothing is written)
+
+
+--- stage 1/7 preflight ---
+$ nvidia-smi -q > /tmp/atlas-step-d-dryrun-not-created/vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon/nvidia-smi-q.txt
+$ df -h /tmp/atlas-step-d-dryrun-not-created/vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon > /tmp/atlas-step-d-dryrun-not-created/vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon/df.txt
+$ git -C /private/tmp/atlas-rental-readiness-20260905 rev-parse HEAD
+$ sha256sum /private/tmp/atlas-rental-readiness-20260905/bench/ladder38/harness_w55_conc_ladder.py
+
+--- stage 2/7 serve ---
+$ VLLM_CONTAINER=atlas-campaign-qwen3-8-flash-next-fp8-h200-agent-c16-specoff-thinkon-23986 bash /private/tmp/atlas-rental-readiness-20260905/bench/campaign/vllm_control.sh qwen3.8-flash-next-fp8 h200 --spec off --label atlas-campaign.run=vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon-1788612912-23986 --id-file /tmp/atlas-step-d-dryrun-not-created/vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon/container.id --image-file /tmp/atlas-step-d-dryrun-not-created/vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon/container.image
+  | === vLLM control leg (recipe render, not a composed command) ===
+  | model_key:   qwen3.8-flash-next-fp8
+  | sku:         h200
+  | hf_id:       Qwen/Qwen3.8-Flash-Next-FP8
+  | quant:       fp8
+  | topology:    gpus=4 nnodes=1 tp=4 pp=1 dp=1 (single_node_tp)
+  | verdict:     verbatim
+  | source:      https://recipes.vllm.ai/Qwen/Qwen3.8-Flash-Next-FP8/hw/h200.json
+  | retrieved:   2026-09-05T02:43:24.405947+00:00  evidence sha256 2d309ec043ea2961c1006be4c07ecd1c27a64ff166983fa74b40553c39728a85
+  | image:       vllm/vllm-openai:qwen38-flash-next
+  | image_ref:   vllm/vllm-openai:qwen38-flash-next   (tag only -- a non-dry run will be REFUSED, exit 5)
+  | spec:        off   (recipe renders spec off; the switchable group is --speculative-config '{"method":"mtp","num_speculative_tokens":3}')
+  | extra:       (none)
+  | flag audit:  0 not-in-recipe in the entry, 0 not-in-recipe in --extra
+  | 
+  | # node 0 -- head (node-rank 0, serves HTTP)
+  | docker run -d --name atlas-campaign-qwen3-8-flash-next-fp8-h200-agent-c16-specoff-thinkon-23986 --label atlas-campaign.run=vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon-1788612912-23986 --gpus all --ipc=host --network host -v /tmp/atlas-step-d-dryrun-hf-cache-not-created:/root/.cache/huggingface --entrypoint vllm vllm/vllm-openai:qwen38-flash-next serve Qwen/Qwen3.8-Flash-Next-FP8 --max-num-seqs 256 --enable-prefix-caching --no-enable-flashinfer-autotune --tensor-parallel-size 4 --moe-backend triton --gpu-memory-utilization 0.85 --enable-auto-tool-choice --tool-call-parser qwen3_xml --reasoning-parser qwen3
+  | 
+  | dry-run: nothing launched.
+
+--- stage 3/7 boot gate (cap 1800s) ---
+$ bash /private/tmp/atlas-rental-readiness-20260905/bench/hopper_ab/time_to_ready.sh --url http://127.0.0.1:8000 --model Qwen/Qwen3.8-Flash-Next-FP8 --engine vllm --start-epoch <serve-start> --timeout-s 1800 --out /tmp/atlas-step-d-dryrun-not-created/vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon/boot.json
+
+--- stage 4/7 coherency gate ---
+$ python3 /private/tmp/atlas-rental-readiness-20260905/bench/hopper_ab/coherency_gate.py --url http://127.0.0.1:8000 --model Qwen/Qwen3.8-Flash-Next-FP8 --out /tmp/atlas-step-d-dryrun-not-created/vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon/coherency.json
+
+--- stage 5/7 latency pack ---
+$ python3 /private/tmp/atlas-rental-readiness-20260905/bench/ladder38/harness_w55_conc_ladder.py --url http://127.0.0.1:8000 --model Qwen/Qwen3.8-Flash-Next-FP8 --label vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon --out /tmp/atlas-step-d-dryrun-not-created/vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon/ladder.json --concs 16 --reps 3 --isl 4096 --osl 512 --warmup 1 --enable-thinking
+
+--- stage 6/7 teardown ---
+$ docker stop <id from docker run -d> && docker rm <the same id>
+
+--- stage 7/7 assemble and validate ---
+$ python3 /private/tmp/atlas-rental-readiness-20260905/bench/campaign/cell_assemble.py --engine vllm --model-key qwen3.8-flash-next-fp8 --sku h200 --workload agent --concurrency 16 --spec off --think on --out /tmp/atlas-step-d-dryrun-not-created/vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon/artifact.json --workloads /private/tmp/atlas-rental-readiness-20260905/bench/hopper_ab/workloads.json --atlas-recipes /private/tmp/atlas-rental-readiness-20260905/bench/campaign/atlas_recipes.json --vllm-recipes /private/tmp/atlas-rental-readiness-20260905/bench/campaign/vllm_recipes.json --client /private/tmp/atlas-rental-readiness-20260905/bench/ladder38/harness_w55_conc_ladder.py --serve-argv /tmp/atlas-step-d-dryrun-not-created/vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon/serve.argv --serve-env /tmp/atlas-step-d-dryrun-not-created/vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon/serve.env --nvidia-smi-q /tmp/atlas-step-d-dryrun-not-created/vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon/nvidia-smi-q.txt --boot-json /tmp/atlas-step-d-dryrun-not-created/vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon/boot.json --coherency-json /tmp/atlas-step-d-dryrun-not-created/vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon/coherency.json --ladder-json /tmp/atlas-step-d-dryrun-not-created/vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon/ladder.json
+$ python3 /private/tmp/atlas-rental-readiness-20260905/bench/campaign/validate_artifact.py /tmp/atlas-step-d-dryrun-not-created/vllm.qwen3.8-flash-next-fp8.h200.agent.c16.specoff.thinkon/artifact.json
+
+dry-run: nothing launched, nothing written.
+
+--- stderr ---
+
+=== vllm_control ===
+$ bash bench/campaign/vllm_control.sh qwen3.8-flash-next-fp8 h200 --spec off --dry-run
+started_utc: 2026-09-05T12:55:12.309661+00:00
+exit_code: 0
+wall_seconds: 0.11555
+--- stdout ---
+=== vLLM control leg (recipe render, not a composed command) ===
+model_key:   qwen3.8-flash-next-fp8
+sku:         h200
+hf_id:       Qwen/Qwen3.8-Flash-Next-FP8
+quant:       fp8
+topology:    gpus=4 nnodes=1 tp=4 pp=1 dp=1 (single_node_tp)
+verdict:     verbatim
+source:      https://recipes.vllm.ai/Qwen/Qwen3.8-Flash-Next-FP8/hw/h200.json
+retrieved:   2026-09-05T02:43:24.405947+00:00  evidence sha256 2d309ec043ea2961c1006be4c07ecd1c27a64ff166983fa74b40553c39728a85
+image:       vllm/vllm-openai:qwen38-flash-next
+image_ref:   vllm/vllm-openai:qwen38-flash-next   (tag only -- a non-dry run will be REFUSED, exit 5)
+spec:        off   (recipe renders spec off; the switchable group is --speculative-config '{"method":"mtp","num_speculative_tokens":3}')
+extra:       (none)
+flag audit:  0 not-in-recipe in the entry, 0 not-in-recipe in --extra
+
+# node 0 -- head (node-rank 0, serves HTTP)
+docker run -d --name vllm-control-qwen3-8-flash-next-fp8-h200 --gpus all --ipc=host --network host -v /tmp/atlas-step-d-dryrun-hf-cache-not-created:/root/.cache/huggingface --entrypoint vllm vllm/vllm-openai:qwen38-flash-next serve Qwen/Qwen3.8-Flash-Next-FP8 --max-num-seqs 256 --enable-prefix-caching --no-enable-flashinfer-autotune --tensor-parallel-size 4 --moe-backend triton --gpu-memory-utilization 0.85 --enable-auto-tool-choice --tool-call-parser qwen3_xml --reasoning-parser qwen3
+
+dry-run: nothing launched.
+
+--- stderr ---

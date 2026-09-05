@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "env",
+    "RUST_LOG=info",
+    "NGPUS=1",
+    "EP_SIZE=1",
+    "TP_SIZE=1",
+    "PORT_BASE=18888",
+    "MASTER_PORT=19500",
+    "SPARK_BIN=/home/pidtom/atlas-step-d-20260905-1249/binaries/hopper/spark",
+    "ATLAS_NODE_RUN_DIR=/home/pidtom/atlas-step-d-20260905-1249/launcher-hopper",
+    "bash",
+    "scripts/start-node-ep.sh",
+    "--dry-run",
+    "/home/pidtom/atlas-step-d-20260905-1249/nano-fp8"
+  ],
+  "exit_code": 0,
+  "purpose": "Invocation rendering only; no GPU process or real architecture oracle executed"
+}

@@ -1,0 +1,36 @@
+{
+  "repo_id": "Qwen/Qwen3-Next-80B-A3B-Instruct-FP8",
+  "started_utc": "2026-09-05T12:52:30.810385+00:00",
+  "python_version": "3.14.6",
+  "huggingface_hub_version": "1.8.0",
+  "httpx_version": "0.28.1",
+  "authentication": false,
+  "api_call": "HfApi(token=False).model_info(repo_id, files_metadata=True, token=False, timeout=60)",
+  "revision_argument": null,
+  "revision_meaning": "Current default-branch head at request time, not proof of loaded bytes",
+  "http_responses": [
+    {
+      "url": "https://huggingface.co/api/models/Qwen/Qwen3-Next-80B-A3B-Instruct-FP8?blobs=true",
+      "method": "GET",
+      "status_code": 200,
+      "captured_utc": "2026-09-05T12:52:31.056333+00:00",
+      "body_path": "response-1.json",
+      "body_bytes": 22519,
+      "body_sha256": "b81179ed8fd987b9540586e51041b6ab59671270d53ed8f5a55614129aff2008",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Sat, 05 Sep 2026 12:52:31 GMT",
+        "etag": "W/\"57f7-hff1MTfZtgeIOt9KoRIfkLaUZcA\"",
+        "x-request-id": "Root=1-6a9c108f-442aa01f6cd7d5f328f57fcf"
+      }
+    }
+  ],
+  "status": "ok",
+  "sha": "c5f5f263bdd5cc134092897864e8905d8fe7b928",
+  "gated": false,
+  "private": false,
+  "sibling_count": 18,
+  "finished_utc": "2026-09-05T12:52:31.059440+00:00",
+  "wall_seconds": 0.2488840410951525,
+  "exit_code": 0
+}

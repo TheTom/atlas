@@ -1,0 +1,38 @@
+{
+  "model": "minimax-m2.7",
+  "sku": "h200",
+  "prd_source": "3.2 L73; 5 L125",
+  "role": "Phase-D-conditional",
+  "atlas_expectation": "conditional",
+  "key_status": "unallocated-proposal",
+  "id": "vllm.minimax-m2.7.h200.lat.c1.specoff.thinkoff",
+  "engine": "vllm",
+  "workload": "lat",
+  "concurrency": 1,
+  "spec": "off",
+  "think": "off",
+  "category": "scoring-envelope",
+  "policy_notes": [
+    "canonical model key not allocated by recipe JSON"
+  ]
+}
+
+=== run_cell ===
+$ bash bench/campaign/run_cell.sh --engine vllm --model minimax-m2.7 --sku h200 --workload lat --concurrency 1 --spec off --think off --out /tmp/atlas-step-d-dryrun-not-created/vllm.minimax-m2.7.h200.lat.c1.specoff.thinkoff --dry-run
+started_utc: 2026-09-05T12:55:05.520323+00:00
+exit_code: 3
+wall_seconds: 0.240039
+--- stdout ---
+no rendered profile for minimax-m2.7 on h200
+
+--- stderr ---
+
+=== vllm_control ===
+$ bash bench/campaign/vllm_control.sh minimax-m2.7 h200 --spec off --dry-run
+started_utc: 2026-09-05T12:55:05.760401+00:00
+exit_code: 3
+wall_seconds: 0.063808
+--- stdout ---
+no rendered profile for minimax-m2.7 on h200
+
+--- stderr ---

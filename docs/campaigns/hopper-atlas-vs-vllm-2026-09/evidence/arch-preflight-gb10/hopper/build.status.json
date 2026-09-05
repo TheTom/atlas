@@ -1,0 +1,37 @@
+{
+  "argv": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/pidtom/atlas-step-d-20260905-1249/evidence/hopper/build.time.txt",
+    "/home/pidtom/.cargo/bin/cargo",
+    "build",
+    "--locked",
+    "--release",
+    "-p",
+    "spark-server",
+    "--bin",
+    "spark",
+    "--no-default-features",
+    "--features",
+    "cuda,nccl"
+  ],
+  "cwd": "/home/pidtom/atlas-step-d-20260905-1249/repo",
+  "environment": {
+    "PATH": "/home/pidtom/.cargo/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "CARGO_HOME": "/home/pidtom/atlas-step-d-20260905-1249/cargo-home",
+    "CARGO_TARGET_DIR": "/home/pidtom/atlas-step-d-20260905-1249/target-hopper",
+    "CUDA_HOME": "/usr/local/cuda",
+    "CUDARC_CUDA_VERSION": "13000",
+    "ATLAS_TARGET_HW": "hopper",
+    "ATLAS_TARGET_MODEL": "nemotron-3-nano-30b-a3b",
+    "ATLAS_TARGET_QUANT": "nvfp4",
+    "CARGO_BUILD_JOBS": "4",
+    "CARGO_INCREMENTAL": "0"
+  },
+  "source_sha": "b2c17cfe30c33c53d28c4fbec35f6204b8cfb14b",
+  "started_utc": "2026-09-05T12:53:20.410336+00:00",
+  "exit_code": 0,
+  "wall_seconds": 210.05820549700002,
+  "stopping_reason": null
+}

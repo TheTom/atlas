@@ -1,0 +1,1 @@
+Observed 36 unpinned primary commands across 29 profiles; 6 unpinned draft-profile references.

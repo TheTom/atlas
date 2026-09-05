@@ -1,0 +1,35 @@
+{
+  "repo_id": "TheTom/atlas-step-d-known-missing-20260905-7c9f90b3",
+  "started_utc": "2026-09-05T12:52:12.196212+00:00",
+  "python_version": "3.14.6",
+  "huggingface_hub_version": "1.8.0",
+  "httpx_version": "0.28.1",
+  "authentication": false,
+  "api_call": "HfApi(token=False).model_info(repo_id, files_metadata=True, token=False, timeout=60)",
+  "revision_argument": null,
+  "revision_meaning": "Current default-branch head at request time, not proof of loaded bytes",
+  "http_responses": [
+    {
+      "url": "https://huggingface.co/api/models/TheTom/atlas-step-d-known-missing-20260905-7c9f90b3?blobs=true",
+      "method": "GET",
+      "status_code": 401,
+      "captured_utc": "2026-09-05T12:52:12.388385+00:00",
+      "body_path": "response-1.json",
+      "body_bytes": 41,
+      "body_sha256": "65842e3d84e6b7f62a470c85204e80b953bb8f944e9b69813130a9d7f3eaa1d8",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "41",
+        "date": "Sat, 05 Sep 2026 12:52:12 GMT",
+        "etag": "W/\"29-dEMcHWfJi78ZR1aqzb1ELAhp3Us\"",
+        "x-request-id": "Root=1-6a9c107c-4fb8811261dcf21a0ee1156f"
+      }
+    }
+  ],
+  "status": "error",
+  "error_type": "RepositoryNotFoundError",
+  "error": "401 Client Error. (Request ID: Root=1-6a9c107c-4fb8811261dcf21a0ee1156f)\n\nRepository Not Found for url: https://huggingface.co/api/models/TheTom/atlas-step-d-known-missing-20260905-7c9f90b3?blobs=true.\nPlease make sure you specified the correct `repo_id` and `repo_type`.\nIf you are trying to access a private or gated repo, make sure you are authenticated. For more details, see https://huggingface.co/docs/huggingface_hub/authentication\nInvalid username or password.",
+  "finished_utc": "2026-09-05T12:52:12.394278+00:00",
+  "wall_seconds": 0.1980293330270797,
+  "exit_code": 2
+}

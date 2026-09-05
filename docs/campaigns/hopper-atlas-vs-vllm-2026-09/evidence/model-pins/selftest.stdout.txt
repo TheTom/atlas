@@ -1,0 +1,7 @@
+RED observed: missing size: missing or invalid file size
+RED observed: LFS pointer/payload disagreement: LFS payload size mismatch
+RED observed: wrong revision: revision missing or mismatched
+RED observed: duplicate file: duplicate file path
+RED observed: mixed weight format: other possible weight format requires explicit classification
+RED observed: wrong response hash: response SHA256 mismatch
+PASS: 6 known-bad metadata fixtures rejected before 1 positive fixture

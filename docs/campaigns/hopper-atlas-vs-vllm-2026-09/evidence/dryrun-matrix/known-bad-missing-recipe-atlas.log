@@ -1,0 +1,16 @@
+{
+  "id": "missing-recipe-atlas",
+  "oracle_expected_exit": 3,
+  "observed_exit": 3,
+  "oracle_passed": true
+}
+
+=== known-bad ===
+$ bash bench/campaign/run_cell.sh --engine atlas --model d2-known-missing-model --sku h100 --workload lat --concurrency 1 --spec off --think off --out /tmp/atlas-step-d-dryrun-not-created/negative --dry-run
+started_utc: 2026-09-05T12:53:57.726296+00:00
+exit_code: 3
+wall_seconds: 0.356098
+--- stdout ---
+no rendered profile for d2-known-missing-model on h100
+
+--- stderr ---

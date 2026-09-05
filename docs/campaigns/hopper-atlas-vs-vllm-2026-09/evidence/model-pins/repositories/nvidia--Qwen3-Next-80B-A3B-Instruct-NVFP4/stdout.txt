@@ -1,0 +1,1 @@
+{"gated": false, "private": false, "repo_id": "nvidia/Qwen3-Next-80B-A3B-Instruct-NVFP4", "sha": "8fb2682f136cf94d932a498f18cb1e428832a912", "sibling_count": 24, "status": "ok"}

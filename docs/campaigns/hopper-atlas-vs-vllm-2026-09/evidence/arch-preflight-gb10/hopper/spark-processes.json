@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "pgrep",
+    "-a",
+    "-x",
+    "spark"
+  ],
+  "exit_code": 1
+}

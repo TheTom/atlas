@@ -1,0 +1,38 @@
+{
+  "model": "deepseek-v4-flash",
+  "sku": "h100",
+  "prd_source": "3.1 L65; 8 L212 explicit no-H100-recipe",
+  "role": "negative-SKU-probe",
+  "atlas_expectation": "unsupported-SKU",
+  "key_status": "canonical",
+  "id": "vllm.deepseek-v4-flash.h100.lat.c1.specoff.thinkoff",
+  "engine": "vllm",
+  "workload": "lat",
+  "concurrency": 1,
+  "spec": "off",
+  "think": "off",
+  "category": "policy-probe",
+  "policy_notes": [
+    "negative-SKU-probe"
+  ]
+}
+
+=== run_cell ===
+$ bash bench/campaign/run_cell.sh --engine vllm --model deepseek-v4-flash --sku h100 --workload lat --concurrency 1 --spec off --think off --out /tmp/atlas-step-d-dryrun-not-created/vllm.deepseek-v4-flash.h100.lat.c1.specoff.thinkoff --dry-run
+started_utc: 2026-09-05T12:55:36.828256+00:00
+exit_code: 3
+wall_seconds: 0.218568
+--- stdout ---
+no rendered profile for deepseek-v4-flash on h100
+
+--- stderr ---
+
+=== vllm_control ===
+$ bash bench/campaign/vllm_control.sh deepseek-v4-flash h100 --spec off --dry-run
+started_utc: 2026-09-05T12:55:37.046864+00:00
+exit_code: 3
+wall_seconds: 0.06232
+--- stdout ---
+no rendered profile for deepseek-v4-flash on h100
+
+--- stderr ---

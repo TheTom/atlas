@@ -1,0 +1,29 @@
+{
+  "model": "deepseek-v4-flash",
+  "sku": "h200",
+  "prd_source": "3.1 L65; 6.1 L164; 7 L195",
+  "role": "P1",
+  "atlas_expectation": "runnable",
+  "key_status": "canonical",
+  "id": "atlas.deepseek-v4-flash.h200.agent.c1.specon.thinkoff",
+  "engine": "atlas",
+  "workload": "agent",
+  "concurrency": 1,
+  "spec": "on",
+  "think": "off",
+  "category": "policy-probe",
+  "policy_notes": [
+    "scored pair requires spec off (6.1 L164; 7 L195)"
+  ]
+}
+
+=== run_cell ===
+$ bash bench/campaign/run_cell.sh --engine atlas --model deepseek-v4-flash --sku h200 --workload agent --concurrency 1 --spec on --think off --out /tmp/atlas-step-d-dryrun-not-created/atlas.deepseek-v4-flash.h200.agent.c1.specon.thinkoff --dry-run
+started_utc: 2026-09-05T12:54:45.450607+00:00
+exit_code: 4
+wall_seconds: 0.414492
+--- stdout ---
+
+--- stderr ---
+ERROR: --spec on, but the Atlas recipe for deepseek-v4-flash on h200 declares no speculative support.
+       TP is impossible: num_key_value_heads=1 (MQA), so EP=8 TP=1 is the only layout. --max-batch-size 1 is the PRD's start value, to be raised stepwise once the cell boots. No --tool-call-parser: deepseek_v4 is accepted by the parser but missing from flag_values.rs, so auto-resolution is the supported path. Spec OFF on Atlas -- the public checkpoint ships no usable MTP and docs/deepseek_v4_mtp_support.md is a design, not shipped -- while the vLLM h200 recipe renders DSpark K1 ON by default, so the control leg must be run with --spec off to keep both-or-neither. hf_id is the -0731 checkpoint the vLLM recipe serves, chosen for weight parity; that Atlas loads that exact checkpoint is UNVERIFIED. FP8 KV calibration: FP8 checkpoints that ship no *.k_scale tensors get scale 1.0, which clips BF16 into E4M3 (spark-runtime weights.rs fp8_kv_scale_count); the GB10 rehearsal of 2026-09-05 (Nano FP8 through the nvfp4 bundle, 'missing FP8 KV scale tensors, default 1.0') produced degenerate output. 256 calibration tokens is the value kernels/gb10/qwen3.6-35b-a3b/MODEL.toml uses for its FP8 checkpoint. Applies only with --kv-cache-dtype fp8.

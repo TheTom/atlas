@@ -1,0 +1,30 @@
+{
+  "observed_utc": "2026-09-05T12:57:58.506399+00:00",
+  "url": "https://raw.githubusercontent.com/vllm-project/vllm/7fbd44cbe0a90b9c8fd3a94a0f0401ac4b1bc719/vllm/config/speculative.py",
+  "http_status": 200,
+  "git_commit": "7fbd44cbe0a90b9c8fd3a94a0f0401ac4b1bc719",
+  "source_sha256": "ec62c90f60b4467844a35189c0277ff128df6c080ff42c8c4660881c2f444a7f",
+  "selected_lines": [
+    {
+      "line": 422,
+      "text": "    revision: str | None = None"
+    },
+    {
+      "line": 426,
+      "text": "    code_revision: str | None = None"
+    },
+    {
+      "line": 1264,
+      "text": "                    revision=self.revision,"
+    },
+    {
+      "line": 1265,
+      "text": "                    code_revision=self.code_revision,"
+    },
+    {
+      "line": 1266,
+      "text": "                    tokenizer_revision=self.target_model_config.tokenizer_revision,"
+    }
+  ],
+  "scope": "Source inspection only; the rental vLLM image has not been executed or its version verified by D3."
+}

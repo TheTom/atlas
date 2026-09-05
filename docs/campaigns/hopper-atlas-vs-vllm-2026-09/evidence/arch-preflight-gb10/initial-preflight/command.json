@@ -1,0 +1,12 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "pidtom@192.168.50.36",
+    "nvidia-smi; pgrep -a -x spark; docker ps; df -h /; df -B1 /; nvidia-smi --query-compute-apps=pid,process_name,used_memory --format=csv,noheader; nvidia-smi -q"
+  ],
+  "started_utc": "2026-09-05T12:51:17.018427+00:00",
+  "wall_seconds": 0.48932941700331867,
+  "exit_code": 0
+}

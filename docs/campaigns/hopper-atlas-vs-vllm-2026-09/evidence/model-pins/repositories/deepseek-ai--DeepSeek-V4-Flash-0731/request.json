@@ -1,0 +1,36 @@
+{
+  "repo_id": "deepseek-ai/DeepSeek-V4-Flash-0731",
+  "started_utc": "2026-09-05T12:52:31.289647+00:00",
+  "python_version": "3.14.6",
+  "huggingface_hub_version": "1.8.0",
+  "httpx_version": "0.28.1",
+  "authentication": false,
+  "api_call": "HfApi(token=False).model_info(repo_id, files_metadata=True, token=False, timeout=60)",
+  "revision_argument": null,
+  "revision_meaning": "Current default-branch head at request time, not proof of loaded bytes",
+  "http_responses": [
+    {
+      "url": "https://huggingface.co/api/models/deepseek-ai/DeepSeek-V4-Flash-0731?blobs=true",
+      "method": "GET",
+      "status_code": 200,
+      "captured_utc": "2026-09-05T12:52:31.458043+00:00",
+      "body_path": "response-1.json",
+      "body_bytes": 17543,
+      "body_sha256": "79ce9b260fe188f82831c745de039832c21dc420cc6247827337eb73eb399f66",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Sat, 05 Sep 2026 12:52:31 GMT",
+        "etag": "W/\"4487-eVv4jkiX9DGFRsZwrrGmJz0PkQ4\"",
+        "x-request-id": "Root=1-6a9c108f-6d866d7148a8ca3c33c9e2a8"
+      }
+    }
+  ],
+  "status": "ok",
+  "sha": "7872f01b1d1fe23eabc4c98b48bffcef5a386062",
+  "gated": false,
+  "private": false,
+  "sibling_count": 74,
+  "finished_utc": "2026-09-05T12:52:31.459526+00:00",
+  "wall_seconds": 0.16971787496004254,
+  "exit_code": 0
+}

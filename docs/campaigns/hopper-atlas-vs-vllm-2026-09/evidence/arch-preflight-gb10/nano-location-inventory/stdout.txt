@@ -1,0 +1,30 @@
+/home/pidtom/.cache/huggingface/hub/models--Qwen--Qwen3-Coder-Next-GGUF
+/home/pidtom/.cache/huggingface/hub/models--Qwen--Qwen3.8-27B-FP8
+/home/pidtom/.cache/huggingface/hub/models--nvidia--NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4
+/home/pidtom/.cache/huggingface/hub/models--nvidia--Nemotron-3-Super-120B-A12B-BF16-MTPv2
+/home/pidtom/.cache/huggingface/hub/models--poolside--Laguna-S-2.1-DFlash-NVFP4
+/home/pidtom/.cache/huggingface/hub/models--poolside--Laguna-S-2.1-NVFP4
+/home/pidtom/.cache/huggingface/hub/models--pottokao--Ornith-1.5-35B-A3B-abliterated-NVFP4-DFlash-GGUF
+/home/pidtom/models/DeepSeek-V4-Flash-0731
+/home/pidtom/models/gemma4-31b-abliterated
+/home/pidtom/models/qwen38-27b-dflash2
+/home/pidtom/models/qwen38-27b-draft-v2
+/home/pidtom/models/qwen38-27b-official-fp8
+/home/pidtom/models/qwen38-27b-unsloth-nvfp4
+/home/pidtom/models/qwen38-flash-next-exl3-2.05-h4-ng4
+/home/pidtom/models/qwen38-nvfp4
+/home/pidtom/models/qwopus36-35b-a3b-coder-mtp-q8
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2025 NVIDIA Corporation
+Built on Wed_Aug_20_01:57:39_PM_PDT_2025
+Cuda compilation tools, release 13.0, V13.0.88
+Build cuda_13.0.r13.0/compiler.36424714_0
+rustc 1.93.1 (01f6ddf75 2026-02-11)
+time (GNU Time) UNKNOWN
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by David Keppel, David MacKenzie, and Assaf Gordon.
+/usr/bin/strace

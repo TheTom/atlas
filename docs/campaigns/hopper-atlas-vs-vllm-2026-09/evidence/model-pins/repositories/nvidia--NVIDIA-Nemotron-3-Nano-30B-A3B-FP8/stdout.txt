@@ -1,0 +1,1 @@
+{"gated": false, "private": false, "repo_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8", "sha": "9bee19446c0dfd01f356e10979d225b2a6621944", "sibling_count": 38, "status": "ok"}
