@@ -47,6 +47,7 @@ from pathlib import Path
 # Hardware set -> kernel source extension (must mirror
 # build_target.rs `source_extension()` per vendor).
 HW_SOURCE_EXT = {
+    "b200": "cu",
     "gb10": "cu",
     "hopper": "cu",
     "metal": "metal",

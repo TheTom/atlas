@@ -32,6 +32,7 @@ use std::path::{Path, PathBuf};
 /// `scripts/check_kernel_shadows.py` and `source_extension()` in
 /// `build_target.rs`.
 const HW_SOURCE_EXT: &[(&str, &str)] = &[
+    ("b200", "cu"),
     ("gb10", "cu"),
     ("hopper", "cu"),
     ("metal", "metal"),
