@@ -1,0 +1,7 @@
+{
+  "artifact_type": "unexecuted-check-status",
+  "status": "NOT_RUN",
+  "reason": "StepB target selection pending; no release binary or model loaded",
+  "raw_audit_json": null,
+  "source_status": "overnight-20260905/step-b.status.json"
+}

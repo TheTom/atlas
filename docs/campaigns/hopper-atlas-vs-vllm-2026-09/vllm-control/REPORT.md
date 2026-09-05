@@ -161,3 +161,23 @@ The branch remains `campaign/vllm-control-gb10-2026-09` in `/tmp/atlas-vllm-cont
 ## Overnight follow-on — Step A handoff
 
 The overnight request reuses the completed Step A rehearsal above, including Atlas's failed coherency result and full cleanup. It does not retry that engine or relabel old measurements with a new client. [Step A status](gb10-dryrun/overnight-20260905/step-a.status.json) preserves the handoff. The new request explicitly authorizes rebasing and the Step B cargo build, superseding the earlier no-rebase/no-cargo execution constraints for this phase. The five follow-on commits were rebased onto fork tip `8b7405ca159a6ab8bb3e593a740f4d20f93996fd`; [setup](gb10-dryrun/overnight-20260905/setup.json) records the old and new SHAs. The explicitly requested `792579b` predates the new device preflight; Step B's build target is awaiting clarification. Prior measurements and SHA receipts remain historical evidence.
+
+## Overnight follow-on — Step B blocked before build
+
+The clean Spark 2 clone is at `8b7405ca159a6ab8bb3e593a740f4d20f93996fd`, size 127,952,036 bytes. No cargo build, model download, kernel audit or GPU gate was started. The target remains unresolved: the request names `792579b24164d8696083760073b5c85b29cd968a`, which predates the new architecture preflight, while also requiring measurement at the current campaign tip. The pending user question requests a choice. [Step B status](gb10-dryrun/overnight-20260905/step-b.status.json) records the block; [clone verification](gb10-dryrun/overnight-20260905/clone-verification.json) records clean status, SHA and size. No `.benchmarks` result or gate-record PR was fabricated.
+
+| Gate | Overnight verdict | Duration | Measured hardware block |
+|---|---|---|---|
+| `concurrency-sweep` | NOT_RUN: build target unresolved | — | — |
+| `decode-floor` | NOT_RUN: build target unresolved | — | — |
+| `ttft-warm-gate` | NOT_RUN: build target unresolved | — | — |
+| `ttft-cold-gate` | NOT_RUN: build target unresolved | — | — |
+| `bfcl-subset` | NOT_RUN: build target unresolved | — | — |
+| `bfcl-subset-echolp` | NOT_RUN: build target unresolved | — | — |
+| `ssm-state-poisoning-gate` | NOT_RUN: build target unresolved | — | — |
+| `agentic-webserver` | NOT_RUN: build target unresolved | — | — |
+| `vision-fidelity` | NOT_RUN: build target unresolved | — | — |
+| `video-fidelity` | NOT_RUN: build target unresolved | — | — |
+| `concurrency-sweep-dflash2` | NOT_RUN: build target unresolved | — | — |
+
+The source inventory found several prerequisites the supplied plan does not account for. `--check-kernels` runs after loading the full model, so a missing-cache invocation before the proposed prefetch cannot produce a kernel audit. The current source requires eleven gates, including DFlash2. Per-gate registered defaults match their newest records but select three main checkpoints and a separate draft model; they do not all use the one Qwen3.8 checkpoint. That checkpoint alone is 23.44 GB. The agentic gate executes unconfined `sh -c` with inherited environment; its temporary working directory is not an OS sandbox. These are source findings, not executed failures or permission to change thresholds or checkpoints. See [gate inventory](gb10-dryrun/overnight-20260905/gate-source-inventory.md) and [model/check-kernels prerequisites](gb10-dryrun/overnight-20260905/qwen-preflight-prerequisites.md). The unrun audit has a [status file](gb10-dryrun/check-kernels-gb10.status.json), not a fabricated raw result. [End-of-step df](gb10-dryrun/overnight-20260905/step-b-end-df.json) is recorded.

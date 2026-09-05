@@ -1,0 +1,24 @@
+{
+  "job": {
+    "root": "/home/pidtom/atlas-overnight-control-20260905",
+    "phase": "clone",
+    "baseline_used": 866171400192,
+    "argv": [
+      "git",
+      "clone",
+      "-b",
+      "hopper/sm90-target-tdd-2026-09",
+      "https://github.com/TheTom/atlas.git",
+      "/home/pidtom/atlas-gates"
+    ],
+    "environment": {
+      "GIT_TERMINAL_PROMPT": "0"
+    }
+  },
+  "before": {
+    "utc": "2026-09-05T05:08:06.593118+00:00",
+    "used": 866171424768,
+    "available": 66648387584
+  },
+  "pid": 204208
+}

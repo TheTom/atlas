@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "purpose": "Overnight Step B checkpoint metadata receipt; no model payload downloaded or locally hash-verified by this exploration.",
+  "source": {
+    "url": "https://huggingface.co/api/models/unsloth/Qwen3.8-27B-NVFP4?blobs=true",
+    "retrieved_at_utc": "2026-09-05T04:59:59.102365+00:00",
+    "method": "Unauthenticated HTTP GET using Python 3 urllib",
+    "http_status": 200,
+    "response_headers": {
+      "date": "Sat, 05 Sep 2026 04:59:59 GMT",
+      "etag": "W/\"6a94-SW0y2BJEuokjV272txMQpcT8GtY\"",
+      "x-request-id": "Root=1-6a9ba1cf-512dd60f6984e77471c92e74"
+    },
+    "response_body_bytes": 27284,
+    "response_body_sha256": "a87794cd22c0937dd3ab7f8a08cbf443969654de111f120153d5ee04d6caccac",
+    "raw_response_body_saved_to_file": false,
+    "receipt_scope": "Complete 13-file sibling inventory and captured response provenance, transcribed from the read-only tool receipt. This JSON is not the raw API response; response_body_sha256 hashes the original response, not this file."
+  },
+  "model": {
+    "id": "unsloth/Qwen3.8-27B-NVFP4",
+    "revision": "57926baca9a82b4d6906b43f2750d55315f5b10f",
+    "private": false,
+    "gated": false
+  },
+  "totals": {
+    "file_count": 13,
+    "sum_all_files_bytes": 23444511857,
+    "sum_safetensors_bytes": 23417592488,
+    "sum_other_files_bytes": 26919369,
+    "safetensors_file_count": 2,
+    "decimal_gb_all_files": 23.444511857,
+    "gib_all_files": 21.834403143264353,
+    "definition": "Sum of every API siblings[].size, including both model.safetensors and model_mtp.safetensors. Each LFS entry's size agrees with its lfs.size. Logical payload bytes exclude filesystem allocation overhead, symlink and lock metadata, incomplete transfers, Xet caches, Python dependencies, logs, and duplicate copies. This is not an observed disk allocation or a peak-space guarantee."
+  },
+  "hash_semantics": {
+    "blobId": "API Git blob object SHA1. For non-LFS files, the Git object hash includes the blob header and is not a plain-file SHA1 or SHA256. For LFS files, this identifies the pointer blob, not the large payload.",
+    "lfs.sha256": "API-advertised SHA256 of the full LFS file payload; not independently verified by a local payload download.",
+    "lfs.pointerSize": "Bytes of the Git LFS pointer, not the payload size."
+  },
+  "siblings": [
+    {
+      "rfilename": ".gitattributes",
+      "size": 1570,
+      "blobId": "52373fe24473b1aa44333d318f578ae6bf04b49b"
+    },
+    {
+      "rfilename": "README.md",
+      "size": 6751,
+      "blobId": "8d9052c0464a6aae452df01976ce9066f8dd53e3"
+    },
+    {
+      "rfilename": "chat_template.jinja",
+      "size": 9993,
+      "blobId": "a087700658910c336c9ca9f5780a75a3cdd4fcdd"
+    },
+    {
+      "rfilename": "config.json",
+      "size": 22564,
+      "blobId": "b6f6347774036d406eabed6cfffb0fec424ba075"
+    },
+    {
+      "rfilename": "generation_config.json",
+      "size": 214,
+      "blobId": "0bc3addd19dc59c5c8899fc1fb887d50b592e7c3"
+    },
+    {
+      "rfilename": "model.safetensors",
+      "size": 22568192096,
+      "blobId": "9d635c043bfe7c3e90dbd0e473abed247f6e60e1",
+      "lfs": {
+        "sha256": "c473512c70eace07e2256fe9fd76596ac03e3295bee7d54cfb72676416afcc05",
+        "size": 22568192096,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "model.safetensors.index.json",
+      "size": 164371,
+      "blobId": "7608ff001dbfc8936318df32aaaaef7c8c9f340d"
+    },
+    {
+      "rfilename": "model_mtp.safetensors",
+      "size": 849400392,
+      "blobId": "7ef4ff42e3c03776b5019767196a98278e02eb86",
+      "lfs": {
+        "sha256": "1d8268aa85ace093a561e3e7b63b9d390dac1cd55a90cd55b5ec509c3c9da9fe",
+        "size": 849400392,
+        "pointerSize": 134
+      }
+    },
+    {
+      "rfilename": "preprocessor_config.json",
+      "size": 390,
+      "blobId": "2ea84a437d448ff71b08df68fdd949d5cc4ebb64"
+    },
+    {
+      "rfilename": "tokenizer.json",
+      "size": 19989325,
+      "blobId": "5520bfd2dd834ce386c1312c410fa71af56db5ad",
+      "lfs": {
+        "sha256": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+        "size": 19989325,
+        "pointerSize": 133
+      }
+    },
+    {
+      "rfilename": "tokenizer_config.json",
+      "size": 1047,
+      "blobId": "088fbebf189b39e2dabcdb12a83a31617fe98c2e"
+    },
+    {
+      "rfilename": "video_preprocessor_config.json",
+      "size": 385,
+      "blobId": "3ba673a5ad7d4d13f54155ecd38b2a94a6dac8fe"
+    },
+    {
+      "rfilename": "vocab.json",
+      "size": 6722759,
+      "blobId": "0aa0ce0658d60ac4a5d609f4eadb0e8e43514176"
+    }
+  ],
+  "coordinator_reported_observations": [
+    {
+      "observed_at_utc": "2026-09-05T05:02:36Z",
+      "host": "Spark2",
+      "observation": "Default Hugging Face cache for this Qwen checkpoint absent.",
+      "source": "Root coordinator report; not independently checked by this read-only subtask.",
+      "scope_limit": "Default Qwen cache only; does not assert absence from every filesystem location."
+    },
+    {
+      "observed_at_utc": null,
+      "observation": "No Step B build started while the user target question remained pending.",
+      "source": "Root coordinator report at documentation handoff; not a claim about subsequent execution."
+    }
+  ],
+  "execution": {
+    "model_payload_downloaded_by_this_exploration": false,
+    "gpu_commands_run_by_this_exploration": false,
+    "build_commands_run_by_this_exploration": false,
+    "kernel_audit_result": null
+  }
+}
