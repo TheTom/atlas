@@ -155,8 +155,12 @@ impl std::error::Error for ArchMismatch {}
 /// Can PTX compiled for `compiled_arch` run on a device of `device_cc`?
 ///
 /// ORACLE: NVIDIA CUDA C++ Programming Guide, "Application Compatibility" →
-/// *PTX Compatibility*, plus the *family-specific architecture features*
-/// section added for CUDA 12.9. Exactly three rules:
+/// *PTX Compatibility*, plus NVIDIA's CUDA 12.9 announcement of family-specific
+/// features (developer.nvidia.com/blog/nvidia-blackwell-and-nvidia-cuda-12-9-
+/// introduce-family-specific-architecture-features/, re-read 2026-09-05):
+/// `compute_100f` "is compatible with all CC 10.x devices (sm_100, sm_103)",
+/// while the `a` suffix "is not forward-compatible with any future GPU
+/// architecture". Exactly three rules:
 ///
 /// 1. plain `sm_XY` runs on any device with CC >= X.Y (JIT forward-compat);
 /// 2. `sm_XYa` runs ONLY on CC == X.Y;
