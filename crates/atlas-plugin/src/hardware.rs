@@ -78,6 +78,15 @@ impl Hardware {
         if self.gpu.is_empty() {
             return "unknown".to_string();
         }
+        // A registered SKU answers for itself. Stripping punctuation is all
+        // this could do before, and it turns "NVIDIA H100 80GB HBM3" into
+        // `h10080gbhbm3` — a key no baseline defines, on a box whose baseline
+        // slot is called `h100`. See [`ids::hardware_id_from_gpu_name`]; parts
+        // the table has no entry for fall through to the normalisation below,
+        // which is why `gb10` and every A100 capacity are unaffected.
+        if let Some(id) = ids::hardware_id_from_gpu_name(&self.gpu) {
+            return id.to_string();
+        }
         let key: String = self
             .gpu
             .to_lowercase()

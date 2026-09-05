@@ -229,11 +229,14 @@ fn check_record_refuses_a_cross_hardware_comparison() {
         gpu: "AMD Instinct MI300X".to_string(),
         ..Hardware::default()
     };
+    // The key is `mi300x` rather than the normalised `instinctmi300x` since
+    // the SKU table (`hardware::ids`) started answering for this part. The
+    // refusal is what this test pins, and it is unchanged: an AMD record still
+    // resolves to NO gb10 entry, and still says so naming both sides.
     assert_eq!(
         check_record(&gate, &bfcl_baseline()),
         Some(vec![
-            "no baseline for hardware \"instinctmi300x\"; this benchmark has entries for [gb10]"
-                .into()
+            "no baseline for hardware \"mi300x\"; this benchmark has entries for [gb10]".into()
         ])
     );
 }
