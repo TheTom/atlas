@@ -1,0 +1,7 @@
+{
+  "chunk_id": "01192c",
+  "wall_time_seconds": 0.851130458,
+  "exit_code": 1,
+  "original_token_count": 280,
+  "output": "test_deadline_during_operator_cleanup_preserves_original_stage (__main__.DeadlineTests.test_deadline_during_operator_cleanup_preserves_original_stage) ... FAIL\n\n======================================================================\nFAIL: test_deadline_during_operator_cleanup_preserves_original_stage (__main__.DeadlineTests.test_deadline_during_operator_cleanup_preserves_original_stage)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/atlas-cell-deadline-05475310/cell_deadline_test.py\", line 224, in test_deadline_during_operator_cleanup_preserves_original_stage\n    self.run_finalizer_case(True)\n  File \"/tmp/atlas-cell-deadline-05475310/cell_deadline_test.py\", line 261, in run_finalizer_case\n    self.assertTrue((self.folder / \"cleanup-complete\").exists(), result.stdout)\nAssertionError: False is not true : \n!!! SIGTERM during stage 'coherency': releasing what\n    this cell created, then writing the artifact that says so.\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.661s\n\nFAILED (failures=1)\n"
+}

@@ -1,0 +1,21 @@
+[
+  "bash",
+  "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/run_cell.sh",
+  "--engine",
+  "vllm",
+  "--model",
+  "qwen3.6-35b-a3b-fp8",
+  "--sku",
+  "h100",
+  "--workload",
+  "lat",
+  "--concurrency",
+  "1",
+  "--spec",
+  "off",
+  "--think",
+  "off",
+  "--out",
+  "/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-admission-g844qcn5/cell",
+  "--yes"
+]

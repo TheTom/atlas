@@ -1,0 +1,13 @@
+{
+  "command": [
+    "python3",
+    "bench/campaign/cell_assemble.py",
+    "--selftest"
+  ],
+  "exit": 0,
+  "tail": [
+    "",
+    "OK",
+    "cell_assemble selftest: 16/16 test methods passed"
+  ]
+}

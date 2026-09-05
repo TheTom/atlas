@@ -36,3 +36,15 @@ being measured on Spark 2 stay valid. Docs and `scripts/` may still move.
 - 2026-09-05T17:34:41Z — Tom authorized rental staging and on-node fixes/rebuilds. Read Claude's full plan and kit; adopted the shakedown/build/diagnostic approach and withdrew the earlier blanket hour-one/hour-two abort rules. Qwen remains the first pinned download; one shared cache, 300 GB disk, no volume, eight-hour total window. Seven offline kit defects are retained for owner follow-up in [the audit](evidence/rental-readiness-20260905/claude-plan/AUDIT.md). No kit edits or H100 work.
 
 - 2026-09-05T17:34:41Z — Published PR895 head05475310 and tag gate-tip-05475310: owned Linux process execution, pinned snapshot/model proof, safe audit environment, interrupted-create cleanup and setproctitle marker preservation. Actual Linux negatives went red before green. Fixed Claude's still-open inventory finding in fee26d7:932 Rust tests and workspace rustdoc pass. Campaign80mac/78Linux, launcher30, Docker17, renderers329/253, validator26, assembler16, PTX7 pass. Qwen binary SHA683f70e837519e6f91ed09fa23f6978a8c16e877477f5a762202c8963af09bce verified; glibc2.39/CUDA13 dependencies recorded. Owned Spark1 worktrees removed. [Evidence index](evidence/rental-readiness-20260905/README.md). No GPU perf records at the new tag.
+
+- 2026-09-05T19:01:21+00:00 — Published fa37657 on PR895: failed preflight now invokes zero engine/audit/container paths; four launch variants reproduced red then green with schema-valid NO-GO. Replied to existing review thread3941713084.
+
+- 2026-09-05T19:01:21+00:00 — Published 98b9dce: process port admission and listener/accepted-socket ownership; 13 real Linux CPU/socket tests and existing runner2 pass. Endpoint proofs are observations at boundaries, not reservation of future requests.
+
+- 2026-09-05T19:01:21+00:00 — Published f005d7f: independent raw streaming diagnostic, seven tests; malformed forced-success mutation and trickling-header timeout observed red first. Frozen ladder/scoring semantics unchanged.
+
+- 2026-09-05T19:01:21+00:00 — Published 2b49ccd: explicit Linux whole-cell deadline with owned watchdog, cleanup grace and unconfirmed-cleanup receipt; twelve tests include trickling bodies, wrong-PID cancellation and both deadline-during-finalization races.
+
+- 2026-09-05T19:01:21+00:00 — Final publication checks pass: campaign84Mac/82Linux, launcher30, PTX7 realnvcc CPU, Docker17, renderers329/253, validator26, assembler16, formatting/lints. Verified1611 Linux source hashes, removed owned35MB Spark1 CPU staging; df7.2GB before/7.1GB after amid concurrent activity. No shared checkout or GPU work. Perf tag gate-tip-05475310 remains valid for unchanged perf-path trees.
+
+- 2026-09-05T19:01:21+00:00 — Updated the actual Obsidian rental plan and campaign plan: explicit2700-second cell budget, published admission/endpoint checks and stream diagnostic, red/green evidence. Both process command examples dry-render exit0; eight-hour/provider/export budget unchanged. H100 SSH/activation and runtime evidence remain pending; native vLLM immutable identity remains null. [Preparation report](RENTAL-PREP-FIXES.md).

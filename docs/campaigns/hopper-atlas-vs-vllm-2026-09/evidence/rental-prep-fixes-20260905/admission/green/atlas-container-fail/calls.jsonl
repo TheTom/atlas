@@ -1,0 +1,2 @@
+["/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-admission-27mtdm07/bin/docker", "image", "inspect", "--format", "{{index .RepoDigests 0}}", "admission-test:never-contacted"]
+["/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-admission-27mtdm07/bin/docker", "image", "inspect", "--format", "{{index .Config.Labels \"org.opencontainers.image.revision\"}}", "admission-test:never-contacted"]

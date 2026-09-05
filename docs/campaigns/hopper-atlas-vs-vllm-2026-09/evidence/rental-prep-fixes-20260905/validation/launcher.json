@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "scripts/start_node_ep_test.sh"
+  ],
+  "exit": 0,
+  "tail": [
+    "  ok [n] a same-named container with another ID and label is left alone, ours confirmed gone",
+    "",
+    "ALL 30 assertions passed."
+  ]
+}

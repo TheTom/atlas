@@ -1,0 +1,17 @@
+{
+  "command": "ssh pidtom@192.168.50.125 'python3 /tmp/atlas-cell-deadline-05475310/cell_deadline_test.py -v'",
+  "start": {
+    "chunk_id": "a3eb05",
+    "wall_time_seconds": 1.002756083,
+    "session_id": 82221,
+    "original_token_count": 140,
+    "output": "test_cancel_cannot_signal_a_reused_or_unrelated_pid (__main__.DeadlineTests.test_cancel_cannot_signal_a_reused_or_unrelated_pid) ... ok\ntest_cancel_refuses_unrelated_pid_even_with_correct_start (__main__.DeadlineTests.test_cancel_refuses_unrelated_pid_even_with_correct_start) ... ok\ntest_deadline_bounds_a_trickling_http_body (__main__.DeadlineTests.test_deadline_bounds_a_trickling_http_body) ... ok\ntest_deadline_during_operator_cleanup_preserves_original_stage (__main__.DeadlineTests.test_deadline_during_operator_cleanup_preserves_original_stage) ... "
+  },
+  "end": {
+    "chunk_id": "c9d970",
+    "wall_time_seconds": 0.00000225,
+    "exit_code": 0,
+    "original_token_count": 278,
+    "output": "ok\ntest_deadline_during_real_finalizer_preserves_cleanup (__main__.DeadlineTests.test_deadline_during_real_finalizer_preserves_cleanup) ... ok\ntest_deadline_interrupts_nonterminating_stage (__main__.DeadlineTests.test_deadline_interrupts_nonterminating_stage) ... ok\ntest_hard_grace_is_explicit_cleanup_failure (__main__.DeadlineTests.test_hard_grace_is_explicit_cleanup_failure) ... ok\ntest_invalid_budgets_are_refused (__main__.DeadlineTests.test_invalid_budgets_are_refused) ... ok\ntest_normal_completion_leaves_no_watchdog (__main__.DeadlineTests.test_normal_completion_leaves_no_watchdog) ... ok\ntest_operator_interrupt_cancels_watchdog (__main__.DeadlineTests.test_operator_interrupt_cancels_watchdog) ... ok\ntest_unarmed_watchdog_can_be_cancelled_without_waiting_for_budget (__main__.DeadlineTests.test_unarmed_watchdog_can_be_cancelled_without_waiting_for_budget) ... ok\ntest_watch_refuses_a_target_other_than_its_parent (__main__.DeadlineTests.test_watch_refuses_a_target_other_than_its_parent) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 4.938s\n\nOK\n"
+  }
+}

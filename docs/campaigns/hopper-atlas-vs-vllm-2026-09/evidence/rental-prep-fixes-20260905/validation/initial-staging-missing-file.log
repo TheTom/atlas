@@ -1,0 +1,67 @@
+test_a_vllm_spec_refusal_survives_finalizer (__main__.DryRunFailureTest.test_a_vllm_spec_refusal_survives_finalizer) ... ok
+test_b_atlas_launcher_error_survives_finalizer (__main__.DryRunFailureTest.test_b_atlas_launcher_error_survives_finalizer) ... ok
+test_c_valid_cells_still_render (__main__.DryRunFailureTest.test_c_valid_cells_still_render) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.856s
+
+OK
+  ok [dryrun] 3 dry-run exit regressions passed (both engines, refusal before boot)
+test_failed_preflight_never_launches_and_writes_no_go (__main__.AdmissionTests.test_failed_preflight_never_launches_and_writes_no_go) ... {"case": "atlas-process", "preflight_ok": false, "runner_exit": 1, "engine_launches": [], "verdict": "NO-GO", "failing_stage": "preflight"}
+{"case": "atlas-binary", "preflight_ok": false, "runner_exit": 1, "engine_launches": [], "verdict": "NO-GO", "failing_stage": "preflight"}
+{"case": "atlas-container", "preflight_ok": false, "runner_exit": 1, "engine_launches": [], "verdict": "NO-GO", "failing_stage": "preflight"}
+{"case": "vllm-container", "preflight_ok": false, "runner_exit": 1, "engine_launches": [], "verdict": "NO-GO", "failing_stage": "preflight"}
+ok
+test_successful_preflight_reaches_selected_serve_path (__main__.AdmissionTests.test_successful_preflight_reaches_selected_serve_path) ... {"case": "atlas-binary", "preflight_ok": true, "runner_exit": 1, "engine_launches": [["/tmp/atlas-admission-u9r6xupp/bin/spark", "serve", "Qwen/Qwen3.6-35B-A3B-FP8", "--rank", "0", "--world-size", "1", "--ep-size", "1", "--tp-size", "1", "--gpu-ordinal", "0", "--port", "53645", "--master-addr", "127.0.0.1", "--master-port", "29500", "--no-tui", "--check-kernels", "--warmup-prompt", "/home/pidtom/atlas-endpoint-fullsuite-20260905.oiCI2w/bench/hopper_ab/warmup_1024.txt", "--request-timeout", "0", "--gpu-memory-utilization", "0.90", "--max-num-seqs", "128", "--max-batch-size", "32", "--enable-prefix-caching", "true", "--scheduling-policy", "slai", "--kv-cache-dtype", "fp8", "--kv-high-precision-layers", "auto", "--max-seq-len", "65536", "--max-prefill-tokens", "32768", "--fp8-kv-calibration-tokens", "256", "--disable-thinking"]], "verdict": "NO-GO", "failing_stage": "serve"}
+{"case": "atlas-container", "preflight_ok": true, "runner_exit": 1, "engine_launches": [["/tmp/atlas-admission-9n65ait6/bin/docker", "run", "--rm", "--gpus", "all", "--ipc=host", "--network", "host", "-e", "RUST_LOG=info", "-v", "/tmp/atlas-admission-9n65ait6/hub:/root/.cache/huggingface", "-v", "/home/pidtom/atlas-endpoint-fullsuite-20260905.oiCI2w/bench/hopper_ab/warmup_1024.txt:/warmup/warmup_1024.txt:ro", "admission-test:never-contacted", "serve", "Qwen/Qwen3.6-35B-A3B-FP8", "--rank", "0", "--world-size", "1", "--ep-size", "1", "--tp-size", "1", "--gpu-ordinal", "0", "--port", "36647", "--master-addr", "127.0.0.1", "--master-port", "29500", "--no-tui", "--check-kernels", "--warmup-prompt", "/warmup/warmup_1024.txt", "--request-timeout", "0", "--gpu-memory-utilization", "0.90", "--max-num-seqs", "128", "--max-batch-size", "32", "--enable-prefix-caching", "true", "--scheduling-policy", "slai", "--kv-cache-dtype", "fp8", "--kv-high-precision-layers", "auto", "--max-seq-len", "65536", "--max-prefill-tokens", "32768", "--fp8-kv-calibration-tokens", "256", "--disable-thinking"]], "verdict": "NO-GO", "failing_stage": "serve"}
+{"case": "vllm-container", "preflight_ok": true, "runner_exit": 1, "engine_launches": [["/tmp/atlas-admission-ey45afzg/bin/docker", "run", "-d", "--name", "atlas-campaign-qwen3-6-35b-a3b-fp8-h100-lat-c1-specoff-thinkoff-1126713", "--label", "atlas-campaign.run=vllm.qwen3.6-35b-a3b-fp8.h100.lat.c1.specoff.thinkoff-1788634040-1126713", "--gpus", "all", "--ipc=host", "--network", "host", "-v", "/tmp/atlas-admission-ey45afzg/hub:/root/.cache/huggingface", "--entrypoint", "vllm", "vllm/vllm-openai@sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "serve", "Qwen/Qwen3.6-35B-A3B-FP8", "--trust-remote-code", "--tensor-parallel-size", "1", "--enable-auto-tool-choice", "--tool-call-parser", "qwen3_xml", "--reasoning-parser", "qwen3", "--mm-encoder-tp-mode", "data", "--revision", "95a723d08a9490559dae23d0cff1d9466213d989"]], "verdict": "NO-GO", "failing_stage": "serve"}
+ok
+test_successful_process_preflight_reaches_engine_audit (__main__.AdmissionTests.test_successful_process_preflight_reaches_engine_audit) ... {"case": "atlas-process", "preflight_ok": true, "runner_exit": 1, "engine_launches": [["/tmp/atlas-admission-7a64ge30/bin/spark", "serve", "/tmp/atlas-admission-7a64ge30/hub/models--Qwen--Qwen3.6-35B-A3B-FP8/snapshots/95a723d08a9490559dae23d0cff1d9466213d989", "--rank", "0", "--world-size", "1", "--ep-size", "1", "--tp-size", "1", "--gpu-ordinal", "0", "--port", "36571", "--master-addr", "127.0.0.1", "--master-port", "29500", "--no-tui", "--bind", "0.0.0.0", "--warmup-prompt", "/home/pidtom/atlas-endpoint-fullsuite-20260905.oiCI2w/bench/hopper_ab/warmup_1024.txt", "--request-timeout", "0", "--gpu-memory-utilization", "0.90", "--max-num-seqs", "128", "--max-batch-size", "32", "--enable-prefix-caching", "true", "--scheduling-policy", "slai", "--kv-cache-dtype", "fp8", "--kv-high-precision-layers", "auto", "--max-seq-len", "65536", "--max-prefill-tokens", "32768", "--fp8-kv-calibration-tokens", "256", "--disable-thinking", "--model-name", "Qwen/Qwen3.6-35B-A3B-FP8", "--check-kernels"]], "verdict": "NO-GO", "failing_stage": "serve"}
+ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 2.857s
+
+OK
+  ok [admission] failed preflight never launches either engine
+test_first_role_is_not_first_content (__main__.StreamTests.test_first_role_is_not_first_content) ... ok
+test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) ... ok
+test_multitoken_content_is_not_counted_as_one_token (__main__.StreamTests.test_multitoken_content_is_not_counted_as_one_token) ... ok
+test_real_http_retains_exact_request_and_wire_bytes (__main__.StreamTests.test_real_http_retains_exact_request_and_wire_bytes) ... ok
+test_tool_arguments_must_form_json (__main__.StreamTests.test_tool_arguments_must_form_json) ... ok
+test_total_deadline_rejects_trickling_headers (__main__.StreamTests.test_total_deadline_rejects_trickling_headers) ... ok
+test_utf8_and_crlf_split_at_every_byte (__main__.StreamTests.test_utf8_and_crlf_split_at_every_byte) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.067s
+
+OK
+  ok [stream] raw streaming diagnostic rejects incomplete replies and bounds trickling input
+test_a_forbidden_modes_refuse_before_stages (__main__.ThinkingPolicyTest.test_a_forbidden_modes_refuse_before_stages) ... ok
+test_b_atlas_renderer_cannot_bypass_policy (__main__.ThinkingPolicyTest.test_b_atlas_renderer_cannot_bypass_policy) ... ok
+test_c_permitted_modes_render (__main__.ThinkingPolicyTest.test_c_permitted_modes_render) ... ok
+test_d_absent_recipe_still_names_missing_pair (__main__.ThinkingPolicyTest.test_d_absent_recipe_still_names_missing_pair) ... ok
+test_e_catalog_covers_exact_recipe_models (__main__.ThinkingPolicyTest.test_e_catalog_covers_exact_recipe_models) ... ok
+test_f_real_refusal_also_precedes_resource_creation (__main__.ThinkingPolicyTest.test_f_real_refusal_also_precedes_resource_creation) ... ok
+test_g_minimax_unmapped_request_policy_refuses_all_skus (__main__.ThinkingPolicyTest.test_g_minimax_unmapped_request_policy_refuses_all_skus) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 3.403s
+
+OK
+  ok [policy] campaign thinking eligibility refuses excluded modes before launch
+Traceback (most recent call last):
+  File "/home/pidtom/atlas-endpoint-fullsuite-20260905.oiCI2w/bench/campaign/../hopper_ab/coherency_policy_test.py", line 19, in <module>
+    SPEC.loader.exec_module(GATE)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/pidtom/atlas-endpoint-fullsuite-20260905.oiCI2w/bench/campaign/../hopper_ab/coherency_gate.py", line 109, in <module>
+    KNOWN_ANSWER_CASES, KNOWN_ANSWER_SYSTEM = _load_known_answer_probes()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pidtom/atlas-endpoint-fullsuite-20260905.oiCI2w/bench/campaign/../hopper_ab/coherency_gate.py", line 105, in _load_known_answer_probes
+    spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1128, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1186, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/home/pidtom/atlas-endpoint-fullsuite-20260905.oiCI2w/bench/agentic/coherence_check.py'
+ASSERT FAILED [coherency]: HTTP thinking policy regression

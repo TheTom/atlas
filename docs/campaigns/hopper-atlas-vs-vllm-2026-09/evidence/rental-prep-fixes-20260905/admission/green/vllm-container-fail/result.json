@@ -1,0 +1,8 @@
+{
+  "case": "vllm-container",
+  "preflight_ok": false,
+  "runner_exit": 1,
+  "engine_launches": [],
+  "verdict": "NO-GO",
+  "failing_stage": "preflight"
+}

@@ -1,0 +1,54 @@
+{
+  "head": "05475310694ef0469824813e62282eb0c33d3873",
+  "time_utc": "2026-09-05T18:36:49.848923+00:00",
+  "owned_files": [
+    "bench/campaign/cell_process.sh",
+    "bench/campaign/process_endpoint.py",
+    "bench/campaign/process_endpoint_test.py",
+    "bench/campaign/process_runner_test.py"
+  ],
+  "sha256": {
+    "bench/campaign/cell_process.sh": "6b6fb3d475b1d018dfc67e011e44b7d697c25513f3137d559aeef619c4e9d042",
+    "bench/campaign/process_endpoint.py": "6cbfccbabc7f5910cdbd4225bf1f7493c3c337649c7be442521ad2183dbec266",
+    "bench/campaign/process_endpoint_test.py": "aecb5ccbb59e77f48e0759eb40071de44660306f4e32f26058e07af5d4dbde5f",
+    "bench/campaign/process_runner_test.py": "789a2b678d574e4cba5f821b55c50b066a78083ab4708cded83a3f6322196818"
+  },
+  "line_counts": {
+    "bench/campaign/cell_process.sh": 98,
+    "bench/campaign/process_endpoint.py": 209,
+    "bench/campaign/process_endpoint_test.py": 296,
+    "bench/campaign/process_runner_test.py": 244
+  },
+  "red": {
+    "endpoint_tests": 10,
+    "failures": 9,
+    "note": "New helper absent; decisive existing-behavior failure: occupied endpoint reached real fake-engine audit."
+  },
+  "green": {
+    "endpoint_tests": 13,
+    "passed": 13,
+    "skipped": 0,
+    "runner_tests": 2,
+    "runner_passed": 2,
+    "runner_skipped": 0
+  },
+  "checks": {
+    "shellcheck": 0,
+    "typos": 0,
+    "py_compile": 0,
+    "git_diff_check": 0
+  },
+  "remote_host": "192.168.50.125",
+  "remote_scope": "CPU-only owned staging directory; no GPU or shared checkout changes",
+  "remote_dir": "/home/pidtom/atlas-endpoint-test-20260905.hylbup",
+  "remote_dir_removed": true,
+  "df_before": "/dev/nvme0n1p2 916G 862G 7.0G 100% /",
+  "remote_atlas_writes": false,
+  "integration": "Real runner boot succeeded, endpoint-owned proof belonged to owned PID1123927, intentionally bad coherency prevented ladder, owned process removed.",
+  "reusable_staging": {
+    "directory": "/home/pidtom/atlas-endpoint-fullsuite-20260905.oiCI2w",
+    "cleanup_transferred_to": "parent /root",
+    "disk_before": "7.3 GB free",
+    "status": "idle; source copies only; parent may reuse for campaign and PTX tests"
+  }
+}

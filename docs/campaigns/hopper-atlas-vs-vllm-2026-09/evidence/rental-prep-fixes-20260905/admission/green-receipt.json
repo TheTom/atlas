@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "bench/campaign/admission_test.py"
+  ],
+  "exit_code": 0,
+  "base_head": "05475310694ef0469824813e62282eb0c33d3873",
+  "source_hashes": {
+    "bench/campaign/run_cell.sh": "a40c83cd3b78cbc6832b2d8ca7fdce66bf9e64053711ba2aa6f8e0443f1497c1",
+    "bench/campaign/admission_test.py": "33e802c96750f185e60f43c4ed429d764c29f09cdd9d46a092a0cd53f7eea390"
+  }
+}

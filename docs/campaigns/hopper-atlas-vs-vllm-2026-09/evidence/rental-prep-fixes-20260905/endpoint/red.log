@@ -1,0 +1,98 @@
+test_foreign_listener_refuses_even_while_owned_parent_is_alive (__main__.EndpointTests.test_foreign_listener_refuses_even_while_owned_parent_is_alive) ... FAIL
+test_free_endpoint_passes_then_occupied_listener_refuses_unchanged (__main__.EndpointTests.test_free_endpoint_passes_then_occupied_listener_refuses_unchanged) ... FAIL
+test_missing_stale_or_unreadable_owner_proof_cannot_reuse_green (__main__.EndpointTests.test_missing_stale_or_unreadable_owner_proof_cannot_reuse_green) ... FAIL
+test_non_loopback_or_credentialed_url_is_refused (__main__.EndpointTests.test_non_loopback_or_credentialed_url_is_refused) ... ok
+test_occupied_endpoint_precedes_engine_audit_and_preserves_foreign_listener (__main__.EndpointTests.test_occupied_endpoint_precedes_engine_audit_and_preserves_foreign_listener) ... FAIL
+test_owned_group_child_can_serve_while_parent_remains_alive (__main__.EndpointTests.test_owned_group_child_can_serve_while_parent_remains_alive) ... FAIL
+test_owned_ipv4_listener_and_accepted_socket_pass (__main__.EndpointTests.test_owned_ipv4_listener_and_accepted_socket_pass) ... FAIL
+test_owned_ipv6_and_dual_stack_acceptance (__main__.EndpointTests.test_owned_ipv6_and_dual_stack_acceptance) ... 
+  test_owned_ipv6_and_dual_stack_acceptance (__main__.EndpointTests.test_owned_ipv6_and_dual_stack_acceptance) (address='::1') ... FAIL
+  test_owned_ipv6_and_dual_stack_acceptance (__main__.EndpointTests.test_owned_ipv6_and_dual_stack_acceptance) (address='::') ... FAIL
+test_reuseport_foreign_listener_refuses_all_candidates (__main__.EndpointTests.test_reuseport_foreign_listener_refuses_all_candidates) ... FAIL
+test_wildcard_ipv4_ipv6_and_mapped_ipv6_listeners (__main__.EndpointTests.test_wildcard_ipv4_ipv6_and_mapped_ipv6_listeners) ... ok
+
+======================================================================
+FAIL: test_foreign_listener_refuses_even_while_owned_parent_is_alive (__main__.EndpointTests.test_foreign_listener_refuses_even_while_owned_parent_is_alive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/pidtom/atlas-endpoint-test-20260905.hylbup/bench/campaign/process_endpoint_test.py", line 162, in test_foreign_listener_refuses_even_while_owned_parent_is_alive
+    self.assertIn('owned', result.stderr)
+AssertionError: 'owned' not found in "/usr/bin/python3: can't open file '/home/pidtom/atlas-endpoint-test-20260905.hylbup/bench/campaign/process_endpoint.py': [Errno 2] No such file or directory\n"
+
+======================================================================
+FAIL: test_free_endpoint_passes_then_occupied_listener_refuses_unchanged (__main__.EndpointTests.test_free_endpoint_passes_then_occupied_listener_refuses_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/pidtom/atlas-endpoint-test-20260905.hylbup/bench/campaign/process_endpoint_test.py", line 133, in test_free_endpoint_passes_then_occupied_listener_refuses_unchanged
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : /usr/bin/python3: can't open file '/home/pidtom/atlas-endpoint-test-20260905.hylbup/bench/campaign/process_endpoint.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_missing_stale_or_unreadable_owner_proof_cannot_reuse_green (__main__.EndpointTests.test_missing_stale_or_unreadable_owner_proof_cannot_reuse_green)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/pidtom/atlas-endpoint-test-20260905.hylbup/bench/campaign/process_endpoint_test.py", line 200, in test_missing_stale_or_unreadable_owner_proof_cannot_reuse_green
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : /usr/bin/python3: can't open file '/home/pidtom/atlas-endpoint-test-20260905.hylbup/bench/campaign/process_endpoint.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_occupied_endpoint_precedes_engine_audit_and_preserves_foreign_listener (__main__.EndpointTests.test_occupied_endpoint_precedes_engine_audit_and_preserves_foreign_listener)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/pidtom/atlas-endpoint-test-20260905.hylbup/bench/campaign/process_endpoint_test.py", line 116, in test_occupied_endpoint_precedes_engine_audit_and_preserves_foreign_listener
+    self.assertFalse((fixture.output / 'check-kernels.txt').exists(),
+AssertionError: True is not false : occupied endpoint reached the engine kernel audit
+
+======================================================================
+FAIL: test_owned_group_child_can_serve_while_parent_remains_alive (__main__.EndpointTests.test_owned_group_child_can_serve_while_parent_remains_alive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/pidtom/atlas-endpoint-test-20260905.hylbup/bench/campaign/process_endpoint_test.py", line 152, in test_owned_group_child_can_serve_while_parent_remains_alive
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : /usr/bin/python3: can't open file '/home/pidtom/atlas-endpoint-test-20260905.hylbup/bench/campaign/process_endpoint.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_owned_ipv4_listener_and_accepted_socket_pass (__main__.EndpointTests.test_owned_ipv4_listener_and_accepted_socket_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/pidtom/atlas-endpoint-test-20260905.hylbup/bench/campaign/process_endpoint_test.py", line 139, in test_owned_ipv4_listener_and_accepted_socket_pass
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : /usr/bin/python3: can't open file '/home/pidtom/atlas-endpoint-test-20260905.hylbup/bench/campaign/process_endpoint.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_owned_ipv6_and_dual_stack_acceptance (__main__.EndpointTests.test_owned_ipv6_and_dual_stack_acceptance) (address='::1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/pidtom/atlas-endpoint-test-20260905.hylbup/bench/campaign/process_endpoint_test.py", line 183, in test_owned_ipv6_and_dual_stack_acceptance
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : /usr/bin/python3: can't open file '/home/pidtom/atlas-endpoint-test-20260905.hylbup/bench/campaign/process_endpoint.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_owned_ipv6_and_dual_stack_acceptance (__main__.EndpointTests.test_owned_ipv6_and_dual_stack_acceptance) (address='::')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/pidtom/atlas-endpoint-test-20260905.hylbup/bench/campaign/process_endpoint_test.py", line 181, in test_owned_ipv6_and_dual_stack_acceptance
+    port = self.start(address=address, family=socket.AF_INET6, dual=dual)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pidtom/atlas-endpoint-test-20260905.hylbup/bench/campaign/process_endpoint_test.py", line 83, in start
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : {"status": "error", "error": "[Errno 17] File exists: '/tmp/atlas-endpoint-test-589gk77v/owner.json'"}
+
+
+======================================================================
+FAIL: test_reuseport_foreign_listener_refuses_all_candidates (__main__.EndpointTests.test_reuseport_foreign_listener_refuses_all_candidates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/pidtom/atlas-endpoint-test-20260905.hylbup/bench/campaign/process_endpoint_test.py", line 194, in test_reuseport_foreign_listener_refuses_all_candidates
+    self.assertIn('owned', result.stderr)
+AssertionError: 'owned' not found in "/usr/bin/python3: can't open file '/home/pidtom/atlas-endpoint-test-20260905.hylbup/bench/campaign/process_endpoint.py': [Errno 2] No such file or directory\n"
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.683s
+
+FAILED (failures=9)

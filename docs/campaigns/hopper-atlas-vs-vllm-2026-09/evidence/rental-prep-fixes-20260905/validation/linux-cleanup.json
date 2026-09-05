@@ -1,0 +1,7 @@
+{
+  "removed": "/home/pidtom/atlas-endpoint-fullsuite-20260905.oiCI2w",
+  "exists": false,
+  "df_after_cleanup": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  862G  7.1G 100% /\n",
+  "gpu_work": false,
+  "shared_checkout_modified": false
+}

@@ -1,0 +1,31 @@
+{
+  "campaign_mac": {
+    "exit_code": 0,
+    "assertions": 84
+  },
+  "campaign_linux": {
+    "exit_code": 0,
+    "assertions": 82,
+    "skips": "shellcheck and typos unavailable remotely; passed on macOS"
+  },
+  "ptx_linux_real_nvcc": {
+    "exit_code": 0,
+    "assertions": 7
+  },
+  "source_changes": [
+    "bench/campaign/README.md",
+    "bench/campaign/campaign_test.sh",
+    "bench/campaign/cell_finalize.sh",
+    "bench/campaign/cell_process.sh",
+    "bench/campaign/process_runner_test.py",
+    "bench/campaign/run_cell.sh",
+    "bench/campaign/admission_test.py",
+    "bench/campaign/cell_deadline.py",
+    "bench/campaign/cell_deadline_test.py",
+    "bench/campaign/process_endpoint.py",
+    "bench/campaign/process_endpoint_test.py",
+    "bench/campaign/stream_probe.py",
+    "bench/campaign/stream_probe_test.py"
+  ],
+  "scope": "CPU-only runner/protocol checks; no GPU inference; final Linux source hashes in linux-source-verification.json"
+}

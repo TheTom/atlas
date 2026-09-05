@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python3",
+    "bench/campaign/vllm_render.py",
+    "--recipes",
+    "bench/campaign/vllm_recipes.json",
+    "--selftest"
+  ],
+  "exit": 0,
+  "tail": [
+    "vllm_control selftest: 253/253 checks passed over 30 rendered entries"
+  ],
+  "note": "Initial invocation omitted required --recipes and refused2; corrected documented invocation passed."
+}

@@ -1,0 +1,35 @@
+{
+  "captured_utc": "2026-09-05T18:49:32.376438+00:00",
+  "base_sha": "05475310694ef0469824813e62282eb0c33d3873",
+  "scope": "helper and finalizer; root owns runner integration and full campaign testing",
+  "cpu_host": "Spark1, 192.168.50.125",
+  "gpu_used": false,
+  "focused_tests": {
+    "passed": 12,
+    "failed": 0,
+    "duration_s": 4.938
+  },
+  "files": [
+    {
+      "path": "bench/campaign/cell_deadline.py",
+      "saved_source": "cell_deadline.py",
+      "bytes": 10479,
+      "lines": 247,
+      "sha256": "4b941a5059af59b1f9cca72d92b578ef75fcfeeab7ba8e54ba60b7d3284bd9d2"
+    },
+    {
+      "path": "bench/campaign/cell_deadline_test.py",
+      "saved_source": "cell_deadline_test.py",
+      "bytes": 13380,
+      "lines": 269,
+      "sha256": "51d025948559296fd8d2ecc48473068d1347a3edb2c1571eb3f6a1741f164ed5"
+    },
+    {
+      "path": "bench/campaign/cell_finalize.sh",
+      "saved_source": "cell_finalize.sh",
+      "bytes": 6867,
+      "lines": 168,
+      "sha256": "97a9411eef2f5d298991f7de81880c53b51061969c7750a6757f7a7e23d779f1"
+    }
+  ]
+}

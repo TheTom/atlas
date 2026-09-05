@@ -1,0 +1,7 @@
+{
+  "checked_files": 1611,
+  "mismatches": [],
+  "fixture_git_head": "2e8c02f86265ece35770b9fddec2faffd74d8a7e",
+  "df_before_cleanup": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  862G  7.2G 100% /\n",
+  "owned_size": "35M\t/home/pidtom/atlas-endpoint-fullsuite-20260905.oiCI2w\n"
+}

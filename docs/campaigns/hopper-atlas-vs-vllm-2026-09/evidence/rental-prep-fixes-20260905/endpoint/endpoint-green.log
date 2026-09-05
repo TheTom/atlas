@@ -1,0 +1,20 @@
+test_foreign_acceptor_inheriting_owned_listener_is_refused (__main__.EndpointTests.test_foreign_acceptor_inheriting_owned_listener_is_refused) ... ok
+test_foreign_listener_refuses_even_while_owned_parent_is_alive (__main__.EndpointTests.test_foreign_listener_refuses_even_while_owned_parent_is_alive) ... ok
+test_free_endpoint_passes_then_occupied_listener_refuses_unchanged (__main__.EndpointTests.test_free_endpoint_passes_then_occupied_listener_refuses_unchanged) ... ok
+test_missing_stale_or_unreadable_owner_proof_cannot_reuse_green (__main__.EndpointTests.test_missing_stale_or_unreadable_owner_proof_cannot_reuse_green) ... ok
+test_non_loopback_or_credentialed_url_is_refused (__main__.EndpointTests.test_non_loopback_or_credentialed_url_is_refused) ... ok
+test_occupied_endpoint_precedes_engine_audit_and_preserves_foreign_listener (__main__.EndpointTests.test_occupied_endpoint_precedes_engine_audit_and_preserves_foreign_listener) ... ok
+test_owned_group_child_can_serve_while_parent_remains_alive (__main__.EndpointTests.test_owned_group_child_can_serve_while_parent_remains_alive) ... ok
+test_owned_ipv4_listener_and_accepted_socket_pass (__main__.EndpointTests.test_owned_ipv4_listener_and_accepted_socket_pass) ... ok
+test_owned_ipv6_and_dual_stack_acceptance (__main__.EndpointTests.test_owned_ipv6_and_dual_stack_acceptance) ... ok
+test_real_runner_records_owned_endpoint_after_successful_boot (__main__.EndpointTests.test_real_runner_records_owned_endpoint_after_successful_boot) ... {"oracle": "real runner post-boot endpoint hook", "endpoint_status": "owned", "owned_pid": 1123927, "failing_stage": "coherency", "accepted_socket": {"address": "127.0.0.1", "port": 41169, "remote": "127.0.0.1", "remote_port": 34372, "state": "01", "inode": 1646678, "table": "tcp", "pid": 1123927, "start_ticks": 10816892, "fd": 4}}
+ok
+test_reuseport_foreign_listener_refuses_all_candidates (__main__.EndpointTests.test_reuseport_foreign_listener_refuses_all_candidates) ... ok
+test_unreadable_proc_boundary_overwrites_prior_green_with_refusal (__main__.EndpointTests.test_unreadable_proc_boundary_overwrites_prior_green_with_refusal) ... {"schema": 1, "kind": "linux-proc-endpoint", "operation": "free", "checked_at": "2026-09-05T18:39:30.198534+00:00", "status": "refused", "address": "127.0.0.1", "port": 12345, "network_namespace": "net:[4026531833]", "error": "proc table unreadable"}
+ok
+test_wildcard_ipv4_ipv6_and_mapped_ipv6_listeners (__main__.EndpointTests.test_wildcard_ipv4_ipv6_and_mapped_ipv6_listeners) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 3.469s
+
+OK

@@ -1,0 +1,1 @@
+["/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-admission-mk1ynwcu/bin/docker", "image", "inspect", "--format", "{{index .Config.Labels \"org.opencontainers.image.version\"}}", "vllm/vllm-openai:latest@sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"]

@@ -1,0 +1,7 @@
+
+In bench/campaign/run_cell.sh line 349:
+    CELL_DEADLINE_PID=$!
+    ^---------------^ SC2034 (warning): CELL_DEADLINE_PID appears unused. Verify use (or export if used externally).
+
+For more information:
+  https://www.shellcheck.net/wiki/SC2034 -- CELL_DEADLINE_PID appears unused....

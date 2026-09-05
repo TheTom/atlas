@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "bench/campaign/validate_artifact.py",
+    "--selftest"
+  ],
+  "exit": 0,
+  "tail": [
+    "validate_artifact selftest: 26/26 checks passed (7 known-bad fixtures)"
+  ]
+}

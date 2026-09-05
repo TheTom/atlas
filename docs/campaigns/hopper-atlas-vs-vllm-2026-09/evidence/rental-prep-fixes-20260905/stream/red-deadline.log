@@ -1,0 +1,30 @@
+test_total_deadline_rejects_trickling_headers (__main__.StreamTests.test_total_deadline_rejects_trickling_headers) ... ERROR
+
+======================================================================
+ERROR: test_total_deadline_rejects_trickling_headers (__main__.StreamTests.test_total_deadline_rejects_trickling_headers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/stream_probe_test.py", line 156, in test_total_deadline_rejects_trickling_headers
+    result = subprocess.run([sys.executable, str(HERE / "stream_probe.py"),
+        "--url", f"http://127.0.0.1:{server.server_port}/v1/chat/completions",
+        "--request-json", str(request), "--out", str(out), "--timeout-s", "0.15"],
+        capture_output=True, text=True, timeout=2)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 557, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1221, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 2154, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1268, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/opt/homebrew/opt/python@3.14/bin/python3.14', '/Users/tom/Documents/New project/atlas-campaign-code/bench/campaign/stream_probe.py', '--url', 'http://127.0.0.1:58562/v1/chat/completions', '--request-json', '/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-stream-deadline-5mvjjjr1/request.json', '--out', '/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-stream-deadline-5mvjjjr1/evidence', '--timeout-s', '0.15']' timed out after 2 seconds
+
+----------------------------------------------------------------------
+Ran 1 test in 2.064s
+
+FAILED (errors=1)

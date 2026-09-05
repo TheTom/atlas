@@ -1,6 +1,6 @@
 # Vast.ai: eight-hour, two-H100 SXM pilot
 
-Planning snapshot: 2026-09-05, campaign code `05475310694ef0469824813e62282eb0c33d3873`.
+Planning snapshot: 2026-09-05, campaign code `2b49ccdbdc86ebb7e6c5bbd976726092cce1deae`.
 Tom's updated quote is **$3.789/hour for both H100 SXM GPUs and 300 GB of instance
 disk, with no separate volume**. This replaces the earlier 500 GB disk plus
 500 GB volume configuration. Tom is proceeding with the rental and has authorized
@@ -64,12 +64,12 @@ of the owned instance. [Vast instance lifecycle](https://docs.vast.ai/guides/ins
 
 | Prerequisite | Evidence required / oracle | Current state and stopping rule |
 |---|---|---|
-| Run both engines in the actual Vast environment | Atlas and vLLM run sequentially as owned processes. CPU tests first reject failed launch, stale/PID-reused ownership, wrong revision and failed boot; then prove cleanup and successful identity capture. | Process integration is implemented locally and completing regression checks. Actual Vast execution remains unobserved. |
+| Run both engines in the actual Vast environment | Atlas and vLLM run sequentially as owned processes. CPU tests first reject failed launch, stale/PID-reused ownership, wrong revision and failed boot; then prove cleanup and successful identity capture. | Published and CPU-tested, including failed-preflight refusal and owned endpoint proof. Actual Vast execution remains unobserved. |
 | Preserve artifact identity in process mode | Actual executable/version, environment digest, observed argv and model snapshot, process start identity and boot evidence reach the existing validator. Foreign/stale evidence must remain uncertifiable. | Owned-process model evidence is tested; actual vLLM immutable build identity remains open. Do not fabricate Docker inspection or pass a Python interpreter hash as the engine build. |
 | Pin the Qwen executable and runtime | Host-compatible Atlas release binary built with `ATLAS_TARGET_HW=hopper`, `ATLAS_TARGET_MODEL=qwen3.6-35b-a3b`, selected quant bundle; SHA256 and PTX receipt at the frozen code tree. Resolve CUDA/NCCL dependencies in the prepared environment. | Qwen artifact at `8d125b31` downloaded and checksum verified. It requires glibc 2.39, CUDA 13 and NCCL. On-node builds are expected for fixes and additional model targets. |
 | Pin vLLM and parser support | Exact environment inventory and immutable package/source identities; CPU import/registration of the Qwen model and `qwen3_xml` / `qwen3` parsers in that environment, including dependency versions. | **OPEN.** Inspect the actual rental environment, then install a specific version into a separate venv when needed. Retain installation output and resolved dependencies; a bare moving `pip install vllm` is insufficient provenance. |
 | Freeze model transfer and load identity | Qwen revision `95a723d08a9490559dae23d0cff1d9466213d989`; pinned transfer manifest including tokenizer/config/template files, one instance-disk cache and explicit snapshot paths for both engines. | Downloader passes 21 offline tests and four negative mutations. Download and byte verification occur after activation; no weights have been downloaded. Missing or conflicting identity blocks a scored comparison. |
-| Prove the revised campaign runner | Existing CPU gates plus red-first process-mode and artifact tests; frozen ladder unchanged; known-bad OSL/think/spec comparisons refused. | Real Linux CPU ownership/interruption tests pass; completing final integration checks. GPU behavior and provider-level shutdown remain unobserved. |
+| Prove the revised campaign runner | Existing CPU gates plus red-first process-mode and artifact tests; frozen ladder unchanged; known-bad OSL/think/spec comparisons refused. | Final Linux CPU integration checks pass, including whole-cell deadline and cleanup. GPU behavior and provider-level shutdown remain unobserved. |
 | Verify exact offer and stop mechanism | Two assigned H100 SXM GPUs, compatible host/driver, adequate actual CPU/RAM/shared memory, sufficient local storage and bandwidth; provider-level deadline stop tested independently of the engine process. | **OPEN pending connection.** Tom is renting the instance. Track the eight-hour deadline from actual activation, not first SSH access. |
 
 The provider incompatibility is a source-based finding, not an observed failed Vast
@@ -199,14 +199,14 @@ ownership and signal handling; the actual Qwen environment and two-GPU Super
 profile remain unobserved/incomplete. A2/B/D1 GPU work remains as reported in
 [LEAD-RECOVERY-REPORT.md](LEAD-RECOVERY-REPORT.md).
 
-Current publication checks passed: campaign 80 on macOS and 78 on Linux (Linux
+Current publication checks passed: campaign 84 on macOS and 82 on Linux (Linux
 lacks shellcheck/typos, covered on macOS), launcher 30, Dockerfiles 17, Atlas
 renderer 329, vLLM renderer 253, validator 26, assembler 16, and Spark 1 CPU PTX
 suite 7. Process rendering has six cases; real Linux runner has two; process
 ownership has eleven, including a separately installed pinned setproctitle
 reproduction. The inventory correction passes 932 atlas-plugin tests and
 workspace rustdoc. Formatting, typos and shellcheck pass. See the
-[current validation receipt](evidence/rental-readiness-20260905/validation/receipt.json).
+[current preparation fixes and validation](RENTAL-PREP-FIXES.md). Endpoint proof adds 13 Linux tests, deadline 12 and independent stream capture 7. Earlier Rust/build receipts remain in [rental readiness evidence](evidence/rental-readiness-20260905/validation/receipt.json).
 The test-only inventory change is under `crates/`, so the new perf identity is
 `gate-tip-05475310`; no GPU perf records exist at that tag.
 
@@ -218,6 +218,8 @@ The bundled checksum was verified after a deliberately wrong checksum failed.
 ELF inspection found glibc 2.39, `libcublasLt.so.13`, `libcudart.so.13`,
 `libcuda.so.1`, `libnccl.so.2` and `libibverbs.so.1` dependencies. This is compile
 and link evidence; runtime compatibility will be observed on the rented node.
+
+Use `--cell-timeout-s 2700` for rental cells, with a separate 60-second cleanup grace. This bounds runner work, not provider billing; retain the eight-hour provider deadline. A grace overrun records unconfirmed engine cleanup. Use the independent `stream_probe.py` outside scored ladders to retain raw events and distinguish role/content timing; it does not certify every measured response.
 
 Next: stage the prepared bundle when SSH details arrive and observe the
 real host. Missing immutable vLLM build identity remains a certification blocker;

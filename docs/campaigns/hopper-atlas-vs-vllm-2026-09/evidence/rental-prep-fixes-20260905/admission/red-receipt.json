@@ -1,0 +1,9 @@
+{
+  "command": [
+    "python3",
+    "bench/campaign/admission_test.py"
+  ],
+  "exit_code": 1,
+  "head": "05475310694ef0469824813e62282eb0c33d3873",
+  "run_cell_sha256": "77d76c43a37df69bdd55a25e91a0f8be0685f15abae7ccfb2dfbf5056928be93"
+}

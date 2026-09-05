@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "docker/datacenter_dockerfiles_test.sh"
+  ],
+  "exit": 0,
+  "tail": [
+    "  ok [e] workflow ok: both legs, hopper=sm_90a b200=sm_100a",
+    "",
+    "PASS \u2014 17 assertions (workflow checked in yaml mode)"
+  ]
+}

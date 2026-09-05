@@ -1,0 +1,106 @@
+test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) ... 
+  test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='missing_done') ... FAIL
+  test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='missing_finish') ... FAIL
+  test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='missing_usage') ... FAIL
+  test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='malformed') ... FAIL
+  test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='empty') ... FAIL
+  test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='zero_tokens') ... FAIL
+  test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='boolean_tokens') ... FAIL
+  test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='invalid_utf8') ... FAIL
+  test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='unfinished_event') ... FAIL
+  test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='data_after_done') ... FAIL
+
+======================================================================
+FAIL: test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='missing_done')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-stream-negative-8tfj9ddq/stream_probe_test.py", line 72, in test_incomplete_and_malformed_streams_refuse
+    self.assertFalse(report["passed"], name)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : missing_done
+
+======================================================================
+FAIL: test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='missing_finish')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-stream-negative-8tfj9ddq/stream_probe_test.py", line 72, in test_incomplete_and_malformed_streams_refuse
+    self.assertFalse(report["passed"], name)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : missing_finish
+
+======================================================================
+FAIL: test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='missing_usage')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-stream-negative-8tfj9ddq/stream_probe_test.py", line 72, in test_incomplete_and_malformed_streams_refuse
+    self.assertFalse(report["passed"], name)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : missing_usage
+
+======================================================================
+FAIL: test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='malformed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-stream-negative-8tfj9ddq/stream_probe_test.py", line 72, in test_incomplete_and_malformed_streams_refuse
+    self.assertFalse(report["passed"], name)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : malformed
+
+======================================================================
+FAIL: test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='empty')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-stream-negative-8tfj9ddq/stream_probe_test.py", line 72, in test_incomplete_and_malformed_streams_refuse
+    self.assertFalse(report["passed"], name)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : empty
+
+======================================================================
+FAIL: test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='zero_tokens')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-stream-negative-8tfj9ddq/stream_probe_test.py", line 72, in test_incomplete_and_malformed_streams_refuse
+    self.assertFalse(report["passed"], name)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : zero_tokens
+
+======================================================================
+FAIL: test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='boolean_tokens')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-stream-negative-8tfj9ddq/stream_probe_test.py", line 72, in test_incomplete_and_malformed_streams_refuse
+    self.assertFalse(report["passed"], name)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : boolean_tokens
+
+======================================================================
+FAIL: test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='invalid_utf8')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-stream-negative-8tfj9ddq/stream_probe_test.py", line 72, in test_incomplete_and_malformed_streams_refuse
+    self.assertFalse(report["passed"], name)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : invalid_utf8
+
+======================================================================
+FAIL: test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='unfinished_event')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-stream-negative-8tfj9ddq/stream_probe_test.py", line 72, in test_incomplete_and_malformed_streams_refuse
+    self.assertFalse(report["passed"], name)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : unfinished_event
+
+======================================================================
+FAIL: test_incomplete_and_malformed_streams_refuse (__main__.StreamTests.test_incomplete_and_malformed_streams_refuse) (name='data_after_done')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-stream-negative-8tfj9ddq/stream_probe_test.py", line 72, in test_incomplete_and_malformed_streams_refuse
+    self.assertFalse(report["passed"], name)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : data_after_done
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=10)

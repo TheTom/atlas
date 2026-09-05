@@ -1,0 +1,17 @@
+[
+  {
+    "args": [
+      "--cell-timeout-s"
+    ],
+    "exit": 2,
+    "stderr": "--cell-timeout-s requires seconds\n"
+  },
+  {
+    "args": [
+      "--cell-timeout-s",
+      ""
+    ],
+    "exit": 2,
+    "stderr": "--cell-timeout-s requires seconds\n"
+  }
+]

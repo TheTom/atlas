@@ -1,0 +1,18 @@
+[
+  {
+    "sha": "fa37657bb9e088eea17341548cfeef4b0ab2e9f1",
+    "subject": "campaign: prevent engine launch after failed preflight"
+  },
+  {
+    "sha": "98b9dceb5ef309563159ac4c991b984e0c4fcaf4",
+    "subject": "campaign: prove process ownership of measured endpoints"
+  },
+  {
+    "sha": "f005d7f3fcb23457e0cea1cbe2195d6ecca97b45",
+    "subject": "campaign: capture and validate diagnostic chat streams"
+  },
+  {
+    "sha": "2b49ccdbdc86ebb7e6c5bbd976726092cce1deae",
+    "subject": "campaign: bound cells with an owned deadline watchdog"
+  }
+]
