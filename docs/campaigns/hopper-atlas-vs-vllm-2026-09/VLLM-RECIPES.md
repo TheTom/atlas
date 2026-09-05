@@ -120,6 +120,21 @@ vllm serve MiniMaxAI/MiniMax-M3 --block-size 128 --tensor-parallel-size 8 \
 # Text-only A/B: add --language-model-only. EAGLE3 draft: Inferact/MiniMax-M3-EAGLE3 (num_speculative_tokens 3).
 ```
 
+## Kimi K3 — `moonshotai/Kimi-K3` (exists; recipe verified 2026-09-04 via `recipes.vllm.ai/moonshotai/Kimi-K3.json`)
+
+2.8T MoE, 16 of 896 experts active, Kimi Delta Attention + Attention Residuals, 1M context, native vision. `min_vllm_version 0.27.1`, image `vllm/vllm-openai:kimi-k3` (cu130 build, r580+ driver). Variants: default **MXFP4** (1680 GB min VRAM; H100/H200/B200/B300/GB200/GB300/MI3xx listed), `RedHatAI` **NVFP4** (1650 GB, Blackwell only), Ascend W4A8. Base args `--trust-remote-code --gpu-memory-utilization 0.95`. Features: `--enable-auto-tool-choice --tool-call-parser kimi_k3 --reasoning-parser kimi_k3`; speculative default DSpark `num_speculative_tokens 8`.
+
+| Hardware | Recipe profile | Reality check |
+|---|---|---|
+| 8×H200 | `--max-model-len 32768 --max-num-seqs 5`; FP8 KV needs `--kv-cache-dtype fp8 --attention-config '{"use_prefill_query_quantization":true,"mla_prefill_backend":"flashinfer"}'` (blog) | 1128 GB for a 1680 GB checkpoint — weights spill / KV starved; cannot run C=16 or 4K-prompt agent cells |
+| 8×B200 / GB200 / GB300 | single_node_tp, `--prefix-match-unit 128` on Blackwell; 1M window only in the Blackwell profile | 8×B200 = 1440 GB, still under 1680 — recipe lists it, verify fit/offload day-of; GB300 (8×288 GB) is the comfortable single node |
+| 16 GPUs | TP/DP and DEP strategies, multi-node | production profile; outside this campaign |
+| H100 | listed in the variant's hardware set but 8×80 GB = 640 GB | no single-node H100 profile is possible |
+
+UNVERIFIED: exact per-SKU generated command strings (the JSON fetch returned profile metadata, not the rendered command); reconstruct from the recipe page before the run. Atlas: no Kimi / KDA `model_type` — vLLM-only row.
+
+Sources: https://recipes.vllm.ai/moonshotai/Kimi-K3 · https://recipes.vllm.ai/moonshotai/Kimi-K3.json · https://vllm.ai/blog/2026-07-27-k3
+
 ## GLM (Z.ai) — `zai-org/GLM-5.3`, `GLM-5.3-Flash`, `GLM-4.5-Air-FP8` (team-supplied 2026-09-04; **reconstructed — verify on recipes.vllm.ai before the run**)
 
 No "GLM 3.5" enterprise SKU exists; the line is 4.5 → 4.7 → 5 → 5.3. Atlas has no `glm` `model_type` — every GLM cell is vLLM-only until a port boots.
