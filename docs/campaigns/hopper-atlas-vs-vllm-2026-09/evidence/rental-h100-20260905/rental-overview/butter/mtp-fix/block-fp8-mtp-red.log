@@ -1,0 +1,100 @@
+warning: unused import: `silu`
+ --> crates/wh-butter-models/src/dsv4/reference/ops.rs:6:22
+  |
+6 | use super::{sigmoid, silu, softplus};
+  |                      ^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: ambiguous glob re-exports
+  --> crates/wh-butter-models/src/dsv4/reference/mod.rs:43:9
+   |
+43 | pub use q8::*;
+   |         ^^^^^ the name `Q8_0_BLOCK` in the value namespace is first re-exported here
+44 | pub use q8k::*;
+45 | pub use qat::*;
+   |         ------ but the name `Q8_0_BLOCK` in the value namespace is also re-exported here
+   |
+   = note: `#[warn(ambiguous_glob_reexports)]` on by default
+
+warning: ambiguous glob re-exports
+  --> crates/wh-butter-models/src/dsv4/reference/mod.rs:44:9
+   |
+44 | pub use q8k::*;
+   |         ^^^^^^ the name `Q8_K_BLOCK` in the value namespace is first re-exported here
+45 | pub use qat::*;
+   |         ------ but the name `Q8_K_BLOCK` in the value namespace is also re-exported here
+
+warning: unused variable: `act_q8_0_on`
+    --> crates/wh-butter-models/src/dsv4/model.rs:5124:13
+     |
+5124 |         let act_q8_0_on = self.cfg.numerics.act_q8_0;
+     |             ^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_act_q8_0_on`
+     |
+     = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+   --> crates/wh-butter-models/src/dsv4/tp_model.rs:293:17
+    |
+293 |             let mut stack = |name: &str| -> Result<Mxfp4ExpertWeight> {
+    |                 ----^^^^^
+    |                 |
+    |                 help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+    --> crates/wh-butter-models/src/qwen4_exp.rs:2337:5
+     |
+2337 |     mut staging: &mut ExpertStaging,
+     |     ----^^^^^^^
+     |     |
+     |     help: remove this `mut`
+
+warning: methods `gemv` and `gemv_accum` are never used
+   --> crates/wh-butter-models/src/laguna.rs:407:8
+    |
+383 | impl Q4ExpertStack {
+    | ------------------ methods in this implementation
+...
+407 |     fn gemv(&self, dev: &dyn Device, e: usize, x: &Tensor) -> Result<Tensor> {
+    |        ^^^^
+...
+411 |     fn gemv_accum(&self, dev: &dyn Device, e: usize, x: &Tensor, acc: &Tensor, scale: &Tensor) -> Result<()> {
+    |        ^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `validate_qwen35_tp_in_place_reduction` is never used
+   --> crates/wh-butter-models/src/qwen35_parallel.rs:674:15
+    |
+674 | pub(crate) fn validate_qwen35_tp_in_place_reduction(
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+   Compiling wh-butter-models v0.1.0 (/Users/tom/Documents/New project/butter-qwen38-block-fp8/rust/crates/wh-butter-models)
+warning: `wh-butter-models` (lib) generated 8 warnings (run `cargo fix --lib -p wh-butter-models` to apply 4 suggestions)
+warning: `wh-butter-models` (lib test) generated 7 warnings (7 duplicates)
+    Finished `test` profile [optimized + debuginfo] target(s) in 5.90s
+     Running unittests src/lib.rs (/Users/tom/Documents/New project/butter-iron-h100-prep/cpu-protocol-target/debug/deps/wh_butter_models-69ac8a3bfc2e333e)
+
+running 3 tests
+
+thread 'qwen35::fp8_block_tests::mtp::original_block_mtp_weight_ignores_dense_conversion_option_without_requantizing' (4967547) panicked at crates/wh-butter-models/src/qwen35_fp8_mtp_tests.rs:78:9:
+original block MTP projection refused: Some(Msg("qwen35: mtp.layers.0.self_attn.q_proj.weight must be a 2-D F16/BF16/F32 tensor, got u8 [257, 385]"))
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'qwen35::fp8_block_tests::mtp::original_block_mtp_contract_and_complete_sidecar_load_preserve_precision' (4967546) panicked at crates/wh-butter-models/src/qwen35_fp8_mtp_tests.rs:52:5:
+original block MTP contract refused: Err(Msg("qwen35: mtp.layers.0.self_attn.q_proj.weight expected floating-point [260, 129], got u8 [260, 129]"))
+test qwen35::fp8_block_tests::mtp::original_block_mtp_weight_ignores_dense_conversion_option_without_requantizing ... FAILED
+test qwen35::fp8_block_tests::mtp::original_block_mtp_contract_and_complete_sidecar_load_preserve_precision ... FAILED
+test qwen35::fp8_block_tests::mtp::malformed_block_mtp_and_norm_contracts_still_refuse ... ok
+
+failures:
+
+failures:
+    qwen35::fp8_block_tests::mtp::original_block_mtp_contract_and_complete_sidecar_load_preserve_precision
+    qwen35::fp8_block_tests::mtp::original_block_mtp_weight_ignores_dense_conversion_option_without_requantizing
+
+test result: FAILED. 1 passed; 2 failed; 0 ignored; 0 measured; 407 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p wh-butter-models --lib`

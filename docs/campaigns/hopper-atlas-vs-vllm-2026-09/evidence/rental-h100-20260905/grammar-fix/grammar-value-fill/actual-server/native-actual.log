@@ -1,0 +1,13 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.10s
+     Running unittests src/main.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/spark-8a5b8b10b61861ba)
+
+running 1 test
+native compile auto=true ms=87.883
+native auto=true rep=0 masks=123 serial_ms=29128.471 parallel_ms=9111.117 fill_ms_per_token=9.571 tokens=40
+native compile auto=false ms=51.577
+test grammar::tests::native_prewarm::native_qwen_prewarm_exactness_and_cpu_timing has been running for over 60 seconds
+native auto=false rep=0 masks=123 serial_ms=28669.495 parallel_ms=8985.619 fill_ms_per_token=9.433 tokens=40
+test grammar::tests::native_prewarm::native_qwen_prewarm_exactness_and_cpu_timing ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2361 filtered out; finished in 83.50s
+

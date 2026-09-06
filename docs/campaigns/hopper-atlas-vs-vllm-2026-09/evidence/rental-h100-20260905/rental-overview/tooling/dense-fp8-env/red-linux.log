@@ -1,0 +1,20 @@
+Welcome to vast.ai. If authentication fails, try again after a few seconds, and double check your ssh key.
+Have fun!
+test_recorded_diagnostics_are_explicit_and_preserved_in_actual_process_evidence (process_launch_test.ProcessLaunchTests.test_recorded_diagnostics_are_explicit_and_preserved_in_actual_process_evidence) ... FAIL
+
+======================================================================
+FAIL: test_recorded_diagnostics_are_explicit_and_preserved_in_actual_process_evidence (process_launch_test.ProcessLaunchTests.test_recorded_diagnostics_are_explicit_and_preserved_in_actual_process_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/atlas-rental/dense-fp8-env-red/process_launch_test.py", line 110, in test_recorded_diagnostics_are_explicit_and_preserved_in_actual_process_evidence
+    snapshot = self.start("import time; time.sleep(300)", "--env-json", str(env_file))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/atlas-rental/dense-fp8-env-red/process_launch_test.py", line 56, in start
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : {"status": "error", "error": "environment key is not allowed: ATLAS_DENSE_FP8"}
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.677s
+
+FAILED (failures=1)

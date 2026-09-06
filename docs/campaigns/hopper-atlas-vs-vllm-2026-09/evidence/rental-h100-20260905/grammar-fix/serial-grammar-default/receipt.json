@@ -1,0 +1,33 @@
+{
+  "commit": "22cdda741d9d527b2318878639726fc1135d1243",
+  "tree": "75c75ba3319b748a67badc80369239e29ab3caf8",
+  "base": "e68079c7d70035b17f52af3a33ca70a61c2863c5",
+  "changed_files": [
+    "crates/spark-server/src/grammar/engine.rs"
+  ],
+  "local_checks": {
+    "cargo fmt --all -- --check": 0,
+    "typos crates/spark-server/src/grammar/engine.rs": 0,
+    "git diff --check": 0
+  },
+  "reused_checks": {
+    "xgrammar_unit_tests": 826,
+    "reason": "No xgrammar source difference; existing explicit serial/four-worker mask tests passed.",
+    "native_masks_and_rollback": "Previously byte-identical with both worker counts."
+  },
+  "pending": [
+    "Final combined server compile/tests by rental CPU gate owner",
+    "One H100 restored-default measurement by parent"
+  ],
+  "spark1": {
+    "cargo_started": false,
+    "owned_checkout_removed": "/home/pidtom/atlas-serial-default-server-20260905",
+    "free_disk_before": "2.9 GB",
+    "free_disk_after": "2.9 GB",
+    "reason_no_build": "Parent low-disk restriction relayed by CPU gate owner"
+  },
+  "artifacts": {
+    "REPORT.md": "7bad71d0c4739570ce2ff0ddfa3967367df0666a867f7d24820a4a33c40d99fe",
+    "change.patch": "4119d5277d6ac7823bfa3b1a7b3391acf25cc7cf760f1fdc9a61ce893eb7021c"
+  }
+}

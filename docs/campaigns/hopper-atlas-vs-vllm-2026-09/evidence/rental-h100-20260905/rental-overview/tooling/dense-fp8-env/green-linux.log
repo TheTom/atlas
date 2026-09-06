@@ -1,0 +1,29 @@
+Welcome to vast.ai. If authentication fails, try again after a few seconds, and double check your ssh key.
+Have fun!
+test_actual_snapshot_and_environment_are_owned_and_minimal (process_launch_test.ProcessLaunchTests.test_actual_snapshot_and_environment_are_owned_and_minimal) ... ok
+test_conflicting_process_title_environment_refuses (process_launch_test.ProcessLaunchTests.test_conflicting_process_title_environment_refuses) ... ok
+test_duplicate_record_refuses_before_launch (process_launch_test.ProcessLaunchTests.test_duplicate_record_refuses_before_launch) ... ok
+test_failed_launch_and_unknown_environment_refuse (process_launch_test.ProcessLaunchTests.test_failed_launch_and_unknown_environment_refuse) ... ok
+test_foreign_group_member_refuses_before_signalling_any_process (process_launch_test.ProcessLaunchTests.test_foreign_group_member_refuses_before_signalling_any_process) ... ok
+test_immediate_failure_cleans_up_children (process_launch_test.ProcessLaunchTests.test_immediate_failure_cleans_up_children) ... FAIL
+test_leader_environment_permission_and_io_errors_still_refuse (process_launch_test.ProcessLaunchTests.test_leader_environment_permission_and_io_errors_still_refuse) ... ok
+test_leader_exit_between_stat_and_environment_read_is_absent (process_launch_test.ProcessLaunchTests.test_leader_exit_between_stat_and_environment_read_is_absent) ... ok
+test_nul_argv_preserves_empty_arguments (process_launch_test.ProcessLaunchTests.test_nul_argv_preserves_empty_arguments) ... ok
+test_recorded_diagnostics_are_explicit_and_preserved_in_actual_process_evidence (process_launch_test.ProcessLaunchTests.test_recorded_diagnostics_are_explicit_and_preserved_in_actual_process_evidence) ... ok
+test_renamed_child_retains_marker_and_can_be_stopped (process_launch_test.ProcessLaunchTests.test_renamed_child_retains_marker_and_can_be_stopped) ... skipped 'requires the optional real setproctitle package'
+test_signal_during_start_cannot_orphan_the_new_session (process_launch_test.ProcessLaunchTests.test_signal_during_start_cannot_orphan_the_new_session) ... ok
+test_stale_pid_and_foreign_token_refuse_without_signalling (process_launch_test.ProcessLaunchTests.test_stale_pid_and_foreign_token_refuse_without_signalling) ... ok
+test_stop_reaps_owned_group_children_even_when_they_ignore_term (process_launch_test.ProcessLaunchTests.test_stop_reaps_owned_group_children_even_when_they_ignore_term) ... ok
+
+======================================================================
+FAIL: test_immediate_failure_cleans_up_children (process_launch_test.ProcessLaunchTests.test_immediate_failure_cleans_up_children)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/atlas-rental/dense-fp8-env-green/process_launch_test.py", line 245, in test_immediate_failure_cleans_up_children
+    self.assertIn("server exited during launch: 7", failed.stderr)
+AssertionError: 'server exited during launch: 7' not found in '{"status": "error", "error": "process command line is missing its NUL terminator"}\n'
+
+----------------------------------------------------------------------
+Ran 14 tests in 4.906s
+
+FAILED (failures=1, skipped=1)

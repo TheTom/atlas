@@ -1,0 +1,469 @@
+    Checking wh-butter-models v0.1.0 (/Users/tom/Documents/New project/butter-qwen38-block-fp8/rust/crates/wh-butter-models)
+ Documenting wh-butter-models v0.1.0 (/Users/tom/Documents/New project/butter-qwen38-block-fp8/rust/crates/wh-butter-models)
+warning: unused import: `silu`
+ --> crates/wh-butter-models/src/dsv4/reference/ops.rs:6:22
+  |
+6 | use super::{sigmoid, silu, softplus};
+  |                      ^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: ambiguous glob re-exports
+  --> crates/wh-butter-models/src/dsv4/reference/mod.rs:43:9
+   |
+43 | pub use q8::*;
+   |         ^^^^^ the name `Q8_0_BLOCK` in the value namespace is first re-exported here
+44 | pub use q8k::*;
+45 | pub use qat::*;
+   |         ------ but the name `Q8_0_BLOCK` in the value namespace is also re-exported here
+   |
+   = note: `#[warn(ambiguous_glob_reexports)]` on by default
+
+warning: ambiguous glob re-exports
+  --> crates/wh-butter-models/src/dsv4/reference/mod.rs:44:9
+   |
+44 | pub use q8k::*;
+   |         ^^^^^^ the name `Q8_K_BLOCK` in the value namespace is first re-exported here
+45 | pub use qat::*;
+   |         ------ but the name `Q8_K_BLOCK` in the value namespace is also re-exported here
+
+warning: unused variable: `act_q8_0_on`
+    --> crates/wh-butter-models/src/dsv4/model.rs:5124:13
+     |
+5124 |         let act_q8_0_on = self.cfg.numerics.act_q8_0;
+     |             ^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_act_q8_0_on`
+     |
+     = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+   --> crates/wh-butter-models/src/dsv4/tp_model.rs:293:17
+    |
+293 |             let mut stack = |name: &str| -> Result<Mxfp4ExpertWeight> {
+    |                 ----^^^^^
+    |                 |
+    |                 help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+    --> crates/wh-butter-models/src/qwen4_exp.rs:2337:5
+     |
+2337 |     mut staging: &mut ExpertStaging,
+     |     ----^^^^^^^
+     |     |
+     |     help: remove this `mut`
+
+warning: methods `gemv` and `gemv_accum` are never used
+   --> crates/wh-butter-models/src/laguna.rs:407:8
+    |
+383 | impl Q4ExpertStack {
+    | ------------------ methods in this implementation
+...
+407 |     fn gemv(&self, dev: &dyn Device, e: usize, x: &Tensor) -> Result<Tensor> {
+    |        ^^^^
+...
+411 |     fn gemv_accum(&self, dev: &dyn Device, e: usize, x: &Tensor, acc: &Tensor, scale: &Tensor) -> Result<()> {
+    |        ^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `validate_qwen35_tp_in_place_reduction` is never used
+   --> crates/wh-butter-models/src/qwen35_parallel.rs:674:15
+    |
+674 | pub(crate) fn validate_qwen35_tp_in_place_reduction(
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: `wh-butter-models` (lib) generated 8 warnings (run `cargo fix --lib -p wh-butter-models` to apply 4 suggestions)
+warning: `reference` is both a module and a primitive type
+  --> crates/wh-butter-models/src/dsv4/mod.rs:12:22
+   |
+12 | //! * [`config`] + [`reference`] — a backend-neutral `Dsv4Config` decoded from
+   |                      ^^^^^^^^^ ambiguous link
+   |
+   = note: `#[warn(rustdoc::broken_intra_doc_links)]` on by default
+help: to link to the module, prefix with `mod@`
+   |
+12 | //! * [`config`] + [`mod@reference`] — a backend-neutral `Dsv4Config` decoded from
+   |                      ++++
+help: to link to the primitive type, prefix with `prim@`
+   |
+12 | //! * [`config`] + [`prim@reference`] — a backend-neutral `Dsv4Config` decoded from
+   |                      +++++
+
+warning: public documentation for `model` links to private item `Dsv4Model::hc_pre`
+  --> crates/wh-butter-models/src/dsv4/model.rs:30:36
+   |
+30 | //! both RMS-normalize it first. [`Dsv4Model::hc_pre`] normalizes, matching
+   |                                    ^^^^^^^^^^^^^^^^^ this item is private
+   |
+   = note: this link will resolve properly if you pass `--document-private-items`
+   = note: `#[warn(rustdoc::private_intra_doc_links)]` on by default
+
+warning: public documentation for `Dsv4LayerProbe` links to private item `Dsv4Model::step`
+   --> crates/wh-butter-models/src/dsv4/model.rs:440:45
+    |
+440 | /// Field order matches the walk order in [`Dsv4Model::step`]'s per-layer
+    |                                             ^^^^^^^^^^^^^^^ this item is private
+    |
+    = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `attn_sub` links to private item `Dsv4Model::mla_project`
+   --> crates/wh-butter-models/src/dsv4/model.rs:457:17
+    |
+457 |     /// order [`Dsv4Model::mla_project`] / [`Dsv4Model::attention`] /
+    |                 ^^^^^^^^^^^^^^^^^^^^^^ this item is private
+    |
+    = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `attn_sub` links to private item `Dsv4Model::attention`
+   --> crates/wh-butter-models/src/dsv4/model.rs:457:46
+    |
+457 |     /// order [`Dsv4Model::mla_project`] / [`Dsv4Model::attention`] /
+    |                                              ^^^^^^^^^^^^^^^^^^^^ this item is private
+    |
+    = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `attn_sub` links to private item `Dsv4Model::grouped_output`
+   --> crates/wh-butter-models/src/dsv4/model.rs:458:11
+    |
+458 |     /// [`Dsv4Model::grouped_output`] compute them.
+    |           ^^^^^^^^^^^^^^^^^^^^^^^^^ this item is private
+    |
+    = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: unresolved link to `Dsv4Model::take_sync_audit`
+   --> crates/wh-butter-models/src/dsv4/model.rs:750:7
+    |
+750 | /// [`Dsv4Model::take_sync_audit`] to sample one token in isolation.
+    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^ the struct `Dsv4Model` has no field or associated item named `take_sync_audit`
+
+warning: public documentation for `position_args_are_buffer_driven` links to private item `Self::note_position_arg`
+    --> crates/wh-butter-models/src/dsv4/model.rs:1690:28
+     |
+1690 |     /// from a constant: [`Self::note_position_arg`] counts every
+     |                            ^^^^^^^^^^^^^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `position_args_are_buffer_driven` links to private item `Self::decode_state`
+    --> crates/wh-butter-models/src/dsv4/model.rs:1692:27
+     |
+1692 |     /// its scalar from [`Self::decode_state`] or took it by value. A step
+     |                           ^^^^^^^^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `prepare_decode_state` links to private item `Self::step_row_device`
+    --> crates/wh-butter-models/src/dsv4/model.rs:2965:39
+     |
+2965 |     /// path calls it at the top of [`Self::step_row_device`], and the graph
+     |                                       ^^^^^^^^^^^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `assert_csa_union_wrap_matches_oracle` links to private item `csa_union_cpu_oracle`
+    --> crates/wh-butter-models/src/dsv4/model_tests.rs:3904:15
+     |
+3904 | /// against [`csa_union_cpu_oracle`], at `tol = 0` (pure index arithmetic).
+     |               ^^^^^^^^^^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `prepare_one_layer_at` links to private item `Dsv4Model::debug_prepare_one_layer`
+    --> crates/wh-butter-models/src/dsv4/model_tests.rs:4074:12
+     |
+4074 | /// call [`Dsv4Model::debug_prepare_one_layer`] for exactly one layer at
+     |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `prefill` links to private item `Dsv4Model::attn_publish`
+  --> crates/wh-butter-models/src/dsv4/prefill.rs:38:20
+   |
+38 | //!   placement. [`Dsv4Model::attn_publish`] (which calls
+   |                    ^^^^^^^^^^^^^^^^^^^^^^^ this item is private
+   |
+   = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `prefill` links to private item `Dsv4Model::compress`
+  --> crates/wh-butter-models/src/dsv4/prefill.rs:39:9
+   |
+39 | //!   [`Dsv4Model::compress`]) is reused unchanged, one call per row, in
+   |         ^^^^^^^^^^^^^^^^^^^ this item is private
+   |
+   = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `prefill` links to private item `Dsv4Model::attn_publish`
+  --> crates/wh-butter-models/src/dsv4/prefill.rs:41:46
+   |
+41 | //! * Every cache-plane write goes through [`Dsv4Model::attn_publish`] for
+   |                                              ^^^^^^^^^^^^^^^^^^^^^^^ this item is private
+   |
+   = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `prefill` links to private item `Dsv4Model::attn_gather`
+  --> crates/wh-butter-models/src/dsv4/prefill.rs:44:10
+   |
+44 | //!   ([`Dsv4Model::attn_gather`], which includes the Lightning indexer's
+   |          ^^^^^^^^^^^^^^^^^^^^^^ this item is private
+   |
+   = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: unresolved link to `Self::rope_rows`
+  --> crates/wh-butter-models/src/dsv4/prefill.rs:50:32
+   |
+50 | //!   (`dispatch_raw_cuda`). [`Self::rope_rows`] applies the existing
+   |                                ^^^^^^^^^^^^^^^ no item named `rope_rows` in module `prefill`
+
+warning: public documentation for `prefill` links to private item `batched_act_q8_0`
+  --> crates/wh-butter-models/src/dsv4/prefill.rs:70:7
+   |
+70 | //! [`batched_act_q8_0`] / [`batched_act_q8_k`] check this explicitly and
+   |       ^^^^^^^^^^^^^^^^ this item is private
+   |
+   = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `prefill` links to private item `batched_act_q8_k`
+  --> crates/wh-butter-models/src/dsv4/prefill.rs:70:30
+   |
+70 | //! [`batched_act_q8_0`] / [`batched_act_q8_k`] check this explicitly and
+   |                              ^^^^^^^^^^^^^^^^ this item is private
+   |
+   = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: unresolved link to `Self::prefill`
+  --> crates/wh-butter-models/src/dsv4/prefill.rs:77:7
+   |
+77 | //! [`Self::prefill`] returns one `[vocab_size]` row. Every position's state
+   |       ^^^^^^^^^^^^^ no item named `prefill` in module `prefill`
+
+warning: public documentation for `prefill` links to private item `Dsv4Model::output_head`
+  --> crates/wh-butter-models/src/dsv4/prefill.rs:79:36
+   |
+79 | //! earlier rows published), but [`Dsv4Model::output_head`] — the LM head
+   |                                    ^^^^^^^^^^^^^^^^^^^^^^ this item is private
+   |
+   = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: unresolved link to `CompressorQat::None`
+   --> crates/wh-butter-models/src/dsv4/reference/attention.rs:130:50
+    |
+130 | /// dispatches on the emitted `head_dim`. Pass [`CompressorQat::None`] to skip
+    |                                                  ^^^^^^^^^^^^^^^^^^^ no item named `CompressorQat` in scope
+
+warning: public documentation for `ref_sink_sdpa_online` links to private item `sink_score_dot`
+   --> crates/wh-butter-models/src/dsv4/reference/attention.rs:612:44
+    |
+612 | ///    `l·16 .. l·16+16`. Handled inside [`sink_score_dot`].
+    |                                            ^^^^^^^^^^^^^^ this item is private
+    |
+    = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `ref_sink_sdpa_online` links to private item `sink_score_dot`
+   --> crates/wh-butter-models/src/dsv4/reference/attention.rs:619:13
+    |
+619 | ///    in [`sink_score_dot`]; naming a builtin here is what made Metal and CUDA
+    |             ^^^^^^^^^^^^^^ this item is private
+    |
+    = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: unresolved link to `assert_shard_paths_agree`
+   --> crates/wh-butter-models/src/dsv4/tp_attention.rs:353:7
+    |
+353 | /// [`assert_shard_paths_agree`] holds it.
+    |       ^^^^^^^^^^^^^^^^^^^^^^^^ no item named `assert_shard_paths_agree` in scope
+    |
+    = help: to escape `[` and `]` characters, add '\' before them like `\[` or `\]`
+
+warning: unresolved link to `Dsv4TpReduceSite::MoeDown`
+  --> crates/wh-butter-models/src/dsv4/tp_moe.rs:11:36
+   |
+11 | //! layer's *second* all-reduce, [`Dsv4TpReduceSite::MoeDown`]. The mHC combine
+   |                                    ^^^^^^^^^^^^^^^^^^^^^^^^^ no item named `Dsv4TpReduceSite` in scope
+
+warning: public documentation for `gemma4` links to private item `crate::qwen35::load_q4dense`
+ --> crates/wh-butter-models/src/gemma4.rs:5:44
+  |
+5 | //! no PLE, no MoE. Weights load through [`crate::qwen35::load_q4dense`]
+  |                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^ this item is private
+  |
+  = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `CacheCtx` links to private item `FORMAT_VERSION`
+   --> crates/wh-butter-models/src/laguna.rs:139:7
+    |
+139 | /// [`FORMAT_VERSION`], the source GGUF's identity (size + mtime), and every
+    |       ^^^^^^^^^^^^^^ this item is private
+    |
+    = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `from_gguf` links to private item `Self::defaults`
+   --> crates/wh-butter-models/src/laguna.rs:612:58
+    |
+612 |     /// Read `laguna.*` GGUF metadata, falling back to [`Self::defaults`] for
+    |                                                          ^^^^^^^^^^^^^^ this item is private
+    |
+    = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: unresolved link to `open`
+   --> crates/wh-butter-models/src/llama.rs:881:43
+    |
+881 |     /// DRAM. Same geometry/KV-cache as [`open`]; backend-agnostic.
+    |                                           ^^^^ no item named `open` in scope
+    |
+    = help: to escape `[` and `]` characters, add '\' before them like `\[` or `\]`
+
+warning: unresolved link to `step`
+    --> crates/wh-butter-models/src/llama.rs:1072:21
+     |
+1072 |     /// per-token [`step`]: instead of `S` sequential `step()` calls (each doing
+     |                     ^^^^ no item named `step` in scope
+     |
+     = help: to escape `[` and `]` characters, add '\' before them like `\[` or `\]`
+
+warning: public documentation for `prefill` links to private item `default_prefill_chunks`
+    --> crates/wh-butter-models/src/qwen35.rs:5380:26
+     |
+5380 | /// `chunk == 0` picks [`default_prefill_chunks`]. Mirrors
+     |                          ^^^^^^^^^^^^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `MTP_PATCH_FILE` links to private item `MTP_MIXER_PREFIX`
+    --> crates/wh-butter-models/src/qwen4_exp.rs:2539:23
+     |
+2539 | /// Sidecar holding [`MTP_MIXER_PREFIX`].
+     |                       ^^^^^^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `Qwen4MtpCache` links to private item `CacheSlot::Full`
+    --> crates/wh-butter-models/src/qwen4_exp.rs:5456:7
+     |
+5456 | /// [`CacheSlot::Full`] — its own KV and its own QSA indexer state, at the same
+     |       ^^^^^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `Qwen4ExpVerifyTransaction` links to private item `full_forward_rows`
+    --> crates/wh-butter-models/src/qwen4_exp.rs:5883:37
+     |
+5883 | ///   i.e. a genuine accumulator. [`full_forward_rows`] keeps one snapshot per
+     |                                     ^^^^^^^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `Qwen4ExpVerifyTransaction` links to private item `MTP_MAX_VERIFY_ROWS`
+    --> crates/wh-butter-models/src/qwen4_exp.rs:5900:35
+     |
+5900 | ///   which is why `rows <= 9` ([`MTP_MAX_VERIFY_ROWS`]).
+     |                                   ^^^^^^^^^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `indexer_live` links to private item `full_forward`
+    --> crates/wh-butter-models/src/qwen4_exp.rs:6707:29
+     |
+6707 |     /// budget, i.e. when [`full_forward`] / [`full_forward_rows`] take their
+     |                             ^^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `indexer_live` links to private item `full_forward_rows`
+    --> crates/wh-butter-models/src/qwen4_exp.rs:6707:48
+     |
+6707 |     /// budget, i.e. when [`full_forward`] / [`full_forward_rows`] take their
+     |                                                ^^^^^^^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `Qwen4MtpVerifyCtx` links to private item `Qwen4MtpVerifyWorkspace::residual`
+    --> crates/wh-butter-models/src/qwen4_exp.rs:6956:31
+     |
+6956 | ///   Computed eagerly into [`Qwen4MtpVerifyWorkspace::residual`].
+     |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `Qwen4MtpVerifyCtx` links to private item `PleRollback`
+    --> crates/wh-butter-models/src/qwen4_exp.rs:6959:29
+     |
+6959 | ///   `update` (after the [`PleRollback`] snapshot) into
+     |                             ^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `Qwen4MtpVerifyCtx` links to private item `ple_forward_many_from_embeddings`
+    --> crates/wh-butter-models/src/qwen4_exp.rs:6960:36
+     |
+6960 | ///   `ple_embeddings`, and only [`ple_forward_many_from_embeddings`] is
+     |                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `Qwen4MtpVerifyCtx` links to private item `gdn_forward_rows`
+    --> crates/wh-butter-models/src/qwen4_exp.rs:6964:54
+     |
+6964 | ///   existing buffer instead of replacing it (see [`gdn_forward_rows`] and
+     |                                                      ^^^^^^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `Qwen4MtpVerifyCtx` links to private item `window_sdpa_batched`
+    --> crates/wh-butter-models/src/qwen4_exp.rs:6969:46
+     |
+6969 | ///   against device-resident lengths (see [`window_sdpa_batched`]). Positions
+     |                                              ^^^^^^^^^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `Qwen4MtpVerifyCtx` links to private item `VerifyRowBuffers`
+    --> crates/wh-butter-models/src/qwen4_exp.rs:6970:19
+     |
+6970 | ///   come from [`VerifyRowBuffers`].
+     |                   ^^^^^^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `new` links to private item `MTP_MAX_VERIFY_ROWS`
+    --> crates/wh-butter-models/src/qwen4_exp.rs:7163:11
+     |
+7163 |     /// [`MTP_MAX_VERIFY_ROWS`].
+     |           ^^^^^^^^^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `mtp_confidence_threshold` links to private item `mtp_draft_step_confidence`
+    --> crates/wh-butter-models/src/qwen4_exp.rs:7468:55
+     |
+7468 | /// `BUTTER_QWEN4_MTP_CONF` — dynamic draft length. [`mtp_draft_step_confidence`]
+     |                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^ this item is private
+     |
+     = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: public documentation for `unicode_class` links to private item `CLASS_RANGES`
+  --> crates/wh-butter-models/src/unicode_class.rs:17:7
+   |
+17 | //! [`CLASS_RANGES`] is **generated**, not hand-written. Regenerate with:
+   |       ^^^^^^^^^^^^ this item is private
+   |
+   = note: this link will resolve properly if you pass `--document-private-items`
+
+warning: `preprocess` is both a function and a module
+  --> crates/wh-butter-models/src/dsv4/vision/mod.rs:37:9
+   |
+37 | //! | [`preprocess`] | 1 | resize planning, letterbox canvas, bicubic resample, patchify |
+   |         ^^^^^^^^^^ ambiguous link
+   |
+help: to link to the function, add parentheses
+   |
+37 | //! | [`preprocess()`] | 1 | resize planning, letterbox canvas, bicubic resample, patchify |
+   |                   ++
+help: to link to the module, prefix with `mod@`
+   |
+37 | //! | [`mod@preprocess`] | 1 | resize planning, letterbox canvas, bicubic resample, patchify |
+   |         ++++
+
+warning: `wh-butter-models` (lib doc) generated 48 warnings
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.11s
+   Generated /Users/tom/Documents/New project/butter-iron-h100-prep/cpu-protocol-target/doc/wh_butter_models/index.html and 1 other file

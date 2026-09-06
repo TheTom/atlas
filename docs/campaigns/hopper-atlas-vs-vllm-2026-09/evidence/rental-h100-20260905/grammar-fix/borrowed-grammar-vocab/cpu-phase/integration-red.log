@@ -1,0 +1,25 @@
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded stats_alloc v0.1.10
+   Compiling stats_alloc v0.1.10
+   Compiling xgrammar v1.0.0-beta-preview (/home/pidtom/atlas-cold-phase-Dn4z2OEX)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.66s
+     Running tests/vocabulary_allocations.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/vocabulary_allocations-8f284a83bebb49b6)
+
+running 1 test
+irrelevant=4096 states=3 allocations=12356
+irrelevant=8192 states=3 allocations=24644
+
+thread 'irrelevant_vocabulary_does_not_allocate_per_token_during_mask_preparation' (1334948) panicked at tests/vocabulary_allocations.rs:48:5:
+cold mask preparation allocated buffers for irrelevant vocabulary: 12356 -> 24644
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test irrelevant_vocabulary_does_not_allocate_per_token_during_mask_preparation ... FAILED
+
+failures:
+
+failures:
+    irrelevant_vocabulary_does_not_allocate_per_token_during_mask_preparation
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+error: test failed, to rerun pass `--test vocabulary_allocations`

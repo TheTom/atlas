@@ -1,0 +1,15 @@
+{
+  "command": [
+    "python3",
+    "bench/campaign/vllm_render.py",
+    "--recipes",
+    "bench/campaign/vllm_recipes.json",
+    "--selftest"
+  ],
+  "cwd": "/Users/tom/Documents/New project/atlas-qwen38-atlas-capacity4",
+  "exit_code": 0,
+  "seconds": 0.059378166999522364,
+  "stdout": "vllm_control selftest: 258/258 checks passed over 31 rendered entries\n",
+  "stderr": "",
+  "catalog_sha256": "38af832879e29a8a91256105a70af4184c3e58fd9c21f374695225b8aa76d208"
+}

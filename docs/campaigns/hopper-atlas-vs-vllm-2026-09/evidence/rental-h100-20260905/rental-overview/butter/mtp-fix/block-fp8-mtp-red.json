@@ -1,0 +1,14 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "-p",
+    "wh-butter-models",
+    "fp8_block_tests::mtp",
+    "--",
+    "--nocapture"
+  ],
+  "exit": 101,
+  "oracle": "Original MTP block projection validates and loads without requantization; malformed inputs still refuse."
+}

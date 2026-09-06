@@ -1,0 +1,117 @@
+[
+  {
+    "path": "audit/Python-interpreter-misused-as-binary.cli.json",
+    "bytes": 741,
+    "sha256": "87d03be20a7e17646759727186b099f75a9c4211d3b2e0e09a709646288a7096"
+  },
+  {
+    "path": "audit/Python-interpreter-misused-as-binary.fixture.json",
+    "bytes": 4020,
+    "sha256": "5a8aa9efb9f39635f7e5afbb8358821b228f0d7632d0570c7de39c9a80589aa9"
+  },
+  {
+    "path": "audit/Python-interpreter-misused-as-binary.json",
+    "bytes": 4851,
+    "sha256": "01032b38285ea0ab045527dbfa67f32860100c0a5c9f69904c8c0c79c4423d07"
+  },
+  {
+    "path": "audit/REPORT.md",
+    "bytes": 6449,
+    "sha256": "ebd1f24f7c0e77e87f9f857bb0b39e104f495041dfd73f0d228a512a09d4df4f"
+  },
+  {
+    "path": "audit/capture-console-refusal.json",
+    "bytes": 1011,
+    "sha256": "888d095ae4a77f0642a145c67c9a8282b87439e1eaa146c7cc5be7b8685089a9"
+  },
+  {
+    "path": "audit/capture-python-refusal.json",
+    "bytes": 994,
+    "sha256": "b308f16a0331d25fbb483c74b77be0611089e880ee3f9fd325b491930fe2a000"
+  },
+  {
+    "path": "audit/console-script-misused-as-binary.cli.json",
+    "bytes": 733,
+    "sha256": "263517d04df149e5d08afaaeca8ca322bc6e98102593a8a6e73528250f5742a7"
+  },
+  {
+    "path": "audit/console-script-misused-as-binary.fixture.json",
+    "bytes": 4020,
+    "sha256": "c31630280ec1576103d9cd6ce8daad3ed37254b19abd703821c246c100e4dc04"
+  },
+  {
+    "path": "audit/console-script-misused-as-binary.json",
+    "bytes": 4895,
+    "sha256": "218537929f683ec1762a2b3bf6d9c028adc2f0a59d1d1505b1632795950e8388"
+  },
+  {
+    "path": "audit/counterexamples.json",
+    "bytes": 1670,
+    "sha256": "9f9483ee16fb95950f3e48c31634e24a840ca1446dbec59d42ec79be6559dfe5"
+  },
+  {
+    "path": "audit/declared-git-only.cli.json",
+    "bytes": 940,
+    "sha256": "51fd65c972a22a5fcc9acfb5d78936a7e52daaa90b9ba44f9e07238f353a33f0"
+  },
+  {
+    "path": "audit/declared-git-only.fixture.json",
+    "bytes": 3958,
+    "sha256": "4526bbf825c0ee8acc59cb880606bf2793a95363d78ba55de04ae8d4c24b2c16"
+  },
+  {
+    "path": "audit/declared-git-only.json",
+    "bytes": 4936,
+    "sha256": "d3dd554df7d48a2aa065240dc48de22cc1bd0479ab8f34fdf4ede2d025466048"
+  },
+  {
+    "path": "audit/installed-metadata.json",
+    "bytes": 38632,
+    "sha256": "49abc6426d909469a8e7d04907dd71adf8068322580a1ca1782b0ac350f5786c"
+  },
+  {
+    "path": "audit/installed-read.json",
+    "bytes": 44564,
+    "sha256": "d8fe088af46ce2a05976a3bc4b73082e784d78b727e194d9415e98dfee948fe8"
+  },
+  {
+    "path": "audit/source-hashes.json",
+    "bytes": 768,
+    "sha256": "c945c84993a232ba68846492a031d74930d42012635f900b53b1184b77100a1e"
+  },
+  {
+    "path": "audit/version-file-misused-as-binary.cli.json",
+    "bytes": 730,
+    "sha256": "6417b0a7f2a58d8610401aead878f7c055d9efd8238a4022548db438beb84150"
+  },
+  {
+    "path": "audit/version-file-misused-as-binary.fixture.json",
+    "bytes": 4020,
+    "sha256": "6dc27afdc4d3b56876bc94a5764b3cd149900ff41ce07f2a1f4486ab86b70d25"
+  },
+  {
+    "path": "audit/version-file-misused-as-binary.json",
+    "bytes": 4893,
+    "sha256": "1102eb3f1b4feb0fb48cff5613205971194752ad16ecdee951eceaddd9730748"
+  },
+  {
+    "path": "installed-metadata/README.md",
+    "bytes": 499,
+    "sha256": "7b03cdcdd36470516d136f7b4c2e5f98d795a63de821d56aa89340c90f49d89d"
+  },
+  {
+    "path": "installed-metadata/distribution-versions.json",
+    "bytes": 11943,
+    "sha256": "f4f6e15bb04b3fbf9940b20516b067c6051be8fd97e6f9c92f0c1ad647aba410"
+  },
+  {
+    "path": "installed-metadata/distribution-versions.txt",
+    "bytes": 4100,
+    "sha256": "484d18f6809768be83d939d512b45a1eb1a4c24610a49793518bc4d9fcd78e73"
+  },
+  {
+    "path": "installed-metadata/version-and-record-receipt.json",
+    "bytes": 3715,
+    "sha256": "5beceb847aa8ace668b0a81ad4148ec93decc9691d342d43419ef440050ff6de"
+  }
+]

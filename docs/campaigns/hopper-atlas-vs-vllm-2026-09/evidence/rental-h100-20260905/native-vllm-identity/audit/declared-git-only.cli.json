@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python3",
+    "/Users/tom/Documents/New project/atlas-qwen38-atlas-capacity4/bench/campaign/validate_artifact.py",
+    "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/vllm-process-engine-identity/declared-git-only.fixture.json"
+  ],
+  "exit_code": 1,
+  "stdout": "$.engine_version.image_digest: a CERTIFIED cell identifies the engine that produced it -- image_digest (container) or binary_sha256 (local binary) must be non-null; a harness checkout SHA is not the engine's identity\nINVALID: /Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/vllm-process-engine-identity/declared-git-only.fixture.json (1 violation(s))\n",
+  "stderr": "",
+  "seconds": 0.03832329199940432,
+  "fixture_sha256": "4526bbf825c0ee8acc59cb880606bf2793a95363d78ba55de04ae8d4c24b2c16",
+  "fixture_is_measurement": false,
+  "provenance_valid": false
+}

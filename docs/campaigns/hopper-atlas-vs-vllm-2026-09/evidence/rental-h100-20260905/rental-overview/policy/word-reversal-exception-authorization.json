@@ -1,0 +1,6 @@
+{
+  "authorized_utc": "2026-09-05T23:29:16.806363+00:00",
+  "source": "user: if Atlas and vLLM both fail the same test but everything else looks coherent, continue testing unless more coherence problems",
+  "allowed_exception": "word reversal only; preserve raw gatefalse",
+  "other_gates_required": true
+}

@@ -1,0 +1,30 @@
+   Compiling syn v2.0.117
+   Compiling serde_json v1.0.151
+   Compiling either v1.15.0
+   Compiling regex-syntax v0.8.10
+   Compiling num-traits v0.2.19
+   Compiling clap_builder v4.6.6
+   Compiling ahash v0.8.12
+   Compiling dashmap v6.2.1
+   Compiling itertools v0.13.0
+   Compiling rayon v1.12.0
+   Compiling plotters v0.3.7
+   Compiling regex-automata v0.4.14
+   Compiling tinytemplate v1.2.1
+   Compiling criterion-plot v0.8.2
+   Compiling clap v4.6.6
+   Compiling regex v1.12.3
+   Compiling zerocopy-derive v0.8.39
+   Compiling zerocopy v0.8.39
+   Compiling half v2.7.1
+   Compiling ciborium-ll v0.2.2
+   Compiling ciborium v0.2.2
+   Compiling criterion v0.8.2
+   Compiling xgrammar v1.0.0-beta-preview (/home/pidtom/atlas-grammar-prewarm-20260905/crates/xgrammar)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.35s
+     Running unittests src/lib.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/xgrammar-d605f66052f45b03)
+
+thread 'compiler::prewarm::tests::bounded_workers_overlap_and_complete_each_job_once' (1236124) panicked at crates/xgrammar/src/compiler/prewarm.rs:39:9:
+selected masks are still computed serially
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `-p xgrammar --lib`

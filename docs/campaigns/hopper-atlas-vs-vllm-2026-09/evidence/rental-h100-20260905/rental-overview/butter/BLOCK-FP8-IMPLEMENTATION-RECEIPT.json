@@ -1,0 +1,160 @@
+{
+  "source_commit": "b2029a45dc625c482557a19ea8384c58319fdf66",
+  "source_tree": "6603dd1a9d7b4f8175c6d42bdf5e5305b4854cb1",
+  "base": "f6d81647bc93ce5c361eba7daf8954ab207a6360",
+  "iron_revision_unchanged": "a4c897ba2e89db49df82b9d2f2691642d8f8b697",
+  "cargo_lock_sha256": "867adaf5442d1ac679b9b5d0537f7ab4df097a66fdfe832f01389335864f38df",
+  "scope": "Original E4M3FN block128 checkpoint bytes; exact BF16-to-F32 block multipliers; CUDA W8A32/F32 accumulation correctness baseline, no weight or activation requantization. Mixed BF16 tensors retained.",
+  "red_oracles": {
+    "production_loader": {
+      "exit": 101,
+      "observed": "safetensors: tensor probe.weight_scale not found on original F8_E4M3/BF16 block fixture257x385"
+    },
+    "production_ops_stub": {
+      "exit": 101,
+      "observed": "positive native projection dispatch fixture fails on unimplemented production op; existing invalid-input refusal remains green"
+    }
+  },
+  "cpu_checks": {
+    "initial_model_loader": {
+      "passed": 7,
+      "failed": 0
+    },
+    "final_model_with_config_contract_test": {
+      "passed": 8,
+      "failed": 0
+    },
+    "ops_module": {
+      "passed": 3,
+      "failed": 0
+    },
+    "full_loader_models_ops": {
+      "exit": 0,
+      "loader": {
+        "passed": 91,
+        "ignored": 12
+      },
+      "models_before_test_only_config_addition": {
+        "passed": 403,
+        "ignored": 3
+      },
+      "ops": {
+        "passed": 51,
+        "ignored": 0
+      },
+      "model_doctest": {
+        "passed": 1
+      },
+      "reuse": "Final config-contract test added after broad sweep; final model target rebuilt and8focusedtests passed. No production change after full CPU sweep."
+    },
+    "cargo_doc_three_packages": {
+      "exit": 0,
+      "warnings": "existing unused/ambiguous-export warnings retained, not a deny-warnings claim"
+    },
+    "new_rust_files_rustfmt": 0,
+    "typos_new_files_and_prose": 0,
+    "git_diff_check": 0
+  },
+  "gpu_checks": {
+    "status": "PENDING exclusive parent lease",
+    "committed_ignored_tests": 3,
+    "fixtures": "block-fp8-oracle/fixtures",
+    "no_gpu_executed_by_author": true
+  },
+  "review": "Independent source/config/mixed-precision review reported no blocking finding. Source_dtype disambiguates E5M2. Existing Iron floor-stride block-dequant not reused for tails.",
+  "deployment_pending": "Product catalog does not accept arbitrary snapshot path; separate developer-cli-only serve-local is owned by runtime agent on top of this commit. GPU numerical validation and original-checkpoint boot/coherency remain mandatory.",
+  "files": [
+    {
+      "path": "documentation/developing/qwen-block-fp8.md",
+      "sha256": "8e6d2b4295fa3407174ae31a03a3eb8c27ce16f368ce7a060add104bb0e9d7aa",
+      "bytes": 2253
+    },
+    {
+      "path": "rust/crates/backends/wh-butter-cuda/tests/block_fp8_linear.rs",
+      "sha256": "9e3b14ceea82787dbce070147d28ead9836bbb969ff5efb60a1dfe0224feab18",
+      "bytes": 7042
+    },
+    {
+      "path": "rust/crates/wh-butter-loader/src/lib.rs",
+      "sha256": "d152675acd0c96594d75fcbd178a7f269ecdfa561a8ae33c9135bdbb7f197067",
+      "bytes": 31515
+    },
+    {
+      "path": "rust/crates/wh-butter-models/src/qwen35.rs",
+      "sha256": "9a3320f9699e3d1d83780a056028ed1a141c359fb326b674933956cf47f8de92",
+      "bytes": 329980
+    },
+    {
+      "path": "rust/crates/wh-butter-models/src/qwen35_fp8_block.rs",
+      "sha256": "62db719625e1cc7c69ddd0cd4cf5bd35e8c22110c3dc1e83a0a9d5791e01fcdd",
+      "bytes": 4775
+    },
+    {
+      "path": "rust/crates/wh-butter-models/src/qwen35_fp8_block_tests.rs",
+      "sha256": "c8b0a38cb69e4f41b0a66d60599a513dd66bd83f48ac5d808989fb6139a342c2",
+      "bytes": 11778
+    },
+    {
+      "path": "rust/crates/wh-butter-ops/src/block_fp8.cu",
+      "sha256": "48401128b22af8ef65262741dd0f94eac1378a9d1bb74759880bdb25d7fa9d5a",
+      "bytes": 2492
+    },
+    {
+      "path": "rust/crates/wh-butter-ops/src/block_fp8.rs",
+      "sha256": "297f2870ce7a4b8777b739fbd344aac9d2e4021502cfcfeb34d27adf4754ff8b",
+      "bytes": 8807
+    },
+    {
+      "path": "rust/crates/wh-butter-ops/src/lib.rs",
+      "sha256": "0dab8ff78c5877dba26df72c1259b0cb6662996cc5e9cf57c295889117215741",
+      "bytes": 1142390
+    }
+  ],
+  "logs": [
+    {
+      "path": "block-fp8-loader-red.log",
+      "bytes": 5934,
+      "sha256": "579769dbc87725b03ef84ee5590b03b9c4538b7ddd157b7ad23c9161518dceff"
+    },
+    {
+      "path": "block-fp8-loader-green.log",
+      "bytes": 4621,
+      "sha256": "170365344f7dd77ec1478da1047e0a0220e42472d2e54a9442577dafcbfa5976"
+    },
+    {
+      "path": "block-fp8-model-tests.log",
+      "bytes": 4487,
+      "sha256": "5ed19777bece3ed79925cf4092bf2c0f744c0ed83a81bb619370b205da2f3421"
+    },
+    {
+      "path": "block-fp8-model-final.log",
+      "bytes": 4472,
+      "sha256": "ad7c5986c9668235898f88fec2af9b970b7795ec979894fa9bd19fca3eac57aa"
+    },
+    {
+      "path": "block-fp8-cpu-suite.log",
+      "bytes": 51490,
+      "sha256": "553a093c9b1e34c3d607a81e5ae96d17838ca15c39b232e57c3b1deec0e8f296"
+    },
+    {
+      "path": "block-fp8-rustdoc.log",
+      "bytes": 36958,
+      "sha256": "40a211b47054c27d21c9614d147a475871ee7e60220e7e2cccaa4674e9a9c4cb"
+    },
+    {
+      "path": "block-fp8-module-red.log",
+      "bytes": 713,
+      "sha256": "f7ed414f79f39244a1f6e13dd4e928f978c59fe47b3a4f6ff2cd2d699d1491fd"
+    },
+    {
+      "path": "block-fp8-module-green.log",
+      "bytes": 339,
+      "sha256": "71f08ae93c7e2ab98456c510414b4e51048eedb327d1deae7cb791a5755caf4f"
+    },
+    {
+      "path": "block-fp8-ops-red.log",
+      "bytes": 3648,
+      "sha256": "5331d0355d5fc6d3375385a99def90eb90d5f61b87cc976724e40b053d265b4f"
+    }
+  ]
+}

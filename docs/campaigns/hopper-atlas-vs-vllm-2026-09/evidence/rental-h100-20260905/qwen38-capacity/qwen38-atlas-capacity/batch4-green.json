@@ -1,0 +1,15 @@
+{
+  "command": [
+    "python3",
+    "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/qwen38-atlas-capacity/actual_entry_capacity.py",
+    "/Users/tom/Documents/New project/atlas-qwen38-atlas-capacity4",
+    "/Users/tom/Documents/New project/atlas-qwen38-atlas-capacity4/bench/campaign/atlas_recipes.json",
+    "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/qwen38-staging/config.json"
+  ],
+  "exit_code": 0,
+  "stdout": "{\n  \"catalog\": \"/Users/tom/Documents/New project/atlas-qwen38-atlas-capacity4/bench/campaign/atlas_recipes.json\",\n  \"max_batch_size\": 4,\n  \"queue_channel_capacity\": 128,\n  \"ssm_layers\": 48,\n  \"h_bytes_per_layer\": 3145728,\n  \"conv_bytes_per_layer\": 163840,\n  \"ssm_blob_bytes\": 158859264,\n  \"reserve_components_bytes\": {\n    \"base_ssm\": 635437056,\n    \"decode_rollback\": 5083496448,\n    \"prefix_snapshots\": 2541748224,\n    \"gdn_two_phase\": 372244480,\n    \"cuda_headroom\": 536870912\n  },\n  \"inference_reserve_bytes\": 9169797120,\n  \"inference_reserve_GiB\": 8.5400390625,\n  \"pre_kv_upper_GiB\": 57.25,\n  \"budget_lower_GiB\": 71.25,\n  \"kv_budget_lower_bytes\": 5862588416,\n  \"kv_budget_lower_GiB\": 5.4599609375,\n  \"kv_bytes_per_token\": 40960,\n  \"kv_block_bytes\": 655360,\n  \"kv_blocks_lower\": 8945,\n  \"kv_usable_tokens_lower_after_dummy\": 143104,\n  \"workloads\": {\n    \"lat.c1\": {\n      \"offered_concurrency\": 1,\n      \"active_ceiling\": 1,\n      \"queued_at_full_admission\": 0,\n      \"kv_tokens\": 1280,\n      \"kv_bytes\": 52428800,\n      \"fits\": true\n    },\n    \"lat.c16\": {\n      \"offered_concurrency\": 16,\n      \"active_ceiling\": 4,\n      \"queued_at_full_admission\": 12,\n      \"kv_tokens\": 5120,\n      \"kv_bytes\": 209715200,\n      \"fits\": true\n    },\n    \"agent.c1\": {\n      \"offered_concurrency\": 1,\n      \"active_ceiling\": 1,\n      \"queued_at_full_admission\": 0,\n      \"kv_tokens\": 4608,\n      \"kv_bytes\": 188743680,\n      \"fits\": true\n    },\n    \"agent.c16\": {\n      \"offered_concurrency\": 16,\n      \"active_ceiling\": 4,\n      \"queued_at_full_admission\": 12,\n      \"kv_tokens\": 18432,\n      \"kv_bytes\": 754974720,\n      \"fits\": true\n    }\n  },\n  \"all_active_at_max_context_tokens\": 98304,\n  \"all_active_at_max_context_fits\": true\n}\nPASS: declared active batch, both frozen ladders and four full contexts fit the conservative capacity model; fresh GPU boot remains unproven\n",
+  "stderr": "",
+  "seconds": 0.07061774999965564,
+  "catalog_sha256": "38af832879e29a8a91256105a70af4184c3e58fd9c21f374695225b8aa76d208",
+  "oracle": "Exact SSOT reserve calculation reproduces46923MiB original, conservative rounded-ledger bound, full required KV footprint"
+}

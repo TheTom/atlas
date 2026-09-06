@@ -1,0 +1,139 @@
+{
+  "started": "2026-09-05T23:15:34.481802+00:00",
+  "source": {
+    "head": "9cfce36ceac0ac9bfa43b23c26a63cf0beac7770",
+    "dirty": "",
+    "tracked_paths": 3200,
+    "content_sha256": "b6b9e5fc971102c85011ecbd599bdb72586e8b594a1973d2c369ca65dca7a75f"
+  },
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "ATLAS_SKIP_BUILD": "1",
+    "CUDARC_CUDA_VERSION": "13000",
+    "CARGO_TARGET_DIR": "/workspace/atlas-rental/target-cpu-checks",
+    "CARGO_BUILD_JOBS": "6",
+    "ATLAS_TARGET_HW": "hopper",
+    "ATLAS_TARGET_MODEL": "qwen3.8-27b",
+    "ATLAS_TARGET_QUANT": "nvfp4"
+  },
+  "free_start": 426369310720,
+  "task_start": 79022022656,
+  "hard_free_floor": 21474836480,
+  "task_limit": 300000000000,
+  "stop_free": 25769803776,
+  "deadline_epoch": 1788652200.0,
+  "script_sha256": "0b15cf240ec3555613674a940f994cd952d5a3376f7f4a12c5384075a97054ee",
+  "stages": [
+    [
+      "atlas-kernels",
+      [
+        "cargo",
+        "+1.93.1",
+        "test",
+        "--locked",
+        "-p",
+        "atlas-kernels"
+      ]
+    ],
+    [
+      "spark-model",
+      [
+        "cargo",
+        "+1.93.1",
+        "test",
+        "--locked",
+        "-p",
+        "spark-model"
+      ]
+    ],
+    [
+      "spark-server",
+      [
+        "cargo",
+        "+1.93.1",
+        "test",
+        "--locked",
+        "-p",
+        "spark-server"
+      ]
+    ],
+    [
+      "xgrammar",
+      [
+        "cargo",
+        "+1.93.1",
+        "test",
+        "--locked",
+        "-p",
+        "xgrammar"
+      ]
+    ],
+    [
+      "hopper-ptx-gate-selftest",
+      [
+        "bash",
+        "scripts/hopper_ptx_gate_test.sh"
+      ]
+    ],
+    [
+      "nvfp4-preprocessor",
+      [
+        "python3",
+        "/workspace/atlas-rental/nvfp4_preprocess_oracle.py",
+        "/workspace/atlas-rental/src/atlas",
+        "rental-final"
+      ]
+    ],
+    [
+      "workspace-rustdoc",
+      [
+        "cargo",
+        "+1.93.1",
+        "doc",
+        "--locked",
+        "--workspace",
+        "--no-deps"
+      ]
+    ],
+    [
+      "workspace-doctests",
+      [
+        "cargo",
+        "+1.93.1",
+        "test",
+        "--locked",
+        "--workspace",
+        "--doc"
+      ]
+    ],
+    [
+      "affected-clippy",
+      [
+        "cargo",
+        "+1.93.1",
+        "clippy",
+        "--locked",
+        "--tests",
+        "-p",
+        "atlas-kernels",
+        "-p",
+        "spark-model",
+        "-p",
+        "spark-server",
+        "-p",
+        "xgrammar"
+      ]
+    ],
+    [
+      "format",
+      [
+        "cargo",
+        "+1.93.1",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ]
+    ]
+  ]
+}

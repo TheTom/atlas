@@ -1,0 +1,12 @@
+BEGIN mode=true rep=0 threads=1
+BEGIN mode=true rep=0 threads=4
+END mode=true rep=0
+BEGIN mode=true rep=1 threads=1
+BEGIN mode=true rep=1 threads=4
+END mode=true rep=1
+BEGIN mode=false rep=0 threads=1
+BEGIN mode=false rep=0 threads=4
+END mode=false rep=0
+BEGIN mode=false rep=1 threads=1
+BEGIN mode=false rep=1 threads=4
+END mode=false rep=1

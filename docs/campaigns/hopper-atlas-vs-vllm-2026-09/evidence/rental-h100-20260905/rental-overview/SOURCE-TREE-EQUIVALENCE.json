@@ -1,0 +1,22 @@
+{
+  "command": [
+    "git",
+    "diff",
+    "--exit-code",
+    "9cfce36ceac0ac9bfa43b23c26a63cf0beac7770",
+    "fd65fb85a09e9ff3d81c36fcbceffff4bdc38269",
+    "--",
+    "crates",
+    "kernels",
+    "Cargo.toml",
+    "Cargo.lock",
+    "vendor",
+    "jinja-templates",
+    "rust-toolchain.toml",
+    "3rdparty_patches"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": "",
+  "scope": "The executed 9cf Qwen3.8 build and published fd65 code have identical listed perf-path contents; tooling differs."
+}

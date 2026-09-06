@@ -1,0 +1,32 @@
+   Compiling atlas-closure v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/atlas-closure)
+   Compiling atlas-core v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/atlas-core)
+   Compiling atlas-rdma v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/atlas-rdma)
+   Compiling spark-runtime v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/spark-runtime)
+   Compiling spark-storage v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/spark-storage)
+    Checking cufile-sys v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/cufile-sys)
+    Checking atlas-tier v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/atlas-tier)
+   Compiling spark-model v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/spark-model)
+    Checking spark-comm v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/spark-comm)
+    Checking xgrammar v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/xgrammar)
+    Checking atlas-governance v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/atlas-governance)
+    Checking ciborium-io v0.2.2
+    Checking plotters-backend v0.3.7
+    Checking ciborium-ll v0.2.2
+    Checking atlas-plugin v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/atlas-plugin)
+   Compiling atlas-kernels v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/atlas-kernels)
+    Checking plotters-svg v0.3.7
+    Checking cast v0.3.0
+    Checking same-file v1.0.6
+    Checking criterion-plot v0.8.2
+    Checking walkdir v2.5.0
+    Checking plotters v0.3.7
+    Checking alloca v0.4.0
+    Checking ciborium v0.2.2
+    Checking tinytemplate v1.2.1
+    Checking page_size v0.6.0
+    Checking anes v0.1.6
+    Checking oorandom v11.1.5
+    Checking stats_alloc v0.1.10
+    Checking criterion v0.8.2
+    Checking spark-server v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/spark-server)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 45.17s

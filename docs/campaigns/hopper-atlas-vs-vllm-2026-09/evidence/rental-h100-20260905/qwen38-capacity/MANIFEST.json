@@ -1,0 +1,837 @@
+[
+  {
+    "path": "qwen38-atlas-capacity/REPORT.md",
+    "bytes": 8698,
+    "sha256": "99e094ca1d57eaadf347265b6e0f1e41d549852465410df69404c171449a1a5b"
+  },
+  {
+    "path": "qwen38-atlas-capacity/actual-cell-dryrun.json",
+    "bytes": 8976,
+    "sha256": "8e782e238701db084bfdd99dbb1a4b328fa1ced01008fd15f952499bfddf6150"
+  },
+  {
+    "path": "qwen38-atlas-capacity/actual_entry_capacity.py",
+    "bytes": 4631,
+    "sha256": "c455d40ee18a165430034904654731bfbb694a71ee9a5ade9a83c5ba01046b98"
+  },
+  {
+    "path": "qwen38-atlas-capacity/batch4-green.json",
+    "bytes": 2820,
+    "sha256": "11d4fb1c62102ca2ab2ef015a07e99f7b333da45518cf24774f93c1cd8f757ee"
+  },
+  {
+    "path": "qwen38-atlas-capacity/batch8-insufficient-KV-red.json",
+    "bytes": 3269,
+    "sha256": "3e577bbda721a9f2dd8fc19d5014bfda4db083525c61eb951bd013d898ea8f70"
+  },
+  {
+    "path": "qwen38-atlas-capacity/batch8-too-little-KV-catalog.json",
+    "bytes": 31507,
+    "sha256": "61d06ce1fa498aecda8909d6cc961139a0076107564306ed724e0ccec47dd788"
+  },
+  {
+    "path": "qwen38-atlas-capacity/check-atlas-render.json",
+    "bytes": 402,
+    "sha256": "d426d7db666c34db58f17aff79afbf71860dc057c5c92448da537d0f3791b343"
+  },
+  {
+    "path": "qwen38-atlas-capacity/check-campaign-suite.json",
+    "bytes": 24320,
+    "sha256": "325b10fca36aae857923874e3f1657964dfc31ed47e6dd2a57f411066dd33d65"
+  },
+  {
+    "path": "qwen38-atlas-capacity/check-cargo-fmt.json",
+    "bytes": 328,
+    "sha256": "fc7f97ce45fe4cfaf200f096c4bf664d2b7f0e29b13ff620f97f7954b23c2a29"
+  },
+  {
+    "path": "qwen38-atlas-capacity/check-diff-check.json",
+    "bytes": 305,
+    "sha256": "4d3b7e69ec816769bf3084080e24648a3c12be4d912846916e747c79d94b699a"
+  },
+  {
+    "path": "qwen38-atlas-capacity/check-typos.json",
+    "bytes": 281,
+    "sha256": "38ad65e5034ec102f647af32beb967a998ac1bdecc89113d5d4f963e75831fe8"
+  },
+  {
+    "path": "qwen38-atlas-capacity/check-vllm-render.json",
+    "bytes": 467,
+    "sha256": "7a51af1abc6d2f7fb12fed19f5fec319b4b3419b84a1c8ded8a81bc8b8b96511"
+  },
+  {
+    "path": "qwen38-atlas-capacity/commit-and-validation.json",
+    "bytes": 1102,
+    "sha256": "668199155514a29a399d51de0029a530e0eb5080f7322fdda4b0b1b8add5ebd6"
+  },
+  {
+    "path": "qwen38-atlas-capacity/initial-harness-import-error.json",
+    "bytes": 1347,
+    "sha256": "da8b8559b8d668c234b42d5d5fa370714364e2efef5bccd9c7506acf988714df"
+  },
+  {
+    "path": "qwen38-atlas-capacity/observed-log-excerpts.json",
+    "bytes": 7634,
+    "sha256": "275c4788c83b0e9b1f706e744040986d8444aaf7972c32360f960315d310b6b9"
+  },
+  {
+    "path": "qwen38-atlas-capacity/original-batch32-red.json",
+    "bytes": 2898,
+    "sha256": "29f4e5c1c348d1e916c06fc954f7a2e57dc5ce2184b492f8309be984c14197d1"
+  },
+  {
+    "path": "qwen38-atlas-capacity/original-catalog.json",
+    "bytes": 30824,
+    "sha256": "06abdb87f357b964f03f2535c4ea3bf9883222b86d308ac2815f8519f88a3f84"
+  },
+  {
+    "path": "qwen38-atlas-capacity/scope-check.json",
+    "bytes": 222,
+    "sha256": "7584cbbbac43b94d363e1e32e952b17aac6e99be62027d5d98d532f3750d024f"
+  },
+  {
+    "path": "qwen38-atlas-capacity/source-receipt.json",
+    "bytes": 31244,
+    "sha256": "f56f40de7111e4e757a1de824f254696d7738d5a251c99844ec3bacf99d8acad"
+  },
+  {
+    "path": "qwen38-build-identity.json",
+    "bytes": 433,
+    "sha256": "e538d7ae7c1852397020b2746ba71d772e28f0aa8dde2af5d323bc424663456f"
+  },
+  {
+    "path": "qwen38-vllm-capacity/REPORT.md",
+    "bytes": 6693,
+    "sha256": "2f6bc9e6438012f28f64091fceeacb1e47b84b662b817e4dbfb1940119333828"
+  },
+  {
+    "path": "qwen38-vllm-capacity/__pycache__/installed_guard.cpython-314.pyc",
+    "bytes": 1076,
+    "sha256": "074a318fa6d45cb13662df62b3d17bfa490891c1aa2c227e1342d743f6629204"
+  },
+  {
+    "path": "qwen38-vllm-capacity/above-capacity-811-red.json",
+    "bytes": 1012,
+    "sha256": "571a4dc125e271b439ac70b444177dcc7e162da7d76f2029aa33e1c43421a462"
+  },
+  {
+    "path": "qwen38-vllm-capacity/actual-512-green.json",
+    "bytes": 1087,
+    "sha256": "e854d434cd1312ff8ff49c3c6d2b3c144652cbf5537f0f10c0236277ee7f0461"
+  },
+  {
+    "path": "qwen38-vllm-capacity/actual-811-red.json",
+    "bytes": 1941,
+    "sha256": "1ea89f3a2c7e4a292101956d44677ba7208a456f1a147d042ae68b5b6172b20d"
+  },
+  {
+    "path": "qwen38-vllm-capacity/actual-entry-scope-check.json",
+    "bytes": 251,
+    "sha256": "d814382ae11a8d0e56adf1ac44a10510ac8970d05e65445ba8dfb93d592033d6"
+  },
+  {
+    "path": "qwen38-vllm-capacity/actual-guard-harness-key-error.json",
+    "bytes": 1002,
+    "sha256": "42f5a973a0e72690c2454454c279e51d5e29db438025ac99333e895cbda74201"
+  },
+  {
+    "path": "qwen38-vllm-capacity/actual-invalid-811-catalog.json",
+    "bytes": 65441,
+    "sha256": "83b57a66b08ec06dbf7efb1572f0d03d1a7747bba8e4a44c73201d8335bde908"
+  },
+  {
+    "path": "qwen38-vllm-capacity/actual-original-catalog.json",
+    "bytes": 64761,
+    "sha256": "d11b5e14cfa07aefb1ccbf5f9d0fea10acbc270ae2cdc0a9b018022c0080c18f"
+  },
+  {
+    "path": "qwen38-vllm-capacity/actual-original-red.json",
+    "bytes": 1777,
+    "sha256": "e40791475805f4009c2539696a943d1c1b09f8f7416b3d474f7f648ef6bf7daf"
+  },
+  {
+    "path": "qwen38-vllm-capacity/actual_entry_guard.py",
+    "bytes": 1366,
+    "sha256": "7d4e80e5ae385769c5cbc0066f4e2cc5e1bb070a36b0d231f97ce9fae41eebd4"
+  },
+  {
+    "path": "qwen38-vllm-capacity/capacity-810-green.json",
+    "bytes": 374,
+    "sha256": "885c32b6a92146ab4370dba4f2ac92f0c2bd4907ce80691da56730d13ae6c897"
+  },
+  {
+    "path": "qwen38-vllm-capacity/capacity_repro.py",
+    "bytes": 396,
+    "sha256": "37a99c55d8ac2ed153bdd97808eaef6c6f0e5fa2d2e8d1f02917f0f62757f28d"
+  },
+  {
+    "path": "qwen38-vllm-capacity/capture-ceiling-source.json",
+    "bytes": 1160,
+    "sha256": "65497ba9922bcd17508d7f0b9c6331b02eb59f26ab076697777854a0808df527"
+  },
+  {
+    "path": "qwen38-vllm-capacity/frozen-c16-green.json",
+    "bytes": 372,
+    "sha256": "5b955322b336f9d51f192be851729a100136d21627b848e1a0ebe41ba6b3b4c4"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-actual-entry-dryrun.json",
+    "bytes": 1793,
+    "sha256": "0e46aad99d57fc604cc4ecc5fcf2bff5167a96491420c7950fbb0ea3fdc78c0c"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-atlas-render-selftest.json",
+    "bytes": 396,
+    "sha256": "720b52fd7b24f84482f0d1fe7c0938fcb7e7a89c573c2479bce04e31e0e35bb4"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-atlas-render-selftest.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-atlas-render-selftest.stdout",
+    "bytes": 61,
+    "sha256": "ccc9b6dde4677083938045dfa92550ba16a59f0cd7865031a6f567ec5af40304"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-campaign-suite.json",
+    "bytes": 24307,
+    "sha256": "3eeaa8ca65dde4a14f958f7f3a7a81ab63a46d94d8bd432e1f4b31f8f07e41d8"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-campaign-suite.stderr",
+    "bytes": 12806,
+    "sha256": "51770f4e18b8476436d8b3c9f45b9e66d2ef876eacc6f91cccab57926a5460dc"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-campaign-suite.stdout",
+    "bytes": 10511,
+    "sha256": "d594ed5ef78e04ae37576e8f117326e9f6467aadfd1d62de73273620b1c724a2"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-cargo-fmt.json",
+    "bytes": 324,
+    "sha256": "e8946ac5c0744b3e209d36682a0717552fe6967d5d2a3d94686b001481a8c3da"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-cargo-fmt.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-cargo-fmt.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-commit.json",
+    "bytes": 536,
+    "sha256": "3947ebdc4c4848b7e06fbc4b2ab79bc676052d35a58c0338018d1d6a8797e1c9"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-diff-check.json",
+    "bytes": 300,
+    "sha256": "78492f4ca6fe266d9370da261e263899d633c2403685e61dd1a512a546ff1ebe"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-diff-check.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-diff-check.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-typos.json",
+    "bytes": 276,
+    "sha256": "9ad863606a33c39844df2d937f11188fcf1fd052662936928851179a18190782"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-typos.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-typos.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-validation-summary.json",
+    "bytes": 551,
+    "sha256": "3f709bfac5a3ed0f6fbd69876eb7d455960c3275c068eb7bbbcaf27ef6b54c68"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-vllm-render-selftest-with-recipes.json",
+    "bytes": 461,
+    "sha256": "14d7170ff976e0a0c7f7d9b26d6efccab20cf881ab9777143857d405d584bd34"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-vllm-render-selftest.json",
+    "bytes": 802,
+    "sha256": "e213169c7820dc9ae1a4efc486784bc1ecb377ea6883d4912d2a8836224756e7"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-vllm-render-selftest.stderr",
+    "bytes": 462,
+    "sha256": "4b0bb2febb143381ab9d734463941f313012ebf6606f85736c760fdcebcbabd6"
+  },
+  {
+    "path": "qwen38-vllm-capacity/implemented-vllm-render-selftest.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qwen38-vllm-capacity/installed-compilation-guard.json",
+    "bytes": 5430,
+    "sha256": "08c302e3eece6c1a69880976a59ec2301a32492ac980133012912a55a2afba86"
+  },
+  {
+    "path": "qwen38-vllm-capacity/installed-source-excerpts.json",
+    "bytes": 60063,
+    "sha256": "a457d017a2970fa05cc69d60efcaf29ed77db73be762a35e4ccdc4176feec3dd"
+  },
+  {
+    "path": "qwen38-vllm-capacity/installed_guard.py",
+    "bytes": 843,
+    "sha256": "31398847d2b2568b0d98f16c013d3b4a5cde7122713cc0f70f389c02b20e2299"
+  },
+  {
+    "path": "qwen38-vllm-capacity/original-1024-red.json",
+    "bytes": 1014,
+    "sha256": "892c576b04d069c42102e7988e9521f8e33b4e4ebae668f9f87f68ecae457d27"
+  },
+  {
+    "path": "qwen38-vllm-capacity/original-campaign-entry.json",
+    "bytes": 1424,
+    "sha256": "99ed2cdfcb6cc48721b4e101f799e6521bf905289fc20fd50feaad6c7b150abb"
+  },
+  {
+    "path": "qwen38-vllm-capacity/profile-512-green.json",
+    "bytes": 606,
+    "sha256": "b825a07814839aaa351b995df0866b27985d8016e124122905977cd3a6df3fe1"
+  },
+  {
+    "path": "qwen38-vllm-capacity/profile-original-red.json",
+    "bytes": 1104,
+    "sha256": "96648c87e0954436298f26a79959c5ce3015b2153dab5cdd9c01a45672c54c7f"
+  },
+  {
+    "path": "qwen38-vllm-capacity/profile_repro.py",
+    "bytes": 850,
+    "sha256": "4d07a8018ccbe8886d55b259444d72f8bccf2636969a731eb44a1eb71ab799cd"
+  },
+  {
+    "path": "qwen38-vllm-capacity/proposed-h100-entry.json",
+    "bytes": 2446,
+    "sha256": "1abcc94436660515dff9932b440783280b804b7587dfa2bff9fa8cccbbed3486"
+  },
+  {
+    "path": "qwen38-vllm-capacity/proposed-rental-profile.json",
+    "bytes": 1187,
+    "sha256": "a899ce704f912f29f5e38e06d274c464ec4a9e84406da07f0c2adc7e07253ae9"
+  },
+  {
+    "path": "qwen38-vllm-capacity/source-and-oracle.json",
+    "bytes": 779,
+    "sha256": "ba02f30b57709b5db437b149b7b601dc9c37de039ce6407cd41ccfa96b4e55d1"
+  },
+  {
+    "path": "qwen38-vllm-capacity/source-read.stderr",
+    "bytes": 117,
+    "sha256": "b480c7ebd32cfb6a73350317b4232710dbcd5ea463b2b573cf3e92e8df56cca0"
+  },
+  {
+    "path": "qwen38.atlas.a.lat.c1/artifact.json",
+    "bytes": 4547,
+    "sha256": "e7cf13ae23d9a433a9e3d1eba6ab17f04314dd4616ff4f8966509dfd79ace9ae"
+  },
+  {
+    "path": "qwen38.atlas.a.lat.c1/audit.argv",
+    "bytes": 704,
+    "sha256": "de332686a1a4246e532dca271ba2a86d43b76191efbd9e66deb27adfe1a52e12"
+  },
+  {
+    "path": "qwen38.atlas.a.lat.c1/cell-deadline.json",
+    "bytes": 484,
+    "sha256": "fa3462c7cc7e821826d6c3d024fa044719cd36425eb3572756affee1f49321c7"
+  },
+  {
+    "path": "qwen38.atlas.a.lat.c1/cell-deadline.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qwen38.atlas.a.lat.c1/check-kernels.txt",
+    "bytes": 71203,
+    "sha256": "b5e06cff53ed95ffc67c139ebbfba6bb808f15b2f099cf8ab6c0727c85c16fe6"
+  },
+  {
+    "path": "qwen38.atlas.a.lat.c1/df.txt",
+    "bytes": 89,
+    "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+  },
+  {
+    "path": "qwen38.atlas.a.lat.c1/endpoint-admission.json",
+    "bytes": 250,
+    "sha256": "c9ed78b7da8251384e4d9e47ff4fefddf6d9ac31a0253222c5c23d63fb7cb62d"
+  },
+  {
+    "path": "qwen38.atlas.a.lat.c1/endpoint-admission.log",
+    "bytes": 230,
+    "sha256": "947be8d95465eacf6922c85169c3239541ad69a9845180ba80e7127d7d80a56e"
+  },
+  {
+    "path": "qwen38.atlas.a.lat.c1/nvidia-smi-q.err",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qwen38.atlas.a.lat.c1/nvidia-smi-q.txt",
+    "bytes": 14959,
+    "sha256": "c051759e8bfc39edd7f29093ec74d165807b8fe5138e8d9a29f8e506f221457a"
+  },
+  {
+    "path": "qwen38.atlas.a.lat.c1/process-env.json",
+    "bytes": 292,
+    "sha256": "c5af3bc3d2efd375fd8847620e8b52de5b0a8d7321dfeef63ee2fe56acf20cec"
+  },
+  {
+    "path": "qwen38.atlas.a.lat.c1/process-recipe.json",
+    "bytes": 2840,
+    "sha256": "8ee737abecbeed5704aed08080fcfbbf1c8d4df3e84d4381f9072ad95315ce98"
+  },
+  {
+    "path": "qwen38.atlas.a.lat.c1/process-render.log",
+    "bytes": 2380,
+    "sha256": "79e83f949f666084744994c4f236cf77c5040fce8f7b4814de713d844e45f59c"
+  },
+  {
+    "path": "qwen38.atlas.a.lat.c1/serve.argv",
+    "bytes": 688,
+    "sha256": "9bdb3c4fe5de1e428737ba29f253f4933d52ca4a4098d1dbe3aadf4f898342d9"
+  },
+  {
+    "path": "qwen38.atlas.a.lat.c1/serve.env",
+    "bytes": 233,
+    "sha256": "08af1d562b8d85fbf77b734f55b7bdd1fb628ed407f544d670d53a70925fa359"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/artifact.json",
+    "bytes": 5100,
+    "sha256": "bcae659a37f763bac3123256680fac25be2f744ff6b7bc1db46b0d29aa1458ea"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/audit.argv",
+    "bytes": 703,
+    "sha256": "0ad4e9b10a0b5f99a4c82acb27b1c6bd4ce64917cf6e4cd0fe0d6fd54cef9ad8"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/boot.json",
+    "bytes": 4849,
+    "sha256": "3e4444f7ea124faa8668bb3e675a157a4c38435dbd341c0274e39b59e19eb943"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/cell-deadline.json",
+    "bytes": 483,
+    "sha256": "9b5d8f11d1b355953fdc5ebae793e2f96772b675f8be9dc5a2e848966cd31d94"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/cell-deadline.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/check-kernels.txt",
+    "bytes": 92285,
+    "sha256": "b1226c186ff5ff3f7f70e40e6ec6e151bef4c2b1cd2594619dd5ea9f77a752fa"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/df.txt",
+    "bytes": 89,
+    "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/endpoint-admission.json",
+    "bytes": 250,
+    "sha256": "c0dacc9b32fc18425ffacaec3c8a454fa0effe4474a9d68e9a7e44d6c20bb76e"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/endpoint-admission.log",
+    "bytes": 230,
+    "sha256": "837b1aa581f5b6289b357d45daeafac6ddaae29ca3e0f49ccd42cbd398d4e6c7"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/nvidia-smi-q.err",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/nvidia-smi-q.txt",
+    "bytes": 14959,
+    "sha256": "85c77c6973cc7cb08ab607e36cc335259c0c0407d8c7e5e89cf0ad08eaf83ca8"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/process-46530/owner.json",
+    "bytes": 2078,
+    "sha256": "288564ab2732b6b607e33d3d9d568ddc87396b99d2b933b62253d187ec170ce7"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/process-capture.log",
+    "bytes": 1935,
+    "sha256": "fad6456120485ab27691b95f971eeecc5875eb7a750a476233c4e44136634211"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/process-env.json",
+    "bytes": 292,
+    "sha256": "c5af3bc3d2efd375fd8847620e8b52de5b0a8d7321dfeef63ee2fe56acf20cec"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/process-launch.json",
+    "bytes": 2215,
+    "sha256": "c8a6da56560f27809ae83c8d320005a3d6d91381c4dba36d19b0bd3bb8cb08a6"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/process-recipe.json",
+    "bytes": 2838,
+    "sha256": "667702f1a4d1c7eabd64e5e342d8bd416868fc5ca229eb78b3280b7bd86d7c6a"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/process-render.log",
+    "bytes": 2378,
+    "sha256": "e61f718dd6e35d3a25e6b6217df252d02af5e041a9345d8adc48767b25d2d4c3"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/process-start.log",
+    "bytes": 1935,
+    "sha256": "182c1f3d12e96644ff327a6ac9734e96ff402406d1a11574823e2f4c902b5413"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/process-stop.log",
+    "bytes": 63,
+    "sha256": "bf3f8369c1007c9f8f9847f1d159a8d91ee9c81e90762ee419b0a73ce1eefe54"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/serve.argv",
+    "bytes": 687,
+    "sha256": "f2d2660b4c085399b53582cd5d2470d4a5d65a502484bbaf6afe99393794732d"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/serve.env",
+    "bytes": 233,
+    "sha256": "08af1d562b8d85fbf77b734f55b7bdd1fb628ed407f544d670d53a70925fa359"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1/serve.log",
+    "bytes": 863448,
+    "sha256": "eebf8231df581a9d07e8b5cb19359b8914c385ce6464744e2e5d56398e3b17cf"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1.admission.json",
+    "bytes": 17506,
+    "sha256": "f70f0b31817b02c62d56a30fcc2414a1d30cb6c488936a87f99031a3df1e3606"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1.disk-after.txt",
+    "bytes": 89,
+    "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1.exit-code.txt",
+    "bytes": 2,
+    "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1.finished.utc",
+    "bytes": 21,
+    "sha256": "09c76068762172f712762593cc2280314a254d799db1d892da2a196bc49a63ce"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1.input-proof.json",
+    "bytes": 1241,
+    "sha256": "42c041a0a880db44fef3baf31a86c0a2cf7f7b2c3e3cfe400c9379ee8f92e2c1"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1.runner.log",
+    "bytes": 9832,
+    "sha256": "1625abb8a2241f606cb608a583a6b70e0b3e471cb6c473bbeea34d6ad000d66e"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1.started.utc",
+    "bytes": 21,
+    "sha256": "686f8d6d2068a103f5fd6e937663231e611d6a3f3326f46c9e5c0b69a077e2d4"
+  },
+  {
+    "path": "qwen38.atlas.b.lat.c1.tenants-after.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/artifact.json",
+    "bytes": 3868,
+    "sha256": "8a53c4c378ed947d988b41f6a7fc31ec165ca326fcf434d98e07966f6bc62594"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/audit.argv",
+    "bytes": 1,
+    "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/boot.json",
+    "bytes": 26677,
+    "sha256": "04899d1fddb69136418f27467247ef5441a81df5eaab110db19074626a93c4f0"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/cell-deadline.json",
+    "bytes": 484,
+    "sha256": "73286124a7091678ae121af975ec0d1a354695e3963e0ebc24e7f0c1a2f784fd"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/cell-deadline.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/df.txt",
+    "bytes": 89,
+    "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/endpoint-admission.json",
+    "bytes": 250,
+    "sha256": "80b1fc25ecafc6c0655c76642fee3fa1891d321dad063fbc501c3039c350e3cd"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/endpoint-admission.log",
+    "bytes": 230,
+    "sha256": "7eaaababaaf5fe1bbbfcd12aa65b39dfd5aaa8244a54ad8f0da16780c6ffdbe8"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/nvidia-smi-q.err",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/nvidia-smi-q.txt",
+    "bytes": 14959,
+    "sha256": "5dbaf5383e7b428250e0025ddc32a1cf77782e7382120f948b5ecb45b06f4c25"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/process-37907/owner.json",
+    "bytes": 1587,
+    "sha256": "df798c05787cbb8bd36e3dcab30f1d7c463b81273129fffb08214aef98688bb9"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/process-capture.log",
+    "bytes": 87,
+    "sha256": "376871f8e4a6fb1a56661262ce1e5132072b0d82a88c7ff0fc611d9fc35fc2eb"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/process-env.json",
+    "bytes": 270,
+    "sha256": "6de4a69676bf47f166f75eb47c1f6096bb0a3f5bc46914ea3623e6ec2362da29"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/process-launch.json",
+    "bytes": 131,
+    "sha256": "846de352c10dae3f283e74a0866a2c85bc13e49ae40eeb08565a1661640bdd11"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/process-recipe.json",
+    "bytes": 1279,
+    "sha256": "6293c901b9440eb0b7e732b331d3f00cae9153a2dc52f91b418bc78839e05c24"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/process-render.log",
+    "bytes": 1135,
+    "sha256": "2d88dc97dffc91a9ddb6200f823b8e72868c71686d41a6e3fdaf8dcaad7b8ab9"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/process-start.log",
+    "bytes": 1560,
+    "sha256": "d284aadba3d80300298c8aa988389a8006a249c06d15603b2436b9a686e99f83"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/process-stop.log",
+    "bytes": 58,
+    "sha256": "eb76ba2ca67e4c238086c395c970404fed2c94b89cdad31d3158afce98a9b78a"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/serve.argv",
+    "bytes": 396,
+    "sha256": "5c299c9344d01bdf39de439c2676849e78678c51c9f66b13b50737ee3508b0b1"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/serve.env",
+    "bytes": 219,
+    "sha256": "571247f1045214259d367fec12114b69c232fcd1b47e081de43ed59895cb2484"
+  },
+  {
+    "path": "qwen38.vllm.a.lat.c1/serve.log",
+    "bytes": 32957,
+    "sha256": "1470cf4e289d8397629f1026b0c66465416e57b8ecf66edbcc55d85be8cd1801"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/artifact.json",
+    "bytes": 4984,
+    "sha256": "bc00145de420b193628aa8a318418457900c1ce297c6ed525ebd1f85d1b2a302"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/audit.argv",
+    "bytes": 1,
+    "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/boot.json",
+    "bytes": 47478,
+    "sha256": "df6d32498d39ac49eb8bf1eddb01717c4b0c16c937a9ad0117314cc719bbcbc0"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/cell-deadline.json",
+    "bytes": 483,
+    "sha256": "88e591afaa7a51c3e04e93ab0549d3ccb174a9153467b7129e561f2e8c9bf931"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/cell-deadline.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/coherency.json",
+    "bytes": 13700,
+    "sha256": "952e2aced5ab8fdd1b2964394f83026fdf1a966f4c9af69a4e28bb2fca599200"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/df.txt",
+    "bytes": 89,
+    "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/endpoint-admission.json",
+    "bytes": 250,
+    "sha256": "5251adeaa69c9285fb4bd8fc0577f18b623fafd4ab90531a4ac2deffa9344f1f"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/endpoint-admission.log",
+    "bytes": 230,
+    "sha256": "e61743642737e680d009885e036c218e0695c853877c5d1803f5707293d6ee6e"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/endpoint-owned.json",
+    "bytes": 863,
+    "sha256": "be5a1767dc11159cdfa3c2d694e73f6087f563fcbb87b6215fc474c3ca5e654c"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/endpoint-owned.log",
+    "bytes": 729,
+    "sha256": "8eed940d4bdd392f2903dcee769f0d1030c740e36afc21dc2bb378b62ee2b6a7"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/nvidia-smi-q.err",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/nvidia-smi-q.txt",
+    "bytes": 14960,
+    "sha256": "25a21b65edd4a701da5fb768dcc8adce4b3681885c5bb8db71f4c73307cf3cab"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/process-44347/owner.json",
+    "bytes": 1620,
+    "sha256": "714b632a675c46c5ff2e59dd892fcb9bc37065f4ea13b0f596a39e9a4cc21c10"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/process-capture.log",
+    "bytes": 1585,
+    "sha256": "ee8795e7a9ac2c23fd648f0f02b9267c97934316b97154d9c4408cccd14bc020"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/process-env.json",
+    "bytes": 270,
+    "sha256": "6de4a69676bf47f166f75eb47c1f6096bb0a3f5bc46914ea3623e6ec2362da29"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/process-launch.json",
+    "bytes": 1757,
+    "sha256": "ff960862e919f9f8a4c150c0dd59009a6afbc4c7022a4cd24058fd275c1a1185"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/process-recipe.json",
+    "bytes": 1312,
+    "sha256": "d60a034d98e769736bcb27ad2791c8624d7ac5383ee1a2daa613682919bec44b"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/process-render.log",
+    "bytes": 1160,
+    "sha256": "4b91e8e216bf0e248b186288eff2b1e5507002801fdb50acc3cc546a86aa4e6c"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/process-start.log",
+    "bytes": 1585,
+    "sha256": "40fd37756a00cfa6309c30bbb54e35cb796e14c0a14906c2c755660d8451a34b"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/process-stop.log",
+    "bytes": 77,
+    "sha256": "ed07a2303747798a9538bb0aa3bc3524040996cfdb8144abc6b1c4643a753481"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/serve.argv",
+    "bytes": 415,
+    "sha256": "213fd0b8199b80b0390519e0dec494aa02cfaa58a32c2c65dd27c828102aeddc"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/serve.env",
+    "bytes": 219,
+    "sha256": "571247f1045214259d367fec12114b69c232fcd1b47e081de43ed59895cb2484"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1/serve.log",
+    "bytes": 43963,
+    "sha256": "1b359358645425c35171399c710444c9846e6b25f6e547ba9315582dd90aa52c"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1.admission.json",
+    "bytes": 17506,
+    "sha256": "486f3616fc575439e09e6539663b689475fe0cc40c1171252e09c6e32771e248"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1.disk-after.txt",
+    "bytes": 89,
+    "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1.exit-code.txt",
+    "bytes": 2,
+    "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1.finished.utc",
+    "bytes": 21,
+    "sha256": "0d4b7052f538a2d3f163b012074599d705e789cb4e7631b0f26d5c3c250d63d2"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1.input-proof.json",
+    "bytes": 1241,
+    "sha256": "2e4cd9b67d8a4ee30f0fd805b5d090105622c8bfdc7e25ba801616bcb1d533fa"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1.runner.log",
+    "bytes": 65839,
+    "sha256": "31f17f33b146809ea24943888905c58dc051855f11ffe1003719f8abfc4689ad"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1.started.utc",
+    "bytes": 21,
+    "sha256": "72134694bb2c720482cdc908e0755a8de28d733f3b17383e4bcb303df72517e7"
+  },
+  {
+    "path": "qwen38.vllm.b.lat.c1.tenants-after.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

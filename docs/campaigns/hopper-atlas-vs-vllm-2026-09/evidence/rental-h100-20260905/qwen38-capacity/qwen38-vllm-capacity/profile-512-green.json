@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/qwen38-vllm-capacity/profile_repro.py",
+    "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/qwen38-vllm-capacity/proposed-rental-profile.json"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"guard\": \"PASS\", \"max_num_seqs\": 512, \"max_cudagraph_capture_size\": 512, \"frozen_concurrency_max\": 16, \"margin_blocks\": 298, \"changes_from_base\": [\"--max-num-seqs\", \"512\"]}\n",
+  "stderr": ""
+}

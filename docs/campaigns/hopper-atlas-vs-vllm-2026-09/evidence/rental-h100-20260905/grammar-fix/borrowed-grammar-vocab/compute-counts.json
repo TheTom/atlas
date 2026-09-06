@@ -1,0 +1,114 @@
+[
+  {
+    "variant": "original",
+    "group": "BEGIN mode=true rep=0 threads=1",
+    "computes": 123,
+    "duplicate_keys": {},
+    "sum_call_wall_ms": 1818.554
+  },
+  {
+    "variant": "original",
+    "group": "BEGIN mode=true rep=0 threads=4",
+    "computes": 123,
+    "duplicate_keys": {},
+    "sum_call_wall_ms": 7233.577
+  },
+  {
+    "variant": "original",
+    "group": "BEGIN mode=true rep=1 threads=1",
+    "computes": 123,
+    "duplicate_keys": {},
+    "sum_call_wall_ms": 2216.568
+  },
+  {
+    "variant": "original",
+    "group": "BEGIN mode=true rep=1 threads=4",
+    "computes": 123,
+    "duplicate_keys": {},
+    "sum_call_wall_ms": 6950.083
+  },
+  {
+    "variant": "original",
+    "group": "BEGIN mode=false rep=0 threads=1",
+    "computes": 123,
+    "duplicate_keys": {},
+    "sum_call_wall_ms": 2190.791
+  },
+  {
+    "variant": "original",
+    "group": "BEGIN mode=false rep=0 threads=4",
+    "computes": 123,
+    "duplicate_keys": {},
+    "sum_call_wall_ms": 5487.692
+  },
+  {
+    "variant": "original",
+    "group": "BEGIN mode=false rep=1 threads=1",
+    "computes": 123,
+    "duplicate_keys": {},
+    "sum_call_wall_ms": 2205.175
+  },
+  {
+    "variant": "original",
+    "group": "BEGIN mode=false rep=1 threads=4",
+    "computes": 123,
+    "duplicate_keys": {},
+    "sum_call_wall_ms": 5521.047
+  },
+  {
+    "variant": "factored",
+    "group": "BEGIN mode=true rep=0 threads=1",
+    "computes": 123,
+    "duplicate_keys": {},
+    "sum_call_wall_ms": 2024.958
+  },
+  {
+    "variant": "factored",
+    "group": "BEGIN mode=true rep=0 threads=4",
+    "computes": 123,
+    "duplicate_keys": {},
+    "sum_call_wall_ms": 7363.02
+  },
+  {
+    "variant": "factored",
+    "group": "BEGIN mode=true rep=1 threads=1",
+    "computes": 123,
+    "duplicate_keys": {},
+    "sum_call_wall_ms": 2434.862
+  },
+  {
+    "variant": "factored",
+    "group": "BEGIN mode=true rep=1 threads=4",
+    "computes": 123,
+    "duplicate_keys": {},
+    "sum_call_wall_ms": 7409.15
+  },
+  {
+    "variant": "factored",
+    "group": "BEGIN mode=false rep=0 threads=1",
+    "computes": 123,
+    "duplicate_keys": {},
+    "sum_call_wall_ms": 2408.304
+  },
+  {
+    "variant": "factored",
+    "group": "BEGIN mode=false rep=0 threads=4",
+    "computes": 123,
+    "duplicate_keys": {},
+    "sum_call_wall_ms": 7850.196
+  },
+  {
+    "variant": "factored",
+    "group": "BEGIN mode=false rep=1 threads=1",
+    "computes": 123,
+    "duplicate_keys": {},
+    "sum_call_wall_ms": 2408.7599999999998
+  },
+  {
+    "variant": "factored",
+    "group": "BEGIN mode=false rep=1 threads=4",
+    "computes": 123,
+    "duplicate_keys": {},
+    "sum_call_wall_ms": 7567.322
+  }
+]

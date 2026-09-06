@@ -1,0 +1,78 @@
+    Blocking waiting for file lock on build directory
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.24
+   Compiling quote v1.0.47
+   Compiling serde_core v1.0.229
+   Compiling serde v1.0.229
+   Compiling memchr v2.8.3
+   Compiling objc2 v0.6.4
+   Compiling objc2-encode v4.1.0
+   Compiling zmij v1.0.23
+   Compiling libc v0.2.189
+   Compiling thiserror v2.0.19
+   Compiling crossbeam-utils v0.8.22
+   Compiling serde_json v1.0.151
+   Compiling itoa v1.0.18
+   Compiling crossbeam-epoch v0.9.20
+   Compiling bitflags v2.13.1
+   Compiling rustc-hash v2.1.3
+   Compiling crossbeam-deque v0.8.7
+   Compiling parking_lot_core v0.9.12
+   Compiling inventory v0.3.24
+   Compiling cfg-if v1.0.4
+   Compiling once_cell v1.21.4
+   Compiling rayon-core v1.13.0
+   Compiling tracing-core v0.1.36
+   Compiling scopeguard v1.2.0
+   Compiling pin-project-lite v0.2.17
+   Compiling lock_api v0.4.14
+   Compiling aho-corasick v1.1.4
+   Compiling wh-iron-runtime v0.1.0 (https://github.com/waffuruai/iron?rev=a4c897ba2e89db49df82b9d2f2691642d8f8b697#a4c897ba)
+   Compiling zerocopy v0.8.55
+   Compiling regex-syntax v0.8.11
+   Compiling either v1.16.0
+   Compiling wh-iron-std v0.1.0 (https://github.com/waffuruai/iron?rev=a4c897ba2e89db49df82b9d2f2691642d8f8b697#a4c897ba)
+   Compiling bytemuck v1.25.2
+   Compiling block2 v0.6.2
+   Compiling objc2-core-foundation v0.3.2
+   Compiling dispatch2 v0.3.1
+   Compiling syn v3.0.3
+   Compiling syn v2.0.119
+   Compiling regex-automata v0.4.16
+   Compiling objc2-foundation v0.3.2
+   Compiling rayon v1.12.0
+   Compiling serde_derive v1.0.229
+   Compiling thiserror-impl v2.0.19
+   Compiling regex v1.13.1
+   Compiling wh-iron-macros v0.1.0 (https://github.com/waffuruai/iron?rev=a4c897ba2e89db49df82b9d2f2691642d8f8b697#a4c897ba)
+   Compiling tracing-attributes v0.1.31
+   Compiling zerocopy-derive v0.8.55
+   Compiling tracing v0.1.44
+   Compiling smallvec v1.15.2
+   Compiling wh-iron-core v0.1.0 (https://github.com/waffuruai/iron?rev=a4c897ba2e89db49df82b9d2f2691642d8f8b697#a4c897ba)
+   Compiling parking_lot v0.12.5
+   Compiling wh-iron-codegen v0.1.0 (https://github.com/waffuruai/iron?rev=a4c897ba2e89db49df82b9d2f2691642d8f8b697#a4c897ba)
+   Compiling wh-butter-core v0.1.0 (/Users/tom/Documents/New project/butter-qwen38-block-fp8/rust/crates/wh-butter-core)
+   Compiling half v2.7.1
+   Compiling objc2-metal v0.3.2
+   Compiling wh-iron v0.1.0 (https://github.com/waffuruai/iron?rev=a4c897ba2e89db49df82b9d2f2691642d8f8b697#a4c897ba)
+   Compiling wh-butter-ops v0.1.0 (/Users/tom/Documents/New project/butter-qwen38-block-fp8/rust/crates/wh-butter-ops)
+    Finished `test` profile [optimized + debuginfo] target(s) in 2m 55s
+     Running unittests src/lib.rs (/Users/tom/Documents/New project/butter-iron-h100-prep/cpu-protocol-target/debug/deps/wh_butter_ops-cae123af3d60a404)
+
+running 2 tests
+
+thread 'block_fp8::tests::block_fp8_tail_dispatch_preserves_offsets_and_ceil_scale_stride' (4713560) panicked at crates/wh-butter-ops/src/block_fp8.rs:52:57:
+called `Result::unwrap()` on an `Err` value: Msg("block FP8 projection is not implemented")
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test block_fp8::tests::block_fp8_invalid_scale_grid_and_short_buffers_refuse_before_dispatch ... ok
+test block_fp8::tests::block_fp8_tail_dispatch_preserves_offsets_and_ceil_scale_stride ... FAILED
+
+failures:
+
+failures:
+    block_fp8::tests::block_fp8_tail_dispatch_preserves_offsets_and_ceil_scale_stride
+
+test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 48 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p wh-butter-ops --lib`

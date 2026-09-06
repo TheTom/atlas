@@ -1,0 +1,127 @@
+{
+  "phase": "rental-final",
+  "scope": "Actual C preprocessor and unchanged vendor capability predicate; includes omitted, no CUDA compilation or GPU execution",
+  "source_sha256": "f1f66a4bf4b55b514a2f072672a47aba4fe1b578584dead7d872683b5ba22af2",
+  "vendor_sha256": "3ffd9f0e9ec64db40bf8c5641f9a28330c4c7948747bbf48e1f76dd43d783c35",
+  "vendor_predicate": "#if !defined(GGML_USE_HIP) && __CUDA_ARCH__ >= GGML_CUDA_CC_BLACKWELL && __CUDA_ARCH__ < GGML_CUDA_CC_RUBIN\n#    define BLACKWELL_MMA_AVAILABLE\n#endif // !defined(GGML_USE_HIP) && __CUDA_ARCH__ >= GGML_CUDA_CC_BLACKWELL",
+  "rows": [
+    {
+      "arch": 900,
+      "command": [
+        "/usr/bin/c++",
+        "-E",
+        "-P",
+        "-x",
+        "c++",
+        "-D__CUDA_ARCH__=900",
+        "-"
+      ],
+      "exit": 0,
+      "exports": [],
+      "count": 0,
+      "expected": 0,
+      "pass_": true,
+      "stderr": ""
+    },
+    {
+      "arch": 1000,
+      "command": [
+        "/usr/bin/c++",
+        "-E",
+        "-P",
+        "-x",
+        "c++",
+        "-D__CUDA_ARCH__=1000",
+        "-"
+      ],
+      "exit": 0,
+      "exports": [],
+      "count": 0,
+      "expected": 0,
+      "pass_": true,
+      "stderr": ""
+    },
+    {
+      "arch": 1200,
+      "command": [
+        "/usr/bin/c++",
+        "-E",
+        "-P",
+        "-x",
+        "c++",
+        "-D__CUDA_ARCH__=1200",
+        "-"
+      ],
+      "exit": 0,
+      "exports": [
+        "atlas_nvfp4_mmq128_nc",
+        "atlas_nvfp4_mmq128_wc",
+        "atlas_nvfp4_mmq16_nc",
+        "atlas_nvfp4_mmq16_wc",
+        "atlas_nvfp4_mmq32_nc",
+        "atlas_nvfp4_mmq32_wc",
+        "atlas_nvfp4_mmq64_nc",
+        "atlas_nvfp4_mmq64_wc",
+        "atlas_nvfp4_quantize_bf16",
+        "atlas_nvfp4_repack",
+        "atlas_nvfp4_scale_bf16",
+        "atlas_nvfp4_silu_mul_scaled",
+        "atlas_nvfp4_silu_mul_quant"
+      ],
+      "count": 13,
+      "expected": 13,
+      "pass_": true,
+      "stderr": ""
+    },
+    {
+      "arch": 1210,
+      "command": [
+        "/usr/bin/c++",
+        "-E",
+        "-P",
+        "-x",
+        "c++",
+        "-D__CUDA_ARCH__=1210",
+        "-"
+      ],
+      "exit": 0,
+      "exports": [
+        "atlas_nvfp4_mmq128_nc",
+        "atlas_nvfp4_mmq128_wc",
+        "atlas_nvfp4_mmq16_nc",
+        "atlas_nvfp4_mmq16_wc",
+        "atlas_nvfp4_mmq32_nc",
+        "atlas_nvfp4_mmq32_wc",
+        "atlas_nvfp4_mmq64_nc",
+        "atlas_nvfp4_mmq64_wc",
+        "atlas_nvfp4_quantize_bf16",
+        "atlas_nvfp4_repack",
+        "atlas_nvfp4_scale_bf16",
+        "atlas_nvfp4_silu_mul_scaled",
+        "atlas_nvfp4_silu_mul_quant"
+      ],
+      "count": 13,
+      "expected": 13,
+      "pass_": true,
+      "stderr": ""
+    },
+    {
+      "arch": 1300,
+      "command": [
+        "/usr/bin/c++",
+        "-E",
+        "-P",
+        "-x",
+        "c++",
+        "-D__CUDA_ARCH__=1300",
+        "-"
+      ],
+      "exit": 0,
+      "exports": [],
+      "count": 0,
+      "expected": 0,
+      "pass_": true,
+      "stderr": ""
+    }
+  ]
+}

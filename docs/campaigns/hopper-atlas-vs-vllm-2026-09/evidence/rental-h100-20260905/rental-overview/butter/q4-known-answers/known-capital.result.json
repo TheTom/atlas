@@ -1,0 +1,52 @@
+{
+  "label": "known-capital",
+  "utc": "2026-09-05T23:26:29.293424+00:00",
+  "status": 200,
+  "oracle_findings": [],
+  "headers": {
+    "Content-Type": "application/json",
+    "Content-Length": "648",
+    "Connection": "close",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "*",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS"
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "The capital city of Japan is Tokyo.\n\nTokyo is a sprawling metropolis that serves as the political, economic, and cultural center of the country. It is known for its unique blend of ultra-modern skyscrapers and traditional temples, bustling neon-lit districts like Shibuya and Shinjuku, and its status as one of the most populous metropolitan areas in the world.",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1788650789,
+    "id": "chatcmpl-1788650789",
+    "model": "qwen3.8-27b-q4_k_m",
+    "object": "chat.completion",
+    "usage": {
+      "cached_tokens": 0,
+      "completion_tokens": 77,
+      "prompt_tokens": 76,
+      "total_tokens": 153
+    }
+  },
+  "usage": {
+    "cached_tokens": 0,
+    "completion_tokens": 77,
+    "prompt_tokens": 76,
+    "total_tokens": 153
+  },
+  "finish_reasons": [
+    "stop"
+  ],
+  "content": "The capital city of Japan is Tokyo.\n\nTokyo is a sprawling metropolis that serves as the political, economic, and cultural center of the country. It is known for its unique blend of ultra-modern skyscrapers and traditional temples, bustling neon-lit districts like Shibuya and Shinjuku, and its status as one of the most populous metropolitan areas in the world.",
+  "elapsed_s": 4.979219859000295,
+  "first_sse_event_s": null,
+  "first_content_or_tool_delta_s": null,
+  "expected": "Tokyo",
+  "known_answer_verdict": "OK",
+  "known_answer_detail": ""
+}

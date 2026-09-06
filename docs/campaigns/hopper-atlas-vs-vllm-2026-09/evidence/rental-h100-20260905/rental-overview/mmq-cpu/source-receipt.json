@@ -1,0 +1,12 @@
+{
+  "commit": "14ddfafbd971861bbca7c09bf676265e020a5d87",
+  "base": "72834f2",
+  "files": {
+    "crates/atlas-kernels/tests/nvfp4_mmq_capability.rs": "d1aa5a75d2a0e9e645edb69efdc9a9a60b4e5882e6e7116df5c58431cafc564d",
+    "crates/spark-model/src/layers/dense_ffn.rs": "b7637545cc6f4e93ca7833062bb585d0632dea06e19ef516c07ae4e66361dd09",
+    "crates/spark-model/src/layers/dense_ffn_mmq_tests.rs": "439d3b4f735477bb1ec813b4afd4506f2c42dc94d3d2f74a01ece37907e32f81",
+    "kernels/gb10/qwen3.6-27b/nvfp4/nvfp4_mmq.cu": "f1f66a4bf4b55b514a2f072672a47aba4fe1b578584dead7d872683b5ba22af2",
+    "kernels/hopper/qwen3.6-27b/MODEL.toml": "4d3c30cb3df540451407da1d4f66420c9f99cadd8148d2ac7c484b661914f6f1",
+    "kernels/hopper/qwen3.8-27b/MODEL.toml": "b15ad0614068ea6a464083ae167a150cdeaada3be873e73a9977b6de3a97ff9a"
+  }
+}

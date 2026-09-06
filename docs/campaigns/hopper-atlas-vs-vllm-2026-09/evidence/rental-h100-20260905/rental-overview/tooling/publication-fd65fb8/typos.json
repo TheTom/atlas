@@ -1,0 +1,8 @@
+{
+  "name": "typos",
+  "command": [
+    "typos"
+  ],
+  "exit_code": 0,
+  "tail": []
+}

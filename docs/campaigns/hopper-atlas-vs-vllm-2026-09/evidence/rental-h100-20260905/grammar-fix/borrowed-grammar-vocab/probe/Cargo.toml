@@ -1,0 +1,9 @@
+[package]
+name="grammar-allocation-oracle"
+version="0.0.0"
+edition="2024"
+
+[dependencies]
+xgrammar={path=".."}
+
+[workspace]

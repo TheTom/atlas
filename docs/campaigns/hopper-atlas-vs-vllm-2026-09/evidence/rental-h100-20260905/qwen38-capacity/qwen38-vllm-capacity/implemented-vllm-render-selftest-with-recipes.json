@@ -1,0 +1,15 @@
+{
+  "command": [
+    "python3",
+    "bench/campaign/vllm_render.py",
+    "--recipes",
+    "bench/campaign/vllm_recipes.json",
+    "--selftest"
+  ],
+  "cwd": "/Users/tom/Documents/New project/atlas-qwen38-capacity512",
+  "exit_code": 0,
+  "seconds": 0.04946733399992809,
+  "stdout": "vllm_control selftest: 258/258 checks passed over 31 rendered entries\n",
+  "stderr": "",
+  "recipe_sha256": "b8427cc3392a3612f200b848ce9de3fa5e604db6d41253bb043a7e0afea50b7b"
+}

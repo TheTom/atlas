@@ -1,0 +1,3 @@
+   Compiling xgrammar v1.0.0-beta-preview (/home/pidtom/atlas-grammar-prewarm-20260905/crates/xgrammar)
+    Finished `release` profile [optimized] target(s) in 2.55s
+     Running `/home/pidtom/atlas-hopper-gate-full/target/release/examples/native_prewarm_profile /home/pidtom/atlas-grammar-prewarm-20260905 --warm-only`

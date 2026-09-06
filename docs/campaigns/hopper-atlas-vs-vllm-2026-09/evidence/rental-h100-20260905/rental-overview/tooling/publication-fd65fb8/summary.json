@@ -1,0 +1,117 @@
+{
+  "head": "fd65fb85a09e9ff3d81c36fcbceffff4bdc38269",
+  "utc": "2026-09-05T23:39:55.437374+00:00",
+  "results": [
+    {
+      "name": "atlas-render",
+      "command": [
+        "python3",
+        "bench/campaign/atlas_render.py",
+        "--selftest"
+      ],
+      "exit_code": 0,
+      "tail": [
+        "atlas_render selftest: 346/346 checks passed over 19 entries"
+      ]
+    },
+    {
+      "name": "vllm-render",
+      "command": [
+        "python3",
+        "bench/campaign/vllm_render.py",
+        "--recipes",
+        "bench/campaign/vllm_recipes.json",
+        "--selftest"
+      ],
+      "exit_code": 0,
+      "tail": [
+        "vllm_control selftest: 258/258 checks passed over 31 rendered entries"
+      ]
+    },
+    {
+      "name": "validator",
+      "command": [
+        "python3",
+        "bench/campaign/validate_artifact.py",
+        "--selftest"
+      ],
+      "exit_code": 0,
+      "tail": [
+        "validate_artifact selftest: 26/26 checks passed (7 known-bad fixtures)"
+      ]
+    },
+    {
+      "name": "dockerfiles",
+      "command": [
+        "bash",
+        "docker/datacenter_dockerfiles_test.sh"
+      ],
+      "exit_code": 0,
+      "tail": [
+        "  ok [e] workflow ok: both legs, hopper=sm_90a b200=sm_100a",
+        "",
+        "PASS \u2014 17 assertions (workflow checked in yaml mode)"
+      ]
+    },
+    {
+      "name": "fmt",
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0,
+      "tail": []
+    },
+    {
+      "name": "typos",
+      "command": [
+        "typos"
+      ],
+      "exit_code": 0,
+      "tail": []
+    },
+    {
+      "name": "assembler",
+      "command": [
+        "python3",
+        "bench/campaign/cell_assemble.py",
+        "--selftest"
+      ],
+      "exit_code": 0,
+      "tail": [
+        "",
+        "OK",
+        "cell_assemble selftest: 16/16 test methods passed"
+      ]
+    },
+    {
+      "name": "launcher",
+      "command": [
+        "bash",
+        "scripts/start_node_ep_test.sh"
+      ],
+      "exit_code": 0,
+      "tail": [
+        "  ok [n] a same-named container with another ID and label is left alone, ours confirmed gone",
+        "",
+        "ALL 30 assertions passed."
+      ]
+    },
+    {
+      "name": "campaign",
+      "command": [
+        "bash",
+        "bench/campaign/campaign_test.sh"
+      ],
+      "exit_code": 0,
+      "tail": [
+        "  ok [i] typos clean under bench/campaign",
+        "",
+        "ALL 85 assertions passed."
+      ]
+    }
+  ]
+}

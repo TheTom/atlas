@@ -1,0 +1,14 @@
+[
+  {
+    "arch": 1200,
+    "preprocessed_tokens_equal": true,
+    "old_sha256": "a76487053b9ce7b4411d63625fd2d0bc654eff370798f0f7226165323224b91b",
+    "new_sha256": "a76487053b9ce7b4411d63625fd2d0bc654eff370798f0f7226165323224b91b"
+  },
+  {
+    "arch": 1210,
+    "preprocessed_tokens_equal": true,
+    "old_sha256": "a76487053b9ce7b4411d63625fd2d0bc654eff370798f0f7226165323224b91b",
+    "new_sha256": "a76487053b9ce7b4411d63625fd2d0bc654eff370798f0f7226165323224b91b"
+  }
+]

@@ -1,0 +1,116 @@
+   Compiling atlas-core v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/atlas-core)
+   Compiling spark-runtime v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/spark-runtime)
+   Compiling spark-storage v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/spark-storage)
+   Compiling spark-comm v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/spark-comm)
+   Compiling ciborium-ll v0.2.2
+   Compiling criterion-plot v0.8.2
+   Compiling ciborium v0.2.2
+   Compiling plotters v0.3.7
+   Compiling tinytemplate v1.2.1
+   Compiling spark-nllb v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/spark-nllb)
+   Compiling atlas-kernels v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/atlas-kernels)
+   Compiling criterion v0.8.2
+   Compiling atlas-spark-bench v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/atlas-spark-bench)
+   Compiling spark-model v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/spark-model)
+   Compiling spark-server v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/spark-server)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 26.43s
+   Doc-tests atlas_closure
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_governance
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_kernels
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_plugin
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_rdma
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_spark_bench
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_tier
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests cufile_sys
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests spark_comm
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests spark_model
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests spark_nllb
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests spark_runtime
+
+running 1 test
+test crates/spark-runtime/src/kernel_args.rs - kernel_args (line 14) ... ignored
+
+test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+all doctests ran in 0.31s; merged doctests compilation took 0.31s
+   Doc-tests spark_server
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests spark_storage
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests xgrammar
+
+running 1 test
+test crates/xgrammar/src/matcher/coalesce.rs - matcher::coalesce::GrammarMatcher::forced_from_bitmask (line 107) ... ignored
+
+test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+all doctests ran in 0.31s; merged doctests compilation took 0.30s

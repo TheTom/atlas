@@ -1,0 +1,7 @@
+usage: vllm_render.py [-h] --recipes RECIPES [--model MODEL] [--sku SKU]
+                      [--spec {on,off}] [--extra EXTRA] [--stage STAGE]
+                      [--container CONTAINER] [--label LABEL]
+                      [--hf-cache HF_CACHE] [--docker DOCKER] [--image IMAGE]
+                      [--image-digest IMAGE_DIGEST] [--probe] [--list]
+                      [--selftest]
+vllm_render.py: error: the following arguments are required: --recipes

@@ -1,0 +1,13 @@
+{
+  "command": [
+    "python3",
+    "bench/campaign/atlas_render.py",
+    "--selftest"
+  ],
+  "cwd": "/Users/tom/Documents/New project/atlas-qwen38-atlas-capacity4",
+  "exit_code": 0,
+  "seconds": 0.053467958998226095,
+  "stdout": "atlas_render selftest: 346/346 checks passed over 19 entries\n",
+  "stderr": "",
+  "catalog_sha256": "38af832879e29a8a91256105a70af4184c3e58fd9c21f374695225b8aa76d208"
+}

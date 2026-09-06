@@ -1,0 +1,123 @@
+{
+  "production_commit": "ae8c693c38bce5fdead687515765a5c6fd4bb7b6",
+  "test_commit": "ccc18def6a321273023314dec07d9bca9c2e9137",
+  "lint_commit": "bad683736fd17e86ac2e06754634de430a782db1",
+  "validation_tree": "181e82a503f6b9212105fc3bb9341f42afd3a42d",
+  "source_verified": 5111,
+  "source_mismatches": 0,
+  "oracles": {
+    "allocation_growth": "Doubling vocabulary entries that cannot match any state must not increase preparation allocations.",
+    "native_exactness": "Every full auto/required mask and rollback mask must equal original native goldens.",
+    "clippy": "Deny-warnings gate must reject the known needless borrow before the one-line fix.",
+    "ptx": "Known-bad fixture must produce exactly two rejected-entry records; all 7 assertions pass."
+  },
+  "results": {
+    "allocation_red_exit": 101,
+    "allocation_red_counts": [
+      12356,
+      24644
+    ],
+    "allocation_green_exit": 0,
+    "allocation_green_counts": [
+      58,
+      58
+    ],
+    "server_passed": 2456,
+    "xgrammar_unit_passed": 826,
+    "allocation_integration_passed": 1,
+    "native_goldens_equal": true,
+    "clippy_final_exit": 0,
+    "rustdoc_final_exit": 0,
+    "ptx_assertions": 7,
+    "optional_spark1_shellcheck": "skipped (not installed; parent owns local check)"
+  },
+  "commands": {
+    "package_tests": "cargo test --locked -p xgrammar -p spark-server",
+    "rustdoc": "cargo doc --locked --workspace --no-deps",
+    "clippy": "cargo clippy --locked -p xgrammar --tests -- -D warnings",
+    "ptx": "bash scripts/hopper_ptx_gate_test.sh"
+  },
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "ATLAS_SKIP_BUILD": "1",
+    "CUDARC_CUDA_VERSION": "13000",
+    "CARGO_TARGET_DIR": "/home/pidtom/atlas-hopper-gate-full/target"
+  },
+  "dependency": {
+    "name": "stats_alloc",
+    "version": "0.1.10",
+    "kind": "dev",
+    "license": "MIT",
+    "dependencies": [],
+    "source_bytes": 15853
+  },
+  "cleanup": {
+    "removed": [
+      "/home/pidtom/atlas-borrowed-vocab-server-20260905",
+      "/home/pidtom/atlas-cold-phase-Dn4z2OEX"
+    ],
+    "before": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  867G  2.8G 100% /\n91M\t/home/pidtom/atlas-borrowed-vocab-server-20260905\n18M\t/home/pidtom/atlas-cold-phase-Dn4z2OEX\n",
+    "after": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  866G  2.9G 100% /\n",
+    "shared_target_preserved": true
+  },
+  "artifacts": {
+    "REPORT.md": "f1925c4af3aeb2d636aacfe98139ade77d1df8a0ea843e25c701e3ea36eaf08b",
+    "borrowed-golden-false.json": "f6eab1c2a8c7432bfd87fde9dd8bae2e601f84f47bc9e52082da26cc8f9c3cc8",
+    "borrowed-golden-true.json": "48bb087d1d156aa078f5b6d309c51c3eb7d3ed1a49feb1e0e7f4d57fa0f2b060",
+    "cleanup-after.txt": "7429f5322947b493e7c675180b85bba86a6a1a9b81761e86a5f73fe7e542cf56",
+    "cleanup-before.txt": "5f0b2e8bc98731e426815df2737f011f5afcea01044f4f1c18412871f09a21e1",
+    "compute-counts.json": "f864359c0917272a12dc2ca3c434ab3c0a730dac464bbfb061d67f2dad245ba0",
+    "cpu-phase/allocation-green.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cpu-phase/allocation-green.log": "c837c60f1b5950f9442f7010e2e726d94db02225f2b684f92a72be957d01e121",
+    "cpu-phase/allocation-red.exit": "39b8dc3fc8b44765c8e6f1adee04c5b465e555ab791cc42d0d9e810d5b64297c",
+    "cpu-phase/allocation-red.log": "ae4d6a610c581bb7177c869bee39e0828361069f98e5f673e5f92e9e75a713de",
+    "cpu-phase/borrowed-build.log": "a04581872f595016a7052dbbb08720c803acda664bb0e943270b9c25b833622e",
+    "cpu-phase/borrowed.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cpu-phase/borrowed.stderr": "589e5f133626b508a558656fa3205a78f6ef195f03ca990ad42895d1dad46c91",
+    "cpu-phase/borrowed.stdout": "06660a46b4bc9cd5e62ef8c3d789f9791f6bf70e31f127e1c062c8111def4c6a",
+    "cpu-phase/build.log": "154b6636ce14354f16bf58070744f94e762421592f986f86c1933969ac52c4ea",
+    "cpu-phase/core-green.log": "4dcc15225619639438542fd4ff1cc796b4fd00bfa1543fa50807afab602f001d",
+    "cpu-phase/factored.stderr": "a9bd6a13557ebe60f4c8c380ce4e98a36db36db76894280ec135c541e2d8b9df",
+    "cpu-phase/factored.stdout": "d06c3bc9ade5095287c441f6a994c9c1f3dc8fc619742bb08c62dd1b1760c2ce",
+    "cpu-phase/instrumented-compiled_grammar.rs": "0cd7abe50ba0ffb7a44d375504d6a1ebba18c92d0e5d4c79c439f85ae06b3e04",
+    "cpu-phase/integration-red.exit": "39b8dc3fc8b44765c8e6f1adee04c5b465e555ab791cc42d0d9e810d5b64297c",
+    "cpu-phase/integration-red.log": "4b2df8b89b76a6378d63d13e8eac1211c1a8605e3068340ffaa460e7f6cb07e6",
+    "cpu-phase/native_prewarm_profile.rs": "12d927310736222198c9d4b615a620096b672fd04e69957a053b0344960b83b6",
+    "cpu-phase/original.stderr": "f2aa4f7e4edb2d36c32a0bb32c1a8633d74271b8de8540972cdb854946fafe26",
+    "cpu-phase/original.stdout": "4f2991852eb2b974c2e87c17050eb35f5a47a4cd92ac59d7dcdbbdd139f1e6ab",
+    "cpu-phase/run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "golden-comparison.json": "176ed91d7b9107dc3202a2ac01ea2d11938b8887398dc0dfeb23f1954d352d05",
+    "intervals-before.rs": "810680b4f809cff15f8d30576df655b1dcbf84b6f856a63a4a1618f0f73cbc34",
+    "phase-summary.json": "f4e6c2bb69dfa1fe88e0fd7edacd43bdf0896477f18dff7d34e4a59de248d5c9",
+    "probe/Cargo.toml": "a2d837940668bdde39d543da72d576f6416f76a128976f2a4fd0a285ad810ca6",
+    "probe/src/main.rs": "77467a8cfbfdc47a778a33cf7d3cade6a265bd5044e4e6c08b0a3f4ebc6f209d",
+    "validation/clippy-final.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "validation/clippy-final.log": "0d02084177e985be9f555a61e71a4aa594706d2aa429adba925591d13b27590f",
+    "validation/clippy-green.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "validation/clippy-green.log": "ddeddfa4b54cdc3548a46d0b933112f217d29fe121bd72b82e9822a4b9c58b6d",
+    "validation/clippy-red.exit": "39b8dc3fc8b44765c8e6f1adee04c5b465e555ab791cc42d0d9e810d5b64297c",
+    "validation/clippy-red.log": "673262ea794bceaa2486d349f101e1688cc2fa869e886e00699fe9c80665d53f",
+    "validation/final-package-tests.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "validation/final-package-tests.log": "872acbfcba5fc18f941d510f456f549f137ef14e20539b0a8ebdcdba3e692f41",
+    "validation/integration-green.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "validation/integration-green.log": "5d8b83ed06e28cec3c66dbe688c1c625a6c3f866d9e8eaaa541699f0dab8a6ad",
+    "validation/ptx-green.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "validation/ptx-green.log": "09810a2a1dd12af723eca61043b4d8aa2cede7a953e2d6479aa8850c6e21db86",
+    "validation/rustdoc-final.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "validation/rustdoc-final.log": "612531d7cb9ac1ccd95f418c6385122606301486fcace4ee32271fb5f05cdb75",
+    "validation/rustdoc-green.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "validation/rustdoc-green.log": "253ed5a22a19441f355438fa679ca717c410bb19cbe0ac786e8ffbd9f2909a4f",
+    "validation/server-green.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "validation/server-green.log": "fb9bc2026e4ab02965161765fae2e01f838fc5a5b79bb354570d6c3026d13703",
+    "validation/source-manifest.json": "10056711359af53ffe4795eea7f4243fbfa8029a44c077326027983ec42a9ed6",
+    "validation/source-verification.json": "27a67a3b7136dc82a5d527493ecc096e82519a459382e2d8974b49a1ba004e80",
+    "validation/xgrammar-final.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "validation/xgrammar-final.log": "d081fc3d1eee1c72972564b83be7b0f4c0618909e4842aac934a1c27306d37ed"
+  },
+  "root_commit": "e68079c7d70035b17f52af3a33ca70a61c2863c5",
+  "root_diff_paths": [
+    "bench/campaign/atlas_recipes.json",
+    "bench/campaign/vllm_recipes.json"
+  ],
+  "root_tested_code_equal": true
+}

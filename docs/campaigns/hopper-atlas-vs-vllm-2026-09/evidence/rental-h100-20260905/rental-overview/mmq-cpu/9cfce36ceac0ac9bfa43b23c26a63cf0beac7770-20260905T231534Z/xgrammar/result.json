@@ -1,0 +1,35 @@
+{
+  "stage": "xgrammar",
+  "argv": [
+    "cargo",
+    "+1.93.1",
+    "test",
+    "--locked",
+    "-p",
+    "xgrammar"
+  ],
+  "started": "2026-09-05T23:18:22.427082+00:00",
+  "free_before": 418503999488,
+  "task_bytes_before": 86869225472,
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "ATLAS_SKIP_BUILD": "1",
+    "CUDARC_CUDA_VERSION": "13000",
+    "CARGO_TARGET_DIR": "/workspace/atlas-rental/target-cpu-checks",
+    "CARGO_BUILD_JOBS": "6",
+    "ATLAS_TARGET_HW": "hopper",
+    "ATLAS_TARGET_MODEL": "qwen3.8-27b",
+    "ATLAS_TARGET_QUANT": "nvfp4"
+  },
+  "finished": "2026-09-05T23:18:42.431780+00:00",
+  "elapsed_s": 20.004740611999296,
+  "exit_code": 0,
+  "stop_reason": null,
+  "free_after": 417980518400,
+  "test_summaries": [
+    "test result: ok. 826 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.25s",
+    "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s",
+    "test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+  ]
+}

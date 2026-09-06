@@ -1,0 +1,105 @@
+   Compiling wh-butter-loader v0.1.0 (/Users/tom/Documents/New project/butter-qwen38-block-fp8/rust/crates/wh-butter-loader)
+   Compiling wh-butter-ops v0.1.0 (/Users/tom/Documents/New project/butter-qwen38-block-fp8/rust/crates/wh-butter-ops)
+   Compiling wh-butter-models v0.1.0 (/Users/tom/Documents/New project/butter-qwen38-block-fp8/rust/crates/wh-butter-models)
+warning: unused import: `silu`
+ --> crates/wh-butter-models/src/dsv4/reference/ops.rs:6:22
+  |
+6 | use super::{sigmoid, silu, softplus};
+  |                      ^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: ambiguous glob re-exports
+  --> crates/wh-butter-models/src/dsv4/reference/mod.rs:43:9
+   |
+43 | pub use q8::*;
+   |         ^^^^^ the name `Q8_0_BLOCK` in the value namespace is first re-exported here
+44 | pub use q8k::*;
+45 | pub use qat::*;
+   |         ------ but the name `Q8_0_BLOCK` in the value namespace is also re-exported here
+   |
+   = note: `#[warn(ambiguous_glob_reexports)]` on by default
+
+warning: ambiguous glob re-exports
+  --> crates/wh-butter-models/src/dsv4/reference/mod.rs:44:9
+   |
+44 | pub use q8k::*;
+   |         ^^^^^^ the name `Q8_K_BLOCK` in the value namespace is first re-exported here
+45 | pub use qat::*;
+   |         ------ but the name `Q8_K_BLOCK` in the value namespace is also re-exported here
+
+warning: unused variable: `act_q8_0_on`
+    --> crates/wh-butter-models/src/dsv4/model.rs:5124:13
+     |
+5124 |         let act_q8_0_on = self.cfg.numerics.act_q8_0;
+     |             ^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_act_q8_0_on`
+     |
+     = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+   --> crates/wh-butter-models/src/dsv4/tp_model.rs:293:17
+    |
+293 |             let mut stack = |name: &str| -> Result<Mxfp4ExpertWeight> {
+    |                 ----^^^^^
+    |                 |
+    |                 help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+    --> crates/wh-butter-models/src/qwen4_exp.rs:2337:5
+     |
+2337 |     mut staging: &mut ExpertStaging,
+     |     ----^^^^^^^
+     |     |
+     |     help: remove this `mut`
+
+warning: type `BlockFp8Dense` is more private than the item `qwen35::DenseWeight::BlockFp8::0`
+    --> crates/wh-butter-models/src/qwen35.rs:1147:14
+     |
+1147 |     BlockFp8(BlockFp8Dense),
+     |              ^^^^^^^^^^^^^ field `qwen35::DenseWeight::BlockFp8::0` is reachable at visibility `pub(crate)`
+     |
+note: but type `BlockFp8Dense` is only usable at visibility `pub(in crate::qwen35)`
+    --> crates/wh-butter-models/src/qwen35_fp8_block.rs:7:1
+     |
+   7 | pub(super) struct BlockFp8Dense {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     = note: `#[warn(private_interfaces)]` on by default
+
+warning: methods `gemv` and `gemv_accum` are never used
+   --> crates/wh-butter-models/src/laguna.rs:407:8
+    |
+383 | impl Q4ExpertStack {
+    | ------------------ methods in this implementation
+...
+407 |     fn gemv(&self, dev: &dyn Device, e: usize, x: &Tensor) -> Result<Tensor> {
+    |        ^^^^
+...
+411 |     fn gemv_accum(&self, dev: &dyn Device, e: usize, x: &Tensor, acc: &Tensor, scale: &Tensor) -> Result<()> {
+    |        ^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `validate_qwen35_tp_in_place_reduction` is never used
+   --> crates/wh-butter-models/src/qwen35_parallel.rs:674:15
+    |
+674 | pub(crate) fn validate_qwen35_tp_in_place_reduction(
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: `wh-butter-models` (lib) generated 9 warnings (run `cargo fix --lib -p wh-butter-models` to apply 4 suggestions)
+warning: `wh-butter-models` (lib test) generated 8 warnings (8 duplicates)
+    Finished `test` profile [optimized + debuginfo] target(s) in 9.87s
+     Running unittests src/lib.rs (/Users/tom/Documents/New project/butter-iron-h100-prep/cpu-protocol-target/debug/deps/wh_butter_models-69ac8a3bfc2e333e)
+
+running 1 test
+test qwen35::fp8_block_tests::original_block_fp8_loads_without_requantization ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 399 filtered out; finished in 0.00s
+
+     Running unittests src/bin/glm53-preflight.rs (/Users/tom/Documents/New project/butter-iron-h100-prep/cpu-protocol-target/debug/deps/glm53_preflight-fe49523bac5a01f2)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

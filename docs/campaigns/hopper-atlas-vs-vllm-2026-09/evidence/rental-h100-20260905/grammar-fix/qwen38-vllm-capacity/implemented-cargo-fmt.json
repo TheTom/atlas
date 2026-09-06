@@ -1,0 +1,15 @@
+{
+  "command": [
+    "cargo",
+    "fmt",
+    "--all",
+    "--",
+    "--check"
+  ],
+  "cwd": "/Users/tom/Documents/New project/atlas-qwen38-capacity512",
+  "exit_code": 0,
+  "seconds": 1.9001877909977338,
+  "stdout": "",
+  "stderr": "",
+  "recipe_sha256": "b8427cc3392a3612f200b848ce9de3fa5e604db6d41253bb043a7e0afea50b7b"
+}

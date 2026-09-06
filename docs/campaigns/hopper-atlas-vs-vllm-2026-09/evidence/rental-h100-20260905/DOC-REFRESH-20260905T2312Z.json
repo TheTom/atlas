@@ -1,0 +1,1707 @@
+{
+  "captured_utc": "2026-09-05T23:19:52.076206+00:00",
+  "scope": "Documentation refresh; no code edits, GPU actions, remote writes or commits. Pre-existing report/evidence edits preserved.",
+  "checks": {
+    "git diff --check": 0,
+    "typos four narrative files": 0,
+    "local_markdown_links": 57,
+    "missing_links": 0,
+    "manifest_entries_verified": 559,
+    "json_documents_parsed": 126,
+    "credential_shaped_content_scan": "none detected in 328 copied/verified files"
+  },
+  "runtime_results_included": [
+    "diagnostic.atlas.coldfix01 at e68079c7",
+    "diagnostic.atlas.serialfix01 at 37228e85",
+    "qwen38.atlas.b.lat.c1 failed first-token boot",
+    "qwen38.vllm.b.lat.c1 failed coherency"
+  ],
+  "limitations": [
+    "Serial cold latency is a single fresh-process diagnostic; no scored ladder.",
+    "Qwen3.8 MMQ repair runtime remains pending at this documentation snapshot.",
+    "Native vLLM immutable engine identity remains unproven; schema unchanged.",
+    "Earlier serial CPU decision receipt retains its original pending state; actual later H100 result is recorded separately."
+  ],
+  "changed_or_added_files": [
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/NIGHT-LOG.md",
+      "bytes": 18304,
+      "sha256": "a1626f615df85d0a580a394a11d462bd54db06d122f9eaf97b7cc16e1d13e35a"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/RENTAL-H100-GRAMMAR-FIX.md",
+      "bytes": 9650,
+      "sha256": "9d78506975b7528edbf8e400eb4ac94d4d707d0ecf475da7ff0523df8528d425"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/RENTAL-H100-QWEN38-CAPACITY.md",
+      "bytes": 6669,
+      "sha256": "6a02e7fc9880d5b2bf175f5f0d672bd7998687b77130284b213e6398ed88f1a9"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/COLD-FOLLOWUP-EVIDENCE-MANIFEST.json",
+      "bytes": 10336,
+      "sha256": "a85bdae29796646e847721da30249cb9957529b7f466fdabe67bbb4fa559a418"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/REPORT.md",
+      "bytes": 6338,
+      "sha256": "f1925c4af3aeb2d636aacfe98139ade77d1df8a0ea843e25c701e3ea36eaf08b"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/borrowed-golden-false.json",
+      "bytes": 1514539,
+      "sha256": "f6eab1c2a8c7432bfd87fde9dd8bae2e601f84f47bc9e52082da26cc8f9c3cc8"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/borrowed-golden-true.json",
+      "bytes": 1624651,
+      "sha256": "48bb087d1d156aa078f5b6d309c51c3eb7d3ed1a49feb1e0e7f4d57fa0f2b060"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cleanup-after.txt",
+      "bytes": 89,
+      "sha256": "7429f5322947b493e7c675180b85bba86a6a1a9b81761e86a5f73fe7e542cf56"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cleanup-before.txt",
+      "bytes": 186,
+      "sha256": "5f0b2e8bc98731e426815df2737f011f5afcea01044f4f1c18412871f09a21e1"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/compute-counts.json",
+      "bytes": 2643,
+      "sha256": "f864359c0917272a12dc2ca3c434ab3c0a730dac464bbfb061d67f2dad245ba0"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cpu-phase/allocation-green.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cpu-phase/allocation-green.log",
+      "bytes": 656,
+      "sha256": "c837c60f1b5950f9442f7010e2e726d94db02225f2b684f92a72be957d01e121"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cpu-phase/allocation-red.exit",
+      "bytes": 4,
+      "sha256": "39b8dc3fc8b44765c8e6f1adee04c5b465e555ab791cc42d0d9e810d5b64297c"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cpu-phase/allocation-red.log",
+      "bytes": 1654,
+      "sha256": "ae4d6a610c581bb7177c869bee39e0828361069f98e5f673e5f92e9e75a713de"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cpu-phase/borrowed-build.log",
+      "bytes": 145,
+      "sha256": "a04581872f595016a7052dbbb08720c803acda664bb0e943270b9c25b833622e"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cpu-phase/borrowed.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cpu-phase/borrowed.stderr",
+      "bytes": 342,
+      "sha256": "589e5f133626b508a558656fa3205a78f6ef195f03ca990ad42895d1dad46c91"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cpu-phase/borrowed.stdout",
+      "bytes": 14451,
+      "sha256": "06660a46b4bc9cd5e62ef8c3d789f9791f6bf70e31f127e1c062c8111def4c6a"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cpu-phase/build.log",
+      "bytes": 145,
+      "sha256": "154b6636ce14354f16bf58070744f94e762421592f986f86c1933969ac52c4ea"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cpu-phase/core-green.log",
+      "bytes": 57907,
+      "sha256": "4dcc15225619639438542fd4ff1cc796b4fd00bfa1543fa50807afab602f001d"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cpu-phase/factored.stderr",
+      "bytes": 144811,
+      "sha256": "a9bd6a13557ebe60f4c8c380ce4e98a36db36db76894280ec135c541e2d8b9df"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cpu-phase/factored.stdout",
+      "bytes": 14409,
+      "sha256": "d06c3bc9ade5095287c441f6a994c9c1f3dc8fc619742bb08c62dd1b1760c2ce"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cpu-phase/instrumented-compiled_grammar.rs",
+      "bytes": 19346,
+      "sha256": "0cd7abe50ba0ffb7a44d375504d6a1ebba18c92d0e5d4c79c439f85ae06b3e04"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cpu-phase/integration-red.exit",
+      "bytes": 4,
+      "sha256": "39b8dc3fc8b44765c8e6f1adee04c5b465e555ab791cc42d0d9e810d5b64297c"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cpu-phase/integration-red.log",
+      "bytes": 1178,
+      "sha256": "4b2df8b89b76a6378d63d13e8eac1211c1a8605e3068340ffaa460e7f6cb07e6"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cpu-phase/native_prewarm_profile.rs",
+      "bytes": 6828,
+      "sha256": "12d927310736222198c9d4b615a620096b672fd04e69957a053b0344960b83b6"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cpu-phase/original.stderr",
+      "bytes": 145330,
+      "sha256": "f2aa4f7e4edb2d36c32a0bb32c1a8633d74271b8de8540972cdb854946fafe26"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cpu-phase/original.stdout",
+      "bytes": 14578,
+      "sha256": "4f2991852eb2b974c2e87c17050eb35f5a47a4cd92ac59d7dcdbbdd139f1e6ab"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/cpu-phase/run.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/golden-comparison.json",
+      "bytes": 462,
+      "sha256": "176ed91d7b9107dc3202a2ac01ea2d11938b8887398dc0dfeb23f1954d352d05"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/intervals-before.rs",
+      "bytes": 8950,
+      "sha256": "810680b4f809cff15f8d30576df655b1dcbf84b6f856a63a4a1618f0f73cbc34"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/phase-summary.json",
+      "bytes": 2130,
+      "sha256": "f4e6c2bb69dfa1fe88e0fd7edacd43bdf0896477f18dff7d34e4a59de248d5c9"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/probe/Cargo.toml",
+      "bytes": 124,
+      "sha256": "a2d837940668bdde39d543da72d576f6416f76a128976f2a4fd0a285ad810ca6"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/probe/src/main.rs",
+      "bytes": 2310,
+      "sha256": "77467a8cfbfdc47a778a33cf7d3cade6a265bd5044e4e6c08b0a3f4ebc6f209d"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/receipt.json",
+      "bytes": 7949,
+      "sha256": "794f4fdcc08bf1006c55f3653a5c01a9410f02d74cb054c0eb7aedac02f88e29"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/clippy-final.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/clippy-final.log",
+      "bytes": 182,
+      "sha256": "0d02084177e985be9f555a61e71a4aa594706d2aa429adba925591d13b27590f"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/clippy-green.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/clippy-green.log",
+      "bytes": 1463,
+      "sha256": "ddeddfa4b54cdc3548a46d0b933112f217d29fe121bd72b82e9822a4b9c58b6d"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/clippy-red.exit",
+      "bytes": 4,
+      "sha256": "39b8dc3fc8b44765c8e6f1adee04c5b465e555ab791cc42d0d9e810d5b64297c"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/clippy-red.log",
+      "bytes": 870,
+      "sha256": "673262ea794bceaa2486d349f101e1688cc2fa869e886e00699fe9c80665d53f"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/final-package-tests.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/final-package-tests.log",
+      "bytes": 270091,
+      "sha256": "872acbfcba5fc18f941d510f456f549f137ef14e20539b0a8ebdcdba3e692f41"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/integration-green.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/integration-green.log",
+      "bytes": 635,
+      "sha256": "5d8b83ed06e28cec3c66dbe688c1c625a6c3f866d9e8eaaa541699f0dab8a6ad"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/ptx-green.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/ptx-green.log",
+      "bytes": 533,
+      "sha256": "09810a2a1dd12af723eca61043b4d8aa2cede7a953e2d6479aa8850c6e21db86"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/rustdoc-final.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/rustdoc-final.log",
+      "bytes": 632,
+      "sha256": "612531d7cb9ac1ccd95f418c6385122606301486fcace4ee32271fb5f05cdb75"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/rustdoc-green.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/rustdoc-green.log",
+      "bytes": 1581,
+      "sha256": "253ed5a22a19441f355438fa679ca717c410bb19cbe0ac786e8ffbd9f2909a4f"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/server-green.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/server-green.log",
+      "bytes": 214506,
+      "sha256": "fb9bc2026e4ab02965161765fae2e01f838fc5a5b79bb354570d6c3026d13703"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/source-manifest.json",
+      "bytes": 801401,
+      "sha256": "10056711359af53ffe4795eea7f4243fbfa8029a44c077326027983ec42a9ed6"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/source-verification.json",
+      "bytes": 153,
+      "sha256": "27a67a3b7136dc82a5d527493ecc096e82519a459382e2d8974b49a1ba004e80"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/xgrammar-final.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/borrowed-grammar-vocab/validation/xgrammar-final.log",
+      "bytes": 56212,
+      "sha256": "d081fc3d1eee1c72972564b83be7b0f4c0618909e4842aac934a1c27306d37ed"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/MANIFEST.json",
+      "bytes": 55260,
+      "sha256": "027ddd5667da2bf08b62c8578d0c74babb598350c3dfeb306259048f08b09914"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/activation.json",
+      "bytes": 433,
+      "sha256": "387ac78124f898a69f586032f4e5fb6eed21bcced350d7aa06a0cad8a34b7866"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/binary-path.txt",
+      "bytes": 91,
+      "sha256": "3431a9d15f5b2dff7089674fa40d884eb1f4a04315ed01f88ac01ddba110ea5e"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/build.json",
+      "bytes": 592,
+      "sha256": "eb16e183dc54e4d7d24b8a8d558a5567da02e46a28d67d92bd9481136edff02d"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/build.log",
+      "bytes": 474,
+      "sha256": "2378eac2ad1571612b7b1fcc9501008defe7504fdcece808b7d8e1a676bbe74c"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/df-after.txt",
+      "bytes": 89,
+      "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/df-before.txt",
+      "bytes": 89,
+      "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/exit-code.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/finished.utc",
+      "bytes": 21,
+      "sha256": "0c7c5b3208e702c292df441ccb052a43197a75e41c95a71d9d040e3a58ca66a2"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/ldd.txt",
+      "bytes": 1144,
+      "sha256": "03ce1ceab478dbb191930be1015c33c7b73874873a7a0b093f9bda3473764b43"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/nvidia-smi-before.txt",
+      "bytes": 14961,
+      "sha256": "93430f3b0d2f3ae54983733f6369dbada34ec0f68ae6f8776f89c0408fd2e650"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/spark.sha256",
+      "bytes": 157,
+      "sha256": "93f44a64757c700a4e092349be805b1100a0cadb9a59d936345fa5282ce66c77"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/target-size.txt",
+      "bytes": 36,
+      "sha256": "4f94ec6906645a570c6ab276aad5c3787d9fe89165f81f622b45ed97bfcb8516"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/tenants-before.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/time.txt",
+      "bytes": 843,
+      "sha256": "a07ad2d5af03173aa6cc39ea08224686f79e6d37d8752a0720bf669c3a1586c2"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/activation.json",
+      "bytes": 433,
+      "sha256": "5940c43f1dbf07d5dc4bf621aa49574572d59f49564ba61fbf048f2dabbe6cf7"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/binary-path.txt",
+      "bytes": 91,
+      "sha256": "e243a17b60fc7b52a1597fe6aae676b9e82bc0e3e09d28fd4a30707b1f6c5046"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/build.json",
+      "bytes": 592,
+      "sha256": "5fc8bd8766121285290270c43ac1e0ebb1d81f9e027f7d1adfbe0c2960f010e9"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/build.log",
+      "bytes": 597,
+      "sha256": "309133444188d05c9bf6155a373bb660b986c807fbfa92a9373413f319fa10ef"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/df-after.txt",
+      "bytes": 89,
+      "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/df-before.txt",
+      "bytes": 89,
+      "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/exit-code.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/finished.utc",
+      "bytes": 21,
+      "sha256": "05a3f53f2ef69f84e80692fbda1769b9f5e2f33aea70c7fcb4a6c89f17f4b8b9"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/ldd.txt",
+      "bytes": 1144,
+      "sha256": "ca0c3a0e9ad8b67b0a4cdc4d12dd2e5a73c499df8f94d4073a48b198b3acf86c"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/nvidia-smi-before.txt",
+      "bytes": 14960,
+      "sha256": "aca62424c87ef7ff4f257de7058aa2bf9bec67c08e8ae201f7e978dc1514e247"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/spark.sha256",
+      "bytes": 157,
+      "sha256": "1697b797cd68d9250a05a51d959d543cc5023106d716c3484db0f63a708e59ec"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/target-size.txt",
+      "bytes": 36,
+      "sha256": "4f94ec6906645a570c6ab276aad5c3787d9fe89165f81f622b45ed97bfcb8516"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/tenants-before.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/time.txt",
+      "bytes": 844,
+      "sha256": "2bd0cb4b79c02b5c21837a8ef61c3ec4b60930d800364438a900a95430627476"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/RESTRICTION.txt",
+      "bytes": 204,
+      "sha256": "af096db1c91120917ec1d4a9b5428d2b7269218fd8482b5383d8da0cee090038"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/admission.json",
+      "bytes": 17506,
+      "sha256": "54caef71a73160b8dce13ec33a5cea011da8d1ae53d412d5cec8e133610d2a3b"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/auto-blocking-1-exchange.json",
+      "bytes": 2039,
+      "sha256": "3515b3ac5283dc4455c5231d85a7ebfe6aa8b11abf521deb1dba68be15fcafff"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/auto-blocking-2-exchange.json",
+      "bytes": 2046,
+      "sha256": "5d06ef46d9835f1f7cf3afcd3ee2083ef0722dffe20650d75e1bc74437e8a597"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/auto-stream-1/chunks.jsonl",
+      "bytes": 3692,
+      "sha256": "0e903330ef3b72fedf808ff591d2307003b7713c0476fdbd6190dfeba4b13c60"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/auto-stream-1/report.json",
+      "bytes": 1304,
+      "sha256": "f7078c7a122f5dd45c90f7eb7e4e3da6a120843392cbde7c02d90db98d53dfe3"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/auto-stream-1/request.json",
+      "bytes": 1053,
+      "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/auto-stream-1.log",
+      "bytes": 114,
+      "sha256": "0456dd0460fee264604f4694fb4228fab35eb94ba6e0d45e126c61399377b96f"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/auto-stream-2/chunks.jsonl",
+      "bytes": 3687,
+      "sha256": "3e292b271c19e5c2a01d16ffd538d2f423ea99d6d31896fbaed7b5820d56ead2"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/auto-stream-2/report.json",
+      "bytes": 1301,
+      "sha256": "0c6ae1eaa8cb45f91ba497f6761e9fb14b96d0a68722a0ef1011d4d29678f175"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/auto-stream-2/request.json",
+      "bytes": 1053,
+      "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/auto-stream-2.log",
+      "bytes": 114,
+      "sha256": "722bb97d4fbbccfbf8c9de10f0c7283d01dc07e32298f2cf3021fce809d92db5"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/available-spark.sha256",
+      "bytes": 100,
+      "sha256": "42898c6548700540a98e591aa7ed32724f37621bc63a8e922b192d9e9faf366e"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/boot.json",
+      "bytes": 7064,
+      "sha256": "8dab71a068452970bc1ea696de180e396cb100c8413901994fdc3db306926722"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/boot.log",
+      "bytes": 7064,
+      "sha256": "8dab71a068452970bc1ea696de180e396cb100c8413901994fdc3db306926722"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/capture.log",
+      "bytes": 1985,
+      "sha256": "7f9816a50f656f25881e56b15e442e23facb173c0502eb1a79d7bea92cf80c41"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/decode-timing-summary.json",
+      "bytes": 3667,
+      "sha256": "339f34b2b95b4e739aa3dcb5b74072cd1fb872383973f277e756d6113e9f3355"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/df-after.txt",
+      "bytes": 89,
+      "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/df-before.txt",
+      "bytes": 89,
+      "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/endpoint-admission.json",
+      "bytes": 250,
+      "sha256": "6410aed73d282cbd74a8ddbc90e83cb3d638271458f4790ccb23d8bd284dfe08"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/endpoint-admission.log",
+      "bytes": 230,
+      "sha256": "77be8c2ab3ea9604a06d6a99edd32ba2529468623e5cec607b2ccb5dd483b2dd"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/endpoint-owned.json",
+      "bytes": 863,
+      "sha256": "9ce68244925d286fc32b9efc47f84d08b86afb331430b3f87bf9c41c985daff7"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/endpoint-owned.log",
+      "bytes": 729,
+      "sha256": "9aedd9708331b75c566151274eeb34adb4459c5090960446271d89e499f2a4b3"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/exit-code.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/harness.sha",
+      "bytes": 41,
+      "sha256": "bbdfaeb8959992d6666d69e125d526b99f54d77c2ef56ce8ed5c0ec5b209c860"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/launch-ready.json",
+      "bytes": 2277,
+      "sha256": "2dc3bde4ab6b0ea34d8db97ed34ef05e7c75b39496146427d0129bfcbc7127ae"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/launch.json",
+      "bytes": 2277,
+      "sha256": "da9e7f212d80b1c4bd272c250689bbc65fc6aa774588a26cfff0e77b2676a2cd"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/named-blocking-1-exchange.json",
+      "bytes": 2123,
+      "sha256": "6db7e652afe8cc8e7bb8e8430bc09db04bafad527d33ed1e0d751b7cb4a703b2"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/named-blocking-2-exchange.json",
+      "bytes": 2131,
+      "sha256": "6c25c3c531711642ee5b70a333290bdc3064dc4f718f66e1aad884ee845884a3"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/named-stream-1/chunks.jsonl",
+      "bytes": 3688,
+      "sha256": "0e28d25e40099018ef1b701b31d8e10de0ad632937abab54320f060e53a6a396"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/named-stream-1/report.json",
+      "bytes": 1301,
+      "sha256": "d6a52bc3991d2210864777998509080616035387ade459ae1bb128956c096c10"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/named-stream-1/request.json",
+      "bytes": 1128,
+      "sha256": "6a402aced5ffa7476bbc29aef3486a2e875a782fffce2f360ac0d74ac26d97de"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/named-stream-1.log",
+      "bytes": 115,
+      "sha256": "e3a2151b13bd13199b0719a9f38f7f0328dbbe7ba1febda89cdc652d888bc933"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/named-stream-2/chunks.jsonl",
+      "bytes": 3693,
+      "sha256": "0542bb6ce4790f91b4ec095f8a7b76f3e32758b0e9728cc66de8f0bc2df62e6d"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/named-stream-2/report.json",
+      "bytes": 1305,
+      "sha256": "2430531a8de1491cf975b9dd06ea3feb870bf3528b8df49a63a384304c77718d"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/named-stream-2/request.json",
+      "bytes": 1128,
+      "sha256": "6a402aced5ffa7476bbc29aef3486a2e875a782fffce2f360ac0d74ac26d97de"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/named-stream-2.log",
+      "bytes": 115,
+      "sha256": "4afc9b89fd89ffe9d0349e6c63ba4ccce381ac989c6b7224770715d1c9f2d2a8"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/nvidia-smi-q.txt",
+      "bytes": 14959,
+      "sha256": "19df9e1e90b158b44dc4c439cf1fb41e4b10d297c2278cf0aa35fd3beeb285b0"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/owner.json",
+      "bytes": 2140,
+      "sha256": "b93776423a8fc243ac4578fb9e705962321879087a0603cb080fcc486ec6b7e4"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/process-env.json",
+      "bytes": 318,
+      "sha256": "95c6821af3157ca931a2ed4384df70f6eae8bf03b6c0b90c14269537ab7febd3"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/ready.utc",
+      "bytes": 21,
+      "sha256": "fb8a3f499e213fc34b98d9f1c7c9a892bbda84ce2646fe921006667912b44539"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/requests-complete",
+      "bytes": 33,
+      "sha256": "171eefc776c116a314ee5b92300b9b112da244a30be633f1612be554d34493ac"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/required-blocking-1-exchange.json",
+      "bytes": 2051,
+      "sha256": "8df6418ad769b6c5473f63a764a6797c8cf2cecce68cd26f4cdd5d3d8aae9811"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/required-blocking-2-exchange.json",
+      "bytes": 2043,
+      "sha256": "cc749f8e2d8641a744132a4e1fdf08f00f1ea7e4387ab92fc1ab5c492b20f4b9"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/required-stream-1/chunks.jsonl",
+      "bytes": 3691,
+      "sha256": "db87c3d0f231ae034f3c86961c31837d49d7f314d54df8693afb5e2e9c4c2724"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/required-stream-1/report.json",
+      "bytes": 1304,
+      "sha256": "f0e30e6369fce86b740fa9ff2651491bb12ff6f8fc16df0995c5d306ace66ed1"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/required-stream-1/request.json",
+      "bytes": 1057,
+      "sha256": "42f788a1b0c30f0a35900cdf3634d766c36678fe7ebaa0e278f306d3b4d8b262"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/required-stream-1.log",
+      "bytes": 118,
+      "sha256": "3256f90e1bb6eab9cd5c9a6dee2ebc65a8406e0ebfaf46ace5f7b4d1c0ef4df1"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/required-stream-2/chunks.jsonl",
+      "bytes": 3706,
+      "sha256": "9c4ed90c25f7c79c766c617ce7669021c5a17932b2b6b29fbd1e358411c93633"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/required-stream-2/report.json",
+      "bytes": 1314,
+      "sha256": "f2b8cf9c6996b838269e01e9337dc9c9176a1da09c0f9dfeb066da32374d7732"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/required-stream-2/request.json",
+      "bytes": 1057,
+      "sha256": "42f788a1b0c30f0a35900cdf3634d766c36678fe7ebaa0e278f306d3b4d8b262"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/required-stream-2.log",
+      "bytes": 118,
+      "sha256": "d2dba8d0796c8607a6d5e80dfada803769f794cbd6d3cc3f434c1dea8a0ecce2"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/serve.argv",
+      "bytes": 714,
+      "sha256": "d0c14f255e810be8d13604e1c831b42e631520eb100be7f619ffc2e564c8a411"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/serve.log",
+      "bytes": 156254,
+      "sha256": "9963661b464ec3b66d5c54df557cd21777b9e003807c42d4bfd87923a830a6c9"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/start.log",
+      "bytes": 1985,
+      "sha256": "184d2e4564a8c7b5549d6686b6883ab3985d83bf0123f19bacf52231569f06ad"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/stop.json",
+      "bytes": 63,
+      "sha256": "dfec094509e43d3e443df02a111edd0c218d62207f79450331103af80c699646"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/stop.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/tenants-after.txt",
+      "bytes": 17,
+      "sha256": "a8842fc86e1d9cd33dcc35dae03d9957ddb0a9a4e4e16b2effbb8d09b7b5f196"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-0-plain/chunks.jsonl",
+      "bytes": 11165,
+      "sha256": "a4e19a1c74a79a0bab9a7f74861c5f9145503b057e937034ddd2d1389f4fc761"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-0-plain/report.json",
+      "bytes": 1178,
+      "sha256": "903d0525d862039364a12a463b84dcb9c5e3479fb2c820c6894838708d6039a5"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-0-plain/request.json",
+      "bytes": 457,
+      "sha256": "d773a7c98b0f01de66d862914bd228b1c5dea2583ea454d70fdb910c76a8a33d"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-0-plain.log",
+      "bytes": 115,
+      "sha256": "342b620ec37368ba921292294e891b1bc01cfbccbc0fd7d955c4e3e042983d14"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-1-tool/chunks.jsonl",
+      "bytes": 3691,
+      "sha256": "083cc1e397469b01e35fba5d746042f7000f5438c6fde12b6dccd9d6bbe6f4b1"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-1-tool/report.json",
+      "bytes": 1304,
+      "sha256": "5befd00c32d546d2c5238595aad75d52c919f9977313a9e776614a63aa2d363f"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-1-tool/request.json",
+      "bytes": 1053,
+      "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-1-tool.log",
+      "bytes": 114,
+      "sha256": "0a575df7874c850e2c70a7bf1ebf783336650d22b2012bf080024e6ebdb0b208"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-2-tool/chunks.jsonl",
+      "bytes": 3693,
+      "sha256": "7f4cbf595acb70810cfb7f48bcdeaf75440e4c8f6b6eeb03c9c9b38819c01573"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-2-tool/report.json",
+      "bytes": 1305,
+      "sha256": "ef1d6111c307a65c3e51ead4d887a328f6b08837a711dc570e45360d4a9c8705"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-2-tool/request.json",
+      "bytes": 1053,
+      "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-2-tool.log",
+      "bytes": 114,
+      "sha256": "abc70577238e1d1c53a9f3924ec00b69adaec11fb33c4be28643bcf5092fee33"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-3-tool/chunks.jsonl",
+      "bytes": 3704,
+      "sha256": "2fb27871f7179ec8d5931065e122489c8e82f1adcd01f12bc5449dd72ed28eb9"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-3-tool/report.json",
+      "bytes": 1314,
+      "sha256": "c1935a5324515c074a28e6f39b5a65ab0bd24095ce5d870c069f64ced3b14945"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-3-tool/request.json",
+      "bytes": 1053,
+      "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-3-tool.log",
+      "bytes": 114,
+      "sha256": "ac0a0b00da86f68a8a94e47fbc9651e684ab14d86d808e9b95a0f63d4032c1ef"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-4-tool/chunks.jsonl",
+      "bytes": 3695,
+      "sha256": "cb9f7b5646f9b89a285e5989295cea7ba55051bcfc9ce078740b042240227eb2"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-4-tool/report.json",
+      "bytes": 1305,
+      "sha256": "b4b2f1db569386377f5082588890edf5ea5999f4cd218a7a2c7652bfb29f638a"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-4-tool/request.json",
+      "bytes": 1053,
+      "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/timing-4-tool.log",
+      "bytes": 114,
+      "sha256": "5e1784132349d6a8cf53a2839d6bb66bcb8f20af640fb5f1123a5eee55f5f58e"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.coldfix01/tool-retest-summary.json",
+      "bytes": 7838,
+      "sha256": "a996323e6368d48fda8fecb8d35abd9ac11fe12c158de3d2664c0e583305b188"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/RESTRICTION.txt",
+      "bytes": 204,
+      "sha256": "af096db1c91120917ec1d4a9b5428d2b7269218fd8482b5383d8da0cee090038"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/admission.json",
+      "bytes": 17509,
+      "sha256": "99606ba4d71e36086c957d2b3a5ea7373853049908838313d72a62ee4aea4ae0"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/auto-blocking-1-exchange.json",
+      "bytes": 2039,
+      "sha256": "1369b60ff2e76b5e80e5f5cfe5882f2b4604797bebdea285e9c3504ffe882362"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/auto-blocking-2-exchange.json",
+      "bytes": 2039,
+      "sha256": "b6d8f60d36d3184fef9e65c2df2eb7bafb05089126cbaa9650a56fc004fb33f0"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/auto-stream-1/chunks.jsonl",
+      "bytes": 3701,
+      "sha256": "71b47401eddcbacb5746c002e12906ca41a975eb7135cf3dea1fd01d786e2abc"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/auto-stream-1/report.json",
+      "bytes": 1310,
+      "sha256": "b2f6a7032f35c8f376ad7d5bd5410e2e224ab80da907b47d76464392f5b0c818"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/auto-stream-1/request.json",
+      "bytes": 1053,
+      "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/auto-stream-1.log",
+      "bytes": 116,
+      "sha256": "77e107f1320f8723eb8481641f492f25309ae7b60f20a973a2a5b4bdb0137625"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/auto-stream-2/chunks.jsonl",
+      "bytes": 3702,
+      "sha256": "c31977fcfee283a0b2b33f471e55f69b9010af3e1cfcbfae6bff37a046781311"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/auto-stream-2/report.json",
+      "bytes": 1312,
+      "sha256": "62c8989267a2ece103b008d890abc7f480ac196b3ff739d0611db6aef3fa51f8"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/auto-stream-2/request.json",
+      "bytes": 1053,
+      "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/auto-stream-2.log",
+      "bytes": 116,
+      "sha256": "67efad085736e36add98639d401b2f55debba2fbc3b1052e1639fa785954a5e8"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/available-spark.sha256",
+      "bytes": 100,
+      "sha256": "659be64a39f1e5279a5d660aca3d7f29d3a02f3e38add97a1a7408ac71d6988d"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/boot.json",
+      "bytes": 6908,
+      "sha256": "75c223daff1b09b09bf61a8d8e1a60c5adc976113d5b741b0f302eef99fde818"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/boot.log",
+      "bytes": 6908,
+      "sha256": "75c223daff1b09b09bf61a8d8e1a60c5adc976113d5b741b0f302eef99fde818"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/capture.log",
+      "bytes": 1985,
+      "sha256": "9fcc1dc3bd7a5a1645eb66a11e0c65982b24d31df1fdc4bf15246ef6bf32f3f0"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/decode-timing-summary.json",
+      "bytes": 3660,
+      "sha256": "02ae06d5e252d656b4869aa3fa6c3c0bdfb09e1e925314201a777039a1c5c613"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/df-after.txt",
+      "bytes": 89,
+      "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/df-before.txt",
+      "bytes": 89,
+      "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/endpoint-admission.json",
+      "bytes": 250,
+      "sha256": "e25dda0bfac417f1beb5d4dc8aee8e4c72080c5d4be36ef978976180b6eb3209"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/endpoint-admission.log",
+      "bytes": 230,
+      "sha256": "c0692d6d57a414a0d1055026179d8bf14b0e82da35de7118b9e6a5aa42b316fe"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/endpoint-owned.json",
+      "bytes": 863,
+      "sha256": "c670e55ea88b73947d2b052420a4ac22659885645c36fd3972d691761a5686d4"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/endpoint-owned.log",
+      "bytes": 729,
+      "sha256": "1546daa2ad94ce74a22d47da004b0a321604184131190fd394a49c89418e46f8"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/exit-code.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/harness.sha",
+      "bytes": 41,
+      "sha256": "c52e64761c26b25ec273fb9a98f8339c6eafb7a6662343b02452a1551bd8fbe9"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/launch-ready.json",
+      "bytes": 2277,
+      "sha256": "5c6b1d15aeab6ad8001e9cc5dcf4be08994c572d9883b6f7a75dd52e81b78203"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/launch.json",
+      "bytes": 2277,
+      "sha256": "0d53cb4475e95b92db735d64cf04ecf0889b25f3890547e5379c95c35ad5407b"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/named-blocking-1-exchange.json",
+      "bytes": 2131,
+      "sha256": "22a1f6219ac3cf2eb279b47592b3a76da8393d482af60b7e8dc99ff5ac0683c7"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/named-blocking-2-exchange.json",
+      "bytes": 2132,
+      "sha256": "a03b02009c72dd8e789cf42f78cc6efa902adbd706292a1cb16c532561fa7912"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/named-stream-1/chunks.jsonl",
+      "bytes": 3702,
+      "sha256": "11fe66e38197afc7160a4e7853e0c00fc2c00ffcbf262a8f9d5e48b045f61b7a"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/named-stream-1/report.json",
+      "bytes": 1310,
+      "sha256": "16035b3ed5253edd9328cbb3db506206b936ae691a1c3421567e7edb8d3cebc3"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/named-stream-1/request.json",
+      "bytes": 1128,
+      "sha256": "6a402aced5ffa7476bbc29aef3486a2e875a782fffce2f360ac0d74ac26d97de"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/named-stream-1.log",
+      "bytes": 117,
+      "sha256": "25f538c451ae4cd6e359223d03f9ed828cfa5c30c356e398d94742e523283dff"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/named-stream-2/chunks.jsonl",
+      "bytes": 3691,
+      "sha256": "e64162706e27d93715ed7a200135337501e01e7f42768743254a50507d7d34d1"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/named-stream-2/report.json",
+      "bytes": 1303,
+      "sha256": "bbed27f90785dacaf6270e7eb5bcf2da18bbd7a3d6d98083bd1f2d3803f63085"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/named-stream-2/request.json",
+      "bytes": 1128,
+      "sha256": "6a402aced5ffa7476bbc29aef3486a2e875a782fffce2f360ac0d74ac26d97de"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/named-stream-2.log",
+      "bytes": 117,
+      "sha256": "8ed1731676a330470c94a3d76d7b526b91d90fe0b5f824829bd2bd6f1a22b1f1"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/nvidia-smi-q.txt",
+      "bytes": 14959,
+      "sha256": "c992292b7ef6581cf48c3655a86f16c9d0a5c14ee8584ac543c2a751547c2875"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/owner.json",
+      "bytes": 2140,
+      "sha256": "d0289e7d32a9b76332c45718e50901a9b3250b232338123e89c494851c0aeb88"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/process-env.json",
+      "bytes": 318,
+      "sha256": "95c6821af3157ca931a2ed4384df70f6eae8bf03b6c0b90c14269537ab7febd3"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/ready.utc",
+      "bytes": 21,
+      "sha256": "c2a18ea1eab9e39e568810e4b02624de20b3413b8e15e29017c52e4904c7358e"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/requests-complete",
+      "bytes": 33,
+      "sha256": "3534486e20063ae0f1e15887f513639b0c744a2e9a1e7a580751a345efa0c99f"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/required-blocking-1-exchange.json",
+      "bytes": 2043,
+      "sha256": "3ce1013d874a306521d12aa54103c7a8f703ff6f14a4d5aa2061ec5728806695"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/required-blocking-2-exchange.json",
+      "bytes": 2050,
+      "sha256": "4925fb91177592179136a9ef889083062df1bd13f9bd4fe1c0ede14e7a8f39c8"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/required-stream-1/chunks.jsonl",
+      "bytes": 3691,
+      "sha256": "dc0aeac516b78ee219da27b9d15fd0dcbd608764a7ea56416e42ca3557eae67b"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/required-stream-1/report.json",
+      "bytes": 1302,
+      "sha256": "12c1f5621b67fb3c37407ee1077c6d7ad9b99be1ef81fe4e40c93e748f7409fb"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/required-stream-1/request.json",
+      "bytes": 1057,
+      "sha256": "42f788a1b0c30f0a35900cdf3634d766c36678fe7ebaa0e278f306d3b4d8b262"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/required-stream-1.log",
+      "bytes": 120,
+      "sha256": "6edf0c139dd46fdccdc6493c35c38039adcadd194aa2e2d69b9593c10670c6c6"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/required-stream-2/chunks.jsonl",
+      "bytes": 3693,
+      "sha256": "263fb691a66df5b45c95214f687c92b879c91e17668743c1441c4833a72f481d"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/required-stream-2/report.json",
+      "bytes": 1306,
+      "sha256": "e32e51276ed2ea71467958fa735f258aff2d6864e20caae01b30525b25bdaa8f"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/required-stream-2/request.json",
+      "bytes": 1057,
+      "sha256": "42f788a1b0c30f0a35900cdf3634d766c36678fe7ebaa0e278f306d3b4d8b262"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/required-stream-2.log",
+      "bytes": 120,
+      "sha256": "c96701724579f8e92abd1679759c3d5cbf3ade28bf73f05785ee243376be0ed3"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/serve.argv",
+      "bytes": 714,
+      "sha256": "d0c14f255e810be8d13604e1c831b42e631520eb100be7f619ffc2e564c8a411"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/serve.log",
+      "bytes": 156254,
+      "sha256": "18d1dd7c685dc3a75a718a4a7c72943a7c6411a41c16439a9bfe66dd98a51b38"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/start.log",
+      "bytes": 1985,
+      "sha256": "f7e02aa736d07de473119557282f7dd98accd4c2d95d98a2ed0969a553b69963"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/stop.json",
+      "bytes": 63,
+      "sha256": "66bbbd112ca3b08390c8833f08e14df641b37ca2cc1ef4c27fed371d865d4311"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/stop.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/tenants-after.txt",
+      "bytes": 17,
+      "sha256": "35aabf6151546eca7aa9765f3b233b1e8107eeb555095e5ceb55522557918db2"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-0-plain/chunks.jsonl",
+      "bytes": 11166,
+      "sha256": "714aeec27c57698ac1ea8b8a67454d65d0aaf8d043bfaaf81fb1565f1827436f"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-0-plain/report.json",
+      "bytes": 1176,
+      "sha256": "2c0492b2a95849d3545c2b7e26e676543b331fe195e84d31d2d8efb2d2e595c5"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-0-plain/request.json",
+      "bytes": 457,
+      "sha256": "d773a7c98b0f01de66d862914bd228b1c5dea2583ea454d70fdb910c76a8a33d"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-0-plain.log",
+      "bytes": 117,
+      "sha256": "6618f2cebd5d1509def9d5014c0f9d9d3a712ab51d6e069cf94dbce23061fb95"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-1-tool/chunks.jsonl",
+      "bytes": 3688,
+      "sha256": "3316d60a93fe8685f495c27118ee9961c2e7b2fa353675ad977d858cc92e3f2e"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-1-tool/report.json",
+      "bytes": 1302,
+      "sha256": "c4d7addbb70baf79d0c33d344ff3578f276f3c2ecb7ee645a3d5e456fa4f1c96"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-1-tool/request.json",
+      "bytes": 1053,
+      "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-1-tool.log",
+      "bytes": 116,
+      "sha256": "21b9c912098556c7ef418a47a5c456ca8a4915fdc216778a6c1b1e7d65a7522f"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-2-tool/chunks.jsonl",
+      "bytes": 3693,
+      "sha256": "385c3d2713121474872a3c14ef7907c325a951f54eff1d9906e0a78a9a48887c"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-2-tool/report.json",
+      "bytes": 1304,
+      "sha256": "fd012d65ec5f418734d8481f7e64359422dc2ba3be2107c2b18769b3cd15148d"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-2-tool/request.json",
+      "bytes": 1053,
+      "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-2-tool.log",
+      "bytes": 116,
+      "sha256": "ff03963d8a8529bccaf7473c92b86034a9ca5f2e30d602b73b7c543df36c3774"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-3-tool/chunks.jsonl",
+      "bytes": 3702,
+      "sha256": "a883ac30bb75fd8b4e7155adbae64d9ae8e8a5e2d369b77f33683b47dd48afe4"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-3-tool/report.json",
+      "bytes": 1311,
+      "sha256": "0d43150968c27e50d94f837abd5b5eecb319b9ae21be16546be64130774317c5"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-3-tool/request.json",
+      "bytes": 1053,
+      "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-3-tool.log",
+      "bytes": 116,
+      "sha256": "3d338e170a2d6172f4e3b28f3e284b6e7f157a2026dc1fbb3d6e380e7a174086"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-4-tool/chunks.jsonl",
+      "bytes": 3696,
+      "sha256": "da3c687fd689bb7ddb79a71623f75561d371c194943a685926f0a76aa627b787"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-4-tool/report.json",
+      "bytes": 1306,
+      "sha256": "f65d40dc7aae2921384ba1f18bd79a66162908ca56a88a9dfc40ec9f87e755f4"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-4-tool/request.json",
+      "bytes": 1053,
+      "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/timing-4-tool.log",
+      "bytes": 116,
+      "sha256": "51376c0b6aa13169f58405ce1e063de2cf53165424850db86c22f10236af7b8c"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/runtime/diagnostic.atlas.serialfix01/tool-retest-summary.json",
+      "bytes": 7851,
+      "sha256": "8b31e536962e4f9e6d041e93ddfa3b33eccfab65538bddf3da402337a564b7e9"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/serial-grammar-default/REPORT.md",
+      "bytes": 1986,
+      "sha256": "7bad71d0c4739570ce2ff0ddfa3967367df0666a867f7d24820a4a33c40d99fe"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/serial-grammar-default/change.patch",
+      "bytes": 1858,
+      "sha256": "4119d5277d6ac7823bfa3b1a7b3391acf25cc7cf760f1fdc9a61ce893eb7021c"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/grammar-fix/serial-grammar-default/receipt.json",
+      "bytes": 1247,
+      "sha256": "66da2dffa5c010645429e07751814772e1e60c384e06134831bbe5366f4b6536"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/MANIFEST.json",
+      "bytes": 3752,
+      "sha256": "6c57b7b726ed5f2197bac1a5b08c9dd43329f82792d328de50165935afa81782"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/audit/Python-interpreter-misused-as-binary.cli.json",
+      "bytes": 741,
+      "sha256": "87d03be20a7e17646759727186b099f75a9c4211d3b2e0e09a709646288a7096"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/audit/Python-interpreter-misused-as-binary.fixture.json",
+      "bytes": 4020,
+      "sha256": "5a8aa9efb9f39635f7e5afbb8358821b228f0d7632d0570c7de39c9a80589aa9"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/audit/Python-interpreter-misused-as-binary.json",
+      "bytes": 4851,
+      "sha256": "01032b38285ea0ab045527dbfa67f32860100c0a5c9f69904c8c0c79c4423d07"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/audit/REPORT.md",
+      "bytes": 6449,
+      "sha256": "ebd1f24f7c0e77e87f9f857bb0b39e104f495041dfd73f0d228a512a09d4df4f"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/audit/capture-console-refusal.json",
+      "bytes": 1011,
+      "sha256": "888d095ae4a77f0642a145c67c9a8282b87439e1eaa146c7cc5be7b8685089a9"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/audit/capture-python-refusal.json",
+      "bytes": 994,
+      "sha256": "b308f16a0331d25fbb483c74b77be0611089e880ee3f9fd325b491930fe2a000"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/audit/console-script-misused-as-binary.cli.json",
+      "bytes": 733,
+      "sha256": "263517d04df149e5d08afaaeca8ca322bc6e98102593a8a6e73528250f5742a7"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/audit/console-script-misused-as-binary.fixture.json",
+      "bytes": 4020,
+      "sha256": "c31630280ec1576103d9cd6ce8daad3ed37254b19abd703821c246c100e4dc04"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/audit/console-script-misused-as-binary.json",
+      "bytes": 4895,
+      "sha256": "218537929f683ec1762a2b3bf6d9c028adc2f0a59d1d1505b1632795950e8388"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/audit/counterexamples.json",
+      "bytes": 1670,
+      "sha256": "9f9483ee16fb95950f3e48c31634e24a840ca1446dbec59d42ec79be6559dfe5"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/audit/declared-git-only.cli.json",
+      "bytes": 940,
+      "sha256": "51fd65c972a22a5fcc9acfb5d78936a7e52daaa90b9ba44f9e07238f353a33f0"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/audit/declared-git-only.fixture.json",
+      "bytes": 3958,
+      "sha256": "4526bbf825c0ee8acc59cb880606bf2793a95363d78ba55de04ae8d4c24b2c16"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/audit/declared-git-only.json",
+      "bytes": 4936,
+      "sha256": "d3dd554df7d48a2aa065240dc48de22cc1bd0479ab8f34fdf4ede2d025466048"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/audit/installed-metadata.json",
+      "bytes": 38632,
+      "sha256": "49abc6426d909469a8e7d04907dd71adf8068322580a1ca1782b0ac350f5786c"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/audit/installed-read.json",
+      "bytes": 44564,
+      "sha256": "d8fe088af46ce2a05976a3bc4b73082e784d78b727e194d9415e98dfee948fe8"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/audit/source-hashes.json",
+      "bytes": 768,
+      "sha256": "c945c84993a232ba68846492a031d74930d42012635f900b53b1184b77100a1e"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/audit/version-file-misused-as-binary.cli.json",
+      "bytes": 730,
+      "sha256": "6417b0a7f2a58d8610401aead878f7c055d9efd8238a4022548db438beb84150"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/audit/version-file-misused-as-binary.fixture.json",
+      "bytes": 4020,
+      "sha256": "6dc27afdc4d3b56876bc94a5764b3cd149900ff41ce07f2a1f4486ab86b70d25"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/audit/version-file-misused-as-binary.json",
+      "bytes": 4893,
+      "sha256": "1102eb3f1b4feb0fb48cff5613205971194752ad16ecdee951eceaddd9730748"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/installed-metadata/README.md",
+      "bytes": 499,
+      "sha256": "7b03cdcdd36470516d136f7b4c2e5f98d795a63de821d56aa89340c90f49d89d"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/installed-metadata/distribution-versions.json",
+      "bytes": 11943,
+      "sha256": "f4f6e15bb04b3fbf9940b20516b067c6051be8fd97e6f9c92f0c1ad647aba410"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/installed-metadata/distribution-versions.txt",
+      "bytes": 4100,
+      "sha256": "484d18f6809768be83d939d512b45a1eb1a4c24610a49793518bc4d9fcd78e73"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-vllm-identity/installed-metadata/version-and-record-receipt.json",
+      "bytes": 3715,
+      "sha256": "5beceb847aa8ace668b0a81ad4148ec93decc9691d342d43419ef440050ff6de"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/MANIFEST.json",
+      "bytes": 27621,
+      "sha256": "269c91abfd7d8663aaaa0076ffa23ddb84a641afc97b2f63bf45645f07912cae"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38-build-identity.json",
+      "bytes": 433,
+      "sha256": "e538d7ae7c1852397020b2746ba71d772e28f0aa8dde2af5d323bc424663456f"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/artifact.json",
+      "bytes": 5100,
+      "sha256": "bcae659a37f763bac3123256680fac25be2f744ff6b7bc1db46b0d29aa1458ea"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/audit.argv",
+      "bytes": 703,
+      "sha256": "0ad4e9b10a0b5f99a4c82acb27b1c6bd4ce64917cf6e4cd0fe0d6fd54cef9ad8"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/boot.json",
+      "bytes": 4849,
+      "sha256": "3e4444f7ea124faa8668bb3e675a157a4c38435dbd341c0274e39b59e19eb943"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/cell-deadline.json",
+      "bytes": 483,
+      "sha256": "9b5d8f11d1b355953fdc5ebae793e2f96772b675f8be9dc5a2e848966cd31d94"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/cell-deadline.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/check-kernels.txt",
+      "bytes": 92285,
+      "sha256": "b1226c186ff5ff3f7f70e40e6ec6e151bef4c2b1cd2594619dd5ea9f77a752fa"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/df.txt",
+      "bytes": 89,
+      "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/endpoint-admission.json",
+      "bytes": 250,
+      "sha256": "c0dacc9b32fc18425ffacaec3c8a454fa0effe4474a9d68e9a7e44d6c20bb76e"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/endpoint-admission.log",
+      "bytes": 230,
+      "sha256": "837b1aa581f5b6289b357d45daeafac6ddaae29ca3e0f49ccd42cbd398d4e6c7"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/nvidia-smi-q.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/nvidia-smi-q.txt",
+      "bytes": 14959,
+      "sha256": "85c77c6973cc7cb08ab607e36cc335259c0c0407d8c7e5e89cf0ad08eaf83ca8"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/process-46530/owner.json",
+      "bytes": 2078,
+      "sha256": "288564ab2732b6b607e33d3d9d568ddc87396b99d2b933b62253d187ec170ce7"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/process-capture.log",
+      "bytes": 1935,
+      "sha256": "fad6456120485ab27691b95f971eeecc5875eb7a750a476233c4e44136634211"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/process-env.json",
+      "bytes": 292,
+      "sha256": "c5af3bc3d2efd375fd8847620e8b52de5b0a8d7321dfeef63ee2fe56acf20cec"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/process-launch.json",
+      "bytes": 2215,
+      "sha256": "c8a6da56560f27809ae83c8d320005a3d6d91381c4dba36d19b0bd3bb8cb08a6"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/process-recipe.json",
+      "bytes": 2838,
+      "sha256": "667702f1a4d1c7eabd64e5e342d8bd416868fc5ca229eb78b3280b7bd86d7c6a"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/process-render.log",
+      "bytes": 2378,
+      "sha256": "e61f718dd6e35d3a25e6b6217df252d02af5e041a9345d8adc48767b25d2d4c3"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/process-start.log",
+      "bytes": 1935,
+      "sha256": "182c1f3d12e96644ff327a6ac9734e96ff402406d1a11574823e2f4c902b5413"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/process-stop.log",
+      "bytes": 63,
+      "sha256": "bf3f8369c1007c9f8f9847f1d159a8d91ee9c81e90762ee419b0a73ce1eefe54"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/serve.argv",
+      "bytes": 687,
+      "sha256": "f2d2660b4c085399b53582cd5d2470d4a5d65a502484bbaf6afe99393794732d"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/serve.env",
+      "bytes": 233,
+      "sha256": "08af1d562b8d85fbf77b734f55b7bdd1fb628ed407f544d670d53a70925fa359"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/serve.log",
+      "bytes": 863448,
+      "sha256": "eebf8231df581a9d07e8b5cb19359b8914c385ce6464744e2e5d56398e3b17cf"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1.admission.json",
+      "bytes": 17506,
+      "sha256": "f70f0b31817b02c62d56a30fcc2414a1d30cb6c488936a87f99031a3df1e3606"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1.disk-after.txt",
+      "bytes": 89,
+      "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1.exit-code.txt",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1.finished.utc",
+      "bytes": 21,
+      "sha256": "09c76068762172f712762593cc2280314a254d799db1d892da2a196bc49a63ce"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1.input-proof.json",
+      "bytes": 1241,
+      "sha256": "42c041a0a880db44fef3baf31a86c0a2cf7f7b2c3e3cfe400c9379ee8f92e2c1"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1.runner.log",
+      "bytes": 9832,
+      "sha256": "1625abb8a2241f606cb608a583a6b70e0b3e471cb6c473bbeea34d6ad000d66e"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1.started.utc",
+      "bytes": 21,
+      "sha256": "686f8d6d2068a103f5fd6e937663231e611d6a3f3326f46c9e5c0b69a077e2d4"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1.tenants-after.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/artifact.json",
+      "bytes": 4984,
+      "sha256": "bc00145de420b193628aa8a318418457900c1ce297c6ed525ebd1f85d1b2a302"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/audit.argv",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/boot.json",
+      "bytes": 47478,
+      "sha256": "df6d32498d39ac49eb8bf1eddb01717c4b0c16c937a9ad0117314cc719bbcbc0"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/cell-deadline.json",
+      "bytes": 483,
+      "sha256": "88e591afaa7a51c3e04e93ab0549d3ccb174a9153467b7129e561f2e8c9bf931"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/cell-deadline.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/coherency.json",
+      "bytes": 13700,
+      "sha256": "952e2aced5ab8fdd1b2964394f83026fdf1a966f4c9af69a4e28bb2fca599200"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/df.txt",
+      "bytes": 89,
+      "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/endpoint-admission.json",
+      "bytes": 250,
+      "sha256": "5251adeaa69c9285fb4bd8fc0577f18b623fafd4ab90531a4ac2deffa9344f1f"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/endpoint-admission.log",
+      "bytes": 230,
+      "sha256": "e61743642737e680d009885e036c218e0695c853877c5d1803f5707293d6ee6e"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/endpoint-owned.json",
+      "bytes": 863,
+      "sha256": "be5a1767dc11159cdfa3c2d694e73f6087f563fcbb87b6215fc474c3ca5e654c"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/endpoint-owned.log",
+      "bytes": 729,
+      "sha256": "8eed940d4bdd392f2903dcee769f0d1030c740e36afc21dc2bb378b62ee2b6a7"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/nvidia-smi-q.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/nvidia-smi-q.txt",
+      "bytes": 14960,
+      "sha256": "25a21b65edd4a701da5fb768dcc8adce4b3681885c5bb8db71f4c73307cf3cab"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/process-44347/owner.json",
+      "bytes": 1620,
+      "sha256": "714b632a675c46c5ff2e59dd892fcb9bc37065f4ea13b0f596a39e9a4cc21c10"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/process-capture.log",
+      "bytes": 1585,
+      "sha256": "ee8795e7a9ac2c23fd648f0f02b9267c97934316b97154d9c4408cccd14bc020"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/process-env.json",
+      "bytes": 270,
+      "sha256": "6de4a69676bf47f166f75eb47c1f6096bb0a3f5bc46914ea3623e6ec2362da29"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/process-launch.json",
+      "bytes": 1757,
+      "sha256": "ff960862e919f9f8a4c150c0dd59009a6afbc4c7022a4cd24058fd275c1a1185"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/process-recipe.json",
+      "bytes": 1312,
+      "sha256": "d60a034d98e769736bcb27ad2791c8624d7ac5383ee1a2daa613682919bec44b"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/process-render.log",
+      "bytes": 1160,
+      "sha256": "4b91e8e216bf0e248b186288eff2b1e5507002801fdb50acc3cc546a86aa4e6c"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/process-start.log",
+      "bytes": 1585,
+      "sha256": "40fd37756a00cfa6309c30bbb54e35cb796e14c0a14906c2c755660d8451a34b"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/process-stop.log",
+      "bytes": 77,
+      "sha256": "ed07a2303747798a9538bb0aa3bc3524040996cfdb8144abc6b1c4643a753481"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/serve.argv",
+      "bytes": 415,
+      "sha256": "213fd0b8199b80b0390519e0dec494aa02cfaa58a32c2c65dd27c828102aeddc"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/serve.env",
+      "bytes": 219,
+      "sha256": "571247f1045214259d367fec12114b69c232fcd1b47e081de43ed59895cb2484"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/serve.log",
+      "bytes": 43963,
+      "sha256": "1b359358645425c35171399c710444c9846e6b25f6e547ba9315582dd90aa52c"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1.admission.json",
+      "bytes": 17506,
+      "sha256": "486f3616fc575439e09e6539663b689475fe0cc40c1171252e09c6e32771e248"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1.disk-after.txt",
+      "bytes": 89,
+      "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1.exit-code.txt",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1.finished.utc",
+      "bytes": 21,
+      "sha256": "0d4b7052f538a2d3f163b012074599d705e789cb4e7631b0f26d5c3c250d63d2"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1.input-proof.json",
+      "bytes": 1241,
+      "sha256": "2e4cd9b67d8a4ee30f0fd805b5d090105622c8bfdc7e25ba801616bcb1d533fa"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1.runner.log",
+      "bytes": 65839,
+      "sha256": "31f17f33b146809ea24943888905c58dc051855f11ffe1003719f8abfc4689ad"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1.started.utc",
+      "bytes": 21,
+      "sha256": "72134694bb2c720482cdc908e0755a8de28d733f3b17383e4bcb303df72517e7"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1.tenants-after.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/SCHEMA-GAPS.md",
+      "bytes": 27904,
+      "sha256": "842ee899a3a6f39a0160732b85f89949a6a316495d5c0938ae492fd9d80080d1"
+    }
+  ]
+}

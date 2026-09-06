@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS",
+  "changed_entry": [
+    "qwen3.8-27b-fp8",
+    "h100"
+  ],
+  "changed_fields": [
+    "args",
+    "notes",
+    "verdict"
+  ],
+  "only_added_argv": [
+    "--max-num-seqs",
+    "512"
+  ],
+  "source_url_and_hash_unchanged": true
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "variant": "original",
+    "auto": true,
+    "rep": 0,
+    "masks": 123,
+    "serial_ms": 1838.692,
+    "four_workers_ms": 1814.126,
+    "fill_ms_per_token": 6.739
+  },
+  {
+    "variant": "original",
+    "auto": true,
+    "rep": 1,
+    "masks": 123,
+    "serial_ms": 2220.008,
+    "four_workers_ms": 1742.656,
+    "fill_ms_per_token": 6.765
+  },
+  {
+    "variant": "original",
+    "auto": false,
+    "rep": 0,
+    "masks": 123,
+    "serial_ms": 2194.144,
+    "four_workers_ms": 1375.834,
+    "fill_ms_per_token": 6.793
+  },
+  {
+    "variant": "original",
+    "auto": false,
+    "rep": 1,
+    "masks": 123,
+    "serial_ms": 2208.51,
+    "four_workers_ms": 1387.555,
+    "fill_ms_per_token": 6.764
+  },
+  {
+    "variant": "factored",
+    "auto": true,
+    "rep": 0,
+    "masks": 123,
+    "serial_ms": 2028.329,
+    "four_workers_ms": 1846.14,
+    "fill_ms_per_token": 0.175
+  },
+  {
+    "variant": "factored",
+    "auto": true,
+    "rep": 1,
+    "masks": 123,
+    "serial_ms": 2438.349,
+    "four_workers_ms": 1857.303,
+    "fill_ms_per_token": 0.176
+  },
+  {
+    "variant": "factored",
+    "auto": false,
+    "rep": 0,
+    "masks": 123,
+    "serial_ms": 2411.674,
+    "four_workers_ms": 1966.194,
+    "fill_ms_per_token": 0.173
+  },
+  {
+    "variant": "factored",
+    "auto": false,
+    "rep": 1,
+    "masks": 123,
+    "serial_ms": 2412.271,
+    "four_workers_ms": 1897.241,
+    "fill_ms_per_token": 0.173
+  },
+  {
+    "variant": "borrowed",
+    "auto": true,
+    "rep": 0,
+    "masks": 123,
+    "serial_ms": 1409.584,
+    "four_workers_ms": 2127.327,
+    "fill_ms_per_token": 0.185
+  },
+  {
+    "variant": "borrowed",
+    "auto": true,
+    "rep": 1,
+    "masks": 123,
+    "serial_ms": 1414.517,
+    "four_workers_ms": 2153.98,
+    "fill_ms_per_token": 0.186
+  },
+  {
+    "variant": "borrowed",
+    "auto": false,
+    "rep": 0,
+    "masks": 123,
+    "serial_ms": 1410.221,
+    "four_workers_ms": 2217.787,
+    "fill_ms_per_token": 0.172
+  },
+  {
+    "variant": "borrowed",
+    "auto": false,
+    "rep": 1,
+    "masks": 123,
+    "serial_ms": 1406.872,
+    "four_workers_ms": 1825.358,
+    "fill_ms_per_token": 0.169
+  }
+]

@@ -1,0 +1,15 @@
+
+running 1 test
+native compile auto=true ms=84.826
+native auto=true rep=0 masks=123 serial_ms=24344.911 parallel_ms=8175.803 fill_ms_per_token=107.895 tokens=40
+test grammar::tests::native_prewarm::native_qwen_prewarm_exactness_and_cpu_timing has been running for over 60 seconds
+native auto=true rep=1 masks=123 serial_ms=24318.422 parallel_ms=8073.743 fill_ms_per_token=108.273 tokens=40
+native auto=true rep=2 masks=123 serial_ms=24261.835 parallel_ms=8155.884 fill_ms_per_token=107.861 tokens=40
+native compile auto=false ms=40.278
+native auto=false rep=0 masks=123 serial_ms=23702.695 parallel_ms=7756.138 fill_ms_per_token=107.599 tokens=40
+native auto=false rep=1 masks=123 serial_ms=23710.047 parallel_ms=7697.527 fill_ms_per_token=107.431 tokens=40
+native auto=false rep=2 masks=123 serial_ms=23749.504 parallel_ms=7530.292 fill_ms_per_token=107.551 tokens=40
+test grammar::tests::native_prewarm::native_qwen_prewarm_exactness_and_cpu_timing ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2359 filtered out; finished in 301.57s
+

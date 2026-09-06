@@ -1,0 +1,27 @@
+[
+  {
+    "label": "model-cpu",
+    "command": [
+      "cargo",
+      "test",
+      "--locked",
+      "-p",
+      "wh-butter-models"
+    ],
+    "exit": 0,
+    "wall_seconds": 1.0796478749980452
+  },
+  {
+    "label": "model-rustdoc",
+    "command": [
+      "cargo",
+      "doc",
+      "--locked",
+      "--no-deps",
+      "-p",
+      "wh-butter-models"
+    ],
+    "exit": 0,
+    "wall_seconds": 2.141846250000526
+  }
+]

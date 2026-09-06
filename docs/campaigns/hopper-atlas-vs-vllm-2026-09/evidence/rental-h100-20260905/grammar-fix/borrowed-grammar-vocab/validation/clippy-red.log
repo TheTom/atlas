@@ -1,0 +1,14 @@
+    Checking xgrammar v1.0.0-beta-preview (/home/pidtom/atlas-borrowed-vocab-server-20260905/crates/xgrammar)
+error: the borrowed expression implements the required traits
+  --> crates/xgrammar/src/compiler/prewarm.rs:28:38
+   |
+28 |                 .spawn_scoped(scope, &run)
+   |                                      ^^^^ help: change this to: `run`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.93.0/index.html#needless_borrows_for_generic_args
+   = note: `-D clippy::needless-borrows-for-generic-args` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::needless_borrows_for_generic_args)]`
+
+error: could not compile `xgrammar` (lib) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `xgrammar` (lib test) due to 1 previous error

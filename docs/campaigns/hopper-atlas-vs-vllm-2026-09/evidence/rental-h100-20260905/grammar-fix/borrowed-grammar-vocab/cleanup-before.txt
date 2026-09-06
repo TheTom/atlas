@@ -1,0 +1,4 @@
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  916G  867G  2.8G 100% /
+91M	/home/pidtom/atlas-borrowed-vocab-server-20260905
+18M	/home/pidtom/atlas-cold-phase-Dn4z2OEX

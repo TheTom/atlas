@@ -1,0 +1,285 @@
+{
+  "scope": "CPU mechanism tests and serial-default decision; actual H100 runtime is under runtime/",
+  "files": [
+    {
+      "path": "borrowed-grammar-vocab/REPORT.md",
+      "bytes": 6338,
+      "sha256": "f1925c4af3aeb2d636aacfe98139ade77d1df8a0ea843e25c701e3ea36eaf08b"
+    },
+    {
+      "path": "borrowed-grammar-vocab/borrowed-golden-false.json",
+      "bytes": 1514539,
+      "sha256": "f6eab1c2a8c7432bfd87fde9dd8bae2e601f84f47bc9e52082da26cc8f9c3cc8"
+    },
+    {
+      "path": "borrowed-grammar-vocab/borrowed-golden-true.json",
+      "bytes": 1624651,
+      "sha256": "48bb087d1d156aa078f5b6d309c51c3eb7d3ed1a49feb1e0e7f4d57fa0f2b060"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cleanup-after.txt",
+      "bytes": 89,
+      "sha256": "7429f5322947b493e7c675180b85bba86a6a1a9b81761e86a5f73fe7e542cf56"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cleanup-before.txt",
+      "bytes": 186,
+      "sha256": "5f0b2e8bc98731e426815df2737f011f5afcea01044f4f1c18412871f09a21e1"
+    },
+    {
+      "path": "borrowed-grammar-vocab/compute-counts.json",
+      "bytes": 2643,
+      "sha256": "f864359c0917272a12dc2ca3c434ab3c0a730dac464bbfb061d67f2dad245ba0"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cpu-phase/allocation-green.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cpu-phase/allocation-green.log",
+      "bytes": 656,
+      "sha256": "c837c60f1b5950f9442f7010e2e726d94db02225f2b684f92a72be957d01e121"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cpu-phase/allocation-red.exit",
+      "bytes": 4,
+      "sha256": "39b8dc3fc8b44765c8e6f1adee04c5b465e555ab791cc42d0d9e810d5b64297c"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cpu-phase/allocation-red.log",
+      "bytes": 1654,
+      "sha256": "ae4d6a610c581bb7177c869bee39e0828361069f98e5f673e5f92e9e75a713de"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cpu-phase/borrowed-build.log",
+      "bytes": 145,
+      "sha256": "a04581872f595016a7052dbbb08720c803acda664bb0e943270b9c25b833622e"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cpu-phase/borrowed.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cpu-phase/borrowed.stderr",
+      "bytes": 342,
+      "sha256": "589e5f133626b508a558656fa3205a78f6ef195f03ca990ad42895d1dad46c91"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cpu-phase/borrowed.stdout",
+      "bytes": 14451,
+      "sha256": "06660a46b4bc9cd5e62ef8c3d789f9791f6bf70e31f127e1c062c8111def4c6a"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cpu-phase/build.log",
+      "bytes": 145,
+      "sha256": "154b6636ce14354f16bf58070744f94e762421592f986f86c1933969ac52c4ea"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cpu-phase/core-green.log",
+      "bytes": 57907,
+      "sha256": "4dcc15225619639438542fd4ff1cc796b4fd00bfa1543fa50807afab602f001d"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cpu-phase/factored.stderr",
+      "bytes": 144811,
+      "sha256": "a9bd6a13557ebe60f4c8c380ce4e98a36db36db76894280ec135c541e2d8b9df"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cpu-phase/factored.stdout",
+      "bytes": 14409,
+      "sha256": "d06c3bc9ade5095287c441f6a994c9c1f3dc8fc619742bb08c62dd1b1760c2ce"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cpu-phase/instrumented-compiled_grammar.rs",
+      "bytes": 19346,
+      "sha256": "0cd7abe50ba0ffb7a44d375504d6a1ebba18c92d0e5d4c79c439f85ae06b3e04"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cpu-phase/integration-red.exit",
+      "bytes": 4,
+      "sha256": "39b8dc3fc8b44765c8e6f1adee04c5b465e555ab791cc42d0d9e810d5b64297c"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cpu-phase/integration-red.log",
+      "bytes": 1178,
+      "sha256": "4b2df8b89b76a6378d63d13e8eac1211c1a8605e3068340ffaa460e7f6cb07e6"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cpu-phase/native_prewarm_profile.rs",
+      "bytes": 6828,
+      "sha256": "12d927310736222198c9d4b615a620096b672fd04e69957a053b0344960b83b6"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cpu-phase/original.stderr",
+      "bytes": 145330,
+      "sha256": "f2aa4f7e4edb2d36c32a0bb32c1a8633d74271b8de8540972cdb854946fafe26"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cpu-phase/original.stdout",
+      "bytes": 14578,
+      "sha256": "4f2991852eb2b974c2e87c17050eb35f5a47a4cd92ac59d7dcdbbdd139f1e6ab"
+    },
+    {
+      "path": "borrowed-grammar-vocab/cpu-phase/run.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "borrowed-grammar-vocab/golden-comparison.json",
+      "bytes": 462,
+      "sha256": "176ed91d7b9107dc3202a2ac01ea2d11938b8887398dc0dfeb23f1954d352d05"
+    },
+    {
+      "path": "borrowed-grammar-vocab/intervals-before.rs",
+      "bytes": 8950,
+      "sha256": "810680b4f809cff15f8d30576df655b1dcbf84b6f856a63a4a1618f0f73cbc34"
+    },
+    {
+      "path": "borrowed-grammar-vocab/phase-summary.json",
+      "bytes": 2130,
+      "sha256": "f4e6c2bb69dfa1fe88e0fd7edacd43bdf0896477f18dff7d34e4a59de248d5c9"
+    },
+    {
+      "path": "borrowed-grammar-vocab/probe/Cargo.toml",
+      "bytes": 124,
+      "sha256": "a2d837940668bdde39d543da72d576f6416f76a128976f2a4fd0a285ad810ca6"
+    },
+    {
+      "path": "borrowed-grammar-vocab/probe/src/main.rs",
+      "bytes": 2310,
+      "sha256": "77467a8cfbfdc47a778a33cf7d3cade6a265bd5044e4e6c08b0a3f4ebc6f209d"
+    },
+    {
+      "path": "borrowed-grammar-vocab/receipt.json",
+      "bytes": 7949,
+      "sha256": "794f4fdcc08bf1006c55f3653a5c01a9410f02d74cb054c0eb7aedac02f88e29"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/clippy-final.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/clippy-final.log",
+      "bytes": 182,
+      "sha256": "0d02084177e985be9f555a61e71a4aa594706d2aa429adba925591d13b27590f"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/clippy-green.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/clippy-green.log",
+      "bytes": 1463,
+      "sha256": "ddeddfa4b54cdc3548a46d0b933112f217d29fe121bd72b82e9822a4b9c58b6d"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/clippy-red.exit",
+      "bytes": 4,
+      "sha256": "39b8dc3fc8b44765c8e6f1adee04c5b465e555ab791cc42d0d9e810d5b64297c"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/clippy-red.log",
+      "bytes": 870,
+      "sha256": "673262ea794bceaa2486d349f101e1688cc2fa869e886e00699fe9c80665d53f"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/final-package-tests.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/final-package-tests.log",
+      "bytes": 270091,
+      "sha256": "872acbfcba5fc18f941d510f456f549f137ef14e20539b0a8ebdcdba3e692f41"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/integration-green.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/integration-green.log",
+      "bytes": 635,
+      "sha256": "5d8b83ed06e28cec3c66dbe688c1c625a6c3f866d9e8eaaa541699f0dab8a6ad"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/ptx-green.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/ptx-green.log",
+      "bytes": 533,
+      "sha256": "09810a2a1dd12af723eca61043b4d8aa2cede7a953e2d6479aa8850c6e21db86"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/rustdoc-final.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/rustdoc-final.log",
+      "bytes": 632,
+      "sha256": "612531d7cb9ac1ccd95f418c6385122606301486fcace4ee32271fb5f05cdb75"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/rustdoc-green.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/rustdoc-green.log",
+      "bytes": 1581,
+      "sha256": "253ed5a22a19441f355438fa679ca717c410bb19cbe0ac786e8ffbd9f2909a4f"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/server-green.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/server-green.log",
+      "bytes": 214506,
+      "sha256": "fb9bc2026e4ab02965161765fae2e01f838fc5a5b79bb354570d6c3026d13703"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/source-manifest.json",
+      "bytes": 801401,
+      "sha256": "10056711359af53ffe4795eea7f4243fbfa8029a44c077326027983ec42a9ed6"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/source-verification.json",
+      "bytes": 153,
+      "sha256": "27a67a3b7136dc82a5d527493ecc096e82519a459382e2d8974b49a1ba004e80"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/xgrammar-final.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "borrowed-grammar-vocab/validation/xgrammar-final.log",
+      "bytes": 56212,
+      "sha256": "d081fc3d1eee1c72972564b83be7b0f4c0618909e4842aac934a1c27306d37ed"
+    },
+    {
+      "path": "serial-grammar-default/REPORT.md",
+      "bytes": 1986,
+      "sha256": "7bad71d0c4739570ce2ff0ddfa3967367df0666a867f7d24820a4a33c40d99fe"
+    },
+    {
+      "path": "serial-grammar-default/change.patch",
+      "bytes": 1858,
+      "sha256": "4119d5277d6ac7823bfa3b1a7b3391acf25cc7cf760f1fdc9a61ce893eb7021c"
+    },
+    {
+      "path": "serial-grammar-default/receipt.json",
+      "bytes": 1247,
+      "sha256": "66da2dffa5c010645429e07751814772e1e60c384e06134831bbe5366f4b6536"
+    }
+  ]
+}

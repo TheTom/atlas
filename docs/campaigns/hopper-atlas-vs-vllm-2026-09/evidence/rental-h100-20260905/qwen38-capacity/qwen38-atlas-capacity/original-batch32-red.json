@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python3",
+    "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/qwen38-atlas-capacity/actual_entry_capacity.py",
+    "/Users/tom/Documents/New project/atlas-qwen38-atlas-capacity4",
+    "/Users/tom/Documents/New project/atlas-qwen38-atlas-capacity4/bench/campaign/atlas_recipes.json",
+    "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/qwen38-staging/config.json"
+  ],
+  "exit_code": 1,
+  "stdout": "{\n  \"catalog\": \"/Users/tom/Documents/New project/atlas-qwen38-atlas-capacity4/bench/campaign/atlas_recipes.json\",\n  \"max_batch_size\": 32,\n  \"queue_channel_capacity\": 128,\n  \"ssm_layers\": 48,\n  \"h_bytes_per_layer\": 3145728,\n  \"conv_bytes_per_layer\": 163840,\n  \"ssm_blob_bytes\": 158859264,\n  \"reserve_components_bytes\": {\n    \"base_ssm\": 5083496448,\n    \"decode_rollback\": 40667971584,\n    \"prefix_snapshots\": 2541748224,\n    \"gdn_two_phase\": 372244480,\n    \"cuda_headroom\": 536870912\n  },\n  \"inference_reserve_bytes\": 49202331648,\n  \"inference_reserve_GiB\": 45.8232421875,\n  \"pre_kv_upper_GiB\": 57.25,\n  \"budget_lower_GiB\": 71.25,\n  \"kv_budget_lower_bytes\": 0,\n  \"kv_budget_lower_GiB\": 0.0,\n  \"kv_bytes_per_token\": 40960,\n  \"kv_block_bytes\": 655360,\n  \"kv_blocks_lower\": 0,\n  \"kv_usable_tokens_lower_after_dummy\": 0,\n  \"workloads\": {\n    \"lat.c1\": {\n      \"offered_concurrency\": 1,\n      \"active_ceiling\": 1,\n      \"queued_at_full_admission\": 0,\n      \"kv_tokens\": 1280,\n      \"kv_bytes\": 52428800,\n      \"fits\": false\n    },\n    \"lat.c16\": {\n      \"offered_concurrency\": 16,\n      \"active_ceiling\": 16,\n      \"queued_at_full_admission\": 0,\n      \"kv_tokens\": 20480,\n      \"kv_bytes\": 838860800,\n      \"fits\": false\n    },\n    \"agent.c1\": {\n      \"offered_concurrency\": 1,\n      \"active_ceiling\": 1,\n      \"queued_at_full_admission\": 0,\n      \"kv_tokens\": 4608,\n      \"kv_bytes\": 188743680,\n      \"fits\": false\n    },\n    \"agent.c16\": {\n      \"offered_concurrency\": 16,\n      \"active_ceiling\": 16,\n      \"queued_at_full_admission\": 0,\n      \"kv_tokens\": 73728,\n      \"kv_bytes\": 3019898880,\n      \"fits\": false\n    }\n  },\n  \"all_active_at_max_context_tokens\": 786432,\n  \"all_active_at_max_context_fits\": false\n}\n",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/qwen38-atlas-capacity/actual_entry_capacity.py\", line 66, in <module>\n    assert kv_budget > 0, \"no KV budget after real inference reserve\"\n           ^^^^^^^^^^^^^\nAssertionError: no KV budget after real inference reserve\n",
+  "seconds": 0.03873912500057486,
+  "catalog_sha256": "06abdb87f357b964f03f2535c4ea3bf9883222b86d308ac2815f8519f88a3f84"
+}

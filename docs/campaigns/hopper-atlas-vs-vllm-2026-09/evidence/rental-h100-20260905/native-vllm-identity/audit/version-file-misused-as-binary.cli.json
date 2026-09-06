@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python3",
+    "/Users/tom/Documents/New project/atlas-qwen38-atlas-capacity4/bench/campaign/validate_artifact.py",
+    "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/vllm-process-engine-identity/version-file-misused-as-binary.fixture.json"
+  ],
+  "exit_code": 0,
+  "stdout": "VALID: /Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/vllm-process-engine-identity/version-file-misused-as-binary.fixture.json\n",
+  "stderr": "",
+  "seconds": 0.039468915998440934,
+  "fixture_sha256": "6dc27afdc4d3b56876bc94a5764b3cd149900ff41ce07f2a1f4486ab86b70d25",
+  "fixture_is_measurement": false,
+  "provenance_valid": false
+}

@@ -1,0 +1,17 @@
+{
+  "changed_entry": [
+    "qwen3.8-27b-fp8",
+    "h100"
+  ],
+  "changed_fields": [
+    "notes",
+    "overrides"
+  ],
+  "only_argv_delta": {
+    "--max-batch-size": [
+      "32",
+      "4"
+    ]
+  },
+  "verdict": "PASS"
+}

@@ -1,0 +1,171 @@
+{
+  "schema": 1,
+  "campaign": "hopper-atlas-vs-vllm-2026-09",
+  "cell_id": "atlas.qwen3.8-27b-fp8.h100.lat.c1.specoff.thinkoff",
+  "engine": "atlas",
+  "model": {
+    "hf_id": "Qwen/Qwen3.8-27B-FP8",
+    "model_key": "qwen3.8-27b-fp8",
+    "revision": null,
+    "quant": "fp8"
+  },
+  "engine_version": {
+    "git_sha": null,
+    "image_digest": null,
+    "binary_sha256": "a9fb0697436af48e74bbe9d168e14b4ea7e10275562e19d19e0c43fc0d24b52d",
+    "vllm_version": null
+  },
+  "harness": {
+    "git_sha": "9cfce36ceac0ac9bfa43b23c26a63cf0beac7770"
+  },
+  "hardware": {
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "gpu_count": 1,
+    "hardware_id": "h100",
+    "driver": "610.57.04",
+    "cuda": "13.3",
+    "sm_clock_mhz": null,
+    "clocks_locked": null,
+    "nvidia_smi_q_sha256": "6e9400bf82cebf25ba1fc9c8d2c1c4441cbcd0d79acecb6944ad0ee799e65ed2"
+  },
+  "topology": {
+    "tp": 1,
+    "ep": 1,
+    "pp": 1,
+    "dp": 1,
+    "world_size": 1,
+    "nnodes": 1,
+    "matched": false,
+    "recipe_max": true
+  },
+  "serve_command": [
+    "/workspace/atlas-rental/bin/spark-qwen38",
+    "serve",
+    "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "--rank",
+    "0",
+    "--world-size",
+    "1",
+    "--ep-size",
+    "1",
+    "--tp-size",
+    "1",
+    "--gpu-ordinal",
+    "0",
+    "--port",
+    "8888",
+    "--master-addr",
+    "127.0.0.1",
+    "--master-port",
+    "29500",
+    "--no-tui",
+    "--bind",
+    "0.0.0.0",
+    "--warmup-prompt",
+    "/workspace/atlas-rental/src/atlas/bench/hopper_ab/warmup_1024.txt",
+    "--request-timeout",
+    "0",
+    "--gpu-memory-utilization",
+    "0.90",
+    "--max-num-seqs",
+    "128",
+    "--max-batch-size",
+    "4",
+    "--enable-prefix-caching",
+    "true",
+    "--scheduling-policy",
+    "slai",
+    "--kv-cache-dtype",
+    "fp8",
+    "--kv-high-precision-layers",
+    "auto",
+    "--max-seq-len",
+    "24576",
+    "--fp8-kv-calibration-tokens",
+    "256",
+    "--disable-thinking",
+    "--model-name",
+    "Qwen/Qwen3.8-27B-FP8"
+  ],
+  "serve_env": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "HF_HOME": "/workspace/atlas-rental/hf38",
+    "HF_HUB_CACHE": "/workspace/atlas-rental/hf38/hub",
+    "HF_HUB_OFFLINE": "1",
+    "LD_LIBRARY_PATH": "/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64",
+    "RUST_LOG": "info",
+    "SPT_NOENV": "1"
+  },
+  "workload": {
+    "name": "lat",
+    "isl": 1024,
+    "osl": 256,
+    "concurrency": 1,
+    "source": "bench/hopper_ab/workloads.json"
+  },
+  "client": {
+    "name": "/workspace/atlas-rental/src/atlas/bench/ladder38/harness_w55_conc_ladder.py",
+    "sha256": "7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb",
+    "isl_nominal": 1024,
+    "isl_measured_p50": 1193,
+    "osl": 256,
+    "reps": 3,
+    "warmup": 1,
+    "seed": 42,
+    "temperature": 0.0,
+    "penalties": {
+      "presence_penalty": 0.0,
+      "frequency_penalty": 0.0
+    },
+    "prompt_mode": "essay"
+  },
+  "timing": {
+    "started_utc": "2026-09-05T23:28:26Z",
+    "finished_utc": "2026-09-05T23:28:46Z"
+  },
+  "spec": {
+    "on": false,
+    "method": "none",
+    "k": null
+  },
+  "think": "off",
+  "boot": {
+    "time_to_ready_s": 21.981,
+    "first_token_s": 0.163,
+    "pass": true,
+    "timeout_s": 1800
+  },
+  "coherency": {
+    "determinism_ok": true,
+    "toolcall_ok": true,
+    "think_leak_ok": true,
+    "known_answer_ok": true,
+    "gate_json_path": "/workspace/atlas-rental/results/qwen38.atlas.c.lat.c1/coherency.json"
+  },
+  "metrics": {
+    "percentile_method": "mean_of_rep_percentiles",
+    "tok_s_series": [
+      51.21380536735631,
+      51.244155295130746,
+      51.165930714710925
+    ],
+    "tok_s_mean": 51.20796379239933,
+    "tok_s_spread_pct": 0.15275862312539723,
+    "ttft_p50_ms": 932.3839409917127,
+    "ttft_p99_ms": 932.3839409917127,
+    "tpot_p50_ms": 15.945087703290318,
+    "e2e_p50_s": 4.998889366659569,
+    "vacuous": false,
+    "ladder_json_path": "/workspace/atlas-rental/results/qwen38.atlas.c.lat.c1/ladder.json"
+  },
+  "ptx_gate_receipt_sha256": null,
+  "ptx_gate_not_applicable_reason": "no PTX gate receipt was passed to this cell (--ptx-receipt unset)",
+  "paired_cell": {
+    "cell_id": null,
+    "artifact_path": null,
+    "within_24h": null
+  },
+  "verdict": "NO-GO",
+  "failing_stage": "serve",
+  "notes": "Rental profile qwen38-h100-atlas-capacity4: single-H100 capacity adaptation of the existing H200 27B campaign recipe, not a performance-tuned result. The original batch32 profile and failed qwen38.atlas.a.lat.c1 kernel audit are retained: 57.2 GiB pre-KV plus 45.823 GiB inference reserve exceeded the 71.3 GiB budget. Only max-batch-size changes from 32 to 4; the eight-slot rollback ring, 16 prefix snapshots, watchdogs, numerical flags, TP1/EP1, spec off and context24576 remain unchanged. The resulting reserve is 8.540 GiB. Conservative rounding of that audit leaves at least 5.459 GiB for paged KV, enough in the capacity model for both frozen ladders and four full contexts; a fresh audit/boot/coherency must still prove runtime viability. max-num-seqs128 remains explicit: C16 is offered concurrency with at most four active sequences and the rest queued. Preserve that scheduling distinction in measurements. Retain pinned snapshot proof; target mtp_layers=0. | invalid model launch evidence: actual Atlas process executable and argv must name spark"
+}

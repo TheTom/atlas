@@ -1,0 +1,11 @@
+{
+  "command": [
+    "typos"
+  ],
+  "cwd": "/Users/tom/Documents/New project/atlas-qwen38-atlas-capacity4",
+  "exit_code": 0,
+  "seconds": 0.19981012499920325,
+  "stdout": "",
+  "stderr": "",
+  "catalog_sha256": "38af832879e29a8a91256105a70af4184c3e58fd9c21f374695225b8aa76d208"
+}

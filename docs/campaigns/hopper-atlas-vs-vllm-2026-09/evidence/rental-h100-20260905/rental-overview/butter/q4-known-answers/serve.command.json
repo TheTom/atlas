@@ -1,0 +1,27 @@
+{
+  "argv": [
+    "/workspace/butter-iron-rental/bin/butter-tools-f6d8164",
+    "serve",
+    "--model",
+    "qwen3.8-27b-q4_k_m",
+    "--context",
+    "8192",
+    "--concurrency",
+    "1",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8890",
+    "--offline"
+  ],
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "CUDA_HOME": "/usr/local/cuda",
+    "CUDA_PATH": "/usr/local/cuda",
+    "LD_LIBRARY_PATH": "/usr/local/cuda/lib64:/usr/lib/x86_64-linux-gnu",
+    "BUTTER_HOME": "/workspace/butter-iron-rental/butter-home",
+    "QWEN35_MARLIN": "0",
+    "BUTTER_IRON_SELECTORS": "1"
+  },
+  "utc": "2026-09-05T23:22:34.796058+00:00"
+}

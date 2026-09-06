@@ -1,0 +1,6 @@
+{
+  "utc": "2026-09-05T23:26:45.350675+00:00",
+  "oracle": "ATLAS_DENSE_FP8 explicitly supplied reaches owned Linux process and capture; unknown keys still refuse before launch",
+  "stopping_rule": "red missing allowlist -> green real process, full launch suite, mandatory tooling checks; no kernel or recipe default change",
+  "base": "9cfce36ceac0ac9bfa43b23c26a63cf0beac7770"
+}

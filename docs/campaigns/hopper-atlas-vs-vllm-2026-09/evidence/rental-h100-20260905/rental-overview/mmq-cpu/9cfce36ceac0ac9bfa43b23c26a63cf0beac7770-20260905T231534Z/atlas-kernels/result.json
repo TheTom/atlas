@@ -1,0 +1,44 @@
+{
+  "stage": "atlas-kernels",
+  "argv": [
+    "cargo",
+    "+1.93.1",
+    "test",
+    "--locked",
+    "-p",
+    "atlas-kernels"
+  ],
+  "started": "2026-09-05T23:15:34.926361+00:00",
+  "free_before": 426369302528,
+  "task_bytes_before": 79022030848,
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "ATLAS_SKIP_BUILD": "1",
+    "CUDARC_CUDA_VERSION": "13000",
+    "CARGO_TARGET_DIR": "/workspace/atlas-rental/target-cpu-checks",
+    "CARGO_BUILD_JOBS": "6",
+    "ATLAS_TARGET_HW": "hopper",
+    "ATLAS_TARGET_MODEL": "qwen3.8-27b",
+    "ATLAS_TARGET_QUANT": "nvfp4"
+  },
+  "finished": "2026-09-05T23:15:48.930084+00:00",
+  "elapsed_s": 14.003759826999158,
+  "exit_code": 0,
+  "stop_reason": null,
+  "free_after": 425855348736,
+  "test_summaries": [
+    "test result: ok. 16 passed; 0 failed; 6 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.51s",
+    "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s",
+    "test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s",
+    "test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s",
+    "test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.41s",
+    "test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s",
+    "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.25s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+  ]
+}

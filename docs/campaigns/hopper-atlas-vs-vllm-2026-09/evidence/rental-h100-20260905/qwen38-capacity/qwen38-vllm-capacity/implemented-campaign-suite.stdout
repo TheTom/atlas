@@ -1,0 +1,95 @@
+  ok [dryrun] 3 dry-run exit regressions passed (both engines, refusal before boot)
+{"case": "atlas-process", "preflight_ok": false, "runner_exit": 1, "engine_launches": [], "verdict": "NO-GO", "failing_stage": "preflight"}
+{"case": "atlas-binary", "preflight_ok": false, "runner_exit": 1, "engine_launches": [], "verdict": "NO-GO", "failing_stage": "preflight"}
+{"case": "atlas-container", "preflight_ok": false, "runner_exit": 1, "engine_launches": [], "verdict": "NO-GO", "failing_stage": "preflight"}
+{"case": "vllm-container", "preflight_ok": false, "runner_exit": 1, "engine_launches": [], "verdict": "NO-GO", "failing_stage": "preflight"}
+{"case": "atlas-binary", "preflight_ok": true, "runner_exit": 1, "engine_launches": [["/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-admission-16hkqzgg/bin/spark", "serve", "Qwen/Qwen3.6-35B-A3B-FP8", "--rank", "0", "--world-size", "1", "--ep-size", "1", "--tp-size", "1", "--gpu-ordinal", "0", "--port", "63202", "--master-addr", "127.0.0.1", "--master-port", "29500", "--no-tui", "--check-kernels", "--warmup-prompt", "/Users/tom/Documents/New project/atlas-qwen38-capacity512/bench/hopper_ab/warmup_1024.txt", "--request-timeout", "0", "--gpu-memory-utilization", "0.90", "--max-num-seqs", "128", "--max-batch-size", "32", "--enable-prefix-caching", "true", "--scheduling-policy", "slai", "--kv-cache-dtype", "fp8", "--kv-high-precision-layers", "auto", "--max-seq-len", "65536", "--max-prefill-tokens", "32768", "--fp8-kv-calibration-tokens", "256", "--disable-thinking"]], "verdict": "NO-GO", "failing_stage": "serve"}
+{"case": "atlas-container", "preflight_ok": true, "runner_exit": 1, "engine_launches": [["/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-admission-5fah3zdh/bin/docker", "run", "--rm", "--gpus", "all", "--ipc=host", "--network", "host", "-e", "RUST_LOG=info", "-v", "/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-admission-5fah3zdh/hub:/root/.cache/huggingface", "-v", "/Users/tom/Documents/New project/atlas-qwen38-capacity512/bench/hopper_ab/warmup_1024.txt:/warmup/warmup_1024.txt:ro", "admission-test:never-contacted", "serve", "Qwen/Qwen3.6-35B-A3B-FP8", "--rank", "0", "--world-size", "1", "--ep-size", "1", "--tp-size", "1", "--gpu-ordinal", "0", "--port", "63205", "--master-addr", "127.0.0.1", "--master-port", "29500", "--no-tui", "--check-kernels", "--warmup-prompt", "/warmup/warmup_1024.txt", "--request-timeout", "0", "--gpu-memory-utilization", "0.90", "--max-num-seqs", "128", "--max-batch-size", "32", "--enable-prefix-caching", "true", "--scheduling-policy", "slai", "--kv-cache-dtype", "fp8", "--kv-high-precision-layers", "auto", "--max-seq-len", "65536", "--max-prefill-tokens", "32768", "--fp8-kv-calibration-tokens", "256", "--disable-thinking"]], "verdict": "NO-GO", "failing_stage": "serve"}
+{"case": "vllm-container", "preflight_ok": true, "runner_exit": 1, "engine_launches": [["/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-admission-c88skmu6/bin/docker", "run", "-d", "--name", "atlas-campaign-qwen3-6-35b-a3b-fp8-h100-lat-c1-specoff-thinkoff-68367", "--label", "atlas-campaign.run=vllm.qwen3.6-35b-a3b-fp8.h100.lat.c1.specoff.thinkoff-1788646929-68367", "--gpus", "all", "--ipc=host", "--network", "host", "-v", "/var/folders/y2/mjncn_qn211bjbdr94zpzps40000gn/T/atlas-admission-c88skmu6/hub:/root/.cache/huggingface", "--entrypoint", "vllm", "vllm/vllm-openai@sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "serve", "Qwen/Qwen3.6-35B-A3B-FP8", "--trust-remote-code", "--tensor-parallel-size", "1", "--enable-auto-tool-choice", "--tool-call-parser", "qwen3_xml", "--reasoning-parser", "qwen3", "--mm-encoder-tp-mode", "data", "--revision", "95a723d08a9490559dae23d0cff1d9466213d989"]], "verdict": "NO-GO", "failing_stage": "serve"}
+  ok [admission] failed preflight never launches either engine
+  ok [stream] raw streaming diagnostic rejects incomplete replies and bounds trickling input
+  ok [policy] campaign thinking eligibility refuses excluded modes before launch
+  ok [coherency] gate requests and artifact certification match the cell's thinking mode
+  ok [pins] vLLM primary and draft pins survive rendering and reject identity overrides
+cell_assemble selftest: 16/16 test methods passed
+  ok [recovery] recipe and launch identity regressions passed
+  ok [process] process_mode CPU regression suite passed (Linux-only cases skip elsewhere)
+  ok [process] process_launch CPU regression suite passed (Linux-only cases skip elsewhere)
+  ok [process] process_endpoint CPU regression suite passed (Linux-only cases skip elsewhere)
+  ok [process] process_runner CPU regression suite passed (Linux-only cases skip elsewhere)
+  ok [process] process_readiness CPU regression suite passed (Linux-only cases skip elsewhere)
+  ok [process] cell_deadline CPU regression suite passed (Linux-only cases skip elsewhere)
+  ok [a0] every FP8 Atlas entry carries --fp8-kv-calibration-tokens
+  ok [a] vllm_control --selftest: vllm_control selftest: 258/258 checks passed over 31 rendered entries
+  ok [a] atlas_render --selftest: atlas_render selftest: 346/346 checks passed over 19 entries
+  ok [a] validate_artifact --selftest: validate_artifact selftest: 26/26 checks passed (7 known-bad fixtures)
+  ok [b] atlas --dry-run exits 0 and creates nothing
+  ok [b] ladder invoked at the frozen lat shape (isl 1024 / osl 256, C=16, reps 3, warmup 1)
+  ok [b] boot gate and launcher both carry the 1800 s PRD cap
+  ok [b] serve line carries the recipe flags (util 0.92, bare_json, fp8 KV)
+  ok [b] --think on reaches the ladder client as --enable-thinking
+  ok [c] ladder invoked at the frozen agent shape (isl 4096 / osl 512, C=1)
+  ok [c] vllm boot gate carries the 1800 s PRD cap
+  ok [c] vllm renders the recipe under docker run and flags the missing digest
+  ok [d] Atlas on H100 emits no NCCL_* setting (only NCCL_PROFILE=default selects the empty profile)
+  ok [d] Super on H100 renders both EP=2 ranks and the think-off flag
+  ok [e] kimi-k3 b200 prints head + --headless worker with $HEAD_IP / --node-rank placeholders
+  ok [e] a real Kimi K3 run is refused with exit 6
+  ok [e] a real run with no VLLM_IMAGE_DIGEST is refused with exit 5
+  ok [e] --spec on against a recipe with no speculative profile is refused with exit 4
+  ok [f] vllm_control: no rendered profile -> exit 3, naming the pair
+  ok [f] run_cell: no vLLM profile for gb10 -> exit 3
+  ok [f] run_cell: no Atlas recipe for kimi-k3 -> exit 3
+  ok [f] run_cell without --yes or --dry-run refuses to start anything (exit 2)
+  ok [g] no executable 'pkill -f' under bench/campaign (teardown is by container name and pid file)
+  ok [h] cell_assemble turns the stub stage outputs into an artifact that validates
+  ok [h] think-on with legacy think-off gate evidence is NO-GO/coherency with mean_of_rep_percentiles
+  ok [h] the think-on caveat reaches the artifact notes
+  ok [h] a boot-gate failure still writes a VALID artifact, verdict NO-GO
+  ok [k] an all-green cell with its real pair is CERTIFIED and validates
+  ok [k] no pair, an empty {} pair, a pair on another SKU and a three-day-old pair are all PARTIAL/pair
+  ok [k] a rejected pair records within_24h=false and names the reason
+  ok [k] a boot timeout, a failed known-answer probe and absent gate JSONs are NO-GO, never CERTIFIED
+  ok [k] a ladder that exits 0 while failing the vacuity, error or spread gate is PARTIAL/ladder
+  ok [k] validate_artifact refuses a CERTIFIED verdict its own gate values do not support
+  ok [k] qwen3.6-35b-a3b-fp8 on h200 with --spec off records method=none and validates
+  ok [j] vllm_control returns the created container ID and labels it as this run's
+  ok [j] --image-file records what the created container is running, not the tag
+  ok [j] a docker run name conflict exits 125 and records no container ID
+  ok [j] docker run exit 125 -> no stop, no rm, nothing of another run is touched
+  ok [j] a name conflict is recorded as a serve-stage failure in a valid artifact
+  ok [j] each invocation names its container uniquely (--name atlas-campaign-nemotron-3-nano-fp8-h100-lat-c1-specoff-thinkoff-70948 vs --name atlas-campaign-nemotron-3-nano-fp8-h100-lat-c1-specoff-thinkoff-71056)
+  ok [l] SIGTERM during the boot gate exits 143, not a bare -15
+  ok [l] SIGTERM stops and removes exactly the container this invocation created
+  ok [l] the boot-gate child this cell started is killed by pid, not left polling
+  ok [l] a terminated cell still writes an artifact, and it validates
+  ok [l] the artifact is NO-GO at 'boot' -- the stage that was in flight
+  ok [l] the notes say it was interrupted by SIGTERM rather than that boot failed on its own
+  ok [m] SIGTERM during the create exits 143
+  ok [m] the container the create had already made is gone, not leaked
+  ok [m] SIGTERM mid-create stops and removes exactly the container that was made
+  ok [m] the artifact is a valid NO-GO at 'serve'
+  ok [n] a failed kernel audit starts no normal launcher
+  ok [n] a refused launch leaves the prior run's rank and its record untouched
+  ok [n] the artifact is a valid NO-GO at 'serve'
+  ok [n] a launch that recorded a rank in its own run dir is stopped and cleared
+  ok [n] the interrupted atlas cell still writes an artifact that validates
+  ok [o] SIGTERM during an Atlas container create exits 143
+  ok [o] SIGTERM mid-create stops and removes the rank the launcher had created
+  ok [o] a same-named container from another run is neither stopped nor removed
+  ok [o] the artifact is a valid NO-GO at 'boot'
+  ok [p] an Atlas container cell records the image's digest and revision, not the checkout
+  ok [p] an Atlas local-binary cell hashes the binary it ran and claims no revision
+  ok [p] the vLLM cell keeps the digest it was pinned to and claims no engine revision
+  ok [r] the launcher writes down the image its detached create actually resolved
+  ok [r] a tag re-pointed during the run does not change the build the artifact names
+  ok [r] the identity is read from the recorded image ID, not from the tag
+  ok [q] a teardown whose docker ps failed stops nothing on a guess
+  ok [q] the teardown reports an unknown fate rather than a confirmed absence
+  ok [q] the artifact validates as NO-GO and its notes name the container that may be leaked
+  ok [i] shellcheck clean on every .sh under bench/campaign
+  ok [i] python3 -m py_compile clean on every .py under bench/campaign
+  ok [i] every .json under bench/campaign parses
+  ok [i] typos clean under bench/campaign
+
+ALL 85 assertions passed.

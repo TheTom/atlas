@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python3",
+    "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/qwen38-vllm-capacity/actual_entry_guard.py",
+    "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/qwen38-vllm-capacity/actual-invalid-811-catalog.json"
+  ],
+  "cwd": "/Users/tom/Documents/New project/atlas-qwen38-capacity512",
+  "exit_code": 1,
+  "stdout": "{\"catalog\": \"/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/qwen38-vllm-capacity/actual-invalid-811-catalog.json\", \"model_key\": \"qwen3.8-27b-fp8\", \"sku\": \"h100\", \"max_num_seqs\": 811, \"limit_origin\": \"explicit recipe\", \"observed_mamba_blocks\": 810, \"verdict\": \"revision_and_capacity_adaptation\"}\n",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/qwen38-vllm-capacity/actual_entry_guard.py\", line 19, in <module>\n    guard(types.SimpleNamespace(has_mamba_layers=True, num_blocks=observed_blocks), limit, mode, False)\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/qwen38-vllm-capacity/installed_guard.py\", line 11, in guard\n    raise ValueError(\n    ...<6 lines>...\n    )\nValueError: max_num_seqs (811) exceeds available Mamba cache blocks (810). Each decode sequence requires one Mamba cache block, so CUDA graph capture cannot proceed. Please lower max_num_seqs to at most 810 or increase gpu_memory_utilization.\n",
+  "seconds": 0.040055999998003244,
+  "recipe_sha256": "83b57a66b08ec06dbf7efb1572f0d03d1a7747bba8e4a44c73201d8335bde908",
+  "oracle": "Captured installed vLLM 0.28 compilation.py guard with observed Mamba capacity 810; expected exit 1"
+}

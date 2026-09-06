@@ -1,0 +1,12 @@
+   Compiling stats_alloc v0.1.10
+   Compiling xgrammar v1.0.0-beta-preview (/home/pidtom/atlas-borrowed-vocab-server-20260905/crates/xgrammar)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.14s
+     Running tests/vocabulary_allocations.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/vocabulary_allocations-49d20319c710afd1)
+
+running 1 test
+irrelevant=4096 states=3 allocations=58
+irrelevant=8192 states=3 allocations=58
+test irrelevant_vocabulary_does_not_allocate_per_token_during_mask_preparation ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+

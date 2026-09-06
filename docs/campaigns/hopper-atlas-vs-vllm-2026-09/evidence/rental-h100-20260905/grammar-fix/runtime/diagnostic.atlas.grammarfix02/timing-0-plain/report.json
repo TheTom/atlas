@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "errors": [],
+  "first_role_s": 0.006046172988135368,
+  "first_reasoning_s": null,
+  "first_content_s": 0.07861102599417791,
+  "first_tool_s": null,
+  "finish_s": 0.17789376000291668,
+  "usage_s": 0.177618966990849,
+  "done_s": 0.17804389400407672,
+  "content": "101, 103, 107, 109, 113",
+  "reasoning": "",
+  "tool_calls": {},
+  "content_events": 23,
+  "usage": {
+    "prompt_tokens": 30,
+    "completion_tokens": 24,
+    "total_tokens": 54,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "time_to_first_token_ms": 73.04434599999999,
+    "response_token/s": 232.36110483623875
+  },
+  "finish_reason": "stop",
+  "scope": "single diagnostic stream; structural completion, not semantic correctness or campaign scoring",
+  "url": "http://127.0.0.1:8888/v1/chat/completions",
+  "http_status": 200,
+  "received_bytes": 7246,
+  "elapsed_s": 0.17871996900066733,
+  "request_sha256": "d773a7c98b0f01de66d862914bd228b1c5dea2583ea454d70fdb910c76a8a33d"
+}

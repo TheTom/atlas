@@ -1,0 +1,23 @@
+{
+  "repo_id": "Qwen/Qwen3.8-27B-FP8",
+  "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+  "snapshot": "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+  "staging_proof_path": "/workspace/atlas-rental/results/qwen38-download-proof/staging-proof.json",
+  "staging_proof_sha256": "6074590b1089e054afc8a4c2a23ca5e8a4184e4ff2c8ccb7898fa722cf812479",
+  "build_identity_path": "/workspace/atlas-rental/results/qwen38-build/build-identity.json",
+  "build_identity_sha256": "e538d7ae7c1852397020b2746ba71d772e28f0aa8dde2af5d323bc424663456f",
+  "build_identity": {
+    "exit_code": 0,
+    "target_hw": "hopper",
+    "target_model": "qwen3.8-27b",
+    "target_quant": "nvfp4",
+    "source_git_sha": "f66a262048ac0a6aee4c67444fd0ea5740b46b30",
+    "binary_path": "/workspace/atlas-rental/bin/spark-qwen38",
+    "binary_sha256": "353d3ca4f8bb288991326f2714b1acb3c6973eeb11132fcc789b703a1810a7c0",
+    "build_evidence": "/workspace/atlas-rental/results/builds/f66a262048ac0a6aee4c67444fd0ea5740b46b30/qwen3.8-27b"
+  },
+  "deadline_utc": "2026-09-06T02:25:00+00:00",
+  "required_reserve_s": 5460,
+  "cell_timeout_s": 2700,
+  "validated_utc": "2026-09-05T22:40:45.335974+00:00"
+}

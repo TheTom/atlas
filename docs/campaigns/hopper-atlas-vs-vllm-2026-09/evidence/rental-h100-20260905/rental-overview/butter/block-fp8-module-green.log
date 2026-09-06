@@ -1,0 +1,8 @@
+
+running 3 tests
+test tests::block_fp8_tail_dispatch_preserves_offsets_and_ceil_scale_stride ... ok
+test tests::block_fp8_invalid_scale_grid_and_short_buffers_refuse_before_dispatch ... ok
+test tests::block_fp8_vector_and_invalid_views ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

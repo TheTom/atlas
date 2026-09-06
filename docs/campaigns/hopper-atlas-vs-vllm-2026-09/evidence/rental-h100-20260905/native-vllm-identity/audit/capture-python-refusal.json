@@ -1,0 +1,15 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "set -eu\nsource \"$1\"\nIDENTITY_CAPTURED=0\nDRY_RUN=0\nPROCESS_MODE=1\nENGINE=vllm\nENGINE_GIT_SHA=\"\"\nENGINE_IMAGE_DIGEST=\"\"\nENGINE_BINARY=\"\"\nENGINE_VLLM_VERSION=\"\"\nVLLM_BIN=\"$2\"\nadd_note() { printf '%s\\n' \"$1\" >&2; }\ncapture_engine_identity\n[ -z \"$ENGINE_GIT_SHA$ENGINE_IMAGE_DIGEST$ENGINE_BINARY$ENGINE_VLLM_VERSION\" ]\nprintf 'PASS: production capture left native vLLM engine build identity unset\\n'\n",
+    "identity-probe",
+    "/Users/tom/Documents/New project/atlas-qwen38-atlas-capacity4/bench/campaign/cell_identity.sh",
+    "/usr/bin/python3.12"
+  ],
+  "exit_code": 0,
+  "seconds": 0.0036429169995244592,
+  "stdout": "PASS: production capture left native vLLM engine build identity unset\n",
+  "stderr": "vLLM process environment has no verified immutable engine build identity; image_digest remains null\n",
+  "oracle": "Current capture must never use Python or console-entrypoint path as the engine binary hash"
+}

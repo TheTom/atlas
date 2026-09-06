@@ -1,0 +1,30 @@
+{
+  "stage": "format",
+  "argv": [
+    "cargo",
+    "+1.93.1",
+    "fmt",
+    "--all",
+    "--",
+    "--check"
+  ],
+  "started": "2026-09-05T23:20:58.057928+00:00",
+  "free_before": 415824048128,
+  "task_bytes_before": 89549111296,
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "ATLAS_SKIP_BUILD": "1",
+    "CUDARC_CUDA_VERSION": "13000",
+    "CARGO_TARGET_DIR": "/workspace/atlas-rental/target-cpu-checks",
+    "CARGO_BUILD_JOBS": "6",
+    "ATLAS_TARGET_HW": "hopper",
+    "ATLAS_TARGET_MODEL": "qwen3.8-27b",
+    "ATLAS_TARGET_QUANT": "nvfp4"
+  },
+  "finished": "2026-09-05T23:21:04.060625+00:00",
+  "elapsed_s": 6.002729688974796,
+  "exit_code": 0,
+  "stop_reason": null,
+  "free_after": 415824076800,
+  "test_summaries": []
+}

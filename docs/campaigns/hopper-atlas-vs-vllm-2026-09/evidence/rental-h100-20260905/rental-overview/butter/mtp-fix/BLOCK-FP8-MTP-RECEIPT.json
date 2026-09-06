@@ -1,0 +1,96 @@
+{
+  "utc": "2026-09-05T23:59:04.581140+00:00",
+  "commit": "dfc45a185fc36ee84a8351eef21ae1dfc56d527a",
+  "base": "de5485c499946f387fa658f656fc4183b50781c1",
+  "tree": "3b49e9f8601991fe9ab89a84263565fe1ef2c440",
+  "status": "CPU PASS; full original-checkpoint boot retest pending",
+  "reproduction": "Actual H100 first native-FP8 boot refused mtp.layers.0.self_attn.q_proj.weight expected floating-point [12288,5120], got u8 [12288,5120]. No HTTP ran.",
+  "production_scope": "Nine added lines: matching-shape MTP matrices with original block scale contract use existing full block validation/loading. All sidecar tensors still loaded and validated; BF16 fc and floating norms unchanged; no spec-off skip or validator bypass. The floating conversion option never requantizes an original block matrix.",
+  "oracles": {
+    "red": {
+      "exit": 101,
+      "passed": 1,
+      "failed": 2,
+      "detail": "Actual production MTP pre-upload validator and weight loader both reject valid original FP8 fixtures; malformed control refuses."
+    },
+    "focused_green": {
+      "exit": 0,
+      "passed": 11,
+      "failed": 0,
+      "detail": "Original bytes and exact BF16-to-F32 scales; full MTP sidecar; both conversion option values; seven malformed MTP mutations; previous main-model block and row FP8 tests retained."
+    },
+    "full_model_cpu": {
+      "exit": 0,
+      "passed": 407,
+      "ignored": 3,
+      "doctests_passed": 1
+    },
+    "rustdoc": {
+      "exit": 0,
+      "existing_warnings": 48
+    },
+    "rustfmt_new_file": 0,
+    "typos_new_file_and_doc": 0,
+    "git_diff_check": 0
+  },
+  "gpu_scope": "Three original block operator GPU exact-bit tests passed on predecessor de5485c4. This change does not touch that operator; it still needs a fresh full-model H100 boot/coherency. No GPU action by this author.",
+  "files": [
+    {
+      "path": "documentation/developing/qwen-block-fp8.md",
+      "bytes": 2612,
+      "sha256": "7eb0728c8233ee4dbb82fda67de3301e27ca07263a05a0d923bd39bdec023b18"
+    },
+    {
+      "path": "rust/crates/wh-butter-models/src/qwen35.rs",
+      "bytes": 330436,
+      "sha256": "653fc6ee83626cc8bf9b9ea5c2895024f0c481dc7b0f822e414690c30aa4e0d0"
+    },
+    {
+      "path": "rust/crates/wh-butter-models/src/qwen35_fp8_block_tests.rs",
+      "bytes": 11824,
+      "sha256": "ff12afc89ca8e387fb101ffe094e5ff60250b7e5291a86a357b1a3a4398bc016"
+    },
+    {
+      "path": "rust/crates/wh-butter-models/src/qwen35_fp8_mtp_tests.rs",
+      "bytes": 7507,
+      "sha256": "0ce4367ad3958fa5b9a9916c7b26f086ca949c9f60d490ef6adeaceefb346231"
+    }
+  ],
+  "logs": [
+    {
+      "path": "block-fp8-mtp-green.log",
+      "bytes": 4804,
+      "sha256": "8823831a44c6955e1ad23d0b8b6a06e4a794e3284ad5c01eca5b4f56de39fd7b"
+    },
+    {
+      "path": "block-fp8-mtp-model-cpu.log",
+      "bytes": 37307,
+      "sha256": "0469a0899af4c984ed9405e612097e6d7d4ff5d4e5a7d5c802bb5ead3e62fafb"
+    },
+    {
+      "path": "block-fp8-mtp-model-rustdoc.log",
+      "bytes": 22484,
+      "sha256": "69c12f3431411ef6250bc351d49aabe0ee1d43f8e23526871075d4c75996d6d4"
+    },
+    {
+      "path": "block-fp8-mtp-red.log",
+      "bytes": 4820,
+      "sha256": "6d966081f7904b1d0b1365b6f8ef659772e4a91315856cc78a11873de4db4a72"
+    },
+    {
+      "path": "block-fp8-mtp-broad.json",
+      "bytes": 418,
+      "sha256": "60b959e563a670426aeab11a2c388a8192d5a678f3d145f7895337ea5e913acf"
+    },
+    {
+      "path": "block-fp8-mtp-green.json",
+      "bytes": 321,
+      "sha256": "03857c72c3618a19af9b9957c1d9dac29908c2c60689cb928c79501913dde26a"
+    },
+    {
+      "path": "block-fp8-mtp-red.json",
+      "bytes": 289,
+      "sha256": "8d7459531482066c12ded08f238a437ecbe2a5919cacfdb2bed116e3ec6b2b6a"
+    }
+  ]
+}

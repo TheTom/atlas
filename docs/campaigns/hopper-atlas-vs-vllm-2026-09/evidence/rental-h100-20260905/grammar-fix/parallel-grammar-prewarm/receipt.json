@@ -1,0 +1,29 @@
+{
+  "commit": "03116200bea718b792e585a2bbf04be41ddd6ee0",
+  "base": "f66a262",
+  "full_spark_server_cpu": {
+    "passed": 2454,
+    "ignored": 19,
+    "failed": 0,
+    "receipt": "final-server-tests-after-warm"
+  },
+  "xgrammar_core": {
+    "passed": 826,
+    "failed": 0,
+    "receipt": "final-core-tests-after-warm"
+  },
+  "xgrammar_existing_integration_entries": {
+    "passed": 2,
+    "limitation": "existing tests return early without tokenizer; actual pinned native tokenizer was exercised explicitly by separate diagnostic and optimized replay"
+  },
+  "workspace_rustdoc_exit": 0,
+  "known_bad": {
+    "serial_concurrency": 101,
+    "warm_jobs_still_scheduled": 101
+  },
+  "source_files_verified": 1985,
+  "mismatches": 0,
+  "gpu_calls": false,
+  "github_writes": false,
+  "cleanup_exit": 0
+}

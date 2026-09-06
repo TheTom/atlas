@@ -1,0 +1,580 @@
+[
+  {
+    "auto": true,
+    "serial_cold_median_ms": 2194.67,
+    "parallel_cold_median_ms": 1342.347,
+    "mean_fill_ms_per_content_token": 6.7701238,
+    "mean_accept_us_per_content_token": 0.8884,
+    "positions": [
+      {
+        "position": 0,
+        "token_id": 248058,
+        "token": "<tool_call>",
+        "mean_fill_us": 105.77666666666667,
+        "mean_accept_us": 3.5040000000000004
+      },
+      {
+        "position": 1,
+        "token_id": 198,
+        "token": "\n",
+        "mean_fill_us": 123.02966666666666,
+        "mean_accept_us": 0.5653333333333334
+      },
+      {
+        "position": 2,
+        "token_id": 27,
+        "token": "<",
+        "mean_fill_us": 129.30700000000002,
+        "mean_accept_us": 0.4106666666666667
+      },
+      {
+        "position": 3,
+        "token_id": 1628,
+        "token": "function",
+        "mean_fill_us": 136.72066666666666,
+        "mean_accept_us": 1.8293333333333333
+      },
+      {
+        "position": 4,
+        "token_id": 27362,
+        "token": "=get",
+        "mean_fill_us": 130.176,
+        "mean_accept_us": 1.1039999999999999
+      },
+      {
+        "position": 5,
+        "token_id": 67017,
+        "token": "_weather",
+        "mean_fill_us": 99.424,
+        "mean_accept_us": 2.1546666666666665
+      },
+      {
+        "position": 6,
+        "token_id": 29,
+        "token": ">",
+        "mean_fill_us": 3.9146666666666667,
+        "mean_accept_us": 0.5013333333333333
+      },
+      {
+        "position": 7,
+        "token_id": 198,
+        "token": "\n",
+        "mean_fill_us": 65.30166666666666,
+        "mean_accept_us": 0.3466666666666667
+      },
+      {
+        "position": 8,
+        "token_id": 27,
+        "token": "<",
+        "mean_fill_us": 66.02133333333333,
+        "mean_accept_us": 0.30933333333333335
+      },
+      {
+        "position": 9,
+        "token_id": 15704,
+        "token": "parameter",
+        "mean_fill_us": 65.371,
+        "mean_accept_us": 1.1626666666666667
+      },
+      {
+        "position": 10,
+        "token_id": 28,
+        "token": "=",
+        "mean_fill_us": 65.39766666666667,
+        "mean_accept_us": 0.2986666666666667
+      },
+      {
+        "position": 11,
+        "token_id": 8656,
+        "token": "city",
+        "mean_fill_us": 65.47200000000001,
+        "mean_accept_us": 1.04
+      },
+      {
+        "position": 12,
+        "token_id": 29,
+        "token": ">",
+        "mean_fill_us": 66.46433333333333,
+        "mean_accept_us": 0.4266666666666667
+      },
+      {
+        "position": 13,
+        "token_id": 198,
+        "token": "\n",
+        "mean_fill_us": 67227.51666666666,
+        "mean_accept_us": 0.5439999999999999
+      },
+      {
+        "position": 14,
+        "token_id": 674,
+        "token": "Re",
+        "mean_fill_us": 67181.59666666666,
+        "mean_accept_us": 1.216
+      },
+      {
+        "position": 15,
+        "token_id": 70078,
+        "token": "yk",
+        "mean_fill_us": 5.370666666666667,
+        "mean_accept_us": 1.0773333333333333
+      },
+      {
+        "position": 16,
+        "token_id": 59385,
+        "token": "jav",
+        "mean_fill_us": 2.08,
+        "mean_accept_us": 2.1173333333333333
+      },
+      {
+        "position": 17,
+        "token_id": 1524,
+        "token": "ik",
+        "mean_fill_us": 2.08,
+        "mean_accept_us": 0.976
+      },
+      {
+        "position": 18,
+        "token_id": 198,
+        "token": "\n",
+        "mean_fill_us": 2.074666666666667,
+        "mean_accept_us": 0.49600000000000005
+      },
+      {
+        "position": 19,
+        "token_id": 510,
+        "token": "</",
+        "mean_fill_us": 2.08,
+        "mean_accept_us": 0.6453333333333334
+      },
+      {
+        "position": 20,
+        "token_id": 15704,
+        "token": "parameter",
+        "mean_fill_us": 2.864,
+        "mean_accept_us": 1.8506666666666667
+      },
+      {
+        "position": 21,
+        "token_id": 29,
+        "token": ">",
+        "mean_fill_us": 8.784,
+        "mean_accept_us": 0.5866666666666667
+      },
+      {
+        "position": 22,
+        "token_id": 198,
+        "token": "\n",
+        "mean_fill_us": 66.54433333333334,
+        "mean_accept_us": 0.336
+      },
+      {
+        "position": 23,
+        "token_id": 27,
+        "token": "<",
+        "mean_fill_us": 65.73866666666667,
+        "mean_accept_us": 0.368
+      },
+      {
+        "position": 24,
+        "token_id": 15704,
+        "token": "parameter",
+        "mean_fill_us": 65.888,
+        "mean_accept_us": 0.5226666666666666
+      },
+      {
+        "position": 25,
+        "token_id": 28,
+        "token": "=",
+        "mean_fill_us": 65.36033333333333,
+        "mean_accept_us": 0.768
+      },
+      {
+        "position": 26,
+        "token_id": 13382,
+        "token": "days",
+        "mean_fill_us": 65.47233333333332,
+        "mean_accept_us": 0.7253333333333334
+      },
+      {
+        "position": 27,
+        "token_id": 29,
+        "token": ">",
+        "mean_fill_us": 67.17333333333333,
+        "mean_accept_us": 0.2826666666666667
+      },
+      {
+        "position": 28,
+        "token_id": 198,
+        "token": "\n",
+        "mean_fill_us": 67227.554,
+        "mean_accept_us": 0.6186666666666667
+      },
+      {
+        "position": 29,
+        "token_id": 18,
+        "token": "3",
+        "mean_fill_us": 67210.60466666667,
+        "mean_accept_us": 1.1146666666666667
+      },
+      {
+        "position": 30,
+        "token_id": 198,
+        "token": "\n",
+        "mean_fill_us": 6.037333333333334,
+        "mean_accept_us": 0.608
+      },
+      {
+        "position": 31,
+        "token_id": 510,
+        "token": "</",
+        "mean_fill_us": 2.1813333333333333,
+        "mean_accept_us": 0.6026666666666667
+      },
+      {
+        "position": 32,
+        "token_id": 15704,
+        "token": "parameter",
+        "mean_fill_us": 3.1786666666666665,
+        "mean_accept_us": 2.1813333333333333
+      },
+      {
+        "position": 33,
+        "token_id": 29,
+        "token": ">",
+        "mean_fill_us": 7.909333333333333,
+        "mean_accept_us": 0.5333333333333333
+      },
+      {
+        "position": 34,
+        "token_id": 198,
+        "token": "\n",
+        "mean_fill_us": 66.01599999999999,
+        "mean_accept_us": 0.33066666666666666
+      },
+      {
+        "position": 35,
+        "token_id": 510,
+        "token": "</",
+        "mean_fill_us": 65.904,
+        "mean_accept_us": 0.224
+      },
+      {
+        "position": 36,
+        "token_id": 1628,
+        "token": "function",
+        "mean_fill_us": 65.79833333333333,
+        "mean_accept_us": 0.9440000000000001
+      },
+      {
+        "position": 37,
+        "token_id": 29,
+        "token": ">",
+        "mean_fill_us": 65.74933333333334,
+        "mean_accept_us": 0.11733333333333333
+      },
+      {
+        "position": 38,
+        "token_id": 198,
+        "token": "\n",
+        "mean_fill_us": 65.54666666666667,
+        "mean_accept_us": 0.22933333333333333
+      },
+      {
+        "position": 39,
+        "token_id": 248059,
+        "token": "</tool_call>",
+        "mean_fill_us": 65.47200000000001,
+        "mean_accept_us": 1.8666666666666667
+      }
+    ]
+  },
+  {
+    "auto": false,
+    "serial_cold_median_ms": 2188.479,
+    "parallel_cold_median_ms": 1754.847,
+    "mean_fill_ms_per_content_token": 6.785443083333334,
+    "mean_accept_us_per_content_token": 0.9594666666666667,
+    "positions": [
+      {
+        "position": 0,
+        "token_id": 248058,
+        "token": "<tool_call>",
+        "mean_fill_us": 71.32266666666666,
+        "mean_accept_us": 3.456
+      },
+      {
+        "position": 1,
+        "token_id": 198,
+        "token": "\n",
+        "mean_fill_us": 67.12066666666666,
+        "mean_accept_us": 0.512
+      },
+      {
+        "position": 2,
+        "token_id": 27,
+        "token": "<",
+        "mean_fill_us": 65.771,
+        "mean_accept_us": 0.448
+      },
+      {
+        "position": 3,
+        "token_id": 1628,
+        "token": "function",
+        "mean_fill_us": 66.30933333333333,
+        "mean_accept_us": 1.6053333333333333
+      },
+      {
+        "position": 4,
+        "token_id": 27362,
+        "token": "=get",
+        "mean_fill_us": 65.33866666666667,
+        "mean_accept_us": 0.896
+      },
+      {
+        "position": 5,
+        "token_id": 67017,
+        "token": "_weather",
+        "mean_fill_us": 65.41866666666667,
+        "mean_accept_us": 1.744
+      },
+      {
+        "position": 6,
+        "token_id": 29,
+        "token": ">",
+        "mean_fill_us": 65.59500000000001,
+        "mean_accept_us": 0.20266666666666666
+      },
+      {
+        "position": 7,
+        "token_id": 198,
+        "token": "\n",
+        "mean_fill_us": 65.334,
+        "mean_accept_us": 0.544
+      },
+      {
+        "position": 8,
+        "token_id": 27,
+        "token": "<",
+        "mean_fill_us": 65.65866666666666,
+        "mean_accept_us": 0.272
+      },
+      {
+        "position": 9,
+        "token_id": 15704,
+        "token": "parameter",
+        "mean_fill_us": 65.95733333333334,
+        "mean_accept_us": 1.0346666666666668
+      },
+      {
+        "position": 10,
+        "token_id": 28,
+        "token": "=",
+        "mean_fill_us": 65.28,
+        "mean_accept_us": 0.19733333333333333
+      },
+      {
+        "position": 11,
+        "token_id": 8656,
+        "token": "city",
+        "mean_fill_us": 65.82966666666667,
+        "mean_accept_us": 1.008
+      },
+      {
+        "position": 12,
+        "token_id": 29,
+        "token": ">",
+        "mean_fill_us": 66.90733333333333,
+        "mean_accept_us": 0.4
+      },
+      {
+        "position": 13,
+        "token_id": 198,
+        "token": "\n",
+        "mean_fill_us": 67539.57533333334,
+        "mean_accept_us": 1.0826666666666667
+      },
+      {
+        "position": 14,
+        "token_id": 674,
+        "token": "Re",
+        "mean_fill_us": 67296.52399999999,
+        "mean_accept_us": 1.5253333333333332
+      },
+      {
+        "position": 15,
+        "token_id": 70078,
+        "token": "yk",
+        "mean_fill_us": 6.176,
+        "mean_accept_us": 1.1093333333333333
+      },
+      {
+        "position": 16,
+        "token_id": 59385,
+        "token": "jav",
+        "mean_fill_us": 2.2239999999999998,
+        "mean_accept_us": 2.336
+      },
+      {
+        "position": 17,
+        "token_id": 1524,
+        "token": "ik",
+        "mean_fill_us": 2.208,
+        "mean_accept_us": 1.024
+      },
+      {
+        "position": 18,
+        "token_id": 198,
+        "token": "\n",
+        "mean_fill_us": 2.2026666666666666,
+        "mean_accept_us": 0.5066666666666667
+      },
+      {
+        "position": 19,
+        "token_id": 510,
+        "token": "</",
+        "mean_fill_us": 2.1973333333333334,
+        "mean_accept_us": 0.5760000000000001
+      },
+      {
+        "position": 20,
+        "token_id": 15704,
+        "token": "parameter",
+        "mean_fill_us": 3.6746666666666665,
+        "mean_accept_us": 2.016
+      },
+      {
+        "position": 21,
+        "token_id": 29,
+        "token": ">",
+        "mean_fill_us": 9.413333333333334,
+        "mean_accept_us": 0.72
+      },
+      {
+        "position": 22,
+        "token_id": 198,
+        "token": "\n",
+        "mean_fill_us": 66.528,
+        "mean_accept_us": 0.6293333333333333
+      },
+      {
+        "position": 23,
+        "token_id": 27,
+        "token": "<",
+        "mean_fill_us": 66.13866666666667,
+        "mean_accept_us": 0.44266666666666665
+      },
+      {
+        "position": 24,
+        "token_id": 15704,
+        "token": "parameter",
+        "mean_fill_us": 67.38133333333333,
+        "mean_accept_us": 0.5760000000000001
+      },
+      {
+        "position": 25,
+        "token_id": 28,
+        "token": "=",
+        "mean_fill_us": 65.91566666666667,
+        "mean_accept_us": 0.8373333333333334
+      },
+      {
+        "position": 26,
+        "token_id": 13382,
+        "token": "days",
+        "mean_fill_us": 66.43733333333334,
+        "mean_accept_us": 1.0186666666666666
+      },
+      {
+        "position": 27,
+        "token_id": 29,
+        "token": ">",
+        "mean_fill_us": 67.32266666666666,
+        "mean_accept_us": 0.416
+      },
+      {
+        "position": 28,
+        "token_id": 198,
+        "token": "\n",
+        "mean_fill_us": 67421.44133333334,
+        "mean_accept_us": 1.3973333333333333
+      },
+      {
+        "position": 29,
+        "token_id": 18,
+        "token": "3",
+        "mean_fill_us": 67451.191,
+        "mean_accept_us": 1.3386666666666667
+      },
+      {
+        "position": 30,
+        "token_id": 198,
+        "token": "\n",
+        "mean_fill_us": 7.317333333333334,
+        "mean_accept_us": 0.72
+      },
+      {
+        "position": 31,
+        "token_id": 510,
+        "token": "</",
+        "mean_fill_us": 2.3893333333333335,
+        "mean_accept_us": 0.6666666666666667
+      },
+      {
+        "position": 32,
+        "token_id": 15704,
+        "token": "parameter",
+        "mean_fill_us": 3.4133333333333336,
+        "mean_accept_us": 2.3040000000000003
+      },
+      {
+        "position": 33,
+        "token_id": 29,
+        "token": ">",
+        "mean_fill_us": 9.589333333333334,
+        "mean_accept_us": 0.656
+      },
+      {
+        "position": 34,
+        "token_id": 198,
+        "token": "\n",
+        "mean_fill_us": 66.12266666666667,
+        "mean_accept_us": 0.48533333333333334
+      },
+      {
+        "position": 35,
+        "token_id": 510,
+        "token": "</",
+        "mean_fill_us": 66.19200000000001,
+        "mean_accept_us": 0.288
+      },
+      {
+        "position": 36,
+        "token_id": 1628,
+        "token": "function",
+        "mean_fill_us": 66.054,
+        "mean_accept_us": 1.216
+      },
+      {
+        "position": 37,
+        "token_id": 29,
+        "token": ">",
+        "mean_fill_us": 65.771,
+        "mean_accept_us": 0.21866666666666665
+      },
+      {
+        "position": 38,
+        "token_id": 198,
+        "token": "\n",
+        "mean_fill_us": 65.90933333333334,
+        "mean_accept_us": 0.208
+      },
+      {
+        "position": 39,
+        "token_id": 248059,
+        "token": "</tool_call>",
+        "mean_fill_us": 66.57066666666667,
+        "mean_accept_us": 1.7440000000000002
+      }
+    ]
+  }
+]

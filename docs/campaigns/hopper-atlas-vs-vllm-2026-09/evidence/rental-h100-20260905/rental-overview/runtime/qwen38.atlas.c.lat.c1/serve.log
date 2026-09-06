@@ -1,0 +1,1123 @@
+[2m2026-09-05T23:27:50.337935Z[0m [32m INFO[0m [2mspark::main_modules::serve[0m[2m:[0m Atlas Spark starting...
+[2m2026-09-05T23:27:50.338036Z[0m [32m INFO[0m [2mspark::main_modules::serve[0m[2m:[0m Licensed under AGPL-3.0-only — see /LICENSE in this container
+[2m2026-09-05T23:27:50.338221Z[0m [32m INFO[0m [2mspark::main_modules::serve_flags[0m[2m:[0m kernel flags: ssm_h_dtype=f32 gdn_fused_norm=false ssm_batched_recurrent=false exact_verify=false ssm_tail_midchunk=true mtp_gate=auto ssm_rollback_mode=Snapshot prefill_varlen_batch=false
+[2m2026-09-05T23:27:50.338306Z[0m [32m INFO[0m [2mspark::model_resolver[0m[2m:[0m Model path: /workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a (local directory)
+[2m2026-09-05T23:27:50.338322Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m Port: 8888
+[2m2026-09-05T23:27:50.338330Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m SSM decode h-state dtype: f32 (full precision) (--ssm-h-dtype)
+[2m2026-09-05T23:27:50.339550Z[0m [32m INFO[0m [2mspark::main_modules::serve[0m[2m:[0m Vision area bound 16777216 px from /workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a/preprocessor_config.json (was: hard-coded 1280px long side)
+[2m2026-09-05T23:27:50.339577Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m Vision area bound: 16777216 px (checkpoint processor config / ATLAS_VISION_MAX_PIXELS)
+[2m2026-09-05T23:27:50.339586Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m Remote image fetching disabled (default); image_url parts carrying an http(s) URL are refused with a 400. Send base64 data: URIs, or pass --vision-allow-remote-images.
+[2m2026-09-05T23:27:50.339606Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m Video decoding disabled (default). Animated GIF decodes in-process; every other container needs ffmpeg — pass --video-allow-ffmpeg to enable it.
+[2m2026-09-05T23:27:50.339615Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m Quantization config: method="fp8", algo="", format="", 0 module(s) in ignore list
+[2m2026-09-05T23:27:50.339625Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m Model config: 64 layers, 16 attention, 48 SSM, 0 experts, rope_theta=10000000, head_dim=256, rotary_dim=64
+[2m2026-09-05T23:27:50.339688Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m Selected kernel target: (sm_90, qwen3.8-27b, nvfp4) (181 modules) — quant compat: kernel=nvfp4 model=fp8 OK
+[2m2026-09-05T23:27:50.632988Z[0m [32m INFO[0m [2mspark_runtime::cuda_backend::arch_preflight[0m[2m:[0m device CC 9.0, kernels built for sm_90a
+[2m2026-09-05T23:27:51.003800Z[0m [32m INFO[0m [2mspark_runtime::cuda_backend[0m[2m:[0m AtlasCudaBackend initialized on GPU 0 with 181 PTX modules
+[2m2026-09-05T23:27:51.003942Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::preflight[0m[2m:[0m GPU 0: 79.2 GB total, 78.6 GB free
+[2m2026-09-05T23:27:51.003966Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::preflight[0m[2m:[0m Preflight reserve: inference=8745 MB, buffer_arena=3658 MB (pre-load free: 78.6 GB)
+[2m2026-09-05T23:27:51.003987Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m OOM watchdog started (threshold: 2 GB, interval: 2s)
+[2m2026-09-05T23:27:51.003994Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m OOM guard reserve: 4096 MB
+[2m2026-09-05T23:27:51.004067Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::weights[0m[2m:[0m Using fast weight loader (O_DIRECT + pipelined read/copy)
+[2m2026-09-05T23:27:51.041295Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-load pre-flight: 28.75 GB on-disk, 1.1x overhead = 30.18 GB peak, 78.56 GB free, 4.0 GB reserve (FP8: true)
+[2m2026-09-05T23:27:51.041458Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 1/66: layers-0.safetensors (20 tensors)
+[2m2026-09-05T23:27:51.316042Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 1/66 done — GPU memory: 0.36 GB used, 78.20 GB free
+[2m2026-09-05T23:27:51.316222Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 2/66: layers-1.safetensors (20 tensors)
+[2m2026-09-05T23:27:51.567756Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 2/66 done — GPU memory: 0.72 GB used, 77.84 GB free
+[2m2026-09-05T23:27:51.567954Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 3/66: layers-10.safetensors (20 tensors)
+[2m2026-09-05T23:27:51.849086Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 3/66 done — GPU memory: 1.08 GB used, 77.48 GB free
+[2m2026-09-05T23:27:51.849308Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 4/66: layers-11.safetensors (18 tensors)
+[2m2026-09-05T23:27:52.106811Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 4/66 done — GPU memory: 1.43 GB used, 77.13 GB free
+[2m2026-09-05T23:27:52.107023Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 5/66: layers-12.safetensors (20 tensors)
+[2m2026-09-05T23:27:52.353286Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 5/66 done — GPU memory: 1.79 GB used, 76.77 GB free
+[2m2026-09-05T23:27:52.353487Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 6/66: layers-13.safetensors (20 tensors)
+[2m2026-09-05T23:27:52.617656Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 6/66 done — GPU memory: 2.15 GB used, 76.41 GB free
+[2m2026-09-05T23:27:52.617851Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 7/66: layers-14.safetensors (20 tensors)
+[2m2026-09-05T23:27:52.904200Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 7/66 done — GPU memory: 2.52 GB used, 76.05 GB free
+[2m2026-09-05T23:27:52.904399Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 8/66: layers-15.safetensors (18 tensors)
+[2m2026-09-05T23:27:53.117563Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 8/66 done — GPU memory: 2.87 GB used, 75.70 GB free
+[2m2026-09-05T23:27:53.117907Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 9/66: layers-16.safetensors (20 tensors)
+[2m2026-09-05T23:27:53.381470Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 9/66 done — GPU memory: 3.23 GB used, 75.34 GB free
+[2m2026-09-05T23:27:53.381664Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 10/66: layers-17.safetensors (20 tensors)
+[2m2026-09-05T23:27:53.614006Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 10/66 done — GPU memory: 3.59 GB used, 74.98 GB free
+[2m2026-09-05T23:27:53.614219Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 11/66: layers-18.safetensors (20 tensors)
+[2m2026-09-05T23:27:53.841211Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 11/66 done — GPU memory: 3.95 GB used, 74.62 GB free
+[2m2026-09-05T23:27:53.841397Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 12/66: layers-19.safetensors (18 tensors)
+[2m2026-09-05T23:27:54.097387Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 12/66 done — GPU memory: 4.30 GB used, 74.26 GB free
+[2m2026-09-05T23:27:54.097571Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 13/66: layers-2.safetensors (20 tensors)
+[2m2026-09-05T23:27:54.361211Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 13/66 done — GPU memory: 4.66 GB used, 73.90 GB free
+[2m2026-09-05T23:27:54.361403Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 14/66: layers-20.safetensors (20 tensors)
+[2m2026-09-05T23:27:54.589031Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 14/66 done — GPU memory: 5.02 GB used, 73.54 GB free
+[2m2026-09-05T23:27:54.589232Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 15/66: layers-21.safetensors (20 tensors)
+[2m2026-09-05T23:27:54.829608Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 15/66 done — GPU memory: 5.38 GB used, 73.18 GB free
+[2m2026-09-05T23:27:54.829800Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 16/66: layers-22.safetensors (20 tensors)
+[2m2026-09-05T23:27:55.075738Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 16/66 done — GPU memory: 5.74 GB used, 72.82 GB free
+[2m2026-09-05T23:27:55.075948Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 17/66: layers-23.safetensors (18 tensors)
+[2m2026-09-05T23:27:55.313221Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 17/66 done — GPU memory: 6.09 GB used, 72.47 GB free
+[2m2026-09-05T23:27:55.313436Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 18/66: layers-24.safetensors (20 tensors)
+[2m2026-09-05T23:27:55.570703Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 18/66 done — GPU memory: 6.45 GB used, 72.11 GB free
+[2m2026-09-05T23:27:55.570896Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 19/66: layers-25.safetensors (20 tensors)
+[2m2026-09-05T23:27:55.793710Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 19/66 done — GPU memory: 6.81 GB used, 71.75 GB free
+[2m2026-09-05T23:27:55.793883Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 20/66: layers-26.safetensors (20 tensors)
+[2m2026-09-05T23:27:56.013356Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 20/66 done — GPU memory: 7.17 GB used, 71.39 GB free
+[2m2026-09-05T23:27:56.013537Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 21/66: layers-27.safetensors (18 tensors)
+[2m2026-09-05T23:27:56.250725Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 21/66 done — GPU memory: 7.53 GB used, 71.04 GB free
+[2m2026-09-05T23:27:56.250931Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 22/66: layers-28.safetensors (20 tensors)
+[2m2026-09-05T23:27:56.469602Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 22/66 done — GPU memory: 7.89 GB used, 70.68 GB free
+[2m2026-09-05T23:27:56.469778Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 23/66: layers-29.safetensors (20 tensors)
+[2m2026-09-05T23:27:56.703297Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 23/66 done — GPU memory: 8.25 GB used, 70.32 GB free
+[2m2026-09-05T23:27:56.703388Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 24/66: layers-3.safetensors (18 tensors)
+[2m2026-09-05T23:27:56.941195Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 24/66 done — GPU memory: 8.60 GB used, 69.97 GB free
+[2m2026-09-05T23:27:56.941409Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 25/66: layers-30.safetensors (20 tensors)
+[2m2026-09-05T23:27:57.152989Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 25/66 done — GPU memory: 8.96 GB used, 69.60 GB free
+[2m2026-09-05T23:27:57.153170Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 26/66: layers-31.safetensors (18 tensors)
+[2m2026-09-05T23:27:57.380892Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 26/66 done — GPU memory: 9.31 GB used, 69.25 GB free
+[2m2026-09-05T23:27:57.381095Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 27/66: layers-32.safetensors (20 tensors)
+[2m2026-09-05T23:27:57.621848Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 27/66 done — GPU memory: 9.67 GB used, 68.89 GB free
+[2m2026-09-05T23:27:57.622024Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 28/66: layers-33.safetensors (20 tensors)
+[2m2026-09-05T23:27:57.827027Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 28/66 done — GPU memory: 10.03 GB used, 68.53 GB free
+[2m2026-09-05T23:27:57.827190Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 29/66: layers-34.safetensors (20 tensors)
+[2m2026-09-05T23:27:58.034227Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 29/66 done — GPU memory: 10.39 GB used, 68.17 GB free
+[2m2026-09-05T23:27:58.034389Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 30/66: layers-35.safetensors (18 tensors)
+[2m2026-09-05T23:27:58.262665Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 30/66 done — GPU memory: 10.74 GB used, 67.82 GB free
+[2m2026-09-05T23:27:58.262859Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 31/66: layers-36.safetensors (20 tensors)
+[2m2026-09-05T23:27:58.475305Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 31/66 done — GPU memory: 11.10 GB used, 67.46 GB free
+[2m2026-09-05T23:27:58.475480Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 32/66: layers-37.safetensors (20 tensors)
+[2m2026-09-05T23:27:58.686224Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 32/66 done — GPU memory: 11.46 GB used, 67.10 GB free
+[2m2026-09-05T23:27:58.686386Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 33/66: layers-38.safetensors (20 tensors)
+[2m2026-09-05T23:27:58.896497Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 33/66 done — GPU memory: 11.82 GB used, 66.74 GB free
+[2m2026-09-05T23:27:58.896660Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 34/66: layers-39.safetensors (18 tensors)
+[2m2026-09-05T23:27:59.128599Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 34/66 done — GPU memory: 12.18 GB used, 66.39 GB free
+[2m2026-09-05T23:27:59.128768Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 35/66: layers-4.safetensors (20 tensors)
+[2m2026-09-05T23:27:59.336348Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 35/66 done — GPU memory: 12.54 GB used, 66.03 GB free
+[2m2026-09-05T23:27:59.336484Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 36/66: layers-40.safetensors (20 tensors)
+[2m2026-09-05T23:27:59.538379Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 36/66 done — GPU memory: 12.90 GB used, 65.67 GB free
+[2m2026-09-05T23:27:59.538542Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 37/66: layers-41.safetensors (20 tensors)
+[2m2026-09-05T23:27:59.740786Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 37/66 done — GPU memory: 13.26 GB used, 65.31 GB free
+[2m2026-09-05T23:27:59.741010Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 38/66: layers-42.safetensors (20 tensors)
+[2m2026-09-05T23:27:59.968634Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 38/66 done — GPU memory: 13.62 GB used, 64.94 GB free
+[2m2026-09-05T23:27:59.968787Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 39/66: layers-43.safetensors (18 tensors)
+[2m2026-09-05T23:28:00.187795Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 39/66 done — GPU memory: 13.97 GB used, 64.59 GB free
+[2m2026-09-05T23:28:00.187984Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 40/66: layers-44.safetensors (20 tensors)
+[2m2026-09-05T23:28:00.390904Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 40/66 done — GPU memory: 14.33 GB used, 64.23 GB free
+[2m2026-09-05T23:28:00.391056Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 41/66: layers-45.safetensors (20 tensors)
+[2m2026-09-05T23:28:00.637061Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 41/66 done — GPU memory: 14.69 GB used, 63.87 GB free
+[2m2026-09-05T23:28:00.637241Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 42/66: layers-46.safetensors (20 tensors)
+[2m2026-09-05T23:28:00.843675Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 42/66 done — GPU memory: 15.05 GB used, 63.51 GB free
+[2m2026-09-05T23:28:00.843834Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 43/66: layers-47.safetensors (18 tensors)
+[2m2026-09-05T23:28:01.062676Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 43/66 done — GPU memory: 15.40 GB used, 63.16 GB free
+[2m2026-09-05T23:28:01.062866Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 44/66: layers-48.safetensors (20 tensors)
+[2m2026-09-05T23:28:01.270001Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 44/66 done — GPU memory: 15.76 GB used, 62.80 GB free
+[2m2026-09-05T23:28:01.270185Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 45/66: layers-49.safetensors (20 tensors)
+[2m2026-09-05T23:28:01.474503Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 45/66 done — GPU memory: 16.12 GB used, 62.44 GB free
+[2m2026-09-05T23:28:01.474657Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 46/66: layers-5.safetensors (20 tensors)
+[2m2026-09-05T23:28:01.682157Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 46/66 done — GPU memory: 16.48 GB used, 62.08 GB free
+[2m2026-09-05T23:28:01.682336Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 47/66: layers-50.safetensors (20 tensors)
+[2m2026-09-05T23:28:01.886845Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 47/66 done — GPU memory: 16.84 GB used, 61.72 GB free
+[2m2026-09-05T23:28:01.887003Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 48/66: layers-51.safetensors (18 tensors)
+[2m2026-09-05T23:28:02.120665Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 48/66 done — GPU memory: 17.20 GB used, 61.37 GB free
+[2m2026-09-05T23:28:02.120859Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 49/66: layers-52.safetensors (20 tensors)
+[2m2026-09-05T23:28:02.326466Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 49/66 done — GPU memory: 17.56 GB used, 61.01 GB free
+[2m2026-09-05T23:28:02.326635Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 50/66: layers-53.safetensors (20 tensors)
+[2m2026-09-05T23:28:02.531886Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 50/66 done — GPU memory: 17.92 GB used, 60.65 GB free
+[2m2026-09-05T23:28:02.532049Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 51/66: layers-54.safetensors (20 tensors)
+[2m2026-09-05T23:28:02.744226Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 51/66 done — GPU memory: 18.28 GB used, 60.29 GB free
+[2m2026-09-05T23:28:02.744400Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 52/66: layers-55.safetensors (18 tensors)
+[2m2026-09-05T23:28:02.973050Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 52/66 done — GPU memory: 18.63 GB used, 59.93 GB free
+[2m2026-09-05T23:28:02.973256Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 53/66: layers-56.safetensors (20 tensors)
+[2m2026-09-05T23:28:03.189459Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 53/66 done — GPU memory: 18.99 GB used, 59.57 GB free
+[2m2026-09-05T23:28:03.189632Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 54/66: layers-57.safetensors (20 tensors)
+[2m2026-09-05T23:28:03.393568Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 54/66 done — GPU memory: 19.35 GB used, 59.21 GB free
+[2m2026-09-05T23:28:03.393746Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 55/66: layers-58.safetensors (20 tensors)
+[2m2026-09-05T23:28:03.605414Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 55/66 done — GPU memory: 19.71 GB used, 58.85 GB free
+[2m2026-09-05T23:28:03.605572Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 56/66: layers-59.safetensors (18 tensors)
+[2m2026-09-05T23:28:03.833801Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 56/66 done — GPU memory: 20.06 GB used, 58.50 GB free
+[2m2026-09-05T23:28:03.833987Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 57/66: layers-6.safetensors (20 tensors)
+[2m2026-09-05T23:28:04.071586Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 57/66 done — GPU memory: 20.42 GB used, 58.14 GB free
+[2m2026-09-05T23:28:04.071757Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 58/66: layers-60.safetensors (20 tensors)
+[2m2026-09-05T23:28:04.310175Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 58/66 done — GPU memory: 20.78 GB used, 57.78 GB free
+[2m2026-09-05T23:28:04.310344Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 59/66: layers-61.safetensors (20 tensors)
+[2m2026-09-05T23:28:04.534843Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 59/66 done — GPU memory: 21.14 GB used, 57.42 GB free
+[2m2026-09-05T23:28:04.535013Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 60/66: layers-62.safetensors (20 tensors)
+[2m2026-09-05T23:28:04.735161Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 60/66 done — GPU memory: 21.50 GB used, 57.06 GB free
+[2m2026-09-05T23:28:04.735330Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 61/66: layers-63.safetensors (18 tensors)
+[2m2026-09-05T23:28:04.952072Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 61/66 done — GPU memory: 21.86 GB used, 56.71 GB free
+[2m2026-09-05T23:28:04.952245Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 62/66: layers-7.safetensors (18 tensors)
+[2m2026-09-05T23:28:05.179989Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 62/66 done — GPU memory: 22.21 GB used, 56.36 GB free
+[2m2026-09-05T23:28:05.180158Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 63/66: layers-8.safetensors (20 tensors)
+[2m2026-09-05T23:28:05.416779Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 63/66 done — GPU memory: 22.57 GB used, 56.00 GB free
+[2m2026-09-05T23:28:05.416942Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 64/66: layers-9.safetensors (20 tensors)
+[2m2026-09-05T23:28:05.623004Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 64/66 done — GPU memory: 22.93 GB used, 55.64 GB free
+[2m2026-09-05T23:28:05.623149Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 65/66: mtp.safetensors (22 tensors)
+[2m2026-09-05T23:28:05.948584Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 65/66 done — GPU memory: 23.38 GB used, 55.19 GB free
+[2m2026-09-05T23:28:05.948834Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loading shard 66/66: outside.safetensors (336 tensors)
+[2m2026-09-05T23:28:08.532276Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m   Shard 66/66 done — GPU memory: 29.05 GB used, 49.51 GB free
+[2m2026-09-05T23:28:08.532445Z[0m [32m INFO[0m [2mspark_runtime::fast_weights[0m[2m:[0m Fast-loaded 1606 weight tensors
+[2m2026-09-05T23:28:08.532771Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::weights[0m[2m:[0m Loaded 1606 weight tensors
+[2m2026-09-05T23:28:08.532792Z[0m [32m INFO[0m [2mspark_runtime::weights::prefix_detect[0m[2m:[0m Weight prefix: model.language_model
+[2m2026-09-05T23:28:08.533422Z[0m [32m INFO[0m [2mspark_model::preflight[0m[2m:[0m Pre-flight checks passed
+[2m2026-09-05T23:28:08.533443Z[0m [32m INFO[0m [2mspark_model::quant_format[0m[2m:[0m QuantFormat: fp8 (block-scaled), 0 ignored module(s)
+[2m2026-09-05T23:28:08.533456Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m Quantization format: fp8-blockscaled (base variant Fp8Dequanted), ignored globs = 0
+[2m2026-09-05T23:28:08.679075Z[0m [32m INFO[0m [2mspark_runtime::cublaslt[0m[2m:[0m cuBLASLt pre-warmed (handle + workspace + kernel images)
+[2m2026-09-05T23:28:08.679227Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::preflight[0m[2m:[0m GDN chunked prefill reserve: 355 MB (chunk_size=8192, max_seq_len=24576)
+[2m2026-09-05T23:28:08.679239Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::preflight[0m[2m:[0m Weights: 28.75 GB, estimated free: 49.8 GB, actual free: 49.4 GB (reserve: 8745 MB)
+[2m2026-09-05T23:28:08.679251Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::kv_cache[0m[2m:[0m Prefill config: ssm_prefill_chunk=8192, args.max_prefill_tokens=8192, prefill_budget=8192, max_batch_tokens=8196
+[2m2026-09-05T23:28:08.679257Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::build[0m[2m:[0m Prefix caching: ENABLED (radix tree)
+[2m2026-09-05T23:28:09.076748Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::config[0m[2m:[0m Capping vocab_size from 248320 to 248077 (tokenizer)
+[2m2026-09-05T23:28:09.110773Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::kv_cache[0m[2m:[0m FP8 KV cache with online calibration (checkpoint ships no k/v scales): freezing per-tensor scales on the first observed tokens.
+[2m2026-09-05T23:28:09.110794Z[0m [32m INFO[0m [2mspark::main_modules::kv_dtypes[0m[2m:[0m Selective boundary KV cache: 4/16 attention layers at bf16, rest at fp8
+[2m2026-09-05T23:28:09.111178Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m Weight format: Fp8BlockScaled, NVFP4 variant: Fp8Dequanted
+[2m2026-09-05T23:28:09.111188Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM in_proj_qkv + out_proj via native FP8 prefill GEMM (BF16 act × FP8 weight via fp8_gemm_n128). PREFILL ONLY: decode + batched verify read the NVFP4 copy — weight-streaming GEMV at M<=8, tile GEMM above it (trait_decode_batched.rs). The FP8 copy reaches decode only at M<=8 on a build whose batched NVFP4 GEMVs are absent
+[2m2026-09-05T23:28:09.112392Z[0m [32m INFO[0m [2mspark_model::weight_map::loaders_fp8[0m[2m:[0m quantize_to_nvfp4: n=17408 k=5120 total=89128960 global_max=0.421875 scale2=0.00015695 grid1=1024
+[2m2026-09-05T23:28:09.114560Z[0m [32m INFO[0m [2mspark_model::weight_map::loaders_fp8[0m[2m:[0m quantize_to_nvfp4: n=17408 k=5120 total=89128960 global_max=0.163086 scale2=0.00006067 grid1=1024
+[2m2026-09-05T23:28:09.116433Z[0m [32m INFO[0m [2mspark_model::weight_map::loaders_fp8[0m[2m:[0m quantize_to_nvfp4: n=5120 k=17408 total=89128960 global_max=0.976562 scale2=0.00036330 grid1=1024
+[2m2026-09-05T23:28:09.120072Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.0.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.120136Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.0.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.123558Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.129539Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.0] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.130614Z[0m [32m INFO[0m [2mspark_model::weight_map::loaders_fp8[0m[2m:[0m quantize_to_nvfp4: n=17408 k=5120 total=89128960 global_max=0.230469 scale2=0.00008574 grid1=1024
+[2m2026-09-05T23:28:09.132497Z[0m [32m INFO[0m [2mspark_model::weight_map::loaders_fp8[0m[2m:[0m quantize_to_nvfp4: n=17408 k=5120 total=89128960 global_max=0.213867 scale2=0.00007956 grid1=1024
+[2m2026-09-05T23:28:09.136195Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.1.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.136241Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.1.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.137123Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.137194Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.1] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.143723Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.2.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.143767Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.2.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.144750Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.144807Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.2] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.158290Z[0m [33m WARN[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m attention q/k/v have differing weight_scale_2 — fused QKV GEMM disabled (3 separate launches per layer)
+[2m2026-09-05T23:28:09.164809Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.4.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.164862Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.4.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.165772Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.165824Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.4] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.172349Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.5.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.172394Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.5.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.173416Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.173475Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.5] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.179979Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.6.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.180022Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.6.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.180921Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.180971Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.6] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.197781Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.8.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.197834Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.8.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.198721Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.198771Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.8] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.205310Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.9.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.205354Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.9.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.206348Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.206396Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.9] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.212880Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.10.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.212922Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.10.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.213807Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.213867Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.10] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.230625Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.12.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.230677Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.12.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.231539Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.231588Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.12] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.238106Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.13.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.238162Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.13.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.239146Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.239195Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.13] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.245748Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.14.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.245795Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.14.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.246645Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.246691Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.14] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.263487Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.16.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.263541Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.16.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.264546Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.264595Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.16] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.271114Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.17.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.271159Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.17.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.272006Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.272050Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.17] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.278552Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.18.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.278598Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.18.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.279570Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.279618Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.18] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.289844Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m Loaded layers 0..20
+[2m2026-09-05T23:28:09.296339Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.20.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.296386Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.20.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.297366Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.297416Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.20] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.303989Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.21.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.304037Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.21.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.304896Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.304966Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.21] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.311479Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.22.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.311521Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.22.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.312492Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.312541Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.22] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.329255Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.24.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.329305Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.24.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.330310Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.330359Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.24] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.336859Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.25.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.336903Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.25.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.337765Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.337812Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.25] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.344366Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.26.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.344409Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.26.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.345390Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.345437Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.26] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.362287Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.28.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.362340Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.28.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.363204Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.363252Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.28] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.369783Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.29.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.369826Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.29.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.370818Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.370866Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.29] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.377403Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.30.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.377447Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.30.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.378308Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.378355Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.30] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.395181Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.32.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.395237Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.32.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.396128Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.396182Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.32] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.402741Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.33.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.402795Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.33.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.403787Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.403834Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.33] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.410386Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.34.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.410435Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.34.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.411310Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.411357Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.34] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.428245Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.36.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.428299Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.36.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.429165Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.429213Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.36] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.435785Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.37.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.435830Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.37.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.436818Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.436866Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.37] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.443407Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.38.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.443450Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.38.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.444342Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.444389Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.38] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.454729Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m Loaded layers 0..40
+[2m2026-09-05T23:28:09.461230Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.40.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.461277Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.40.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.462353Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.462402Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.40] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.468968Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.41.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.469012Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.41.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.469947Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.469994Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.41] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.476557Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.42.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.476604Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.42.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.477656Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.477704Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.42] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.494634Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.44.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.494685Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.44.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.495706Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.495754Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.44] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.502309Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.45.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.502361Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.45.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.503254Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.503301Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.45] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.509875Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.46.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.509929Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.46.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.510947Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.510994Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.46] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.527802Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.48.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.527855Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.48.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.528881Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.528930Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.48] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.535490Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.49.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.535536Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.49.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.536445Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.536491Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.49] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.543057Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.50.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.543104Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.50.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.544116Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.544173Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.50] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.562106Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.52.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.562175Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.52.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.563152Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.563306Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.52] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.569864Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.53.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.569919Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.53.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.570945Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.570993Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.53] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.577548Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.54.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.577593Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.54.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.578481Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.578527Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.54] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.595583Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.56.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.595637Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.56.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.596519Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.596568Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.56] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.625084Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.57.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.625137Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.57.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.626129Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.626183Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.57] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.632727Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.58.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.632774Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.58.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.633659Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.633706Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.58] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.644082Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m Loaded layers 0..60
+[2m2026-09-05T23:28:09.650615Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.60.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.650676Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.60.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.651556Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.651604Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.60] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.658212Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.61.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.658260Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.61.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.659284Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.659332Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.61] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.665888Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.62.linear_attn.A_log from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.665933Z[0m [32m INFO[0m [2mspark_model::weight_map::model_a[0m[2m:[0m dense_keep_f32: promoting model.language_model.layers.62.linear_attn.dt_bias from BF16 to FP32 ([48])
+[2m2026-09-05T23:28:09.666838Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::init[0m[2m:[0m GDN state spine: gated_delta_rule_chunk_delta_h_vfused
+[2m2026-09-05T23:28:09.666885Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m SSM[model.language_model.layers.62] native FP8 GDN: qkvz+out_proj block-scaled FP8 (no NVFP4 requant; prefill+decode via w8a16)
+[2m2026-09-05T23:28:09.677258Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m Qwen3.5 dense weight loader: 64 layers (16 attention, 48 SSM, dense FFN)
+[2m2026-09-05T23:28:09.677335Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m Layer construction: 26.25 GB consumed (53.09 GB free -> 26.84 GB free) across 64 layers, 410.2 MB/layer average
+[2m2026-09-05T23:28:09.677347Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m Loading dense MTP weights (variant=Fp8Dequanted, hidden=5120, inter=17408)
+[2m2026-09-05T23:28:09.678231Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35_dense[0m[2m:[0m Dense MTP head ready (FP8 e4m3 projections + dense gate/up/down MLP)
+[2m2026-09-05T23:28:09.678369Z[0m [33m WARN[0m [2mspark_model::layers::vision_encoder::enc_impl::init[0m[2m:[0m Vision encoder capacity 16384 patches (2048x2048 px) — the resolved area bound wanted 65536 patches, clamped: the ViT score matrix is O(patches^2) and 65536 would need ~24.0 GB of scratch. Lower --vision-max-pixels to reclaim memory, or raise CEILING_MAX_PATCHES only alongside tiled ViT attention.
+[2m2026-09-05T23:28:09.682706Z[0m [32m INFO[0m [2mspark_model::weight_loader::qwen35[0m[2m:[0m Qwen3.6 vision encoder loaded: depth=27, hidden=1152, heads=16, FP8-blocks>=4
+[2m2026-09-05T23:28:09.682717Z[0m [32m INFO[0m [2mspark_model::quant_format[0m[2m:[0m QuantFormat: fp8 (block-scaled), 0 ignored module(s)
+[2m2026-09-05T23:28:09.687210Z[0m [32m INFO[0m [2mspark_model::factory::lm_head_setup[0m[2m:[0m LM head quantized to NVFP4 (vocab=248077)
+[2m2026-09-05T23:28:09.689908Z[0m [32m INFO[0m [2mspark_runtime::buffers[0m[2m:[0m Buffer arena: 8196 tokens × 3663.7 MB total (attn_out=96.0MB, ssm_deint=256.1MB, kv_lora_rank=0)
+[2m2026-09-05T23:28:09.689992Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m KV budget self-relative (ledger): Atlas-own 57.2 GB live in the alloc ledger; 2.0 GB of co-tenant/page-cache use excluded (set ATLAS_KV_EXTERNAL_RESERVE_GB to override)
+[2m2026-09-05T23:28:09.689999Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m KV cache: 79.2 GB total × 90% util = 71.3 GB budget; 57.2 GB pre-KV + 8.5 GB reserve → 5.5 GB for KV → 9089 blocks × 16 tok/block = 145424 max KV tokens
+[2m2026-09-05T23:28:09.693696Z[0m [32m INFO[0m [2mspark_runtime::kv_cache::paged_impl[0m[2m:[0m KV cache: 9089 blocks × 16 layers (4 high-precision) = 5.5 GB total (mixed dtype)
+[2m2026-09-05T23:28:09.693884Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:09.693892Z[0m [32m INFO[0m [2mspark_model::model::impl_a1[0m[2m:[0m TransformerModel: 64 layers, vocab=248077, hidden=5120
+[2m2026-09-05T23:28:09.694613Z[0m [32m INFO[0m [2mspark_model::model::ssm_pool[0m[2m:[0m SSM state pool: 4 slots × 48 layers = 606 MB
+[2m2026-09-05T23:28:09.714574Z[0m [32m INFO[0m [2mspark_model::model::ssm_snapshot[0m[2m:[0m SSM snapshot pool: Marconi 16 slots (2424 MB), decode-rollback 8 slots × 4 seqs (4848 MB), 48 layers
+[2m2026-09-05T23:28:09.714593Z[0m [32m INFO[0m [2mspark_model::model::impl_a1[0m[2m:[0m Marconi intermediate checkpoints: every 256 blocks (4096 tokens at block_size=16)
+[2m2026-09-05T23:28:09.717528Z[0m [33m WARN[0m [2mspark_model::model::impl_a1[0m[2m:[0m lm_head twin uses a PADDED stride (248192 != vocab 248077): this target's w4a16_gemm_t MUST accept the `ldb` argument, or decode at padded_n>=5 will read sheared rows. Disable with ATLAS_NO_LMHEAD_TGEMM=1.
+[2m2026-09-05T23:28:09.717544Z[0m [32m INFO[0m [2mspark_model::model::impl_a1[0m[2m:[0m lm_head transposed twin: vocab=248077 -> padded stride=248192 (vocab%16=13), tile GEMM active
+[2m2026-09-05T23:28:09.717548Z[0m [32m INFO[0m [2mspark_model::model::impl_a1_init[0m[2m:[0m MTP weights available (1 module(s)) but --speculative not set, skipping MTP head construction
+[2m2026-09-05T23:28:09.719657Z[0m [32m INFO[0m [2mspark_model::model::impl_a1[0m[2m:[0m Pinned metadata staging: 996 KB
+[2m2026-09-05T23:28:09.720400Z[0m [32m INFO[0m [2mspark_model::model::impl_a1_init[0m[2m:[0m GDN prefill buffers: 355 MB for 8196 tokens (chunked SSM prefill)
+[2m2026-09-05T23:28:09.721300Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m GPU allocation ledger: 76.85 GB live across 65 sites
+[2m2026-09-05T23:28:09.721305Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m     29436.7 MB  x1606  crates/spark-runtime/src/fast_weights/mod.rs:413
+[2m2026-09-05T23:28:09.721308Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      9565.7 MB  x257   crates/spark-model/src/weight_map/loaders_fp8.rs:229
+[2m2026-09-05T23:28:09.721310Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      8960.0 MB  x256   crates/spark-model/src/weight_map/quantized.rs:261
+[2m2026-09-05T23:28:09.721313Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      4608.0 MB  x48    crates/spark-model/src/model/ssm_snapshot.rs:180
+[2m2026-09-05T23:28:09.721315Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      3840.0 MB  x48    crates/spark-model/src/weight_loader/qwen35_dense.rs:135
+[2m2026-09-05T23:28:09.721318Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      2840.3 MB  x16    crates/spark-runtime/src/kv_cache/paged_impl.rs:28
+[2m2026-09-05T23:28:09.721320Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      2840.3 MB  x16    crates/spark-runtime/src/kv_cache/paged_impl.rs:27
+[2m2026-09-05T23:28:09.721323Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      2304.0 MB  x48    crates/spark-model/src/model/ssm_snapshot.rs:165
+[2m2026-09-05T23:28:09.721330Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      1195.7 MB  x257   crates/spark-model/src/weight_map/loaders_fp8.rs:230
+[2m2026-09-05T23:28:09.721332Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      1120.0 MB  x256   crates/spark-model/src/weight_map/quantized.rs:262
+[2m2026-09-05T23:28:09.721334Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m       757.5 MB  x2     crates/spark-model/src/model/ssm_pool.rs:149
+[2m2026-09-05T23:28:09.721337Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m       710.0 MB  x7     crates/spark-model/src/weight_map/quant_helpers.rs:98
+[2m2026-09-05T23:28:09.721339Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      5107.0 MB  across 53 smaller sites
+[2m2026-09-05T23:28:09.721341Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m   ── by file ──
+[2m2026-09-05T23:28:09.721344Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m     29436.7 MB  x1606  crates/spark-runtime/src/fast_weights/mod.rs
+[2m2026-09-05T23:28:09.721346Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m     10761.7 MB  x819   crates/spark-model/src/weight_map/loaders_fp8.rs
+[2m2026-09-05T23:28:09.721349Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m     10761.7 MB  x514   crates/spark-model/src/weight_map/quantized.rs
+[2m2026-09-05T23:28:09.721351Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      7272.2 MB  x193   crates/spark-model/src/model/ssm_snapshot.rs
+[2m2026-09-05T23:28:09.721353Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      5680.6 MB  x32    crates/spark-runtime/src/kv_cache/paged_impl.rs
+[2m2026-09-05T23:28:09.721356Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      3840.9 MB  x96    crates/spark-model/src/weight_loader/qwen35_dense.rs
+[2m2026-09-05T23:28:09.721358Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m      3663.7 MB  x34    crates/spark-runtime/src/buffers.rs
+[2m2026-09-05T23:28:09.721360Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m       757.5 MB  x2     crates/spark-model/src/model/ssm_pool.rs
+[2m2026-09-05T23:28:09.721363Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m       710.0 MB  x7     crates/spark-model/src/weight_map/quant_helpers.rs
+[2m2026-09-05T23:28:09.721365Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m       355.2 MB  x4     crates/spark-model/src/model/impl_a1_init.rs
+[2m2026-09-05T23:28:09.721367Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m        45.0 MB  x48    crates/spark-model/src/weight_map/fp8_lut.rs
+[2m2026-09-05T23:28:09.721370Z[0m [32m INFO[0m [2mspark_model::factory::build[0m[2m:[0m         0.0 MB  x4     crates/spark-model/src/model/impl_a1.rs
+[2m2026-09-05T23:28:09.721380Z[0m [33m WARN[0m [2mspark_model::factory::build[0m[2m:[0m util pledge exceeded: 71.6 GB tracked live vs 71.3 GB pledged (--gpu-memory-utilization 90% of 79.2 GB) — an allocation family above is missing from the preflight reserve
+[2m2026-09-05T23:28:09.795738Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::kernel_gate[0m[2m:[0m 
+┌─ Kernel load audit ─ 181 kernels embedded · set-hash f46919654977 ─
+│ MODULE (operation)                 PTX-HASH       RESOLUTION           SHADOWED
+│ ────────────────────────────────────────────────────────────────────────────────────
+│ argmax                             a3d8f119da7a   used                 N
+│ bf16_add                           c545be6b71cf   -                    N
+│ causal_conv1d                      7ab0b25e6e35   used                 N
+│ dense_gemv_bf16_batch2             e1f4168736fb   used                 N
+│ dense_gemv_bf16_batchm             81909bd83184   used                 N
+│ dense_gemv_fp8w_batch2             a567517f18dc   used                 N
+│ dequant_fp8_blockscaled_bf16       7ca785f6615b   used                 N
+│ dequant_gguf_bf16                  3ea7d0fc8c6f   used                 N
+│ dequant_nvfp4_bf16                 f19c898469a3   used                 N
+│ dflash2                            505e703883e7   -                    N
+│ e2m1                               ee092f6a0007   -                    N
+│ embed_from_argmax                  33d7f5f7f9ec   used                 N
+│ fp8_gemm_t_blockscaled             e38442d64e75   used                 N
+│ fp8_gemv_rt                        3eaa87894534   -                    N
+│ fused_k_norm_rope_cache            274a231d8067   used                 N
+│ gated_delta_rule                   e468368f89d0   used                 N
+│ gated_delta_rule_fla               b314a4eac529   used                 N
+│ gated_delta_rule_persistent        15477a7a1949   used                 N
+│ gated_delta_rule_regresident       fc021d4f0478   used                 N
+│ gated_delta_rule_snap              4986925d1f05   used                 N
+│ gated_delta_rule_wy                1f709adb59e1   used                 N
+│ gated_delta_rule_wy17              5710cd8277c5   used                 N
+│ gated_delta_rule_wy2_resident      5ef790286dd4   used                 N
+│ gated_delta_rule_wy2_resident_f16  6241545d5063   used                 N
+│ gated_delta_rule_wy3               f9c827f61f90   used                 N
+│ gated_delta_rule_wy3_f16           89fc19007532   used                 N
+│ gated_delta_rule_wy3_resident      fca8d31d0845   used                 N
+│ gated_delta_rule_wy3_resident_f16  b5e49523c387   used                 N
+│ gated_delta_rule_wy4               564b543b338f   used                 N
+│ gated_delta_rule_wy4_f16           89c1fed78a9f   used                 N
+│ gated_delta_rule_wy64_prefill      d3decc3327aa   used                 N
+│ gated_delta_rule_wy_f16            51c86719c030   used                 N
+│ gated_delta_rule_wyn               cdc277e13c48   used                 N
+│ gdn_verify_fused_conv_kn           66bd2cc1acf2   used                 N
+│ gdn_verify_fused_conv_kn_f32       73446979a530   used                 N
+│ gdn_verify_fused_k2                32f1b2749c62   used                 N
+│ gemm                               0efe3af7944d   used                 N
+│ gemm_splitk                        0c472718bd89   used                 N
+│ gemm_tc                            c9cd4a74aa86   used                 N
+│ gemv                               98694eec2dfa   used                 N
+│ gemv_fp8w                          64caf0b46229   used                 N
+│ inferspark_decode                  5135eced3f7f   -                    N
+│ inferspark_prefill                 cf58fea48707   used                 N
+│ inferspark_prefill_h128            b8e20d30cc9b   -                    N
+│ inferspark_prefill_paged_512       f9c2777dc77d   -                    N
+│ inferspark_prefill_paged_batched   e3e19bfa20a2   used                 N
+│ inferspark_prefill_paged_fp8_batched dabea5428b89   used                 N
+│ inferspark_prefill_paged_nvfp4_batched 9728f96cbb4d   used                 N
+│ inferspark_prefill_v47             a75c748d0c9f   -                    N
+│ kv_cache                           2b4e52b6d337   -                    N
+│ lora_bgmv                          c92ad2a0e2bc   -                    N
+│ mamba2_ssd_chunk                   39635a3f8333   -                    N
+│ mamba2_ssm                         ab9f97ce499b   -                    N
+│ metadata_fill                      1d5bf751196c   used                 N
+│ moe                                c0c4cff565f5   -                    N
+│ moe_bf16_grouped_gemm              07cb1657897f   -                    N
+│ moe_decode_atomic_c4               0b21e7b32872   -                    N
+│ moe_expert_gemv                    bc99a28c1fbe   -                    N
+│ moe_expert_gemv_fused              fcb5c21d01e5   -                    N
+│ moe_fp8_grouped_gemm               b7cc6e252b3e   -                    N
+│ moe_fused_batch2                   5c35a6941de7   -                    N
+│ moe_fused_batch3                   f63c53f276e3   -                    N
+│ moe_gate_topk                      a8fd3c3b3db9   -                    N
+│ moe_hash_route                     4c9092b0b5bd   -                    N
+│ moe_lora_gather_bgmv               fe7e1af640f6   -                    N
+│ moe_lora_grouped_down              197182c49d84   -                    N
+│ moe_prefill                        97146a516b9b   -                    N
+│ moe_relu2_fused                    a72403bf6dd7   -                    N
+│ moe_shared_expert_fused            b68db854cf10   -                    N
+│ moe_shared_expert_fused_batch2_t   b83c587dd066   -                    N
+│ moe_shared_expert_fused_batch3_t   141b291be42d   -                    N
+│ moe_shared_expert_fused_bf16       110548889e0f   -                    N
+│ moe_shared_expert_fused_bf16_batch2 e562ae77741f   -                    N
+│ moe_shared_expert_fused_fp8        9ee897f90bf4   -                    N
+│ moe_shared_expert_fused_fp8_batch2 b4c0ae76cd35   -                    N
+│ moe_shared_expert_fused_fp8_batch2_t 152d4f318a09   -                    N
+│ moe_shared_expert_fused_fp8_batch3 fbba7016b029   -                    N
+│ moe_shared_expert_fused_fp8_batch3_t 0387c0d01bd7   -                    N
+│ moe_shared_expert_fused_fp8_t      8542d58d5a49   -                    N
+│ moe_shared_expert_fused_t          90de732f2498   -                    N
+│ moe_silu_mul                       944a461c9c33   used                 N
+│ moe_sorted                         4e3692d4b59c   -                    N
+│ moe_topk                           ceaf62b9ee78   -                    N
+│ moe_topk_sig                       c9078eb548f0   -                    N
+│ moe_topk_softmax_bias              9e33f60b21f0   -                    N
+│ moe_topk_sqrt                      55316962d0f0   -                    N
+│ moe_transpose_batched              548c1c368da1   -                    N
+│ moe_w4a16                          cb75cb278ecc   -                    Y (1 dropped)
+│ moe_w8a8_grouped_gemm              2ab8b585f13a   -                    N
+│ nemotron_moe_prefill               7d611384a880   -                    N
+│ nllb_encoder                       9c06ebec859c   -                    N
+│ norm                               39583f167b56   used                 N
+│ nvfp4_mmq                          1b9de36da8d7   ** lookup FAILED **  N
+│ paged_decode                       f9cf37f937a3   used                 N
+│ paged_decode_bf16k_turbo2v         ae57e28ccf0a   -                    N
+│ paged_decode_bf16k_turbo2v_128     c72279607077   -                    N
+│ paged_decode_bf16k_turbo3v         0a00279aedf6   -                    N
+│ paged_decode_bf16k_turbo3v_128     cf4f70644d26   -                    N
+│ paged_decode_bf16k_turbo4v         f10fe0d153c6   -                    N
+│ paged_decode_bf16k_turbo4v_128     084f13d8a3bc   -                    N
+│ paged_decode_fp8                   e5acd87bc335   used                 N
+│ paged_decode_fp8k_turbo2v          73568425d01b   -                    N
+│ paged_decode_fp8k_turbo2v_128      f95969bfa730   -                    N
+│ paged_decode_fp8k_turbo3v          7875a2251caf   -                    N
+│ paged_decode_fp8k_turbo3v_128      c27da47baf4a   -                    N
+│ paged_decode_fp8k_turbo4v          be5202228465   -                    N
+│ paged_decode_fp8k_turbo4v_128      16c05e5cad14   -                    N
+│ paged_decode_nvfp4                 2075fb3fac85   -                    N
+│ paged_decode_turbo2                f4e19492e218   -                    N
+│ paged_decode_turbo2_128            81cdb2be29f6   -                    N
+│ paged_decode_turbo3                31ad1778a26f   -                    N
+│ paged_decode_turbo3_128            dc2ff01c04f1   -                    N
+│ paged_decode_turbo3k_turbo8v       3e8243b1561a   -                    N
+│ paged_decode_turbo3k_turbo8v_128   80b7daca9986   -                    N
+│ paged_decode_turbo4                195bbebc87b0   -                    N
+│ paged_decode_turbo4_128            121f53435ee4   -                    N
+│ paged_decode_turbo4_512            e53a1bd3d8a8   -                    N
+│ paged_decode_turbo4k_turbo3v       ddd70af4c1be   -                    N
+│ paged_decode_turbo4k_turbo3v_128   4eac023391a7   -                    N
+│ paged_decode_turbo4k_turbo8v       7e4af1d8d58f   -                    N
+│ paged_decode_turbo4k_turbo8v_128   d6129769be1d   -                    N
+│ paged_decode_turbo8                a3cebd74bed2   -                    N
+│ paged_decode_turbo8_128            a7811959aad6   -                    N
+│ paged_decode_turbo8_512            d85b7e70ef63   -                    N
+│ per_token_group_quant_fp8          60432b374f77   used                 N
+│ prefill_fp8kv                      1723bd8cece8   -                    N
+│ prefill_paged                      16ac23f76bca   used                 N
+│ prefill_paged_bf16k_turbo2v        5632304dc8ff   used                 N
+│ prefill_paged_bf16k_turbo3v        10bba38b0548   used                 N
+│ prefill_paged_bf16k_turbo4v        1677758ae47a   used                 N
+│ prefill_paged_fp8                  c28e747ccf9f   used                 N
+│ prefill_paged_fp8k_turbo2v         2df8caa3927b   used                 N
+│ prefill_paged_fp8k_turbo3v         2d57552506fb   used                 N
+│ prefill_paged_fp8k_turbo4v         c2166490c6d3   used                 N
+│ prefill_paged_indirect             33ce2f69ec12   -                    N
+│ prefill_paged_nvfp4                ce0d8d9a60d3   used                 N
+│ prefill_paged_turbo2               a9a23e2b3d03   used                 N
+│ prefill_paged_turbo3               ce0017962e68   used                 N
+│ prefill_paged_turbo3k_turbo8v      1f1892971511   used                 N
+│ prefill_paged_turbo4               7c58b7ce9229   used                 N
+│ prefill_paged_turbo4k_turbo3v      12db335dcfdd   used                 N
+│ prefill_paged_turbo4k_turbo8v      081397cc5fb8   used                 N
+│ prefill_paged_turbo8               e45bf3407a1b   used                 N
+│ q2_0_gemv                          d94e369bebea   -                    N
+│ q2_0_gemv_vec                      461e4edb18bb   used                 N
+│ q2_0_mmq                           ef4567863bc7   -                    N
+│ q4k_mmq                            25c10c146dcb   used                 N
+│ q4k_quantize                       6867acf16579   used                 N
+│ quant_rowwise_fp8                  1e626b8a3a25   -                    N
+│ quantize_bf16_to_fp8_blockscaled   68ebed9e2706   -                    N
+│ quantize_nvfp4                     225759ad81f9   used                 N
+│ relu2                              9ca7d0d89bcb   -                    N
+│ reshape_and_cache                  1ff39b18cce3   used                 N
+│ reshape_and_cache_turbo            5bd3666c2efb   -                    N
+│ residual_add                       6f5cda944230   used                 N
+│ rms_norm_vanilla                   afca074afa31   -                    N
+│ rope                               0c9e11777609   used                 N
+│ rope_mrope_interleaved             3ad05b8ad684   used                 N
+│ ssm_h_dtype                        71fc4ec62b4a   used                 N
+│ ssm_preprocess                     be3ce7f5576c   used                 N
+│ ssm_state_norm                     d360f511d031   used                 N
+│ token_overlay                      36b987f13fe3   used                 N
+│ tq_plus_innerq_apply               f386b419370d   used                 N
+│ transpose_u8                       231b85b903d6   used                 N
+│ vector_add                         c5307a23277d   -                    N
+│ vision_encoder                     5d5643ec9948   used                 N
+│ w4a16                              dc01c5df5ddf   used                 Y (1 dropped)
+│ w4a16_fp8_ldmab                    26f1c1f2dd4e   -                    N
+│ w4a16_gemv                         2f285c75f86d   used                 N
+│ w4a16_gemv_fused                   9e9778cd14d2   used                 N
+│ w4a16_v2                           46f16f6526e7   -                    N
+│ w4a4                               2134e3b65912   ** lookup FAILED **  N
+│ w8a16_gemm                         e974f7e0d13f   used                 N
+│ w8a16_gemm_pipelined               15f207518fa6   used                 N
+│ w8a16_gemm_t                       60091e2746f7   used                 N
+│ w8a16_gemm_t_m128                  7ff753cd8aa3   used                 N
+│ w8a16_gemv                         55805d4299d9   used                 N
+│ w8a16_gemv_batch4                  a5a48306d4d1   used                 N
+│ w8a16_gemv_fused                   646930a34817   used                 N
+│ wht_bf16                           4a07ee00eb6c   used                 N
+│ widen_block_scale_f32              6db3bf165dfa   used                 N
+└─
+
+15 kernel(s) declared expected-absent in this target's MODEL.toml [expected_absent] (no action):
+    nvfp4_mmq::atlas_nvfp4_mmq128_nc, nvfp4_mmq::atlas_nvfp4_mmq128_wc, nvfp4_mmq::atlas_nvfp4_mmq16_nc, nvfp4_mmq::atlas_nvfp4_mmq16_wc, nvfp4_mmq::atlas_nvfp4_mmq32_nc, nvfp4_mmq::atlas_nvfp4_mmq32_wc, nvfp4_mmq::atlas_nvfp4_mmq64_nc, nvfp4_mmq::atlas_nvfp4_mmq64_wc, nvfp4_mmq::atlas_nvfp4_quantize_bf16, nvfp4_mmq::atlas_nvfp4_repack, nvfp4_mmq::atlas_nvfp4_scale_bf16, nvfp4_mmq::atlas_nvfp4_silu_mul_quant, nvfp4_mmq::atlas_nvfp4_silu_mul_scaled, w4a4::w4a4_gemm, w4a4::w4a4_gemm_mfast
+
+[2m2026-09-05T23:28:09.797289Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::runtime[0m[2m:[0m EOS tokens (from generation_config.json): [248046, 248044]
+[2m2026-09-05T23:28:09.797315Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::runtime[0m[2m:[0m Default sampling: temperature=1, top_k=20, top_p=0.95, top_n_sigma=1, min_p=0
+[2m2026-09-05T23:28:10.101229Z[0m [32m INFO[0m [2mspark::tokenizer::jinja_helpers[0m[2m:[0m Loaded Jinja chat template from tokenizer_config.json (8964 chars)
+[2m2026-09-05T23:28:10.101851Z[0m [32m INFO[0m [2mspark::tokenizer::chat_impl[0m[2m:[0m Loaded tokenizer from /workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a/tokenizer.json
+[2m2026-09-05T23:28:10.152984Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Reasoning parser: qwen (auto-detected from model_type 'qwen3_5')
+[2m2026-09-05T23:28:10.153184Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Code-fence token: 71093 (``` — F2 fence guard active)
+[2m2026-09-05T23:28:10.298707Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Numeric-token mask: 10/248077 ids classified as digit-runs (digit-normalized content-loop path active)
+[2m2026-09-05T23:28:10.444414Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Boundary-token mask: 620/248077 ids end in a newline / sentence boundary (Phase-C rollback-to-boundary active)
+[2m2026-09-05T23:28:10.605554Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Mid-word token mask: 241519/248077 ids end in alphanumeric (mid-word </think> defer active during thinking)
+[2m2026-09-05T23:28:10.605565Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Thinking end token: 248069 (</think>)
+[2m2026-09-05T23:28:10.605568Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Thinking start token: 248068 (<think>)
+[2m2026-09-05T23:28:10.605580Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m ChatML role-boundary hard stop: <|im_start|> (id 248045) registered
+[2m2026-09-05T23:28:10.605593Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Tool-response hard stop: <tool_response> (id 248066) registered
+[2m2026-09-05T23:28:10.605654Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Tool call start token: 248058 (<tool_call>)
+[2m2026-09-05T23:28:10.605660Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Tool call end token: 248059 (</tool_call>)
+[2m2026-09-05T23:28:10.896718Z[0m [32m INFO[0m [2mspark::grammar::engine[0m[2m:[0m Grammar: detected tokenizer vocab_type=byte_level, add_prefix_space=false
+[2m2026-09-05T23:28:11.138350Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::tokenizer_runtime[0m[2m:[0m Grammar engine initialized (vocab_size=248077, vocab_type=auto-detected from tokenizer)
+[2m2026-09-05T23:28:11.138596Z[0m [32m INFO[0m [2mspark::main_modules::serve_load[0m[2m:[0m Scheduling policy: SLAI (TBT deadline=100ms)
+[2m2026-09-05T23:28:11.138754Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::runtime[0m[2m:[0m Tool call parser: qwen3_coder (auto-detected from model_type 'qwen3_5')
+[2m2026-09-05T23:28:11.138762Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::runtime[0m[2m:[0m Tool call parser: 'qwen3_coder' has registered XGrammar grammar — constrained decoding ENABLED for tool requests
+[2m2026-09-05T23:28:11.138768Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::runtime[0m[2m:[0m Response store: max_entries=10000, ttl=86400s, persist=memory-only
+[2m2026-09-05T23:28:11.138781Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::runtime[0m[2m:[0m Model behavior: max_thinking_budget=2048, thinking_default=true
+[2m2026-09-05T23:28:11.138784Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::runtime[0m[2m:[0m Model behavior: content-loop watchdog ENABLED (period-2…64 repetition detector)
+[2m2026-09-05T23:28:11.138788Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::runtime[0m[2m:[0m Model behavior: watchdog rollback+re-steer ENABLED (cap 2 per sequence)
+[2m2026-09-05T23:28:11.138792Z[0m [32m INFO[0m [2mspark::main_modules::serve_phases::runtime[0m[2m:[0m --disable-thinking set: thinking is forced OFF for every request
+[2m2026-09-05T23:28:11.138966Z[0m [32m INFO[0m [2mspark::scheduler[0m[2m:[0m Scheduler started (batched mode, max_batch=4, mtp=false, ngram=false, num_drafts=0, policy=slai, chunked_prefill=true, max_prefill_tokens=8192)
+[2m2026-09-05T23:28:11.139774Z[0m [32m INFO[0m [2mspark::scheduler[0m[2m:[0m Swap space: 3 GB at /tmp/atlas-swap-79757
+[2m2026-09-05T23:28:11.141152Z[0m [33m WARN[0m [2mspark::main_modules::serve_router[0m[2m:[0m Atlas is listening on 0.0.0.0:8888 — reachable from any host on the network. If this machine is on a shared LAN or has a public IP, pass --bind 127.0.0.1 (or set --require-auth and a real firewall) before accepting traffic.
+[2m2026-09-05T23:28:11.141281Z[0m [32m INFO[0m [2mspark::main_modules::serve_router[0m[2m:[0m Server live and ready at 127.0.0.1:8888 running Qwen/Qwen3.8-27B-FP8
+[2m2026-09-05T23:28:11.994904Z[0m [32m INFO[0m [2mspark::api::chat::prepare[0m[2m:[0m Request: model=Qwen/Qwen3.8-27B-FP8, messages=1, tools=0, tools_active=false, tool_choice=None, stream=false, temp=Some(0.0), max_tokens=1, freq_pen=Some(0.0), rep_pen=None
+[2m2026-09-05T23:28:11.995274Z[0m [32m INFO[0m [2mspark::tokenizer::chat_impl[0m[2m:[0m Jinja rendered (71 chars): "<|im_start|>user\nhi<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+[2m2026-09-05T23:28:11.995711Z[0m [32m INFO[0m [2mspark::api::chat[0m[2m:[0m Session 0xad17a500a5cd2703: 13 prompt tokens, tools=false (0 defined)
+[2m2026-09-05T23:28:11.995771Z[0m [32m INFO[0m [2mspark::api::chat::sampling_setup[0m[2m:[0m sampling resolved (first request): temp=0.000 top_p=0.950 top_k=20 min_p=0.0000 top_n_sigma=1.0000 rep_pen=1.000 (core_preset=false)
+[2m2026-09-05T23:28:11.996210Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Chunked prefill start: 13 prompt tokens, chunk_size=13, max_tokens=1
+[2m2026-09-05T23:28:11.998415Z[0m [32m INFO[0m [2mspark_model::layers::qwen3_ssm::trait_prefill_recur[0m[2m:[0m GDN prefill: FLA chunked path ACTIVE (baked default: recompute_wu → chunk_delta_h_ksplit → chunk_fwd_o)
+[2m2026-09-05T23:28:12.023176Z[0m [32m INFO[0m [2mspark_model::layers::fp8_calibration[0m[2m:[0m FP8 KV scale frozen on first observe (13 tok, headroom=2.0): k_scale=0.063895 (max=14.31), v_scale=0.039062 (max=8.75) — constant for all entries
+[2m2026-09-05T23:28:12.032152Z[0m [32m INFO[0m [2mspark_model::layers::fp8_calibration[0m[2m:[0m FP8 KV scale frozen on first observe (13 tok, headroom=2.0): k_scale=0.079241 (max=17.75), v_scale=0.025809 (max=5.78) — constant for all entries
+[2m2026-09-05T23:28:12.041064Z[0m [32m INFO[0m [2mspark_model::layers::fp8_calibration[0m[2m:[0m FP8 KV scale frozen on first observe (13 tok, headroom=2.0): k_scale=0.081473 (max=18.25), v_scale=0.025949 (max=5.81) — constant for all entries
+[2m2026-09-05T23:28:12.049986Z[0m [32m INFO[0m [2mspark_model::layers::fp8_calibration[0m[2m:[0m FP8 KV scale frozen on first observe (13 tok, headroom=2.0): k_scale=0.090402 (max=20.25), v_scale=0.061105 (max=13.69) — constant for all entries
+[2m2026-09-05T23:28:12.058901Z[0m [32m INFO[0m [2mspark_model::layers::fp8_calibration[0m[2m:[0m FP8 KV scale frozen on first observe (13 tok, headroom=2.0): k_scale=0.096540 (max=21.62), v_scale=0.125000 (max=28.00) — constant for all entries
+[2m2026-09-05T23:28:12.067813Z[0m [32m INFO[0m [2mspark_model::layers::fp8_calibration[0m[2m:[0m FP8 KV scale frozen on first observe (13 tok, headroom=2.0): k_scale=0.103237 (max=23.12), v_scale=0.190848 (max=42.75) — constant for all entries
+[2m2026-09-05T23:28:12.076605Z[0m [32m INFO[0m [2mspark_model::layers::fp8_calibration[0m[2m:[0m FP8 KV scale frozen on first observe (13 tok, headroom=2.0): k_scale=0.088728 (max=19.88), v_scale=0.165179 (max=37.00) — constant for all entries
+[2m2026-09-05T23:28:12.085196Z[0m [32m INFO[0m [2mspark_model::layers::fp8_calibration[0m[2m:[0m FP8 KV scale frozen on first observe (13 tok, headroom=2.0): k_scale=0.094308 (max=21.12), v_scale=0.141183 (max=31.62) — constant for all entries
+[2m2026-09-05T23:28:12.093776Z[0m [32m INFO[0m [2mspark_model::layers::fp8_calibration[0m[2m:[0m FP8 KV scale frozen on first observe (13 tok, headroom=2.0): k_scale=0.089844 (max=20.12), v_scale=0.224330 (max=50.25) — constant for all entries
+[2m2026-09-05T23:28:12.102361Z[0m [32m INFO[0m [2mspark_model::layers::fp8_calibration[0m[2m:[0m FP8 KV scale frozen on first observe (13 tok, headroom=2.0): k_scale=0.076451 (max=17.12), v_scale=0.209821 (max=47.00) — constant for all entries
+[2m2026-09-05T23:28:12.110951Z[0m [32m INFO[0m [2mspark_model::layers::fp8_calibration[0m[2m:[0m FP8 KV scale frozen on first observe (13 tok, headroom=2.0): k_scale=0.075335 (max=16.88), v_scale=0.213170 (max=47.75) — constant for all entries
+[2m2026-09-05T23:28:12.119521Z[0m [32m INFO[0m [2mspark_model::layers::fp8_calibration[0m[2m:[0m FP8 KV scale frozen on first observe (13 tok, headroom=2.0): k_scale=0.066406 (max=14.88), v_scale=0.128348 (max=28.75) — constant for all entries
+[2m2026-09-05T23:28:12.140128Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Prefill first token: 9419
+[2m2026-09-05T23:28:12.140163Z[0m [32m INFO[0m [2mspark::scheduler::mtp_accept_debug[0m[2m:[0m Done: 1 tokens (length) 57411.9 tok/s, TTFT=143.9ms, serial=0.00 mtp=0.00 p1=0.000 mean_na=0.000 tok_step=1.000 regime_reprobes=0
+[2m2026-09-05T23:28:12.571706Z[0m [32m INFO[0m [2mspark::api::chat::prepare[0m[2m:[0m Request: model=Qwen/Qwen3.8-27B-FP8, messages=1, tools=0, tools_active=false, tool_choice=None, stream=false, temp=Some(0.0), max_tokens=256, freq_pen=Some(0.0), rep_pen=None
+[2m2026-09-05T23:28:12.571991Z[0m [32m INFO[0m [2mspark::tokenizer::chat_impl[0m[2m:[0m Jinja rendered (164 chars): "<|im_start|>user\nList exactly five prime numbers greater than one hundred, comma separated, with no other words.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+[2m2026-09-05T23:28:12.572619Z[0m [32m INFO[0m [2mspark::api::chat[0m[2m:[0m Session 0x22edf306cc1e3ad6: 30 prompt tokens, tools=false (0 defined)
+[2m2026-09-05T23:28:12.572917Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Chunked prefill start: 30 prompt tokens, chunk_size=30, max_tokens=256
+[2m2026-09-05T23:28:12.698406Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::finalize_last[0m[2m:[0m Saved SSM snapshot 0 for 30 tokens (2 blocks) [chunk]
+[2m2026-09-05T23:28:12.718186Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Prefill first token: 16
+[2m2026-09-05T23:28:12.718199Z[0m [32m INFO[0m [2mspark::scheduler::phase_start_prefills[0m[2m:[0m Prefilled (single chunk): seq_len=30, remaining=255
+[2m2026-09-05T23:28:12.718237Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_a[0m[2m:[0m FP8 calibration frozen — re-enabling CUDA graphs
+[2m2026-09-05T23:28:12.718242Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_a[0m[2m:[0m CUDA graph capture: starting for 64 layers
+[2m2026-09-05T23:28:12.723206Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_a[0m[2m:[0m CUDA graph captured successfully for slot=0 (handle=136335954195360)
+[2m2026-09-05T23:28:13.059386Z[0m [32m INFO[0m [2mspark::scheduler::mtp_accept_debug[0m[2m:[0m Done: 24 tokens (stop) 70.3 tok/s, TTFT=145.3ms, serial=1.00 mtp=0.00 p1=0.000 mean_na=0.000 tok_step=1.000 regime_reprobes=0
+[2m2026-09-05T23:28:13.059725Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m Saved finish-leaf SSM snapshot 1 for 53 tokens
+[2m2026-09-05T23:28:13.062115Z[0m [32m INFO[0m [2mspark::api::chat::prepare[0m[2m:[0m Request: model=Qwen/Qwen3.8-27B-FP8, messages=1, tools=0, tools_active=false, tool_choice=None, stream=false, temp=Some(0.0), max_tokens=256, freq_pen=Some(0.0), rep_pen=None
+[2m2026-09-05T23:28:13.062253Z[0m [32m INFO[0m [2mspark::tokenizer::chat_impl[0m[2m:[0m Jinja rendered (164 chars): "<|im_start|>user\nList exactly five prime numbers greater than one hundred, comma separated, with no other words.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+[2m2026-09-05T23:28:13.062571Z[0m [32m INFO[0m [2mspark::api::chat[0m[2m:[0m Session 0x22edf306cc1e3ad6: 30 prompt tokens, tools=false (0 defined)
+[2m2026-09-05T23:28:13.062789Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Chunked prefill start: 30 prompt tokens, chunk_size=30, max_tokens=256
+[2m2026-09-05T23:28:13.063934Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::prefix_lookup[0m[2m:[0m Prefix cache hit: 16 tokens (1 blocks) but no SSM snapshot — recomputing all KV
+[2m2026-09-05T23:28:13.084688Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::finalize_last[0m[2m:[0m Saved SSM snapshot 2 for 30 tokens (2 blocks) [chunk]
+[2m2026-09-05T23:28:13.207310Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Prefill first token: 16
+[2m2026-09-05T23:28:13.207319Z[0m [32m INFO[0m [2mspark::scheduler::phase_start_prefills[0m[2m:[0m Prefilled (single chunk): seq_len=30, remaining=255
+[2m2026-09-05T23:28:13.548059Z[0m [32m INFO[0m [2mspark::scheduler::mtp_accept_debug[0m[2m:[0m Done: 24 tokens (stop) 70.4 tok/s, TTFT=144.5ms, serial=1.00 mtp=0.00 p1=0.000 mean_na=0.000 tok_step=1.000 regime_reprobes=0
+[2m2026-09-05T23:28:13.548357Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m Saved finish-leaf SSM snapshot 0 for 53 tokens
+[2m2026-09-05T23:28:13.551014Z[0m [32m INFO[0m [2mspark::api::chat::prepare[0m[2m:[0m Request: model=Qwen/Qwen3.8-27B-FP8, messages=1, tools=1, tools_active=true, tool_choice=Some(Mode("auto")), stream=false, temp=Some(0.0), max_tokens=256, freq_pen=Some(0.0), rep_pen=None
+[2m2026-09-05T23:28:13.551193Z[0m [32m INFO[0m [2mspark::tokenizer::chat_impl[0m[2m:[0m Jinja rendered (1361 chars): " tell the user about function calls\n</IMPORTANT><|im_end|>\n<|im_start|>user\nWhat is the weather in Reykjavik over the next three days? Use the tool.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+[2m2026-09-05T23:28:13.552360Z[0m [32m INFO[0m [2mspark::api::chat[0m[2m:[0m Session 0xdd42ddcda3133b1e: 298 prompt tokens, tools=true (1 defined)
+[2m2026-09-05T23:28:16.518899Z[0m [32m INFO[0m [2mspark::scheduler::emit_step[0m[2m:[0m Grammar constrained decoding active: parser=qwen3_coder, tools=1
+[2m2026-09-05T23:28:16.518918Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Chunked prefill start: 298 prompt tokens, chunk_size=298, max_tokens=256
+[2m2026-09-05T23:28:16.521628Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.521641Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.521649Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.521678Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.521837Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.521844Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.521851Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.521874Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.522031Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.522038Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.522044Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.569819Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.569978Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.569985Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.569991Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.586838Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.586995Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.587002Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.587008Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.603841Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.603998Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.604005Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.604012Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.620810Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.620967Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.620974Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.620980Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.637769Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.637924Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.637931Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.637938Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.654757Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.654912Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.654919Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.654925Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.671745Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.671901Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.671908Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.671915Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.688923Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.689080Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.689087Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.689094Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.706123Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.706284Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.706292Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.706298Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.723356Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.723518Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.723525Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.723532Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.740613Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.740769Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.740776Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.740782Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.757805Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.757961Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.757968Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.757974Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.757996Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.758165Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.758173Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.758179Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.758206Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:16.758558Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::save_checkpoint[0m[2m:[0m Intermediate SSM checkpoint saved at token 272 (snapshot_id 1, block 17)
+[2m2026-09-05T23:28:16.818030Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::finalize_last[0m[2m:[0m Saved SSM snapshot 3 for 298 tokens (19 blocks) [chunk]
+[2m2026-09-05T23:28:16.938885Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Prefill first token: 248058
+[2m2026-09-05T23:28:16.938898Z[0m [32m INFO[0m [2mspark::scheduler::phase_start_prefills[0m[2m:[0m Prefilled (single chunk): seq_len=298, remaining=255
+[2m2026-09-05T23:28:17.306143Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=320 end_block=20 snap_id=4 block_table_len=20 straddle=0
+[2m2026-09-05T23:28:17.608194Z[0m [32m INFO[0m [2mspark::scheduler::mtp_accept_debug[0m[2m:[0m Done: 41 tokens (stop) 61.3 tok/s, TTFT=3386.3ms, serial=1.00 mtp=0.00 p1=0.000 mean_na=0.000 tok_step=1.000 regime_reprobes=0
+[2m2026-09-05T23:28:17.608509Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m Saved finish-leaf SSM snapshot 5 for 338 tokens
+[2m2026-09-05T23:28:17.608558Z[0m [32m INFO[0m [2mspark::api::chat_blocking_choice[0m[2m:[0m Tool call: get_weather({"city":"Reykjavik","days":3})
+[2m2026-09-05T23:28:17.610906Z[0m [32m INFO[0m [2mspark::api::chat::prepare[0m[2m:[0m Request: model=Qwen/Qwen3.8-27B-FP8, messages=1, tools=0, tools_active=false, tool_choice=None, stream=false, temp=Some(0.0), max_tokens=256, freq_pen=Some(0.0), rep_pen=None
+[2m2026-09-05T23:28:17.611017Z[0m [32m INFO[0m [2mspark::tokenizer::chat_impl[0m[2m:[0m Jinja rendered (128 chars): "<|im_start|>user\nIn one short sentence, say what a benchmark harness is for.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+[2m2026-09-05T23:28:17.611349Z[0m [32m INFO[0m [2mspark::api::chat[0m[2m:[0m Session 0x648b6f7d60b0c3aa: 25 prompt tokens, tools=false (0 defined)
+[2m2026-09-05T23:28:17.611572Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Chunked prefill start: 25 prompt tokens, chunk_size=25, max_tokens=256
+[2m2026-09-05T23:28:17.633481Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::finalize_last[0m[2m:[0m Saved SSM snapshot 6 for 25 tokens (2 blocks) [chunk]
+[2m2026-09-05T23:28:17.756654Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Prefill first token: 32
+[2m2026-09-05T23:28:17.756664Z[0m [32m INFO[0m [2mspark::scheduler::phase_start_prefills[0m[2m:[0m Prefilled (single chunk): seq_len=25, remaining=255
+[2m2026-09-05T23:28:18.065816Z[0m [32m INFO[0m [2mspark::scheduler::mtp_accept_debug[0m[2m:[0m Done: 22 tokens (stop) 71.2 tok/s, TTFT=145.1ms, serial=1.00 mtp=0.00 p1=0.000 mean_na=0.000 tok_step=1.000 regime_reprobes=0
+[2m2026-09-05T23:28:18.066119Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m Saved finish-leaf SSM snapshot 7 for 46 tokens
+[2m2026-09-05T23:28:18.068397Z[0m [32m INFO[0m [2mspark::api::chat::prepare[0m[2m:[0m Request: model=Qwen/Qwen3.8-27B-FP8, messages=2, tools=0, tools_active=false, tool_choice=None, stream=false, temp=Some(0.0), max_tokens=256, freq_pen=Some(0.0), rep_pen=None
+[2m2026-09-05T23:28:18.068535Z[0m [32m INFO[0m [2mspark::tokenizer::chat_impl[0m[2m:[0m Jinja rendered (395 chars): "se or hedge on simple factual or arithmetic questions.<|im_end|>\n<|im_start|>user\nWhat is 17 * 23? Reply with the number, then explain your working.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+[2m2026-09-05T23:28:18.068926Z[0m [32m INFO[0m [2mspark::api::chat[0m[2m:[0m Session 0x5333f8d8e61173: 81 prompt tokens, tools=false (0 defined)
+[2m2026-09-05T23:28:18.069140Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Chunked prefill start: 81 prompt tokens, chunk_size=81, max_tokens=256
+[2m2026-09-05T23:28:18.197905Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::save_checkpoint[0m[2m:[0m Intermediate SSM checkpoint saved at token 64 (snapshot_id 8, block 4)
+[2m2026-09-05T23:28:18.238386Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::finalize_last[0m[2m:[0m Saved SSM snapshot 9 for 81 tokens (6 blocks) [chunk]
+[2m2026-09-05T23:28:18.354729Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Prefill first token: 18
+[2m2026-09-05T23:28:18.354740Z[0m [32m INFO[0m [2mspark::scheduler::phase_start_prefills[0m[2m:[0m Prefilled (single chunk): seq_len=81, remaining=255
+[2m2026-09-05T23:28:19.056347Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=128 end_block=8 snap_id=10 block_table_len=8 straddle=0
+[2m2026-09-05T23:28:20.039130Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=192 end_block=12 snap_id=11 block_table_len=12 straddle=0
+[2m2026-09-05T23:28:20.538916Z[0m [32m INFO[0m [2mspark::scheduler::mtp_accept_debug[0m[2m:[0m Done: 145 tokens (stop) 66.4 tok/s, TTFT=285.6ms, serial=1.00 mtp=0.00 p1=0.000 mean_na=0.000 tok_step=1.000 regime_reprobes=0
+[2m2026-09-05T23:28:20.539110Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m Saved finish-leaf SSM snapshot 12 for 225 tokens
+[2m2026-09-05T23:28:20.543297Z[0m [32m INFO[0m [2mspark::api::chat::prepare[0m[2m:[0m Request: model=Qwen/Qwen3.8-27B-FP8, messages=2, tools=0, tools_active=false, tool_choice=None, stream=false, temp=Some(0.0), max_tokens=256, freq_pen=Some(0.0), rep_pen=None
+[2m2026-09-05T23:28:20.543388Z[0m [32m INFO[0m [2mspark::tokenizer::chat_impl[0m[2m:[0m Jinja rendered (397 chars): " or hedge on simple factual or arithmetic questions.<|im_end|>\n<|im_start|>user\nName the capital city of Japan, then describe it in a few sentences.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+[2m2026-09-05T23:28:20.543758Z[0m [32m INFO[0m [2mspark::api::chat[0m[2m:[0m Session 0x823368b1f2299895: 76 prompt tokens, tools=false (0 defined)
+[2m2026-09-05T23:28:20.543987Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Chunked prefill start: 76 prompt tokens, chunk_size=76, max_tokens=256
+[2m2026-09-05T23:28:20.545037Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::prefix_lookup[0m[2m:[0m Prefix cache hit: 48 tokens (3 blocks) but no SSM snapshot — recomputing all KV
+[2m2026-09-05T23:28:20.565879Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::save_checkpoint[0m[2m:[0m Intermediate SSM checkpoint saved at token 48 (snapshot_id 13, block 3)
+[2m2026-09-05T23:28:20.711465Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::finalize_last[0m[2m:[0m Saved SSM snapshot 14 for 76 tokens (5 blocks) [chunk]
+[2m2026-09-05T23:28:20.828487Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Prefill first token: 760
+[2m2026-09-05T23:28:20.828496Z[0m [32m INFO[0m [2mspark::scheduler::phase_start_prefills[0m[2m:[0m Prefilled (single chunk): seq_len=76, remaining=255
+[2m2026-09-05T23:28:21.604768Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=128 end_block=8 snap_id=15 block_table_len=8 straddle=0
+[2m2026-09-05T23:28:22.185723Z[0m [32m INFO[0m [2mspark::scheduler::mtp_accept_debug[0m[2m:[0m Done: 92 tokens (stop) 67.8 tok/s, TTFT=284.5ms, serial=1.00 mtp=0.00 p1=0.000 mean_na=0.000 tok_step=1.000 regime_reprobes=0
+[2m2026-09-05T23:28:22.185930Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m Saved finish-leaf SSM snapshot 2 for 167 tokens
+[2m2026-09-05T23:28:22.188844Z[0m [32m INFO[0m [2mspark::api::chat::prepare[0m[2m:[0m Request: model=Qwen/Qwen3.8-27B-FP8, messages=2, tools=0, tools_active=false, tool_choice=None, stream=false, temp=Some(0.0), max_tokens=256, freq_pen=Some(0.0), rep_pen=None
+[2m2026-09-05T23:28:22.188951Z[0m [32m INFO[0m [2mspark::tokenizer::chat_impl[0m[2m:[0m Jinja rendered (398 chars): "or hedge on simple factual or arithmetic questions.<|im_end|>\n<|im_start|>user\nSpell the word 'refrigerator' backwards, then explain how you did it.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+[2m2026-09-05T23:28:22.189218Z[0m [32m INFO[0m [2mspark::api::chat[0m[2m:[0m Session 0x43c89ecea423c1e7: 78 prompt tokens, tools=false (0 defined)
+[2m2026-09-05T23:28:22.189455Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Chunked prefill start: 78 prompt tokens, chunk_size=78, max_tokens=256
+[2m2026-09-05T23:28:22.190483Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::prefix_lookup[0m[2m:[0m Prefix cache hit: 48 tokens (3 blocks) but no SSM snapshot — recomputing all KV
+[2m2026-09-05T23:28:22.211255Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::save_checkpoint[0m[2m:[0m Intermediate SSM checkpoint saved at token 48 (snapshot_id 0, block 3)
+[2m2026-09-05T23:28:22.358324Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::finalize_last[0m[2m:[0m Saved SSM snapshot 13 for 78 tokens (5 blocks) [chunk]
+[2m2026-09-05T23:28:22.476228Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Prefill first token: 1206
+[2m2026-09-05T23:28:22.476237Z[0m [32m INFO[0m [2mspark::scheduler::phase_start_prefills[0m[2m:[0m Prefilled (single chunk): seq_len=78, remaining=255
+[2m2026-09-05T23:28:23.223565Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=128 end_block=8 snap_id=1 block_table_len=8 straddle=0
+[2m2026-09-05T23:28:24.184147Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=192 end_block=12 snap_id=3 block_table_len=12 straddle=0
+[2m2026-09-05T23:28:25.147946Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=256 end_block=16 snap_id=4 block_table_len=16 straddle=0
+[2m2026-09-05T23:28:25.916789Z[0m [32m INFO[0m [2mspark::scheduler::mtp_accept_debug[0m[2m:[0m Done: 230 tokens (stop) 66.8 tok/s, TTFT=286.8ms, serial=1.00 mtp=0.00 p1=0.000 mean_na=0.000 tok_step=1.000 regime_reprobes=0
+[2m2026-09-05T23:28:25.917010Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m Saved finish-leaf SSM snapshot 5 for 307 tokens
+[2m2026-09-05T23:28:26.470720Z[0m [32m INFO[0m [2mspark::api::chat::prepare[0m[2m:[0m Request: model=Qwen/Qwen3.8-27B-FP8, messages=1, tools=0, tools_active=false, tool_choice=None, stream=true, temp=Some(0.0), max_tokens=256, freq_pen=Some(0.0), rep_pen=None
+[2m2026-09-05T23:28:26.478040Z[0m [32m INFO[0m [2mspark::api::chat[0m[2m:[0m Session 0xd16880fefc2e9fc5: 1193 prompt tokens, tools=false (0 defined)
+[2m2026-09-05T23:28:26.478458Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Chunked prefill start: 1193 prompt tokens, chunk_size=1193, max_tokens=256
+[2m2026-09-05T23:28:26.490667Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.490705Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.490725Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.490798Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.491187Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.491209Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.491227Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.491282Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.491653Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.491672Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.491689Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.625230Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.625407Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.625415Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.625423Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.673210Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.673367Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.673374Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.673380Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.721165Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.721296Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.721302Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.721307Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.769108Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.769227Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.769232Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.769236Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.817009Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.817119Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.817123Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.817128Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.864944Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.865054Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.865058Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.865063Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.912833Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.912944Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.912949Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.912953Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.960870Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.960983Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.960988Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:26.960992Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.008832Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.008943Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.008947Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.008951Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.056822Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.056933Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.056938Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.056942Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.104747Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.104858Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.104863Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.104867Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.152653Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.152764Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.152769Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.152773Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.152788Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.152898Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.152902Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.152906Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.152921Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:27.153248Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::save_checkpoint[0m[2m:[0m Intermediate SSM checkpoint saved at token 1168 (snapshot_id 6, block 73)
+[2m2026-09-05T23:28:27.380059Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::finalize_last[0m[2m:[0m Saved SSM snapshot 7 for 1193 tokens (75 blocks) [chunk]
+[2m2026-09-05T23:28:27.400341Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Prefill first token: 760
+[2m2026-09-05T23:28:27.400353Z[0m [32m INFO[0m [2mspark::scheduler::phase_start_prefills[0m[2m:[0m Prefilled (single chunk): seq_len=1193, remaining=255
+[2m2026-09-05T23:28:27.761696Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=1216 end_block=76 snap_id=8 block_table_len=76 straddle=0
+[2m2026-09-05T23:28:28.779723Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=1280 end_block=80 snap_id=9 block_table_len=80 straddle=0
+[2m2026-09-05T23:28:29.801079Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=1344 end_block=84 snap_id=10 block_table_len=84 straddle=0
+[2m2026-09-05T23:28:30.826089Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=1408 end_block=88 snap_id=11 block_table_len=88 straddle=0
+[2m2026-09-05T23:28:31.468024Z[0m [32m INFO[0m [2mspark::scheduler::decode_logits_step[0m[2m:[0m process_decode_logits: remaining=0, output_tokens=256, thinking_tokens=0
+[2m2026-09-05T23:28:31.468034Z[0m [32m INFO[0m [2mspark::scheduler::mtp_accept_debug[0m[2m:[0m Done: 256 tokens (length) 62.9 tok/s, TTFT=921.9ms, serial=1.00 mtp=0.00 p1=0.000 mean_na=0.000 tok_step=1.000 regime_reprobes=0
+[2m2026-09-05T23:28:31.468226Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m Saved finish-leaf SSM snapshot 12 for 1448 tokens
+[2m2026-09-05T23:28:31.526596Z[0m [32m INFO[0m [2mspark::api::chat::prepare[0m[2m:[0m Request: model=Qwen/Qwen3.8-27B-FP8, messages=1, tools=0, tools_active=false, tool_choice=None, stream=true, temp=Some(0.0), max_tokens=256, freq_pen=Some(0.0), rep_pen=None
+[2m2026-09-05T23:28:31.532776Z[0m [32m INFO[0m [2mspark::api::chat[0m[2m:[0m Session 0x486604f381cc69ac: 1193 prompt tokens, tools=false (0 defined)
+[2m2026-09-05T23:28:31.533296Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Chunked prefill start: 1193 prompt tokens, chunk_size=1193, max_tokens=256
+[2m2026-09-05T23:28:31.545277Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.545313Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.545334Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.545405Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.545780Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.545799Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.545817Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.545872Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.546247Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.546268Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.546285Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.680478Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.680648Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.680655Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.680662Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.728392Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.728539Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.728546Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.728558Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.776275Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.776400Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.776405Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.776410Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.824246Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.824359Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.824363Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.824368Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.872174Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.872283Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.872288Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.872292Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.920151Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.920261Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.920265Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.920269Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.968152Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.968264Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.968268Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:31.968274Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.016008Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.016119Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.016124Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.016128Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.063866Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.063976Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.063980Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.063985Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.111740Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.111849Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.111853Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.111858Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.159674Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.159806Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.159811Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.159817Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.207507Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.207618Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.207623Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.207628Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.207644Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.207753Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.207758Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.207762Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.207777Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:32.208011Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::save_checkpoint[0m[2m:[0m Intermediate SSM checkpoint saved at token 1168 (snapshot_id 14, block 73)
+[2m2026-09-05T23:28:32.334443Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::finalize_last[0m[2m:[0m Saved SSM snapshot 15 for 1193 tokens (75 blocks) [chunk]
+[2m2026-09-05T23:28:32.455179Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Prefill first token: 760
+[2m2026-09-05T23:28:32.455191Z[0m [32m INFO[0m [2mspark::scheduler::phase_start_prefills[0m[2m:[0m Prefilled (single chunk): seq_len=1193, remaining=255
+[2m2026-09-05T23:28:32.814724Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=1216 end_block=76 snap_id=2 block_table_len=76 straddle=0
+[2m2026-09-05T23:28:33.832841Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=1280 end_block=80 snap_id=0 block_table_len=80 straddle=0
+[2m2026-09-05T23:28:34.854755Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=1344 end_block=84 snap_id=13 block_table_len=84 straddle=0
+[2m2026-09-05T23:28:35.879767Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=1408 end_block=88 snap_id=1 block_table_len=88 straddle=0
+[2m2026-09-05T23:28:36.521705Z[0m [32m INFO[0m [2mspark::scheduler::decode_logits_step[0m[2m:[0m process_decode_logits: remaining=0, output_tokens=256, thinking_tokens=0
+[2m2026-09-05T23:28:36.521714Z[0m [32m INFO[0m [2mspark::scheduler::mtp_accept_debug[0m[2m:[0m Done: 256 tokens (length) 63.0 tok/s, TTFT=921.9ms, serial=1.00 mtp=0.00 p1=0.000 mean_na=0.000 tok_step=1.000 regime_reprobes=0
+[2m2026-09-05T23:28:36.521907Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m Saved finish-leaf SSM snapshot 3 for 1448 tokens
+[2m2026-09-05T23:28:36.578833Z[0m [32m INFO[0m [2mspark::api::chat::prepare[0m[2m:[0m Request: model=Qwen/Qwen3.8-27B-FP8, messages=1, tools=0, tools_active=false, tool_choice=None, stream=true, temp=Some(0.0), max_tokens=256, freq_pen=Some(0.0), rep_pen=None
+[2m2026-09-05T23:28:36.584983Z[0m [32m INFO[0m [2mspark::api::chat[0m[2m:[0m Session 0xf893adbbb52f4276: 1193 prompt tokens, tools=false (0 defined)
+[2m2026-09-05T23:28:36.585188Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Chunked prefill start: 1193 prompt tokens, chunk_size=1193, max_tokens=256
+[2m2026-09-05T23:28:36.597147Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.597201Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.597222Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.597291Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.597663Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.597682Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.597699Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.597754Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.598122Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.598153Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.598183Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.732316Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.732493Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.732501Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.732509Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.780245Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.780391Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.780397Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.780403Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.828218Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.828346Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.828354Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.828359Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.876069Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.876181Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.876186Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.876190Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.923984Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.924092Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.924097Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.924101Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.971922Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.972029Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.972033Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:36.972037Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.019850Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.019958Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.019962Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.019966Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.067703Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.067811Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.067817Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.067821Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.115605Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.115713Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.115718Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.115722Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.163543Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.163650Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.163654Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.163658Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.211554Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.211661Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.211665Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.211669Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.259362Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.259470Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.259474Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.259478Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.259493Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.259605Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.259609Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.259613Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.259628Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:37.259902Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::save_checkpoint[0m[2m:[0m Intermediate SSM checkpoint saved at token 1168 (snapshot_id 4, block 73)
+[2m2026-09-05T23:28:37.386252Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::finalize_last[0m[2m:[0m Saved SSM snapshot 5 for 1193 tokens (75 blocks) [chunk]
+[2m2026-09-05T23:28:37.508625Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Prefill first token: 760
+[2m2026-09-05T23:28:37.508637Z[0m [32m INFO[0m [2mspark::scheduler::phase_start_prefills[0m[2m:[0m Prefilled (single chunk): seq_len=1193, remaining=255
+[2m2026-09-05T23:28:37.866014Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=1216 end_block=76 snap_id=6 block_table_len=76 straddle=0
+[2m2026-09-05T23:28:38.884172Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=1280 end_block=80 snap_id=7 block_table_len=80 straddle=0
+[2m2026-09-05T23:28:39.904782Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=1344 end_block=84 snap_id=8 block_table_len=84 straddle=0
+[2m2026-09-05T23:28:40.929547Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=1408 end_block=88 snap_id=9 block_table_len=88 straddle=0
+[2m2026-09-05T23:28:41.571418Z[0m [32m INFO[0m [2mspark::scheduler::decode_logits_step[0m[2m:[0m process_decode_logits: remaining=0, output_tokens=256, thinking_tokens=0
+[2m2026-09-05T23:28:41.571428Z[0m [32m INFO[0m [2mspark::scheduler::mtp_accept_debug[0m[2m:[0m Done: 256 tokens (length) 63.0 tok/s, TTFT=923.5ms, serial=1.00 mtp=0.00 p1=0.000 mean_na=0.000 tok_step=1.000 regime_reprobes=0
+[2m2026-09-05T23:28:41.571617Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m Saved finish-leaf SSM snapshot 10 for 1448 tokens
+[2m2026-09-05T23:28:41.627440Z[0m [32m INFO[0m [2mspark::api::chat::prepare[0m[2m:[0m Request: model=Qwen/Qwen3.8-27B-FP8, messages=1, tools=0, tools_active=false, tool_choice=None, stream=true, temp=Some(0.0), max_tokens=256, freq_pen=Some(0.0), rep_pen=None
+[2m2026-09-05T23:28:41.633551Z[0m [32m INFO[0m [2mspark::api::chat[0m[2m:[0m Session 0x451fcd52a93674a2: 1193 prompt tokens, tools=false (0 defined)
+[2m2026-09-05T23:28:41.633834Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Chunked prefill start: 1193 prompt tokens, chunk_size=1193, max_tokens=256
+[2m2026-09-05T23:28:41.645821Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.645867Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.645888Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.645972Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.646351Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.646372Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.646390Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.646444Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.646805Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.646823Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.646840Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.780982Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.781158Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.781167Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.781174Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.828926Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.829074Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.829081Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.829087Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.876853Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.876978Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.876984Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.876989Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.924723Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.924835Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.924840Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.924844Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.972941Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.973048Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.973052Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:41.973057Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.021153Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.021261Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.021265Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.021269Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.069335Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.069443Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.069447Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.069451Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.117603Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.117710Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.117715Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.117719Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.165803Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.165910Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.165914Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.165918Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.213978Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.214086Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.214090Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.214094Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.262196Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.262308Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.262312Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.262317Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.310320Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.310427Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.310432Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.310436Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.310450Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.310557Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.310561Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.310565Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.310581Z[0m [32m INFO[0m [2mspark_model::model::drafter_context[0m[2m:[0m MTP drafter context: prefill=ON carry=ON (default). Disable both with ATLAS_NO_MTP_DRAFTER_CONTEXT=1.
+[2m2026-09-05T23:28:42.310811Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::save_checkpoint[0m[2m:[0m Intermediate SSM checkpoint saved at token 1168 (snapshot_id 11, block 73)
+[2m2026-09-05T23:28:42.437779Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::prefill_b::finalize_last[0m[2m:[0m Saved SSM snapshot 12 for 1193 tokens (75 blocks) [chunk]
+[2m2026-09-05T23:28:42.559037Z[0m [32m INFO[0m [2mspark::scheduler::prefill_a_step[0m[2m:[0m Prefill first token: 760
+[2m2026-09-05T23:28:42.559050Z[0m [32m INFO[0m [2mspark::scheduler::phase_start_prefills[0m[2m:[0m Prefilled (single chunk): seq_len=1193, remaining=255
+[2m2026-09-05T23:28:42.919146Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=1216 end_block=76 snap_id=14 block_table_len=76 straddle=0
+[2m2026-09-05T23:28:43.937392Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=1280 end_block=80 snap_id=15 block_table_len=80 straddle=0
+[2m2026-09-05T23:28:44.960748Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=1344 end_block=84 snap_id=2 block_table_len=84 straddle=0
+[2m2026-09-05T23:28:45.985367Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m decode-ckpt SAVE: snap_tokens=1408 end_block=88 snap_id=0 block_table_len=88 straddle=0
+[2m2026-09-05T23:28:46.627388Z[0m [32m INFO[0m [2mspark::scheduler::decode_logits_step[0m[2m:[0m process_decode_logits: remaining=0, output_tokens=256, thinking_tokens=0
+[2m2026-09-05T23:28:46.627399Z[0m [32m INFO[0m [2mspark::scheduler::mtp_accept_debug[0m[2m:[0m Done: 256 tokens (length) 62.9 tok/s, TTFT=925.2ms, serial=1.00 mtp=0.00 p1=0.000 mean_na=0.000 tok_step=1.000 regime_reprobes=0
+[2m2026-09-05T23:28:46.627605Z[0m [32m INFO[0m [2mspark_model::model::trait_impl::decode_checkpoint[0m[2m:[0m Saved finish-leaf SSM snapshot 13 for 1448 tokens
+[2m2026-09-05T23:28:46.909208Z[0m [32m INFO[0m [2mspark::tui::shutdown[0m[2m:[0m Shutdown requested (SIGTERM) — draining in-flight requests
+[2m2026-09-05T23:28:46.909433Z[0m [32m INFO[0m [2mspark::tui::shutdown[0m[2m:[0m Drain complete — no active requests
+[2m2026-09-05T23:28:46.909475Z[0m [32m INFO[0m [2mspark::main_modules::serve_router[0m[2m:[0m Shutdown complete
+[2m2026-09-05T23:28:47.011219Z[0m [33m WARN[0m [2mspark_runtime::cuda_backend[0m[2m:[0m sweep: 1601 allocation(s) totalling 27.76 GB had no owner; largest sites: crates/spark-model/src/weight_map/loaders_fp8.rs:229 (9565.7 MB x257), crates/spark-model/src/weight_map/quantized.rs:261 (8960.0 MB x256), crates/spark-model/src/weight_loader/qwen35_dense.rs:135 (3840.0 MB x48), crates/spark-model/src/weight_map/loaders_fp8.rs:230 (1195.7 MB x257), crates/spark-model/src/weight_map/quantized.rs:262 (1120.0 MB x256)
+[2m2026-09-05T23:28:47.011278Z[0m [33m WARN[0m [2mspark_model::model::types[0m[2m:[0m teardown swept 1601 allocation(s) that no ModelResource released — they are reclaimed, but each one is memory whose owner is unaccounted for
+[2m2026-09-05T23:28:47.011291Z[0m [32m INFO[0m [2mspark::scheduler[0m[2m:[0m Scheduler stopped

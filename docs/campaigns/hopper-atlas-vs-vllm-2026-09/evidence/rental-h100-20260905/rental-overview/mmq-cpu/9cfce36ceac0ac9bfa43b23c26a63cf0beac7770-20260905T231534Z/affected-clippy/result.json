@@ -1,0 +1,37 @@
+{
+  "stage": "affected-clippy",
+  "argv": [
+    "cargo",
+    "+1.93.1",
+    "clippy",
+    "--locked",
+    "--tests",
+    "-p",
+    "atlas-kernels",
+    "-p",
+    "spark-model",
+    "-p",
+    "spark-server",
+    "-p",
+    "xgrammar"
+  ],
+  "started": "2026-09-05T23:20:11.484849+00:00",
+  "free_before": 416397451264,
+  "task_bytes_before": 88975708160,
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "ATLAS_SKIP_BUILD": "1",
+    "CUDARC_CUDA_VERSION": "13000",
+    "CARGO_TARGET_DIR": "/workspace/atlas-rental/target-cpu-checks",
+    "CARGO_BUILD_JOBS": "6",
+    "ATLAS_TARGET_HW": "hopper",
+    "ATLAS_TARGET_MODEL": "qwen3.8-27b",
+    "ATLAS_TARGET_QUANT": "nvfp4"
+  },
+  "finished": "2026-09-05T23:20:57.492265+00:00",
+  "elapsed_s": 46.00745181500679,
+  "exit_code": 0,
+  "stop_reason": null,
+  "free_after": 415824052224,
+  "test_summaries": []
+}

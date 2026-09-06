@@ -1,0 +1,12 @@
+{
+  "name": "atlas-render",
+  "command": [
+    "python3",
+    "bench/campaign/atlas_render.py",
+    "--selftest"
+  ],
+  "exit_code": 0,
+  "tail": [
+    "atlas_render selftest: 346/346 checks passed over 19 entries"
+  ]
+}

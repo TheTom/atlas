@@ -1,0 +1,231 @@
+=== campaign cell atlas.qwen3.8-27b-fp8.h100.lat.c1.specoff.thinkoff ===
+engine:      atlas
+model:       qwen3.8-27b-fp8 -> Qwen/Qwen3.8-27B-FP8
+sku:         h100
+workload:    lat  isl=1024 osl=256  C=1  reps=3 warmup=1
+spec:        off     think: off
+boot cap:    1800s
+out:         /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1
+client url:  http://127.0.0.1:8888
+
+$ whole-cell deadline 2700s; cleanup grace 60s
+
+--- stage 1/7 preflight ---
+$ nvidia-smi -q > /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1/nvidia-smi-q.txt
+$ df -h /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1 > /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1/df.txt
+$ git -C /workspace/atlas-rental/src/atlas rev-parse HEAD
+$ sha256sum /workspace/atlas-rental/src/atlas/bench/ladder38/harness_w55_conc_ladder.py
+
+--- stage 2/7 serve ---
+process_argv: ["/workspace/atlas-rental/bin/spark-qwen38", "serve", "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a", "--rank", "0", "--world-size", "1", "--ep-size", "1", "--tp-size", "1", "--gpu-ordinal", "0", "--port", "8888", "--master-addr", "127.0.0.1", "--master-port", "29500", "--no-tui", "--bind", "0.0.0.0", "--warmup-prompt", "/workspace/atlas-rental/src/atlas/bench/hopper_ab/warmup_1024.txt", "--request-timeout", "0", "--gpu-memory-utilization", "0.90", "--max-num-seqs", "128", "--max-batch-size", "4", "--enable-prefix-caching", "true", "--scheduling-policy", "slai", "--kv-cache-dtype", "fp8", "--kv-high-precision-layers", "auto", "--max-seq-len", "24576", "--fp8-kv-calibration-tokens", "256", "--disable-thinking", "--model-name", "Qwen/Qwen3.8-27B-FP8"]
+process_environment: {"CUDA_VISIBLE_DEVICES": "0", "HF_HOME": "/workspace/atlas-rental/hf38", "HF_HUB_CACHE": "/workspace/atlas-rental/hf38/hub", "HF_HUB_OFFLINE": "1", "LD_LIBRARY_PATH": "/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64", "RUST_LOG": "info", "SPT_NOENV": "1"}
+
+--- stage 3/7 boot gate (cap 1800s) ---
+$ bash /workspace/atlas-rental/src/atlas/bench/hopper_ab/time_to_ready.sh --url http://127.0.0.1:8888 --model Qwen/Qwen3.8-27B-FP8 --engine atlas --start-epoch <serve-start> --timeout-s 1800 --out /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1/boot.json --process-owner /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1/process-46530/owner.json
+{
+  "schema": 1,
+  "engine": "atlas",
+  "url": "http://127.0.0.1:8888",
+  "model": "Qwen/Qwen3.8-27B-FP8",
+  "start_epoch": 1788648483.0,
+  "time_to_ready_s": 23.226,
+  "first_token_s": null,
+  "polls": 23,
+  "http_codes_seen": [
+    "transport-error",
+    "200"
+  ],
+  "timeout_s": 1800.0,
+  "status": "first-token-failed",
+  "passed": false,
+  "http_exchanges": [
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": 200,
+      "response_body": "{\"status\":\"ready\",\"model\":\"Qwen/Qwen3.8-27B-FP8\"}",
+      "response_complete": true
+    },
+    {
+      "path": "/v1/chat/completions",
+      "request_json": "{\"model\": \"Qwen/Qwen3.8-27B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"hi\"}], \"max_tokens\": 1, \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 500,
+      "response_body": "{\"error\":{\"message\":\"Inference error: prefill_chunk failed: Prefill chunk layer 11 failed: cuStreamSynchronize failed: CUDA_ERROR_LAUNCH_FAILED (719): unspecified launch failure\",\"type\":\"server_error\",\"param\":null,\"code\":null,\"hint\":null}}",
+      "response_complete": true
+    }
+  ],
+  "last_health_curl_exit": 7,
+  "total_s": 23.834,
+  "detail": "curl exit 22: curl: (22) The requested URL returned error: 500"
+}
+STAGE FAILED: boot
+
+--- stage 4/7 coherency gate ---
+$ python3 /workspace/atlas-rental/src/atlas/bench/hopper_ab/coherency_gate.py --url http://127.0.0.1:8888 --model Qwen/Qwen3.8-27B-FP8 --think off --out /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1/coherency.json
+
+--- stage 5/7 latency pack ---
+$ python3 /workspace/atlas-rental/src/atlas/bench/ladder38/harness_w55_conc_ladder.py --url http://127.0.0.1:8888 --model Qwen/Qwen3.8-27B-FP8 --label atlas.qwen3.8-27b-fp8.h100.lat.c1.specoff.thinkoff --out /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1/ladder.json --concs 1 --reps 3 --isl 1024 --osl 256 --warmup 1 
+
+--- stage 6/7 teardown ---
+
+--- stage 7/7 assemble and validate ---
+$ python3 /workspace/atlas-rental/src/atlas/bench/campaign/cell_assemble.py --engine atlas --model-key qwen3.8-27b-fp8 --sku h100 --workload lat --concurrency 1 --spec off --think off --out /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1/artifact.json --workloads /workspace/atlas-rental/src/atlas/bench/hopper_ab/workloads.json --atlas-recipes /workspace/atlas-rental/src/atlas/bench/campaign/atlas_recipes.json --vllm-recipes /workspace/atlas-rental/src/atlas/bench/campaign/vllm_recipes.json --client /workspace/atlas-rental/src/atlas/bench/ladder38/harness_w55_conc_ladder.py --serve-argv /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1/serve.argv --serve-env /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1/serve.env --nvidia-smi-q /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1/nvidia-smi-q.txt --boot-json /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1/boot.json --coherency-json /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1/coherency.json --ladder-json /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1/ladder.json --model-launch-process-json /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1/process-launch.json --model-launch-process-owner-json /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1/process-46530/owner.json --harness-git-sha 9d68c96b6a37661179ef4c9ecc8c4d239c810c78 --binary /workspace/atlas-rental/bin/spark-qwen38 --failing-stage boot
+$ python3 /workspace/atlas-rental/src/atlas/bench/campaign/validate_artifact.py /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1/artifact.json
+# wrote /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1/artifact.json at 2026-09-05T22:48:27Z
+VALID: /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1/artifact.json
+
+=== atlas.qwen3.8-27b-fp8.h100.lat.c1.specoff.thinkoff: FAILED at stage 'boot'; artifact written to /workspace/atlas-rental/results/qwen38.atlas.b.lat.c1/artifact.json ===

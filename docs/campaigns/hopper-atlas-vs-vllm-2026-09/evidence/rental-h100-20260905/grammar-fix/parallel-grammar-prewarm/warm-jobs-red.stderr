@@ -1,0 +1,8 @@
+   Compiling xgrammar v1.0.0-beta-preview (/home/pidtom/atlas-grammar-prewarm-20260905/crates/xgrammar)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.68s
+     Running unittests src/lib.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/xgrammar-d605f66052f45b03)
+
+thread 'compiler::tests::tier2_tests::already_warm_masks_schedule_no_worker_jobs' (1255040) panicked at crates/xgrammar/src/compiler/tests/tier2_tests.rs:220:5:
+warm masks would still spawn worker jobs
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `-p xgrammar --lib`

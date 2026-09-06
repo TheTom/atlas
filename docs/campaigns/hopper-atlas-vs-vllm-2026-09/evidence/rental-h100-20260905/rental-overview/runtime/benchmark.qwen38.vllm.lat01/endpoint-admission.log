@@ -1,0 +1,1 @@
+{"schema": 1, "kind": "linux-proc-endpoint", "operation": "free", "checked_at": "2026-09-05T23:35:47.794254+00:00", "status": "free", "address": "127.0.0.1", "port": 8000, "network_namespace": "net:[4026538182]", "listeners": []}

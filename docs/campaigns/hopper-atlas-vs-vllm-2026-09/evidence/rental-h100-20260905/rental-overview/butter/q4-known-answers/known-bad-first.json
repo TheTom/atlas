@@ -1,0 +1,8 @@
+{
+  "input": "The word backwards is **rotarefiger**",
+  "expected": "rotaregirfer",
+  "observed": "FAIL",
+  "detail": "answer not stated: 'The word backwards is **rotarefiger**'",
+  "oracle_sha256": "7b92ed2c6017cf8908fe849339ee8a49daebf275253ca12768c4804819be8eed",
+  "utc": "2026-09-05T23:22:34.304509+00:00"
+}

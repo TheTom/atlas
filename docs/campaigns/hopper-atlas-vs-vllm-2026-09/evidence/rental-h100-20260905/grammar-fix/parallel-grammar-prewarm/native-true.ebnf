@@ -1,0 +1,17 @@
+root_0 ::= ((param root_1)) (=("\n</function>\n</tool_call>"))
+param ::= (("<parameter=" paramname ">" value "</parameter>"))
+paramname ::= (("city") | ("days")) (=(">" value "</parameter>"))
+value ::= (([ \t\r\n]* first_content rest)) (=("</parameter>"))
+first_content ::= (([^ \t\r\n<=>]) | ("<" [^/]) | ("</" [^p]) | ("</p" [^a]) | ("</pa" [^r]) | ("</par" [^a]) | ("</para" [^m]) | ("</param" [^e]) | ("</parame" [^t]) | ("</paramet" [^e]) | ("</paramete" [^r]) | ("</parameter" [^>])) (=(rest))
+rest ::= ((rest_1))
+root_1 ::= ("" | ("\n" param root_1))
+rest_1 ::= ("" | ([^<] rest_1) | ("<" [^/] rest_1) | ("</" [^p] rest_1) | ("</p" [^a] rest_1) | ("</pa" [^r] rest_1) | ("</par" [^a] rest_1) | ("</para" [^m] rest_1) | ("</param" [^e] rest_1) | ("</parame" [^t] rest_1) | ("</paramet" [^e] rest_1) | ("</paramete" [^r] rest_1) | ("</parameter" [^>] rest_1))
+triggered_tags_group ::= (("\n" root_0 "\n</function>\n</tool_call>"))
+triggered_tags ::= TagDispatch(
+  ("<tool_call>\n<function=get_weather>", triggered_tags_group),
+  stop_eos=true,
+  stop_str=(),
+  loop_after_dispatch=true,
+  excludes=()
+)
+root ::= ((triggered_tags))

@@ -1,0 +1,14 @@
+[
+  {
+    "mode": "true",
+    "original_sha256": "48bb087d1d156aa078f5b6d309c51c3eb7d3ed1a49feb1e0e7f4d57fa0f2b060",
+    "borrowed_sha256": "48bb087d1d156aa078f5b6d309c51c3eb7d3ed1a49feb1e0e7f4d57fa0f2b060",
+    "equal": true
+  },
+  {
+    "mode": "false",
+    "original_sha256": "f6eab1c2a8c7432bfd87fde9dd8bae2e601f84f47bc9e52082da26cc8f9c3cc8",
+    "borrowed_sha256": "f6eab1c2a8c7432bfd87fde9dd8bae2e601f84f47bc9e52082da26cc8f9c3cc8",
+    "equal": true
+  }
+]

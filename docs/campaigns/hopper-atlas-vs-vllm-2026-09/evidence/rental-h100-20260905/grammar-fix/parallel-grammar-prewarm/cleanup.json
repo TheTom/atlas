@@ -1,0 +1,7 @@
+{
+  "command": "df -h / && git -c core.hooksPath=/dev/null -C /home/pidtom/atlas-hopper-gate-full worktree remove --force /home/pidtom/atlas-grammar-prewarm-20260905 && df -h /",
+  "exit_code": 0,
+  "stdout": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  865G  4.4G 100% /\nFilesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  865G  4.5G 100% /\n",
+  "stderr": "",
+  "shared_cargo_target_preserved": true
+}

@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "pidtom@192.168.50.125",
+    "cd /home/pidtom/atlas-grammar-prewarm-20260905 && export PATH=\"$HOME/.cargo/bin:/usr/local/cuda/bin:$PATH\" && CUDA_VISIBLE_DEVICES=\"\" ATLAS_SKIP_BUILD=1 CUDARC_CUDA_VERSION=13000 CARGO_TARGET_DIR=/home/pidtom/atlas-hopper-gate-full/target cargo test --locked -p xgrammar --lib compiler::tests::tier2_tests::already_warm_masks_schedule_no_worker_jobs -- --exact --nocapture"
+  ]
+}

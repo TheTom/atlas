@@ -1,0 +1,65 @@
+{
+  "method": "arithmetic mean of recorded per-repetition statistics, not pooled percentiles",
+  "rows": [
+    {
+      "cell": "qwen38.atlas.c.lat.c1",
+      "concurrency": 1,
+      "tok_s_mean": 51.20796379239933,
+      "repetitions": 3,
+      "requests_ok": 3,
+      "requests_error": 0,
+      "ttft_p50_ms_mean_of_rep_values": 932.3839409917127,
+      "ttft_p99_ms_mean_of_rep_values": 932.3839409917127,
+      "tpot_p50_ms_mean_of_rep_values": 15.945087703290316,
+      "actual_prompt_tokens_per_request": [
+        1193
+      ],
+      "completion_tokens_per_request": [
+        256
+      ],
+      "finish_reasons": [
+        "length"
+      ]
+    },
+    {
+      "cell": "benchmark.qwen38.vllm.lat01",
+      "concurrency": 1,
+      "tok_s_mean": 76.92832546652694,
+      "repetitions": 3,
+      "requests_ok": 3,
+      "requests_error": 0,
+      "ttft_p50_ms_mean_of_rep_values": 285.63227634488914,
+      "ttft_p99_ms_mean_of_rep_values": 285.63227634488914,
+      "tpot_p50_ms_mean_of_rep_values": 11.928162875804393,
+      "actual_prompt_tokens_per_request": [
+        1193
+      ],
+      "completion_tokens_per_request": [
+        256
+      ],
+      "finish_reasons": [
+        "length"
+      ]
+    },
+    {
+      "cell": "benchmark.qwen38.vllm.lat01",
+      "concurrency": 16,
+      "tok_s_mean": 790.5066667449968,
+      "repetitions": 3,
+      "requests_ok": 48,
+      "requests_error": 0,
+      "ttft_p50_ms_mean_of_rep_values": 1324.0005843302545,
+      "ttft_p99_ms_mean_of_rep_values": 1439.2139465431683,
+      "tpot_p50_ms_mean_of_rep_values": 15.05630834836945,
+      "actual_prompt_tokens_per_request": [
+        1193
+      ],
+      "completion_tokens_per_request": [
+        256
+      ],
+      "finish_reasons": [
+        "length"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+   Compiling spark-server v1.0.0-beta-preview (/home/pidtom/atlas-value-entry-server-20260905/crates/spark-server)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 14.98s
+     Running unittests src/main.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/spark-8a5b8b10b61861ba)
+
+running 88 tests
+test grammar::tests::engine_state::test_grammar_engine_creation ... ok
+test grammar::tests::engine_state::test_builtin_json_compilation ... ok
+test grammar::tests::gemma4_required::gemma4_required_accepts_canonical_call ... ok
+test grammar::tests::engine_state::test_json_schema_compilation ... ok
+test grammar::tests::misc::test_ebnf_compilation ... ok
+test grammar::tests::misc::test_extract_ordered_vocab ... ok
+test grammar::tests::gemma4_required::gemma4_required_rejects_leading_prose ... ok
+test grammar::tests::gemma4_required::gemma4_auto_allows_free_prose ... ok
+test grammar::tests::gemma4_required::gemma4_auto_accepts_canonical_call ... ok
+test grammar::tests::misc::test_multiple_tools_hermes ... ok
+test grammar::tests::minimax::test_minimax_xml_grammar_accepts_canonical ... ok
+test grammar::tests::minimax::test_minimax_xml_grammar_rejects_degenerate ... ok
+test grammar::tests::engine_state::test_apply_bitmask_to_logits ... ok
+test grammar::tests::engine_state::test_forced_token_none_on_genuine_choice ... ok
+test grammar::tests::engine_state::test_budget_close_noop_when_already_stop_legal ... ok
+test grammar::tests::param_key_constraint::body_ebnf_constrains_paramname_to_schema_alternation ... ok
+test grammar::tests::param_key_constraint::body_ebnf_first_content_allows_lt_via_close_ladder ... ok
+test grammar::tests::param_key_constraint::p1_opts_empty_value_and_force_close_shapes ... ok
+test grammar::tests::param_key_constraint::body_ebnf_keeps_identifier_rule_without_names ... ok
+test grammar::tests::param_key_constraint::schema_param_names_leaves_open_schemas_unconstrained ... ok
+test grammar::tests::param_key_constraint::schema_param_names_extracts_properties ... ok
+test grammar::tests::poolside::poolside_grammar_accepts_complete_zero_argument_call ... ok
+test grammar::tests::engine_state::test_forced_token_none_after_termination ... ok
+test grammar::tests::poolside::poolside_grammar_rejects_empty_tool_list ... ok
+test grammar::tests::misc::test_accept_token_after_termination_short_circuits ... ok
+test grammar::tests::misc::test_fill_bitmask_after_stop_token ... ok
+test grammar::tests::poolside::poolside_grammar_accepts_markup_inside_argument_value ... ok
+test grammar::tests::poolside::poolside_grammar_rejects_missing_required_argument ... ok
+test grammar::tests::poolside::poolside_parser_reports_grammar_support ... ok
+test grammar::tests::poolside::poolside_grammar_accepts_native_call ... ok
+test grammar::tests::poolside::poolside_grammar_rejects_malformed_argument_close ... ok
+test grammar::tests::poolside::poolside_grammar_rejects_unknown_tool ... ok
+test grammar::tests::poolside::poolside_grammar_rejects_unknown_parameter_key ... ok
+test grammar::tests::qwen3_coder_required::qwen3_coder_grammar_accepts_canonical_xml_body ... ok
+test grammar::tests::qwen3_coder_required::qwen3_coder_grammar_accepts_multi_xml_params ... ok
+test grammar::tests::engine_state::test_grammar_state_basic_json ... ok
+test grammar::tests::engine_state::test_grammar_state_accept_and_terminate ... ok
+test grammar::tests::qwen3_coder_required::qwen3_coder_grammar_accepts_leading_newline_content ... ok
+test grammar::tests::misc::test_stop_token_exempt_from_grammar_refusal ... ok
+test grammar::tests::sanitize::test_enforce_min_length_empty_schema ... ok
+test grammar::tests::sanitize::test_enforce_min_length_no_required ... ok
+test grammar::tests::sanitize::test_enforce_min_length_on_required_strings ... ok
+test grammar::tests::qwen3_coder_required::qwen3_coder_grammar_rejects_eq_value_start ... ok
+test grammar::tests::engine_state::test_grammar_state_rollback ... ok
+test grammar::tests::qwen3_coder_required::qwen3_coder_grammar_rejects_whitespace_only_parameter_body ... ok
+test grammar::tests::sanitize::test_sanitize_allof_multiple ... ok
+test grammar::tests::sanitize::test_sanitize_allof_single ... ok
+test grammar::tests::sanitize::test_hermes_grammar_empty_enum_tool ... ok
+test grammar::tests::sanitize::test_sanitize_empty_anyof ... ok
+test grammar::tests::sanitize::test_sanitize_empty_enum ... ok
+test grammar::tests::sanitize::test_sanitize_empty_oneof ... ok
+test grammar::tests::sanitize::test_sanitize_empty_properties_no_additional ... ok
+test grammar::tests::sanitize::test_sanitize_false_schema_returns_none ... ok
+test grammar::tests::sanitize::test_sanitize_multi_element_anyof_preserved ... ok
+test grammar::tests::sanitize::test_sanitize_nested_empty_enum ... ok
+test grammar::tests::sanitize::test_sanitize_nonempty_enum_unchanged ... ok
+test grammar::tests::sanitize::test_sanitize_object_no_properties_key ... ok
+test grammar::tests::sanitize::test_sanitize_object_with_additional_properties_untouched ... ok
+test grammar::tests::qwen3_coder_required::qwen3_coder_grammar_rejects_empty_parameter_body ... ok
+test grammar::tests::sanitize::test_sanitize_object_with_properties_untouched ... ok
+test grammar::tests::sanitize::test_sanitize_ref_resolution ... ok
+test grammar::tests::sanitize::test_sanitize_single_element_anyof ... ok
+test grammar::tests::sanitize::test_sanitize_true_schema ... ok
+test grammar::tests::sanitize::test_hermes_grammar_empty_anyof_tool ... ok
+test grammar::tests::tools_basic::test_minimax_xml_tool_grammar_no_tools ... ok
+test grammar::tests::tools_basic::test_no_tools_error ... ok
+test grammar::tests::tools_basic::test_minimax_xml_tool_grammar_compilation ... ok
+test grammar::tests::sanitize::test_sanitize_deeply_nested ... ok
+test grammar::tests::tools_basic::test_hermes_tool_grammar_compilation ... ok
+test grammar::tests::qwen3_coder_required::qwen3_coder_grammar_rejects_json_body_enforces_xml ... ok
+test grammar::tests::qwen3_coder_required::qwen3_coder_grammar_still_rejects_close_tag_as_first_body_token ... ok
+test grammar::tests::qwen3_coder_required::qwen3_coder_grammar_accepts_lt_initial_value ... ok
+test grammar::tests::sanitize::test_qwen3_grammar_empty_properties ... ok
+test grammar::tests::tools_basic::test_qwen3_coder_tool_grammar_compilation ... ok
+test grammar::tests::engine_state::test_budget_close_completes_open_json_string ... ok
+test grammar::tests::engine_state::test_forced_token_matches_masked_sample_path ... ok
+test grammar::tests::engine_state::test_forced_token_accept_advances_identically ... ok
+test grammar::tests::value_entry::value_entry_content_tokens_need_no_contextual_trials ... ok
+test grammar::tests::engine_state::test_json_schema_masks_leading_prose_token_at_start ... ok
+test grammar::tests::qwen3_coder_required::qwen3_coder_grammar_compiles_with_shared_tool_name_prefixes ... ok
+test grammar::tests::parallel_calls::armed_no_call_auto_grammar_never_blocks_eos ... ok
+test grammar::tests::parallel_calls::eos_reachable_after_each_close_literal_but_blocked_mid_call ... ok
+test grammar::tests::parallel_calls::hermes_auto_grammar_accepts_two_sequential_calls ... ok
+test grammar::tests::parallel_calls::required_mode_blocks_eos_until_call_completes ... ok
+test grammar::tests::parallel_calls::hermes_grammar_wedges_if_tool_call_close_is_stop_exempt ... ok
+test grammar::tests::minimax::test_minimax_xml_grammar_token_level_close_after_open_rejected ... ok
+F70 NOTE: xgrammar TagDispatch allows trigger-breaking multi-byte token `:_` (id 131) after partial `<minimax` match. Atlas adds a runtime backstop because the matcher alone can't anchor partial triggers across BPE merges.
+test grammar::tests::minimax::test_minimax_xml_grammar_masks_trigger_breaking_multibyte_token ... ok
+test grammar::tests::value_entry::value_entry_factoring_preserves_masks_rejections_and_rollback ... ok
+
+test result: ok. 88 passed; 0 failed; 0 ignored; 0 measured; 2273 filtered out; finished in 1.32s
+

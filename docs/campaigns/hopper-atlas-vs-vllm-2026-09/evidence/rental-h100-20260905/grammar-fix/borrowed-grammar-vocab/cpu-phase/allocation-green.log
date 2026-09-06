@@ -1,0 +1,12 @@
+   Compiling xgrammar v1.0.0-beta-preview (/home/pidtom/atlas-cold-phase-Dn4z2OEX)
+   Compiling grammar-allocation-oracle v0.0.0 (/home/pidtom/atlas-cold-phase-Dn4z2OEX/probe)
+    Finished `release` profile [optimized] target(s) in 2.61s
+     Running `/home/pidtom/atlas-hopper-gate-full/target/release/grammar-allocation-oracle`
+MASK rule=root state=2 key=None ms=0.002
+MASK rule=root state=1 key=None ms=0.001
+MASK rule=root state=0 key=None ms=0.003
+irrelevant=4096 states=3 allocations=58
+MASK rule=root state=1 key=None ms=0.002
+MASK rule=root state=2 key=None ms=0.001
+MASK rule=root state=0 key=None ms=0.003
+irrelevant=8192 states=3 allocations=58

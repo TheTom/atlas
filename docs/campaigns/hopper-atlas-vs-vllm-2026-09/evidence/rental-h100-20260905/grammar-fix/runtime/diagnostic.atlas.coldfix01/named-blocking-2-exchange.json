@@ -1,0 +1,55 @@
+{
+  "request": {
+    "model": "Qwen/Qwen3.6-35B-A3B-FP8",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the weather in Reykjavik over the next three days? Use the tool."
+      }
+    ],
+    "temperature": 0.0,
+    "seed": 42,
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0,
+    "max_tokens": 256,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "get_weather",
+          "description": "Look up the current weather for a city.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "city": {
+                "type": "string",
+                "description": "City name."
+              },
+              "days": {
+                "type": "integer",
+                "description": "Forecast horizon in days."
+              }
+            },
+            "required": [
+              "city",
+              "days"
+            ]
+          }
+        }
+      }
+    ],
+    "tool_choice": {
+      "type": "function",
+      "function": {
+        "name": "get_weather"
+      }
+    },
+    "stream": false
+  },
+  "status": 200,
+  "body": "{\"id\":\"chatcmpl-38056918-5bf6-4534-8a5c-491a2d82ed31\",\"object\":\"chat.completion\",\"created\":1788649222,\"model\":\"Qwen/Qwen3.6-35B-A3B-FP8\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":null,\"tool_calls\":[{\"id\":\"call_000000000000000f\",\"type\":\"function\",\"function\":{\"name\":\"get_weather\",\"arguments\":\"{\\\"city\\\":\\\"Reykjavik\\\",\\\"days\\\":3}\"}}]},\"finish_reason\":\"tool_calls\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":335,\"completion_tokens\":41,\"total_tokens\":376,\"prompt_tokens_details\":{\"cached_tokens\":335,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":0,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":319.30947599999996,\"response_token/s\":176.89740968724976}}",
+  "elapsed_s": 0.550817540002754
+}

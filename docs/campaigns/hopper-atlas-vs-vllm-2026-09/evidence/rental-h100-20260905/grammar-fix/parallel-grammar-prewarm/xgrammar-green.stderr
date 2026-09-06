@@ -1,0 +1,3 @@
+   Compiling xgrammar v1.0.0-beta-preview (/home/pidtom/atlas-grammar-prewarm-20260905/crates/xgrammar)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.83s
+     Running unittests src/lib.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/xgrammar-d605f66052f45b03)

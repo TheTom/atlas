@@ -1,0 +1,21 @@
+{
+  "model": "qwen3.8-27b-q4_k_m",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful, precise assistant. Answer the question directly and correctly. Work step by step when a question needs it, and state the final answer explicitly. Do not refuse or hedge on simple factual or arithmetic questions."
+    },
+    {
+      "role": "user",
+      "content": "Name the capital city of Japan, then describe it in a few sentences."
+    }
+  ],
+  "temperature": 0.0,
+  "seed": 42,
+  "presence_penalty": 0.0,
+  "frequency_penalty": 0.0,
+  "max_tokens": 256,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  }
+}

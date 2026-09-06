@@ -1,0 +1,23 @@
+	Command being timed: "cargo +1.93.1 build --locked --release -p spark-server --bin spark --no-default-features --features cuda,nccl"
+	User time (seconds): 214.09
+	System time (seconds): 5.24
+	Percent of CPU this job got: 484%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:45.27
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2327564
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 21
+	Minor (reclaiming a frame) page faults: 1777392
+	Voluntary context switches: 8051
+	Involuntary context switches: 1988
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 235848
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

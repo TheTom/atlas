@@ -1,0 +1,1567 @@
+[
+  {
+    "path": "builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/activation.json",
+    "bytes": 433,
+    "sha256": "387ac78124f898a69f586032f4e5fb6eed21bcced350d7aa06a0cad8a34b7866"
+  },
+  {
+    "path": "builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/binary-path.txt",
+    "bytes": 91,
+    "sha256": "3431a9d15f5b2dff7089674fa40d884eb1f4a04315ed01f88ac01ddba110ea5e"
+  },
+  {
+    "path": "builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/build.json",
+    "bytes": 592,
+    "sha256": "eb16e183dc54e4d7d24b8a8d558a5567da02e46a28d67d92bd9481136edff02d"
+  },
+  {
+    "path": "builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/build.log",
+    "bytes": 474,
+    "sha256": "2378eac2ad1571612b7b1fcc9501008defe7504fdcece808b7d8e1a676bbe74c"
+  },
+  {
+    "path": "builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/df-after.txt",
+    "bytes": 89,
+    "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+  },
+  {
+    "path": "builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/df-before.txt",
+    "bytes": 89,
+    "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+  },
+  {
+    "path": "builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/exit-code.txt",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/finished.utc",
+    "bytes": 21,
+    "sha256": "0c7c5b3208e702c292df441ccb052a43197a75e41c95a71d9d040e3a58ca66a2"
+  },
+  {
+    "path": "builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/ldd.txt",
+    "bytes": 1144,
+    "sha256": "03ce1ceab478dbb191930be1015c33c7b73874873a7a0b093f9bda3473764b43"
+  },
+  {
+    "path": "builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/nvidia-smi-before.txt",
+    "bytes": 14961,
+    "sha256": "93430f3b0d2f3ae54983733f6369dbada34ec0f68ae6f8776f89c0408fd2e650"
+  },
+  {
+    "path": "builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/spark.sha256",
+    "bytes": 157,
+    "sha256": "93f44a64757c700a4e092349be805b1100a0cadb9a59d936345fa5282ce66c77"
+  },
+  {
+    "path": "builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/target-size.txt",
+    "bytes": 36,
+    "sha256": "4f94ec6906645a570c6ab276aad5c3787d9fe89165f81f622b45ed97bfcb8516"
+  },
+  {
+    "path": "builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/tenants-before.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "builds/37228e85a72230e3857dbbb6c8d3286793793887/qwen3.6-35b-a3b/time.txt",
+    "bytes": 843,
+    "sha256": "a07ad2d5af03173aa6cc39ea08224686f79e6d37d8752a0720bf669c3a1586c2"
+  },
+  {
+    "path": "builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/activation.json",
+    "bytes": 433,
+    "sha256": "5940c43f1dbf07d5dc4bf621aa49574572d59f49564ba61fbf048f2dabbe6cf7"
+  },
+  {
+    "path": "builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/binary-path.txt",
+    "bytes": 91,
+    "sha256": "e243a17b60fc7b52a1597fe6aae676b9e82bc0e3e09d28fd4a30707b1f6c5046"
+  },
+  {
+    "path": "builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/build.json",
+    "bytes": 592,
+    "sha256": "5fc8bd8766121285290270c43ac1e0ebb1d81f9e027f7d1adfbe0c2960f010e9"
+  },
+  {
+    "path": "builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/build.log",
+    "bytes": 597,
+    "sha256": "309133444188d05c9bf6155a373bb660b986c807fbfa92a9373413f319fa10ef"
+  },
+  {
+    "path": "builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/df-after.txt",
+    "bytes": 89,
+    "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+  },
+  {
+    "path": "builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/df-before.txt",
+    "bytes": 89,
+    "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+  },
+  {
+    "path": "builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/exit-code.txt",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/finished.utc",
+    "bytes": 21,
+    "sha256": "05a3f53f2ef69f84e80692fbda1769b9f5e2f33aea70c7fcb4a6c89f17f4b8b9"
+  },
+  {
+    "path": "builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/ldd.txt",
+    "bytes": 1144,
+    "sha256": "ca0c3a0e9ad8b67b0a4cdc4d12dd2e5a73c499df8f94d4073a48b198b3acf86c"
+  },
+  {
+    "path": "builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/nvidia-smi-before.txt",
+    "bytes": 14960,
+    "sha256": "aca62424c87ef7ff4f257de7058aa2bf9bec67c08e8ae201f7e978dc1514e247"
+  },
+  {
+    "path": "builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/spark.sha256",
+    "bytes": 157,
+    "sha256": "1697b797cd68d9250a05a51d959d543cc5023106d716c3484db0f63a708e59ec"
+  },
+  {
+    "path": "builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/target-size.txt",
+    "bytes": 36,
+    "sha256": "4f94ec6906645a570c6ab276aad5c3787d9fe89165f81f622b45ed97bfcb8516"
+  },
+  {
+    "path": "builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/tenants-before.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "builds/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/time.txt",
+    "bytes": 844,
+    "sha256": "2bd0cb4b79c02b5c21837a8ef61c3ec4b60930d800364438a900a95430627476"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/RESTRICTION.txt",
+    "bytes": 204,
+    "sha256": "af096db1c91120917ec1d4a9b5428d2b7269218fd8482b5383d8da0cee090038"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/admission.json",
+    "bytes": 17506,
+    "sha256": "54caef71a73160b8dce13ec33a5cea011da8d1ae53d412d5cec8e133610d2a3b"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/auto-blocking-1-exchange.json",
+    "bytes": 2039,
+    "sha256": "3515b3ac5283dc4455c5231d85a7ebfe6aa8b11abf521deb1dba68be15fcafff"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/auto-blocking-2-exchange.json",
+    "bytes": 2046,
+    "sha256": "5d06ef46d9835f1f7cf3afcd3ee2083ef0722dffe20650d75e1bc74437e8a597"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/auto-stream-1/chunks.jsonl",
+    "bytes": 3692,
+    "sha256": "0e903330ef3b72fedf808ff591d2307003b7713c0476fdbd6190dfeba4b13c60"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/auto-stream-1/report.json",
+    "bytes": 1304,
+    "sha256": "f7078c7a122f5dd45c90f7eb7e4e3da6a120843392cbde7c02d90db98d53dfe3"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/auto-stream-1/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/auto-stream-1.log",
+    "bytes": 114,
+    "sha256": "0456dd0460fee264604f4694fb4228fab35eb94ba6e0d45e126c61399377b96f"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/auto-stream-2/chunks.jsonl",
+    "bytes": 3687,
+    "sha256": "3e292b271c19e5c2a01d16ffd538d2f423ea99d6d31896fbaed7b5820d56ead2"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/auto-stream-2/report.json",
+    "bytes": 1301,
+    "sha256": "0c6ae1eaa8cb45f91ba497f6761e9fb14b96d0a68722a0ef1011d4d29678f175"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/auto-stream-2/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/auto-stream-2.log",
+    "bytes": 114,
+    "sha256": "722bb97d4fbbccfbf8c9de10f0c7283d01dc07e32298f2cf3021fce809d92db5"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/available-spark.sha256",
+    "bytes": 100,
+    "sha256": "42898c6548700540a98e591aa7ed32724f37621bc63a8e922b192d9e9faf366e"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/boot.json",
+    "bytes": 7064,
+    "sha256": "8dab71a068452970bc1ea696de180e396cb100c8413901994fdc3db306926722"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/boot.log",
+    "bytes": 7064,
+    "sha256": "8dab71a068452970bc1ea696de180e396cb100c8413901994fdc3db306926722"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/capture.log",
+    "bytes": 1985,
+    "sha256": "7f9816a50f656f25881e56b15e442e23facb173c0502eb1a79d7bea92cf80c41"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/decode-timing-summary.json",
+    "bytes": 3667,
+    "sha256": "339f34b2b95b4e739aa3dcb5b74072cd1fb872383973f277e756d6113e9f3355"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/df-after.txt",
+    "bytes": 89,
+    "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/df-before.txt",
+    "bytes": 89,
+    "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/endpoint-admission.json",
+    "bytes": 250,
+    "sha256": "6410aed73d282cbd74a8ddbc90e83cb3d638271458f4790ccb23d8bd284dfe08"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/endpoint-admission.log",
+    "bytes": 230,
+    "sha256": "77be8c2ab3ea9604a06d6a99edd32ba2529468623e5cec607b2ccb5dd483b2dd"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/endpoint-owned.json",
+    "bytes": 863,
+    "sha256": "9ce68244925d286fc32b9efc47f84d08b86afb331430b3f87bf9c41c985daff7"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/endpoint-owned.log",
+    "bytes": 729,
+    "sha256": "9aedd9708331b75c566151274eeb34adb4459c5090960446271d89e499f2a4b3"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/exit-code.txt",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/harness.sha",
+    "bytes": 41,
+    "sha256": "bbdfaeb8959992d6666d69e125d526b99f54d77c2ef56ce8ed5c0ec5b209c860"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/launch-ready.json",
+    "bytes": 2277,
+    "sha256": "2dc3bde4ab6b0ea34d8db97ed34ef05e7c75b39496146427d0129bfcbc7127ae"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/launch.json",
+    "bytes": 2277,
+    "sha256": "da9e7f212d80b1c4bd272c250689bbc65fc6aa774588a26cfff0e77b2676a2cd"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/named-blocking-1-exchange.json",
+    "bytes": 2123,
+    "sha256": "6db7e652afe8cc8e7bb8e8430bc09db04bafad527d33ed1e0d751b7cb4a703b2"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/named-blocking-2-exchange.json",
+    "bytes": 2131,
+    "sha256": "6c25c3c531711642ee5b70a333290bdc3064dc4f718f66e1aad884ee845884a3"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/named-stream-1/chunks.jsonl",
+    "bytes": 3688,
+    "sha256": "0e28d25e40099018ef1b701b31d8e10de0ad632937abab54320f060e53a6a396"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/named-stream-1/report.json",
+    "bytes": 1301,
+    "sha256": "d6a52bc3991d2210864777998509080616035387ade459ae1bb128956c096c10"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/named-stream-1/request.json",
+    "bytes": 1128,
+    "sha256": "6a402aced5ffa7476bbc29aef3486a2e875a782fffce2f360ac0d74ac26d97de"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/named-stream-1.log",
+    "bytes": 115,
+    "sha256": "e3a2151b13bd13199b0719a9f38f7f0328dbbe7ba1febda89cdc652d888bc933"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/named-stream-2/chunks.jsonl",
+    "bytes": 3693,
+    "sha256": "0542bb6ce4790f91b4ec095f8a7b76f3e32758b0e9728cc66de8f0bc2df62e6d"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/named-stream-2/report.json",
+    "bytes": 1305,
+    "sha256": "2430531a8de1491cf975b9dd06ea3feb870bf3528b8df49a63a384304c77718d"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/named-stream-2/request.json",
+    "bytes": 1128,
+    "sha256": "6a402aced5ffa7476bbc29aef3486a2e875a782fffce2f360ac0d74ac26d97de"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/named-stream-2.log",
+    "bytes": 115,
+    "sha256": "4afc9b89fd89ffe9d0349e6c63ba4ccce381ac989c6b7224770715d1c9f2d2a8"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/nvidia-smi-q.txt",
+    "bytes": 14959,
+    "sha256": "19df9e1e90b158b44dc4c439cf1fb41e4b10d297c2278cf0aa35fd3beeb285b0"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/owner.json",
+    "bytes": 2140,
+    "sha256": "b93776423a8fc243ac4578fb9e705962321879087a0603cb080fcc486ec6b7e4"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/process-env.json",
+    "bytes": 318,
+    "sha256": "95c6821af3157ca931a2ed4384df70f6eae8bf03b6c0b90c14269537ab7febd3"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/ready.utc",
+    "bytes": 21,
+    "sha256": "fb8a3f499e213fc34b98d9f1c7c9a892bbda84ce2646fe921006667912b44539"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/requests-complete",
+    "bytes": 33,
+    "sha256": "171eefc776c116a314ee5b92300b9b112da244a30be633f1612be554d34493ac"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/required-blocking-1-exchange.json",
+    "bytes": 2051,
+    "sha256": "8df6418ad769b6c5473f63a764a6797c8cf2cecce68cd26f4cdd5d3d8aae9811"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/required-blocking-2-exchange.json",
+    "bytes": 2043,
+    "sha256": "cc749f8e2d8641a744132a4e1fdf08f00f1ea7e4387ab92fc1ab5c492b20f4b9"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/required-stream-1/chunks.jsonl",
+    "bytes": 3691,
+    "sha256": "db87c3d0f231ae034f3c86961c31837d49d7f314d54df8693afb5e2e9c4c2724"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/required-stream-1/report.json",
+    "bytes": 1304,
+    "sha256": "f0e30e6369fce86b740fa9ff2651491bb12ff6f8fc16df0995c5d306ace66ed1"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/required-stream-1/request.json",
+    "bytes": 1057,
+    "sha256": "42f788a1b0c30f0a35900cdf3634d766c36678fe7ebaa0e278f306d3b4d8b262"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/required-stream-1.log",
+    "bytes": 118,
+    "sha256": "3256f90e1bb6eab9cd5c9a6dee2ebc65a8406e0ebfaf46ace5f7b4d1c0ef4df1"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/required-stream-2/chunks.jsonl",
+    "bytes": 3706,
+    "sha256": "9c4ed90c25f7c79c766c617ce7669021c5a17932b2b6b29fbd1e358411c93633"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/required-stream-2/report.json",
+    "bytes": 1314,
+    "sha256": "f2b8cf9c6996b838269e01e9337dc9c9176a1da09c0f9dfeb066da32374d7732"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/required-stream-2/request.json",
+    "bytes": 1057,
+    "sha256": "42f788a1b0c30f0a35900cdf3634d766c36678fe7ebaa0e278f306d3b4d8b262"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/required-stream-2.log",
+    "bytes": 118,
+    "sha256": "d2dba8d0796c8607a6d5e80dfada803769f794cbd6d3cc3f434c1dea8a0ecce2"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/serve.argv",
+    "bytes": 714,
+    "sha256": "d0c14f255e810be8d13604e1c831b42e631520eb100be7f619ffc2e564c8a411"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/serve.log",
+    "bytes": 156254,
+    "sha256": "9963661b464ec3b66d5c54df557cd21777b9e003807c42d4bfd87923a830a6c9"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/start.log",
+    "bytes": 1985,
+    "sha256": "184d2e4564a8c7b5549d6686b6883ab3985d83bf0123f19bacf52231569f06ad"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/stop.json",
+    "bytes": 63,
+    "sha256": "dfec094509e43d3e443df02a111edd0c218d62207f79450331103af80c699646"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/stop.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/tenants-after.txt",
+    "bytes": 17,
+    "sha256": "a8842fc86e1d9cd33dcc35dae03d9957ddb0a9a4e4e16b2effbb8d09b7b5f196"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-0-plain/chunks.jsonl",
+    "bytes": 11165,
+    "sha256": "a4e19a1c74a79a0bab9a7f74861c5f9145503b057e937034ddd2d1389f4fc761"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-0-plain/report.json",
+    "bytes": 1178,
+    "sha256": "903d0525d862039364a12a463b84dcb9c5e3479fb2c820c6894838708d6039a5"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-0-plain/request.json",
+    "bytes": 457,
+    "sha256": "d773a7c98b0f01de66d862914bd228b1c5dea2583ea454d70fdb910c76a8a33d"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-0-plain.log",
+    "bytes": 115,
+    "sha256": "342b620ec37368ba921292294e891b1bc01cfbccbc0fd7d955c4e3e042983d14"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-1-tool/chunks.jsonl",
+    "bytes": 3691,
+    "sha256": "083cc1e397469b01e35fba5d746042f7000f5438c6fde12b6dccd9d6bbe6f4b1"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-1-tool/report.json",
+    "bytes": 1304,
+    "sha256": "5befd00c32d546d2c5238595aad75d52c919f9977313a9e776614a63aa2d363f"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-1-tool/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-1-tool.log",
+    "bytes": 114,
+    "sha256": "0a575df7874c850e2c70a7bf1ebf783336650d22b2012bf080024e6ebdb0b208"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-2-tool/chunks.jsonl",
+    "bytes": 3693,
+    "sha256": "7f4cbf595acb70810cfb7f48bcdeaf75440e4c8f6b6eeb03c9c9b38819c01573"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-2-tool/report.json",
+    "bytes": 1305,
+    "sha256": "ef1d6111c307a65c3e51ead4d887a328f6b08837a711dc570e45360d4a9c8705"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-2-tool/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-2-tool.log",
+    "bytes": 114,
+    "sha256": "abc70577238e1d1c53a9f3924ec00b69adaec11fb33c4be28643bcf5092fee33"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-3-tool/chunks.jsonl",
+    "bytes": 3704,
+    "sha256": "2fb27871f7179ec8d5931065e122489c8e82f1adcd01f12bc5449dd72ed28eb9"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-3-tool/report.json",
+    "bytes": 1314,
+    "sha256": "c1935a5324515c074a28e6f39b5a65ab0bd24095ce5d870c069f64ced3b14945"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-3-tool/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-3-tool.log",
+    "bytes": 114,
+    "sha256": "ac0a0b00da86f68a8a94e47fbc9651e684ab14d86d808e9b95a0f63d4032c1ef"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-4-tool/chunks.jsonl",
+    "bytes": 3695,
+    "sha256": "cb9f7b5646f9b89a285e5989295cea7ba55051bcfc9ce078740b042240227eb2"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-4-tool/report.json",
+    "bytes": 1305,
+    "sha256": "b4b2f1db569386377f5082588890edf5ea5999f4cd218a7a2c7652bfb29f638a"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-4-tool/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/timing-4-tool.log",
+    "bytes": 114,
+    "sha256": "5e1784132349d6a8cf53a2839d6bb66bcb8f20af640fb5f1123a5eee55f5f58e"
+  },
+  {
+    "path": "diagnostic.atlas.coldfix01/tool-retest-summary.json",
+    "bytes": 7838,
+    "sha256": "a996323e6368d48fda8fecb8d35abd9ac11fe12c158de3d2664c0e583305b188"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/RESTRICTION.txt",
+    "bytes": 204,
+    "sha256": "af096db1c91120917ec1d4a9b5428d2b7269218fd8482b5383d8da0cee090038"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/admission.json",
+    "bytes": 17507,
+    "sha256": "a28120455aecbaa5bd735359c1a4ace5a9543b631ff380fbb5f2625dc4d09b36"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/auto-blocking-1-exchange.json",
+    "bytes": 2047,
+    "sha256": "bf044834078fdc6e988963f5801320930aeae9e46af9dec3b5d68faa565d3644"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/auto-blocking-2-exchange.json",
+    "bytes": 2037,
+    "sha256": "2f9d808ce73da76e50cffd1db3e937e1ebafc851c532ab69f397b913e60e3616"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/auto-stream-1/chunks.jsonl",
+    "bytes": 3690,
+    "sha256": "86ba75e5115681be83f4ccdf02e93a5df99d281d74790097ec4174a7b22b863a"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/auto-stream-1/report.json",
+    "bytes": 1304,
+    "sha256": "aaea3705388e9a62d4bc56e1a70a2cc279fd0d39dddb1078a801ef5cd31aace1"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/auto-stream-1/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/auto-stream-1.log",
+    "bytes": 117,
+    "sha256": "e5a129e2a0da1087a88c281941db2805d1fef0a8d7e2b785a78fe9499237c63e"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/auto-stream-2/chunks.jsonl",
+    "bytes": 3703,
+    "sha256": "6a362de2deef7e90871ee60c007e720c78cf1d7b2c3046a36844190ab090cd79"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/auto-stream-2/report.json",
+    "bytes": 1311,
+    "sha256": "e4c513667335bf8ce7238a5048f692e12307b35ad23932699065e00a180a3d3b"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/auto-stream-2/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/auto-stream-2.log",
+    "bytes": 117,
+    "sha256": "fb39572e7747ff06f3274964ec808c5c4b36db2bea11dcc8f9f78f30fbcab710"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/available-spark.sha256",
+    "bytes": 100,
+    "sha256": "70f692c39449e95412fbd9e24ad6857a00f0cb6723fedb73aed5f4349d36db5a"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/boot.json",
+    "bytes": 7379,
+    "sha256": "b7ed210f9ee196b20798c798768c8ab0c9db51a129493586354df7e7ea9520a3"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/boot.log",
+    "bytes": 7379,
+    "sha256": "b7ed210f9ee196b20798c798768c8ab0c9db51a129493586354df7e7ea9520a3"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/capture.log",
+    "bytes": 1985,
+    "sha256": "2b954610c8f2ea3b4863c4dd9604e36af64e514b8a7735445034adab5b5fe4c7"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/decode-timing-summary.json",
+    "bytes": 3661,
+    "sha256": "abde01f3525e51b0685b9a4f8f20c7062c37d7f4497d5a40ca60bb099d322645"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/df-after.txt",
+    "bytes": 89,
+    "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/df-before.txt",
+    "bytes": 89,
+    "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/endpoint-admission.json",
+    "bytes": 250,
+    "sha256": "03996bbe50d09ddadbda1590937f5cbca0bd78a86f7eade13b98e40478f39419"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/endpoint-admission.log",
+    "bytes": 230,
+    "sha256": "c50c366346635365154653e7f06f1a5c8eefad76ec20bc9459859c00fb48ccdd"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/endpoint-owned.json",
+    "bytes": 863,
+    "sha256": "06cd3037f881acebfac2708bab8f821ffd101761bb9865cdda0eff3b3712f140"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/endpoint-owned.log",
+    "bytes": 729,
+    "sha256": "f26721fdd46e2da6bcb3b1b08111a66c80206ee6c4ee0881c8bc17115ddc0d65"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/exit-code.txt",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/harness.sha",
+    "bytes": 41,
+    "sha256": "6ec6c119b147461cfc76186166f4ee2b64bb3e5436775dfef118c0da614883a1"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/launch-ready.json",
+    "bytes": 2277,
+    "sha256": "0a88e5336ca0ecd1167260cfd6b2b3314ff14316e41c921a693fe096bc9e7b23"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/launch.json",
+    "bytes": 2277,
+    "sha256": "583b79bd550a55a6e4041cfbc3c432e186a697dbe2d6f8efad30ffb06b25e044"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/named-blocking-1-exchange.json",
+    "bytes": 2124,
+    "sha256": "17a2c053c69f332f2c921aa3f4944d503a15bcb9915f55e6b325e0bb7b729077"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/named-blocking-2-exchange.json",
+    "bytes": 2124,
+    "sha256": "d55581550d28e26f27cff61225bb8949f8485797f02010c8e4349e463c524d39"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/named-stream-1/chunks.jsonl",
+    "bytes": 3699,
+    "sha256": "e38ea4c68d2910495d2fa42a5f5595fbebcf8fd8b30f3f81c8227ab875582f59"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/named-stream-1/report.json",
+    "bytes": 1309,
+    "sha256": "d10330220359689e1dbf7617f73b9b5bef0818a64d1f9716257110790e2e1856"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/named-stream-1/request.json",
+    "bytes": 1128,
+    "sha256": "6a402aced5ffa7476bbc29aef3486a2e875a782fffce2f360ac0d74ac26d97de"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/named-stream-1.log",
+    "bytes": 118,
+    "sha256": "648b79d22d8da8b2f5f315e1abc6584753f1eeb86a7f4b842026fa09c8f64f55"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/named-stream-2/chunks.jsonl",
+    "bytes": 3702,
+    "sha256": "93366a1403b3d2a9eb5451dcae97d627403267e1ff5bc5f249076e728e11987e"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/named-stream-2/report.json",
+    "bytes": 1309,
+    "sha256": "d9db968cabfd41013f2dff785371c27b187bea8aa20e0da91abd7044135b240c"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/named-stream-2/request.json",
+    "bytes": 1128,
+    "sha256": "6a402aced5ffa7476bbc29aef3486a2e875a782fffce2f360ac0d74ac26d97de"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/named-stream-2.log",
+    "bytes": 118,
+    "sha256": "07261174d9bce4629e5d5b3bad9fbc136d6dc48220ea8d6f793b0514e3b9f5c1"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/nvidia-smi-q.txt",
+    "bytes": 14959,
+    "sha256": "05776e89b749925257d70d6122906cb7382e41818df26f0df7c8b26464552fbf"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/owner.json",
+    "bytes": 2140,
+    "sha256": "70b7b97f79337fb230fa69e344b6928a16e6b12bd48c39cc20636e5a162f724c"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/process-env.json",
+    "bytes": 318,
+    "sha256": "95c6821af3157ca931a2ed4384df70f6eae8bf03b6c0b90c14269537ab7febd3"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/ready.utc",
+    "bytes": 21,
+    "sha256": "327b0b0f7950f1f99924286c8d4682ce52ee5a1bfb433d018f71de7132f018f2"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/requests-complete",
+    "bytes": 33,
+    "sha256": "fb61d7a7330c55cb8cd8d8897d9bab200ecbdf933452ac46c34edba6a467f8c4"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/required-blocking-1-exchange.json",
+    "bytes": 2051,
+    "sha256": "3d65b9106452bae56510cfcd772724359f117b2fc830aa8e592dac4d9163ad3e"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/required-blocking-2-exchange.json",
+    "bytes": 2043,
+    "sha256": "e30fee681ebc1a0d3cbbf7e4deecde4aa1c5972beef1a3b40936ca7c5a38cd60"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/required-stream-1/chunks.jsonl",
+    "bytes": 3690,
+    "sha256": "9d1dae561c8407dbb8e0587150dd8c0d7caeef97b32ed5f4d2930ede0a051a3d"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/required-stream-1/report.json",
+    "bytes": 1303,
+    "sha256": "3382e37e255caa5b3dc5c56ccee29f33903eabecd3766020f7083bd63f72f8b0"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/required-stream-1/request.json",
+    "bytes": 1057,
+    "sha256": "42f788a1b0c30f0a35900cdf3634d766c36678fe7ebaa0e278f306d3b4d8b262"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/required-stream-1.log",
+    "bytes": 121,
+    "sha256": "0310997aa4075130ab4f659f7b6aa21da3b9966399443cd67c0066188736685b"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/required-stream-2/chunks.jsonl",
+    "bytes": 3692,
+    "sha256": "c974f0f39de943dfa4c17c722d1c88bc042694c4651ab26aebbb2b857cb13647"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/required-stream-2/report.json",
+    "bytes": 1304,
+    "sha256": "06fb7cac9251ce2d9194fda1c11fb11dbb2aefb3a0a91a0149b3393f8741db1b"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/required-stream-2/request.json",
+    "bytes": 1057,
+    "sha256": "42f788a1b0c30f0a35900cdf3634d766c36678fe7ebaa0e278f306d3b4d8b262"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/required-stream-2.log",
+    "bytes": 121,
+    "sha256": "894460a7c6e9eb0b3d5014862849804dae1341cd9c86ce2640d5efac75bd0317"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/serve.argv",
+    "bytes": 714,
+    "sha256": "d0c14f255e810be8d13604e1c831b42e631520eb100be7f619ffc2e564c8a411"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/serve.log",
+    "bytes": 156254,
+    "sha256": "f529e7246aeea859b7288b3c9f1ff13c6e7c5fa49416af67291b7f7608f7fb63"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/start.log",
+    "bytes": 1985,
+    "sha256": "79b75e42520c4bab5a51b99b8d3dea633f981deb07e44b3a1324b3587783c254"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/stop.json",
+    "bytes": 63,
+    "sha256": "bb060eb0dea3869a4a494765b06b2890f2790e294a44614096b782fa63e7ad7d"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/stop.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/tenants-after.txt",
+    "bytes": 17,
+    "sha256": "55c303c1c9859ec078e72adea979340b2f6a241b72d1b0d1f3a42c89fe2f7f0b"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-0-plain/chunks.jsonl",
+    "bytes": 11180,
+    "sha256": "e8b74278db79fd5e4547113f77ded7f53295b3d4d26e297438a27d8134d19493"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-0-plain/report.json",
+    "bytes": 1186,
+    "sha256": "722433cc24dfeded2e967a81bcc62bb37a0c649f1235377938e981962c3c5333"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-0-plain/request.json",
+    "bytes": 457,
+    "sha256": "d773a7c98b0f01de66d862914bd228b1c5dea2583ea454d70fdb910c76a8a33d"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-0-plain.log",
+    "bytes": 118,
+    "sha256": "c38216d8c3e0dcce78d9dcb4b30fafeb9213f4df3846571f78171ba62fbd6dd0"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-1-tool/chunks.jsonl",
+    "bytes": 3685,
+    "sha256": "c26c34e094a25dcbe9829bef5a9389901019dc58585ec551c5b9c5096c5dcb6b"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-1-tool/report.json",
+    "bytes": 1300,
+    "sha256": "3920627af39ea3661dc672f44b3bc1402f7d9cbacad157712c1f2a75a03b697e"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-1-tool/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-1-tool.log",
+    "bytes": 117,
+    "sha256": "d2ee0df9564f413c94d71a43cfbdd3f583f149f6408de72af79284b0144a7922"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-2-tool/chunks.jsonl",
+    "bytes": 3694,
+    "sha256": "86a17a2b65345e79da60bafb1b0d288daebab1bd1c0fec2a9d917d4da5823f33"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-2-tool/report.json",
+    "bytes": 1305,
+    "sha256": "94a2c356a722138bfdbf4448fcc6e670eb5e01957c80ce29ac96fd064c8f2e95"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-2-tool/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-2-tool.log",
+    "bytes": 117,
+    "sha256": "794ec567eb99209851cd7cde0aaf74ce263f16301858ec4f2d0e6db66e10733e"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-3-tool/chunks.jsonl",
+    "bytes": 3694,
+    "sha256": "7dbdb0e9946ffeddf6ddde285fbe638faa26b315fb588f8000868a19706a7ad5"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-3-tool/report.json",
+    "bytes": 1305,
+    "sha256": "a1d2d47ec0c993714cad7750cc54af3784a78249c72f348b2a51275c7de91587"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-3-tool/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-3-tool.log",
+    "bytes": 117,
+    "sha256": "1cec276028f747f4210210cfce2eae3e7db128a156ba3bf41e156b6308455363"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-4-tool/chunks.jsonl",
+    "bytes": 3695,
+    "sha256": "f7ce6bd4012aaa0bdf4737f6544e6b85a98a5d34f857f73c05e5cb673ce46935"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-4-tool/report.json",
+    "bytes": 1304,
+    "sha256": "d5fcf8ea58f2549e35f598dcb61e3edf7d6807665463cab6f35148b06ca6a4e6"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-4-tool/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/timing-4-tool.log",
+    "bytes": 117,
+    "sha256": "5c69519e13e920fae4d5b33824745502d03977cbb9a5e74533ca51a213dcc7e8"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix01/tool-retest-summary.json",
+    "bytes": 7844,
+    "sha256": "5a40b11646073c741b89f89bb5892e54420f9436629a923b618ee020f34f6b04"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/RESTRICTION.txt",
+    "bytes": 204,
+    "sha256": "af096db1c91120917ec1d4a9b5428d2b7269218fd8482b5383d8da0cee090038"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/admission.json",
+    "bytes": 17506,
+    "sha256": "fc6850a5cee6460eb3b464223f8eb240503a2f2e3040b067e20dcf62a8fc6e41"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/available-spark.sha256",
+    "bytes": 100,
+    "sha256": "70f692c39449e95412fbd9e24ad6857a00f0cb6723fedb73aed5f4349d36db5a"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/boot.json",
+    "bytes": 7065,
+    "sha256": "a09d4f36222722c3968034a6e26710db46890525c9babff00153519f620344e7"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/boot.log",
+    "bytes": 7065,
+    "sha256": "a09d4f36222722c3968034a6e26710db46890525c9babff00153519f620344e7"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/capture.log",
+    "bytes": 1985,
+    "sha256": "aed1f68a4288f5ffae1339775538b8e64bd974167b4bf547abf41eee014c0526"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/decode-timing-summary.json",
+    "bytes": 3667,
+    "sha256": "ff3d33652c8bc5ecdd2fa7e64a8fcaa8922a690268b95de7f16a07444e0240c0"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/df-after.txt",
+    "bytes": 89,
+    "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/df-before.txt",
+    "bytes": 89,
+    "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/endpoint-admission.json",
+    "bytes": 250,
+    "sha256": "facd9fb6d969793ca2806b055ed0916525eb207c90d290b4b5189278d2c33a33"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/endpoint-admission.log",
+    "bytes": 230,
+    "sha256": "a581e744e08893e7f14104f10961a9eb5762429212b67847a433ffaedfe2b4da"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/endpoint-owned.json",
+    "bytes": 863,
+    "sha256": "ec92396fc36fe5ae2c7e853a96f8b0e6ee3a0c1614e9c0feeb13cafcf9bca160"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/endpoint-owned.log",
+    "bytes": 729,
+    "sha256": "bd638a7948c64ff7c9b01f879d88a1f8fe43de6573dd3ebe15eed8c09e4dac08"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/exit-code.txt",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/harness.sha",
+    "bytes": 41,
+    "sha256": "6ec6c119b147461cfc76186166f4ee2b64bb3e5436775dfef118c0da614883a1"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/launch-ready.json",
+    "bytes": 2277,
+    "sha256": "e146f7ef3519143d5bd780498c2e0e85bdf33be084ceac2dd0c76e456bf7a901"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/launch.json",
+    "bytes": 2277,
+    "sha256": "6c97c04a4b2cb4024de971b38e37641ba4615f548eb447236c0358683e6cc568"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/nvidia-smi-q.txt",
+    "bytes": 14959,
+    "sha256": "f319f9e409d54762d8838116addaf2bb916554207e3b7a9e5e92cbd6533a1093"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/owner.json",
+    "bytes": 2140,
+    "sha256": "0a7a7cd09b2b5d805613b6764c73ce951fd639f019216280f309141b92774c39"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/process-env.json",
+    "bytes": 318,
+    "sha256": "95c6821af3157ca931a2ed4384df70f6eae8bf03b6c0b90c14269537ab7febd3"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/ready.utc",
+    "bytes": 21,
+    "sha256": "0728db3a99ef75cf43eaae60ddf30703e9fc27e776642855012eec8cc1636421"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/requests-complete",
+    "bytes": 33,
+    "sha256": "779869b7e70ece7f76c005ef1b5601cc9d21b0bc0daba9bbf2f301e7125ed0ea"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/serve.argv",
+    "bytes": 714,
+    "sha256": "d0c14f255e810be8d13604e1c831b42e631520eb100be7f619ffc2e564c8a411"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/serve.log",
+    "bytes": 123872,
+    "sha256": "fcb23929a18df19e73ff785a05ee6a86d898e7b67ee1ad9ccf66463f88a15277"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/start.log",
+    "bytes": 1985,
+    "sha256": "cf2e6217647953e4da0f672d0a5f68333b7445617f797bbbbcdae4f2bd4d7c3a"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/stop.json",
+    "bytes": 63,
+    "sha256": "006195eade2d449d91e37478d567dd082b2c9dc1a33ccc36eb60ec29d915366d"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/stop.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/tenants-after.txt",
+    "bytes": 17,
+    "sha256": "9647f53ab2baff3cf9cf90bcbbe7c99f3060d8b71683425c5d0b13ed6ffcd292"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-0-plain/chunks.jsonl",
+    "bytes": 11181,
+    "sha256": "7f00e3ba61dbcc047108a0b80a629fe4f5a083bc2184e91d2875329de3813dc3"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-0-plain/report.json",
+    "bytes": 1185,
+    "sha256": "284d2773b09813d9bcfce3cf22b0f2a7d753b98822c93cd164601e5e1eefa7a1"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-0-plain/request.json",
+    "bytes": 457,
+    "sha256": "d773a7c98b0f01de66d862914bd228b1c5dea2583ea454d70fdb910c76a8a33d"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-0-plain.log",
+    "bytes": 118,
+    "sha256": "a8c252d2c36aaf496c025dde73af00926e75350a9c37cc0b1834812b59e3c0be"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-1-tool/chunks.jsonl",
+    "bytes": 3685,
+    "sha256": "65fcab1366e1d8c891807968d86c1160e6872862773fadee73f5389b18f050bc"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-1-tool/report.json",
+    "bytes": 1299,
+    "sha256": "18e14485f7e8f4278d1004d321aed8af9198d25fad56949b7c1c8a7777602768"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-1-tool/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-1-tool.log",
+    "bytes": 117,
+    "sha256": "b67e28650820062c14b764d66a20bb476e00aa4f71acd6949977a624211f1106"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-2-tool/chunks.jsonl",
+    "bytes": 3696,
+    "sha256": "46c88f89430a2603e722e1400b7360a1701f806d6ea8878ced17408c6ee8898a"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-2-tool/report.json",
+    "bytes": 1306,
+    "sha256": "61b718cc57e4fbf9ab4d3a3544b9192d38cd2632d33f731c1aa745204269552d"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-2-tool/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-2-tool.log",
+    "bytes": 117,
+    "sha256": "e0259bfdb9e007bd2b1746d92890265d3e3df8acf6a18138fb675a54d33e4c15"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-3-tool/chunks.jsonl",
+    "bytes": 3701,
+    "sha256": "18b80a33727154f3fe4c3eeb9b5ba310794b8e8080ad75f0df410ec75f23fa18"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-3-tool/report.json",
+    "bytes": 1311,
+    "sha256": "04ca61f5984c0c6d6e76f00a5b494ae36b0d1a729c309f78157e96e884d63fd8"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-3-tool/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-3-tool.log",
+    "bytes": 117,
+    "sha256": "2aef53566b24f3333a250eea2cf18fe8935a7a9105b4ab0ac4d054269180fad9"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-4-tool/chunks.jsonl",
+    "bytes": 3691,
+    "sha256": "a7616f7f419a71fab0802c10e3e306266592a9eb4cc80dafb3af23b61978eb6c"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-4-tool/report.json",
+    "bytes": 1303,
+    "sha256": "8fc0036c4b88f1e8bc6b722b09ab639e5d29b2f0c494d767a84a8193b3171f18"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-4-tool/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.grammarfix02/timing-4-tool.log",
+    "bytes": 117,
+    "sha256": "a88f60cdca4abc2486251935bf5205a12a4e1f947cfbabb6e499fd8b5123a3db"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/RESTRICTION.txt",
+    "bytes": 204,
+    "sha256": "af096db1c91120917ec1d4a9b5428d2b7269218fd8482b5383d8da0cee090038"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/admission.json",
+    "bytes": 17509,
+    "sha256": "99606ba4d71e36086c957d2b3a5ea7373853049908838313d72a62ee4aea4ae0"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/auto-blocking-1-exchange.json",
+    "bytes": 2039,
+    "sha256": "1369b60ff2e76b5e80e5f5cfe5882f2b4604797bebdea285e9c3504ffe882362"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/auto-blocking-2-exchange.json",
+    "bytes": 2039,
+    "sha256": "b6d8f60d36d3184fef9e65c2df2eb7bafb05089126cbaa9650a56fc004fb33f0"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/auto-stream-1/chunks.jsonl",
+    "bytes": 3701,
+    "sha256": "71b47401eddcbacb5746c002e12906ca41a975eb7135cf3dea1fd01d786e2abc"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/auto-stream-1/report.json",
+    "bytes": 1310,
+    "sha256": "b2f6a7032f35c8f376ad7d5bd5410e2e224ab80da907b47d76464392f5b0c818"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/auto-stream-1/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/auto-stream-1.log",
+    "bytes": 116,
+    "sha256": "77e107f1320f8723eb8481641f492f25309ae7b60f20a973a2a5b4bdb0137625"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/auto-stream-2/chunks.jsonl",
+    "bytes": 3702,
+    "sha256": "c31977fcfee283a0b2b33f471e55f69b9010af3e1cfcbfae6bff37a046781311"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/auto-stream-2/report.json",
+    "bytes": 1312,
+    "sha256": "62c8989267a2ece103b008d890abc7f480ac196b3ff739d0611db6aef3fa51f8"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/auto-stream-2/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/auto-stream-2.log",
+    "bytes": 116,
+    "sha256": "67efad085736e36add98639d401b2f55debba2fbc3b1052e1639fa785954a5e8"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/available-spark.sha256",
+    "bytes": 100,
+    "sha256": "659be64a39f1e5279a5d660aca3d7f29d3a02f3e38add97a1a7408ac71d6988d"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/boot.json",
+    "bytes": 6908,
+    "sha256": "75c223daff1b09b09bf61a8d8e1a60c5adc976113d5b741b0f302eef99fde818"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/boot.log",
+    "bytes": 6908,
+    "sha256": "75c223daff1b09b09bf61a8d8e1a60c5adc976113d5b741b0f302eef99fde818"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/capture.log",
+    "bytes": 1985,
+    "sha256": "9fcc1dc3bd7a5a1645eb66a11e0c65982b24d31df1fdc4bf15246ef6bf32f3f0"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/decode-timing-summary.json",
+    "bytes": 3660,
+    "sha256": "02ae06d5e252d656b4869aa3fa6c3c0bdfb09e1e925314201a777039a1c5c613"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/df-after.txt",
+    "bytes": 89,
+    "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/df-before.txt",
+    "bytes": 89,
+    "sha256": "5faa2bea7cdffdc6e9d44d6c86dbc7b968809413ea355c6f72b7a4b53875a6cf"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/endpoint-admission.json",
+    "bytes": 250,
+    "sha256": "e25dda0bfac417f1beb5d4dc8aee8e4c72080c5d4be36ef978976180b6eb3209"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/endpoint-admission.log",
+    "bytes": 230,
+    "sha256": "c0692d6d57a414a0d1055026179d8bf14b0e82da35de7118b9e6a5aa42b316fe"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/endpoint-owned.json",
+    "bytes": 863,
+    "sha256": "c670e55ea88b73947d2b052420a4ac22659885645c36fd3972d691761a5686d4"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/endpoint-owned.log",
+    "bytes": 729,
+    "sha256": "1546daa2ad94ce74a22d47da004b0a321604184131190fd394a49c89418e46f8"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/exit-code.txt",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/harness.sha",
+    "bytes": 41,
+    "sha256": "c52e64761c26b25ec273fb9a98f8339c6eafb7a6662343b02452a1551bd8fbe9"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/launch-ready.json",
+    "bytes": 2277,
+    "sha256": "5c6b1d15aeab6ad8001e9cc5dcf4be08994c572d9883b6f7a75dd52e81b78203"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/launch.json",
+    "bytes": 2277,
+    "sha256": "0d53cb4475e95b92db735d64cf04ecf0889b25f3890547e5379c95c35ad5407b"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/named-blocking-1-exchange.json",
+    "bytes": 2131,
+    "sha256": "22a1f6219ac3cf2eb279b47592b3a76da8393d482af60b7e8dc99ff5ac0683c7"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/named-blocking-2-exchange.json",
+    "bytes": 2132,
+    "sha256": "a03b02009c72dd8e789cf42f78cc6efa902adbd706292a1cb16c532561fa7912"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/named-stream-1/chunks.jsonl",
+    "bytes": 3702,
+    "sha256": "11fe66e38197afc7160a4e7853e0c00fc2c00ffcbf262a8f9d5e48b045f61b7a"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/named-stream-1/report.json",
+    "bytes": 1310,
+    "sha256": "16035b3ed5253edd9328cbb3db506206b936ae691a1c3421567e7edb8d3cebc3"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/named-stream-1/request.json",
+    "bytes": 1128,
+    "sha256": "6a402aced5ffa7476bbc29aef3486a2e875a782fffce2f360ac0d74ac26d97de"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/named-stream-1.log",
+    "bytes": 117,
+    "sha256": "25f538c451ae4cd6e359223d03f9ed828cfa5c30c356e398d94742e523283dff"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/named-stream-2/chunks.jsonl",
+    "bytes": 3691,
+    "sha256": "e64162706e27d93715ed7a200135337501e01e7f42768743254a50507d7d34d1"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/named-stream-2/report.json",
+    "bytes": 1303,
+    "sha256": "bbed27f90785dacaf6270e7eb5bcf2da18bbd7a3d6d98083bd1f2d3803f63085"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/named-stream-2/request.json",
+    "bytes": 1128,
+    "sha256": "6a402aced5ffa7476bbc29aef3486a2e875a782fffce2f360ac0d74ac26d97de"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/named-stream-2.log",
+    "bytes": 117,
+    "sha256": "8ed1731676a330470c94a3d76d7b526b91d90fe0b5f824829bd2bd6f1a22b1f1"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/nvidia-smi-q.txt",
+    "bytes": 14959,
+    "sha256": "c992292b7ef6581cf48c3655a86f16c9d0a5c14ee8584ac543c2a751547c2875"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/owner.json",
+    "bytes": 2140,
+    "sha256": "d0289e7d32a9b76332c45718e50901a9b3250b232338123e89c494851c0aeb88"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/process-env.json",
+    "bytes": 318,
+    "sha256": "95c6821af3157ca931a2ed4384df70f6eae8bf03b6c0b90c14269537ab7febd3"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/ready.utc",
+    "bytes": 21,
+    "sha256": "c2a18ea1eab9e39e568810e4b02624de20b3413b8e15e29017c52e4904c7358e"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/requests-complete",
+    "bytes": 33,
+    "sha256": "3534486e20063ae0f1e15887f513639b0c744a2e9a1e7a580751a345efa0c99f"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/required-blocking-1-exchange.json",
+    "bytes": 2043,
+    "sha256": "3ce1013d874a306521d12aa54103c7a8f703ff6f14a4d5aa2061ec5728806695"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/required-blocking-2-exchange.json",
+    "bytes": 2050,
+    "sha256": "4925fb91177592179136a9ef889083062df1bd13f9bd4fe1c0ede14e7a8f39c8"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/required-stream-1/chunks.jsonl",
+    "bytes": 3691,
+    "sha256": "dc0aeac516b78ee219da27b9d15fd0dcbd608764a7ea56416e42ca3557eae67b"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/required-stream-1/report.json",
+    "bytes": 1302,
+    "sha256": "12c1f5621b67fb3c37407ee1077c6d7ad9b99be1ef81fe4e40c93e748f7409fb"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/required-stream-1/request.json",
+    "bytes": 1057,
+    "sha256": "42f788a1b0c30f0a35900cdf3634d766c36678fe7ebaa0e278f306d3b4d8b262"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/required-stream-1.log",
+    "bytes": 120,
+    "sha256": "6edf0c139dd46fdccdc6493c35c38039adcadd194aa2e2d69b9593c10670c6c6"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/required-stream-2/chunks.jsonl",
+    "bytes": 3693,
+    "sha256": "263fb691a66df5b45c95214f687c92b879c91e17668743c1441c4833a72f481d"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/required-stream-2/report.json",
+    "bytes": 1306,
+    "sha256": "e32e51276ed2ea71467958fa735f258aff2d6864e20caae01b30525b25bdaa8f"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/required-stream-2/request.json",
+    "bytes": 1057,
+    "sha256": "42f788a1b0c30f0a35900cdf3634d766c36678fe7ebaa0e278f306d3b4d8b262"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/required-stream-2.log",
+    "bytes": 120,
+    "sha256": "c96701724579f8e92abd1679759c3d5cbf3ade28bf73f05785ee243376be0ed3"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/serve.argv",
+    "bytes": 714,
+    "sha256": "d0c14f255e810be8d13604e1c831b42e631520eb100be7f619ffc2e564c8a411"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/serve.log",
+    "bytes": 156254,
+    "sha256": "18d1dd7c685dc3a75a718a4a7c72943a7c6411a41c16439a9bfe66dd98a51b38"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/start.log",
+    "bytes": 1985,
+    "sha256": "f7e02aa736d07de473119557282f7dd98accd4c2d95d98a2ed0969a553b69963"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/stop.json",
+    "bytes": 63,
+    "sha256": "66bbbd112ca3b08390c8833f08e14df641b37ca2cc1ef4c27fed371d865d4311"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/stop.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/tenants-after.txt",
+    "bytes": 17,
+    "sha256": "35aabf6151546eca7aa9765f3b233b1e8107eeb555095e5ceb55522557918db2"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-0-plain/chunks.jsonl",
+    "bytes": 11166,
+    "sha256": "714aeec27c57698ac1ea8b8a67454d65d0aaf8d043bfaaf81fb1565f1827436f"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-0-plain/report.json",
+    "bytes": 1176,
+    "sha256": "2c0492b2a95849d3545c2b7e26e676543b331fe195e84d31d2d8efb2d2e595c5"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-0-plain/request.json",
+    "bytes": 457,
+    "sha256": "d773a7c98b0f01de66d862914bd228b1c5dea2583ea454d70fdb910c76a8a33d"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-0-plain.log",
+    "bytes": 117,
+    "sha256": "6618f2cebd5d1509def9d5014c0f9d9d3a712ab51d6e069cf94dbce23061fb95"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-1-tool/chunks.jsonl",
+    "bytes": 3688,
+    "sha256": "3316d60a93fe8685f495c27118ee9961c2e7b2fa353675ad977d858cc92e3f2e"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-1-tool/report.json",
+    "bytes": 1302,
+    "sha256": "c4d7addbb70baf79d0c33d344ff3578f276f3c2ecb7ee645a3d5e456fa4f1c96"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-1-tool/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-1-tool.log",
+    "bytes": 116,
+    "sha256": "21b9c912098556c7ef418a47a5c456ca8a4915fdc216778a6c1b1e7d65a7522f"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-2-tool/chunks.jsonl",
+    "bytes": 3693,
+    "sha256": "385c3d2713121474872a3c14ef7907c325a951f54eff1d9906e0a78a9a48887c"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-2-tool/report.json",
+    "bytes": 1304,
+    "sha256": "fd012d65ec5f418734d8481f7e64359422dc2ba3be2107c2b18769b3cd15148d"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-2-tool/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-2-tool.log",
+    "bytes": 116,
+    "sha256": "ff03963d8a8529bccaf7473c92b86034a9ca5f2e30d602b73b7c543df36c3774"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-3-tool/chunks.jsonl",
+    "bytes": 3702,
+    "sha256": "a883ac30bb75fd8b4e7155adbae64d9ae8e8a5e2d369b77f33683b47dd48afe4"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-3-tool/report.json",
+    "bytes": 1311,
+    "sha256": "0d43150968c27e50d94f837abd5b5eecb319b9ae21be16546be64130774317c5"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-3-tool/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-3-tool.log",
+    "bytes": 116,
+    "sha256": "3d338e170a2d6172f4e3b28f3e284b6e7f157a2026dc1fbb3d6e380e7a174086"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-4-tool/chunks.jsonl",
+    "bytes": 3696,
+    "sha256": "da3c687fd689bb7ddb79a71623f75561d371c194943a685926f0a76aa627b787"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-4-tool/report.json",
+    "bytes": 1306,
+    "sha256": "f65d40dc7aae2921384ba1f18bd79a66162908ca56a88a9dfc40ec9f87e755f4"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-4-tool/request.json",
+    "bytes": 1053,
+    "sha256": "b4afafc844bcad641e2c7b3224d1c9809217f45456407631bb5b865e98954229"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/timing-4-tool.log",
+    "bytes": 116,
+    "sha256": "51376c0b6aa13169f58405ce1e063de2cf53165424850db86c22f10236af7b8c"
+  },
+  {
+    "path": "diagnostic.atlas.serialfix01/tool-retest-summary.json",
+    "bytes": 7851,
+    "sha256": "8b31e536962e4f9e6d041e93ddfa3b33eccfab65538bddf3da402337a564b7e9"
+  }
+]

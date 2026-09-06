@@ -1,0 +1,84 @@
+{
+  "fmt": {
+    "argv": [
+      "cargo",
+      "fmt",
+      "--all",
+      "--",
+      "--check"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "diff": {
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "typos": {
+    "argv": [
+      "typos",
+      "crates/spark-server/src/grammar/engine.rs",
+      "crates/spark-server/src/grammar/tests/mod.rs",
+      "crates/xgrammar/src/compiler/compile.rs",
+      "crates/xgrammar/src/compiler/compiled_grammar.rs",
+      "crates/xgrammar/src/compiler/compiler.rs",
+      "crates/xgrammar/src/compiler/mod.rs",
+      "crates/xgrammar/src/compiler/tests/tier2_tests.rs",
+      "crates/spark-server/src/grammar/tests/native_prewarm.rs",
+      "crates/xgrammar/examples/native_prewarm_profile.rs",
+      "crates/xgrammar/src/compiler/prewarm.rs"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "files": {
+    "crates/spark-server/src/grammar/engine.rs": {
+      "sha256": "e2e8fbe3593b6b41e888e30c433b6342dfcbe817d298a2a749567954b52bc1c3",
+      "lines": 169
+    },
+    "crates/spark-server/src/grammar/tests/mod.rs": {
+      "sha256": "b8da15174cccabbd48ecc85915da6f709fa4b535328c6f55364acdf0e838667e",
+      "lines": 55
+    },
+    "crates/xgrammar/src/compiler/compile.rs": {
+      "sha256": "f9a8cd1e8454d9e1a95b9c0c32f4999f005a006a45b0b826ce7cfdeeb52db791",
+      "lines": 165
+    },
+    "crates/xgrammar/src/compiler/compiled_grammar.rs": {
+      "sha256": "56252c60badeb07ed2ff564612b0ebed61b4655bf2693c07e81951711d690c51",
+      "lines": 440
+    },
+    "crates/xgrammar/src/compiler/compiler.rs": {
+      "sha256": "9d7753ab50fe3420797fa65998f8961a2222929366fb0821d9f03f9717977d0f",
+      "lines": 280
+    },
+    "crates/xgrammar/src/compiler/mod.rs": {
+      "sha256": "c6329099c786b0bb9e4c55a391387924f549b220ba41e5492280fb2a9623a0c1",
+      "lines": 82
+    },
+    "crates/xgrammar/src/compiler/tests/tier2_tests.rs": {
+      "sha256": "05c8b90b4930388f831126f72a05cd916237ac706b21b44b418fe2048026fbb6",
+      "lines": 229
+    },
+    "crates/spark-server/src/grammar/tests/native_prewarm.rs": {
+      "sha256": "5ef5e9c1bf09956e55afbfd54c41b270582004573face18542dd2c2bbd5168fb",
+      "lines": 124
+    },
+    "crates/xgrammar/examples/native_prewarm_profile.rs": {
+      "sha256": "ec6fea9774400e3e0257fd90f94d3715942ce3ea2d9c6ac49dd8d1d43a9a1a7c",
+      "lines": 135
+    },
+    "crates/xgrammar/src/compiler/prewarm.rs": {
+      "sha256": "7977a252579db96770fb0995e267a01e9185b7959a7c6392bfa5168903043002",
+      "lines": 88
+    }
+  }
+}

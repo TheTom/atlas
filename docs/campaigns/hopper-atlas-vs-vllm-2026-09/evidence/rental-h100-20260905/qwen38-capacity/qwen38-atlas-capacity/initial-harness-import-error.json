@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python3",
+    "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/qwen38-atlas-capacity/actual_entry_capacity.py",
+    "/Users/tom/Documents/New project/atlas-qwen38-atlas-capacity4",
+    "/Users/tom/Documents/New project/atlas-qwen38-atlas-capacity4/bench/campaign/atlas_recipes.json",
+    "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/qwen38-staging/config.json"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/qwen38-atlas-capacity/actual_entry_capacity.py\", line 11, in <module>\n    spec.loader.exec_module(renderer)\n    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^\n  File \"<frozen importlib._bootstrap_external>\", line 759, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 491, in _call_with_frames_removed\n  File \"/Users/tom/Documents/New project/atlas-qwen38-atlas-capacity4/bench/campaign/atlas_render.py\", line 28, in <module>\n    from thinking_policy import E_THINK_POLICY, POLICY_PATH, refusal\nModuleNotFoundError: No module named 'thinking_policy'\n",
+  "seconds": 0.04003495799770462,
+  "catalog_sha256": "06abdb87f357b964f03f2535c4ea3bf9883222b86d308ac2815f8519f88a3f84"
+}

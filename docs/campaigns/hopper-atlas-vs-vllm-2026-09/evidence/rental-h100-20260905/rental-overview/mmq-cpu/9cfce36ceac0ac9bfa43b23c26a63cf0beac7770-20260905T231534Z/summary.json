@@ -1,0 +1,366 @@
+{
+  "passed": true,
+  "finished": "2026-09-05T23:21:04.264976+00:00",
+  "source": {
+    "head": "9cfce36ceac0ac9bfa43b23c26a63cf0beac7770",
+    "dirty": "",
+    "tracked_paths": 3200,
+    "content_sha256": "b6b9e5fc971102c85011ecbd599bdb72586e8b594a1973d2c369ca65dca7a75f"
+  },
+  "stages": [
+    {
+      "stage": "atlas-kernels",
+      "argv": [
+        "cargo",
+        "+1.93.1",
+        "test",
+        "--locked",
+        "-p",
+        "atlas-kernels"
+      ],
+      "started": "2026-09-05T23:15:34.926361+00:00",
+      "free_before": 426369302528,
+      "task_bytes_before": 79022030848,
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "ATLAS_SKIP_BUILD": "1",
+        "CUDARC_CUDA_VERSION": "13000",
+        "CARGO_TARGET_DIR": "/workspace/atlas-rental/target-cpu-checks",
+        "CARGO_BUILD_JOBS": "6",
+        "ATLAS_TARGET_HW": "hopper",
+        "ATLAS_TARGET_MODEL": "qwen3.8-27b",
+        "ATLAS_TARGET_QUANT": "nvfp4"
+      },
+      "finished": "2026-09-05T23:15:48.930084+00:00",
+      "elapsed_s": 14.003759826999158,
+      "exit_code": 0,
+      "stop_reason": null,
+      "free_after": 425855348736,
+      "test_summaries": [
+        "test result: ok. 16 passed; 0 failed; 6 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.51s",
+        "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s",
+        "test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s",
+        "test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s",
+        "test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.41s",
+        "test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s",
+        "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.25s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+      ]
+    },
+    {
+      "stage": "spark-model",
+      "argv": [
+        "cargo",
+        "+1.93.1",
+        "test",
+        "--locked",
+        "-p",
+        "spark-model"
+      ],
+      "started": "2026-09-05T23:15:49.391631+00:00",
+      "free_before": 425855340544,
+      "task_bytes_before": 79535992832,
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "ATLAS_SKIP_BUILD": "1",
+        "CUDARC_CUDA_VERSION": "13000",
+        "CARGO_TARGET_DIR": "/workspace/atlas-rental/target-cpu-checks",
+        "CARGO_BUILD_JOBS": "6",
+        "ATLAS_TARGET_HW": "hopper",
+        "ATLAS_TARGET_MODEL": "qwen3.8-27b",
+        "ATLAS_TARGET_QUANT": "nvfp4"
+      },
+      "finished": "2026-09-05T23:16:39.399819+00:00",
+      "elapsed_s": 50.00822295300895,
+      "exit_code": 0,
+      "stop_reason": null,
+      "free_after": 423133802496,
+      "test_summaries": [
+        "test result: ok. 641 passed; 0 failed; 11 ignored; 0 measured; 0 filtered out; finished in 2.74s",
+        "test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.27s",
+        "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+      ]
+    },
+    {
+      "stage": "spark-server",
+      "argv": [
+        "cargo",
+        "+1.93.1",
+        "test",
+        "--locked",
+        "-p",
+        "spark-server"
+      ],
+      "started": "2026-09-05T23:16:39.883454+00:00",
+      "free_before": 423133798400,
+      "task_bytes_before": 82257534976,
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "ATLAS_SKIP_BUILD": "1",
+        "CUDARC_CUDA_VERSION": "13000",
+        "CARGO_TARGET_DIR": "/workspace/atlas-rental/target-cpu-checks",
+        "CARGO_BUILD_JOBS": "6",
+        "ATLAS_TARGET_HW": "hopper",
+        "ATLAS_TARGET_MODEL": "qwen3.8-27b",
+        "ATLAS_TARGET_QUANT": "nvfp4"
+      },
+      "finished": "2026-09-05T23:18:21.917705+00:00",
+      "elapsed_s": 102.03428693499882,
+      "exit_code": 0,
+      "stop_reason": null,
+      "free_after": 418504007680,
+      "test_summaries": [
+        "test result: ok. 104 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s",
+        "test result: ok. 2349 passed; 0 failed; 13 ignored; 0 measured; 0 filtered out; finished in 4.98s",
+        "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 6 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+      ]
+    },
+    {
+      "stage": "xgrammar",
+      "argv": [
+        "cargo",
+        "+1.93.1",
+        "test",
+        "--locked",
+        "-p",
+        "xgrammar"
+      ],
+      "started": "2026-09-05T23:18:22.427082+00:00",
+      "free_before": 418503999488,
+      "task_bytes_before": 86869225472,
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "ATLAS_SKIP_BUILD": "1",
+        "CUDARC_CUDA_VERSION": "13000",
+        "CARGO_TARGET_DIR": "/workspace/atlas-rental/target-cpu-checks",
+        "CARGO_BUILD_JOBS": "6",
+        "ATLAS_TARGET_HW": "hopper",
+        "ATLAS_TARGET_MODEL": "qwen3.8-27b",
+        "ATLAS_TARGET_QUANT": "nvfp4"
+      },
+      "finished": "2026-09-05T23:18:42.431780+00:00",
+      "elapsed_s": 20.004740611999296,
+      "exit_code": 0,
+      "stop_reason": null,
+      "free_after": 417980518400,
+      "test_summaries": [
+        "test result: ok. 826 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.25s",
+        "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s",
+        "test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+      ]
+    },
+    {
+      "stage": "hopper-ptx-gate-selftest",
+      "argv": [
+        "bash",
+        "scripts/hopper_ptx_gate_test.sh"
+      ],
+      "started": "2026-09-05T23:18:43.043349+00:00",
+      "free_before": 417980514304,
+      "task_bytes_before": 87392645120,
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "ATLAS_SKIP_BUILD": "1",
+        "CUDARC_CUDA_VERSION": "13000",
+        "CARGO_TARGET_DIR": "/workspace/atlas-rental/target-cpu-checks",
+        "CARGO_BUILD_JOBS": "6",
+        "ATLAS_TARGET_HW": "hopper",
+        "ATLAS_TARGET_MODEL": "qwen3.8-27b",
+        "ATLAS_TARGET_QUANT": "nvfp4"
+      },
+      "finished": "2026-09-05T23:18:47.046344+00:00",
+      "elapsed_s": 4.003035711008124,
+      "exit_code": 0,
+      "stop_reason": null,
+      "free_after": 417980497920,
+      "test_summaries": []
+    },
+    {
+      "stage": "nvfp4-preprocessor",
+      "argv": [
+        "python3",
+        "/workspace/atlas-rental/nvfp4_preprocess_oracle.py",
+        "/workspace/atlas-rental/src/atlas",
+        "rental-final"
+      ],
+      "started": "2026-09-05T23:18:47.647480+00:00",
+      "free_before": 417980493824,
+      "task_bytes_before": 87392665600,
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "ATLAS_SKIP_BUILD": "1",
+        "CUDARC_CUDA_VERSION": "13000",
+        "CARGO_TARGET_DIR": "/workspace/atlas-rental/target-cpu-checks",
+        "CARGO_BUILD_JOBS": "6",
+        "ATLAS_TARGET_HW": "hopper",
+        "ATLAS_TARGET_MODEL": "qwen3.8-27b",
+        "ATLAS_TARGET_QUANT": "nvfp4"
+      },
+      "finished": "2026-09-05T23:18:49.650314+00:00",
+      "elapsed_s": 2.0028744490118697,
+      "exit_code": 0,
+      "stop_reason": null,
+      "free_after": 417980481536,
+      "test_summaries": []
+    },
+    {
+      "stage": "workspace-rustdoc",
+      "argv": [
+        "cargo",
+        "+1.93.1",
+        "doc",
+        "--locked",
+        "--workspace",
+        "--no-deps"
+      ],
+      "started": "2026-09-05T23:18:50.255270+00:00",
+      "free_before": 417980477440,
+      "task_bytes_before": 87392681984,
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "ATLAS_SKIP_BUILD": "1",
+        "CUDARC_CUDA_VERSION": "13000",
+        "CARGO_TARGET_DIR": "/workspace/atlas-rental/target-cpu-checks",
+        "CARGO_BUILD_JOBS": "6",
+        "ATLAS_TARGET_HW": "hopper",
+        "ATLAS_TARGET_MODEL": "qwen3.8-27b",
+        "ATLAS_TARGET_QUANT": "nvfp4"
+      },
+      "finished": "2026-09-05T23:19:36.262807+00:00",
+      "elapsed_s": 46.007574268005555,
+      "exit_code": 0,
+      "stop_reason": null,
+      "free_after": 417169264640,
+      "test_summaries": []
+    },
+    {
+      "stage": "workspace-doctests",
+      "argv": [
+        "cargo",
+        "+1.93.1",
+        "test",
+        "--locked",
+        "--workspace",
+        "--doc"
+      ],
+      "started": "2026-09-05T23:19:36.825436+00:00",
+      "free_before": 417169256448,
+      "task_bytes_before": 88203902976,
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "ATLAS_SKIP_BUILD": "1",
+        "CUDARC_CUDA_VERSION": "13000",
+        "CARGO_TARGET_DIR": "/workspace/atlas-rental/target-cpu-checks",
+        "CARGO_BUILD_JOBS": "6",
+        "ATLAS_TARGET_HW": "hopper",
+        "ATLAS_TARGET_MODEL": "qwen3.8-27b",
+        "ATLAS_TARGET_QUANT": "nvfp4"
+      },
+      "finished": "2026-09-05T23:20:10.831540+00:00",
+      "elapsed_s": 34.00614025699906,
+      "exit_code": 0,
+      "stop_reason": null,
+      "free_after": 416397455360,
+      "test_summaries": [
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+      ]
+    },
+    {
+      "stage": "affected-clippy",
+      "argv": [
+        "cargo",
+        "+1.93.1",
+        "clippy",
+        "--locked",
+        "--tests",
+        "-p",
+        "atlas-kernels",
+        "-p",
+        "spark-model",
+        "-p",
+        "spark-server",
+        "-p",
+        "xgrammar"
+      ],
+      "started": "2026-09-05T23:20:11.484849+00:00",
+      "free_before": 416397451264,
+      "task_bytes_before": 88975708160,
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "ATLAS_SKIP_BUILD": "1",
+        "CUDARC_CUDA_VERSION": "13000",
+        "CARGO_TARGET_DIR": "/workspace/atlas-rental/target-cpu-checks",
+        "CARGO_BUILD_JOBS": "6",
+        "ATLAS_TARGET_HW": "hopper",
+        "ATLAS_TARGET_MODEL": "qwen3.8-27b",
+        "ATLAS_TARGET_QUANT": "nvfp4"
+      },
+      "finished": "2026-09-05T23:20:57.492265+00:00",
+      "elapsed_s": 46.00745181500679,
+      "exit_code": 0,
+      "stop_reason": null,
+      "free_after": 415824052224,
+      "test_summaries": []
+    },
+    {
+      "stage": "format",
+      "argv": [
+        "cargo",
+        "+1.93.1",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "started": "2026-09-05T23:20:58.057928+00:00",
+      "free_before": 415824048128,
+      "task_bytes_before": 89549111296,
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "ATLAS_SKIP_BUILD": "1",
+        "CUDARC_CUDA_VERSION": "13000",
+        "CARGO_TARGET_DIR": "/workspace/atlas-rental/target-cpu-checks",
+        "CARGO_BUILD_JOBS": "6",
+        "ATLAS_TARGET_HW": "hopper",
+        "ATLAS_TARGET_MODEL": "qwen3.8-27b",
+        "ATLAS_TARGET_QUANT": "nvfp4"
+      },
+      "finished": "2026-09-05T23:21:04.060625+00:00",
+      "elapsed_s": 6.002729688974796,
+      "exit_code": 0,
+      "stop_reason": null,
+      "free_after": 415824076800,
+      "test_summaries": []
+    }
+  ],
+  "free_after": 415824064512,
+  "task_bytes_after": 89549094912
+}

@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/qwen38-vllm-capacity/capacity_repro.py",
+    "810",
+    "1024"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/qwen38-vllm-capacity/capacity_repro.py\", line 7, in <module>\n    guard(kv,limit,mode,False)\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/qwen38-vllm-capacity/installed_guard.py\", line 11, in guard\n    raise ValueError(\n    ...<6 lines>...\n    )\nValueError: max_num_seqs (1024) exceeds available Mamba cache blocks (810). Each decode sequence requires one Mamba cache block, so CUDA graph capture cannot proceed. Please lower max_num_seqs to at most 810 or increase gpu_memory_utilization.\n"
+}

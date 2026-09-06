@@ -1,0 +1,24 @@
+{
+  "profile_id": "qwen38-h100-vllm028-capacity512",
+  "kind": "rental_capacity_compatibility",
+  "proposal_only": true,
+  "base_model_key": "qwen3.8-27b-fp8",
+  "base_sku": "h100",
+  "base_recipe_evidence_sha256": "6ab7df7b00ec231ca31008004c859792e2ace451f6af7bcf1cfd027a2ce8bbd1",
+  "engine_environment": "installed vLLM 0.28.0 on Vast 49994640; direct prepared process, not a proven qwen38 image digest",
+  "additional_serve_args": [
+    "--max-num-seqs",
+    "512"
+  ],
+  "reason": "Use the existing H100 graph capture ceiling as a fixed scheduler cap below observed Mamba capacity; this does not change frozen C1/C16 scheduling, spec, precision, context, prefix caching or memory utilization",
+  "observed_implicit_max_num_seqs": 1024,
+  "observed_mamba_blocks": 810,
+  "capacity_margin_blocks": 298,
+  "capture_ceiling_before": 512,
+  "capture_ceiling_after": 512,
+  "graph_size_formula_source": "installed vllm/config/vllm.py:1936-1945; min(max_num_seqs*(1+num_speculative_tokens)*2,512), also capped by batch-token budget8192",
+  "source_cell": "qwen38.vllm.a.lat.c1",
+  "fresh_cell_required": true,
+  "boot_and_coherency_proven": false,
+  "official_recipe_is_unchanged": true
+}

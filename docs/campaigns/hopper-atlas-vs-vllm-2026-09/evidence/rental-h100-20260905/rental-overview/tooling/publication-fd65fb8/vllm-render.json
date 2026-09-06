@@ -1,0 +1,14 @@
+{
+  "name": "vllm-render",
+  "command": [
+    "python3",
+    "bench/campaign/vllm_render.py",
+    "--recipes",
+    "bench/campaign/vllm_recipes.json",
+    "--selftest"
+  ],
+  "exit_code": 0,
+  "tail": [
+    "vllm_control selftest: 258/258 checks passed over 31 rendered entries"
+  ]
+}

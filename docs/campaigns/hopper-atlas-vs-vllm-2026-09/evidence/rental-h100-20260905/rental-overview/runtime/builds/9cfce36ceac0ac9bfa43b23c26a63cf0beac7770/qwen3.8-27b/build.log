@@ -1,0 +1,10 @@
+   Compiling atlas-kernels v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/atlas-kernels)
+warning: atlas-kernels@1.0.0-beta-preview: atlas-kernels: compiled 181 kernels for target 0 (hopper, qwen3.8-27b, nvfp4) (14 model-specific overrides)
+warning: atlas-kernels@1.0.0-beta-preview: atlas-kernels: dedup+parallel: 181/181 unique nvcc invocations (0 cache hits, 1.0× dedup), 23 parallel workers
+warning: atlas-kernels@1.0.0-beta-preview: closure: unresolved include (kernels/gb10/qwen3.6-27b/nvfp4/q4k_vendor/common.cuh -> vendors/hip.h)
+warning: atlas-kernels@1.0.0-beta-preview: closure: unresolved include (kernels/gb10/qwen3.6-27b/nvfp4/q4k_vendor/common.cuh -> vendors/musa.h)
+   Compiling spark-runtime v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/spark-runtime)
+   Compiling spark-storage v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/spark-storage)
+   Compiling spark-model v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/spark-model)
+   Compiling spark-server v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/spark-server)
+    Finished `release` profile [optimized] target(s) in 5m 38s

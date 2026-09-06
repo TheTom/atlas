@@ -1,0 +1,12 @@
+{
+  "source_commit": "061d9525bc1c4fff8aec7c96d1b8cb936c9f12f1",
+  "files": {
+    "bench/campaign/artifact.schema.json": "19f36d8412ea27368a47dd73fb6ca11ab14ed4bf4bc165f8c3dee73dc2f73004",
+    "bench/campaign/cell_identity.sh": "28b2115ba85d60426d4d6ca0da7dad02eff2a6bbc8e3d0c99ad30172bcd2265c",
+    "bench/campaign/cell_assemble.py": "4713a6eee197ca13c69d6b72e15b1fa3dd999323544088ea96871294b6bf3b6d",
+    "bench/campaign/process_launch_proc.py": "499c4c4ff6afeb3a145696f2d40eef83b03f73c1ad786a9537e1487fcdac0c5d",
+    "bench/campaign/process_model_evidence.py": "32c2ef3efd679fe5993cf7d0dc15d6009a0711be04df9c4aac9226bcc39b40b5",
+    "bench/campaign/validate_artifact.py": "d98d8a6ea49693997739f7a6c7ee37b952df57e9c6c2e6a76405c02defb5dcfd"
+  },
+  "git_status": ""
+}

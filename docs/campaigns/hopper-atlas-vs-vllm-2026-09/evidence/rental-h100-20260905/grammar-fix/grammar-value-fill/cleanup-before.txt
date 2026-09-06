@@ -1,0 +1,4 @@
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  916G  865G  4.6G 100% /
+106M	/home/pidtom/atlas-value-entry-server-20260905
+17M	/home/pidtom/atlas-grammar-value-fill-Y4FtHK3B

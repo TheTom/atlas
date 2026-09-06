@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python3",
+    "/Users/tom/Documents/New project/atlas-campaign-docs/docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/rental-overview/policy/reversal_exception.py",
+    "--source",
+    "/Users/tom/Documents/New project/atlas-campaign-code",
+    "--coherency",
+    "/Users/tom/Documents/New project/atlas-campaign-docs/docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/rental-overview/runtime/benchmark.qwen38.vllm.lat01/coherency-pre.json",
+    "--selftest"
+  ],
+  "exit": 0,
+  "stdout": "7 known-bad refusals before one live-evidence acceptance\n",
+  "stderr": ""
+}

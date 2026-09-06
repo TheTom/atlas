@@ -1,0 +1,33 @@
+   Compiling xgrammar v1.0.0-beta-preview (/home/pidtom/atlas-grammar-value-fill-Y4FtHK3B)
+    Finished `release` profile [optimized] target(s) in 4.08s
+     Running unittests src/lib.rs (/home/pidtom/atlas-hopper-gate-full/target/release/deps/xgrammar-ebca8975eeb56796)
+
+running 2 tests
+test earley::scratch_tests::trial_advance_retains_scanable_scratch_and_rollback_state ... FAILED
+test earley::scratch_tests::reset_expansion_retains_scanable_scratch ... FAILED
+
+failures:
+
+---- earley::scratch_tests::trial_advance_retains_scanable_scratch_and_rollback_state stdout ----
+
+thread 'earley::scratch_tests::trial_advance_retains_scanable_scratch_and_rollback_state' (1272213) panicked at src/earley/scratch_tests.rs:23:9:
+assertion `left == right` failed: trial byte discarded reusable state scratch
+  left: 0
+ right: 64
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- earley::scratch_tests::reset_expansion_retains_scanable_scratch stdout ----
+
+thread 'earley::scratch_tests::reset_expansion_retains_scanable_scratch' (1272212) panicked at src/earley/scratch_tests.rs:42:5:
+assertion `left == right` failed: root expansion discarded reusable state scratch
+  left: 0
+ right: 64
+
+
+failures:
+    earley::scratch_tests::reset_expansion_retains_scanable_scratch
+    earley::scratch_tests::trial_advance_retains_scanable_scratch_and_rollback_state
+
+test result: FAILED. 0 passed; 2 failed; 0 ignored; 0 measured; 822 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--lib`

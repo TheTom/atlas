@@ -1,0 +1,31 @@
+{
+  "installed_guard_path": "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/config/compilation.py",
+  "installed_guard_file_sha256": "6e57a553093753856baaf7987e37ff24a15b73c95730e397e74d22c539d440ec",
+  "guard_lines": [
+    1499,
+    1514
+  ],
+  "vllm_version": "0.28.0",
+  "captured_official_recipe_sha256": "6ab7df7b00ec231ca31008004c859792e2ace451f6af7bcf1cfd027a2ce8bbd1",
+  "proposal_only": true,
+  "source_changes": false,
+  "remote_mutations": false,
+  "results": [
+    {
+      "label": "original-1024-red",
+      "exit_code": 1
+    },
+    {
+      "label": "above-capacity-811-red",
+      "exit_code": 1
+    },
+    {
+      "label": "capacity-810-green",
+      "exit_code": 0
+    },
+    {
+      "label": "frozen-c16-green",
+      "exit_code": 0
+    }
+  ]
+}

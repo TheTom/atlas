@@ -1,0 +1,15 @@
+{
+  "atlas_render": "346/346 checks, exit 0",
+  "vllm_render": "258/258 checks, exit 0; explicit --recipes required",
+  "campaign_suite": "ALL 85 assertions passed, exit 0; Linux-only Python cases skip on macOS",
+  "linux_only_tests_skipped": 48,
+  "cargo_fmt": "exit 0",
+  "typos": "exit 0",
+  "git_diff_check": "exit 0",
+  "actual_catalog_guard": {
+    "original_implicit_1024": "exit 1 capacity refusal",
+    "adapted_512": "exit 0",
+    "invalid_811": "exit 1 capacity refusal"
+  },
+  "source_scope": "one JSON entry; args, notes, verdict only"
+}

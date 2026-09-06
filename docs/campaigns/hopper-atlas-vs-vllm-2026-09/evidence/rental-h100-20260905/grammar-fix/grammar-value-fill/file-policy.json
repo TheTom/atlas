@@ -1,0 +1,80 @@
+[
+  {
+    "path": "crates/spark-server/src/grammar/compile_tools.rs",
+    "lines": 982,
+    "spdx": true,
+    "allowed": true
+  },
+  {
+    "path": "crates/spark-server/src/grammar/engine.rs",
+    "lines": 169,
+    "spdx": true,
+    "allowed": true
+  },
+  {
+    "path": "crates/spark-server/src/grammar/tests/mod.rs",
+    "lines": 56,
+    "spdx": true,
+    "allowed": true
+  },
+  {
+    "path": "crates/spark-server/src/grammar/tests/native_prewarm.rs",
+    "lines": 124,
+    "spdx": true,
+    "allowed": true
+  },
+  {
+    "path": "crates/spark-server/src/grammar/tests/param_key_constraint.rs",
+    "lines": 117,
+    "spdx": true,
+    "allowed": true
+  },
+  {
+    "path": "crates/spark-server/src/grammar/tests/value_entry.rs",
+    "lines": 162,
+    "spdx": true,
+    "allowed": true
+  },
+  {
+    "path": "crates/xgrammar/examples/native_prewarm_profile.rs",
+    "lines": 135,
+    "spdx": true,
+    "allowed": true
+  },
+  {
+    "path": "crates/xgrammar/src/compiler/compile.rs",
+    "lines": 165,
+    "spdx": true,
+    "allowed": true
+  },
+  {
+    "path": "crates/xgrammar/src/compiler/compiled_grammar.rs",
+    "lines": 440,
+    "spdx": true,
+    "allowed": true
+  },
+  {
+    "path": "crates/xgrammar/src/compiler/compiler.rs",
+    "lines": 280,
+    "spdx": true,
+    "allowed": true
+  },
+  {
+    "path": "crates/xgrammar/src/compiler/mod.rs",
+    "lines": 82,
+    "spdx": true,
+    "allowed": true
+  },
+  {
+    "path": "crates/xgrammar/src/compiler/prewarm.rs",
+    "lines": 88,
+    "spdx": true,
+    "allowed": true
+  },
+  {
+    "path": "crates/xgrammar/src/compiler/tests/tier2_tests.rs",
+    "lines": 229,
+    "spdx": true,
+    "allowed": true
+  }
+]

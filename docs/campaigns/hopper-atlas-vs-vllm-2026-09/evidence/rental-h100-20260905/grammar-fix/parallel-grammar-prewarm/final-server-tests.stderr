@@ -1,0 +1,7 @@
+   Compiling spark-server v1.0.0-beta-preview (/home/pidtom/atlas-grammar-prewarm-20260905/crates/spark-server)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 19.63s
+     Running unittests src/lib.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/spark_server-23c8889a09d2560e)
+     Running unittests src/main.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/spark-8a5b8b10b61861ba)
+     Running tests/closure_attestation.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/closure_attestation-ef9d84937e8905d0)
+     Running tests/integration.rs (/home/pidtom/atlas-hopper-gate-full/target/debug/deps/integration-c0abf31cac20d1d7)
+   Doc-tests spark_server

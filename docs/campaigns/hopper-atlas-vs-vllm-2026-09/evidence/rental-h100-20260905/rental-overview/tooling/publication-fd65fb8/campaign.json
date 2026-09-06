@@ -1,0 +1,13 @@
+{
+  "name": "campaign",
+  "command": [
+    "bash",
+    "bench/campaign/campaign_test.sh"
+  ],
+  "exit_code": 0,
+  "tail": [
+    "  ok [i] typos clean under bench/campaign",
+    "",
+    "ALL 85 assertions passed."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python3",
+    "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/qwen38-vllm-capacity/actual_entry_guard.py",
+    "/Users/tom/Documents/New project/atlas-qwen38-capacity512/bench/campaign/vllm_recipes.json"
+  ],
+  "cwd": "/Users/tom/Documents/New project/atlas-qwen38-capacity512",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/qwen38-vllm-capacity/actual_entry_guard.py\", line 9, in <module>\n    entries = [entry for entry in catalog[\"recipes\"] if entry[\"model_key\"] == \"qwen3.8-27b-fp8\" and entry[\"sku\"] == \"h100\"]\n                                  ~~~~~~~^^^^^^^^^^^\nKeyError: 'recipes'\n",
+  "seconds": 0.041123583003354724,
+  "recipe_sha256": "d11b5e14cfa07aefb1ccbf5f9d0fea10acbc270ae2cdc0a9b018022c0080c18f",
+  "source_commit": "7cf68075a078d5d5e5c5dc6152cb90b70cefff07"
+}

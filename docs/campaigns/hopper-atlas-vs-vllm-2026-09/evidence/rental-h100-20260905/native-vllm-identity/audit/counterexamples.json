@@ -1,0 +1,43 @@
+[
+  {
+    "case": "declared-git-only",
+    "engine_version": {
+      "git_sha": "2cf0a6915",
+      "image_digest": null,
+      "binary_sha256": null,
+      "vllm_version": "0.28.0"
+    },
+    "current_validator_errors": [
+      "$.engine_version.image_digest: a CERTIFIED cell identifies the engine that produced it -- image_digest (container) or binary_sha256 (local binary) must be non-null; a harness checkout SHA is not the engine's identity"
+    ],
+    "current_schema_accepts": false,
+    "provenance_valid": false,
+    "reason": "Declared revision alone does not satisfy the existing immutable-build identity gate"
+  },
+  {
+    "case": "version-file-misused-as-binary",
+    "engine_version": {
+      "git_sha": "2cf0a6915",
+      "image_digest": null,
+      "binary_sha256": "63904896f9449a84bac95c17567eb1dea3592783ac3aa13916f5928b9458e9ac",
+      "vllm_version": "0.28.0"
+    },
+    "current_validator_errors": [],
+    "current_schema_accepts": true,
+    "provenance_valid": false,
+    "reason": "This hash describes a declaration or import shim, not the complete vLLM engine; syntactic schema acceptance is not provenance evidence"
+  },
+  {
+    "case": "console-script-misused-as-binary",
+    "engine_version": {
+      "git_sha": "2cf0a6915",
+      "image_digest": null,
+      "binary_sha256": "47b2f808d98b3dd2f993014def1bb8c4296e2ea6af367584c0bf69fbb7740e37",
+      "vllm_version": "0.28.0"
+    },
+    "current_validator_errors": [],
+    "current_schema_accepts": true,
+    "provenance_valid": false,
+    "reason": "This hash describes a declaration or import shim, not the complete vLLM engine; syntactic schema acceptance is not provenance evidence"
+  }
+]

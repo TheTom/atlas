@@ -1,0 +1,47 @@
+{
+  "path": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/qwen38.atlas.b.lat.c1/serve.log",
+  "exists": true,
+  "bounded_max_lines": 20001,
+  "excerpts": [
+    {
+      "line": 173,
+      "text": "\u001b[2m2026-09-05T22:48:23.150861Z\u001b[0m \u001b[32m INFO\u001b[0m \u001b[2mspark_model::layers::dense_ffn\u001b[0m\u001b[2m:\u001b[0m [atlas] ATLAS_FFN_NVFP4_MMQ: freed gate/up `_t` copies (dead under FP4-MMQ prefill) \u2014 block_nvfp4 copies net to ~0 vs NVFP4 baseline"
+    },
+    {
+      "line": 415,
+      "text": "\u001b[2m2026-09-05T22:48:23.875719Z\u001b[0m \u001b[32m INFO\u001b[0m \u001b[2mspark_model::factory::build\u001b[0m\u001b[2m:\u001b[0m      3663.7 MB  x34    crates/spark-runtime/src/buffers.rs"
+    },
+    {
+      "line": 457,
+      "text": "\u2502 gated_delta_rule_wy_f16            51c86719c030   used                 N"
+    },
+    {
+      "line": 647,
+      "text": "\u001b[2m2026-09-05T22:48:26.243726Z\u001b[0m \u001b[32m INFO\u001b[0m \u001b[2mspark_model::layers::dense_ffn\u001b[0m\u001b[2m:\u001b[0m [atlas] ATLAS_FFN_NVFP4_MMQ=1: dense-FFN gate/up prefill via vendored llama NVFP4 W4A4 MMQ (block-scale FP4 MMA, ~80 TFLOP/s vs t_m128 ~51)"
+    },
+    {
+      "line": 648,
+      "text": "/workspace/atlas-rental/src/atlas/kernels/hopper/qwen3.6-27b/nvfp4/q4k_vendor/quantize_impl.cuh:172: ERROR: CUDA kernel quantize_mmq_nvfp4_worker has no device code compatible with CUDA arch 900. ggml-cuda.cu was compiled for: 900"
+    },
+    {
+      "line": 3944,
+      "text": "\u001b[2m2026-09-05T22:48:26.831075Z\u001b[0m \u001b[31mERROR\u001b[0m \u001b[2matlas::fault\u001b[0m\u001b[2m:\u001b[0m cuMemsetD8Async failed (status 719), and a no-op synchronize issued afterwards also failed (CUDA_ERROR_LAUNCH_FAILED (719): unspecified launch failure) \u2014 the CUDA context is destroyed. Errors of this class are sticky: every later driver call in this process returns the same status, so no request can be served."
+    },
+    {
+      "line": 3945,
+      "text": "\u001b[2m2026-09-05T22:48:26.831089Z\u001b[0m \u001b[31mERROR\u001b[0m \u001b[2mspark_model::model::trait_impl::sequence\u001b[0m\u001b[2m:\u001b[0m free_sequence: ssm_pool.zero_slot(0): cuMemsetD8Async failed: status 719"
+    },
+    {
+      "line": 3946,
+      "text": "\u001b[2m2026-09-05T22:48:26.831096Z\u001b[0m \u001b[31mERROR\u001b[0m \u001b[2mspark_model::model::trait_impl::sequence\u001b[0m\u001b[2m:\u001b[0m free_sequence: gpu.synchronize after zero_slot(0): cuStreamSynchronize failed: CUDA_ERROR_LAUNCH_FAILED (719): unspecified launch failure"
+    },
+    {
+      "line": 3947,
+      "text": "\u001b[2m2026-09-05T22:48:26.831111Z\u001b[0m \u001b[31mERROR\u001b[0m \u001b[2mspark::scheduler::phase_start_prefills\u001b[0m\u001b[2m:\u001b[0m Prefill start error: Prefill chunk layer 11 failed: cuStreamSynchronize failed: CUDA_ERROR_LAUNCH_FAILED (719): unspecified launch failure"
+    },
+    {
+      "line": 3951,
+      "text": "\u001b[2m2026-09-05T22:48:27.170087Z\u001b[0m \u001b[31mERROR\u001b[0m \u001b[2mspark\u001b[0m\u001b[2m:\u001b[0m Exiting after a fatal GPU fault (cuMemsetD8Async failed (status 719), and a no-op synchronize issued afterwards also failed (CUDA_ERROR_LAUNCH_FAILED (719): unspecified launch failure) \u2014 the CUDA context is destroyed. Errors of this class are sticky: every later driver call in this process returns the same status, so no request can be served.). The CUDA context is destroyed and cannot be recovered in-process; restart the server."
+    }
+  ]
+}

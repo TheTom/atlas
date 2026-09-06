@@ -1,0 +1,15 @@
+{
+  "commit": "dc7445638cf748ae20c842b3b370c207eae099ec",
+  "branch": "codex/qwen38-vllm-capacity512",
+  "parent": "7cf68075a078d5d5e5c5dc6152cb90b70cefff07",
+  "worktree": "/Users/tom/Documents/New project/atlas-qwen38-capacity512",
+  "clean": true,
+  "profile_id": "qwen38-h100-vllm028-capacity512",
+  "changed_files": [
+    "bench/campaign/vllm_recipes.json"
+  ],
+  "recipe_sha256": "b8427cc3392a3612f200b848ce9de3fa5e604db6d41253bb043a7e0afea50b7b",
+  "remote_actions": false,
+  "gpu_actions": false,
+  "fresh_boot_proven": false
+}

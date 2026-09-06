@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python3",
+    "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/qwen38-vllm-capacity/actual_entry_guard.py",
+    "/Users/tom/Documents/New project/atlas-qwen38-capacity512/bench/campaign/vllm_recipes.json"
+  ],
+  "cwd": "/Users/tom/Documents/New project/atlas-qwen38-capacity512",
+  "exit_code": 0,
+  "stdout": "{\"catalog\": \"/Users/tom/Documents/New project/atlas-qwen38-capacity512/bench/campaign/vllm_recipes.json\", \"model_key\": \"qwen3.8-27b-fp8\", \"sku\": \"h100\", \"max_num_seqs\": 512, \"limit_origin\": \"explicit recipe\", \"observed_mamba_blocks\": 810, \"verdict\": \"revision_and_capacity_adaptation\"}\n{\"guard\": \"PASS\", \"max_num_seqs\": 512, \"max_cudagraph_capture_size\": 512, \"frozen_concurrency_max\": 16, \"margin_blocks\": 298}\n",
+  "stderr": "",
+  "seconds": 0.029887208998843562,
+  "recipe_sha256": "b8427cc3392a3612f200b848ce9de3fa5e604db6d41253bb043a7e0afea50b7b",
+  "oracle": "Captured installed vLLM 0.28 compilation.py guard with observed Mamba capacity 810; expected exit 0"
+}

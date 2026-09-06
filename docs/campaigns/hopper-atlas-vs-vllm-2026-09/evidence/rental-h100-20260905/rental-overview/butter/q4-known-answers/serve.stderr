@@ -1,0 +1,8 @@
+Selected model: Qwen3.8-27B · Qwen model / bartowski artifact · Q4_K_M GGUF · 17.8 GB
+Why: CLI selection · cuda-24g-balanced-v1 recipe (estimated) · 79.2 GiB usable
+Storage: /workspace/butter-iron-rental/butter-home/models/qwen3.8-27b-q4_k_m/Qwen3.8-27B-Q4_K_M.gguf
+verify    sha256 e103abf9…a52b · 17772537440 bytes · ok
+load      cuda · CUDA device (sm_90)
+Qwen35: load done in 205.40s (64 layers, mtp=true)
+Qwen3.8-27B (qwen3.8-27b-q4_k_m) · Compatible · cuda · cuda-24g-balanced-v1 · standard cache · 8K × 1
+Ready on 127.0.0.1:8890

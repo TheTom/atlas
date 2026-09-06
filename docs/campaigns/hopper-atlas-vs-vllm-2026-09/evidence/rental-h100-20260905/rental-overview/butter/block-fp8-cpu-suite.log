@@ -1,0 +1,712 @@
+   Compiling wh-butter-loader v0.1.0 (/Users/tom/Documents/New project/butter-qwen38-block-fp8/rust/crates/wh-butter-loader)
+   Compiling wh-butter-ops v0.1.0 (/Users/tom/Documents/New project/butter-qwen38-block-fp8/rust/crates/wh-butter-ops)
+warning: unused import: `silu`
+ --> crates/wh-butter-models/src/dsv4/reference/ops.rs:6:22
+  |
+6 | use super::{sigmoid, silu, softplus};
+  |                      ^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: ambiguous glob re-exports
+  --> crates/wh-butter-models/src/dsv4/reference/mod.rs:43:9
+   |
+43 | pub use q8::*;
+   |         ^^^^^ the name `Q8_0_BLOCK` in the value namespace is first re-exported here
+44 | pub use q8k::*;
+45 | pub use qat::*;
+   |         ------ but the name `Q8_0_BLOCK` in the value namespace is also re-exported here
+   |
+   = note: `#[warn(ambiguous_glob_reexports)]` on by default
+
+warning: ambiguous glob re-exports
+  --> crates/wh-butter-models/src/dsv4/reference/mod.rs:44:9
+   |
+44 | pub use q8k::*;
+   |         ^^^^^^ the name `Q8_K_BLOCK` in the value namespace is first re-exported here
+45 | pub use qat::*;
+   |         ------ but the name `Q8_K_BLOCK` in the value namespace is also re-exported here
+
+warning: unused variable: `act_q8_0_on`
+    --> crates/wh-butter-models/src/dsv4/model.rs:5124:13
+     |
+5124 |         let act_q8_0_on = self.cfg.numerics.act_q8_0;
+     |             ^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_act_q8_0_on`
+     |
+     = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+   --> crates/wh-butter-models/src/dsv4/tp_model.rs:293:17
+    |
+293 |             let mut stack = |name: &str| -> Result<Mxfp4ExpertWeight> {
+    |                 ----^^^^^
+    |                 |
+    |                 help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+    --> crates/wh-butter-models/src/qwen4_exp.rs:2337:5
+     |
+2337 |     mut staging: &mut ExpertStaging,
+     |     ----^^^^^^^
+     |     |
+     |     help: remove this `mut`
+
+warning: methods `gemv` and `gemv_accum` are never used
+   --> crates/wh-butter-models/src/laguna.rs:407:8
+    |
+383 | impl Q4ExpertStack {
+    | ------------------ methods in this implementation
+...
+407 |     fn gemv(&self, dev: &dyn Device, e: usize, x: &Tensor) -> Result<Tensor> {
+    |        ^^^^
+...
+411 |     fn gemv_accum(&self, dev: &dyn Device, e: usize, x: &Tensor, acc: &Tensor, scale: &Tensor) -> Result<()> {
+    |        ^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `validate_qwen35_tp_in_place_reduction` is never used
+   --> crates/wh-butter-models/src/qwen35_parallel.rs:674:15
+    |
+674 | pub(crate) fn validate_qwen35_tp_in_place_reduction(
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: `wh-butter-models` (lib) generated 8 warnings (run `cargo fix --lib -p wh-butter-models` to apply 4 suggestions)
+warning: `wh-butter-models` (lib test) generated 7 warnings (7 duplicates)
+    Finished `test` profile [optimized + debuginfo] target(s) in 4.10s
+     Running unittests src/lib.rs (/Users/tom/Documents/New project/butter-iron-h100-prep/cpu-protocol-target/debug/deps/wh_butter_loader-565cdc2427bb5194)
+
+running 83 tests
+test dsv4_expert_pack::tests::released_expert_tensors_stage_and_dequant_identically ... ignored, requires BUTTER_DSV4_GGUF pointing at DeepSeek-V4-Flash-Vision-Exp-IQ2XXS-w2Q2K-AProjQ8-SExpQ8-OutQ8.gguf
+test dsv4_expert_pack::tests::a_row_width_that_is_not_a_super_block_multiple_is_rejected ... ok
+test dsv4_expert_pack::tests::a_short_payload_is_rejected ... ok
+test dsv4_expert_pack::tests::geometry_derives_the_kernel_offsets ... ok
+test dsv4_expert_pack::tests::iq2xxs_raw_blocks_rebuild_the_on_disk_layout ... ok
+test dsv4_expert_pack::tests::iq2xxs_pack_dequant_round_trips_exactly ... ok
+test dsv4_expert_pack::tests::q2k_pack_dequant_round_trips_exactly ... ok
+test dsv4_gguf::tests::released_vision_exp_gguf_matches_the_contract ... ignored, requires BUTTER_DSV4_GGUF pointing at DeepSeek-V4-Flash-Vision-Exp-IQ2XXS-w2Q2K-AProjQ8-SExpQ8-OutQ8.gguf
+test dsv4_expert_pack::tests::fp16_narrowing_round_trips_every_finite_pattern ... ok
+test dsv4_gguf::tests::tensor_names_round_trip_through_the_role_parser ... ok
+test dsv4_gguf::tests::text_release_keys_are_optional ... ok
+test dsv4_gguf::tests::kv_decodes_layer_schedule_and_per_layer_tables ... ok
+test dsv4_gguf::tests::missing_key_is_rejected ... ok
+test dsv4_gguf::tests::a_43_block_file_is_held_to_the_flash_schedule ... ok
+test dsv4_gguf::tests::unsupported_compress_ratio_is_rejected ... ok
+test dsv4_gguf::tests::trailing_sidecar_entry_count_is_derived_not_asserted ... ok
+test dsv4_gguf::tests::wrong_architecture_is_rejected ... ok
+test dsv4_gguf::tests::wrong_compress_ratio_length_is_rejected ... ok
+test dsv4_gguf::tests::wrong_swiglu_clamp_length_is_rejected ... ok
+test dsv4_gguf::tests::wrong_expert_dtype_is_rejected ... ok
+test dsv4_vision_gguf::tests::a_fused_mlp_w1_that_is_not_doubled_is_rejected ... ok
+test dsv4_gguf::tests::wrong_expert_shape_is_rejected ... ok
+test dsv4_vision_gguf::tests::a_missing_bias_vl_is_rejected ... ok
+test dsv4_gguf::tests::router_bias_on_a_hash_layer_is_rejected ... ok
+test dsv4_gguf::tests::synthetic_checkpoint_classifies_every_tensor ... ok
+test dsv4_vision_gguf::tests::aligner_input_must_match_the_downsample_ratio ... ok
+test dsv4_vision_gguf::tests::block_tensor_names_are_stable ... ok
+test dsv4_vision_gguf::tests::an_f32_sentinel_embedding_is_rejected ... ok
+test dsv4_gguf::tests::unknown_tensor_is_rejected ... ok
+test dsv4_gguf::tests::indexer_on_an_hca_layer_is_rejected ... ok
+test dsv4_gguf::tests::missing_compressor_on_a_csa_layer_is_rejected ... ok
+test dsv4_vision_gguf::tests::hash_router_bias_beyond_the_hash_layers_is_rejected ... ok
+test dsv4_gguf::tests::released_vision_exp_counts_are_not_matched_by_the_synthetic_model ... ok
+test dsv4_vision_gguf::tests::head_count_that_does_not_divide_the_width_is_rejected ... ok
+test dsv4_vision_gguf::tests::kv_decode_reports_derived_widths ... ok
+test dsv4_vision_gguf::tests::parse_covers_every_expected_name ... ok
+test dsv4_vision_gguf::tests::released_vision_encoder_gguf_matches_the_contract ... ignored, requires BUTTER_DSV4_VISION_GGUF pointing at DeepSeek-V4-Flash-Vision-Encoder.gguf
+test dsv4_vision_gguf::tests::released_encoder_counts_are_not_matched_by_the_synthetic_sidecar ... ok
+test dsv4_vision_gguf::tests::synthetic_sidecar_classifies_every_tensor ... ok
+test dsv4_vision_gguf::tests::wrong_architecture_is_rejected ... ok
+test f16_tests::binary16_boundaries_have_exact_binary32_bits ... ok
+test gguf::metadata_tests::codec_codes_round_trip ... ok
+test gguf::metadata_tests::u64_arrays_preserve_qwen4_ple_hash_multipliers ... ok
+test header::tests::parses_header_without_payload_bytes ... ok
+test header::tests::rejects_overlapping_tensors ... ok
+test header::tests::rejects_payload_gaps ... ok
+test header::tests::rejects_shape_byte_mismatch ... ok
+test header::tests::rejects_truncated_header ... ok
+test index_manifest::tests::accepts_family_manifest_without_payloads ... ok
+test index_manifest::tests::rejects_missing_namespace_and_path_traversal ... ok
+test index_manifest::tests::rejects_official_policy_mutations ... ok
+test nvfp4::tests::fp_codebooks_have_expected_landmarks ... ok
+test qwen4_exp_exl3::tests::binary16_rounding_covers_normal_and_subnormal_boundaries ... ok
+test qwen4_exp_exl3::tests::index_requires_complete_colocated_quantized_matrices ... ok
+test qwen4_exp_exl3::tests::mul1_codebook_has_pinned_binary16_landmarks ... ok
+test qwen4_exp_exl3::tests::ng4_row_applies_binary16_code_scale_and_bias ... ok
+test qwen4_exp_exl3::tests::ng4_row_rejects_truncated_payload_or_bias ... ok
+test qwen4_exp_exl3::tests::ng4_unpack_recovers_tail_biting_state_windows ... ok
+test qwen4_exp_exl3::tests::ngram_global_rows_map_to_one_bounded_shard ... ok
+test qwen4_exp_exl3::tests::ngram_header_pins_row_codec_and_hash_metadata ... ok
+test qwen4_exp_exl3::tests::ngram_header_rejects_non_four_bit_rows ... ok
+test qwen4_exp_exl3::tests::released_checkpoint_metadata_matches_exact_contract ... ignored, requires BUTTER_QWEN4_EXL3_DIR with the released metadata and n-gram file
+test qwen4_exp_exl3::tests::quant_config_rejects_wrong_codebook ... ok
+test qwen4_exp_exl3::tests::quant_config_accepts_two_and_four_bit_trellises ... ok
+test qwen4_exp_exl3::tests::tile_decoder_rejects_unsupported_width_and_truncation ... ok
+test qwen4_exp_exl3::tests::quant_config_rejects_wrong_trellis_geometry ... ok
+test qwen4_exp_gguf::tests::census_rejects_a_release_that_silently_loses_iq1_s ... ok
+test qwen4_exp_exl3::tests::two_and_four_bit_tiles_pin_word_bit_and_tensor_layout ... ok
+test qwen4_exp_gguf::tests::released_iq1_s_part_zero_header_matches_exact_contract ... ignored, set BUTTER_QWEN4_EXP_IQ1S_HEADER to the pinned split part 00001
+test qwen4_exp_gguf::tests::released_iq1_s_metadata_contract_is_accepted ... ok
+test nvfp4::tests::standard_modelopt_layout_stays_packed_and_uses_direct_scale ... ok
+test qwen4_exp_gguf::tests::wrong_physical_ple_layer_is_rejected ... ok
+test qwen4_exp_gguf::tests::wrong_split_tensor_count_is_rejected ... ok
+test qwen4_exp_manifest::tests::compact_index_is_classified_without_opening_shards ... ok
+test qwen4_exp_manifest::tests::misplaced_expert_is_rejected ... ok
+test qwen4_exp_manifest::tests::ple_header_audit_accepts_fp8_table_and_shared_bf16_scale ... ok
+test qwen4_exp_manifest::tests::ple_header_audit_rejects_plain_upcast_contract ... ok
+test qwen4_exp_manifest::tests::released_index_matches_exact_topology ... ignored, requires BUTTER_QWEN4_EXP_INDEX pointing at the released index
+test qwen4_exp_manifest::tests::ple_payload_in_bf16_shard_is_rejected ... ok
+test qwen4_exp_manifest::tests::released_ple_headers_match_exact_dtype_and_shape ... ignored, requires BUTTER_QWEN4_EXP_PLE_HEADERS containing ten header prefixes
+test qwen4_exp_manifest::tests::unknown_shard_family_is_rejected ... ok
+test qwen4_exp_exl3::tests::matrix_reconstruction_matches_explicit_two_sided_transform ... ok
+test index_manifest::tests::accepts_exact_official_manifest_cardinality ... ok
+
+test result: ok. 76 passed; 0 failed; 7 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/contiguous_span_test.rs (/Users/tom/Documents/New project/butter-iron-h100-prep/cpu-protocol-target/debug/deps/contiguous_span_test-66d32f5f2e278d14)
+
+running 3 tests
+test single_tensor_span_is_that_tensor ... ok
+test back_to_back_expert_family_is_returned_as_one_zero_copy_slice ... ok
+test interleaved_or_out_of_order_families_fall_back_to_none ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/gguf_test.rs (/Users/tom/Documents/New project/butter-iron-h100-prep/cpu-protocol-target/debug/deps/gguf_test-b986eeb6905aa904)
+
+running 12 tests
+test gguf_parse_and_q8_0_dequant_match_ggufpy ... ignored, requires the pinned DeepSeek V4 Flash GGUF fixture; run explicitly with GGUF_PATH
+test q4k_q6k_dequant_match_ggufpy_qwen7b ... ignored, requires the pinned split Qwen2.5 7B GGUF fixture; run explicitly with QWEN25_7B_GGUF
+test iq4_nl_sparse_row_gather_keeps_ple_backing_packed ... ok
+test q4_0_dequant_synthetic_roundtrip ... ok
+test iq4_nl_reference_decode_catches_nibble_order_mutation ... ok
+test q5_k_dequant_synthetic_roundtrip ... ok
+test q4_k_dequant_synthetic_roundtrip ... ok
+test q6_k_dequant_synthetic_roundtrip ... ok
+test q3_k_dequant_synthetic_bitplanes_and_signs ... ok
+test split_gguf_part_header_can_be_inspected_without_payload_parts ... ok
+test iq1_s_reference_decode_catches_scale_and_delta_mutations ... ok
+test split_gguf_reads_tensors_across_parts ... ok
+
+test result: ok. 10 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/mlx_dequant_test.rs (/Users/tom/Documents/New project/butter-iron-h100-prep/cpu-protocol-target/debug/deps/mlx_dequant_test-e6716208ba580eea)
+
+running 2 tests
+test mlx_in_proj_row0_matches_mlx_groundtruth ... ignored, requires the pinned Nemotron MLX checkpoint; run explicitly with NEMOTRON_MLX_DIR
+test mlx_prefix_strip_and_expert_slice ... ignored, requires the pinned Nemotron MLX checkpoint; run explicitly with NEMOTRON_MLX_DIR
+
+test result: ok. 0 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/probe_test.rs (/Users/tom/Documents/New project/butter-iron-h100-prep/cpu-protocol-target/debug/deps/probe_test-2bdf505ffd2467e0)
+
+running 1 test
+test probe_real_models ... ignored, requires all five pinned Hugging Face cache snapshots
+
+test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/safetensors_f16_test.rs (/Users/tom/Documents/New project/butter-iron-h100-prep/cpu-protocol-target/debug/deps/safetensors_f16_test-818c60c340e9d57f)
+
+running 2 tests
+test public_tensor_f32_preserves_f16_subnormals_exactly ... ok
+test mlx_f16_subnormal_scale_and_bias_reach_affine_dequant ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (/Users/tom/Documents/New project/butter-iron-h100-prep/cpu-protocol-target/debug/deps/wh_butter_models-69ac8a3bfc2e333e)
+
+running 406 tests
+test dsv4::cache::tests::attn_plane_capacity_never_undercuts_the_unions_padded_width ... ok
+test bpe_pretokenizer::tests::legacy_split_is_unchanged ... ok
+test dsv4::cache::tests::compressed_rows_round_up_and_never_reach_zero ... ok
+test dsv4::cache::tests::compressor_rows_are_overlapped_only_for_csa ... ok
+test dsv4::cache::tests::a_fresh_cache_reads_nothing_and_advances_in_lockstep ... ok
+test bpe_pretokenizer::tests::digit_runs_chunk_three_from_the_left ... ok
+test dsv4::cache::tests::compressor_widths_follow_the_gguf_contract ... ok
+test dsv4::cache::tests::csa_stages_into_the_upper_half_and_hca_into_the_slot ... ok
+test dsv4::cache::tests::full_layers_dominate_is_false_the_csa_streams_do ... ok
+test bpe_pretokenizer::tests::whitespace_run_alternatives ... ok
+test dsv4::cache::tests::tiny_estimate_matches_the_schedule ... ok
+test dsv4::cache::tests::the_raw_window_ring_reports_two_runs_once_it_wraps ... ok
+test bpe_pretokenizer::tests::deepseek3_split_matches_the_hf_oracle ... ok
+test bpe_pretokenizer::tests::split_is_lossless ... ok
+test dsv4::gguf::tests::every_role_has_a_distinct_canonical_name ... ok
+test dsv4::gguf::tests::role_for_parses_globals_and_blocks ... ok
+test dsv4::gguf::tests::non_canonical_indexer_spelling_fails_validation ... ok
+test dsv4::gguf::tests::indexer_tensor_on_a_non_csa_block_fails ... ok
+test dsv4::gguf::tests::selection_lane_refuses_a_quantised_indexer ... ok
+test dsv4::gguf::tests::compressor_shape_from_the_other_layer_kind_fails ... ok
+test dsv4::gguf::tests::norm_lane_refuses_a_half_precision_norm ... ok
+test dsv4::gguf::tests::role_for_tolerates_either_indexer_separator ... ok
+test dsv4::gguf::tests::unknown_checkpoint_variant_fails ... ok
+test dsv4::gguf::tests::attention_lane_refuses_an_unenumerated_codec ... ok
+test dsv4::gguf::tests::missing_tensor_fails ... ok
+test dsv4::gguf::tests::gate_up_dtype_mismatch_fails ... ok
+test dsv4::gguf::tests::selection_lane_refuses_a_quantised_router ... ok
+test dsv4::gguf::tests::mixed_expert_recipe_across_blocks_fails ... ok
+test dsv4::gguf::tests::compressor_shapes_follow_the_layer_kind ... ok
+test dsv4::gguf::tests::released_vision_exp_header_validates ... ok
+test dsv4::gguf::tests::layer_schedule_and_dtype_census_match_the_release ... ok
+test dsv4::gguf::tests::unknown_tensor_fails ... ok
+test dsv4::gguf::tests::a_model_file_is_not_a_support_file ... ok
+test dsv4::gguf::tests::released_text_header_validates ... ok
+test dsv4::gguf::tests::support_file_from_another_revision_is_refused ... ok
+test dsv4::gguf::tests::wrong_shape_fails_and_names_the_tensor ... ok
+test dsv4::model_tests::tests::the_device_tiny_config_satisfies_every_kernel_shape_constraint ... ok
+test dsv4::gguf::tests::text_model_refuses_a_vision_support_file ... ok
+test dsv4::kernel_plan::tests::a_codec_with_no_kernel_family_is_refused_at_resolution ... ok
+test dsv4::prefill_moe::tests::a_short_selection_is_refused ... ok
+test dsv4::prefill_moe::tests::an_unselected_expert_is_not_a_group ... ok
+test dsv4::prefill_moe::tests::the_chunk_plan_sorts_by_expert_and_inverts ... ok
+test dsv4::prefill_moe::tests::the_scale_pool_offsets_tile_the_pool ... ok
+test dsv4::reference::f16_exact::tests::a_shape_mismatch_is_refused ... ok
+test dsv4::reference::f16_exact::tests::idle_lanes_contribute_an_exact_zero ... ok
+test dsv4::reference::f16_exact::tests::the_bias_lands_after_the_butterfly ... ok
+test dsv4::reference::f16_exact::tests::the_butterfly_is_not_a_sequential_sum ... ok
+test dsv4::reference::q8::tests::act_quant_off_falls_back_to_the_dense_matvec ... ok
+test dsv4::reference::q8::tests::an_all_zero_block_quantizes_to_zeros ... ok
+test dsv4::gguf::tests::vision_model_refuses_a_text_support_file ... ok
+test dsv4::reference::q8::tests::dequantized_indexes_blocks_row_major ... ok
+test dsv4::kernel_plan::tests::an_iq2xxs_plan_is_dispatchable ... ok
+test dsv4::reference::q8::tests::butterfly_is_not_a_sequential_sum ... ok
+test dsv4::reference::ops::sinkhorn_parity_tests::the_two_sinkhorn_implementations_agree_up_to_the_comb_layout ... ok
+test dsv4::reference::q8::tests::matches_references_portable_branch_to_f32_noise ... ok
+test dsv4::reference::q8::tests::shape_mismatches_are_refused ... ok
+test dsv4::kernel_plan::tests::an_mxfp4_plan_resolves_and_is_dispatchable ... ok
+test dsv4::reference::q8::tests::roundtrip_agrees_with_the_dequantized_codes ... ok
+test dsv4::reference::q8::tests::the_integer_half_is_exact ... ok
+test dsv4::reference::q8::tests::the_two_representations_are_the_same_map ... ok
+test dsv4::reference::q8k::tests::an_all_zero_block_is_handled ... ok
+test dsv4::reference::q8k::tests::bsums_are_the_sums_of_each_run_of_sixteen ... ok
+test dsv4::reference::q8k::tests::q2_k_codes_are_read_by_shift_not_contiguously ... ok
+test dsv4::reference::q8k::tests::iq2_xxs_reduces_to_a_hand_computable_dot ... ok
+test dsv4::reference::q8k::tests::q2_k_with_zero_codes_is_the_minimum_correction_alone ... ok
+test dsv4::reference::q8k::tests::shape_mismatches_are_refused ... ok
+test dsv4::reference::q8k::tests::roundtrip_agrees_with_the_dequantized_codes ... ok
+test dsv4::reference::q8k::tests::the_scale_follows_the_sign_of_the_extreme_element ... ok
+test dsv4::selection_digest::tests::a_duplicate_expert_is_refused ... ok
+test dsv4::selection_digest::tests::a_mismatch_names_the_layer_and_the_stage ... ok
+test dsv4::selection_digest::tests::a_zero_interval_is_refused ... ok
+test dsv4::selection_digest::tests::an_absent_lane_is_the_offset_basis ... ok
+test dsv4::selection_digest::tests::an_out_of_step_exchange_is_refused ... ok
+test dsv4::selection_digest::tests::capture_arms_on_the_interval ... ok
+test dsv4::selection_digest::tests::one_ulp_moves_the_lane ... ok
+test dsv4::selection_digest::tests::router_lane_is_order_independent ... ok
+test dsv4::selection_digest::tests::router_lane_separates_a_reordered_pairing ... ok
+test dsv4::kernel_plan::tests::text_checkpoint_parses_into_a_config_and_a_manifest ... ok
+test dsv4::selection_digest::tests::the_wire_form_round_trips ... ok
+test dsv4::selection_digest::tests::zero_signs_are_different_selections ... ok
+test dsv4::kernel_plan::tests::the_released_plan_names_a_family_for_every_lane ... ok
+test dsv4::shard_map::tests::mxfp4_recipe_names_the_released_expert_codec ... ok
+test dsv4::gguf::tests::matching_support_files_pair ... ok
+test dsv4::shard_map::tests::shard_map_reassembles_the_real_checkpoint ... ignored, needs the 156 GB release checkpoint; see DSV4_TEXT_GGUF
+test dsv4::kernel_plan::tests::vision_exp_checkpoint_parses_into_a_config_and_a_manifest ... ok
+test dsv4::kernel_plan::tests::both_releases_resolve_the_same_kernel_plan_apart_from_the_variant ... ok
+test dsv4::kernel_plan::tests::the_plan_dump_is_a_summary_not_a_transcript ... ok
+test dsv4::tests::compressor_pooling_with_a_flat_gate_is_the_plain_average ... ok
+test dsv4::tests::csa_compressor_emits_every_fourth_position ... ok
+test dsv4::tests::csa_selection_is_the_sorted_unique_union_of_topk_and_window ... ok
+test dsv4::tests::a_causal_image_block_equals_ref_layer_row_by_row ... ok
+test dsv4::shard_map::tests::shard_map_covers_every_tensor_in_the_header ... ok
+test dsv4::shard_map::tests::shard_map_contraction_split_takes_a_slice_of_every_row ... ok
+test dsv4::tests::e2m1_codebook_and_ties ... ok
+test dsv4::shard_map::tests::shard_map_output_split_takes_whole_contiguous_rows ... ok
+test dsv4::tests::e4m3_representable_values_are_fixed_points ... ok
+test dsv4::shard_map::tests::shard_map_reader_refuses_an_unmapped_tensor ... ok
+test dsv4::tests::e4m3_ties_go_to_the_even_code ... ok
+test dsv4::tests::expert_forward_with_quant_none_matches_the_raw_computation ... ok
+test dsv4::tests::expert_forward_applies_the_requested_quant_to_both_matvec_inputs ... ok
+test dsv4::tests::f16_cache_store_bites_on_the_rope_tail_that_fp8_skips ... ok
+test dsv4::tests::flash_layer_schedule_matches_the_model_card ... ok
+test dsv4::tests::fp8_block_scale_is_a_power_of_two_pinned_at_the_amax ... ok
+test dsv4::tests::fp8_block_scale_matches_exact_math_in_the_failing_band ... ok
+test dsv4::tests::fp8_leaves_the_rope_tail_alone ... ok
+test dsv4::tests::fp8_blocks_are_scaled_independently ... ok
+test dsv4::shard_map::tests::shard_map_refuses_a_plan_built_for_another_checkpoint ... ok
+test dsv4::tests::fp8_zero_block_survives_the_amax_floor ... ok
+test dsv4::tests::full_layers_skip_yarn_and_compressed_layers_use_the_long_base ... ok
+test dsv4::tests::grouped_output_is_block_diagonal ... ok
+test dsv4::tests::hadamard_is_orthogonal_and_normalized ... ok
+test dsv4::tests::hash_route_is_deterministic_per_token_id ... ok
+test dsv4::shard_map::tests::shard_map_splits_the_per_head_sink_vector ... ok
+test dsv4::tests::grouped_output_quant_none_matches_the_raw_computation_and_q80_perturbs_it ... ok
+test dsv4::tests::hc_subblock_with_a_zero_block_is_pure_residual_mixing ... ok
+test dsv4::shard_map::tests::tiny_fixture_uses_the_mxfp4_expert_lane ... ok
+test dsv4::tests::f32_rms_accumulation_matches_f64_at_the_release_width ... ok
+test dsv4::tests::indexer_qat_preserves_the_score_dot_but_one_sided_rotation_does_not ... ok
+test dsv4::tests::layer_kinds_come_from_compress_ratios_and_exclude_the_mtp_slot ... ok
+test dsv4::tests::masked_out_entries_do_not_contribute ... ok
+test dsv4::tests::hca_attention_over_one_compressed_entry_matches_the_explicit_sdpa ... ok
+test dsv4::shard_map::tests::shard_map_local_bytes_account_for_the_whole_file ... ok
+test dsv4::tests::mla_project_quant_none_matches_raw_and_q80_perturbs_both_q_and_kv ... ok
+test dsv4::shard_map::tests::shard_map_group_split_is_contiguous_and_lands_on_a_group_boundary ... ok
+test dsv4::shard_map::tests::shard_map_world1_maps_every_tensor_whole ... ok
+test dsv4::tests::mutation_compressor_on_a_full_layer_is_rejected ... ok
+test dsv4::tests::mutation_unknown_compress_ratio_is_rejected ... ok
+test dsv4::tests::mutation_wrong_top_k_is_rejected ... ok
+test dsv4::tests::output_head_collapses_the_stream_and_projects_to_logits ... ok
+test dsv4::tests::moe_quantizes_shared_and_routed_experts_independently ... ok
+test dsv4::tests::output_head_quant_none_matches_raw_and_q80_perturbs_logits ... ok
+test dsv4::shard_map::tests::shard_map_rank_halves_partition_every_sharded_tensor ... ok
+test dsv4::tests::partial_rope_leaves_nope_dims_untouched_and_is_invertible ... ok
+test dsv4::tests::mutation_hash_layer_without_token_id_or_table_is_rejected ... ok
+test dsv4::shard_map::tests::shard_map_runs_start_and_end_on_a_block_boundary ... ok
+test dsv4::tests::q8_0_all_zero_block_stays_zero ... ok
+test dsv4::tests::moe_output_is_finite_and_shaped ... ok
+test dsv4::tests::q8_0_and_q8_k_round_trips_are_idempotent ... ok
+test dsv4::tests::mutation_routed_layer_without_bias_is_rejected ... ok
+test dsv4::tests::q8_0_hand_computed_block ... ok
+test dsv4::tests::q8_0_matches_golden_case_a_ragged_tail ... ok
+test dsv4::tests::q8_0_saturates_to_the_int8_range_at_the_denormal_extreme ... ok
+test dsv4::tests::q8_0_ties_go_to_even_not_away_from_zero ... ok
+test dsv4::tests::numerics_off_disables_activation_quant_at_the_layer_level ... ok
+test dsv4::tests::every_layer_kind_runs_end_to_end ... ok
+test dsv4::tests::q8_k_falls_back_to_a_whole_row_block_when_not_a_multiple_of_256 ... ok
+test dsv4::tests::q8_k_hand_computed_block_with_negative_max_and_row_fallback ... ok
+test dsv4::tests::q8_k_matches_golden_case_d_negative_max ... ok
+test dsv4::tests::q8_k_tie_break_order_does_not_change_the_round_trip ... ok
+test dsv4::tests::qat_round_trips_are_idempotent ... ok
+test dsv4::shard_map::tests::shard_map_rank_halves_reassemble_to_the_original_bytes ... ok
+test dsv4::tests::rms_norm_matches_the_hand_computation ... ok
+test dsv4::tests::rope_at_position_zero_is_the_identity ... ok
+test dsv4::tests::rope_pair_conventions_are_not_interchangeable ... ok
+test dsv4::tests::router_bias_steers_selection_but_never_the_weights ... ok
+test dsv4::tests::single_kv_entry_attention_is_the_sink_weighted_value ... ok
+test dsv4::tests::sinkhorn_comb_is_doubly_stochastic ... ok
+test dsv4::tests::image_rows_route_with_bias_vl_on_every_layer_kind ... ok
+test dsv4::tests::swiglu_clamps_gate_from_above_and_up_from_both_sides ... ok
+test dsv4::tests::the_numerics_switches_change_the_reference_output ... ok
+test dsv4::tests::tiny_and_release_configs_validate ... ok
+test dsv4::tp_attention_tests::tests::both_the_gate_config_and_the_release_width_split_bit_exactly ... ok
+test dsv4::tp_moe_tests::tests::a_ragged_stream_is_refused ... ok
+test dsv4::tp_moe_tests::tests::the_butterfly_is_the_ascending_xor_association ... ok
+test dsv4::tp_moe_tests::tests::the_e2m1_codebook_keeps_the_ocp_negative_zero ... ok
+test dsv4::tp_moe_tests::tests::the_host_split_unpacks_the_split_half_convention ... ok
+test dsv4::tests::image_block_attention_is_bidirectional_within_the_block ... ok
+test dsv4::tp_moe_tests::tests::the_moe_site_reduces_through_the_shared_reducer ... ok
+test dsv4::tp_moe_tests::tests::the_oracle_refuses_a_slice_past_the_axis ... ok
+test dsv4::tp_moe_tests::tests::the_reducer_refuses_mismatched_widths ... ok
+test dsv4::tp_plan::tests::tp_plan_contraction_shards_are_block_aligned ... ok
+test dsv4::tp_moe_tests::tests::the_oracle_halves_sum_to_the_oracle_whole ... ok
+test dsv4::tp_plan::tests::tp_plan_head_and_group_cuts_agree ... ok
+test dsv4::tp_plan::tests::tp_plan_reduction_sites_match_the_row_parallel_tensors ... ok
+test dsv4::tp_plan::tests::tp_plan_rejects_a_block_splitting_world ... ok
+test dsv4::tp_plan::tests::tp_plan_rejects_out_of_range_layers ... ok
+test dsv4::tp_plan::tests::tp_plan_rejects_unsupported_worlds ... ok
+test dsv4::tp_plan::tests::tp_plan_replicates_the_selection_path ... ok
+test dsv4::tp_plan::tests::tp_plan_replicated_roles_are_identical_across_ranks ... ok
+test dsv4::tp_plan::tests::tp_plan_schedule_has_two_reduces_per_layer ... ok
+test dsv4::tp_plan::tests::tp_plan_schedule_scales_with_prefill_rows ... ok
+test dsv4::tp_plan::tests::tp_plan_world1_owns_every_axis_whole ... ok
+test dsv4::tp_plan::tests::tp_plan_world2_axes_are_halved ... ok
+test dsv4::tp_plan::tests::tp_plan_world2_shards_partition_exactly ... ok
+test dsv4::tp_prefill_tests::tests::a_boundary_predicate_keeps_a_span_whole ... ok
+test dsv4::tp_prefill_tests::tests::a_zero_chunk_is_refused ... ok
+test dsv4::tp_prefill_tests::tests::an_indivisible_prompt_is_one_chunk ... ok
+test dsv4::tp_prefill_tests::tests::the_plain_chunker_cuts_on_the_stride ... ok
+test dsv4::vision::tests::all_eight_orientations_move_the_pixels_where_exif_says ... ok
+test dsv4::vision::tests::aspect_clamp_beyond_8_to_1 ... ok
+test dsv4::vision::tests::attention_bounds_causal_outside_and_bidirectional_inside ... ok
+test dsv4::vision::tests::bf16_rounding_is_round_to_nearest_even ... ok
+test dsv4::vision::tests::bicubic_downscale_matches_the_hand_computed_four_to_two_case ... ok
+test dsv4::vision::tests::erf_matches_known_values_and_gelu_is_odd_symmetric ... ok
+test dsv4::vision::tests::exif_orientation_parses_on_both_endiannesses ... ok
+test dsv4::vision::tests::every_plan_fits_the_budget_and_the_layout_agrees ... ok
+test dsv4::vision::tests::decode_rejects_zero_and_oversized_geometry ... ok
+test dsv4::vision::tests::full_attention_matches_a_naive_per_head_softmax ... ok
+test dsv4::vision::tests::image_span_skips_the_leading_compress_pad ... ok
+test dsv4::vision::tests::layout_compress_pad_tracks_start_pos ... ok
+test dsv4::vision::tests::codec_is_sniffed_from_magic_bytes_not_from_a_declared_type ... ok
+test dsv4::vision::tests::grayscale_replicates_and_alpha_is_dropped ... ok
+test dsv4::vision::tests::layout_emission_is_column_major_over_row_pairs ... ok
+test dsv4::vision::tests::layout_parity_odd_h_adds_a_pad_row ... ok
+test dsv4::vision::tests::layout_parity_pad_last_fires_when_the_half_body_is_odd ... ok
+test dsv4::vision::tests::layout_rejects_over_budget_grids ... ok
+test dsv4::vision::tests::jpeg_app1_orientation_is_applied_on_decode ... ok
+test dsv4::vision::tests::min_pixel_upscale_64x64 ... ok
+test dsv4::vision::tests::oversized_image_is_shrunk_into_the_token_budget ... ok
+test dsv4::vision::tests::pixel_unshuffle_matches_a_brute_force_loop ... ok
+test dsv4::vision::tests::released_sidecar_encodes_a_512x384_image ... ignored, needs BUTTER_DSV4_VISION_GGUF (real sidecar); minutes of scalar CPU
+test dsv4::vision::tests::preprocess_rejects_short_buffers ... ok
+test dsv4::vision::tests::png_exif_chunk_orientation_is_applied_on_decode ... ok
+test dsv4::vision::tests::resolution_planner_rule_table ... ok
+test dsv4::vision::tests::rope_is_norm_preserving_and_leaves_the_origin_alone ... ok
+test dsv4::vision::tests::rope_y_dims_rotate_only_with_y ... ok
+test dsv4::vision::tests::router_bias_select_documents_section_6 ... ok
+test dsv4::vision::tests::tiny_aligner_shape_and_bf16 ... ok
+test dsv4::vision::tests::worked_example_512x384 ... ok
+test dsv4::vision::tests::tiny_encoder_shape_and_finiteness ... ok
+test dsv4::tests::rms_forms_agree_bit_for_bit ... ok
+test gguf_tokenizer::tests::encode_keeps_chat_control_token_atomic ... ok
+test gguf_tokenizer::tests::gemma4_control_spellings_are_special ... ok
+test glm5_next::tests::architecture_parser_accepts_future_storage_policy_but_official_gate_rejects_it ... ok
+test gguf_tokenizer::tests::dsv4_decode_round_trips_the_oracle_ids ... ok
+test gguf_tokenizer::tests::dsv4_indented_python_uses_merged_whitespace_tokens ... ok
+test gguf_tokenizer::tests::hf_json_keeps_added_control_tokens_atomic ... ok
+test glm5_next::tests::dsa_compact_selection_includes_tail_and_matches_dense_when_complete ... ok
+test gguf_tokenizer::tests::dsv4_selects_the_deepseek3_pretokenizer ... ok
+test glm5_next::tests::dsa_pool_alignment_starts_at_first_valid_token ... ok
+test glm5_next::tests::glm_mhc_schedule_ends_column_stochastic ... ok
+test glm5_next::tests::dsa_pool_is_weighted_and_preserves_incomplete_tail ... ok
+test glm5_next::tests::forward_reachability_rejects_component_only_success ... ok
+test glm5_next::tests::kda_arbitrary_chunk_schedules_match_one_shot_exactly ... ok
+test glm5_next::tests::kda_oracle_rejects_shape_mutations ... ok
+test glm5_next::tests::kda_oracle_updates_before_read_and_carries_fp32_state ... ok
+test glm5_next::tests::kda_raw_path_applies_unit_l2_and_separate_q_scale ... ok
+test glm5_next::tests::kda_state_layout_is_value_major_then_key ... ok
+test glm5_next::tests::mhc_extreme_logits_remain_finite_and_column_stochastic ... ok
+test glm5_next::tests::moe_combination_adds_routed_and_shared_exactly_once ... ok
+test gguf_tokenizer::tests::dsv4_encode_matches_the_hf_oracle_ids ... ok
+test glm5_next::tests::parser_rejects_layer_count_mismatch ... ok
+test glm5_next::tests::parser_rejects_wrong_family ... ok
+test glm5_next::tests::parses_and_accepts_pinned_release_contract ... ok
+test glm5_next::tests::pooled_indexer_rejects_multi_sequence_unified_kv ... ok
+test glm5_next::tests::quantized_indexer_ape_dequantizes_before_narrow_axis_transpose ... ok
+test glm5_next::tests::release_policy_catches_attention_schedule_mutation ... ok
+test glm5_next::tests::gguf_preflight_censuses_mixed_codecs_without_dequantizing ... ok
+test glm5_next::tests::release_policy_catches_kda_decay_mutation ... ok
+test glm5_next::tests::release_policy_catches_mhc_iteration_mutation ... ok
+test glm5_next::tests::released_gguf_names_preserve_glm53_roles_and_dsa_cadence ... ok
+test glm5_next::tests::release_policy_catches_router_and_fp8_mutations ... ok
+test glm5_next::tests::router_uses_sigmoid_stable_ties_normalization_and_scale ... ok
+test glm5_next::tests::tensor_census_drives_role_aware_precision_islands ... ok
+test glm5_next::tests::text_smoke_prompt_and_multi_eos_match_release_template ... ok
+test glm5_next::tests::trace_records_locate_first_divergent_node ... ok
+test glm5_next::tests::width_four_conv_step_matches_full_causal_sequence ... ok
+test qwen35::config_tests::alpha_beta_weight_concat_rejects_truncated_inputs ... ok
+test qwen35::config_tests::alpha_beta_weights_are_concatenated_by_projection ... ok
+test qwen35::config_tests::attention_sdpa_rows_defaults_on_with_explicit_rollback ... ok
+test qwen35::config_tests::automatic_prefill_chunks_are_tiled_without_tiny_tails ... ok
+test qwen35::config_tests::block_draft_acceptance_covers_every_commit_depth ... ok
+test qwen35::config_tests::block_draft_acceptance_rejects_width_mismatches ... ok
+test qwen35::config_tests::block_draft_prefix_acceptance_covers_shorter_verify_widths ... ok
+test qwen35::config_tests::fp8_decode_block_cache_defaults_on_with_rollback ... ok
+test qwen35::config_tests::fp8_decode_block_gemv_defaults_on_with_explicit_rollback ... ok
+test qwen35::config_tests::fp8_decode_blocks_tracks_long_context_parallelism ... ok
+test qwen35::config_tests::fp8_decode_grouped_packed_defaults_on_with_rollback ... ok
+test qwen35::config_tests::fp8_decode_repack_is_restricted_to_hidden_output_projection_shape ... ok
+test qwen35::config_tests::fp8_decode_vector_weight_is_default_on_with_rollback ... ok
+test qwen35::config_tests::fp8_explicit_nvfp4_copies_are_opt_in_and_shape_restricted ... ok
+test qwen35::config_tests::mtp_gamma_is_bounded_by_visible_output_budget ... ok
+test qwen35::config_tests::native_nvfp4_down_dispatch_is_shape_exact ... ok
+test qwen35::config_tests::reset_wide_dispatch_is_restricted_to_exact_ffn_shapes ... ok
+test qwen35::config_tests::residual_projection_epilogue_defaults_on_with_explicit_rollback ... ok
+test qwen35::config_tests::residual_projection_epilogue_dispatch_is_shape_exact ... ok
+test glm5_next::tests::local_preflight_cross_checks_config_index_headers_and_file_length ... ok
+test qwen35::config_tests::hf_multimodal_wrapper_reads_text_geometry ... ok
+test qwen35::fp8_block_tests::block_checkpoint_preserves_bf16_head_and_mixed_projection_bytes ... ok
+test qwen35::fp8_block_tests::block_fp8_refuses_ambiguous_row_scales ... ok
+test qwen35::fp8_block_tests::block_group_declines_row_fusion_and_preserves_member_origin ... ok
+test qwen35::fp8_block_tests::existing_row_fp8_bytes_scales_and_fusion_are_retained ... ok
+test qwen35_block_draft::tests::real_checkpoint_config ... ignored, checkpoint campaign; requires BUTTER_QWEN35_BLOCK_DRAFT
+test qwen35::fp8_block_tests::original_block_fp8_loads_without_requantization ... ok
+test qwen35_nvfp4_tp::tests::alignment_and_layout_mutations_fail_closed ... ok
+test qwen35_block_draft::tests::expected_manifest_pins_every_tensor_shape ... ok
+test dsv4::vision::tests::patch_order_canary_places_one_lit_pixel_at_the_predicted_index ... ok
+test qwen35_nvfp4_tp::tests::exact_code_oracle_and_composite_known_bad_are_independent ... ok
+test qwen35_parallel::tests::allreduce_size_check_rejects_overflow ... ok
+test qwen35_block_draft::tests::parses_the_fixed_width_contract ... ok
+test qwen35_block_draft::tests::rejects_ambiguous_widths ... ok
+test qwen35::fp8_block_tests::block_fp8_rejects_wrong_encoding_grid_and_nonfinite_scales_before_upload ... ok
+test qwen35_nvfp4_tp::tests::down_shards_reconstruct_rows_and_regenerate_local_swizzle ... ok
+test qwen35_parallel::tests::collective_metadata_detects_cross_rank_disagreement ... ok
+test qwen35_parallel::tests::eager_full_attention_dense_order_operand_keeps_full_weight_and_local_ownership ... ok
+test qwen35_parallel::tests::eager_full_attention_operands_require_production_shapes_offsets_and_identity ... ok
+test qwen35_parallel::tests::eager_full_attention_reducer_identity_and_graph_mode_fail_closed ... ok
+test qwen35_parallel::tests::eager_full_attention_reducer_must_return_exact_in_place_view ... ok
+test qwen35_parallel::tests::eager_full_attention_rst_rejects_placement_mutations ... ok
+test qwen35_parallel::tests::layout_oracle_rejects_naive_contiguous_mutations ... ok
+test qwen35_parallel::tests::plan_rejects_head_splits_that_break_checkpoint_groups ... ok
+test qwen35_parallel::tests::teacher_forced_logit_composite_gate_catches_mutations ... ok
+test qwen35_parallel::tests::tp2_full_attention_geometry_and_memory_census_are_checked ... ok
+test qwen35_parallel::tests::tp2_full_attention_known_bad_layouts_are_distinct ... ok
+test qwen35_parallel::tests::tp2_ranges_match_qwen38_checkpoint_layout ... ok
+test qwen35_parallel::tests::tp2_partitions_cover_checkpoint_axes_once_without_overlap ... ok
+test qwen35_parallel::tests::tp2_w8a16_full_q_gate_shards_are_exact_contiguous_halves ... ok
+test qwen35_parallel::tests::tp2_w8a16_local_output_guard_rejects_wrong_shape_and_dtype ... ok
+test qwen35_parallel::tests::two_rank_partial_sum_oracle_is_exact_and_catches_mutations ... ok
+test qwen35_tp_model::tests::admission_fails_closed_for_every_unimplemented_mode ... ok
+test dsv4::vision::tests::preprocess_patch_order_is_channel_y_x ... ok
+test qwen35_tp_model::tests::decode_schedule_fingerprint_covers_every_static_descriptor_field ... ok
+test qwen35_tp_model::tests::decode_schedule_has_all_128_ops_in_model_order ... ok
+test qwen35_tp_model::tests::checkpoint_receipt_is_bound_to_exact_open_source_and_config ... ok
+test dsv4::vision::tests::letterbox_offsets_centre_the_content ... ok
+test qwen35_tp_model::tests::eager_teacher_forced_schedule_drives_one_trait_object_reducer_in_exact_order ... ok
+test qwen35_tp_model::tests::eager_teacher_forced_schedule_fails_before_math_and_stops_on_kernel_error ... ok
+test dsv4::vision::tests::preprocess_letterboxes_and_normalizes ... ok
+test dsv4::vision::tests::prepared_image_carries_plan_patches_grid_and_fingerprint ... ok
+test qwen35_tp_model::tests::ffn_call_contract_rejects_descriptor_rank_position_and_tensor_mutations ... ok
+test qwen35_tp_model::tests::ffn_environment_flag_contract_is_fail_closed ... ok
+test qwen35_tp_model::tests::ffn_rst_preserves_each_family_topology_scale_and_residual_order ... ok
+test qwen35_tp_model::tests::eager_embedding_cast_and_shared_fp8_q8_head_contracts_are_typed ... ok
+test qwen35_tp_model::tests::fp8_ffn_placement_rejects_global_row_and_column_mutations ... ok
+test qwen35_tp_model::tests::full_attention_rst_requires_exact_gather_projection_and_residual_order ... ok
+test qwen35_tp_model::tests::full_attention_call_contract_rejects_shape_offset_bounds_and_op_mutations ... ok
+test qwen35_tp_model::tests::gdn_inplace_history_requires_stable_exact_backing_and_result_shape ... ok
+test qwen35_tp_model::tests::cache_rejects_wrong_typed_layer_kind ... ok
+test qwen35_tp_model::tests::gdn_joined_projection_views_share_exact_buffer_and_z_offset ... ok
+test qwen35_tp_model::tests::gdn_stage_order_rejects_scale_residual_and_state_mutations ... ok
+test qwen35_tp_model::tests::gdn_noncyclic_three_span_and_group_mapping_are_exact_on_both_ranks ... ok
+test qwen35::fp8_block_tests::block_fp8_projection_families_route_without_row_scale_or_activation_quantization ... ok
+test qwen35_tp_model::tests::model_ownership_contract_rejects_rank_identity_order_and_policy_mutations ... ok
+test qwen35_tp_model::tests::model_binding_rejects_exact_config_and_opaque_receipt_mutations ... ok
+test qwen35_tp_model::tests::scalar_begin_step_rejects_late_representation_environment_failure ... ok
+test qwen35_tp_model::tests::scalar_authorized_step_keeps_position_phase_and_vocabulary_local ... ok
+test qwen35_tp_model::tests::scalar_capacity_and_zero_requests_fail_closed ... ok
+test qwen35_tp_model::tests::scalar_prompt_walk_transitions_to_decode_and_stops_at_capacity ... ok
+test qwen35_tp_model::tests::scalar_state_rejects_reentry_bad_completion_and_cancelled_use ... ok
+test qwen35_tp_model::tests::scalar_step_rejects_token_position_phase_model_and_cache_mutations ... ok
+test qwen35_tp_model::tests::scalar_tickets_reject_cross_state_replay_token_and_phase_mutations ... ok
+test qwen35_tp_weights::tests::early_and_late_format_receipts_preserve_global_and_bf16_bits ... ok
+test qwen35_tp_weights::tests::gdn_decode_scale_bits_match_dense_expression ... ok
+test qwen35_tp_weights::tests::gdn_value_heads_map_to_noncyclic_local_key_groups_on_both_ranks ... ok
+test qwen35_tp_model::tests::format_is_inspected_and_mixed_or_wrong_tail_is_rejected ... ok
+test qwen35_tp_model::tests::cache_rejects_wrong_rank_model_config_checkpoint_and_format ... ok
+test qwen35_tp_weights::tests::local_nvfp4_scale_swizzle_roundtrips_and_wrong_width_fails ... ok
+test qwen35_tp_weights::tests::production_local_resident_byte_census_is_exact_and_format_sensitive ... ok
+test qwen35_tp_weights::tests::fused_gdn_loader_reconstructs_codes_and_scale_bits_for_both_ranks ... ok
+test qwen35_tp_model::tests::scalar_cache_gate_uses_the_existing_identity_contract ... ok
+test qwen35_tp_weights::tests::row_and_noncyclic_three_span_shards_reconstruct_exactly ... ok
+test qwen35_tp_weights::tests::real_nvfp4_ffn_loader_outputs_satisfy_runtime_tensor_contract ... ok
+test qwen35_tp_weights::tests::row_major_column_halves_reconstruct_and_flat_split_fails ... ok
+test qwen35_tp_weights::tests::tp_rejects_every_representation_changing_override ... ok
+test qwen4_exp::tests::batched_ple_rows_match_serial_history_updates ... ok
+test qwen4_exp::tests::layer_major_prefill_preserves_per_layer_token_state_order ... ok
+test qwen4_exp::tests::mtp_gate_is_off_unless_the_env_selector_is_exactly_one ... ok
+test qwen4_exp::tests::mtp_manifest_declares_both_input_norms_at_the_released_widths ... ok
+test qwen4_exp::tests::mtp_manifest_pins_the_three_bit_input_projections ... ok
+test qwen35_tp_weights::tests::replicated_components_preserve_embedding_norm_and_head_representations ... ok
+test qwen35_tp_weights::tests::loader_preflight_uses_production_parser_for_deployed_and_standard_nvfp4 ... ok
+test qwen4_exp::tests::mtp_norm_weights_take_the_same_plus_one_bias_as_the_trunk ... ok
+test qwen35_tp_weights::tests::cpu_loader_reconstructs_early_nvfp4_and_late_fp8_checkpoint_shards ... ok
+test qwen4_exp::tests::nvfp4_policy_rejects_top_8_routing ... ok
+test qwen4_exp::tests::nvfp4_policy_rejects_wrong_gate ... ok
+test qwen4_exp::tests::mtp_manifest_rejects_a_missing_tensor ... ok
+test qwen4_exp::tests::mtp_manifest_rejects_a_broken_mixer_patch ... ok
+test qwen4_exp::tests::mtp_manifest_rejects_a_wrong_shape ... ok
+test qwen4_exp::tests::mtp_manifest_rejects_a_wrong_dtype ... ok
+test qwen4_exp::tests::nvfp4_policy_rejects_wrong_layer_pattern ... ok
+test qwen4_exp::tests::nvfp4_policy_rejects_wrong_ple_contract ... ok
+test qwen4_exp::tests::parser_rejects_layer_count_mismatch ... ok
+test qwen4_exp::tests::mtp_manifest_accepts_the_declared_inventory ... ok
+test qwen4_exp::tests::parser_rejects_unknown_attention_kind ... ok
+test dsv4::model_tests::tests::the_synthetic_checkpoint_round_trips_through_the_loader ... ok
+test qwen4_exp::tests::parser_rejects_wrong_model_type ... ok
+test qwen4_exp::tests::ple_eos_boundary_masks_the_older_context ... ok
+test qwen4_exp::tests::pooled_expert_layout_matches_the_released_stride_formula ... ok
+test qwen4_exp::tests::pooled_expert_offsets_tile_the_family_without_gaps ... ok
+test qwen4_exp::tests::pooled_factor_bytes_are_little_endian_f32_in_expert_order ... ok
+test qwen4_exp::tests::qsa_block_plan_keeps_the_last_complete_group_on_an_aligned_prompt ... ok
+test qwen35_tp_model::tests::gdn_runtime_contract_rejects_order_shape_offset_state_and_history_mutations ... ok
+test qwen4_exp::tests::qsa_block_plan_matches_the_sequential_walk ... ok
+test qwen4_exp::tests::qsa_block_plan_rejects_degenerate_geometry ... ok
+test qwen4_exp::tests::qsa_rejects_incomplete_or_nonfinite_state ... ok
+test qwen4_exp::tests::qsa_boundary_uses_complete_groups_only ... ok
+test qwen4_exp::tests::qsa_selects_scored_complete_blocks_and_keeps_the_causal_tail ... ok
+test qwen35_tp_model::tests::cache_validation_rejects_mutated_tensor_shape_and_dtype ... ok
+test qwen4_exp::tests::qsa_ties_prefer_the_lower_block ... ok
+test qwen4_exp::tests::released_exl3_policy_accepts_sidecar_described_ngram ... ok
+test qwen4_exp::tests::released_exl3_policy_rejects_embedded_fp8_ngram_contract ... ok
+test qwen4_exp::tests::released_gdn_uses_contiguous_value_head_groups ... ok
+test qwen4_exp::tests::released_exl3_runtime_geometry_parses ... ok
+test qwen4_exp::tests::released_nvfp4_config_contract_parses ... ok
+test qwen4_exp::tests::released_nvfp4_policy_accepts_exact_contract ... ok
+test qwen4_exp::tests::zero_centered_norm_weights_retain_unit_gain ... ok
+test unicode_class::tests::families_match_unicodedata_spot_checks ... ok
+test unicode_class::tests::ranges_are_sorted_and_disjoint ... ok
+test qwen35_tp_weights::tests::replicated_metadata_census_and_mutations_fail_closed ... ok
+test dsv4::model_tests::expert_memory_tests::packed_experts_are_far_smaller_than_dequantized ... ok
+test dsv4::model_tests::int8_parity_tests::the_exact_dots_agree_with_the_loaders_dequantizer ... ok
+test qwen35_tp_model::tests::cache_validation_binds_exact_allocation_and_zero_offset_view ... ok
+test dsv4::vision::tests::fingerprint_is_stable_across_containers_and_moves_with_the_pixels ... ok
+test dsv4::tp_attention_tests::tests::a_rank_local_config_folds_its_own_slice_whole ... ok
+test qwen35_tp_model::tests::exact_head_ownership_cache_shapes_and_bytes ... ok
+test dsv4::tp_attention_tests::tests::reference_two_rank_sum_is_bit_exact ... ok
+
+test result: ok. 403 passed; 0 failed; 3 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+     Running unittests src/bin/glm53-preflight.rs (/Users/tom/Documents/New project/butter-iron-h100-prep/cpu-protocol-target/debug/deps/glm53_preflight-fe49523bac5a01f2)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (/Users/tom/Documents/New project/butter-iron-h100-prep/cpu-protocol-target/debug/deps/wh_butter_ops-d698c4fc019697ed)
+
+running 51 tests
+test dsv4_mxfp4_sf_tests::mxfp4_sf_slots_within_one_atom_are_a_bijection ... ok
+test dsv4_mxfp4_sf_tests::mxfp4_sf_blob_bytes_rounds_up_to_whole_atoms ... ok
+test block_fp8::tests::block_fp8_invalid_scale_grid_and_short_buffers_refuse_before_dispatch ... ok
+test dsv4_mxfp4_sf_tests::mxfp4_sf_slots_stay_inside_the_blob ... ok
+test block_fp8::tests::block_fp8_tail_dispatch_preserves_offsets_and_ceil_scale_stride ... ok
+test block_fp8::tests::block_fp8_vector_and_invalid_views ... ok
+test marlin_prep_validate::marlin_weight_prep_matches_python ... ok
+test qsa_select::tests::qsa_route_len_pos_below_at_above_budget_and_tails ... ok
+test qsa_tail::tests::qsa_tail_geometry_matches_the_per_token_route_bounds ... ok
+test qsa_tail::tests::qsa_tail_geometry_rejects_a_tail_that_starts_below_the_budget ... ok
+test qwen35_gqa_pair6_selector_tests::defaults_on_with_explicit_rollback ... ok
+test tests::fp8_row_major_k_half_repack_is_exact_and_fail_closed ... ok
+test tests::marlin_permute_roundtrip ... ok
+test tests::qwen35_tp_joined_all_gather_restores_dense_member_order ... ok
+test tests::qwen38_down_row_pair_defaults_on_with_explicit_rollback ... ok
+test tests::qwen38_down_shared_geometry_defaults_on_with_explicit_rollback ... ok
+test tests::qwen38_reset_cta1024_defaults_on_with_explicit_rollback ... ok
+test tests::qwen38_reset_cta256_defaults_on_and_has_explicit_rollback ... ok
+test tests::qwen38_reset_cta512_defaults_on_with_explicit_rollback ... ok
+test tests::qwen38_reset_shared_x_defaults_on_and_has_explicit_rollback ... ok
+test tests::sinkhorn_comb_is_doubly_stochastic ... ok
+test lookup_tests::an_unregistered_kernel_reports_the_registry_it_missed ... ok
+test tests::nvfp4_scale_search_reduces_reconstruction_error ... ok
+test tests::streaming_bf16_q8_matches_rounded_f32_quantization ... ok
+test trellis_bgemm_selection_tests::rejects_decode_row_counts ... ok
+test trellis_bgemm_selection_tests::selects_bgemm_for_prefill_shapes ... ok
+test trellis_dequant_selection_tests::dense_threshold_128 ... ok
+test trellis_bgemm_selection_tests::rejects_shapes_violating_bgemm_tiling ... ok
+test lookup_tests::a_kernel_with_no_declared_mode_is_refused ... ok
+test trellis_dequant_selection_tests::env_off_and_non_cuda_both_veto ... ok
+test tests::causal_conv_binds_disabled_rollback_plane_arguments ... ok
+test trellis_dequant_selection_tests::grouped_default_is_effectively_off ... ok
+test trellis_mma_selection_tests::rejects_decode_row_counts ... ok
+test trellis_mma_selection_tests::rejects_gathered_rows_regardless_of_count ... ok
+test tests::qwen27_gdn_prefill_matches_each_kernel_signature ... ok
+test trellis_mma_selection_tests::selects_mma_for_dense_prefill_rows ... ok
+test trellis_signs_layout_tests::ambiguous_tie_prefers_legacy_per_row ... ok
+test trellis_signs_layout_tests::detects_legacy_per_row ... ok
+test trellis_signs_layout_tests::detects_pooled ... ok
+test trellis_signs_layout_tests::distinguishes_pooled_and_per_row_at_output_width ... ok
+test trellis_signs_layout_tests::rejects_unrecognized_size ... ok
+test trellis_signs_layout_tests::rejects_zero_row_width ... ok
+test trellis_splitk_tests::falls_back_to_s_when_no_divisor_in_band ... ok
+test trellis_splitk_tests::no_split_when_blocks_already_meet_target ... ok
+test trellis_splitk_tests::no_split_when_k_tiles_too_small ... ok
+test lookup_tests::a_cold_lookup_of_the_decode_set_is_immediate ... ok
+test trellis_splitk_tests::target_384_matches_production_shapes ... ok
+test lookup_tests::dsv4_kernels_resolve_with_their_pinned_modes ... ok
+test trellis_tensor_core_bits_tests::accepts_two_and_four_bit ... ok
+test trellis_tensor_core_bits_tests::rejects_three_bit_so_it_falls_through_to_gemv ... ok
+test tests::nvfp4_reconstruction_on_par_with_q4 ... ok
+
+test result: ok. 51 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests wh_butter_loader
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests wh_butter_models
+
+running 1 test
+test crates/wh-butter-models/src/dsv4/reference/qat.rs - dsv4::reference::qat::ref_fp8_kv_roundtrip (line 493) ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+all doctests ran in 0.66s; merged doctests compilation took 0.28s
+   Doc-tests wh_butter_ops
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

@@ -1,0 +1,72 @@
+{
+  "source": "de5485c499946f387fa658f656fc4183b50781c1",
+  "lock_sha256": "867adaf5442d1ac679b9b5d0537f7ab4df097a66fdfe832f01389335864f38df",
+  "environment": {
+    "RUSTUP_TOOLCHAIN": "nightly-2026-05-15",
+    "CARGO_TARGET_DIR": "/workspace/butter-iron-rental/target",
+    "CARGO_BUILD_JOBS": "6",
+    "CUDA_VISIBLE_DEVICES": "",
+    "CUDA_HOME": "/usr/local/cuda",
+    "CUDA_PATH": "/usr/local/cuda",
+    "LD_LIBRARY_PATH": "/usr/local/cuda/lib64:/usr/lib/x86_64-linux-gnu",
+    "BUTTER_BUILD_COMMIT": "de5485c499946f387fa658f656fc4183b50781c1"
+  },
+  "steps": [
+    {
+      "label": "cli",
+      "argv": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "/workspace/butter-iron-rental/results/build-block-fp8-20260905T234504Z/cli.time.txt",
+        "cargo",
+        "build",
+        "--locked",
+        "--release",
+        "--manifest-path",
+        "rust/Cargo.toml",
+        "-p",
+        "wh-butter-cli",
+        "--bin",
+        "butter",
+        "--no-default-features",
+        "--features",
+        "cuda,developer-cli"
+      ],
+      "exit": 0,
+      "elapsed_s": 36.115750056982506
+    },
+    {
+      "label": "numerical-test-compile",
+      "argv": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "/workspace/butter-iron-rental/results/build-block-fp8-20260905T234504Z/numerical-test-compile.time.txt",
+        "cargo",
+        "test",
+        "--locked",
+        "--release",
+        "--manifest-path",
+        "rust/Cargo.toml",
+        "-p",
+        "wh-butter-cuda",
+        "--features",
+        "cuda",
+        "--test",
+        "block_fp8_linear",
+        "--no-run",
+        "--message-format=json"
+      ],
+      "exit": 0,
+      "elapsed_s": 167.67464458898758
+    }
+  ],
+  "binary": "/workspace/butter-iron-rental/bin/butter-block-fp8-de5485c",
+  "binary_sha256": "78440e6dbb928b50543438358a874aa0b731faded19202d93725cc5192ad2fc9",
+  "numerical_test_executable": "/workspace/butter-iron-rental/target/release/deps/block_fp8_linear-fdd5ad77115b1170",
+  "numerical_test_sha256": "016481c9c6a616a23bab46de1d9aa42504fc1153dafe017c2563c8682084e965",
+  "complete": true,
+  "elapsed_s": 204.1859343580145,
+  "finished_utc": "2026-09-05T23:48:29.761717+00:00"
+}

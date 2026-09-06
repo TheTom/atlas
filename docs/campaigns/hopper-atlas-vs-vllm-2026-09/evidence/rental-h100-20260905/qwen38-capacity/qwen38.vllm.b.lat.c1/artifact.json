@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "campaign": "hopper-atlas-vs-vllm-2026-09",
+  "cell_id": "vllm.qwen3.8-27b-fp8.h100.lat.c1.specoff.thinkoff",
+  "engine": "vllm",
+  "model": {
+    "hf_id": "Qwen/Qwen3.8-27B-FP8",
+    "model_key": "qwen3.8-27b-fp8",
+    "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "quant": "fp8"
+  },
+  "engine_version": {
+    "git_sha": null,
+    "image_digest": null,
+    "binary_sha256": null,
+    "vllm_version": null
+  },
+  "harness": {
+    "git_sha": "9d68c96b6a37661179ef4c9ecc8c4d239c810c78"
+  },
+  "hardware": {
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "gpu_count": 1,
+    "hardware_id": "h100",
+    "driver": "610.57.04",
+    "cuda": "13.3",
+    "sm_clock_mhz": null,
+    "clocks_locked": null,
+    "nvidia_smi_q_sha256": "25a21b65edd4a701da5fb768dcc8adce4b3681885c5bb8db71f4c73307cf3cab"
+  },
+  "topology": {
+    "tp": 1,
+    "ep": 1,
+    "pp": 1,
+    "dp": 1,
+    "world_size": 1,
+    "nnodes": 1,
+    "matched": false,
+    "recipe_max": true
+  },
+  "serve_command": [
+    "/workspace/atlas-rental/vllm/bin/vllm",
+    "serve",
+    "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "--tensor-parallel-size",
+    "1",
+    "--enable-auto-tool-choice",
+    "--tool-call-parser",
+    "qwen3_coder",
+    "--reasoning-parser",
+    "qwen3",
+    "--mm-encoder-tp-mode",
+    "data",
+    "--revision",
+    "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "--max-num-seqs",
+    "512",
+    "--served-model-name",
+    "Qwen/Qwen3.8-27B-FP8",
+    "--port",
+    "8000"
+  ],
+  "serve_env": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "HF_HOME": "/workspace/atlas-rental/hf38",
+    "HF_HUB_CACHE": "/workspace/atlas-rental/hf38/hub",
+    "HF_HUB_OFFLINE": "1",
+    "LD_LIBRARY_PATH": "/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64",
+    "SPT_NOENV": "1"
+  },
+  "workload": {
+    "name": "lat",
+    "isl": 1024,
+    "osl": 256,
+    "concurrency": 1,
+    "source": "bench/hopper_ab/workloads.json"
+  },
+  "client": {
+    "name": "/workspace/atlas-rental/src/atlas/bench/ladder38/harness_w55_conc_ladder.py",
+    "sha256": "7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb",
+    "isl_nominal": 1024,
+    "isl_measured_p50": null,
+    "osl": 256,
+    "reps": 3,
+    "warmup": 1,
+    "seed": 42,
+    "temperature": 0.0,
+    "penalties": {
+      "presence_penalty": 0.0,
+      "frequency_penalty": 0.0
+    },
+    "prompt_mode": "essay"
+  },
+  "timing": {
+    "started_utc": null,
+    "finished_utc": null
+  },
+  "spec": {
+    "on": false,
+    "method": "none",
+    "k": null
+  },
+  "think": "off",
+  "boot": {
+    "time_to_ready_s": 296.58,
+    "first_token_s": 0.258,
+    "pass": true,
+    "timeout_s": 1800
+  },
+  "coherency": {
+    "determinism_ok": true,
+    "toolcall_ok": true,
+    "think_leak_ok": true,
+    "known_answer_ok": false,
+    "gate_json_path": "/workspace/atlas-rental/results/qwen38.vllm.b.lat.c1/coherency.json"
+  },
+  "metrics": {
+    "percentile_method": "mean_of_rep_percentiles",
+    "tok_s_series": [],
+    "tok_s_mean": null,
+    "tok_s_spread_pct": null,
+    "ttft_p50_ms": null,
+    "ttft_p99_ms": null,
+    "tpot_p50_ms": null,
+    "e2e_p50_s": null,
+    "vacuous": null,
+    "ladder_json_path": null
+  },
+  "ptx_gate_receipt_sha256": null,
+  "ptx_gate_not_applicable_reason": "the Atlas PTX gate does not apply to an official vLLM image",
+  "paired_cell": {
+    "cell_id": null,
+    "artifact_path": null,
+    "within_24h": null
+  },
+  "verdict": "NO-GO",
+  "failing_stage": "coherency",
+  "notes": "ladder JSON absent: every metric is null, not zero | vLLM process environment has no verified immutable engine build identity; image_digest remains null | Rental profile qwen38-h100-vllm028-capacity512: revision and capacity adaptation for the recorded direct vLLM 0.28.0 environment, not the verbatim official command. source_url and evidence_sha256 identify the original captured H100 recipe, which omits --max-num-seqs; the first failed cell and original recipe commit are retained. The installed H100 default of 1024 exceeded 810 observed Mamba cache blocks after weights loaded. The explicit 512 limit preserves the existing 512 graph ceiling, leaves 298 blocks below that observed capacity, and exceeds frozen C16 concurrency; this is a capacity compatibility change, not a throughput-tuned setting. The original floating image tag is not proof of the installed version. A fresh boot and coherency gate remain required; metadata is not loaded-byte proof. | actual model launch evidence /workspace/atlas-rental/results/qwen38.vllm.b.lat.c1/process-launch.json sha256=ff960862e919f9f8a4c150c0dd59009a6afbc4c7022a4cd24058fd275c1a1185; owner /workspace/atlas-rental/results/qwen38.vllm.b.lat.c1/process-44347/owner.json sha256=714b632a675c46c5ff2e59dd892fcb9bc37065f4ea13b0f596a39e9a4cc21c10; owned Linux /proc executable, cmdline, PID/start_ticks/boot_id and run marker; model launch identity, not weight bytes or an engine build identity"
+}

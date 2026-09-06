@@ -1,0 +1,15 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=10",
+    "-p",
+    "51249",
+    "root@93.91.156.94",
+    "cd /workspace/atlas-rental/dense-fp8-env-green-exit-race-fixed && python3 -m unittest process_launch_test -v"
+  ],
+  "exit_code": 0,
+  "utc": "2026-09-05T23:35:21.671912+00:00"
+}

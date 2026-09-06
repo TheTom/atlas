@@ -175,3 +175,67 @@ For the pinned vLLM 0.28.0 source, [`calculate_metrics`](https://github.com/vllm
   matched prefix-cache/thinking policy, before attempting Super on the quoted box.
   A TP-only edit is not source parity. Details and stopping rules are in the
   [eight-hour plan](../VAST-H100-8H-PLAN.md).
+
+## Native vLLM on the rented H100: observed identity gap
+
+The owned process path now runs on the actual single-H100 rental. Its launch
+receipt proves PID/start ticks/boot ID, interpreter, actual argv, selected
+environment and pinned model path. It does not prove immutable identity of the
+Python implementation and native libraries loaded by that interpreter. This is
+a P1 result-trust gap, separate from the already observed boot and coherency
+outcomes in [the Qwen3.8 report](../RENTAL-H100-QWEN38-CAPACITY.md).
+
+Read-only metadata captured at `2026-09-05T22:43:56.784859Z` reports installed
+vLLM `0.28.0`, engine-declared commit `g2cf0a6915`, Python `3.12.3`, and 196
+distributions. After retaining the literal declaration, `2cf0a6915` fits the
+schema's short source-revision pattern; it is still not an identity for all
+executed bytes. The vLLM RECORD has 7,276 entries. Only the version file and
+248-byte console entrypoint were checked against their recorded content hashes;
+the other 7,274 entries were not verified. The fixed-directory metadata read
+was not bound to a running process's effective import resolution or checked
+again after the run. [Observed metadata and full limitations](../evidence/rental-h100-20260905/native-vllm-identity/installed-metadata/version-and-record-receipt.json).
+
+| Observed counterexample | Existing behavior | Required interpretation |
+|---|---|---|
+| Declared source revision and package version; build hashes null | Validator rejects `CERTIFIED` for missing engine build identity | Useful metadata alone does not close this gate |
+| Version-file, console-script or Python-interpreter hash substituted into `binary_sha256` | Each fabricated fixture passes that field's syntax check | Invalid subject: those bytes do not identify the vLLM engine implementation |
+| Actual native capture given Python or its console script | Leaves engine identity unset | Correct refusal; preserve nulls in the real artifacts |
+
+These are local counterexamples against the actual validator and capture path,
+not altered campaign measurements. Their commands, exits and fixture subjects
+are retained in [the source audit](../evidence/rental-h100-20260905/native-vllm-identity/audit/REPORT.md)
+and [checksummed evidence manifest](../evidence/rental-h100-20260905/native-vllm-identity/MANIFEST.json).
+The schema currently requires a verified image digest or local engine binary
+hash for certification. Hashing the outer rental image would also be incomplete
+if the native environment was installed or changed after container creation.
+
+Proposed follow-up, with the schema and validator unchanged in this report:
+
+1. Define a distinct native-package identity, with a canonical manifest digest
+   over actual installed vLLM implementation files and compiled extensions.
+   Keep container and local-binary fields null when they do not apply. Retain
+   declared version/commit, RECORD digest, installation origin, dependency
+   inventory and Python/platform identity as supporting fields. A RECORD hash
+   alone cannot show that its listed files still contain those bytes; a list of
+   dependency versions must remain distinct from full dependency-byte proof.
+2. Bind capture to the supported interpreter/entrypoint, effective package
+   resolution and selected environment of the owned launched process. Compare
+   immutable content identity before and after the measurement, with explicit
+   treatment of generated caches and dependencies, rather than interpreting a
+   metadata file as evidence for an entire virtual environment.
+3. Make the assembler validate that sidecar and process binding before the
+   validator accepts a third identity form. Prove known-bad cases first:
+   foreign virtual environment, stale or reused PID, import shadowing, changed
+   implementation with unchanged version/RECORD, missing native library,
+   unknown or dirty declared revision, and mixed before/after inventories.
+
+This proposal does not authorize populating existing fields with substitute
+hashes or marking the rental cells certified. Raw diagnostic measurements stay
+available with their limitations; coherency and other scoring gates still apply
+independently of a future identity repair.
+
+## Native Atlas executable basename: observed assembler refusal
+
+Real H100 Qwen3.8 cell `c` passes kernel audit, first-token boot, coherency and its C1 ladder, but the [unchanged assembled artifact](../evidence/rental-h100-20260905/rental-overview/runtime/qwen38.atlas.c.lat.c1/artifact.json) remains `NO-GO` at `serve`: `invalid model launch evidence: actual Atlas process executable and argv must name spark`. The owned process snapshot records the expected binary hash and pinned checkpoint path, but the executable was named `spark-qwen38`. This is a P1 provenance integration gap, not a failed model response.
+
+Preserve the raw artifact's null `model.revision` and failure. The bounded operational remedy is a future launch whose actual executable and argv satisfy the existing `spark` contract, followed by fresh ownership, boot, gates and assembly; do not edit old evidence or substitute a known staging pin. A more general renamed-binary adapter would need explicit identity binding and red-first wrong-binary, stale/reused-PID and foreign-path fixtures before relaxing any basename check. This report changes no assembler, schema or gate.

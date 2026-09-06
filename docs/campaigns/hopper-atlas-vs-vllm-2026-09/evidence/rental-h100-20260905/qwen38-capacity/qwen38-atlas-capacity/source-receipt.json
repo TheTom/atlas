@@ -1,0 +1,255 @@
+{
+  "inspection_head": "ff7518071b1cbab18c5436ed4554e9a121b882b2",
+  "failed_binary_source": "f66a262048ac0a6aee4c67444fd0ea5740b46b30",
+  "files": [
+    {
+      "path": "crates/spark-server/src/main_modules/serve_phases/preflight.rs",
+      "sha256": "255ff08c36446d1e5140ff83ddab24b1553a205eed702d044cf3033157189ed3",
+      "byte_identical_to_failed_binary_source": true,
+      "excerpts": [
+        {
+          "first_line": 22,
+          "last_line": 28,
+          "text": "pub(crate) fn preflight_reserve(\n    args: &cli::ServeArgs,\n    config: &ModelConfig,\n    free_mem: usize,\n) -> Result<ReservePreflight> {\n    let h_state_bytes = config.ssm_h_state_bytes();\n    let conv_state_bytes = config.ssm_conv_state_bytes();"
+        },
+        {
+          "first_line": 174,
+          "last_line": 214,
+          "text": "    let decode_ring_slots = if std::env::var(\"ATLAS_SSM_RESERVE_RING_FULL\").is_ok() {\n        if config.num_ssm_layers() > 0 {\n            atlas_kernels::DECODE_ROLLBACK_RING_SLOTS\n        } else {\n            0\n        }\n    } else {\n        spark_model::ssm_reserve::decode_rollback_ring_slots(\n            config.num_ssm_layers(),\n            args.speculative || args.dflash,\n        )\n        .slots\n    };\n    let ssm_snapshot_bytes = (args.ssm_cache_slots + decode_ring_slots * args.max_batch_size)\n        * config.num_ssm_layers()\n        * (h_state_bytes + conv_state_bytes);\n    // Same predicate as the pool term: DFlash IS a speculative serve and\n    // pays the same graph/JIT/scratch overheads the 4 GB headroom exists for.\n    let cuda_headroom: usize = if spec_on_pool {\n        4 * 1024 * 1024 * 1024\n    } else {\n        512 * 1024 * 1024\n    };\n    let gdn_two_phase_bytes: usize = {\n        let key_dim = config.linear_num_key_heads * config.linear_key_head_dim;\n        let value_dim = config.linear_num_value_heads * config.linear_value_head_dim;\n        let nv = config.linear_num_value_heads;\n        let conv_dim = key_dim * 2 + value_dim;\n        if conv_dim > 0 && config.num_ssm_layers() > 0 {\n            let sl = max_batch_tokens_pre;\n            sl * conv_dim * 2 + sl * nv * 2 * 4 + sl * value_dim * 2 + sl * value_dim * 2\n        } else {\n            0\n        }\n    };\n    let inference_reserve: usize = ssm_pool_bytes\n        + ssm_h_stage_bytes\n        + ssm_replay_ring\n        + ssm_snapshot_bytes\n        + gdn_two_phase_bytes\n        + cuda_headroom;"
+        }
+      ]
+    },
+    {
+      "path": "crates/atlas-core/src/config/methods.rs",
+      "sha256": "00253bf64c2e92b8cabcb9bbec100788fa035dc0fa41eaea7e9d5c6a586c7538",
+      "byte_identical_to_failed_binary_source": true,
+      "excerpts": [
+        {
+          "first_line": 280,
+          "last_line": 304,
+          "text": "    /// Per-layer SSM hidden state size in bytes (FP32).\n    /// Dispatches on SSM architecture: Mamba-2 vs GDN, using config fields.\n    pub fn ssm_h_state_bytes(&self) -> usize {\n        if self.mamba_num_heads > 0 && self.mamba_head_dim > 0 {\n            // Mamba-2: h[num_heads, head_dim, state_size] FP32\n            self.mamba_num_heads * self.mamba_head_dim * self.ssm_state_size * 4\n        } else {\n            // GDN: h[nv, vd, kd] FP32\n            self.linear_num_value_heads * self.linear_value_head_dim * self.linear_key_head_dim * 4\n        }\n    }\n\n    /// Per-layer SSM conv state size in bytes (FP32).\n    pub fn ssm_conv_state_bytes(&self) -> usize {\n        let d_conv = self.linear_conv_kernel_dim;\n        if self.mamba_num_heads > 0 && self.mamba_head_dim > 0 {\n            // Mamba-2: conv: [d_xBC, d_conv] FP32\n            self.mamba2_d_xbc() * d_conv * 4\n        } else {\n            // GDN: conv: [conv_dim, d_conv] FP32\n            let conv_dim = self.linear_num_key_heads * self.linear_key_head_dim * 2\n                + self.linear_num_value_heads * self.linear_value_head_dim;\n            conv_dim * d_conv * 4\n        }\n    }"
+        }
+      ]
+    },
+    {
+      "path": "crates/spark-model/src/model/impl_a1.rs",
+      "sha256": "172969acc6918e5f7e44894e683c943b3d234cb41f2cd4d253483c48fddb820c",
+      "byte_identical_to_failed_binary_source": true,
+      "excerpts": [
+        {
+          "first_line": 264,
+          "last_line": 297,
+          "text": "        let ring = crate::ssm_reserve::decode_rollback_ring_slots(\n            ssm_pool.num_ssm_layers,\n            use_speculative,\n        );\n        if let Some(reason) = ring.skip_reason {\n            let per_seq = (ssm_pool.h_bytes + ssm_pool.conv_bytes)\n                * ssm_pool.num_ssm_layers\n                * atlas_kernels::DECODE_ROLLBACK_RING_SLOTS;\n            tracing::info!(\n                \"SSM decode-rollback ring: SKIPPED ({}) \u2014 the ring's save/rollback \\\n                 path only runs on plain decode with watchdogs enabled. Saves {:.1} GB \\\n                 ({} seqs x {} slots x full SSM blob). If plain-decode loop re-steer is \\\n                 ever reached it fail-opens to decline; ATLAS_SSM_DECODE_RING=1 \\\n                 force-restores the ring.\",\n                reason,\n                (per_seq * max_batch_size) as f64 / 1e9,\n                max_batch_size,\n                atlas_kernels::DECODE_ROLLBACK_RING_SLOTS,\n            );\n        }\n        let decode_ring_slots = ring.slots;\n        let ssm_snapshots = SsmSnapshotPool::new(\n            ssm_cache_slots,\n            ssm_pool.h_bytes,\n            ssm_pool.conv_bytes,\n            ssm_pool.num_ssm_layers,\n            decode_ring_slots,\n            max_batch_size,\n            // Last-token hidden snapshot: post-final-norm `norm_output` is\n            // BF16 (`hidden_size` elements). Used to emit exact-hit logits\n            // without re-running the last token through the SSM layers.\n            config.hidden_size * 2,\n            gpu.as_ref(),\n        )?;"
+        }
+      ]
+    },
+    {
+      "path": "crates/spark-model/src/model/ssm_pool.rs",
+      "sha256": "d36f053502d57f3545bebda068e8747d93aa1c49658ea36ad98d97665b552b7f",
+      "byte_identical_to_failed_binary_source": true,
+      "excerpts": [
+        {
+          "first_line": 185,
+          "last_line": 213,
+          "text": "        let _d_conv = config.linear_conv_kernel_dim;\n\n        let h_bytes = config.ssm_h_state_bytes();\n        let h_stored_bytes = crate::ssm_reserve::ssm_h_stored_bytes(h_bytes, h_f16_pool);\n        let conv_bytes = config.ssm_conv_state_bytes();\n        let num_ssm_layers = config.num_ssm_layers();\n\n        // Reserve one extra slot at index `max_slots` as a dedicated\n        // dummy used by `decode_batch` / `mixed_forward` padding (see\n        // `dummy_slot()` below). Without this, pad positions write to\n        // pool slot indices `n..padded_n` which can collide with\n        // claimed slots if the scheduler invariant (\"active sequences\n        // occupy contiguous slots [0..n)\") is ever broken \u2014 silent SSM\n        // state corruption. Costs `(h_bytes + conv_bytes) *\n        // num_ssm_layers` extra GPU memory (~kilobytes per pool).\n        let total_slots = max_slots + 1;\n\n        let mut owned_allocations = Vec::new();\n        let mut h_intermediate_pools = Vec::new();\n        let mut conv_intermediate_pools = Vec::new();\n        let mut h_checkpoint_pools = Vec::new();\n        let mut conv_checkpoint_pools = Vec::new();\n\n        let (h_state_pools, allocations) =\n            alloc_layer_pools(gpu, num_ssm_layers, total_slots * h_stored_bytes)?;\n        owned_allocations.extend(allocations);\n        let (conv_state_pools, allocations) =\n            alloc_layer_pools(gpu, num_ssm_layers, total_slots * conv_bytes)?;\n        owned_allocations.extend(allocations);"
+        }
+      ]
+    },
+    {
+      "path": "crates/spark-model/src/model/ssm_snapshot.rs",
+      "sha256": "222313ea2a2b6a824bd9cfc70614ada64759a3892c2f8449177a5341f2889fcb",
+      "byte_identical_to_failed_binary_source": true,
+      "excerpts": [
+        {
+          "first_line": 123,
+          "last_line": 182,
+          "text": "    pub(super) fn new(\n        num_slots: usize,\n        h_bytes: usize,\n        conv_bytes: usize,\n        num_ssm_layers: usize,\n        decode_ring_slots: usize,\n        decode_max_seqs: usize,\n        hidden_bytes: usize,\n        gpu: &dyn GpuBackend,\n    ) -> Result<Self> {\n        let decode_enabled = num_ssm_layers > 0 && decode_ring_slots > 0 && decode_max_seqs > 0;\n        let marconi_enabled = num_ssm_layers > 0 && num_slots > 0;\n\n        if !marconi_enabled && !decode_enabled {\n            return Ok(Self {\n                h_snapshots: Vec::new(),\n                conv_snapshots: Vec::new(),\n                free_slots: Mutex::new(Vec::new()),\n                num_slots: 0,\n                h_bytes,\n                conv_bytes,\n                num_ssm_layers,\n                session_tags: Mutex::new(std::collections::HashMap::new()),\n                aux_blobs: Mutex::new(std::collections::HashMap::new()),\n                decode_h_snapshots: Vec::new(),\n                decode_conv_snapshots: Vec::new(),\n                decode_ring_slots: 0,\n                decode_max_seqs: 0,\n                hidden_snapshot: DevicePtr::NULL,\n                hidden_bytes,\n                slot_has_hidden: Mutex::new(std::collections::HashSet::new()),\n                h_f16_to_f32_k: KernelHandle(0),\n                h_f32_to_f16_k: KernelHandle(0),\n                spill_staging: Default::default(),\n            });\n        }\n\n        let mut h_snapshots = Vec::new();\n        let mut conv_snapshots = Vec::new();\n        let mut hidden_snapshot = DevicePtr::NULL;\n        if marconi_enabled {\n            for _ in 0..num_ssm_layers {\n                h_snapshots.push(gpu.alloc(num_slots * h_bytes)?);\n                conv_snapshots.push(gpu.alloc(num_slots * conv_bytes)?);\n            }\n            hidden_snapshot = gpu.alloc(num_slots * hidden_bytes)?;\n        }\n\n        let mut decode_h_snapshots = Vec::new();\n        let mut decode_conv_snapshots = Vec::new();\n        let decode_region = if decode_enabled {\n            decode_max_seqs * decode_ring_slots\n        } else {\n            0\n        };\n        if decode_enabled {\n            for _ in 0..num_ssm_layers {\n                decode_h_snapshots.push(gpu.alloc(decode_region * h_bytes)?);\n                decode_conv_snapshots.push(gpu.alloc(decode_region * conv_bytes)?);\n            }"
+        }
+      ]
+    },
+    {
+      "path": "crates/spark-model/src/ssm_reserve.rs",
+      "sha256": "48bafe2a28e9db63b561eb060a16300831e433bc0a2de7ddfadc4ab69798ac97",
+      "byte_identical_to_failed_binary_source": true,
+      "excerpts": [
+        {
+          "first_line": 311,
+          "last_line": 350,
+          "text": "pub fn ssm_pool_reserve_bytes(\n    max_batch_size: usize,\n    h_blob_bytes: usize,\n    conv_blob_bytes: usize,\n    spec_on: bool,\n    num_drafts: usize,\n    mtp_state_slots: usize,\n    uniform_verify: bool,\n    h_f16_pool: bool,\n    rollback: SsmRollbackMode,\n) -> usize {\n    let h_blob_bytes = ssm_h_stored_bytes(h_blob_bytes, h_f16_pool);\n    let blob = h_blob_bytes + conv_blob_bytes;\n    let base = max_batch_size * blob;\n    if !spec_on {\n        return base;\n    }\n    let verify: usize = (0..mtp_state_slots)\n        .map(|slot| match rollback {\n            SsmRollbackMode::Snapshot => {\n                verify_slot_h_intermediates(slot, num_drafts, uniform_verify) * h_blob_bytes\n                    + (num_drafts + 1) * conv_blob_bytes\n                    + blob\n            }\n            // Replay keeps ONLY the pre-verify checkpoint blob per slot \u2014\n            // partial accepts are reconstructed by replaying the accepted\n            // tokens from it, so no per-token h/conv snapshots exist. The\n            // verify-window input ring is a SEPARATE term\n            // ([`ssm_replay_ring_bytes`]) because it is sized by activation\n            // rows, not state blobs.\n            SsmRollbackMode::Replay => blob,\n        })\n        .sum();\n    base + verify\n}\n\n/// SSM verify-rollback mode (`--ssm-rollback-mode`, EXPERIMENTAL scaffold).\n///\n/// * `Snapshot` (the serve default, explicit in the CLI): every verify arm\n///   writes per-token h/conv state snapshots; a partial accept restores from"
+        },
+        {
+          "first_line": 449,
+          "last_line": 500,
+          "text": "\nfn watchdogs_disabled_from_value(value: Option<&str>) -> bool {\n    value\n        .map(|v| {\n            let v = v.trim().to_ascii_lowercase();\n            v == \"1\" || v == \"true\"\n        })\n        .unwrap_or(false)\n}\n\nfn decode_rollback_ring_slots_with(\n    num_ssm_layers: usize,\n    use_speculative: bool,\n    ring_override: Option<&str>,\n    watchdogs_disabled: bool,\n) -> DecodeRingDecision {\n    if num_ssm_layers == 0 {\n        return DecodeRingDecision {\n            slots: 0,\n            skip_reason: None,\n        };\n    }\n    match ring_override {\n        Some(\"1\") => DecodeRingDecision {\n            slots: atlas_kernels::DECODE_ROLLBACK_RING_SLOTS,\n            skip_reason: None,\n        },\n        Some(\"0\") => DecodeRingDecision {\n            slots: 0,\n            skip_reason: None,\n        },\n        _ if use_speculative || watchdogs_disabled => DecodeRingDecision {\n            slots: 0,\n            skip_reason: Some(if use_speculative {\n                \"speculative decode active\"\n            } else {\n                \"watchdogs disabled\"\n            }),\n        },\n        _ => DecodeRingDecision {\n            slots: atlas_kernels::DECODE_ROLLBACK_RING_SLOTS,\n            skip_reason: None,\n        },\n    }\n}\n#[cfg(test)]\n#[path = \"ssm_reserve_tests.rs\"]\nmod mtp_state_slot_tests;"
+        }
+      ]
+    },
+    {
+      "path": "crates/spark-model/src/weight_map/nvfp4_detect.rs",
+      "sha256": "52eee4fbed3cccdcb1dce82bf509044936dc77a95576a1e9599ec12006473be4",
+      "byte_identical_to_failed_binary_source": true,
+      "excerpts": [
+        {
+          "first_line": 342,
+          "last_line": 359,
+          "text": "/// Load a quantized weight from FP8 block-scaled data: FP8\u2192BF16\u2192NVFP4.\n///\n/// `n` and `k` are the logical weight dimensions (e.g. [inter, hidden] for gate_proj).\npub(crate) fn quantized_from_fp8(\n    store: &WeightStore,\n    prefix: &str,\n    n: usize,\n    k: usize,\n    gpu: &dyn GpuBackend,\n    absmax_k: spark_runtime::gpu::KernelHandle,\n    quantize_k: spark_runtime::gpu::KernelHandle,\n    stream: u64,\n) -> Result<QuantizedWeight> {\n    let bf16 = dequant_fp8_blockscaled_to_bf16(store, prefix, gpu)?;\n    let result = quantize_to_nvfp4(&bf16, n, k, gpu, absmax_k, quantize_k, stream)?;\n    // Free the BF16 intermediate \u2014 only the NVFP4 result is needed.\n    gpu.free(bf16.weight)?;\n    Ok(result)"
+        }
+      ]
+    },
+    {
+      "path": "crates/spark-model/src/weight_map/loaders_fp8.rs",
+      "sha256": "ff52dc19f37eaae432f8a7973862c50d3b77a26430c24809c8801e72a7d02f7b",
+      "byte_identical_to_failed_binary_source": true,
+      "excerpts": [
+        {
+          "first_line": 227,
+          "last_line": 230,
+          "text": "    // Phase 2: Quantize\n    let t = std::time::Instant::now();\n    let packed_buf = gpu.alloc(n * k / 2)?;\n    let scale_buf = gpu.alloc(n * k / 16)?;"
+        }
+      ]
+    },
+    {
+      "path": "crates/spark-model/src/weight_loader/qwen35_dense.rs",
+      "sha256": "5c43b79d4e22f34d1330400e784718e61cfa3030c4e6392de6c6ecd6e0728dc1",
+      "byte_identical_to_failed_binary_source": true,
+      "excerpts": [
+        {
+          "first_line": 275,
+          "last_line": 289,
+          "text": "            // Dense FFN instead of MoE. Native FP8 checkpoints (single-GPU)\n            // load gate/up/down directly as block-scaled `Fp8Weight` and\n            // dispatch w8a16 \u2014 no NVFP4 requant. TP>1 still uses the NVFP4\n            // path (FP8 FFN sharding is a follow-up).\n            let ffn_fp8 = dense_fp8_enabled()\n                && config.tp_world_size.max(1) == 1\n                && matches!(variant, Nvfp4Variant::Fp8Dequanted)\n                && proj_is_native_fp8(store, &format!(\"{lp}.mlp.gate_proj\"));\n            // Always load the NVFP4 weights so every dispatch path (incl. the\n            // batched spec-decode forward_k2/k3 paths that have no FP8 branch)\n            // has a valid weight to fall back to \u2014 a null NVFP4 weight under a\n            // w4a16 dispatch is the CUDA-700-at-concurrency bug. When native\n            // FP8 is enabled we overlay the block-scaled FP8 weights on top;\n            // the hot forward / forward_prefill paths then use FP8, the rare\n            // batched paths fall back to real NVFP4."
+        },
+        {
+          "first_line": 988,
+          "last_line": 1015,
+          "text": "                        let qkvz_f = concat_fp8_block_scaled(&qkv_f, &z_f, h, gpu)?;\n                        // The concat copied both grids; free the per-projection\n                        // scale allocs (weight bytes are store-owned, not freed).\n                        gpu.free(qkv_f.row_scale)?;\n                        gpu.free(z_f.row_scale)?;\n                        let ssm = SsmWeights {\n                            in_proj_qkvz: DenseWeight {\n                                weight: spark_runtime::gpu::DevicePtr::NULL,\n                            },\n                            in_proj_ba: ba_dense,\n                            conv1d,\n                            a_log,\n                            dt_bias,\n                            norm,\n                            out_proj: crate::weight_map::QuantizedWeight::null(),\n                        };\n                        let mut layer = Qwen3SsmLayer::new_sequential(\n                            input_norm,\n                            ssm,\n                            post_attn_norm,\n                            ffn,\n                            None,\n                            None,\n                            None,\n                            config,\n                            gpu,\n                        )?;\n                        layer.set_fp8_decode_weights(Some(qkvz_f), Some(out_f));"
+        }
+      ]
+    },
+    {
+      "path": "crates/spark-model/src/layers/dense_ffn.rs",
+      "sha256": "13e16bdbb53a3467b1ceb82912dbdb27859a4b2cbe091e7bf433694b6d8714e2",
+      "byte_identical_to_failed_binary_source": true,
+      "excerpts": [
+        {
+          "first_line": 569,
+          "last_line": 608,
+          "text": "        self.ensure_nvfp4_mmq_weight(\n            &self.fp4mmq_gate,\n            gpu,\n            &self.weights.gate_proj,\n            inter,\n            h,\n            stream,\n        )?;\n        self.ensure_nvfp4_mmq_weight(\n            &self.fp4mmq_up,\n            gpu,\n            &self.weights.up_proj,\n            inter,\n            h,\n            stream,\n        )?;\n        let down_mmq = std::env::var_os(\"ATLAS_NO_FFN_NVFP4_MMQ_DOWN\").is_none();\n        if down_mmq {\n            self.ensure_nvfp4_mmq_weight(\n                &self.fp4mmq_down,\n                gpu,\n                &self.weights.down_proj,\n                h,\n                inter,\n                stream,\n            )?;\n        }\n        gpu.synchronize(stream)?;\n        // Free the dead transposed copies (prefill for those projections now runs on the\n        // MMQ arm; decode reads the non-transposed originals). down_proj_t is freed only\n        // when the down A/B gate is on.\n        let mut down_t = if down_mmq {\n            Some(&mut self.weights.down_proj_t)\n        } else {\n            None\n        };\n        let mut freed = 0usize;\n        for wt in [&mut self.weights.gate_proj_t, &mut self.weights.up_proj_t]\n            .into_iter()\n            .chain(down_t.take())"
+        },
+        {
+          "first_line": 638,
+          "last_line": 669,
+          "text": "    /// Ensure the block_nvfp4 copy of one NVFP4 projection exists (raw repack of the\n    /// checkpoint's packed E2M1 `[N, K/2]` + E4M3 `[N, K/16]` scales \u2014 zero numerics;\n    /// scale2 folded at the SiLU-mul). Cached in `cell` for process lifetime.\n    fn ensure_nvfp4_mmq_weight(\n        &self,\n        cell: &std::sync::OnceLock<Fp4MmqWeight>,\n        gpu: &dyn GpuBackend,\n        src: &QuantizedWeight,\n        n: u32,\n        k: u32,\n        stream: u64,\n    ) -> Result<Fp4MmqWeight> {\n        if let Some(w) = cell.get() {\n            return Ok(*w);\n        }\n        let w = gpu.alloc(ops::nvfp4_mmq_weight_bytes(n, k))?;\n        ops::nvfp4_mmq_repack(\n            gpu,\n            self.nvfp4_repack_k,\n            src.weight,\n            src.weight_scale,\n            w,\n            n,\n            k,\n            stream,\n        )?;\n        let built = Fp4MmqWeight { w };\n        if let Err(dup) = cell.set(built) {\n            gpu.synchronize(stream)?;\n            let _ = gpu.free(dup.w);\n        }\n        Ok(*cell.get().expect(\"fp4mmq weight cell set above\"))"
+        }
+      ]
+    },
+    {
+      "path": "crates/spark-model/src/factory/build.rs",
+      "sha256": "b1e257f5543daf20f74962e8b08079a93c9bcc15d90c5fbd7487dcfa9cdb13ab",
+      "byte_identical_to_failed_binary_source": true,
+      "excerpts": [
+        {
+          "first_line": 364,
+          "last_line": 379,
+          "text": "    // \u2500\u2500 gpu_memory_utilization as fraction of TOTAL GPU memory \u2500\u2500\n    //\n    // User-facing contract (matches vLLM / sparkrun convention):\n    //   total_memory \u00d7 gpu_memory_utilization = hard ceiling on everything\n    //   this process consumes (weights + buffers + KV cache + reserves).\n    //\n    // KV cache gets whatever remains inside that ceiling after deducting\n    // prior allocations (model weights, buffer arena, CUDA context/driver)\n    // and the inference reserve (SSM state pools, CUDA headroom).  A safety\n    // clamp ensures we never exceed what the device can physically provide\n    // right now (handles external memory pressure on shared-memory /\n    // unified-memory systems like GB10).\n    let total_mem = gpu.total_memory()?;\n    let actual_free = gpu.free_memory()?;\n    let gib = |b: usize| b as f64 / (1024.0 * 1024.0 * 1024.0);\n    let mut used_so_far = total_mem.saturating_sub(actual_free);"
+        },
+        {
+          "first_line": 427,
+          "last_line": 441,
+          "text": "    } else if let Some(ledger_live) = gpu.live_bytes() {\n        // AUTO via LEDGER: what this backend actually allocated and still\n        // holds. Sanity-gate mirrors the free-delta path: the ledger can\n        // only be a subset of total used (it can't see co-tenants), so a\n        // value above `used_so_far` means the ledger and the device\n        // disagree \u2014 fall through to raw rather than oversize the pool.\n        if ledger_live > 0 && ledger_live <= used_so_far {\n            tracing::info!(\n                \"KV budget self-relative (ledger): Atlas-own {:.1} GB live in \\\n                 the alloc ledger; {:.1} GB of co-tenant/page-cache use \\\n                 excluded (set ATLAS_KV_EXTERNAL_RESERVE_GB to override)\",\n                gib(ledger_live),\n                gib(used_so_far - ledger_live),\n            );\n            used_so_far = ledger_live;"
+        },
+        {
+          "first_line": 655,
+          "last_line": 668,
+          "text": "            if kv_budget == 0 {\n                anyhow::bail!(\n                    \"No memory left for KV cache: total GPU = {:.1} GB, \\\n                     --gpu-memory-utilization {:.0}% \u2192 budget {:.1} GB, \\\n                     but {:.1} GB already consumed + {:.1} GB inference reserve \\\n                     = {:.1} GB committed.  Raise --gpu-memory-utilization or \\\n                     use a smaller model.\",\n                    total_mem as f64 / (1024.0 * 1024.0 * 1024.0),\n                    gpu_memory_utilization * 100.0,\n                    total_budget as f64 / (1024.0 * 1024.0 * 1024.0),\n                    used_so_far as f64 / (1024.0 * 1024.0 * 1024.0),\n                    inference_reserve as f64 / (1024.0 * 1024.0 * 1024.0),\n                    (used_so_far + inference_reserve) as f64 / (1024.0 * 1024.0 * 1024.0),\n                );"
+        },
+        {
+          "first_line": 870,
+          "last_line": 891,
+          "text": "    // Every layer has taken the pointers it needs; hand the ledger to the model\n    // so `teardown` can free the weights. Dropping it here \u2014 which is what used\n    // to happen \u2014 orphaned the memory: live, referenced by the layers, with\n    // nothing owning the ability to release it.\n    model.adopt_weight_store(store);\n\n    // \u2500\u2500 Allocation attribution, once, at the end of load \u2500\u2500\n    // Everything the serve will hold is allocated by now: weights, KV, the SSM\n    // pools, the Marconi snapshots, the arenas, the vision encoder. This is\n    // the only point where the ledger describes the STEADY STATE rather than\n    // some midpoint of the build.\n    //\n    // It exists because the KV-budget line above reports `pre-KV` as one\n    // opaque number, and on a 27B that number is ~59 GB against 22 GB of\n    // weights \u2014 the rest was unattributable until the ledger learned sizes.\n    // Logged at INFO, not behind a flag: every OOM and every mis-sized-pool\n    // investigation so far has begun by wanting exactly this table, and a\n    // once-per-load table is not a cost worth flagging off.\n    if let Some(report) = model.gpu_backend().alloc_report(12, 64) {\n        for line in report.lines() {\n            tracing::info!(\"{line}\");\n        }"
+        }
+      ]
+    },
+    {
+      "path": "crates/spark-server/src/main_modules/serve_load.rs",
+      "sha256": "eaab1e1fea302c333fd23c806a4d46fcd3cd4a2fafc054b986d8eec569e03906",
+      "byte_identical_to_failed_binary_source": true,
+      "excerpts": [
+        {
+          "first_line": 812,
+          "last_line": 817,
+          "text": "    // 7. Create scheduler channel + spawn scheduler\n    spark_runtime::progress::phase(9, \"scheduler\");\n    let (request_tx, request_rx) = mpsc::channel::<InferenceRequest>(args.max_num_seqs);\n    // LoRA adapter-rotation control channel (POST /v1/lora/active). Small: it\n    // carries only control messages, applied one-at-a-time at quiescence.\n    let (rotation_tx, rotation_rx) = mpsc::channel::<scheduler::LoraRotation>(8);"
+        }
+      ]
+    },
+    {
+      "path": "crates/spark-server/src/scheduler/mod_helpers.rs",
+      "sha256": "271b4c6b3a3b015eb45b5173119fed48987de6cdfb34fb131fe2d9b9ae1b95e4",
+      "byte_identical_to_failed_binary_source": true,
+      "excerpts": [
+        {
+          "first_line": 197,
+          "last_line": 213,
+          "text": "    if g.requests.is_empty() || !policy.should_prefill(&timings) {\n        return Vec::new();\n    }\n\n    // Account for both active and in-progress prefilling sequences.\n    let cap = max_batch_size.saturating_sub(active.len() + prefilling.len());\n\n    let infos: Vec<PendingRequestInfo> = g\n        .requests\n        .iter()\n        .enumerate()\n        .map(|(i, req)| PendingRequestInfo {\n            prompt_len: req.prompt_len(),\n            index: i,\n        })\n        .collect();\n    let selected = policy.select_prefills(&infos, cap);"
+        }
+      ]
+    },
+    {
+      "path": "crates/spark-server/src/cli/serve_args.rs",
+      "sha256": "d8805bdba0048370dcc46acefc28f786a4f485fab1a029f5ded68b3f9a756b90",
+      "byte_identical_to_failed_binary_source": true,
+      "excerpts": [
+        {
+          "first_line": 419,
+          "last_line": 421,
+          "text": "    /// Maximum concurrent sequences.\n    #[arg(long, default_value_t = 128)]\n    pub max_num_seqs: usize,"
+        },
+        {
+          "first_line": 568,
+          "last_line": 570,
+          "text": "    /// Maximum concurrent sequences batched into one GPU decode step.\n    #[arg(long, default_value_t = 8)]\n    pub max_batch_size: usize,"
+        },
+        {
+          "first_line": 690,
+          "last_line": 697,
+          "text": "    /// Number of SSM state snapshot slots for Marconi prefix caching.\n    /// Each slot stores SSM h_state + conv_state for all SSM layers,\n    /// enabling full prefix skip (KV + SSM) on cache hits.\n    /// 0 = disabled. 16 = recommended for repeated-prefix and multi-turn workloads.\n    /// Intermediate checkpoints (--ssm-checkpoint-interval) require extra slots:\n    /// ~(max_context / checkpoint_interval_tokens) per cached sequence.\n    #[arg(long, default_value_t = 16)]\n    pub ssm_cache_slots: usize,"
+        }
+      ]
+    },
+    {
+      "path": "crates/spark-runtime/src/cuda_backend.rs",
+      "sha256": "886a43906c648d581f8d44ba5eb4f29ee10b10ca8f2298d6397ef3f3199acd04",
+      "byte_identical_to_failed_binary_source": true,
+      "excerpts": [
+        {
+          "first_line": 221,
+          "last_line": 233,
+          "text": "            let top: Vec<String> = rows\n                .iter()\n                .take(5)\n                .map(|(site, (b, n))| {\n                    format!(\"{site} ({:.1} MB x{n})\", *b as f64 / (1024.0 * 1024.0))\n                })\n                .collect();\n            tracing::warn!(\n                \"sweep: {count} allocation(s) totalling {:.2} GB had no owner; \\\n                 largest sites: {}\",\n                bytes as f64 / 1e9,\n                top.join(\", \")\n            );"
+        }
+      ]
+    },
+    {
+      "path": "crates/spark-runtime/src/kv_cache.rs",
+      "sha256": "da378ef05c80e36be6f6ef64b74588517697100866507ae642cec45a147f9ee0",
+      "byte_identical_to_failed_binary_source": true,
+      "excerpts": [
+        {
+          "first_line": 332,
+          "last_line": 337,
+          "text": "    /// Sum of K+V block bytes across all layers for one block slot.\n    /// Accounts for mixed dtypes when layer_dtypes is set AND asym K/V splits.\n    pub fn block_bytes_kv_all_layers(&self) -> usize {\n        (0..self.num_layers)\n            .map(|i| self.k_block_bytes_for_layer(i) + self.v_block_bytes_for_layer(i))\n            .sum()"
+        }
+      ]
+    },
+    {
+      "path": "crates/spark-runtime/src/kv_cache/paged_impl.rs",
+      "sha256": "2c5033e8d04d8353133db1abe0d66671acece10f15e3ee95e0a1d586b9e15155",
+      "byte_identical_to_failed_binary_source": true,
+      "excerpts": [
+        {
+          "first_line": 574,
+          "last_line": 582,
+          "text": "    /// Compute how many blocks can fit given available GPU memory.\n    /// Accounts for mixed dtypes when layer_dtypes is set.\n    pub fn compute_num_blocks(config: &KvCacheConfig, available_bytes: usize) -> Result<usize> {\n        let bytes_per_block = config.block_bytes_kv_all_layers();\n        if bytes_per_block == 0 {\n            bail!(\"KV cache block size is zero\");\n        }\n        Ok(available_bytes / bytes_per_block)\n    }"
+        }
+      ]
+    }
+  ]
+}

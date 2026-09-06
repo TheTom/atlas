@@ -1,0 +1,41 @@
+{
+  "commit": "061d9525bc1c4fff8aec7c96d1b8cb936c9f12f1",
+  "parent": "ff7518071b1cbab18c5436ed4554e9a121b882b2",
+  "branch": "codex/qwen38-atlas-capacity4",
+  "worktree": "/Users/tom/Documents/New project/atlas-qwen38-atlas-capacity4",
+  "clean": true,
+  "checks": {
+    "atlas-render": {
+      "exit_code": 0,
+      "seconds": 0.053467958998226095
+    },
+    "vllm-render": {
+      "exit_code": 0,
+      "seconds": 0.059378166999522364
+    },
+    "campaign-suite": {
+      "exit_code": 0,
+      "seconds": 65.05344270900241
+    },
+    "cargo-fmt": {
+      "exit_code": 0,
+      "seconds": 2.230469999998604
+    },
+    "typos": {
+      "exit_code": 0,
+      "seconds": 0.19981012499920325
+    },
+    "diff-check": {
+      "exit_code": 0,
+      "seconds": 0.2726799589981965
+    }
+  },
+  "atlas_render_checks": 346,
+  "vllm_render_checks": 258,
+  "campaign_assertions": 85,
+  "linux_only_cases_skipped_on_macOS": 48,
+  "catalog_sha256": "38af832879e29a8a91256105a70af4184c3e58fd9c21f374695225b8aa76d208",
+  "remote_gpu_or_build_actions": false,
+  "remote_writes": false,
+  "fresh_boot_proven": false
+}

@@ -1,0 +1,138 @@
+{
+  "source_path": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/qwen38.atlas.a.lat.c1/check-kernels.txt",
+  "sha256": "b5e06cff53ed95ffc67c139ebbfba6bb808f15b2f099cf8ab6c0727c85c16fe6",
+  "lines": [
+    {
+      "line": 3,
+      "text": "2026-09-05T22:12:11.964891Z  INFO spark::main_modules::serve_flags: kernel flags: ssm_h_dtype=f32 gdn_fused_norm=false ssm_batched_recurrent=false exact_verify=false ssm_tail_midchunk=true mtp_gate=auto ssm_rollback_mode=Snapshot prefill_varlen_batch=false"
+    },
+    {
+      "line": 6,
+      "text": "2026-09-05T22:12:11.965025Z  INFO spark::main_modules::serve_load: SSM decode h-state dtype: f32 (full precision) (--ssm-h-dtype)"
+    },
+    {
+      "line": 12,
+      "text": "2026-09-05T22:12:11.966528Z  INFO spark::main_modules::serve_load: Model config: 64 layers, 16 attention, 48 SSM, 0 experts, rope_theta=10000000, head_dim=256, rotary_dim=64"
+    },
+    {
+      "line": 13,
+      "text": "2026-09-05T22:12:11.966599Z  INFO spark::main_modules::serve_load: Selected kernel target: (sm_90, qwen3.8-27b, nvfp4) (181 modules) \u2014 quant compat: kernel=nvfp4 model=fp8 OK"
+    },
+    {
+      "line": 14,
+      "text": "2026-09-05T22:12:12.356342Z  INFO spark_runtime::cuda_backend::arch_preflight: device CC 9.0, kernels built for sm_90a"
+    },
+    {
+      "line": 16,
+      "text": "2026-09-05T22:12:28.375476Z  INFO spark::main_modules::serve_phases::preflight: GPU 0: 79.2 GB total, 78.6 GB free"
+    },
+    {
+      "line": 17,
+      "text": "2026-09-05T22:12:28.375504Z  INFO spark::main_modules::serve_phases::preflight: Preflight reserve: inference=46923 MB, buffer_arena=3658 MB (pre-load free: 78.6 GB)"
+    },
+    {
+      "line": 18,
+      "text": "2026-09-05T22:12:28.375524Z  INFO spark::main_modules::serve_load: OOM watchdog started (threshold: 2 GB, interval: 2s)"
+    },
+    {
+      "line": 19,
+      "text": "2026-09-05T22:12:28.375531Z  INFO spark::main_modules::serve_load: OOM guard reserve: 4096 MB"
+    },
+    {
+      "line": 21,
+      "text": "2026-09-05T22:12:28.379523Z  INFO spark_runtime::fast_weights: Fast-load pre-flight: 28.75 GB on-disk, 1.1x overhead = 30.18 GB peak, 78.56 GB free, 4.0 GB reserve (FP8: true)"
+    },
+    {
+      "line": 154,
+      "text": "2026-09-05T22:12:46.074128Z  INFO spark_runtime::fast_weights: Fast-loaded 1606 weight tensors"
+    },
+    {
+      "line": 157,
+      "text": "2026-09-05T22:12:46.074698Z  INFO spark_model::preflight: Pre-flight checks passed"
+    },
+    {
+      "line": 161,
+      "text": "2026-09-05T22:12:46.160606Z  INFO spark::main_modules::serve_phases::preflight: GDN chunked prefill reserve: 355 MB (chunk_size=8192, max_seq_len=24576)"
+    },
+    {
+      "line": 162,
+      "text": "2026-09-05T22:12:46.160615Z  INFO spark::main_modules::serve_phases::preflight: Weights: 28.75 GB, estimated free: 49.8 GB, actual free: 49.4 GB (reserve: 46923 MB)"
+    },
+    {
+      "line": 163,
+      "text": "2026-09-05T22:12:46.160625Z  INFO spark::main_modules::serve_phases::kv_cache: Prefill config: ssm_prefill_chunk=8192, args.max_prefill_tokens=8192, prefill_budget=8192, max_batch_tokens=8224"
+    },
+    {
+      "line": 167,
+      "text": "2026-09-05T22:12:46.623991Z  INFO spark::main_modules::kv_dtypes: Selective boundary KV cache: 4/16 attention layers at bf16, rest at fp8"
+    },
+    {
+      "line": 168,
+      "text": "2026-09-05T22:12:46.624406Z  INFO spark_model::weight_loader::qwen35_dense: Weight format: Fp8BlockScaled, NVFP4 variant: Fp8Dequanted"
+    },
+    {
+      "line": 170,
+      "text": "2026-09-05T22:12:46.625615Z  INFO spark_model::weight_map::loaders_fp8: quantize_to_nvfp4: n=17408 k=5120 total=89128960 global_max=0.421875 scale2=0.00015695 grid1=1024"
+    },
+    {
+      "line": 171,
+      "text": "2026-09-05T22:12:46.627525Z  INFO spark_model::weight_map::loaders_fp8: quantize_to_nvfp4: n=17408 k=5120 total=89128960 global_max=0.163086 scale2=0.00006067 grid1=1024"
+    },
+    {
+      "line": 172,
+      "text": "2026-09-05T22:12:46.629388Z  INFO spark_model::weight_map::loaders_fp8: quantize_to_nvfp4: n=5120 k=17408 total=89128960 global_max=0.976562 scale2=0.00036330 grid1=1024"
+    },
+    {
+      "line": 173,
+      "text": "2026-09-05T22:12:46.635910Z  INFO spark_model::layers::dense_ffn: [atlas] ATLAS_FFN_NVFP4_MMQ: freed gate/up `_t` copies (dead under FP4-MMQ prefill) \u2014 block_nvfp4 copies net to ~0 vs NVFP4 baseline"
+    },
+    {
+      "line": 372,
+      "text": "2026-09-05T22:12:47.315272Z  INFO spark_model::weight_loader::qwen35_dense: Qwen3.5 dense weight loader: 64 layers (16 attention, 48 SSM, dense FFN)"
+    },
+    {
+      "line": 373,
+      "text": "2026-09-05T22:12:47.315348Z  INFO spark_model::factory::build: Layer construction: 25.85 GB consumed (53.09 GB free -> 27.24 GB free) across 64 layers, 404.0 MB/layer average"
+    },
+    {
+      "line": 374,
+      "text": "2026-09-05T22:12:47.315362Z  INFO spark_model::weight_loader::qwen35_dense: Loading dense MTP weights (variant=Fp8Dequanted, hidden=5120, inter=17408)"
+    },
+    {
+      "line": 375,
+      "text": "2026-09-05T22:12:47.316330Z  INFO spark_model::weight_loader::qwen35_dense: Dense MTP head ready (FP8 e4m3 projections + dense gate/up/down MLP)"
+    },
+    {
+      "line": 376,
+      "text": "2026-09-05T22:12:47.316485Z  WARN spark_model::layers::vision_encoder::enc_impl::init: Vision encoder capacity 16384 patches (2048x2048 px) \u2014 the resolved area bound wanted 65536 patches, clamped: the ViT score matrix is O(patches^2) and 65536 would need ~24.0 GB of scratch. Lower --vision-max-pixels to reclaim memory, or raise CEILING_MAX_PATCHES only alongside tiled ViT attention."
+    },
+    {
+      "line": 377,
+      "text": "2026-09-05T22:12:47.321260Z  INFO spark_model::weight_loader::qwen35: Qwen3.6 vision encoder loaded: depth=27, hidden=1152, heads=16, FP8-blocks>=4"
+    },
+    {
+      "line": 379,
+      "text": "2026-09-05T22:12:47.325813Z  INFO spark_model::factory::lm_head_setup: LM head quantized to NVFP4 (vocab=248077)"
+    },
+    {
+      "line": 380,
+      "text": "2026-09-05T22:12:47.328906Z  INFO spark_runtime::buffers: Buffer arena: 8224 tokens \u00d7 3674.1 MB total (attn_out=96.4MB, ssm_deint=257.0MB, kv_lora_rank=0)"
+    },
+    {
+      "line": 381,
+      "text": "2026-09-05T22:12:47.328996Z  INFO spark_model::factory::build: KV budget self-relative (ledger): Atlas-own 57.2 GB live in the alloc ledger; 1.6 GB of co-tenant/page-cache use excluded (set ATLAS_KV_EXTERNAL_RESERVE_GB to override)"
+    },
+    {
+      "line": 382,
+      "text": "2026-09-05T22:12:47.329525Z  WARN spark_runtime::cuda_backend: sweep: 3038 allocation(s) totalling 61.39 GB had no owner; largest sites: crates/spark-runtime/src/fast_weights/mod.rs:413 (29436.7 MB x1606), crates/spark-model/src/weight_map/loaders_fp8.rs:229 (9565.7 MB x257), crates/spark-model/src/layers/dense_ffn.rs:653 (9180.0 MB x192), crates/spark-model/src/weight_loader/qwen35_dense.rs:135 (3840.0 MB x48), crates/spark-model/src/weight_map/loaders_fp8.rs:230 (1195.7 MB x257)"
+    },
+    {
+      "line": 383,
+      "text": "2026-09-05T22:12:47.544041Z  WARN spark_runtime::cuda_backend: backend drop reclaimed 3038 allocation(s) that no owner released \u2014 expected if a load was abandoned part-way, otherwise an unregistered owner"
+    },
+    {
+      "line": 387,
+      "text": "    No memory left for KV cache: total GPU = 79.2 GB, --gpu-memory-utilization 90% \u2192 budget 71.3 GB, but 57.2 GB already consumed + 45.8 GB inference reserve = 103.0 GB committed.  Raise --gpu-memory-utilization or use a smaller model."
+    }
+  ]
+}

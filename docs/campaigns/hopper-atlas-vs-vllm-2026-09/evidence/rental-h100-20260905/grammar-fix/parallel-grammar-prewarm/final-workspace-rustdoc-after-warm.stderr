@@ -1,0 +1,6 @@
+    Checking xgrammar v1.0.0-beta-preview (/home/pidtom/atlas-grammar-prewarm-20260905/crates/xgrammar)
+ Documenting xgrammar v1.0.0-beta-preview (/home/pidtom/atlas-grammar-prewarm-20260905/crates/xgrammar)
+    Checking spark-server v1.0.0-beta-preview (/home/pidtom/atlas-grammar-prewarm-20260905/crates/spark-server)
+ Documenting spark-server v1.0.0-beta-preview (/home/pidtom/atlas-grammar-prewarm-20260905/crates/spark-server)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 5.43s
+   Generated /home/pidtom/atlas-hopper-gate-full/target/doc/atlas_closure/index.html and 21 other files

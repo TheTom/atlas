@@ -1,0 +1,190 @@
+{
+  "schema": 1,
+  "engine": "atlas",
+  "url": "http://127.0.0.1:8888",
+  "model": "Qwen/Qwen3.8-27B-FP8",
+  "start_epoch": 1788648483.0,
+  "time_to_ready_s": 23.226,
+  "first_token_s": null,
+  "polls": 23,
+  "http_codes_seen": [
+    "transport-error",
+    "200"
+  ],
+  "timeout_s": 1800.0,
+  "status": "first-token-failed",
+  "passed": false,
+  "http_exchanges": [
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": null,
+      "response_body": "",
+      "response_complete": false
+    },
+    {
+      "path": "/health",
+      "request_json": null,
+      "response_status": 200,
+      "response_body": "{\"status\":\"ready\",\"model\":\"Qwen/Qwen3.8-27B-FP8\"}",
+      "response_complete": true
+    },
+    {
+      "path": "/v1/chat/completions",
+      "request_json": "{\"model\": \"Qwen/Qwen3.8-27B-FP8\", \"messages\": [{\"role\": \"user\", \"content\": \"hi\"}], \"max_tokens\": 1, \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+      "response_status": 500,
+      "response_body": "{\"error\":{\"message\":\"Inference error: prefill_chunk failed: Prefill chunk layer 11 failed: cuStreamSynchronize failed: CUDA_ERROR_LAUNCH_FAILED (719): unspecified launch failure\",\"type\":\"server_error\",\"param\":null,\"code\":null,\"hint\":null}}",
+      "response_complete": true
+    }
+  ],
+  "last_health_curl_exit": 7,
+  "total_s": 23.834,
+  "detail": "curl exit 22: curl: (22) The requested URL returned error: 500"
+}

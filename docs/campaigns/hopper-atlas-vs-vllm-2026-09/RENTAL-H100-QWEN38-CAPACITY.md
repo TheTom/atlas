@@ -1,0 +1,41 @@
+# Qwen3.8 FP8 capacity on one H100
+
+Both original single-H100 profiles failed before coherency or ladder measurement. Subsequent repaired Atlas cell `c` passes all runtime quality gates and completes a C1 ladder; vLLM `lat01` completes C1/C16 under the user’s later reversal-only exception. See the [current rental overview](RENTAL-H100-REPORT.md) for those measurements and remaining artifact restrictions. Preserve these as real H100 failures, separate from the earlier GB10 rehearsal. Checkpoint `Qwen/Qwen3.8-27B-FP8` at `017b9c7af6b5689d5dd426a76e0bc077eb5ca20a` is fully downloaded and hash-verified: 81 files, 30,890,049,597 bytes. The failures establish that checkpoint size alone does not prove runtime capacity.
+
+| Engine and first cell | Observed refusal | Declared capacity repair | Status |
+|---|---|---|---|
+| vLLM 0.28.0, `qwen38.vllm.a.lat.c1` | Default 1,024 sequences exceeded 810 available Mamba blocks | Add `--max-num-seqs 512`, retaining the existing graph ceiling and all other arguments | Cell `b`: boot passes; word-reversal coherency fails; no ladder |
+| Atlas f66a262, `qwen38.atlas.a.lat.c1` | Kernel audit model construction consumed 57.2 GiB before KV, then required 45.823 GiB reserve against a 71.3 GiB budget | Change active batch 32 to 4; retain rollback, prefix snapshots, precision and watchdogs | Cell `b`: audit passes; first-token boot fails with a CUDA fault; no coherency or ladder |
+
+The first Atlas kernel audit constructs the model, so its failure is in `check-kernels.txt`; no normal serve, coherency gate or ladder ran in cell `a`. Both original workloads stopped, and later fresh device queries were empty. CPU arithmetic and dry rendering do not turn either failed cell green.
+
+Atlas's 48 SSM layers need 151.5 MiB per complete sequence-state blob. Eight rollback snapshots per active sequence consume 37.875 GiB at batch 32. Together with live slots, sixteen prefix snapshots, GDN prefill and CUDA headroom, this reproduces the observed 46,923 MiB reserve exactly. At batch 4, reserve is 8.540 GiB, leaving a conservative 5.460 GiB KV envelope from the captured allocation. Four full 24,576-token contexts need 3.75 GiB. The frozen C16 clients therefore measure requests queued behind four active sequences; they do not imply sixteen simultaneous Atlas decoders.
+
+The original checkpoint tensors and persistent NVFP4/MMQ representations both contribute to Atlas's allocation. Some weights are requantized from the same FP8 checkpoint into runtime NVFP4 representations; the kernel selector is not a claim that every projection executes native FP8. No allocations were discounted without being freed. Selective eviction of redundant original tensors needs a separate ownership audit and is not part of this repair.
+
+The vLLM adaptation is specifically `qwen38-h100-vllm028-capacity512`, tied to the recorded installed environment. The official captured recipe omits this limit; its original source URL/hash remain intact. Atlas's adaptation is `qwen38-h100-atlas-capacity4`. Neither limit was selected through a throughput search. The failed catalogs and raw outputs remain available.
+
+Known-bad controls: vLLM implicit 1,024 and explicit 811 fail its captured 810-block guard; 512 passes. Atlas batch 32 reproduces the logged refusal, and batch 8 still lacks room for its full active agent workload; batch 4 passes the conservative capacity model. Required render checks pass 346/346 Atlas and 258/258 vLLM; campaign tests pass 85 assertions on macOS, with 48 Linux-only cases skipped there.
+
+## Observed retest results
+
+The repaired vLLM profile reached readiness in 296.580 s and returned its first token 0.258 s later. Determinism, typed tool calling and no-think-leak checks passed. The known-answer probes accepted `391` and `Tokyo` but rejected the final reversal `rotaregifer`; the expected answer is `rotaregirfer`. The actual response and failure verdict are retained in [cell b coherency JSON](evidence/rental-h100-20260905/qwen38-capacity/qwen38.vllm.b.lat.c1/coherency.json). The cell exited 1 at coherency, emitted no ladder, and stopped its owned process group. This result does not establish whether the reversal failure comes from the checkpoint or an engine behavior; the gate remains unchanged.
+
+At active batch 4, Atlas passed the real kernel audit: 181 embedded modules, 265 lookups, zero unresolved, two declared expected-absent, compiled architecture `sm_90a`, device compute capability `[9,0]`. It then reached HTTP health 200 after 23.226 s. The first one-token generation returned HTTP 500, so [boot.json](evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/boot.json) correctly records `status: first-token-failed`, `passed: false`, total 23.834 s. HTTP health alone did not admit the cell to coherency or scoring.
+
+The [raw serve log](evidence/rental-h100-20260905/qwen38-capacity/qwen38.atlas.b.lat.c1/serve.log) reports `quantize_mmq_nvfp4_worker has no device code compatible with CUDA arch 900` from the Hopper target's `q4k_vendor/quantize_impl.cuh:172`, followed by CUDA launch failure 719 and a fatal context shutdown. The symbol-load audit does not execute every kernel path; this failure shows why a passing audit cannot substitute for the first-token gate. The cell exited 1 with `NO-GO` at boot and its owned process stopped. A subsequent Hopper MMQ architecture-dispatch repair at `9cfce36` now passes a fresh Qwen3.8 audit, first-token boot and all coherency probes in cell `c`. The original failed cell `b` remains unchanged; this later evidence, rather than the separate Qwen3.6 grammar retest, proves the runtime recovery.
+
+| Identity | Observed value and scope |
+|---|---|
+| Atlas Qwen3.8 binary, both failed cells | SHA256 `353d3ca4f8bb288991326f2714b1acb3c6973eeb11132fcc789b703a1810a7c0`; [source build identity](evidence/rental-h100-20260905/qwen38-capacity/qwen38-build-identity.json) records `f66a262048ac0a6aee4c67444fd0ea5740b46b30` and the dedicated `qwen3.8-27b` target |
+| Retest harness and catalog | `9d68c96b6a37661179ef4c9ecc8c4d239c810c78`; distinct from the Atlas binary's source and native vLLM's declared source |
+| Device | One NVIDIA H100 80GB HBM3, driver `610.57.04`; captured driver-reported CUDA `13.3`; per-cell `nvidia-smi -q` hashes remain in artifacts |
+| Native vLLM | Installed version `0.28.0`, declared commit `g2cf0a6915`; supplemental metadata does not identify all executed package bytes. Real artifact engine build fields remain null; see [the identity gap](vllm-control/SCHEMA-GAPS.md#native-vllm-on-the-rented-h100-observed-identity-gap) |
+
+[Full memory ledger, exact commands, raw failures and checksums](evidence/rental-h100-20260905/qwen38-capacity/MANIFEST.json) now include both retest cells and their admission, model-input and teardown receipts. The frozen C1/C16 ladders have no results for these cells; TTFT percentiles, TPOT and scored throughput remain null. Stopping rule: preserve each failed gate, stop its owned process, and require a fresh complete gate sequence after the focused repair.
+
+## Subsequent repaired measurement windows, 23:28–23:39 UTC
+
+Atlas cell `c` passes 181 modules / 265 lookups / zero unresolved / 15 expected-absent, first-token boot in 22.144 s total and all four coherency verdicts, including the reversal answer. It then measures C1 at 51.208 output tokens/s, with mean per-repetition TTFT 932.384 ms and TPOT 15.945 ms. The raw artifact still reports `NO-GO` at `serve`: its otherwise captured executable basename `spark-qwen38` violates the assembler's `spark` basename contract and leaves the pinned revision unproven in that artifact. [Artifact, raw gates and ladder](evidence/rental-h100-20260905/rental-overview/runtime/qwen38.atlas.c.lat.c1/artifact.json).
+
+vLLM `benchmark.qwen38.vllm.lat01` retains the sole reversal failure in both pre/post coherency records, with separate user-authorized exception sidecars. C1 measures 76.928 output tokens/s and C16 790.507, all measured requests returning 1,193 actual prompt / 256 output tokens. These later measurements do not retroactively admit either earlier failed cell. Atlas default requantization, context, KV and capacity differ from vLLM; native precision parity is still under investigation. [Full conditions, identities and gate interpretation](RENTAL-H100-REPORT.md).

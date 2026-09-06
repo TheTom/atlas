@@ -1,0 +1,16 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=10",
+    "-p",
+    "51249",
+    "root@93.91.156.94",
+    "cd /workspace/atlas-rental/dense-fp8-env-green && python3 -m unittest process_launch_test -v"
+  ],
+  "exit_code": 1,
+  "utc": "2026-09-05T23:32:24.690518+00:00",
+  "reason": "Initial full suite hit existing dying-child snapshot error wording race; focused new test passed. Retain initial failure and inspect repeat."
+}

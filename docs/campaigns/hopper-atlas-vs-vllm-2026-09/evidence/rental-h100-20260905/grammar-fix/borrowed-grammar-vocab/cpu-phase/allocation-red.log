@@ -1,0 +1,40 @@
+     Locking 46 packages to latest Rust 1.95.0 compatible versions
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling crossbeam-utils v0.8.22
+   Compiling serde_core v1.0.229
+   Compiling crossbeam-deque v0.8.7
+   Compiling zmij v1.0.23
+   Compiling zerocopy v0.8.56
+   Compiling serde v1.0.229
+   Compiling thiserror v2.0.20
+   Compiling smallvec v1.16.0
+   Compiling itoa v1.0.18
+   Compiling memchr v2.8.3
+   Compiling either v1.18.0
+   Compiling parking_lot_core v0.9.12
+   Compiling crossbeam-epoch v0.9.20
+   Compiling dashmap v6.2.1
+   Compiling syn v3.0.5
+   Compiling rayon-core v1.13.0
+   Compiling rayon v1.12.0
+   Compiling serde_json v1.0.151
+   Compiling serde_derive v1.0.229
+   Compiling thiserror-impl v2.0.20
+   Compiling ahash v0.8.12
+   Compiling xgrammar v1.0.0-beta-preview (/home/pidtom/atlas-cold-phase-Dn4z2OEX)
+   Compiling grammar-allocation-oracle v0.0.0 (/home/pidtom/atlas-cold-phase-Dn4z2OEX/probe)
+    Finished `release` profile [optimized] target(s) in 4.89s
+     Running `/home/pidtom/atlas-hopper-gate-full/target/release/grammar-allocation-oracle`
+MASK rule=root state=2 key=None ms=0.240
+MASK rule=root state=1 key=None ms=0.151
+MASK rule=root state=0 key=None ms=0.148
+irrelevant=4096 states=3 allocations=12356
+MASK rule=root state=1 key=None ms=0.468
+MASK rule=root state=2 key=None ms=0.292
+MASK rule=root state=0 key=None ms=0.287
+irrelevant=8192 states=3 allocations=24644
+
+thread 'main' (1314061) panicked at src/main.rs:53:5:
+cold mask preparation allocates buffers for irrelevant vocabulary: 12356 -> 24644
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

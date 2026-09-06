@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/qwen38-vllm-capacity/capacity_repro.py",
+    "810",
+    "810"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"guard\": \"PASS\", \"max_num_seqs\": 810, \"mamba_blocks\": 810, \"gpu_work\": false}\n",
+  "stderr": ""
+}

@@ -1,0 +1,6 @@
+{
+  "exit_code": 1,
+  "test": "test_recorded_diagnostics_are_explicit_and_preserved_in_actual_process_evidence",
+  "actual_error": "environment key is not allowed: ATLAS_DENSE_FP8",
+  "source": "actual rental Linux unittest; preexisting ATLAS_DECODE_TIMING path passes before new key refuses"
+}

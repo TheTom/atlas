@@ -1,0 +1,4 @@
+compile auto=true ms=16.903
+warm auto=true selected=123 us_per_call=170.351
+compile auto=false ms=10.354
+warm auto=false selected=123 us_per_call=142.585

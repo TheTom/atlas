@@ -1,0 +1,82 @@
+Diff in /Users/tom/Documents/New project/atlas-grammar-value-fill/crates/xgrammar/examples/native_value_profile.rs:108:
+                 fill_seconds * 1000.0 / ids.len() as f64,
+                 ids.len()
+             );
+-            let label=std::env::args().nth(2).expect("golden label");
+-            std::fs::write(format!("{dir}/golden-{label}-{auto}.json"), serde_json::to_vec(&goldens).unwrap()).unwrap();
++            let label = std::env::args().nth(2).expect("golden label");
++            std::fs::write(
++                format!("{dir}/golden-{label}-{auto}.json"),
++                serde_json::to_vec(&goldens).unwrap(),
++            )
++            .unwrap();
+             println!(
+                 "positions {}",
+                 serde_json::json!({"auto":auto,"rep":rep,"positions":positions})
+Diff in /Users/tom/Documents/New project/atlas-grammar-value-fill/crates/xgrammar/src/earley/scratch_tests.rs:1:
+ // SPDX-License-Identifier: AGPL-3.0-only
+ 
+-use std::sync::Arc;
+ use super::EarleyParser;
+ use crate::grammar::functor::{GrammarNormalizer, GrammarOptimizer};
+ use crate::grammar::parse_ebnf_default;
+Diff in /Users/tom/Documents/New project/atlas-grammar-value-fill/crates/xgrammar/src/earley/scratch_tests.rs:7:
++use std::sync::Arc;
+ 
+ fn parser() -> EarleyParser {
+     let grammar = parse_ebnf_default("root ::= [a-z]+\n").unwrap();
+Diff in /Users/tom/Documents/New project/atlas-grammar-value-fill/crates/xgrammar/src/earley/scratch_tests.rs:20:
+     let before = parser.latest_scanable_states().to_vec();
+     for byte in b'a'..=b'z' {
+         assert!(parser.advance(byte));
+-        assert_eq!(parser.to_be_added.capacity(), capacity, "trial byte discarded reusable state scratch");
++        assert_eq!(
++            parser.to_be_added.capacity(),
++            capacity,
++            "trial byte discarded reusable state scratch"
++        );
+         assert_eq!(parser.to_be_added.as_ptr(), allocation);
+         assert!(parser.is_completed());
+         parser.pop_last_states(1);
+Diff in /Users/tom/Documents/New project/atlas-grammar-value-fill/crates/xgrammar/src/earley/scratch_tests.rs:39:
+     let capacity = parser.to_be_added.capacity();
+     assert!(parser.advance(b'a'));
+     parser.reset();
+-    assert_eq!(parser.to_be_added.capacity(), capacity, "root expansion discarded reusable state scratch");
++    assert_eq!(
++        parser.to_be_added.capacity(),
++        capacity,
++        "root expansion discarded reusable state scratch"
++    );
+     assert_eq!(parser.to_be_added.as_ptr(), allocation);
+     assert!(!parser.is_completed());
+     assert!(parser.advance(b'z'));
+Diff in /Users/tom/Documents/New project/atlas-grammar-value-fill/crates/xgrammar/src/matcher/fill.rs:148:
+             }
+         }
+ 
+-        eprintln!("FILL steps={} states={} cache={} detail={:?}", self.parser.num_steps(), scratch.states.len(), self.compiled_grammar.inner().mask_cache.lock().unwrap().len(), scratch.states.iter().map(|(s,m)|(s.rule_id,s.element_id,m.uncertain_indices.len(),format!("{:?}",m.store_type))).collect::<Vec<_>>());
++        eprintln!(
++            "FILL steps={} states={} cache={} detail={:?}",
++            self.parser.num_steps(),
++            scratch.states.len(),
++            self.compiled_grammar
++                .inner()
++                .mask_cache
++                .lock()
++                .unwrap()
++                .len(),
++            scratch
++                .states
++                .iter()
++                .map(|(s, m)| (
++                    s.rule_id,
++                    s.element_id,
++                    m.uncertain_indices.len(),
++                    format!("{:?}", m.store_type)
++                ))
++                .collect::<Vec<_>>()
++        );
+         // Pass 2: resolve uncertain tokens per state via trial advance.
+         // Iterate by index so `scratch.states` is not borrowed across
+         // the `self.parser` mutation; the `Arc<AdaptiveTokenMask>` is

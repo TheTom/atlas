@@ -1,0 +1,36 @@
+{
+  "stage": "spark-server",
+  "argv": [
+    "cargo",
+    "+1.93.1",
+    "test",
+    "--locked",
+    "-p",
+    "spark-server"
+  ],
+  "started": "2026-09-05T23:16:39.883454+00:00",
+  "free_before": 423133798400,
+  "task_bytes_before": 82257534976,
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "ATLAS_SKIP_BUILD": "1",
+    "CUDARC_CUDA_VERSION": "13000",
+    "CARGO_TARGET_DIR": "/workspace/atlas-rental/target-cpu-checks",
+    "CARGO_BUILD_JOBS": "6",
+    "ATLAS_TARGET_HW": "hopper",
+    "ATLAS_TARGET_MODEL": "qwen3.8-27b",
+    "ATLAS_TARGET_QUANT": "nvfp4"
+  },
+  "finished": "2026-09-05T23:18:21.917705+00:00",
+  "elapsed_s": 102.03428693499882,
+  "exit_code": 0,
+  "stop_reason": null,
+  "free_after": 418504007680,
+  "test_summaries": [
+    "test result: ok. 104 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s",
+    "test result: ok. 2349 passed; 0 failed; 13 ignored; 0 measured; 0 filtered out; finished in 4.98s",
+    "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 6 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+  ]
+}

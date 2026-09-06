@@ -1,0 +1,13 @@
+{
+  "command": [
+    "python3",
+    "bench/campaign/vllm_render.py",
+    "--selftest"
+  ],
+  "cwd": "/Users/tom/Documents/New project/atlas-qwen38-capacity512",
+  "exit_code": 2,
+  "seconds": 0.04920674999812036,
+  "stdout": "",
+  "stderr": "usage: vllm_render.py [-h] --recipes RECIPES [--model MODEL] [--sku SKU]\n                      [--spec {on,off}] [--extra EXTRA] [--stage STAGE]\n                      [--container CONTAINER] [--label LABEL]\n                      [--hf-cache HF_CACHE] [--docker DOCKER] [--image IMAGE]\n                      [--image-digest IMAGE_DIGEST] [--probe] [--list]\n                      [--selftest]\nvllm_render.py: error: the following arguments are required: --recipes\n",
+  "recipe_sha256": "b8427cc3392a3612f200b848ce9de3fa5e604db6d41253bb043a7e0afea50b7b"
+}

@@ -1,0 +1,14 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "-p",
+    "wh-butter-models",
+    "fp8_block_tests",
+    "--",
+    "--nocapture"
+  ],
+  "exit": 0,
+  "oracle": "Full MTP sidecar retains original block FP8 and mixed BF16; both dense-conversion modes, bad shape/encoding/scales/norm/missing tensor covered."
+}
