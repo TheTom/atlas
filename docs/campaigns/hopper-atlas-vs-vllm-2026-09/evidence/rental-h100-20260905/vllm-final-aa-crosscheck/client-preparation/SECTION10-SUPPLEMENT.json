@@ -1,0 +1,282 @@
+{
+  "schema_kind": "supplemental-report-not-campaign-artifact",
+  "certification_claimed": false,
+  "cells": [
+    {
+      "cell": "benchmark.qwen38.vllm.lat01.c1",
+      "raw_session": "benchmark.qwen38.vllm.lat01",
+      "concurrency": 1,
+      "engine": "vllm",
+      "model": {
+        "served_name": "Qwen/Qwen3.8-27B-FP8",
+        "revision_in_original_artifact": null,
+        "snapshot_paths_in_serve_argv": [
+          "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+        ]
+      },
+      "engine_identity": {
+        "git_sha": null,
+        "image_digest": null,
+        "binary_sha256": null
+      },
+      "serve_argv": [
+        "/workspace/atlas-rental/vllm/bin/python3",
+        "/workspace/atlas-rental/vllm/bin/vllm",
+        "serve",
+        "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+        "--tensor-parallel-size",
+        "1",
+        "--enable-auto-tool-choice",
+        "--tool-call-parser",
+        "qwen3_coder",
+        "--reasoning-parser",
+        "qwen3",
+        "--mm-encoder-tp-mode",
+        "data",
+        "--revision",
+        "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+        "--max-num-seqs",
+        "512",
+        "--served-model-name",
+        "Qwen/Qwen3.8-27B-FP8",
+        "--port",
+        "8000"
+      ],
+      "serve_environment": {
+        "CUDA_VISIBLE_DEVICES": "0",
+        "HF_HOME": "/workspace/atlas-rental/hf38",
+        "HF_HUB_CACHE": "/workspace/atlas-rental/hf38/hub",
+        "LD_LIBRARY_PATH": "/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64",
+        "HF_HUB_OFFLINE": "1",
+        "SPT_NOENV": "1"
+      },
+      "hardware": {
+        "gpu": "NVIDIA H100 80GB HBM3",
+        "gpu_count": "1",
+        "driver": "610.57.04",
+        "cuda_driver_api": "13.3",
+        "nvidia_smi_q_sha256": "9ba0cd49fd519ca200bceee883f59d60dfc245cc0c562fab0c7a290cd045dc2a"
+      },
+      "harness": {
+        "checkout_sha": "9cfce36ceac0ac9bfa43b23c26a63cf0beac7770",
+        "ladder_driver_sha256": "7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb",
+        "ladder_sha256": "3a175db684ca55e9400015fd9ffb289b18cf41b6b6e59335d775ec7726812309"
+      },
+      "workload": {
+        "isl": 1024,
+        "osl": 256,
+        "reps": 3,
+        "warmup": 1,
+        "seed": 42,
+        "temperature": 0.0,
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "original_artifact_verdict": null,
+      "original_failing_stage": null,
+      "certification_claimed": false,
+      "scope": "Supplemental provenance only; original artifact and schema unchanged",
+      "native_identity_limitation": "Image and engine binary identities remain null. Python interpreter, console script, available Atlas binary and version-file hashes are not vLLM engine identities. Separate native-vllm-environment-20260905T224356Z metadata is supplemental and not bound to this exact process lifetime.",
+      "source_evidence_sha256": {
+        "launch.json": "c56fc47bbdbe02ef43e602d74fd52c3b80213a8058e63814a80dc6c927cd1ad0",
+        "serve.argv": "213fd0b8199b80b0390519e0dec494aa02cfaa58a32c2c65dd27c828102aeddc",
+        "process-env.json": "6de4a69676bf47f166f75eb47c1f6096bb0a3f5bc46914ea3623e6ec2362da29",
+        "measurement-complete.json": "cb04d4ef845d1dc3482cf9a3d8fe314e20fa77d3f7fd8ea100ff8d4a4c0bc1cf",
+        "owner.json": "df12ac2159b9ad52aafcb9c3ed3e9dd7d3fd06948e52e193608618bd0277fd5c"
+      }
+    },
+    {
+      "cell": "benchmark.qwen38.vllm.lat01.c16",
+      "raw_session": "benchmark.qwen38.vllm.lat01",
+      "concurrency": 16,
+      "engine": "vllm",
+      "model": {
+        "served_name": "Qwen/Qwen3.8-27B-FP8",
+        "revision_in_original_artifact": null,
+        "snapshot_paths_in_serve_argv": [
+          "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+        ]
+      },
+      "engine_identity": {
+        "git_sha": null,
+        "image_digest": null,
+        "binary_sha256": null
+      },
+      "serve_argv": [
+        "/workspace/atlas-rental/vllm/bin/python3",
+        "/workspace/atlas-rental/vllm/bin/vllm",
+        "serve",
+        "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+        "--tensor-parallel-size",
+        "1",
+        "--enable-auto-tool-choice",
+        "--tool-call-parser",
+        "qwen3_coder",
+        "--reasoning-parser",
+        "qwen3",
+        "--mm-encoder-tp-mode",
+        "data",
+        "--revision",
+        "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+        "--max-num-seqs",
+        "512",
+        "--served-model-name",
+        "Qwen/Qwen3.8-27B-FP8",
+        "--port",
+        "8000"
+      ],
+      "serve_environment": {
+        "CUDA_VISIBLE_DEVICES": "0",
+        "HF_HOME": "/workspace/atlas-rental/hf38",
+        "HF_HUB_CACHE": "/workspace/atlas-rental/hf38/hub",
+        "LD_LIBRARY_PATH": "/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64",
+        "HF_HUB_OFFLINE": "1",
+        "SPT_NOENV": "1"
+      },
+      "hardware": {
+        "gpu": "NVIDIA H100 80GB HBM3",
+        "gpu_count": "1",
+        "driver": "610.57.04",
+        "cuda_driver_api": "13.3",
+        "nvidia_smi_q_sha256": "9ba0cd49fd519ca200bceee883f59d60dfc245cc0c562fab0c7a290cd045dc2a"
+      },
+      "harness": {
+        "checkout_sha": "9cfce36ceac0ac9bfa43b23c26a63cf0beac7770",
+        "ladder_driver_sha256": "7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb",
+        "ladder_sha256": "3a175db684ca55e9400015fd9ffb289b18cf41b6b6e59335d775ec7726812309"
+      },
+      "workload": {
+        "isl": 1024,
+        "osl": 256,
+        "reps": 3,
+        "warmup": 1,
+        "seed": 42,
+        "temperature": 0.0,
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "original_artifact_verdict": null,
+      "original_failing_stage": null,
+      "certification_claimed": false,
+      "scope": "Supplemental provenance only; original artifact and schema unchanged",
+      "native_identity_limitation": "Image and engine binary identities remain null. Python interpreter, console script, available Atlas binary and version-file hashes are not vLLM engine identities. Separate native-vllm-environment-20260905T224356Z metadata is supplemental and not bound to this exact process lifetime.",
+      "source_evidence_sha256": {
+        "launch.json": "c56fc47bbdbe02ef43e602d74fd52c3b80213a8058e63814a80dc6c927cd1ad0",
+        "serve.argv": "213fd0b8199b80b0390519e0dec494aa02cfaa58a32c2c65dd27c828102aeddc",
+        "process-env.json": "6de4a69676bf47f166f75eb47c1f6096bb0a3f5bc46914ea3623e6ec2362da29",
+        "measurement-complete.json": "cb04d4ef845d1dc3482cf9a3d8fe314e20fa77d3f7fd8ea100ff8d4a4c0bc1cf",
+        "owner.json": "df12ac2159b9ad52aafcb9c3ed3e9dd7d3fd06948e52e193608618bd0277fd5c"
+      }
+    },
+    {
+      "cell": "qwen38.atlas.c.lat.c1.c1",
+      "raw_session": "qwen38.atlas.c.lat.c1",
+      "concurrency": 1,
+      "engine": "atlas",
+      "model": {
+        "served_name": "Qwen/Qwen3.8-27B-FP8",
+        "revision_in_original_artifact": null,
+        "snapshot_paths_in_serve_argv": [
+          "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+        ]
+      },
+      "engine_identity": {
+        "git_sha": null,
+        "image_digest": null,
+        "binary_sha256": "a9fb0697436af48e74bbe9d168e14b4ea7e10275562e19d19e0c43fc0d24b52d"
+      },
+      "serve_argv": [
+        "/workspace/atlas-rental/bin/spark-qwen38",
+        "serve",
+        "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+        "--rank",
+        "0",
+        "--world-size",
+        "1",
+        "--ep-size",
+        "1",
+        "--tp-size",
+        "1",
+        "--gpu-ordinal",
+        "0",
+        "--port",
+        "8888",
+        "--master-addr",
+        "127.0.0.1",
+        "--master-port",
+        "29500",
+        "--no-tui",
+        "--bind",
+        "0.0.0.0",
+        "--warmup-prompt",
+        "/workspace/atlas-rental/src/atlas/bench/hopper_ab/warmup_1024.txt",
+        "--request-timeout",
+        "0",
+        "--gpu-memory-utilization",
+        "0.90",
+        "--max-num-seqs",
+        "128",
+        "--max-batch-size",
+        "4",
+        "--enable-prefix-caching",
+        "true",
+        "--scheduling-policy",
+        "slai",
+        "--kv-cache-dtype",
+        "fp8",
+        "--kv-high-precision-layers",
+        "auto",
+        "--max-seq-len",
+        "24576",
+        "--fp8-kv-calibration-tokens",
+        "256",
+        "--disable-thinking",
+        "--model-name",
+        "Qwen/Qwen3.8-27B-FP8"
+      ],
+      "serve_environment": {
+        "CUDA_VISIBLE_DEVICES": "0",
+        "HF_HOME": "/workspace/atlas-rental/hf38",
+        "HF_HUB_CACHE": "/workspace/atlas-rental/hf38/hub",
+        "LD_LIBRARY_PATH": "/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64",
+        "HF_HUB_OFFLINE": "1",
+        "SPT_NOENV": "1",
+        "RUST_LOG": "info"
+      },
+      "hardware": {
+        "gpu": "NVIDIA H100 80GB HBM3",
+        "gpu_count": "1",
+        "driver": "610.57.04",
+        "cuda_driver_api": "13.3",
+        "nvidia_smi_q_sha256": "6e9400bf82cebf25ba1fc9c8d2c1c4441cbcd0d79acecb6944ad0ee799e65ed2"
+      },
+      "harness": {
+        "checkout_sha": null,
+        "ladder_driver_sha256": "7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb",
+        "ladder_sha256": "0648a0f16e1ab040d0d547fa99f7b9fb564033b3523c68fbe613d4d1b72e7bc5"
+      },
+      "workload": {
+        "isl": 1024,
+        "osl": 256,
+        "reps": 3,
+        "warmup": 1,
+        "seed": 42,
+        "temperature": 0.0,
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "original_artifact_verdict": "NO-GO",
+      "original_failing_stage": "serve",
+      "certification_claimed": false,
+      "scope": "Supplemental provenance only; original artifact and schema unchanged",
+      "source_evidence_sha256": {
+        "artifact.json": "ce4982feab00d20ed4ff248d29de9d2455edb1e006f79d43f761b75d480702a8",
+        "serve.argv": "f2d2660b4c085399b53582cd5d2470d4a5d65a502484bbaf6afe99393794732d",
+        "process-env.json": "c5af3bc3d2efd375fd8847620e8b52de5b0a8d7321dfeef63ee2fe56acf20cec"
+      }
+    }
+  ]
+}

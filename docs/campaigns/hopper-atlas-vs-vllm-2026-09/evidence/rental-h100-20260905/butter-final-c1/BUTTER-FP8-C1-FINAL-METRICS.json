@@ -1,0 +1,40 @@
+{
+  "utc": "2026-09-06T01:39:48.218591+00:00",
+  "source": "dfc45a185fc36ee84a8351eef21ae1dfc56d527a",
+  "binary_sha256": "da3e60000d55a2aaca67c04b09cd0400553444e45653d911ae828f06103cf606",
+  "model_repo": "Qwen/Qwen3.8-27B-FP8",
+  "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+  "nominal_isl": 1024,
+  "actual_input_tokens": 1193,
+  "output_tokens": 256,
+  "concurrency": 1,
+  "engine_parallel": 16,
+  "reps": 3,
+  "warmup": 1,
+  "throughput_tok_s_mean": 5.722726728245739,
+  "throughput_spread_pct": 0.16192788802816788,
+  "mean_per_rep_ttft_p50_ms": 35282.26482266715,
+  "mean_per_rep_ttft_p99_ms": 35282.26482266715,
+  "mean_per_rep_tpot_p50_ms": 36.897754839209085,
+  "wall_s_mean": 44.73394011100754,
+  "errors": 0,
+  "finish_reasons": [
+    [
+      "length"
+    ],
+    [
+      "length"
+    ],
+    [
+      "length"
+    ]
+  ],
+  "pre_and_post_reversal_policy": true,
+  "raw_pre_post_gate_passed": [
+    false,
+    false
+  ],
+  "minimum_sampled_free_mib": 17603,
+  "gpu_released_utc": "2026-09-06T01:38:39.595952+00:00",
+  "certification_claimed": false
+}

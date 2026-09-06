@@ -1,0 +1,383 @@
+{
+  "record_type": "section10-supplemental-provenance",
+  "campaign": "hopper-atlas-vs-vllm-2026-09",
+  "engine": "vllm",
+  "certification_claimed": false,
+  "engine_version": {
+    "source_build_git_sha": null,
+    "engine_declared_git_sha": null,
+    "binary_sha256": null,
+    "reported_version": "0.28.0",
+    "declared_source_version": "g2cf0a6915",
+    "image_digest": null,
+    "image_note": "Native process, no engine image digest. vLLM installed implementation identity is unproven; interpreter hash is process evidence only."
+  },
+  "model": {
+    "hf_id": "Qwen/Qwen3.8-27B-FP8",
+    "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "checkpoint_quant": "E4M3FN with original128x128 block multipliers",
+    "snapshot_path": "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+  },
+  "hardware": {
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "gpu_count": 1,
+    "driver": "610.57.04",
+    "driver_reported_cuda": "13.3",
+    "nvidia_smi_q_sha256": "01aa56aa8b9cb23b63dc03a49df1563b8b21bd153da83b50dc5a8a6e68917774"
+  },
+  "topology": {
+    "tp": 1,
+    "ep": 1,
+    "world_size": 1,
+    "matched": false
+  },
+  "serve_command": [
+    "/workspace/atlas-rental/vllm/bin/python3",
+    "/workspace/atlas-rental/vllm/bin/vllm",
+    "serve",
+    "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "--tensor-parallel-size",
+    "1",
+    "--enable-auto-tool-choice",
+    "--tool-call-parser",
+    "qwen3_coder",
+    "--reasoning-parser",
+    "qwen3",
+    "--mm-encoder-tp-mode",
+    "data",
+    "--revision",
+    "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "--max-num-seqs",
+    "512",
+    "--served-model-name",
+    "Qwen/Qwen3.8-27B-FP8",
+    "--port",
+    "8000"
+  ],
+  "serve_environment": {
+    "PATH": "/workspace/atlas-rental/vllm/bin:/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "HOME": "/root",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "LD_LIBRARY_PATH": "/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "HF_HOME": "/workspace/atlas-rental/hf38",
+    "HF_HUB_CACHE": "/workspace/atlas-rental/hf38/hub",
+    "HF_HUB_OFFLINE": "1",
+    "SPT_NOENV": "1",
+    "ATLAS_CAMPAIGN_RUN_TOKEN": "0679ca2d4f2b48088fb24793fcdd4193"
+  },
+  "owned_process": {
+    "pid": 202400,
+    "start_ticks": 19017940,
+    "boot_id": "f7dff0ed-70ad-46d4-8961-c7075e4c6f72",
+    "executable": "/usr/bin/python3.12",
+    "executable_sha256": "a92f0f95e883390c7256b2e441484aac06b1002dbe1d924141a77c8d82f96223",
+    "captured_at": "2026-09-06T01:43:53.708621+00:00"
+  },
+  "harness": {
+    "launch_git_sha": "7c786cc50455dee52c11c3bf4097de945fbb8f6a",
+    "measurement_git_sha": "7c786cc50455dee52c11c3bf4097de945fbb8f6a",
+    "ladder_sha256": "7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb",
+    "measurement_wrapper_sha256": "fef0d0a7799b095e016059e5a03e7efea6745e3150e44545116bf4b5e7bb0d83",
+    "serve_wrapper_sha256": "12d7ac339ef15d6ccd1e4bd3d7da59e6448300509099c0e5ba80ccda626c1808"
+  },
+  "precision": {
+    "profile": "Original FP8 block weights; dynamic W8A8; auto/BF16 KV",
+    "observed_serve_flags": {
+      "--max-num-seqs": "512"
+    },
+    "profile_environment": {},
+    "context_tokens": 262144,
+    "max_num_seqs": 512,
+    "active_batch_limit": null,
+    "model_dtype": "bf16",
+    "kv_dtype": "auto/BF16",
+    "fp8_kv_calibration_tokens": null,
+    "limitations": "Same original checkpoint weights; arithmetic, KV and capacity differ. Runtime source/loader evidence is not a complete GPU kernel trace."
+  },
+  "boot": {
+    "passed": true,
+    "time_to_ready_s": 98.162,
+    "first_token_s": 0.256
+  },
+  "quality": {
+    "gates": {
+      "coherency-pre": {
+        "passed": false,
+        "determinism_ok": true,
+        "toolcall_ok": true,
+        "think_leak_ok": true,
+        "known_answer_ok": false,
+        "details": {
+          "determinism_ok": "23 chars reproduced exactly, no degeneration signals",
+          "toolcall_ok": "1 get_weather call(s), required argument types valid",
+          "think_leak_ok": "137 chars, no leak signals",
+          "known_answer_ok": "'391' OK; 'Tokyo' OK; 'rotaregirfer' FAIL (answer not stated: 'To spell the word **refrigerator** backwards, we take the letters from the end o')"
+        },
+        "sha256": "f053e9438ad33dc86bcd0e94c358b582e477fe286a4c5f81028f8e6bdba47868"
+      },
+      "coherency-post": {
+        "passed": false,
+        "determinism_ok": true,
+        "toolcall_ok": true,
+        "think_leak_ok": true,
+        "known_answer_ok": false,
+        "details": {
+          "determinism_ok": "23 chars reproduced exactly, no degeneration signals",
+          "toolcall_ok": "1 get_weather call(s), required argument types valid",
+          "think_leak_ok": "137 chars, no leak signals",
+          "known_answer_ok": "'391' OK; 'Tokyo' OK; 'rotaregirfer' FAIL (answer not stated: 'To spell the word **refrigerator** backwards, we take the letters from the end o')"
+        },
+        "sha256": "b8697aa6d801f9d2f7db92424e7c76774027f7d14400e5bb2f00157fe0ee2731"
+      }
+    },
+    "exception_policies": {
+      "quality-policy-pre": {
+        "policy": "user-authorized-rental-word-reversal-exception",
+        "original_gate_passed": false,
+        "proceed_with_performance_testing": true,
+        "known_answers": [
+          {
+            "expected": "391",
+            "status": "OK",
+            "detail": ""
+          },
+          {
+            "expected": "Tokyo",
+            "status": "OK",
+            "detail": ""
+          },
+          {
+            "expected": "rotaregirfer",
+            "status": "FAIL",
+            "detail": "answer not stated: 'To spell the word **refrigerator** backwards, we take the letters from the end o'"
+          }
+        ],
+        "certification_claimed": false,
+        "original_gate_sha256": "f053e9438ad33dc86bcd0e94c358b582e477fe286a4c5f81028f8e6bdba47868",
+        "original_gate_path": "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/coherency-pre.json"
+      },
+      "quality-policy-post": {
+        "policy": "user-authorized-rental-word-reversal-exception",
+        "original_gate_passed": false,
+        "proceed_with_performance_testing": true,
+        "known_answers": [
+          {
+            "expected": "391",
+            "status": "OK",
+            "detail": ""
+          },
+          {
+            "expected": "Tokyo",
+            "status": "OK",
+            "detail": ""
+          },
+          {
+            "expected": "rotaregirfer",
+            "status": "FAIL",
+            "detail": "answer not stated: 'To spell the word **refrigerator** backwards, we take the letters from the end o'"
+          }
+        ],
+        "certification_claimed": false,
+        "original_gate_sha256": "b8697aa6d801f9d2f7db92424e7c76774027f7d14400e5bb2f00157fe0ee2731",
+        "original_gate_path": "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/coherency-post.json"
+      }
+    },
+    "certification_claimed": false
+  },
+  "run_complete": true,
+  "ladder_finished_utc": "2026-09-06T01:44:42Z",
+  "ladder_exit_code": 0,
+  "cleanup": {
+    "server_stop": {
+      "status": "stopped",
+      "pid": 202400,
+      "signalled_pids": [
+        202400,
+        202785
+      ]
+    },
+    "wrapper_exit": 0,
+    "immediate_query": "",
+    "controller_receipt": "controller/receipt.json",
+    "note": "Controller records query exit0 and empty output after owned stop."
+  },
+  "ptx_gate_ledger_sha256": null,
+  "supplement_limit": "This is not a schema-certified campaign artifact or retroactive modification of raw evidence.",
+  "cell": "benchmark.qwen38.vllm.crosscheck02.c1",
+  "workload": {
+    "name": "latency repeat",
+    "isl": 1024,
+    "actual_prompt_token_counts_observed": [
+      1193
+    ],
+    "prompt_counts_note": "Raw prompt_tokens_per_req is a sorted set, not one entry per request; aggregate prompt counts also checked.",
+    "osl": 256,
+    "concurrency": 1,
+    "requested_reps": 3,
+    "warmup": 1,
+    "temperature": 0.0,
+    "seed": 42,
+    "thinking": false,
+    "speculation": false
+  },
+  "rung_complete": true,
+  "metrics": {
+    "tok_s_series": [
+      73.72800081147767,
+      75.80752190406419,
+      76.40198483024183
+    ],
+    "tok_s_mean": 75.31250251526123,
+    "requests_ok": 3,
+    "request_errors": 0,
+    "completion_tokens_per_request": [
+      256,
+      256,
+      256
+    ],
+    "ttft_p50_ms_mean_of_rep_values": 312.21072633828345,
+    "ttft_p99_ms_mean_of_rep_values": 312.21072633828345,
+    "tpot_p50_ms_mean_of_rep_values": 12.106755368633719,
+    "aggregation": "Arithmetic mean of per-repetition statistics; no pooled percentiles."
+  },
+  "measurement_complete": null,
+  "evidence": {
+    "session_directory": "vllm-crosscheck02",
+    "raw_ladder_sha256": "a17c44ee631fc049c72caafdb1e75c337f2c76ceb9f7c85cadd8ee9b5947695e",
+    "measurement_commands": "vllm-crosscheck02/aa-commands.json",
+    "staging_proof": "../tool-call-audit/qwen38-download-proof/staging-proof.json",
+    "staging_note": "Pinned path and revision match retained checkpoint staging proof; exact proof located by provenance index."
+  },
+  "aa_complete": {
+    "complete": true,
+    "scope": "vLLM latency repeat; original gates retained, explicit reversal policy applied",
+    "certification_claimed": false,
+    "commands": [
+      {
+        "name": "aa-validator-selftest",
+        "argv": [
+          "python3",
+          "/workspace/atlas-rental/run_vllm_lat_aa.py",
+          "--session-dir",
+          "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02",
+          "--selftest"
+        ],
+        "timeout_s": 5,
+        "exit": 0
+      },
+      {
+        "name": "coherency-pre",
+        "argv": [
+          "python3",
+          "bench/hopper_ab/coherency_gate.py",
+          "--url",
+          "http://127.0.0.1:8000",
+          "--model",
+          "Qwen/Qwen3.8-27B-FP8",
+          "--think",
+          "off",
+          "--timeout",
+          "40",
+          "--out",
+          "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/coherency-pre.json"
+        ],
+        "timeout_s": 45,
+        "exit": 1
+      },
+      {
+        "name": "quality-policy-pre",
+        "argv": [
+          "python3",
+          "/workspace/atlas-rental/reversal_exception.py",
+          "--source",
+          "/workspace/atlas-rental/src/atlas",
+          "--coherency",
+          "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/coherency-pre.json",
+          "--out",
+          "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/quality-policy-pre.json"
+        ],
+        "timeout_s": 10,
+        "exit": 0
+      },
+      {
+        "name": "endpoint-before-ladder",
+        "argv": [
+          "python3",
+          "bench/campaign/process_endpoint.py",
+          "owned",
+          "--url",
+          "http://127.0.0.1:8000",
+          "--record",
+          "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/owner.json",
+          "--out",
+          "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/endpoint-before-ladder.json"
+        ],
+        "timeout_s": 10,
+        "exit": 0
+      },
+      {
+        "name": "ladder",
+        "argv": [
+          "/workspace/atlas-rental/vllm/bin/python3",
+          "bench/ladder38/harness_w55_conc_ladder.py",
+          "--url",
+          "http://127.0.0.1:8000",
+          "--model",
+          "Qwen/Qwen3.8-27B-FP8",
+          "--label",
+          "rental.qwen38.vllm.benchmark.qwen38.vllm.crosscheck02",
+          "--out",
+          "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/ladder.json",
+          "--concs",
+          "1,16",
+          "--reps",
+          "3",
+          "--isl",
+          "1024",
+          "--osl",
+          "256",
+          "--warmup",
+          "1"
+        ],
+        "timeout_s": 90,
+        "exit": 0
+      },
+      {
+        "name": "coherency-post",
+        "argv": [
+          "python3",
+          "bench/hopper_ab/coherency_gate.py",
+          "--url",
+          "http://127.0.0.1:8000",
+          "--model",
+          "Qwen/Qwen3.8-27B-FP8",
+          "--think",
+          "off",
+          "--timeout",
+          "40",
+          "--out",
+          "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/coherency-post.json"
+        ],
+        "timeout_s": 45,
+        "exit": 1
+      },
+      {
+        "name": "quality-policy-post",
+        "argv": [
+          "python3",
+          "/workspace/atlas-rental/reversal_exception.py",
+          "--source",
+          "/workspace/atlas-rental/src/atlas",
+          "--coherency",
+          "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/coherency-post.json",
+          "--out",
+          "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/quality-policy-post.json"
+        ],
+        "timeout_s": 10,
+        "exit": 0
+      }
+    ]
+  }
+}

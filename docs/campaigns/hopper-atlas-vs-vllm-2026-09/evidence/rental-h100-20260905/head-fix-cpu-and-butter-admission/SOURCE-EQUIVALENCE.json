@@ -1,0 +1,14 @@
+{
+  "captured_utc": "2026-09-06T01:13:50.090657+00:00",
+  "authored_commit": "b5ef32d098b8c8ba8a85fcc45973a6ca05c746bf",
+  "published_pr895_head": "7c786cc50455dee52c11c3bf4097de945fbb8f6a",
+  "published_tree": "a1b76d7c787a3b779d21b9008c77e1ae9d8d184e",
+  "author_and_published_tree_equal": true,
+  "verified_source_files": [
+    "crates/spark-model/src/model/trait_impl/decode_a2.rs",
+    "crates/spark-model/src/model/trait_impl/lm_head_batched.rs",
+    "crates/spark-model/src/model/trait_impl/lm_head_bf16_tests.rs"
+  ],
+  "read_only_remote_observation": "gh pr view895 exactAvarok-Cybersecurity/atlas returned7c786cc; git ls-remote TheTom/atlas codebranch matched.",
+  "gpu_and_performance_status": "Pending new batch; no performance claim for7c786cc."
+}

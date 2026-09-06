@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "nvidia-smi",
+    "--query-compute-apps=pid,process_name,used_memory",
+    "--format=csv,noheader"
+  ],
+  "exit": 0,
+  "utc": "2026-09-06T01:10:15.722746+00:00"
+}

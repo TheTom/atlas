@@ -1,0 +1,87 @@
+{
+  "synthetic_parser_only_no_engine_calls": true,
+  "results": [
+    {
+      "case": "red-no-c4",
+      "exit": 2,
+      "expected": 2,
+      "stdout": "{\"groups\": [{\"n\": 2, \"padded_n\": 2, \"steps\": 1, \"median_us\": {\"total_us\": 600, \"ssm_us\": 300, \"attention_us\": 200, \"head_us\": 100}}], \"actual_c4_observed\": false}\n",
+      "summary": {
+        "scope": "Synchronized device-inclusive wall attribution; includes CPU launch/sync overhead; not frozen throughput",
+        "bucket_meaning": {
+          "ssm": "whole SSM transformer layers, including FFN",
+          "attention": "whole attention transformer layers, including FFN",
+          "head": "final normalization and head projection"
+        },
+        "rows": [
+          {
+            "n": 2,
+            "padded_n": 2,
+            "total_us": 600,
+            "ssm_us": 300,
+            "ssm_layers": 48,
+            "attention_us": 200,
+            "attention_layers": 16,
+            "head_us": 100,
+            "source_line": "ATLAS_MS_PROFILE n=2 padded_n=2: total=600us  ssm=300us(48L)  attn=200us(16L)  head=100us  [per-tok 0.30ms]"
+          }
+        ],
+        "groups": [
+          {
+            "n": 2,
+            "padded_n": 2,
+            "steps": 1,
+            "median_us": {
+              "total_us": 600,
+              "ssm_us": 300,
+              "attention_us": 200,
+              "head_us": 100
+            }
+          }
+        ],
+        "actual_c4_observed": false
+      }
+    },
+    {
+      "case": "green-c4",
+      "exit": 0,
+      "expected": 0,
+      "stdout": "{\"groups\": [{\"n\": 4, \"padded_n\": 4, \"steps\": 1, \"median_us\": {\"total_us\": 600, \"ssm_us\": 300, \"attention_us\": 200, \"head_us\": 100}}], \"actual_c4_observed\": true}\n",
+      "summary": {
+        "scope": "Synchronized device-inclusive wall attribution; includes CPU launch/sync overhead; not frozen throughput",
+        "bucket_meaning": {
+          "ssm": "whole SSM transformer layers, including FFN",
+          "attention": "whole attention transformer layers, including FFN",
+          "head": "final normalization and head projection"
+        },
+        "rows": [
+          {
+            "n": 4,
+            "padded_n": 4,
+            "total_us": 600,
+            "ssm_us": 300,
+            "ssm_layers": 48,
+            "attention_us": 200,
+            "attention_layers": 16,
+            "head_us": 100,
+            "source_line": "ATLAS_MS_PROFILE n=4 padded_n=4: total=600us  ssm=300us(48L)  attn=200us(16L)  head=100us  [per-tok 0.15ms]"
+          }
+        ],
+        "groups": [
+          {
+            "n": 4,
+            "padded_n": 4,
+            "steps": 1,
+            "median_us": {
+              "total_us": 600,
+              "ssm_us": 300,
+              "attention_us": 200,
+              "head_us": 100
+            }
+          }
+        ],
+        "actual_c4_observed": true
+      }
+    }
+  ]
+}

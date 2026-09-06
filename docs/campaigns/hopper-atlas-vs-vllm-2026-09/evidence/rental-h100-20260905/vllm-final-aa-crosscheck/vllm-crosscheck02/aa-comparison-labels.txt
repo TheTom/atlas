@@ -1,0 +1,1 @@
+Both engines are vLLM. Legacy Atlas column is the new repeat; vLLM column is lat01. Raw labels unchanged. A tie is not presumed.

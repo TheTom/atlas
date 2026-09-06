@@ -1,0 +1,155 @@
+[
+  {
+    "name": "aa-validator-selftest",
+    "argv": [
+      "python3",
+      "/workspace/atlas-rental/run_vllm_lat_aa.py",
+      "--session-dir",
+      "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02",
+      "--selftest"
+    ],
+    "timeout_s": 5,
+    "exit": 0
+  },
+  {
+    "name": "coherency-pre",
+    "argv": [
+      "python3",
+      "bench/hopper_ab/coherency_gate.py",
+      "--url",
+      "http://127.0.0.1:8000",
+      "--model",
+      "Qwen/Qwen3.8-27B-FP8",
+      "--think",
+      "off",
+      "--timeout",
+      "40",
+      "--out",
+      "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/coherency-pre.json"
+    ],
+    "timeout_s": 45,
+    "exit": 1
+  },
+  {
+    "name": "quality-policy-pre",
+    "argv": [
+      "python3",
+      "/workspace/atlas-rental/reversal_exception.py",
+      "--source",
+      "/workspace/atlas-rental/src/atlas",
+      "--coherency",
+      "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/coherency-pre.json",
+      "--out",
+      "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/quality-policy-pre.json"
+    ],
+    "timeout_s": 10,
+    "exit": 0
+  },
+  {
+    "name": "endpoint-before-ladder",
+    "argv": [
+      "python3",
+      "bench/campaign/process_endpoint.py",
+      "owned",
+      "--url",
+      "http://127.0.0.1:8000",
+      "--record",
+      "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/owner.json",
+      "--out",
+      "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/endpoint-before-ladder.json"
+    ],
+    "timeout_s": 10,
+    "exit": 0
+  },
+  {
+    "name": "ladder",
+    "argv": [
+      "/workspace/atlas-rental/vllm/bin/python3",
+      "bench/ladder38/harness_w55_conc_ladder.py",
+      "--url",
+      "http://127.0.0.1:8000",
+      "--model",
+      "Qwen/Qwen3.8-27B-FP8",
+      "--label",
+      "rental.qwen38.vllm.benchmark.qwen38.vllm.crosscheck02",
+      "--out",
+      "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/ladder.json",
+      "--concs",
+      "1,16",
+      "--reps",
+      "3",
+      "--isl",
+      "1024",
+      "--osl",
+      "256",
+      "--warmup",
+      "1"
+    ],
+    "timeout_s": 90,
+    "exit": 0
+  },
+  {
+    "name": "coherency-post",
+    "argv": [
+      "python3",
+      "bench/hopper_ab/coherency_gate.py",
+      "--url",
+      "http://127.0.0.1:8000",
+      "--model",
+      "Qwen/Qwen3.8-27B-FP8",
+      "--think",
+      "off",
+      "--timeout",
+      "40",
+      "--out",
+      "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/coherency-post.json"
+    ],
+    "timeout_s": 45,
+    "exit": 1
+  },
+  {
+    "name": "quality-policy-post",
+    "argv": [
+      "python3",
+      "/workspace/atlas-rental/reversal_exception.py",
+      "--source",
+      "/workspace/atlas-rental/src/atlas",
+      "--coherency",
+      "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/coherency-post.json",
+      "--out",
+      "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/quality-policy-post.json"
+    ],
+    "timeout_s": 10,
+    "exit": 0
+  },
+  {
+    "name": "aa-compare-known-bad",
+    "argv": [
+      "python3",
+      "bench/hopper_ab/compare.py",
+      "--atlas",
+      "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/aa-known-bad-osl.json",
+      "--vllm",
+      "/workspace/atlas-rental/results/benchmark.qwen38.vllm.lat01/ladder.json"
+    ],
+    "timeout_s": 5,
+    "exit": 2
+  },
+  {
+    "name": "aa-compare",
+    "argv": [
+      "python3",
+      "bench/hopper_ab/compare.py",
+      "--atlas",
+      "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/ladder.json",
+      "--vllm",
+      "/workspace/atlas-rental/results/benchmark.qwen38.vllm.lat01/ladder.json",
+      "--out-json",
+      "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/aa-compare.json",
+      "--out-md",
+      "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/aa-compare.md"
+    ],
+    "timeout_s": 5,
+    "exit": 0
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "python3",
+    "/workspace/atlas-rental/reversal_exception.py",
+    "--source",
+    "/workspace/atlas-rental/src/atlas",
+    "--coherency",
+    "/workspace/butter-iron-rental/results/butter-block-fp8-lat-20260906T010244Z/coherency-pre.json",
+    "--out",
+    "/workspace/butter-iron-rental/results/butter-block-fp8-lat-20260906T010244Z/quality-policy-pre.json"
+  ],
+  "started_utc": "2026-09-06T01:03:39.744315+00:00",
+  "timeout_s": 15,
+  "exit": 0,
+  "elapsed_s": 1.001793606003048,
+  "finished_utc": "2026-09-06T01:03:40.746112+00:00"
+}

@@ -1,0 +1,12 @@
+shape            M          N  Mx M=1 (ms)  batchm (ms)   speedup  bit-identical
+q_proj           1       9216       0.0226       0.0232     0.97x  yes
+q_proj           2       9216       0.0451       0.0264     1.71x  yes
+q_proj           4       9216       0.0902       0.0354     2.55x  yes
+o_proj           1       3072       0.0225       0.0228     0.99x  yes
+o_proj           2       3072       0.0449       0.0259     1.73x  yes
+o_proj           4       3072       0.0900       0.0417     2.16x  yes
+k/v/shared       1       1024       0.0038       0.0041     0.91x  yes
+k/v/shared       2       1024       0.0074       0.0053     1.41x  yes
+k/v/shared       4       1024       0.0145       0.0079     1.83x  yes
+
+All bit-identical. PASS criterion: speedup should approach Mx at M=2 and M=4.

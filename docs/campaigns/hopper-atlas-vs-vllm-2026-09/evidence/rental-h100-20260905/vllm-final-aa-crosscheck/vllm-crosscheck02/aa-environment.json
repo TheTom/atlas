@@ -1,0 +1,4 @@
+{
+  "W55_PROMPT_MODE": "essay",
+  "PATH": "/workspace/atlas-rental/vllm/bin:/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+}

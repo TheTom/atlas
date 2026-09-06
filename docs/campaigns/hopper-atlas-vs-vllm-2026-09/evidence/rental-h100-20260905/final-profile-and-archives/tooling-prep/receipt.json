@@ -1,0 +1,50 @@
+{
+  "commit": "73809eafe8fa0bf0c4ad3bccdfe908dc242f20b4",
+  "tree": "072708d1df73c0bdcebf449512db7c40b61426ef",
+  "base": "7c786cc50455dee52c11c3bf4097de945fbb8f6a",
+  "checks": {
+    "red": {
+      "argv": [
+        "python3",
+        "bench/campaign/process_launch_test.py",
+        "ProcessEnvironmentTests",
+        "-v"
+      ],
+      "exit": 1,
+      "wall_s": 0.08502078056335449
+    },
+    "green": {
+      "argv": [
+        "python3",
+        "bench/campaign/process_launch_test.py",
+        "ProcessEnvironmentTests",
+        "-v"
+      ],
+      "exit": 0,
+      "wall_s": 0.07195591926574707
+    },
+    "launch-suite": {
+      "argv": [
+        "python3",
+        "bench/campaign/process_launch_test.py",
+        "-v"
+      ],
+      "exit": 0,
+      "wall_s": 0.07404184341430664
+    },
+    "campaign": {
+      "argv": [
+        "bash",
+        "bench/campaign/campaign_test.sh"
+      ],
+      "exit": 0,
+      "wall_s": 54.57142400741577
+    }
+  },
+  "platform": "macOS; Linux process tests explicitly skipped",
+  "campaign_assertions": 85,
+  "production_environment_tests_passed": 2,
+  "linux_process_tests_skipped": 14,
+  "diagnostic_wrapper_sha256": "5dde7dfc5d700194b56b653da02e32f024a3eccf3ae3cac4358d3c725b033a4a",
+  "diagnostic_executed": false
+}

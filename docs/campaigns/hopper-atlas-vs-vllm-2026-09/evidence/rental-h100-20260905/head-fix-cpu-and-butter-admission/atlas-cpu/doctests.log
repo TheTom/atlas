@@ -1,0 +1,116 @@
+Welcome to vast.ai. If authentication fails, try again after a few seconds, and double check your ssh key.
+Have fun!
+   Compiling atlas-closure v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/atlas-closure)
+   Compiling atlas-core v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/atlas-core)
+   Compiling spark-runtime v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/spark-runtime)
+   Compiling spark-storage v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/spark-storage)
+   Compiling atlas-governance v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/atlas-governance)
+   Compiling spark-comm v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/spark-comm)
+   Compiling atlas-kernels v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/atlas-kernels)
+   Compiling atlas-plugin v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/atlas-plugin)
+   Compiling xgrammar v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/xgrammar)
+   Compiling spark-nllb v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/spark-nllb)
+   Compiling spark-model v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/spark-model)
+   Compiling atlas-spark-bench v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/atlas-spark-bench)
+   Compiling spark-server v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/spark-server)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 38.39s
+   Doc-tests atlas_closure
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_governance
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_kernels
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_plugin
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_rdma
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_spark_bench
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_tier
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests cufile_sys
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests spark_comm
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests spark_model
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests spark_nllb
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests spark_runtime
+
+running 1 test
+test crates/spark-runtime/src/kernel_args.rs - kernel_args (line 14) ... ignored
+
+test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+all doctests ran in 0.29s; merged doctests compilation took 0.28s
+   Doc-tests spark_server
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests spark_storage
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests xgrammar
+
+running 1 test
+test crates/xgrammar/src/matcher/coalesce.rs - matcher::coalesce::GrammarMatcher::forced_from_bitmask (line 107) ... ignored
+
+test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+all doctests ran in 0.29s; merged doctests compilation took 0.27s

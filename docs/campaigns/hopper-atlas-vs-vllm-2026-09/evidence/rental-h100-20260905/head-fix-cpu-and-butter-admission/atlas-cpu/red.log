@@ -1,0 +1,35 @@
+Welcome to vast.ai. If authentication fails, try again after a few seconds, and double check your ssh key.
+Have fun!
+   Compiling cudarc v0.19.2 (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/vendor/cudarc)
+   Compiling atlas-closure v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/atlas-closure)
+   Compiling atlas-core v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/atlas-core)
+   Compiling atlas-rdma v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/atlas-rdma)
+   Compiling spark-runtime v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/spark-runtime)
+   Compiling spark-storage v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/spark-storage)
+   Compiling cufile-sys v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/cufile-sys)
+   Compiling atlas-kernels v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/atlas-kernels)
+   Compiling atlas-tier v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/atlas-tier)
+   Compiling spark-model v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/spark-model)
+   Compiling spark-comm v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/spark-comm)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 37.75s
+     Running unittests src/lib.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/spark_model-ad53cb13b16afb43)
+
+running 3 tests
+test model::trait_impl::lm_head_batched::bf16_tests::legacy_opt_out_value_is_preserved ... ok
+test model::trait_impl::lm_head_batched::bf16_tests::default_small_bf16_head_uses_existing_batch_gemv ... FAILED
+test model::trait_impl::lm_head_batched::bf16_tests::opt_out_missing_kernel_and_wide_head_keep_scalar_fallback ... ok
+
+failures:
+
+failures:
+    model::trait_impl::lm_head_batched::bf16_tests::default_small_bf16_head_uses_existing_batch_gemv
+
+test result: FAILED. 2 passed; 1 failed; 0 ignored; 0 measured; 658 filtered out; finished in 0.00s
+
+
+thread 'model::trait_impl::lm_head_batched::bf16_tests::default_small_bf16_head_uses_existing_batch_gemv' (138108) panicked at crates/spark-model/src/model/trait_impl/lm_head_bf16_tests.rs:40:5:
+assertion `left == right` failed: M=1: BF16 head selected the wrong kernel
+  left: 51966
+ right: 48918
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `-p spark-model --lib`

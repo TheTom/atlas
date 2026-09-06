@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "workload": {
+    "isl": 4096,
+    "osl": 512,
+    "temperature": 0.0,
+    "seed": 42,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "reps": 3,
+    "warmup": 1,
+    "driver_sha256": "7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb"
+  },
+  "atlas_label": "rental.qwen38.atlas.native-head-agent01",
+  "vllm_label": "rental.qwen38.vllm.agent01",
+  "atlas_model": "Qwen/Qwen3.8-27B-FP8",
+  "vllm_model": "Qwen/Qwen3.8-27B-FP8",
+  "rows": [
+    {
+      "concurrency": 1,
+      "atlas_tok_s": 33.13124633070564,
+      "vllm_tok_s": 78.45052976828795,
+      "atlas_ttft_p50_ms": 3194.2396519977287,
+      "vllm_ttft_p50_ms": 387.3348919926987,
+      "atlas_ttft_p99_ms": 3194.2396519977287,
+      "vllm_ttft_p99_ms": 387.3348919926987,
+      "atlas_tpot_p50_ms": 23.989571187877875,
+      "vllm_tpot_p50_ms": 12.01144446185544,
+      "atlas_errors": 0,
+      "vllm_errors": 0,
+      "atlas_issues": [],
+      "vllm_issues": [],
+      "ratio": 0.4223202370788614,
+      "verdict": "LOSS"
+    },
+    {
+      "vllm_concurrency": 16,
+      "vllm_tok_s": 638.7581983246841,
+      "vllm_ttft_p50_ms": 3457.1761026600143,
+      "vllm_ttft_p99_ms": 4675.6945637137205,
+      "vllm_tpot_p50_ms": 18.224961005553144,
+      "vllm_errors": 0,
+      "vllm_issues": [],
+      "concurrency": 16,
+      "verdict": "NO-PAIR"
+    }
+  ],
+  "rungs_won": 0,
+  "rungs_compared": 1
+}

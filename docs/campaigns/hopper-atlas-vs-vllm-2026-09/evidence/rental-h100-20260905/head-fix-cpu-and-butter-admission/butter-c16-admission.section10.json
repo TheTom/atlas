@@ -1,0 +1,236 @@
+{
+  "record_type": "section10-supplemental-provenance",
+  "campaign": "hopper-atlas-vs-vllm-2026-09",
+  "cell": "butter-c16-admission",
+  "engine": "butter",
+  "certification_claimed": false,
+  "engine_version": {
+    "source_build_git_sha": "dfc45a185fc36ee84a8351eef21ae1dfc56d527a",
+    "binary_sha256": "da3e60000d55a2aaca67c04b09cd0400553444e45653d911ae828f06103cf606",
+    "image_digest": null,
+    "image_note": "Native process; no engine image digest applies.",
+    "iron_composite": "a4c897ba2e89db49df82b9d2f2691642d8f8b697"
+  },
+  "model": {
+    "hf_id": "Qwen/Qwen3.8-27B-FP8",
+    "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "snapshot_path": "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "staging_proof": "butter-c16-admission/checkpoint-staging-proof.json",
+    "staging_proof_sha256": "6074590b1089e054afc8a4c2a23ca5e8a4184e4ff2c8ccb7898fa722cf812479"
+  },
+  "hardware": {
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "gpu_count": 1,
+    "driver": "610.57.04",
+    "nvidia_smi_q_sha256": "c75fd96f4f2ed15af603535b8c9429efc90931267bd3c8407713b6413d359c4c"
+  },
+  "serve_command": [
+    "/workspace/butter-iron-rental/bin/butter-block-fp8-dfc45a1",
+    "serve-local",
+    "--model",
+    "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "--max-context",
+    "8192",
+    "--parallel",
+    "16",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8890"
+  ],
+  "serve_environment": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "CUDA_HOME": "/usr/local/cuda",
+    "CUDA_PATH": "/usr/local/cuda",
+    "LD_LIBRARY_PATH": "/usr/local/cuda/lib64:/usr/lib/x86_64-linux-gnu",
+    "BUTTER_HOME": "/workspace/butter-iron-rental/butter-home",
+    "QWEN35_MARLIN": "0",
+    "BUTTER_IRON_SELECTORS": "1",
+    "W55_PROMPT_MODE": "essay"
+  },
+  "owned_process": {
+    "pid": 146138,
+    "pgid": 146138,
+    "startticks": "18780872",
+    "utc": "2026-09-06T01:02:44.643641+00:00"
+  },
+  "harness": {
+    "git_sha": "7c786cc50455dee52c11c3bf4097de945fbb8f6a",
+    "ladder_sha256": "7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb",
+    "measurement_command": {
+      "argv": [
+        "/workspace/atlas-rental/vllm/bin/python3",
+        "/workspace/butter-iron-rental/results/butter-block-fp8-lat-20260906T010244Z/capacity-client.py",
+        "/workspace/atlas-rental/src/atlas/bench/ladder38/harness_w55_conc_ladder.py",
+        "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+        "/workspace/butter-iron-rental/results/butter-block-fp8-lat-20260906T010244Z/capacity.json"
+      ],
+      "started_utc": "2026-09-06T01:03:40.793522+00:00",
+      "timeout_s": 180,
+      "exit": -15,
+      "elapsed_s": 180.03594455099665,
+      "finished_utc": "2026-09-06T01:06:40.829474+00:00"
+    },
+    "note": "Harness Git is captured independently from the Butter engine source; no completed ladder series exists."
+  },
+  "precision_and_capacity": {
+    "parallel": 16,
+    "context": 8192,
+    "weight_compute": "originalE4M3FN/BF16-block128 multipliers; W8A32 CUDA-core",
+    "kv": "rawF32",
+    "spec": "off",
+    "think": "off"
+  },
+  "workload": {
+    "attempt": "capacity prerequisite, C16 one-token requests",
+    "nominal_isl": 1024,
+    "nominal_osl": 1,
+    "offered_concurrency": 16,
+    "server_parallel": 16
+  },
+  "boot": {
+    "passed": true,
+    "time_to_ready_s": 14.089136360009434
+  },
+  "quality": {
+    "pre": {
+      "schema": 1,
+      "url": "http://127.0.0.1:8890",
+      "model": "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+      "checked_utc": "2026-09-06T01:02:58Z",
+      "request_policy": {
+        "think": "off",
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "check_request_policy": {
+        "determinism_ok": {
+          "think": "off",
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          }
+        },
+        "toolcall_ok": {
+          "think": "off",
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          }
+        },
+        "think_leak_ok": {
+          "think": "off",
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          }
+        },
+        "known_answer_ok": {
+          "think": "off",
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          }
+        }
+      },
+      "details": {
+        "determinism_ok": "23 chars reproduced exactly, no degeneration signals",
+        "toolcall_ok": "1 get_weather call(s), required argument types valid",
+        "think_leak_ok": "137 chars, no leak signals",
+        "known_answer_ok": "'391' OK; 'Tokyo' OK; 'rotaregirfer' FAIL (answer not stated: 'To spell the word **refrigerator** backwards, we take the letters from the end o')"
+      },
+      "http_exchanges": [
+        {
+          "check": "determinism_ok",
+          "request_json": "{\"model\": \"/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+          "response_status": 200,
+          "response_body": "{\"choices\":[{\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"content\":\"101, 103, 107, 109, 113\",\"role\":\"assistant\"}}],\"created\":1788656578,\"id\":\"chatcmpl-1788656578\",\"model\":\"/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a\",\"object\":\"chat.completion\",\"usage\":{\"cached_tokens\":0,\"completion_tokens\":23,\"prompt_tokens\":30,\"total_tokens\":53}}",
+          "response_complete": true
+        },
+        {
+          "check": "determinism_ok",
+          "request_json": "{\"model\": \"/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a\", \"messages\": [{\"role\": \"user\", \"content\": \"List exactly five prime numbers greater than one hundred, comma separated, with no other words.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+          "response_status": 200,
+          "response_body": "{\"choices\":[{\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"content\":\"101, 103, 107, 109, 113\",\"role\":\"assistant\"}}],\"created\":1788656582,\"id\":\"chatcmpl-1788656582\",\"model\":\"/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a\",\"object\":\"chat.completion\",\"usage\":{\"cached_tokens\":0,\"completion_tokens\":23,\"prompt_tokens\":30,\"total_tokens\":53}}",
+          "response_complete": true
+        },
+        {
+          "check": "toolcall_ok",
+          "request_json": "{\"model\": \"/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a\", \"messages\": [{\"role\": \"user\", \"content\": \"What is the weather in Reykjavik over the next three days? Use the tool.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}, \"tools\": [{\"type\": \"function\", \"function\": {\"name\": \"get_weather\", \"description\": \"Look up the current weather for a city.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name.\"}, \"days\": {\"type\": \"integer\", \"description\": \"Forecast horizon in days.\"}}, \"required\": [\"city\", \"days\"]}}}], \"tool_choice\": \"auto\"}",
+          "response_status": 200,
+          "response_body": "{\"choices\":[{\"finish_reason\":\"tool_calls\",\"index\":0,\"message\":{\"content\":null,\"role\":\"assistant\",\"tool_calls\":[{\"function\":{\"arguments\":\"{\\\"city\\\":\\\"Reykjavik\\\",\\\"days\\\":3}\",\"name\":\"get_weather\"},\"id\":\"chatcmpl-tool-recovered-000000000000\",\"type\":\"function\"}]}}],\"created\":1788656583,\"id\":\"chatcmpl-1788656583\",\"model\":\"/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a\",\"object\":\"chat.completion\",\"usage\":{\"cached_tokens\":0,\"completion_tokens\":40,\"prompt_tokens\":226,\"total_tokens\":266}}",
+          "response_complete": true
+        },
+        {
+          "check": "think_leak_ok",
+          "request_json": "{\"model\": \"/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a\", \"messages\": [{\"role\": \"user\", \"content\": \"In one short sentence, say what a benchmark harness is for.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+          "response_status": 200,
+          "response_body": "{\"choices\":[{\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"content\":\"A benchmark harness is a standardized framework used to consistently measure and compare the performance of software or hardware systems.\",\"role\":\"assistant\"}}],\"created\":1788656591,\"id\":\"chatcmpl-1788656591\",\"model\":\"/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a\",\"object\":\"chat.completion\",\"usage\":{\"cached_tokens\":0,\"completion_tokens\":21,\"prompt_tokens\":25,\"total_tokens\":46}}",
+          "response_complete": true
+        },
+        {
+          "check": "known_answer_ok",
+          "request_json": "{\"model\": \"/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a careful, precise assistant. Answer the question directly and correctly. Work step by step when a question needs it, and state the final answer explicitly. Do not refuse or hedge on simple factual or arithmetic questions.\"}, {\"role\": \"user\", \"content\": \"What is 17 * 23? Reply with the number, then explain your working.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+          "response_status": 200,
+          "response_body": "{\"choices\":[{\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"content\":\"391\\n\\nTo calculate $17 \\\\times 23$, we can break the multiplication down using the distributive property:\\n\\n1.  Split 23 into $20 + 3$.\\n2.  Multiply 17 by 20:\\n    $$17 \\\\times 20 = 340$$\\n3.  Multiply 17 by 3:\\n    $$17 \\\\times 3 = 51$$\\n4.  Add the two results together:\\n    $$340 + 51 = 391$$\\n\\nThus, $17 \\\\times 23 = 391$.\",\"role\":\"assistant\"}}],\"created\":1788656593,\"id\":\"chatcmpl-1788656593\",\"model\":\"/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a\",\"object\":\"chat.completion\",\"usage\":{\"cached_tokens\":0,\"completion_tokens\":141,\"prompt_tokens\":81,\"total_tokens\":222}}",
+          "response_complete": true
+        },
+        {
+          "check": "known_answer_ok",
+          "request_json": "{\"model\": \"/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a careful, precise assistant. Answer the question directly and correctly. Work step by step when a question needs it, and state the final answer explicitly. Do not refuse or hedge on simple factual or arithmetic questions.\"}, {\"role\": \"user\", \"content\": \"Name the capital city of Japan, then describe it in a few sentences.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+          "response_status": 200,
+          "response_body": "{\"choices\":[{\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"content\":\"The capital city of Japan is **Tokyo**.\\n\\nTokyo is a sprawling metropolis and the most populous city in the world, serving as the nation's political, economic, and cultural center. It is a unique blend of ultra-modern skyscrapers, bustling neon-lit districts like Shibuya and Shinjuku, and serene traditional spaces such as the Imperial Palace and Meiji Shrine. As a global hub for technology, finance, and pop culture, Tokyo offers a dynamic urban experience that seamlessly integrates ancient history with cutting-edge innovation.\",\"role\":\"assistant\"}}],\"created\":1788656601,\"id\":\"chatcmpl-1788656601\",\"model\":\"/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a\",\"object\":\"chat.completion\",\"usage\":{\"cached_tokens\":0,\"completion_tokens\":109,\"prompt_tokens\":76,\"total_tokens\":185}}",
+          "response_complete": true
+        },
+        {
+          "check": "known_answer_ok",
+          "request_json": "{\"model\": \"/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a careful, precise assistant. Answer the question directly and correctly. Work step by step when a question needs it, and state the final answer explicitly. Do not refuse or hedge on simple factual or arithmetic questions.\"}, {\"role\": \"user\", \"content\": \"Spell the word 'refrigerator' backwards, then explain how you did it.\"}], \"temperature\": 0.0, \"seed\": 42, \"presence_penalty\": 0.0, \"frequency_penalty\": 0.0, \"max_tokens\": 256, \"chat_template_kwargs\": {\"enable_thinking\": false}}",
+          "response_status": 200,
+          "response_body": "{\"choices\":[{\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"content\":\"To spell the word **refrigerator** backwards, we take the letters from the end of the word and move them to the beginning, reversing their order.\\n\\nHere is the step-by-step process:\\n\\n1.  Start with the original word: **r e f r i g e r a t o r**\\n2.  Take the last letter: **r**\\n3.  Take the second-to-last letter: **o**\\n4.  Take the third-to-last letter: **t**\\n5.  Take the fourth-to-last letter: **a**\\n6.  Take the fifth-to-last letter: **r**\\n7.  Take the sixth-to-last letter: **e**\\n8.  Take the seventh-to-last letter: **g**\\n9.  Take the eighth-to-last letter: **i**\\n10. Take the ninth-to-last letter: **r**\\n11. Take the tenth-to-last letter: **f**\\n12. Take the eleventh-to-last letter: **e**\\n13. Take the last remaining letter (the first one): **r**\\n\\nPutting these letters together in order gives:\\n\\n**rotaregifer**\",\"role\":\"assistant\"}}],\"created\":1788656607,\"id\":\"chatcmpl-1788656607\",\"model\":\"/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a\",\"object\":\"chat.completion\",\"usage\":{\"cached_tokens\":0,\"completion_tokens\":251,\"prompt_tokens\":78,\"total_tokens\":329}}",
+          "response_complete": true
+        }
+      ],
+      "determinism_ok": true,
+      "toolcall_ok": true,
+      "think_leak_ok": true,
+      "known_answer_ok": false,
+      "passed": false
+    },
+    "pre_policy": {
+      "policy": "user-authorized-rental-word-reversal-exception",
+      "original_gate_passed": false,
+      "proceed_with_performance_testing": true,
+      "known_answers": [
+        {
+          "expected": "391",
+          "status": "OK",
+          "detail": ""
+        },
+        {
+          "expected": "Tokyo",
+          "status": "OK",
+          "detail": ""
+        },
+        {
+          "expected": "rotaregirfer",
+          "status": "FAIL",
+          "detail": "answer not stated: 'To spell the word **refrigerator** backwards, we take the letters from the end o'"
+        }
+      ],
+      "certification_claimed": false,
+      "original_gate_sha256": "ee235c6e5c1e9c12ee90aa7869df29637fd8cae51f1c63b0b4f3540cfdcc26e8",
+      "original_gate_path": "/workspace/butter-iron-rental/results/butter-block-fp8-lat-20260906T010244Z/coherency-pre.json"
+    },
+    "post": null,
+    "post_reason": "Budget cutoff before post-gate; no postquality pass inferred."
+  },
+  "run_complete": false,
+  "rung_complete": false,
+  "metrics": null,
+  "fatal_error": "TimeoutError('capacity deadline')",
+  "cleanup": {
+    "server_exit": -15,
+    "gpu_released": true,
+    "gpu_query_exit": 0,
+    "finished_utc": "2026-09-06T01:06:41.392915+00:00"
+  },
+  "ptx_gate_ledger_sha256": null,
+  "supplement_limit": "Index of retained observations; no schema certification or replacement of absent runtime results."
+}

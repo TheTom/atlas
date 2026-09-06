@@ -1,0 +1,4 @@
+usage: run_vllm_crosscheck.py [-h] [--source SOURCE] --session-dir SESSION_DIR
+                              --out OUT [--num-prompts NUM_PROMPTS]
+                              [--execute]
+run_vllm_crosscheck.py: error: cross-check requires 8–16 measured prompts

@@ -1,0 +1,8 @@
+test_empty_export_is_pending_not_silently_dropped (__main__.SummaryTests.test_empty_export_is_pending_not_silently_dropped) ... ok
+test_missing_argv_preserves_unproven_parity (__main__.SummaryTests.test_missing_argv_preserves_unproven_parity) ... ok
+test_new_labels_preserve_baseline_pairs_and_failed_gates (__main__.SummaryTests.test_new_labels_preserve_baseline_pairs_and_failed_gates) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.478s
+
+OK

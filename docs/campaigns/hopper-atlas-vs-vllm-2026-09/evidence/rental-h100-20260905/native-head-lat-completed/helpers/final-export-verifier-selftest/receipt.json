@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "scope": "Actual verifier logic with synthetic remote manifest and isolated temporary evidence; no retained evidence mutated",
+  "checks": [
+    {
+      "case": "known corrupted local evidence",
+      "exit": 1,
+      "expected": 1
+    },
+    {
+      "case": "exact bytes restored",
+      "exit": 0,
+      "expected": 0
+    },
+    {
+      "case": "missing local file",
+      "exit": 1,
+      "expected": 1
+    }
+  ]
+}

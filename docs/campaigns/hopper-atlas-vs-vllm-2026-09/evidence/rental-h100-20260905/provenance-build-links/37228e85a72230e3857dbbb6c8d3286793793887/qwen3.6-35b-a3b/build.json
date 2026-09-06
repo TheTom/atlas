@@ -1,0 +1,26 @@
+{
+  "source_commit": "37228e85a72230e3857dbbb6c8d3286793793887",
+  "started_utc": "2026-09-05T23:10:00.327777+00:00",
+  "environment": {
+    "CARGO_TARGET_DIR": "/workspace/atlas-rental/target",
+    "CARGO_BUILD_JOBS": "12",
+    "ATLAS_TARGET_HW": "hopper",
+    "ATLAS_TARGET_MODEL": "qwen3.6-35b-a3b",
+    "ATLAS_TARGET_QUANT": "nvfp4",
+    "CUDARC_CUDA_VERSION": "13000"
+  },
+  "command": [
+    "cargo",
+    "+1.93.1",
+    "build",
+    "--locked",
+    "--release",
+    "-p",
+    "spark-server",
+    "--bin",
+    "spark",
+    "--no-default-features",
+    "--features",
+    "cuda,nccl"
+  ]
+}

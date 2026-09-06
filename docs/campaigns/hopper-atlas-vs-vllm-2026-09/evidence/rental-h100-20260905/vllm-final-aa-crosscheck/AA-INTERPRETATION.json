@@ -1,0 +1,64 @@
+{
+  "both_input_engines": "vllm",
+  "actual_repeat": {
+    "schema": 1,
+    "workload": {
+      "isl": 1024,
+      "osl": 256,
+      "temperature": 0.0,
+      "seed": 42,
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "reps": 3,
+      "warmup": 1,
+      "driver_sha256": "7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb"
+    },
+    "atlas_label": "rental.qwen38.vllm.benchmark.qwen38.vllm.crosscheck02",
+    "vllm_label": "rental.qwen38.vllm.lat01",
+    "atlas_model": "Qwen/Qwen3.8-27B-FP8",
+    "vllm_model": "Qwen/Qwen3.8-27B-FP8",
+    "rows": [
+      {
+        "concurrency": 1,
+        "atlas_tok_s": 75.31250251526123,
+        "vllm_tok_s": 76.92832546652694,
+        "atlas_ttft_p50_ms": 312.21072633828345,
+        "vllm_ttft_p50_ms": 285.63227634488914,
+        "atlas_ttft_p99_ms": 312.21072633828345,
+        "vllm_ttft_p99_ms": 285.63227634488914,
+        "atlas_tpot_p50_ms": 12.106755368633719,
+        "vllm_tpot_p50_ms": 11.928162875804395,
+        "atlas_errors": 0,
+        "vllm_errors": 0,
+        "atlas_issues": [],
+        "vllm_issues": [],
+        "ratio": 0.9789957347769283,
+        "verdict": "LOSS"
+      },
+      {
+        "concurrency": 16,
+        "atlas_tok_s": 790.5330077682137,
+        "vllm_tok_s": 790.5066667449968,
+        "atlas_ttft_p50_ms": 1325.459309994282,
+        "vllm_ttft_p50_ms": 1324.0005843302545,
+        "atlas_ttft_p99_ms": 1440.9594612787866,
+        "vllm_ttft_p99_ms": 1439.2139465431683,
+        "atlas_tpot_p50_ms": 15.050833409817985,
+        "vllm_tpot_p50_ms": 15.05630834836945,
+        "atlas_errors": 0,
+        "vllm_errors": 0,
+        "atlas_issues": [],
+        "vllm_issues": [],
+        "ratio": 1.0000333216964827,
+        "verdict": "WIN"
+      }
+    ],
+    "rungs_won": 1,
+    "rungs_compared": 2
+  },
+  "identity_selftest": "compare.py --selftest passes; exact identical values TIE. Independent observations need not equal bit-for-bit.",
+  "comparison_noise_tolerance": null,
+  "thresholds_changed": false,
+  "certification_claimed": false
+}

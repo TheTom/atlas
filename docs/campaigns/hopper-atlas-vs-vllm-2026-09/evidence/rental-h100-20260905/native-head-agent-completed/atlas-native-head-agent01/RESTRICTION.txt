@@ -1,0 +1,1 @@
+User authorizes performance measurements despite a sole word-reversal error. Original coherency JSON stays unchanged; every other gate is required. Native-FP8 environment is an explicit separate precision profile, if selected. Not certified campaign data.

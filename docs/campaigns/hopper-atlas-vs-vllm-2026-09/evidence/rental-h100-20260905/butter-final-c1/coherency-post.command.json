@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "python3",
+    "/workspace/atlas-rental/src/atlas/bench/hopper_ab/coherency_gate.py",
+    "--url",
+    "http://127.0.0.1:8890",
+    "--model",
+    "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "--think",
+    "off",
+    "--timeout",
+    "90",
+    "--out",
+    "/workspace/butter-iron-rental/results/butter-block-fp8-lat-c1-final-20260906T013401Z/coherency-post.json"
+  ],
+  "started_utc": "2026-09-06T01:37:57.971028+00:00",
+  "timeout_s": 300,
+  "exit": 1,
+  "elapsed_s": 40.00735568400705,
+  "finished_utc": "2026-09-06T01:38:37.978391+00:00"
+}

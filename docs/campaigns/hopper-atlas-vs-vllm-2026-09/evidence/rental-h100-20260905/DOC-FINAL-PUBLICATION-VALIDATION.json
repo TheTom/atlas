@@ -1,0 +1,90 @@
+{
+  "validated_utc": "2026-09-06T01:58:24.658155+00:00",
+  "base_docs_sha": "b656bed7a8589f966433bd77f91fee7faaa54966",
+  "new_files_before_this_receipt": 892,
+  "modified_files": 4,
+  "new_json_parsed": 366,
+  "new_manifest_entries_verified": 878,
+  "local_markdown_links_resolve": 241,
+  "secret_pattern_scan_files": 896,
+  "no_elf_weights_bundles": true,
+  "typos_prose_exit": 0,
+  "prose_diff_check_exit": 0,
+  "summary_helper_tests": {
+    "passed": 4,
+    "failed": 0,
+    "known_bad_observed_first": true
+  },
+  "remote_export_scope": {
+    "files": 1740,
+    "bytes": 14577630,
+    "verified_utc": "2026-09-06T01:55:49.379860+00:00",
+    "passed": true
+  },
+  "provenance_index": {
+    "serving_sessions": 31,
+    "supplemental_cells": 21
+  },
+  "manifests": [
+    {
+      "path": "evidence/rental-h100-20260905/butter-final-c1/MANIFEST.json",
+      "entries": 57,
+      "sha256": "253fb2b60a6efb1e55aafe3e3ca97df563042a85c15c989a2b61d695339078b1"
+    },
+    {
+      "path": "evidence/rental-h100-20260905/final-export-proof/MANIFEST.json",
+      "entries": 21,
+      "sha256": "b1eab64d9aa88d1fdb0bf2a5fec6472a3f0b8dd618762ec5e6e058c52f8a6662"
+    },
+    {
+      "path": "evidence/rental-h100-20260905/final-profile-and-archives/MANIFEST.json",
+      "entries": 144,
+      "sha256": "4c9d8ffb8475c9f7e97385e3bcbcf957b0f1912b5e8548f35ecaf3a91f88a12e"
+    },
+    {
+      "path": "evidence/rental-h100-20260905/head-fix-cpu-and-butter-admission/MANIFEST.json",
+      "entries": 120,
+      "sha256": "3351192d4a218c4e31141b5e1296524c27b91f09cc7a0d573b564600283c52d4"
+    },
+    {
+      "path": "evidence/rental-h100-20260905/native-head-agent-completed/MANIFEST.json",
+      "entries": 100,
+      "sha256": "3790c4822e869e5d4474d65ccd548afe05c02e8b6744e1c5fea1c68f425f6140"
+    },
+    {
+      "path": "evidence/rental-h100-20260905/native-head-lat-completed/MANIFEST.json",
+      "entries": 191,
+      "sha256": "ebb677a82f5307ef2588f8e0ca0b5c4726870d35dcb80245d81cf5059911b642"
+    },
+    {
+      "path": "evidence/rental-h100-20260905/provenance-build-links/MANIFEST.json",
+      "entries": 55,
+      "sha256": "228d2fc7296e585e66731e7daec60fd84db731d6919ab52090fc5bd1eae5a1d7"
+    },
+    {
+      "path": "evidence/rental-h100-20260905/summary-aa-helper/MANIFEST.json",
+      "entries": 6,
+      "sha256": "c4b68fda635190d87d20d4fb9cc8c6079de91b6f97b9eb219caed9c376f2b1c8"
+    },
+    {
+      "path": "evidence/rental-h100-20260905/vllm-final-aa-crosscheck/MANIFEST.json",
+      "entries": 184,
+      "sha256": "fd27ceec8276506b68a98639021aac21d4d9320da40bccf6c2fcae9d03ebcf06"
+    }
+  ],
+  "prose_sha256": {
+    "RENTAL-H100-REPORT.md": "a1c9404d4408d88b2b06f1334231e642cc42d9777d6f392d778db7a6753e8264",
+    "RENTAL-H100-NATIVE-FP8.md": "83e127f7e6483c32f289a037ef416cc1a621ae4408e9e474db4bf5afd4d0262c",
+    "RENTAL-H100-PROVENANCE.md": "936e98f4b048c01c068263ae916723f985d867b084bee54ade03e1dcf9d87265",
+    "NIGHT-LOG.md": "6dc5d179abba557251e83560c36e6b6b1b8ac629bff7f14ae50de13bd059f7b5",
+    "vllm-control/SCHEMA-GAPS.md": "e56f5b7121675831c3561f4fa1977c0172f95ca679dd3d19f3ff40d23ef485b0"
+  },
+  "scope": "Documentation/raw text and JSON only. Existing raw failed gates, partial runs and prior receipts preserved. No new GPU/engine work or campaign threshold/schema/harness edits.",
+  "full_raw_diff_check": {
+    "exit": 2,
+    "reason": "Preserved raw nvidia-smi/vLLM output and original patch whitespace. All findings are under evidence; edited prose check exits0.",
+    "log_sha256": "be01c268e9ee7e031365fbcd40fc9fae68707235453e5df187226553cf38c12d",
+    "log_path_local": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/final-doc-raw-whitespace-check.log"
+  },
+  "staged_files_total": 897
+}

@@ -1,0 +1,20 @@
+{
+  "model": "Qwen/Qwen3.8-27B-FP8",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Return only the exact integer answer. No explanation, reasoning, tags or punctuation."
+    },
+    {
+      "role": "user",
+      "content": "Request nonce: 8ec9cebe845c484b9ce475947cd67d3f\nWhat is 41 * 11?"
+    }
+  ],
+  "temperature": 0.0,
+  "seed": 42,
+  "max_tokens": 32,
+  "stream": false,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  }
+}

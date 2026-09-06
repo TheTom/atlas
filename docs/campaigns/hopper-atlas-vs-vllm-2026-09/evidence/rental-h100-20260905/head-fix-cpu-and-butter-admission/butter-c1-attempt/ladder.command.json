@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "/workspace/atlas-rental/vllm/bin/python3",
+    "/workspace/atlas-rental/src/atlas/bench/ladder38/harness_w55_conc_ladder.py",
+    "--url",
+    "http://127.0.0.1:8890",
+    "--model",
+    "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "--label",
+    "rental.qwen38.butter.native-lat-c1",
+    "--out",
+    "/workspace/butter-iron-rental/results/butter-block-fp8-lat-c1-20260906T011015Z/ladder.json",
+    "--concs",
+    "1",
+    "--reps",
+    "3",
+    "--isl",
+    "1024",
+    "--osl",
+    "256",
+    "--warmup",
+    "1"
+  ],
+  "started_utc": "2026-09-06T01:11:08.103681+00:00",
+  "timeout_s": 161.89643209599308,
+  "exit": -15,
+  "elapsed_s": 162.0869506149902,
+  "finished_utc": "2026-09-06T01:13:50.190639+00:00"
+}

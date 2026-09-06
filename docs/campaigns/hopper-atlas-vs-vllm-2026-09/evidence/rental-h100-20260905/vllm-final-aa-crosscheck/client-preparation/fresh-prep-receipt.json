@@ -1,0 +1,39 @@
+{
+  "checks": [
+    {
+      "case": "fresh-bad-label",
+      "argv": [
+        "python3",
+        "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/run_vllm_crosscheck_fresh.py",
+        "../invalid"
+      ],
+      "exit": 2,
+      "expected_exit": 2
+    },
+    {
+      "case": "fresh-plan",
+      "argv": [
+        "python3",
+        "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/run_vllm_crosscheck_fresh.py",
+        "crosscheck02"
+      ],
+      "exit": 0,
+      "expected_exit": 0
+    },
+    {
+      "case": "corrected-client-plan",
+      "argv": [
+        "python3",
+        "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/run_vllm_crosscheck.py",
+        "--session-dir",
+        "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02",
+        "--out",
+        "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/crosscheck"
+      ],
+      "exit": 0,
+      "expected_exit": 0
+    }
+  ],
+  "executed_on_rental": false,
+  "wrapper_sha256": "0923bc94626ac380b5a74c603f2e5ddb430a6928af95febe5d5facf21015ab55"
+}

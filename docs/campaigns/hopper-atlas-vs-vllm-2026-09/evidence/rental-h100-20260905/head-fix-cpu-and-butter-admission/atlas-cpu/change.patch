@@ -1,0 +1,227 @@
+commit b5ef32d098b8c8ba8a85fcc45973a6ca05c746bf
+Author:     TheTom <tturney1@gmail.com>
+AuthorDate: Sat Sep 5 19:59:53 2026 -0500
+Commit:     TheTom <tturney1@gmail.com>
+CommitDate: Sat Sep 5 19:59:53 2026 -0500
+
+    spark-model: restore batched BF16 decode head dispatch
+
+diff --git a/crates/spark-model/src/model/trait_impl/decode_a2.rs b/crates/spark-model/src/model/trait_impl/decode_a2.rs
+index b685296..45eef92 100644
+--- a/crates/spark-model/src/model/trait_impl/decode_a2.rs
++++ b/crates/spark-model/src/model/trait_impl/decode_a2.rs
+@@ -20,14 +20,6 @@ use crate::layer::{ForwardContext, LayerState, SsmLayerState};
+ use crate::layers::ops;
+ use crate::traits::{Model, SequenceState};
+ 
+-/// Route the BF16 lm_head decode through the batched GEMV (dense_gemv_bf16_batchm)
+-/// instead of the scalar dense_gemm_bf16. Default ON. Mirrors PR #332's
+-/// ATLAS_LMHEAD_BATCH_GEMV for the NVFP4 head; this is the BF16 sibling.
+-fn lmhead_batch_gemv_enabled() -> bool {
+-    static ON: std::sync::OnceLock<bool> = std::sync::OnceLock::new();
+-    *ON.get_or_init(|| std::env::var("ATLAS_LMHEAD_BATCH_GEMV").ok().as_deref() != Some("0"))
+-}
+-
+ /// Multi-seq decode CUDA graphs: **ON by default**, disabled by
+ /// `ATLAS_NO_DECODE_GRAPHS_MULTISEQ=1`.
+ ///
+diff --git a/crates/spark-model/src/model/trait_impl/lm_head_batched.rs b/crates/spark-model/src/model/trait_impl/lm_head_batched.rs
+index d7e0c83..edd9253 100644
+--- a/crates/spark-model/src/model/trait_impl/lm_head_batched.rs
++++ b/crates/spark-model/src/model/trait_impl/lm_head_batched.rs
+@@ -22,8 +22,9 @@
+ //! mixed path has never been A/B'd. Any throughput claim for it must be gated
+ //! spec-OFF or on reversed-order pairs (a single spec-ON pair drifts +/-2%).
+ 
++use crate::weight_map::DenseWeight;
+ use anyhow::Result;
+-use spark_runtime::gpu::{DevicePtr, GpuBackend};
++use spark_runtime::gpu::{DevicePtr, GpuBackend, KernelHandle};
+ 
+ use super::super::types::TransformerModel;
+ use crate::layers::ops;
+@@ -39,6 +40,44 @@ pub(super) fn lm_head_batch_gemv_enabled() -> bool {
+     *ON.get_or_init(|| std::env::var("ATLAS_NO_LM_HEAD_BATCH_GEMV").as_deref() != Ok("1"))
+ }
+ 
++/// Legacy BF16-head switch: only the exact value "0" disables it.
++fn bf16_batch_gemv_from_value(value: Option<&str>) -> bool {
++    value != Some("0")
++}
++
++fn lmhead_batch_gemv_enabled() -> bool {
++    static ON: std::sync::OnceLock<bool> = std::sync::OnceLock::new();
++    *ON.get_or_init(|| {
++        bf16_batch_gemv_from_value(std::env::var("ATLAS_LMHEAD_BATCH_GEMV").ok().as_deref())
++    })
++}
++
++/// Shared BF16-head dispatch for ordinary and mixed multi-sequence decode.
++#[allow(clippy::too_many_arguments)]
++fn project_bf16_lm_head(
++    gpu: &dyn GpuBackend,
++    fallback: KernelHandle,
++    batch_gemv: KernelHandle,
++    input: DevicePtr,
++    weight: &DenseWeight,
++    output: DevicePtr,
++    [m, n, k]: [u32; 3],
++    batch_enabled: bool,
++    stream: u64,
++) -> Result<()> {
++    // The existing kernel shares one BF16 weight read across up to eight rows.
++    // Its uint4 loads require each input/weight row to remain 16-byte aligned.
++    if batch_enabled
++        && batch_gemv.0 != 0
++        && (1..=ops::DENSE_GEMV_BATCHM_MAX_M).contains(&m)
++        && k.is_multiple_of(8)
++    {
++        ops::dense_gemv_batchm(gpu, batch_gemv, input, weight, output, m, n, k, n, stream)
++    } else {
++        ops::dense_gemm(gpu, fallback, input, weight, output, m, n, k, stream)
++    }
++}
++
+ impl TransformerModel {
+     /// Project `normed` [padded_n, H] into `logits` [padded_n, V].
+     ///
+@@ -154,18 +193,22 @@ impl TransformerModel {
+                 }
+             }
+         } else {
+-            ops::dense_gemm(
++            project_bf16_lm_head(
+                 self.gpu.as_ref(),
+                 self.dense_gemm_kernel,
++                self.dense_gemv_batchm_kernel,
+                 normed,
+                 &self.lm_head_weight,
+                 logits,
+-                padded_n as u32,
+-                v as u32,
+-                h as u32,
++                [padded_n as u32, v as u32, h as u32],
++                lmhead_batch_gemv_enabled(),
+                 stream,
+             )?;
+         }
+         Ok(logits)
+     }
+ }
++
++#[cfg(test)]
++#[path = "lm_head_bf16_tests.rs"]
++mod bf16_tests;
+diff --git a/crates/spark-model/src/model/trait_impl/lm_head_bf16_tests.rs b/crates/spark-model/src/model/trait_impl/lm_head_bf16_tests.rs
+new file mode 100644
+index 0000000..8503350
+--- /dev/null
++++ b/crates/spark-model/src/model/trait_impl/lm_head_bf16_tests.rs
+@@ -0,0 +1,107 @@
++// SPDX-License-Identifier: AGPL-3.0-only
++
++//! Exercise the BF16 projection used by both ordinary and mixed decode.
++
++use super::{bf16_batch_gemv_from_value, project_bf16_lm_head};
++use crate::weight_map::DenseWeight;
++use spark_runtime::gpu::mock::{MockArg, MockGpuBackend};
++use spark_runtime::gpu::{GpuBackend, KernelHandle};
++
++fn run_case(m: u32, k: u32, present: bool, enabled: bool, expect_batch: bool) {
++    let gpu = MockGpuBackend::new();
++    let n = 67_u32;
++    let input = gpu.alloc((m * k * 2) as usize).unwrap();
++    let weight = DenseWeight {
++        weight: gpu.alloc((n * k * 2) as usize).unwrap(),
++    };
++    let output = gpu.alloc((m * n * 2) as usize).unwrap();
++    let allocated = gpu.alloc_count();
++    let batch = KernelHandle(if present { 0xBF16 } else { 0 });
++    project_bf16_lm_head(
++        &gpu,
++        KernelHandle(0xCAFE),
++        batch,
++        input,
++        &weight,
++        output,
++        [m, n, k],
++        enabled,
++        7,
++    )
++    .unwrap();
++    assert_eq!(
++        gpu.alloc_count(),
++        allocated,
++        "the checkpoint weight must not be copied or quantized"
++    );
++    let launches = gpu.launches_snapshot();
++    assert_eq!(launches.len(), 1);
++    let launch = &launches[0];
++    assert_eq!(
++        launch.func,
++        if expect_batch { batch.0 } else { 0xCAFE },
++        "M={m}: BF16 head selected the wrong kernel"
++    );
++    assert_eq!(launch.stream, 7);
++    assert_eq!(
++        &launch.args[..3],
++        &[
++            MockArg::Buffer(input),
++            MockArg::Buffer(weight.weight),
++            MockArg::Buffer(output)
++        ]
++    );
++    let mut sizes = vec![m, n, k];
++    if expect_batch {
++        sizes.push(n);
++    }
++    assert_eq!(
++        launch.args[3..],
++        sizes
++            .iter()
++            .map(|value| MockArg::Bytes(value.to_ne_bytes().to_vec()))
++            .collect::<Vec<_>>()
++    );
++    assert_eq!(
++        launch.grid,
++        if expect_batch {
++            [n.div_ceil(4), 1, 1]
++        } else {
++            [n.div_ceil(16), m.div_ceil(16), 1]
++        }
++    );
++    assert_eq!(
++        launch.block,
++        if expect_batch {
++            [256, 1, 1]
++        } else {
++            [16, 16, 1]
++        }
++    );
++}
++
++#[test]
++fn default_small_bf16_head_uses_existing_batch_gemv() {
++    for m in [1, 2, 4, 8] {
++        run_case(m, 128, true, bf16_batch_gemv_from_value(None), true);
++    }
++}
++
++#[test]
++fn opt_out_missing_kernel_and_wide_head_keep_scalar_fallback() {
++    run_case(4, 128, true, bf16_batch_gemv_from_value(Some("0")), false);
++    run_case(4, 128, false, true, false);
++    // Existing uint4 loads need 16-byte alignment at every input/weight row.
++    run_case(4, 130, true, true, false);
++    for m in [9, 16] {
++        run_case(m, 128, true, true, false);
++    }
++}
++
++#[test]
++fn legacy_opt_out_value_is_preserved() {
++    assert!(!bf16_batch_gemv_from_value(Some("0")));
++    for value in [None, Some("1"), Some(""), Some("false"), Some(" 0 ")] {
++        assert!(bf16_batch_gemv_from_value(value));
++    }
++}

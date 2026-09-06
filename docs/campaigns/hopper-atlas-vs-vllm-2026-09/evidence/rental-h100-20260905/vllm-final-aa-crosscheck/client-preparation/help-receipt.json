@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "ssh",
+    "-p",
+    "51249",
+    "root@93.91.156.94",
+    "env CUDA_VISIBLE_DEVICES= /workspace/atlas-rental/vllm/bin/vllm bench serve --help"
+  ],
+  "exit_code": 0,
+  "mode": "CPU CLI help only; no benchmark request"
+}

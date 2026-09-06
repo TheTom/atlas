@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "python3",
+    "run_vllm_crosscheck.py",
+    "--session-dir",
+    "/uncreated/session",
+    "--out",
+    "/uncreated/out",
+    "--num-prompts",
+    "0"
+  ],
+  "exit_code": 2,
+  "claim": "helper request-count bound only; no endpoint contact or GPU"
+}

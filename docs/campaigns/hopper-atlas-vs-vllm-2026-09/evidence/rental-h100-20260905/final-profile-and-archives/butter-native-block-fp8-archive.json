@@ -1,0 +1,14 @@
+{
+  "utc": "2026-09-06T01:50:01.160121+00:00",
+  "source": "dfc45a185fc36ee84a8351eef21ae1dfc56d527a",
+  "binary_sha256": "da3e60000d55a2aaca67c04b09cd0400553444e45653d911ae828f06103cf606",
+  "bytes": 60723664,
+  "file": "/Users/tom/Documents/H100-rental-binaries-2026-09-06/butter-native-block-fp8-dfc45a185fc3",
+  "file_identification": "/Users/tom/Documents/H100-rental-binaries-2026-09-06/butter-native-block-fp8-dfc45a185fc3: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=c47ba3eba42f74789961426cb9ae2c1c24f622b1, not stripped",
+  "remote": "/workspace/butter-iron-rental/bin/butter-block-fp8-dfc45a1",
+  "outside_git": true,
+  "original_checkpoint": "Qwen/Qwen3.8-27B-FP8@017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+  "compute": "W8A32 native block FP8, raw F32 KV",
+  "performance_activity": "Parent explicitly finished before transfer",
+  "build_receipt": "/Users/tom/Documents/H100-rental-binaries-2026-09-06/butter-native-block-fp8-build-receipt.json"
+}

@@ -1,0 +1,55 @@
+{
+  "source_session": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01",
+  "profile_rows_c4": 12,
+  "median_us": {
+    "total_us": 38155.5,
+    "ssm_us": 26165.0,
+    "attention_us": 11028.5,
+    "head_us": 951.0
+  },
+  "median_step_bucket_shares_pct": {
+    "ssm_us": 68.6087993261527,
+    "attention_us": 28.90407247248058,
+    "head_us": 2.4910282152335768
+  },
+  "range_total_us": [
+    37899,
+    39416
+  ],
+  "layer_counts": {
+    "ssm": 48,
+    "attention": 16
+  },
+  "median_whole_block_us_per_layer": {
+    "ssm": 545.1041666666666,
+    "attention": 689.28125
+  },
+  "quality": {
+    "control_passed": true,
+    "concurrent_passed": true,
+    "all_17_passed": true,
+    "http_overlap": 16
+  },
+  "cleanup": {
+    "status": "stopped",
+    "pid": 204100,
+    "signalled_pids": [
+      204100
+    ]
+  },
+  "wrapper_exit": 0,
+  "sha256": {
+    "profile-summary.json": "e593f3563e4c10dc5b5302d18c51b2e074e56eb8c44cdf18adc35df34c20854e",
+    "quality/summary.json": "89a41e3178270176f4b1781164ec286eef51939d3f293d844585b573c7544fc6",
+    "stop.json": "d92efc43075abf4700ee90ae62df9f5f76c01198788c1fa070eba8d23f6b09bf",
+    "launch-ready.json": "82eb82c7e19fb4911df18259bed1795515e2144eadb194b9b8c482ef041876b9",
+    "serve.log": "0a60f1e63d72340dbc5e8c3ea60b627f43df095a5ff8f83d15d7eda35875b530"
+  },
+  "limitations": [
+    "Synchronized device-inclusive wall time, not exclusive CUDA event time",
+    "Graphs disabled for multi-sequence decode",
+    "Only12short C4 decode steps, no frozen throughput claim",
+    "SSM and attention include complete transformer layers and FFNs",
+    "Head includes final normalization"
+  ]
+}

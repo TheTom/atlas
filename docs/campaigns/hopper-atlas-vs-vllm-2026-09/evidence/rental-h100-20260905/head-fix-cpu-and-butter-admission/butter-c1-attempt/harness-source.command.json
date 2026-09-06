@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "git",
+    "-C",
+    "/workspace/atlas-rental/src/atlas",
+    "rev-parse",
+    "HEAD"
+  ],
+  "exit": 0,
+  "utc": "2026-09-06T01:10:15.618645+00:00"
+}

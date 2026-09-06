@@ -1,0 +1,26 @@
+{
+  "utc": "2026-09-06T01:12:46.139562+00:00",
+  "scope": "Standalone evidence derivation helper only; no repository engine, comparator or frozen ladder changes.",
+  "before_sha256": "e396ae1a35d0061a511e645e0024c7cefd51ba439e12da27296b94b0045e83c7",
+  "after_sha256": "92ac02f740ef54827565294e270259b5bee9c7916d272e55d894182fe3f33066",
+  "test_sha256": "0b35ce555fcf4122cfc4e0eabb576dea7338e4cdbd4a40032145e1f8316c567d",
+  "red": {
+    "command": "python3 tooling-fixes/measurement-summary-head-labels/test_summary.py",
+    "exit_code": 1,
+    "passed": 1,
+    "failed": 2,
+    "oracle": [
+      "existing empty-rung export must remain pending",
+      "missing captured argv must yield unknown parity rather than crash"
+    ]
+  },
+  "green": {
+    "same_command": true,
+    "exit_code": 0,
+    "passed": 3,
+    "failed": 0
+  },
+  "new_label_checks": "Both native-head-lat01 and native-head-agent01 pair with same-shape vLLM and prior5cde Atlas; prior pairs remain present; raw false gates and non-certification are retained; all fixture raw bytes unchanged.",
+  "synthetic_data_note": "Tests use copied known raw records with explicitly synthetic labels in cleaned temporary directories; these are not new measurements.",
+  "publication": "Awaiting final runtime results; historical exported helper copies are unchanged."
+}

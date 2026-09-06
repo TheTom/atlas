@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/workspace/atlas-rental/vllm/bin/python3",
+    "/workspace/butter-iron-rental/results/butter-block-fp8-lat-20260906T010244Z/capacity-client.py",
+    "/workspace/atlas-rental/src/atlas/bench/ladder38/harness_w55_conc_ladder.py",
+    "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "/workspace/butter-iron-rental/results/butter-block-fp8-lat-20260906T010244Z/capacity.json"
+  ],
+  "started_utc": "2026-09-06T01:03:40.793522+00:00",
+  "timeout_s": 180,
+  "exit": -15,
+  "elapsed_s": 180.03594455099665,
+  "finished_utc": "2026-09-06T01:06:40.829474+00:00"
+}

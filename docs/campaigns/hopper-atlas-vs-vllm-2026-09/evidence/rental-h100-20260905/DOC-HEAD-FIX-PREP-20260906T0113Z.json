@@ -1,0 +1,31 @@
+{
+  "utc": "2026-09-06T01:27:01.718072+00:00",
+  "status": "Queued only, no remote write; waits for fresh full head-fix/Butter results.",
+  "pr895_verified_head": "7c786cc50455dee52c11c3bf4097de945fbb8f6a",
+  "head_cpu": {
+    "passed": 654,
+    "ignored": 14,
+    "gpu_performance_not_claimed": true
+  },
+  "standalone_helper_tests": {
+    "red_failed": 2,
+    "red_passed": 1,
+    "green_passed": 3,
+    "final_sha256": "92ac02f740ef54827565294e270259b5bee9c7916d272e55d894182fe3f33066"
+  },
+  "provenance_index_sessions": 26,
+  "supplemental_cells": 12,
+  "all_sessions_device_driver_argv_environment_present": true,
+  "vllm_immutable_engine_identities_unknown": true,
+  "original_artifact_null_pins_and_false_gates_preserved": true,
+  "partial_butter_c1": "Two rounded stdout records retained; no full rung or post-gate synthesized.",
+  "report_links_verified": 160,
+  "typos_exit": 0,
+  "report_sha256": {
+    "RENTAL-H100-REPORT.md": "302d9dee4a7f47827d64ad7d6b2c5d9e064f435ca678e83b6f5420b359c3c2a9",
+    "RENTAL-H100-NATIVE-FP8.md": "dd3892532a61ff33fb4acdb37557ece7bb8e2cff811706ca96f786cfd226e7eb",
+    "RENTAL-H100-PROVENANCE.md": "aabf992ca8761ea4720fe3e956b84e7899b5ef5364ecaba522d9c22191cda447",
+    "NIGHT-LOG.md": "1e8fd9c440151ce738abdfdeddedaf2280b1fa3dc16ed5c129f40e781e384cb2"
+  },
+  "index_sha256": "ba32dd3ec5d49a4af740436b4d7d84e9d458b16beaafff3b892e62a0acb9e6a8"
+}

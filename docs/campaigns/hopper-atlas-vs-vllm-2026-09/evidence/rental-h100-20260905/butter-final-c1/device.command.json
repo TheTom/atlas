@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "nvidia-smi",
+    "--query-gpu=name,uuid,compute_cap,memory.total",
+    "--format=csv,noheader"
+  ],
+  "exit": 0,
+  "utc": "2026-09-06T01:34:01.418462+00:00"
+}

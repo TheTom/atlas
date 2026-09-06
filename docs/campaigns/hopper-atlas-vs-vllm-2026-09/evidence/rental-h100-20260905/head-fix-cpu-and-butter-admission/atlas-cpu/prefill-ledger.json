@@ -1,0 +1,505 @@
+{
+  "source_log_sha256": "e2587083137fae4d601e120623e1f931353a7ff9fb8123561bdfa404fc9d2aa3",
+  "mapping": "Chronological 68 fixed-length prefills match 4 C1 requests then four C16 groups (one warmup + three timed). Rep mapping follows this frozen execution order; intervals are engine log timestamps, not GPU event durations.",
+  "all_prefill_intervals": [
+    {
+      "start_line": 935,
+      "end_line": 939,
+      "start_utc": "2026-09-06T00:35:16.034390Z",
+      "end_utc": "2026-09-06T00:35:17.100559Z",
+      "duration_s": 1.066169
+    },
+    {
+      "start_line": 949,
+      "end_line": 953,
+      "start_utc": "2026-09-06T00:35:22.601452Z",
+      "end_utc": "2026-09-06T00:35:23.666027Z",
+      "duration_s": 1.064575
+    },
+    {
+      "start_line": 963,
+      "end_line": 967,
+      "start_utc": "2026-09-06T00:35:29.169182Z",
+      "end_utc": "2026-09-06T00:35:30.236452Z",
+      "duration_s": 1.06727
+    },
+    {
+      "start_line": 977,
+      "end_line": 981,
+      "start_utc": "2026-09-06T00:35:35.732112Z",
+      "end_utc": "2026-09-06T00:35:36.799912Z",
+      "duration_s": 1.0678
+    },
+    {
+      "start_line": 994,
+      "end_line": 1025,
+      "start_utc": "2026-09-06T00:35:42.253662Z",
+      "end_utc": "2026-09-06T00:35:43.323871Z",
+      "duration_s": 1.070209
+    },
+    {
+      "start_line": 1026,
+      "end_line": 1030,
+      "start_utc": "2026-09-06T00:35:43.344351Z",
+      "end_utc": "2026-09-06T00:35:44.407629Z",
+      "duration_s": 1.063278
+    },
+    {
+      "start_line": 1031,
+      "end_line": 1035,
+      "start_utc": "2026-09-06T00:35:44.407635Z",
+      "end_utc": "2026-09-06T00:35:45.467820Z",
+      "duration_s": 1.060185
+    },
+    {
+      "start_line": 1036,
+      "end_line": 1040,
+      "start_utc": "2026-09-06T00:35:45.467828Z",
+      "end_utc": "2026-09-06T00:35:46.527852Z",
+      "duration_s": 1.060024
+    },
+    {
+      "start_line": 1060,
+      "end_line": 1064,
+      "start_utc": "2026-09-06T00:35:58.019234Z",
+      "end_utc": "2026-09-06T00:35:59.079286Z",
+      "duration_s": 1.060052
+    },
+    {
+      "start_line": 1074,
+      "end_line": 1078,
+      "start_utc": "2026-09-06T00:35:59.125509Z",
+      "end_utc": "2026-09-06T00:36:00.182631Z",
+      "duration_s": 1.057122
+    },
+    {
+      "start_line": 1079,
+      "end_line": 1083,
+      "start_utc": "2026-09-06T00:36:00.182634Z",
+      "end_utc": "2026-09-06T00:36:01.239452Z",
+      "duration_s": 1.056818
+    },
+    {
+      "start_line": 1084,
+      "end_line": 1088,
+      "start_utc": "2026-09-06T00:36:01.239454Z",
+      "end_utc": "2026-09-06T00:36:02.295835Z",
+      "duration_s": 1.056381
+    },
+    {
+      "start_line": 1108,
+      "end_line": 1112,
+      "start_utc": "2026-09-06T00:36:13.785848Z",
+      "end_utc": "2026-09-06T00:36:14.843779Z",
+      "duration_s": 1.057931
+    },
+    {
+      "start_line": 1122,
+      "end_line": 1126,
+      "start_utc": "2026-09-06T00:36:14.890227Z",
+      "end_utc": "2026-09-06T00:36:15.946713Z",
+      "duration_s": 1.056486
+    },
+    {
+      "start_line": 1127,
+      "end_line": 1131,
+      "start_utc": "2026-09-06T00:36:15.946716Z",
+      "end_utc": "2026-09-06T00:36:17.003753Z",
+      "duration_s": 1.057037
+    },
+    {
+      "start_line": 1132,
+      "end_line": 1136,
+      "start_utc": "2026-09-06T00:36:17.003758Z",
+      "end_utc": "2026-09-06T00:36:18.061495Z",
+      "duration_s": 1.057737
+    },
+    {
+      "start_line": 1156,
+      "end_line": 1160,
+      "start_utc": "2026-09-06T00:36:29.552602Z",
+      "end_utc": "2026-09-06T00:36:30.615081Z",
+      "duration_s": 1.062479
+    },
+    {
+      "start_line": 1170,
+      "end_line": 1174,
+      "start_utc": "2026-09-06T00:36:30.662212Z",
+      "end_utc": "2026-09-06T00:36:31.722100Z",
+      "duration_s": 1.059888
+    },
+    {
+      "start_line": 1175,
+      "end_line": 1179,
+      "start_utc": "2026-09-06T00:36:31.722102Z",
+      "end_utc": "2026-09-06T00:36:32.778806Z",
+      "duration_s": 1.056704
+    },
+    {
+      "start_line": 1180,
+      "end_line": 1184,
+      "start_utc": "2026-09-06T00:36:32.778809Z",
+      "end_utc": "2026-09-06T00:36:33.835683Z",
+      "duration_s": 1.056874
+    },
+    {
+      "start_line": 1235,
+      "end_line": 1250,
+      "start_utc": "2026-09-06T00:36:45.451159Z",
+      "end_utc": "2026-09-06T00:36:46.518935Z",
+      "duration_s": 1.067776
+    },
+    {
+      "start_line": 1251,
+      "end_line": 1255,
+      "start_utc": "2026-09-06T00:36:46.518938Z",
+      "end_utc": "2026-09-06T00:36:47.575665Z",
+      "duration_s": 1.056727
+    },
+    {
+      "start_line": 1256,
+      "end_line": 1260,
+      "start_utc": "2026-09-06T00:36:47.575667Z",
+      "end_utc": "2026-09-06T00:36:48.632793Z",
+      "duration_s": 1.057126
+    },
+    {
+      "start_line": 1261,
+      "end_line": 1265,
+      "start_utc": "2026-09-06T00:36:48.632795Z",
+      "end_utc": "2026-09-06T00:36:49.689374Z",
+      "duration_s": 1.056579
+    },
+    {
+      "start_line": 1294,
+      "end_line": 1298,
+      "start_utc": "2026-09-06T00:37:01.222496Z",
+      "end_utc": "2026-09-06T00:37:02.282561Z",
+      "duration_s": 1.060065
+    },
+    {
+      "start_line": 1299,
+      "end_line": 1303,
+      "start_utc": "2026-09-06T00:37:02.282564Z",
+      "end_utc": "2026-09-06T00:37:03.339424Z",
+      "duration_s": 1.05686
+    },
+    {
+      "start_line": 1304,
+      "end_line": 1308,
+      "start_utc": "2026-09-06T00:37:03.339427Z",
+      "end_utc": "2026-09-06T00:37:04.396378Z",
+      "duration_s": 1.056951
+    },
+    {
+      "start_line": 1309,
+      "end_line": 1313,
+      "start_utc": "2026-09-06T00:37:04.396380Z",
+      "end_utc": "2026-09-06T00:37:05.453262Z",
+      "duration_s": 1.056882
+    },
+    {
+      "start_line": 1342,
+      "end_line": 1346,
+      "start_utc": "2026-09-06T00:37:16.989322Z",
+      "end_utc": "2026-09-06T00:37:18.050663Z",
+      "duration_s": 1.061341
+    },
+    {
+      "start_line": 1347,
+      "end_line": 1351,
+      "start_utc": "2026-09-06T00:37:18.050666Z",
+      "end_utc": "2026-09-06T00:37:19.107431Z",
+      "duration_s": 1.056765
+    },
+    {
+      "start_line": 1352,
+      "end_line": 1356,
+      "start_utc": "2026-09-06T00:37:19.107434Z",
+      "end_utc": "2026-09-06T00:37:20.164317Z",
+      "duration_s": 1.056883
+    },
+    {
+      "start_line": 1357,
+      "end_line": 1361,
+      "start_utc": "2026-09-06T00:37:20.164320Z",
+      "end_utc": "2026-09-06T00:37:21.221147Z",
+      "duration_s": 1.056827
+    },
+    {
+      "start_line": 1390,
+      "end_line": 1394,
+      "start_utc": "2026-09-06T00:37:32.761321Z",
+      "end_utc": "2026-09-06T00:37:33.822605Z",
+      "duration_s": 1.061284
+    },
+    {
+      "start_line": 1395,
+      "end_line": 1399,
+      "start_utc": "2026-09-06T00:37:33.822608Z",
+      "end_utc": "2026-09-06T00:37:34.879058Z",
+      "duration_s": 1.05645
+    },
+    {
+      "start_line": 1400,
+      "end_line": 1404,
+      "start_utc": "2026-09-06T00:37:34.879060Z",
+      "end_utc": "2026-09-06T00:37:35.935312Z",
+      "duration_s": 1.056252
+    },
+    {
+      "start_line": 1405,
+      "end_line": 1409,
+      "start_utc": "2026-09-06T00:37:35.935314Z",
+      "end_utc": "2026-09-06T00:37:36.992313Z",
+      "duration_s": 1.056999
+    },
+    {
+      "start_line": 1455,
+      "end_line": 1474,
+      "start_utc": "2026-09-06T00:37:48.603105Z",
+      "end_utc": "2026-09-06T00:37:49.667338Z",
+      "duration_s": 1.064233
+    },
+    {
+      "start_line": 1477,
+      "end_line": 1481,
+      "start_utc": "2026-09-06T00:37:49.692553Z",
+      "end_utc": "2026-09-06T00:37:50.752937Z",
+      "duration_s": 1.060384
+    },
+    {
+      "start_line": 1482,
+      "end_line": 1486,
+      "start_utc": "2026-09-06T00:37:50.752940Z",
+      "end_utc": "2026-09-06T00:37:51.809953Z",
+      "duration_s": 1.057013
+    },
+    {
+      "start_line": 1487,
+      "end_line": 1491,
+      "start_utc": "2026-09-06T00:37:51.809956Z",
+      "end_utc": "2026-09-06T00:37:52.866974Z",
+      "duration_s": 1.057018
+    },
+    {
+      "start_line": 1511,
+      "end_line": 1515,
+      "start_utc": "2026-09-06T00:38:04.265428Z",
+      "end_utc": "2026-09-06T00:38:05.327192Z",
+      "duration_s": 1.061764
+    },
+    {
+      "start_line": 1525,
+      "end_line": 1529,
+      "start_utc": "2026-09-06T00:38:05.373429Z",
+      "end_utc": "2026-09-06T00:38:06.430699Z",
+      "duration_s": 1.05727
+    },
+    {
+      "start_line": 1530,
+      "end_line": 1534,
+      "start_utc": "2026-09-06T00:38:06.430702Z",
+      "end_utc": "2026-09-06T00:38:07.487635Z",
+      "duration_s": 1.056933
+    },
+    {
+      "start_line": 1535,
+      "end_line": 1539,
+      "start_utc": "2026-09-06T00:38:07.487637Z",
+      "end_utc": "2026-09-06T00:38:08.544835Z",
+      "duration_s": 1.057198
+    },
+    {
+      "start_line": 1559,
+      "end_line": 1563,
+      "start_utc": "2026-09-06T00:38:20.034036Z",
+      "end_utc": "2026-09-06T00:38:21.093649Z",
+      "duration_s": 1.059613
+    },
+    {
+      "start_line": 1573,
+      "end_line": 1577,
+      "start_utc": "2026-09-06T00:38:21.140074Z",
+      "end_utc": "2026-09-06T00:38:22.200708Z",
+      "duration_s": 1.060634
+    },
+    {
+      "start_line": 1578,
+      "end_line": 1582,
+      "start_utc": "2026-09-06T00:38:22.200711Z",
+      "end_utc": "2026-09-06T00:38:23.257823Z",
+      "duration_s": 1.057112
+    },
+    {
+      "start_line": 1583,
+      "end_line": 1587,
+      "start_utc": "2026-09-06T00:38:23.257825Z",
+      "end_utc": "2026-09-06T00:38:24.315105Z",
+      "duration_s": 1.05728
+    },
+    {
+      "start_line": 1607,
+      "end_line": 1611,
+      "start_utc": "2026-09-06T00:38:35.802231Z",
+      "end_utc": "2026-09-06T00:38:36.863368Z",
+      "duration_s": 1.061137
+    },
+    {
+      "start_line": 1621,
+      "end_line": 1625,
+      "start_utc": "2026-09-06T00:38:36.909552Z",
+      "end_utc": "2026-09-06T00:38:37.966409Z",
+      "duration_s": 1.056857
+    },
+    {
+      "start_line": 1626,
+      "end_line": 1630,
+      "start_utc": "2026-09-06T00:38:37.966411Z",
+      "end_utc": "2026-09-06T00:38:39.023436Z",
+      "duration_s": 1.057025
+    },
+    {
+      "start_line": 1631,
+      "end_line": 1635,
+      "start_utc": "2026-09-06T00:38:39.023440Z",
+      "end_utc": "2026-09-06T00:38:40.080194Z",
+      "duration_s": 1.056754
+    },
+    {
+      "start_line": 1683,
+      "end_line": 1700,
+      "start_utc": "2026-09-06T00:38:51.694206Z",
+      "end_utc": "2026-09-06T00:38:52.761492Z",
+      "duration_s": 1.067286
+    },
+    {
+      "start_line": 1701,
+      "end_line": 1705,
+      "start_utc": "2026-09-06T00:38:52.761497Z",
+      "end_utc": "2026-09-06T00:38:53.818519Z",
+      "duration_s": 1.057022
+    },
+    {
+      "start_line": 1707,
+      "end_line": 1711,
+      "start_utc": "2026-09-06T00:38:53.856184Z",
+      "end_utc": "2026-09-06T00:38:54.916976Z",
+      "duration_s": 1.060792
+    },
+    {
+      "start_line": 1712,
+      "end_line": 1716,
+      "start_utc": "2026-09-06T00:38:54.916982Z",
+      "end_utc": "2026-09-06T00:38:55.974300Z",
+      "duration_s": 1.057318
+    },
+    {
+      "start_line": 1739,
+      "end_line": 1743,
+      "start_utc": "2026-09-06T00:39:07.357107Z",
+      "end_utc": "2026-09-06T00:39:08.418749Z",
+      "duration_s": 1.061642
+    },
+    {
+      "start_line": 1744,
+      "end_line": 1748,
+      "start_utc": "2026-09-06T00:39:08.418752Z",
+      "end_utc": "2026-09-06T00:39:09.475730Z",
+      "duration_s": 1.056978
+    },
+    {
+      "start_line": 1755,
+      "end_line": 1759,
+      "start_utc": "2026-09-06T00:39:09.521513Z",
+      "end_utc": "2026-09-06T00:39:10.578039Z",
+      "duration_s": 1.056526
+    },
+    {
+      "start_line": 1760,
+      "end_line": 1764,
+      "start_utc": "2026-09-06T00:39:10.578041Z",
+      "end_utc": "2026-09-06T00:39:11.634409Z",
+      "duration_s": 1.056368
+    },
+    {
+      "start_line": 1787,
+      "end_line": 1791,
+      "start_utc": "2026-09-06T00:39:23.122038Z",
+      "end_utc": "2026-09-06T00:39:24.181833Z",
+      "duration_s": 1.059795
+    },
+    {
+      "start_line": 1792,
+      "end_line": 1796,
+      "start_utc": "2026-09-06T00:39:24.181836Z",
+      "end_utc": "2026-09-06T00:39:25.239360Z",
+      "duration_s": 1.057524
+    },
+    {
+      "start_line": 1803,
+      "end_line": 1807,
+      "start_utc": "2026-09-06T00:39:25.285339Z",
+      "end_utc": "2026-09-06T00:39:26.341949Z",
+      "duration_s": 1.05661
+    },
+    {
+      "start_line": 1808,
+      "end_line": 1812,
+      "start_utc": "2026-09-06T00:39:26.341951Z",
+      "end_utc": "2026-09-06T00:39:27.398726Z",
+      "duration_s": 1.056775
+    },
+    {
+      "start_line": 1835,
+      "end_line": 1839,
+      "start_utc": "2026-09-06T00:39:38.890991Z",
+      "end_utc": "2026-09-06T00:39:39.951670Z",
+      "duration_s": 1.060679
+    },
+    {
+      "start_line": 1840,
+      "end_line": 1844,
+      "start_utc": "2026-09-06T00:39:39.951673Z",
+      "end_utc": "2026-09-06T00:39:41.008252Z",
+      "duration_s": 1.056579
+    },
+    {
+      "start_line": 1851,
+      "end_line": 1855,
+      "start_utc": "2026-09-06T00:39:41.054034Z",
+      "end_utc": "2026-09-06T00:39:42.114227Z",
+      "duration_s": 1.060193
+    },
+    {
+      "start_line": 1856,
+      "end_line": 1860,
+      "start_utc": "2026-09-06T00:39:42.114230Z",
+      "end_utc": "2026-09-06T00:39:43.171572Z",
+      "duration_s": 1.057342
+    }
+  ],
+  "timed_c16_ledger": [
+    {
+      "rep": 0,
+      "wall_s": 63.096434418985154,
+      "logged_prefill_s": 16.931767,
+      "remaining_wall_s": 46.164667418985154,
+      "prefill_fraction": 0.2683474455555825
+    },
+    {
+      "rep": 1,
+      "wall_s": 63.0300877240079,
+      "logged_prefill_s": 16.938225,
+      "remaining_wall_s": 46.091862724007896,
+      "prefill_fraction": 0.26873237229445107
+    },
+    {
+      "rep": 2,
+      "wall_s": 62.92439425300108,
+      "logged_prefill_s": 16.939429,
+      "remaining_wall_s": 45.98496525300108,
+      "prefill_fraction": 0.2692028934262184
+    }
+  ]
+}

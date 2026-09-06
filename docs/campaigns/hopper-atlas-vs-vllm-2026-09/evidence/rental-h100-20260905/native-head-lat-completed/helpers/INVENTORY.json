@@ -1,0 +1,14 @@
+{
+  "helpers": [
+    {
+      "file": "measurement-summary.py",
+      "sha256": "92ac02f740ef54827565294e270259b5bee9c7916d272e55d894182fe3f33066"
+    },
+    {
+      "file": "verify_final_export.py",
+      "sha256": "1e874d2cfa1c44a03e2d2a5a0865fce6dddb2348106fe491c5f1d61000d3671b"
+    }
+  ],
+  "final_export_verification": "Not yet run against actual final remote/local tree. Parent runs only after GPU/jobs stop. Synthetic corrupt/match/missing tests are separate proof of verifier behavior.",
+  "comparison_scope": "Completed7c latency plus explicitly unfinished head-agent C1 snapshot; previous5cde pairs and false raw gates retained."
+}

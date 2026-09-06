@@ -1,0 +1,871 @@
+{
+  "captured_utc": "2026-09-06T01:53:55.590980+00:00",
+  "copied_files": [
+    {
+      "path": "atlas-msprofile01/admission.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/admission.json",
+      "sha256": "84c8a3954c904dbe6ada71f5d4a479311a3a7ae27a163052e8da969cb489d2dc",
+      "bytes": 17506
+    },
+    {
+      "path": "atlas-msprofile01/boot.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/boot.json",
+      "sha256": "770e2d2e06138b9227492073bc7ad995d4c012ee415fd1fa03a5f68277fe2fed",
+      "bytes": 5950
+    },
+    {
+      "path": "atlas-msprofile01/boot.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/boot.log",
+      "sha256": "770e2d2e06138b9227492073bc7ad995d4c012ee415fd1fa03a5f68277fe2fed",
+      "bytes": 5950
+    },
+    {
+      "path": "atlas-msprofile01/capture.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/capture.log",
+      "sha256": "e499721b6475c3fc1cbe400a09472194acf91247dbca88e87d0254aabee0c674",
+      "bytes": 2074
+    },
+    {
+      "path": "atlas-msprofile01/compiler-occupancy-before.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/compiler-occupancy-before.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "atlas-msprofile01/compiler-occupancy-ready.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/compiler-occupancy-ready.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "atlas-msprofile01/df-after.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/df-after.txt",
+      "sha256": "b4de3155afa7b815639c1c9883c40a3a9823cdea6ed7b2d8e50313adcd1c1257",
+      "bytes": 89
+    },
+    {
+      "path": "atlas-msprofile01/df-before.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/df-before.txt",
+      "sha256": "b4de3155afa7b815639c1c9883c40a3a9823cdea6ed7b2d8e50313adcd1c1257",
+      "bytes": 89
+    },
+    {
+      "path": "atlas-msprofile01/diagnostic-wrapper.sh",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/diagnostic-wrapper.sh",
+      "sha256": "5dde7dfc5d700194b56b653da02e32f024a3eccf3ae3cac4358d3c725b033a4a",
+      "bytes": 6293
+    },
+    {
+      "path": "atlas-msprofile01/endpoint-admission.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/endpoint-admission.json",
+      "sha256": "ff6cabaa05dbeaf40d178297115b97ede79432c97cba39d574623b107cfd3ec9",
+      "bytes": 250
+    },
+    {
+      "path": "atlas-msprofile01/endpoint-admission.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/endpoint-admission.log",
+      "sha256": "8e15c3c0c1865b28fd1a839e3afeb1a2d07b39a386e028e69b73236f7909354c",
+      "bytes": 230
+    },
+    {
+      "path": "atlas-msprofile01/endpoint-after.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/endpoint-after.json",
+      "sha256": "a224dbeb12e56495cd92a6ac70dec6b37c9491086f490ebbd3147a56c1fe929e",
+      "bytes": 867
+    },
+    {
+      "path": "atlas-msprofile01/endpoint-after.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/endpoint-after.log",
+      "sha256": "8f10b78a51d384b03c2b87b5b7c7357cd6e15a59c6cf61e74294126b28d92c95",
+      "bytes": 733
+    },
+    {
+      "path": "atlas-msprofile01/endpoint-before.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/endpoint-before.json",
+      "sha256": "91f76c54d82a003d4dda48c1175e4f8677dccb38d40cac55785be41fb9ab8d8e",
+      "bytes": 867
+    },
+    {
+      "path": "atlas-msprofile01/endpoint-before.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/endpoint-before.log",
+      "sha256": "b547399fb1ec82d47d7412778ad7a6e098deb2115b441f053802bea81a1ef24a",
+      "bytes": 733
+    },
+    {
+      "path": "atlas-msprofile01/exit-code.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/exit-code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "path": "atlas-msprofile01/finished.utc",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/finished.utc",
+      "sha256": "e1ef4d96d63a32e3c2fba27e12f63a64a671cdfc97204011ca2c0606ad993bb5",
+      "bytes": 21
+    },
+    {
+      "path": "atlas-msprofile01/harness.sha",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/harness.sha",
+      "sha256": "c3b31fda74ada38b1428b40d51f90f67031d273a5c570d67489010f2e30eacc2",
+      "bytes": 41
+    },
+    {
+      "path": "atlas-msprofile01/launch-ready.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/launch-ready.json",
+      "sha256": "82eb82c7e19fb4911df18259bed1795515e2144eadb194b9b8c482ef041876b9",
+      "bytes": 2370
+    },
+    {
+      "path": "atlas-msprofile01/launch.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/launch.json",
+      "sha256": "98c3954f933e69776fc82ccc7de6fcd518e7bab491f648928b6097ae79897e4d",
+      "bytes": 2370
+    },
+    {
+      "path": "atlas-msprofile01/nvidia-smi-q.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/nvidia-smi-q.txt",
+      "sha256": "7257ae1566ce124a9a5470eba1d7b78d60ba3ad37b20d16969424dc56123aea7",
+      "bytes": 14959
+    },
+    {
+      "path": "atlas-msprofile01/owner.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/owner.json",
+      "sha256": "6d8437170fb477fdfbd3b9f74130a93fe372c1e2acc349826ba1b8b54b96bf74",
+      "bytes": 2232
+    },
+    {
+      "path": "atlas-msprofile01/process-env.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/process-env.json",
+      "sha256": "16a4586210aab4716d9f9cfb3deab3c76d20daff37ca0c6db81f78743035d17a",
+      "bytes": 345
+    },
+    {
+      "path": "atlas-msprofile01/profile-change.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/profile-change.json",
+      "sha256": "62277fc90e834aa6972acc06cf8d833da0facdbf985c018ea5840ed5ff6ee82a",
+      "bytes": 412
+    },
+    {
+      "path": "atlas-msprofile01/profile-summary.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/profile-summary.json",
+      "sha256": "e593f3563e4c10dc5b5302d18c51b2e074e56eb8c44cdf18adc35df34c20854e",
+      "bytes": 7643
+    },
+    {
+      "path": "atlas-msprofile01/quality/c1-00/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c1-00/request.json",
+      "sha256": "96d211a8b01c6bcb0e863910d27b7765c57adab61d373eee6259c7c4a3c160bb",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-msprofile01/quality/c1-00/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c1-00/response-headers.json",
+      "sha256": "82fb361ae714ac834a5a2ad4e8dea24b4fa3a98be32be71d77885b85196fe5c3",
+      "bytes": 970
+    },
+    {
+      "path": "atlas-msprofile01/quality/c1-00/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c1-00/response.body",
+      "sha256": "9549b4c5248a3f819c729ed01c071dcc1b784fdd090765fdb28a6f58dc1293aa",
+      "bytes": 608
+    },
+    {
+      "path": "atlas-msprofile01/quality/c1-00/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c1-00/result.json",
+      "sha256": "64813a2ad8f7f84e307c523f0e5cea67c5d5ef875a1472aa18efd38673b6a0dc",
+      "bytes": 2300
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-00/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-00/request.json",
+      "sha256": "d2d3a5a2ef7f32c73cce724fda2549db1244201533416ae286dbda4427277d68",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-00/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-00/response-headers.json",
+      "sha256": "0937fe7f2897b2d3583843d3078a8cf6a0e83c1fba34c7ddc59890d3b2e2835a",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-00/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-00/response.body",
+      "sha256": "bb6dfd9a19add292dc79b5988ab0445a1901f356f303f54730745cc5afc41d82",
+      "bytes": 617
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-00/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-00/result.json",
+      "sha256": "c18e1e93850297be9e27273089f4ebf1c39c78dba489abdb19a667d5b98029f4",
+      "bytes": 2312
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-01/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-01/request.json",
+      "sha256": "5c654a8fb1a7e5c0385fed16209009d73a7a2d02b4fff657886e764470197b87",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-01/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-01/response-headers.json",
+      "sha256": "4c68dd43534b4a42810f480dd28ec3125428856e06131d8ff64732b38c2769c5",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-01/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-01/response.body",
+      "sha256": "a159ba4a175952f90dcd06362c64ef2b23b0cc22a53a092602b973b303d9c026",
+      "bytes": 617
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-01/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-01/result.json",
+      "sha256": "d4b22d3862805fd73a38abcc608b7fa1aae171cae9d0cef94943f177c71614cf",
+      "bytes": 2312
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-02/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-02/request.json",
+      "sha256": "002682d55892a9f8083612288ff7f6326f9e84e0c95082cd956c5e953814587e",
+      "bytes": 456
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-02/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-02/response-headers.json",
+      "sha256": "b703fa518acd76d1b4b2e730face3f5090c1f25b92962f0a3755f4bb96d9615a",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-02/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-02/response.body",
+      "sha256": "7afcd58ef0ac46c316066256f12f51ac1c1675a1f71b9290be1b72ceed79806b",
+      "bytes": 617
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-02/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-02/result.json",
+      "sha256": "56034ef5221aa6016ec8a47813a2c86e020a981dfa2fb3802d6ee81920b11e00",
+      "bytes": 2311
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-03/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-03/request.json",
+      "sha256": "c9deb343b948a4de80c529577c092b54c5bbfd3a1110166788a4d4ef2d07ffff",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-03/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-03/response-headers.json",
+      "sha256": "7ce20b7a1069c5691bf52a677044543389c8d548bbc7dbf2aacd0261def1459f",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-03/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-03/response.body",
+      "sha256": "063eca52d79a0d979e70282428f9efe17ce944276230cd808cea4fa2693b39d7",
+      "bytes": 609
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-03/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-03/result.json",
+      "sha256": "e6ea3a89d1f2ec5149b31d3c99d4ea941d7feb2abd388846f32d41362a5f2cac",
+      "bytes": 2303
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-04/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-04/request.json",
+      "sha256": "17b97ef4ed64361c21239d0f4e855910124fdb2338afada5eb9efa392ca28f06",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-04/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-04/response-headers.json",
+      "sha256": "8ac9bf1854ec15c1e08ab8462a3745fbbbba6a4b743e28d5dfceff986b40e511",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-04/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-04/response.body",
+      "sha256": "ef8f259190cc9c9a7ed4f8ac60b3f563830c1f7b26215a630c9a2eec16c26a5c",
+      "bytes": 610
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-04/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-04/result.json",
+      "sha256": "193c66380757f28e745d5889fc0cf5d14ffbcb4e629ba7d9506a3fe60bf2803f",
+      "bytes": 2305
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-05/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-05/request.json",
+      "sha256": "1e348b5d2cf81d96062c858deac24b457887d7a0df7bee43fcea9db71abffc07",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-05/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-05/response-headers.json",
+      "sha256": "15a5e6bbc3ba13883fd6b4b02a7fd14209455acf7a3ca028c4220449435009f5",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-05/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-05/response.body",
+      "sha256": "3c887a98508a5c395fa5161b48da2372c1cdaf63db71895df46af9e561babea1",
+      "bytes": 610
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-05/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-05/result.json",
+      "sha256": "f71fa4b227365595cc78d8139502da1b58cb0473fdbac621dd4a6eaccb175043",
+      "bytes": 2304
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-06/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-06/request.json",
+      "sha256": "d8cf758589dbb454a781c3b8bae09a2c09d2633f0150d23991a107b5b65ebe70",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-06/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-06/response-headers.json",
+      "sha256": "896d1e4984f60a61e17d88114885373a27c79ef981979faae4fd36331df28367",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-06/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-06/response.body",
+      "sha256": "1ec330392a01640db07f0e822f6739bbc7bea952ab8cc4c6d3c9675cbbd2e319",
+      "bytes": 618
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-06/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-06/result.json",
+      "sha256": "6912e49c1496080d040832d2c324f36f8dfe41ccafe46dc21ab493a6c0b26914",
+      "bytes": 2313
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-07/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-07/request.json",
+      "sha256": "8e2208cd82d6624758a227adcc774448d74c8bd40115b98d3cabf7743cb487df",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-07/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-07/response-headers.json",
+      "sha256": "897904a9d348b485c2f5482a9cefa975f4d91b5197bc360dc64e63f351149404",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-07/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-07/response.body",
+      "sha256": "54b9607fbbbb253606d0237513d301595b88e61d3335d6993fe6e769288fba68",
+      "bytes": 610
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-07/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-07/result.json",
+      "sha256": "8cf89ff29e3cb8c0526af8914e25ab69fb26345626ebcd0fa88e2ba379f8240f",
+      "bytes": 2306
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-08/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-08/request.json",
+      "sha256": "ac22aacd7da3ab72c9151c0b268ccb4209084333411fe7d3eb51d7d7e9ccff34",
+      "bytes": 456
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-08/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-08/response-headers.json",
+      "sha256": "1ddcc45f3d38449a5acec0359197714e73c5e01cd747939faa2404cb36956a17",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-08/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-08/response.body",
+      "sha256": "48d3e560a49f11fc50b9b6ba856330d0d9fb2ba252377532575911b7f361fa0e",
+      "bytes": 610
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-08/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-08/result.json",
+      "sha256": "6832e7660765653f47baa995146605333d4287a876f30ee8662b22ef045f7352",
+      "bytes": 2304
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-09/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-09/request.json",
+      "sha256": "5bd0cffe22ea81f7b2c395e70a9e90e0bc565dca5521fe385e1550c323cbaa63",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-09/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-09/response-headers.json",
+      "sha256": "58b28eff9eb5521768d8881901ea426fe954dfb8063e406c024360d6f292f7ec",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-09/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-09/response.body",
+      "sha256": "6d8556b0c36a506a4b4614cda95d3d8459cb5586bdb40dfa4b82bdf6609bf55e",
+      "bytes": 609
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-09/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-09/result.json",
+      "sha256": "15ae5956ae5b8ba8e7065231762ec00d779eaff1267a8441b41754d58be3ed3b",
+      "bytes": 2304
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-10/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-10/request.json",
+      "sha256": "a1279494ae7317e9982bb49f7776bc250b8c6450f01446a68c0dd220283d8dcc",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-10/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-10/response-headers.json",
+      "sha256": "6ee4af13d6ed49eb89dad020b6df9bcf1a8d6d21e71308d6c77576aff978833f",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-10/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-10/response.body",
+      "sha256": "7a5942b72500be30c87176287554f584a66063f624fcecc63c233f6327abaf18",
+      "bytes": 610
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-10/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-10/result.json",
+      "sha256": "8960844c5a920dc921124cc908dfa5ccd592c4ab19a3566e81ef77f111d2fee1",
+      "bytes": 2305
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-11/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-11/request.json",
+      "sha256": "af683879b6a7d7b8ebab40775158a847fad2d6d89d2f8725c22e304cc772443a",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-11/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-11/response-headers.json",
+      "sha256": "9f970784ab2712e6e74dfc2c7de6f20e184f75e370c9d42e011c33515e9e80fb",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-11/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-11/response.body",
+      "sha256": "eec7a2a8ca7a495514d0b3567f8ea4f25128ecae3962d2b85066c53bb9a1d6bd",
+      "bytes": 618
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-11/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-11/result.json",
+      "sha256": "6ab0630241948ef50252160f63c2f561eafbf76ff8fe8f9b9652984466e40cce",
+      "bytes": 2313
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-12/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-12/request.json",
+      "sha256": "023a4f20dabbe75d20ce5567e6793f3f00ed27197eaf4e0a7372c9548f35c01c",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-12/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-12/response-headers.json",
+      "sha256": "8798b9e8fe842e135b2f75439072f14726ee80d62d591b7b1922b370c7c5a499",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-12/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-12/response.body",
+      "sha256": "c35bd37ecfe934528b8e26fd2f5c52d8ca747a8abc3d1ded1518333aab572a3d",
+      "bytes": 611
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-12/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-12/result.json",
+      "sha256": "7aa939df765eacd92055bfa5112bf38cb672fff3114f18b58793168900de8530",
+      "bytes": 2307
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-13/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-13/request.json",
+      "sha256": "732c98ebe80d41bbbf01aca59bcd303e5404e1d5c6c4b5cb594b4931fc87ae19",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-13/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-13/response-headers.json",
+      "sha256": "f43eb07ff0896cdd1ba1e0ac7522f83386cf6bca654dae7a9a2edf138e0fc821",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-13/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-13/response.body",
+      "sha256": "ae3069ec2c2500f91185fa8ac8537f82aa219555fe154e66d87d1762ea9d8abe",
+      "bytes": 610
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-13/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-13/result.json",
+      "sha256": "4824c973ab61bc131862a3cae1c1ecd8999176853977e2542386108367d80f28",
+      "bytes": 2305
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-14/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-14/request.json",
+      "sha256": "e40996891883d1f8a8635e377ccd48d7f64299a26549b314dae2e52e5d322839",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-14/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-14/response-headers.json",
+      "sha256": "7100d05e28fdd64554119018ebabfe3be903d98915915d29a1d88d5c26578672",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-14/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-14/response.body",
+      "sha256": "c4ef873eb46631a4db7d3ecac80ed395368d2e770d9be0be0f36ebf9ba66450e",
+      "bytes": 610
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-14/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-14/result.json",
+      "sha256": "2905f43e0982cd5cb23d36ddb67e606a02e9127487c85cf002f77f90afbf524a",
+      "bytes": 2306
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-15/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-15/request.json",
+      "sha256": "8c738e2cf5ca813955ed1c633700f6813386761c3ab3d232681f07ec66ab4967",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-15/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-15/response-headers.json",
+      "sha256": "685d5c224ea8198a83031024736f6dd88ebe7149321a693fb405af6bbd8d5d7a",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-15/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-15/response.body",
+      "sha256": "0ef9a87de83b4171282675efc90c03a7befe9de67100d0be2012759f5920792c",
+      "bytes": 610
+    },
+    {
+      "path": "atlas-msprofile01/quality/c16-15/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/c16-15/result.json",
+      "sha256": "db5de2a849a82a0ee0fa413ba4e539f5f06631c0bf5a99a6d380fed7d83ada11",
+      "bytes": 2306
+    },
+    {
+      "path": "atlas-msprofile01/quality/summary.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality/summary.json",
+      "sha256": "89a41e3178270176f4b1781164ec286eef51939d3f293d844585b573c7544fc6",
+      "bytes": 51675
+    },
+    {
+      "path": "atlas-msprofile01/quality-selftest.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality-selftest.log",
+      "sha256": "a503d299a44eb4ebd4a640ac8caee1dc473b6920fe80cdc7826d9cabcbbb221d",
+      "bytes": 57
+    },
+    {
+      "path": "atlas-msprofile01/quality.argv",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality.argv",
+      "sha256": "c3eec7f96ce1268740078e6b7a5477234064fc28e2f1447f2558ce4e8a3acfda",
+      "bytes": 203
+    },
+    {
+      "path": "atlas-msprofile01/quality.exit",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "path": "atlas-msprofile01/quality.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/quality.log",
+      "sha256": "e01939cfa6cc50d7cb957db1c41cfe6f0333f6420d04cf995c1f2d2a01c4207f",
+      "bytes": 144
+    },
+    {
+      "path": "atlas-msprofile01/serve.argv",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/serve.argv",
+      "sha256": "a84720dd1c11f462d8692749eb2d9d3fd17d3da8a985afed727864cff8d1578c",
+      "bytes": 754
+    },
+    {
+      "path": "atlas-msprofile01/serve.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/serve.log",
+      "sha256": "0a60f1e63d72340dbc5e8c3ea60b627f43df095a5ff8f83d15d7eda35875b530",
+      "bytes": 143700
+    },
+    {
+      "path": "atlas-msprofile01/start.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/start.log",
+      "sha256": "dd86ee6254ebdc92d098db8bd2b3c10997127cdd5c806ce25978a4cefb730db9",
+      "bytes": 2074
+    },
+    {
+      "path": "atlas-msprofile01/started.utc",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/started.utc",
+      "sha256": "169eb1d7adaa8e1e9c943f95cbccb998d490c02559dcb2512a4b8b255ec93e8b",
+      "bytes": 21
+    },
+    {
+      "path": "atlas-msprofile01/stop.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/stop.json",
+      "sha256": "d92efc43075abf4700ee90ae62df9f5f76c01198788c1fa070eba8d23f6b09bf",
+      "bytes": 65
+    },
+    {
+      "path": "atlas-msprofile01/stop.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/stop.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "atlas-msprofile01/tenants-after.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.qwen38.msprofile.msprofile01/tenants-after.txt",
+      "sha256": "e3a8b0f25c13621f334ca7092baeb7db1342b47633f4c027612a8820c473f83f",
+      "bytes": 18
+    },
+    {
+      "path": "linux-tooling/bundle-verify.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/bundle-verify.stderr",
+      "sha256": "92178e18f01a77a779fbdf1ddb09d56a24cda925e5b80c0f6982c5d0e2bbee5b",
+      "bytes": 55
+    },
+    {
+      "path": "linux-tooling/bundle-verify.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/bundle-verify.stdout",
+      "sha256": "25ef28ac4894807d282edbfdbf204cba2ffd51e5238fcfdcbbb0129a51cbf966",
+      "bytes": 190
+    },
+    {
+      "path": "linux-tooling/compiled-path-diff.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/compiled-path-diff.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "linux-tooling/deploy-command.sh",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/deploy-command.sh",
+      "sha256": "caa8926a07ebb74ab896b75d284d86c45cb231a74dc63c3110322b4b7a7ed5a7",
+      "bytes": 1770
+    },
+    {
+      "path": "linux-tooling/df-after.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/df-after.txt",
+      "sha256": "b4de3155afa7b815639c1c9883c40a3a9823cdea6ed7b2d8e50313adcd1c1257",
+      "bytes": 89
+    },
+    {
+      "path": "linux-tooling/df-before.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/df-before.txt",
+      "sha256": "b4de3155afa7b815639c1c9883c40a3a9823cdea6ed7b2d8e50313adcd1c1257",
+      "bytes": 89
+    },
+    {
+      "path": "linux-tooling/fetch.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/fetch.stderr",
+      "sha256": "6bbc6436c4105e324a5c77bff4ba2047a21084c6b2f74c93ca468b75183c4129",
+      "bytes": 98
+    },
+    {
+      "path": "linux-tooling/fetch.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/fetch.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "linux-tooling/finished.utc",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/finished.utc",
+      "sha256": "169eb1d7adaa8e1e9c943f95cbccb998d490c02559dcb2512a4b8b255ec93e8b",
+      "bytes": 21
+    },
+    {
+      "path": "linux-tooling/linux-green.argv",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/linux-green.argv",
+      "sha256": "ddd16b8f2281b377d419ff499e0992a6bb81c4af9e518b158b99f78a9f2bd748",
+      "bytes": 82
+    },
+    {
+      "path": "linux-tooling/linux-green.exit",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/linux-green.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "path": "linux-tooling/linux-green.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/linux-green.stderr",
+      "sha256": "d7e60e4c9a0da28d1cfaa4dfa940f622391b500443b67ecce2984dca130664ed",
+      "bytes": 2451
+    },
+    {
+      "path": "linux-tooling/linux-green.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/linux-green.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "linux-tooling/linux-green.time",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/linux-green.time",
+      "sha256": "78d6232f6eaba4f6fb35a315dbd9b699dcf8af04726911bd31e131c3ede99cee",
+      "bytes": 815
+    },
+    {
+      "path": "linux-tooling/linux-red.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/linux-red.json",
+      "sha256": "4b8e12afac8371f5fd2f7b74e5592617bbf4ae6bd5f09b209e37c3112389425b",
+      "bytes": 474
+    },
+    {
+      "path": "linux-tooling/linux-red.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/linux-red.stderr",
+      "sha256": "c5488b774a6f12414d2fa44e0fe48199a216f71e2424a49e6f25ce409cd062e2",
+      "bytes": 306
+    },
+    {
+      "path": "linux-tooling/linux-red.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/linux-red.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "linux-tooling/profile.env.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/profile.env.json",
+      "sha256": "7860fbb9c8105fa379ea42150d4eee352ce0083b9686f4f8cb8cc5bd9ead8d5a",
+      "bytes": 25
+    },
+    {
+      "path": "linux-tooling/rebase.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/rebase.stderr",
+      "sha256": "a04d031c7befde296f5b2da6071ccd734afe296570d221775ec400d1f867d611",
+      "bytes": 154
+    },
+    {
+      "path": "linux-tooling/rebase.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/rebase.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "linux-tooling/source-after.sha",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/source-after.sha",
+      "sha256": "c3b31fda74ada38b1428b40d51f90f67031d273a5c570d67489010f2e30eacc2",
+      "bytes": 41
+    },
+    {
+      "path": "linux-tooling/source-before.sha",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/source-before.sha",
+      "sha256": "21d20127c562101203dbb7b6a70ea18ed37ca5345ed088b9490f96316f38e177",
+      "bytes": 41
+    },
+    {
+      "path": "linux-tooling/tenants-before-deploy.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/tooling.ms-profile-env.f08d4ea/tenants-before-deploy.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "tooling-prep/ATTRIBUTION-FINAL.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ms-profile-env/ATTRIBUTION-FINAL.json",
+      "sha256": "8e5f15e19095f73c7c288e39592bc92cdc38e641722dd83e7f84b06655482c01",
+      "bytes": 1717
+    },
+    {
+      "path": "tooling-prep/ATTRIBUTION-FINAL.md",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ms-profile-env/ATTRIBUTION-FINAL.md",
+      "sha256": "c1adbe284d95a84adb3d6ad44d736a4b5062fbbacdd33bb80494db02ee1b0f3d",
+      "bytes": 3052
+    },
+    {
+      "path": "tooling-prep/REPORT.md",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ms-profile-env/REPORT.md",
+      "sha256": "2c9e73c44b88da5c9ca01b7a76cd65befe1fa95146e8184eb734f93ace55ed0f",
+      "bytes": 3072
+    },
+    {
+      "path": "tooling-prep/campaign.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ms-profile-env/campaign.json",
+      "sha256": "05debd747bbe896d70198683ffba3ea403be98673eec20b85c225cdf2858cab7",
+      "bytes": 114
+    },
+    {
+      "path": "tooling-prep/campaign.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ms-profile-env/campaign.log",
+      "sha256": "f742241f9a9cfbb246363e936c092430d94647e9c061e18890e5c90e29a67921",
+      "bytes": 23311
+    },
+    {
+      "path": "tooling-prep/green.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ms-profile-env/green.json",
+      "sha256": "e55b1bd374b01f6d41eac0fec9ec6509a5e87dc3476393e305ea9b6b08cf949c",
+      "bytes": 166
+    },
+    {
+      "path": "tooling-prep/green.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ms-profile-env/green.log",
+      "sha256": "2cf52d3f191eb17bedbcbe79cab2299c1944c0cc4be946dd9675a187f2c340e8",
+      "bytes": 364
+    },
+    {
+      "path": "tooling-prep/launch-suite.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ms-profile-env/launch-suite.json",
+      "sha256": "6e7853245254c743c0d68a133151c80ce0a5ad380f7db5f6069fbd9c89ce7ff7",
+      "bytes": 135
+    },
+    {
+      "path": "tooling-prep/launch-suite.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ms-profile-env/launch-suite.log",
+      "sha256": "d815e1effd0cdad885089723c6c87414b66c1cb1283a1ec1f54bde9b30fc22b2",
+      "bytes": 3010
+    },
+    {
+      "path": "tooling-prep/profile-parser-checks.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ms-profile-env/profile-parser-checks.json",
+      "sha256": "ec986e678652ae99b9f30322be73c4a281841b3e0483b7e19a454b305d730037",
+      "bytes": 2908
+    },
+    {
+      "path": "tooling-prep/receipt.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ms-profile-env/receipt.json",
+      "sha256": "d3c632c3478b984e02e49faf2149af3a84a61cd04c7b845d69a8c4dc01429ad0",
+      "bytes": 1266
+    },
+    {
+      "path": "tooling-prep/red.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ms-profile-env/red.json",
+      "sha256": "98ffc3d285e604a33e4974744af521125768317dc164032fdd11a9291190de78",
+      "bytes": 166
+    },
+    {
+      "path": "tooling-prep/red.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ms-profile-env/red.log",
+      "sha256": "6cd05c5d9935faacfb39487f6d518bcd2d3083e20741835ac52d8562e7b37c2b",
+      "bytes": 3143
+    },
+    {
+      "path": "atlas-binary-archive.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/atlas-binary-archive.json",
+      "sha256": "b22cca7b12c0288cb069a715cbafd83f676ae1472dbf27d8acaaa62d7fec5e0a",
+      "bytes": 363
+    },
+    {
+      "path": "butter-native-block-fp8-archive.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/butter-native-block-fp8-archive.json",
+      "sha256": "c9414a54703581900e7767b947b0afa1f1e7e3aa7fd410e13efa6ea0e533b2d3",
+      "bytes": 1070
+    }
+  ],
+  "generated_files": [
+    {
+      "path": "atlas-msprofile.section10.json",
+      "sha256": "20634fea3fe62c690cafa939acbb1a1f6bee4e5614d2a1255689c0c0d805c375",
+      "bytes": 69304
+    }
+  ],
+  "scope": "Completed separate C4 synchronized attribution and Linux tooling tests; binary archive receipts only, ELF files stay outside Git."
+}

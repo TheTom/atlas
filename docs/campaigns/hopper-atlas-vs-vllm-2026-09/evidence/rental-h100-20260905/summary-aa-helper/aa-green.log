@@ -1,0 +1,9 @@
+test_empty_export_is_pending_not_silently_dropped (__main__.SummaryTests.test_empty_export_is_pending_not_silently_dropped) ... ok
+test_missing_argv_preserves_unproven_parity (__main__.SummaryTests.test_missing_argv_preserves_unproven_parity) ... ok
+test_new_labels_preserve_baseline_pairs_and_failed_gates (__main__.SummaryTests.test_new_labels_preserve_baseline_pairs_and_failed_gates) ... ok
+test_vllm_repeat_has_actual_aa_pair_and_no_identity_upgrade (__main__.SummaryTests.test_vllm_repeat_has_actual_aa_pair_and_no_identity_upgrade) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.981s
+
+OK

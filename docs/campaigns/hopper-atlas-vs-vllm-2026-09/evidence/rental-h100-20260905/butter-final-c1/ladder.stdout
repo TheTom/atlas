@@ -1,0 +1,6 @@
+# driver sha256 7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb
+[rental.qwen38.butter.native-lat-c1] C=  1 rep0  tok/s=    5.73  wall=  44.70s  ctok=    256  ptok/req=[1193]  ttft_p50=35262ms  err=0  clk=1980, 525.51
+[rental.qwen38.butter.native-lat-c1] C=  1 rep1  tok/s=    5.72  wall=  44.73s  ctok=    256  ptok/req=[1193]  ttft_p50=35271ms  err=0  clk=1980, 528.49
+[rental.qwen38.butter.native-lat-c1] C=  1 rep2  tok/s=    5.72  wall=  44.77s  ctok=    256  ptok/req=[1193]  ttft_p50=35313ms  err=0  clk=1980, 526.74
+[rental.qwen38.butter.native-lat-c1] C=  1 SERIES ['5.73', '5.72', '5.72'] mean=5.72 spread=0.16%
+# wrote /workspace/butter-iron-rental/results/butter-block-fp8-lat-c1-final-20260906T013401Z/ladder.json

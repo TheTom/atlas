@@ -1,0 +1,9 @@
+{
+  "source_session": "/workspace/atlas-rental/results/benchmark.qwen38.atlas.native-head-lat01",
+  "argv_identical": true,
+  "only_added_environment": {
+    "ATLAS_MS_PROFILE": "1"
+  },
+  "binary_sha256": "23efba747b5b309a1750789e1166055e9b4432e0511462da719e626cce01db64",
+  "scope": "Synchronized C4 phase attribution; graphs disabled in multi-sequence decode; not a throughput measurement or certification"
+}

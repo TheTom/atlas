@@ -1,0 +1,349 @@
+{
+  "captured_utc": "2026-09-06T01:43:03.458512+00:00",
+  "copied_files": [
+    {
+      "path": "boot.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/boot.json",
+      "sha256": "f5343d478ed397b0ed5333c7065efa830412364fbf578189402a38efc152f8a3",
+      "bytes": 1515
+    },
+    {
+      "path": "build-receipt.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/build-receipt.json",
+      "sha256": "f079ce74166b105a7fb75016d57f2dea0c9149cbe6a2f9566cee99f887fe95ca",
+      "bytes": 1867
+    },
+    {
+      "path": "c1-memory-admission.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/c1-memory-admission.json",
+      "sha256": "8a227392861398e0e83e9e86c13a753c1fe8faf0fa898b05a100d3bffb77532f",
+      "bytes": 197
+    },
+    {
+      "path": "checkpoint-staging-proof.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/checkpoint-staging-proof.json",
+      "sha256": "6074590b1089e054afc8a4c2a23ca5e8a4184e4ff2c8ccb7898fa722cf812479",
+      "bytes": 36871
+    },
+    {
+      "path": "coherency-post.command.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/coherency-post.command.json",
+      "sha256": "519310cf89e8216cc0329e602e332757d664f21b5832eeb9601679b7b9873125",
+      "bytes": 639
+    },
+    {
+      "path": "coherency-post.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/coherency-post.json",
+      "sha256": "0fc9469511e2b1493efa202be2e9563a66aea987195c1a3f5477c1e19523df78",
+      "bytes": 11860
+    },
+    {
+      "path": "coherency-post.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/coherency-post.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "coherency-post.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/coherency-post.stdout",
+      "sha256": "0fc9469511e2b1493efa202be2e9563a66aea987195c1a3f5477c1e19523df78",
+      "bytes": 11860
+    },
+    {
+      "path": "coherency-pre.command.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/coherency-pre.command.json",
+      "sha256": "d607dd79a837ca6243eb8a07a8a58fe381e9ea2ae0d92380a356343b602e4aed",
+      "bytes": 639
+    },
+    {
+      "path": "coherency-pre.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/coherency-pre.json",
+      "sha256": "e8677ed3a5a8ffe21f696b781c8a2d61d28cf13a127585227178e2c50b1d63ec",
+      "bytes": 11860
+    },
+    {
+      "path": "coherency-pre.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/coherency-pre.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "coherency-pre.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/coherency-pre.stdout",
+      "sha256": "e8677ed3a5a8ffe21f696b781c8a2d61d28cf13a127585227178e2c50b1d63ec",
+      "bytes": 11860
+    },
+    {
+      "path": "compiler-before.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/compiler-before.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "completed-c1.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/completed-c1.json",
+      "sha256": "b15f163cfd957275e7021fd25df66c1342c218ed3a819f8b54b431c01883b9fa",
+      "bytes": 3207
+    },
+    {
+      "path": "device.command.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/device.command.json",
+      "sha256": "1d9260c749c84bd87e1330b905c813ae8ca8a8c39ead7ed47f8a3e2c9ba7f43a",
+      "bytes": 178
+    },
+    {
+      "path": "device.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/device.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "device.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/device.stdout",
+      "sha256": "4da98b82e07bff3e11f460e8ac2265f991da839b2a8ad2a1954624883470c263",
+      "bytes": 80
+    },
+    {
+      "path": "df-after.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/df-after.txt",
+      "sha256": "b4de3155afa7b815639c1c9883c40a3a9823cdea6ed7b2d8e50313adcd1c1257",
+      "bytes": 89
+    },
+    {
+      "path": "df-before.command.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/df-before.command.json",
+      "sha256": "a399e71d200ffb32949cb87805dca71eb07bd2e5853849bb8746344766c5017c",
+      "bytes": 106
+    },
+    {
+      "path": "df-before.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/df-before.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "df-before.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/df-before.stdout",
+      "sha256": "b4de3155afa7b815639c1c9883c40a3a9823cdea6ed7b2d8e50313adcd1c1257",
+      "bytes": 89
+    },
+    {
+      "path": "harness-source.command.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/harness-source.command.json",
+      "sha256": "ccfdc57e0d35df3045a7af3f57d54acd5c61e3b9b43c8bf7b4f5635cc3282136",
+      "bytes": 168
+    },
+    {
+      "path": "harness-source.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/harness-source.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "harness-source.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/harness-source.stdout",
+      "sha256": "21d20127c562101203dbb7b6a70ea18ed37ca5345ed088b9490f96316f38e177",
+      "bytes": 41
+    },
+    {
+      "path": "known-bad-first.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/known-bad-first.json",
+      "sha256": "630f2df97cbc93f6d8a3fb705f39611f8d8017e35e7e7b7bf46b904f3f39c435",
+      "bytes": 146
+    },
+    {
+      "path": "ladder-progress.jsonl",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/ladder-progress.jsonl",
+      "sha256": "6d6378a6f59ea52b525dfb24ba13fc792412e71fcb1f054ba2211ce70f847593",
+      "bytes": 1127
+    },
+    {
+      "path": "ladder.command.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/ladder.command.json",
+      "sha256": "ec08cbec1d3300b2416191e564c6027af8cccf6563d28049ee236a1e6613c46e",
+      "bytes": 813
+    },
+    {
+      "path": "ladder.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/ladder.json",
+      "sha256": "aeeb4ca4160cd2b7bdcc3d681948a37a666ffd1fefdc105dddbe53032ebd15d9",
+      "bytes": 3206
+    },
+    {
+      "path": "ladder.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/ladder.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "ladder.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/ladder.stdout",
+      "sha256": "906926a2d87b717dd26e7d869ededd6c546709913fcafad6c4c020eb83c76c58",
+      "bytes": 743
+    },
+    {
+      "path": "memory-samples.jsonl",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/memory-samples.jsonl",
+      "sha256": "909054307bc84503329c0575022481b6df72464ef33c20cf58875ba8ccadfc9d",
+      "bytes": 3339
+    },
+    {
+      "path": "models.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/models.json",
+      "sha256": "96cc7490e31fe3ff8a7658ed1891c397fbb06d14c9b4e785c7f8506d7c8cc6a3",
+      "bytes": 229
+    },
+    {
+      "path": "nvidia-smi-q.command.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/nvidia-smi-q.command.json",
+      "sha256": "92fbbeb86ced4e7e7dc293008d6838d7e5e264f9b37f6f90e30cd9738a9314da",
+      "bytes": 105
+    },
+    {
+      "path": "nvidia-smi-q.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/nvidia-smi-q.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "nvidia-smi-q.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/nvidia-smi-q.stdout",
+      "sha256": "7fa31a6f7d4595a61921d58fecb989303bf70111a3cca66e923a01c5e15f4bc4",
+      "bytes": 14959
+    },
+    {
+      "path": "quality-policy-post.command.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/quality-policy-post.command.json",
+      "sha256": "b1ff0ae65541894bfffeff59dfc4204116f569838df350846a0402caa5d60e4e",
+      "bytes": 579
+    },
+    {
+      "path": "quality-policy-post.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/quality-policy-post.json",
+      "sha256": "529affe4cbbb74a4189ef26000b5356efe09f4630e4b4856891fa1f68afcbc52",
+      "bytes": 778
+    },
+    {
+      "path": "quality-policy-post.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/quality-policy-post.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "quality-policy-post.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/quality-policy-post.stdout",
+      "sha256": "fd214b5f46283b6a85b1940035b2411b2449e7c1464763621ba0e9d5ae4d774c",
+      "bytes": 674
+    },
+    {
+      "path": "quality-policy-pre.command.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/quality-policy-pre.command.json",
+      "sha256": "ed80baf7def2df3c84616b364f91ff24c5a7d2808e19099126db5e003b2ead61",
+      "bytes": 577
+    },
+    {
+      "path": "quality-policy-pre.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/quality-policy-pre.json",
+      "sha256": "b23e57ad3fac651883560f0f7bc4b82c97e036a1c7f3859d16b322bbae2fb9ed",
+      "bytes": 777
+    },
+    {
+      "path": "quality-policy-pre.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/quality-policy-pre.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "quality-policy-pre.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/quality-policy-pre.stdout",
+      "sha256": "88692746f08055cfc2c9e5e3187adc12932981f3e0d94de5af2fea50e9aac398",
+      "bytes": 673
+    },
+    {
+      "path": "runtime-driver.py",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/runtime-driver.py",
+      "sha256": "8c71576a0b14e2ab2d19c673c4490b670a2c0c0abe135db49519f0fcedf0adbe",
+      "bytes": 17066
+    },
+    {
+      "path": "serve.command.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/serve.command.json",
+      "sha256": "ddc1ed2c321d48f219ed0f21c9bcf30b825444e7a20e60b3bd316cec1a88c247",
+      "bytes": 753
+    },
+    {
+      "path": "serve.identity.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/serve.identity.json",
+      "sha256": "f690b99bb79a91a83436a048b8017ce1304177dc42ac93a8d6af1dc9daca0ffd",
+      "bytes": 111
+    },
+    {
+      "path": "serve.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/serve.stderr",
+      "sha256": "f48e39d5147661cce110478ef4075d1348e6c13b27817cc6e7797d64c5d9eee9",
+      "bytes": 390
+    },
+    {
+      "path": "serve.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/serve.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "summary.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/summary.json",
+      "sha256": "b5d182953026795e6735edfc500fe4d0b33ac7dc8ed1bfdf2c2c0b5723878b6a",
+      "bytes": 995
+    },
+    {
+      "path": "tenants-after.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/tenants-after.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "tenants-after.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/tenants-after.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "tenants-before.command.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/tenants-before.command.json",
+      "sha256": "110758b890c746c6e37f65f60dbb51cc5007ef8f064919e7d0bf99f4b0bbdd88",
+      "bytes": 181
+    },
+    {
+      "path": "tenants-before.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/tenants-before.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "tenants-before.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/results/butter-block-fp8-lat-c1-final-20260906T013401Z/tenants-before.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "BUTTER-FP8-C1-FINAL-METRICS.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/BUTTER-FP8-C1-FINAL-METRICS.json",
+      "sha256": "a7842d82954cb028048b263ffba5b664b26bf15ca9a442b6118eb2d7f1db270a",
+      "bytes": 1070
+    },
+    {
+      "path": "butter-block-fp8-lat-c1-final-sha256.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/butter-iron-followon/h100/butter-block-fp8-lat-c1-final-sha256.json",
+      "sha256": "48317ec6c6ee99fe870a054837de29b5770ce2c727bf2132370f89d266d97062",
+      "bytes": 5649
+    }
+  ],
+  "generated_files": [
+    {
+      "path": "butter-final-c1.section10.json",
+      "sha256": "d2e80e661c65d5a629e49240b5352115507e5aa31ad2f24ee7443629a70d52fd",
+      "bytes": 31767
+    }
+  ],
+  "scope": "Finished full ButterC1 only. Exact54sourcefiles verified against owner export manifest; no C16 performance result inferred."
+}

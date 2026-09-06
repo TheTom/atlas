@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "workload": {
+    "isl": 1024,
+    "osl": 256,
+    "temperature": 0.0,
+    "seed": 42,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "reps": 3,
+    "warmup": 1,
+    "driver_sha256": "7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb"
+  },
+  "atlas_label": "rental.qwen38.atlas.native-head-lat01",
+  "vllm_label": "rental.qwen38.atlas.native-lat02",
+  "atlas_model": "Qwen/Qwen3.8-27B-FP8",
+  "vllm_model": "Qwen/Qwen3.8-27B-FP8",
+  "rows": [
+    {
+      "concurrency": 1,
+      "atlas_tok_s": 39.348979191187205,
+      "vllm_tok_s": 39.336592380253144,
+      "atlas_ttft_p50_ms": 1074.1949770017527,
+      "vllm_ttft_p50_ms": 1075.9692679857835,
+      "atlas_ttft_p99_ms": 1074.1949770017527,
+      "vllm_ttft_p99_ms": 1075.9692679857835,
+      "atlas_tpot_p50_ms": 21.29750778172713,
+      "vllm_tpot_p50_ms": 21.298292133343875,
+      "atlas_errors": 0,
+      "vllm_errors": 0,
+      "atlas_issues": [],
+      "vllm_issues": [],
+      "ratio": 1.0003148928309378,
+      "verdict": "WIN"
+    },
+    {
+      "concurrency": 16,
+      "atlas_tok_s": 73.80654154184721,
+      "vllm_tok_s": 64.99844470147085,
+      "atlas_ttft_p50_ms": 23476.673100332846,
+      "vllm_ttft_p50_ms": 26260.627960495185,
+      "atlas_ttft_p99_ms": 45680.00257287737,
+      "vllm_ttft_p99_ms": 51356.43240232457,
+      "atlas_tpot_p50_ms": 45.44914682611468,
+      "vllm_tpot_p50_ms": 52.83810432024111,
+      "atlas_errors": 0,
+      "vllm_errors": 0,
+      "atlas_issues": [],
+      "vllm_issues": [],
+      "ratio": 1.135512424656171,
+      "verdict": "WIN"
+    }
+  ],
+  "rungs_won": 2,
+  "rungs_compared": 2
+}

@@ -1,0 +1,55 @@
+{
+  "source": "dfc45a185fc36ee84a8351eef21ae1dfc56d527a",
+  "lock_sha256": "867adaf5442d1ac679b9b5d0537f7ab4df097a66fdfe832f01389335864f38df",
+  "environment": {
+    "RUSTUP_TOOLCHAIN": "nightly-2026-05-15",
+    "CARGO_TARGET_DIR": "/workspace/butter-iron-rental/target",
+    "CARGO_BUILD_JOBS": "6",
+    "CUDA_VISIBLE_DEVICES": "",
+    "CUDA_HOME": "/usr/local/cuda",
+    "CUDA_PATH": "/usr/local/cuda",
+    "LD_LIBRARY_PATH": "/usr/local/cuda/lib64:/usr/lib/x86_64-linux-gnu",
+    "BUTTER_BUILD_COMMIT": "dfc45a185fc36ee84a8351eef21ae1dfc56d527a"
+  },
+  "steps": [
+    {
+      "label": "cli",
+      "argv": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "/workspace/butter-iron-rental/results/build-block-fp8-20260906T000027Z/cli.time.txt",
+        "cargo",
+        "build",
+        "--locked",
+        "--release",
+        "--manifest-path",
+        "rust/Cargo.toml",
+        "-p",
+        "wh-butter-cli",
+        "--bin",
+        "butter",
+        "--no-default-features",
+        "--features",
+        "cuda,developer-cli"
+      ],
+      "exit": 0,
+      "elapsed_s": 32.86132798498147
+    }
+  ],
+  "binary": "/workspace/butter-iron-rental/bin/butter-block-fp8-dfc45a1",
+  "binary_sha256": "da3e60000d55a2aaca67c04b09cd0400553444e45653d911ae828f06103cf606",
+  "numerical_test_executable": "/workspace/butter-iron-rental/target/release/deps/block_fp8_linear-fdd5ad77115b1170",
+  "numerical_test_sha256": "016481c9c6a616a23bab46de1d9aa42504fc1153dafe017c2563c8682084e965",
+  "numerical_test_source": "de5485c499946f387fa658f656fc4183b50781c1",
+  "numerical_unchanged_paths": [
+    "rust/Cargo.toml",
+    "rust/Cargo.lock",
+    "rust/crates/wh-butter-core",
+    "rust/crates/wh-butter-ops",
+    "rust/crates/backends/wh-butter-cuda"
+  ],
+  "complete": true,
+  "elapsed_s": 33.22303432400804,
+  "finished_utc": "2026-09-06T00:01:02.299333+00:00"
+}

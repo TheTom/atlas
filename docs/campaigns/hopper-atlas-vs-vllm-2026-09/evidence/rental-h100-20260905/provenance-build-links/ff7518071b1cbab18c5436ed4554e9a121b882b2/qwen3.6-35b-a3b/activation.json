@@ -1,0 +1,9 @@
+{
+  "utc": "2026-09-05T22:33:35.329194+00:00",
+  "source_commit": "ff7518071b1cbab18c5436ed4554e9a121b882b2",
+  "target_model": "qwen3.6-35b-a3b",
+  "active_path": "/workspace/atlas-rental/bin/spark",
+  "sha256": "d292e71b416ca93c694eb0ac0754d018549e2789238e5d25f5c9ee5652341c78",
+  "previous_preserved_path": "/workspace/atlas-rental/bin/f66a262048ac0a6aee4c67444fd0ea5740b46b30/qwen3.6-35b-a3b/spark",
+  "gpu_tenants_before": ""
+}

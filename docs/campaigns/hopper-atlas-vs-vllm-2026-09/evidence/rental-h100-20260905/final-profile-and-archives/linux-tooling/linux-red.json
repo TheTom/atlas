@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "python3",
+    "-c",
+    "import sys;sys.path.insert(0,'bench/campaign');import process_launch;from types import SimpleNamespace;process_launch.launch_environment(SimpleNamespace(env_json=sys.argv[1],env=[]))",
+    "/workspace/atlas-rental/results/tooling.ms-profile-env.f08d4ea/profile.env.json"
+  ],
+  "exit": 1,
+  "wall_s": 0.09787967498414218,
+  "expected": "nonzero unknown diagnostic environment refusal before any engine launch",
+  "passed": true
+}

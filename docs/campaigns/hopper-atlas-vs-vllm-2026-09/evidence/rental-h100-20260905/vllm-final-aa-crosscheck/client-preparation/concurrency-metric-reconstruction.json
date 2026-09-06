@@ -1,0 +1,31 @@
+{
+  "configured_max_concurrency": 1,
+  "reported_max_concurrent_requests": 2,
+  "raw_reconstructed_bucket_peak": 2,
+  "interval_reconstruction": "start_times + ttfts + sum(itls); tiny first-token timing-read difference from server metric source; not exact transport lifetime",
+  "gaps_seconds_between_reconstructed_token_intervals": [
+    0.0001876050082501024,
+    0.00021113798720762134,
+    0.00022131798323243856,
+    0.00021303899120539427,
+    0.000216196000110358,
+    0.00019559997599571943,
+    0.00020258899894542992
+  ],
+  "no_reconstructed_intervals_overlap": true,
+  "source_explanation": "Each request contributes to every integer-second bucket from floor(start) through floor(end), inclusive; serial requests sharing a second count as 2. The semaphore wraps the entire awaited request function.",
+  "synthetic_counterexample": {
+    "disjoint_intervals": [
+      [
+        0,
+        0.4
+      ],
+      [
+        0.5,
+        0.9
+      ]
+    ],
+    "actual_overlap_peak": 1,
+    "same_source_bucket_peak": 2
+  }
+}

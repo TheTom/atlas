@@ -1,0 +1,19 @@
+{
+  "utc": "2026-09-06T01:40:53.229349+00:00",
+  "scope": "Standalone summary only; compare.py and frozen harness unchanged.",
+  "oracle": "A discovered vLLM same-shape repeat must generate the actual A/A pair, retain both engine labels as vLLM, leave immutable identity unproven, and preserve actual compare verdicts.",
+  "red": {
+    "passed": 3,
+    "failed": 1,
+    "exit_code": 1
+  },
+  "green": {
+    "passed": 4,
+    "failed": 0,
+    "exit_code": 0
+  },
+  "before_sha256": "92ac02f740ef54827565294e270259b5bee9c7916d272e55d894182fe3f33066",
+  "after_sha256": "f3291bf36d97df6d61c58e678aa6b1ae5f575a877aadc710c74e45c0ad9c724d",
+  "test_sha256": "4a232d4863bafbca6b123ffe6dafa37d39744fb661d6137226fda0efd140e4f6",
+  "tie_limit": "compare.py TIE requires ratio exactly1.0. The fixture uses copied-identical data to prove identity; actual independently measured values retain WIN/LOSS unless exactly tied. No statistical-noise threshold is defined or changed."
+}

@@ -1,0 +1,8 @@
+butter serve: loading /workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a on [cuda] CUDA device (sm_90)
+Qwen35: NVFP4 language load done in 12.07s (64 layers, vision skipped)
+butter serve listening on http://127.0.0.1:8890
+  parallel sessions: 16
+  GET  /health
+  GET  /v1/models
+  POST /v1/chat/completions
+  POST /v1/messages

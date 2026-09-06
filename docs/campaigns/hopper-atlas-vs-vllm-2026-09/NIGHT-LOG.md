@@ -107,3 +107,38 @@ being measured on Spark 2 stay valid. Docs and `scripts/` may still move.
 - Atlas `native-agent01` at the same `5cde118` source and `5dadfd4d…` binary completes C1/C16: actual4,593/512 tokens,51 successful requests, zero errors. C1 33.129225 tokens/s, TTFT3,194.166ms, TPOT23.989439ms; C16 55.120146 tokens/s, TTFTp50/p99 63,684.249/123,654.765ms, TPOT60.366346ms. Raw pre/post coherency staysfalse solely for reversal; separate policy passes. Completion00:53:36.587157Z, exact owned stop, later operator-observed empty GPU00:54.
 - Genuine agent comparison exits0 after mismatched OSL red exit2: Atlas33.129/55.120 versus vLLM78.451/638.758 tokens/s, LOSS both rungs. No scoring certification or matched-capacity/arithmetic claim. Two new per-cell supplements bind the full finished agent session.
 - Remaining BF16-head finding is performance only: actual head precision is BF16; the final shared branch uses correct dense GEMM but misses the existing batch-GEMV route. A narrow repair is underway, with no performance benefit claimed yet. Completed baseline publication precedes that repair and Butter performance measurements. [Current rental report](RENTAL-H100-REPORT.md).
+
+## 2026-09-06, head-fix CPU readiness and Butter admission (01:07–01:13 UTC)
+
+- PR895 head independently verified `7c786cc50455dee52c11c3bf4097de945fbb8f6a`; full tree matches CPU-tested `b5ef32d`. BF16-head dispatch red2pass/1fail, green3pass; full model654pass/14ignored, clippy/rustdoc0 and doctests0executed/2ignored. GPU/performance pending; no new speedup assigned.
+- Butter parallel16 long-prompt one-token admission expires180s before the frozen ladder. Minimum sampled free memory16,211MiB over45 samples, no captured OOM/CUDA error. Exact owned stop and empty GPU finish01:06:41.392915Z. No C16 throughput or proven memory failure. C1-only follow-up is active and excluded.
+- Summary-helper partial-export defects reproduced red (empty ladder omitted; missing argv TypeError). Both fixed outside the repository/frozen harness;3/3 CPU checks prove new head labels retain prior pairs/false gates, null missing parity and unchanged fixture input bytes. Historical snapshots remain unchanged. [Queued preparation evidence](RENTAL-H100-NATIVE-FP8.md#follow-on-preparation-after-the-completed-baseline).
+
+- Butter C1-only follow-up also stops on the remaining wall budget after162.087s, with no full three-repetition rung and no post-quality result. Corrected observation from actual stdout: two measured C1 records complete, approximately5.72 tokens/s each,44.73/44.76s wall,1,193/256 tokens and no errors. Server capacity remainsparallel16 while offered concurrency is1. Original FP8 is implemented and coherent on the short checks; full frozen latency validation remains incomplete. Exact owned stop/empty GPU finish01:13:50.753744Z; both failed windows are retained.
+
+- Evidence lesson: a deadline-only summary does not establish that no repetition completed. Inspect retained ladder stdout as well as JSON before describing partial runs; retain rounded partial values without synthesizing a full rung.
+
+## 2026-09-06, completed output-head latency repair (01:21 UTC)
+
+- Executed `7c786cc` binary `23efba747b5b309a1750789e1166055e9b4432e0511462da719e626cce01db64` completes C1/C16 plus post-policy, all51 requests1193/256, zero errors. C1 39.348979tokens/s is effectively unchanged; C16 73.806542 is13.6% over previous64.998445. TTFTp50/p99 23,476.673/45,680.003ms, TPOT45.449147ms. Raw original coherency remainsfalse solely reversal; owned stop/wrapper0. vLLM still790.507 at C16 under a different capacity/arithmetic profile.
+- Existing BF16 batch-GEMV example passes nine exact-bit comparisons to repeated scalar GEMV at its example shapes. This is not the248,077-row active vocabulary or padded248,320-row model head, and not the prior scalar-GEMM reference. Full-model performance is separately observed above. Concurrent quality17/17 passes, maxclientHTTPoverlap16.
+- New head-agent C1 rung completes33.131246 while whole session remains active; no newC16/post result inferred. Actual final-export helper is `verify_final_export.py` (corrected filename), inventoried with synthetic verifier selftest; root runs final remote/local proof only after all jobs stop. No final proof claimed yet.
+
+## 2026-09-06, both current output-head workloads complete (01:33 UTC)
+
+- `7c786cc` head-agent run finishes C1/C16 and post-policy: actual4593/512 tokens,51 successful requests, zero errors. C1 33.131246tokens/s; C16 61.393284, an observed11.4% over55.120146. TTFTp50/p99 57,992.007/112,239.304ms, TPOT52.932388ms. Raw gates remainfalse solely reversal; final policytrue at01:33:06.786677Z, owned stop/wrapper0. vLLM control638.758 at C16 remains about10.4 times throughput with different capacity/arithmetic.
+- Latest published tooling `f08d4ea` adds the explicit `ATLAS_MS_PROFILE` owned-launch key and tests only. Measured binaries and both workloads remain `7c786cc`/`23efba74…`; no compiled path changes or rebuild. Later standalone profiling will not overlap the frozen ladders. Butter final full-C1 and standalone vLLM cross-check remain pending before final export verification.
+
+## 2026-09-06, complete Butter C1 (01:38 UTC)
+
+- Same original FP8 checkpoint, Butter `dfc45a1`/`da3e6000…`, final full C1 completes3/3reps plus pre/post sole-reversal policy. Mean5.722726728tokens/s,spread0.161927888%,wall44.733940111s; TTFTp50/p99 mean35,282.264823ms, TPOT36.897755ms. All actual1193/256, finishlength,error0. Raw original gates stayfalse. Owned stop/empty GPU01:38:39.595952Z,minfree17,603MiB;54/54rawfilehashes verified. Serverparallel16/context8192/W8A32/F32KV explicit. Previous C16 failure and two partial C1 records retained; no C16 throughput inferred.
+
+## 2026-09-06, final control and attribution (01:45–01:48 UTC)
+
+- Fresh vLLM latency repeat completes all 51 timed requests and both original-gate/exception pairs. C1 75.312503 tokens/s (−2.1004%); C16 790.533008 (+0.00333%). The genuine comparator remains LOSS/WIN; identical-input TIE selftest is distinct from empirical repeat stability. Standalone `vllm bench serve` completes 8/8, zero errors, all 1,024/256, 76.686628 tokens/s. Random completions and ignore-EOS differ from the frozen essay workload; original failed attempt remains.
+- The separate unchanged-7c Atlas profile passes 17 arithmetic requests and captures 12 actual C4 steps. Median total38.1555 ms: whole SSM layers/FFNs26.165 ms, attention layers/FFNs11.0285 ms, normalization/head0.951 ms. Sync overhead and disabled graphs prevent throughput inference. Next investigation splits FFNs, GDN projections and recurrence; whole-layer share alone is not a recurrence bottleneck finding.
+- Tooling f08 Linux process suite passes16/16 after actual old-code refusal; compiled-path diff is empty. Atlas and Butter measured ELF files are archived outside Git with exact hashes. Final stopped-dataset export proof is recorded separately when complete.
+
+## 2026-09-06, rental export closed (01:55 UTC)
+
+- Real final remote/local verification passes all 1,740 result/download-proof files, 14,577,630 bytes, exact size/SHA256. First attempt observed one changing telemetry CSV; failed receipt retained, exact owned collector stopped by PIDFD with output-file identity proven, then stable export passes. Final GPU/Spark/compiler checks are empty. Disk reports 500G total,117G used,384G available. Export loop stopped; no more rental access needed. User notified to destroy instance49994640; actual provider deletion is not asserted.

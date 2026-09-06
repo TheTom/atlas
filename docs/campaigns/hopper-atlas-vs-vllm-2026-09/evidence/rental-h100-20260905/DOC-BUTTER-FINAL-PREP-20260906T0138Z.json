@@ -1,0 +1,20 @@
+{
+  "utc": "2026-09-06T01:47:08.459035+00:00",
+  "status": "Queued, unpublished. Waiting for final vLLMrepeat/crosscheck, MSprofile and final remote/local export proof.",
+  "new_manifest_entries_verified": 529,
+  "new_json_files_parsed": 219,
+  "report_links_verified": 217,
+  "typos_exit": 0,
+  "current_engine_and_tooling_distinct": true,
+  "current_results": "Both7c Atlas shapes complete; final ButterC1 complete; historical incomplete/failed gates retained.",
+  "AA_pairing": "Observed red3pass1fail then green4pass; preserves actual comparator verdicts and unknown immutable vLLM identity.",
+  "indexed_sessions": 29,
+  "supplemental_cells": 17,
+  "report_sha256": {
+    "RENTAL-H100-REPORT.md": "2b256e085c34fcc07c00b336264e4b3ce799c0570bb896891a58d1009d55d942",
+    "RENTAL-H100-NATIVE-FP8.md": "88084f5b996abd5994a9ba376ff5c5ab0404ecd50c2793f7df38e396203c52f6",
+    "RENTAL-H100-PROVENANCE.md": "3d84b687ed79ad95c179292756afff38be7ae235ad75948d5ddd7ec9f7d52fac",
+    "NIGHT-LOG.md": "929b8d0d0b8cda7d425a7d108249ed3273d1d90b399881bec3a132f78081fa3b",
+    "vllm-control/SCHEMA-GAPS.md": "129acd29bdde1f9f78bd8bad94baac103553b3e92fbb944fc91ec289237e6362"
+  }
+}

@@ -1,0 +1,1151 @@
+{
+  "captured_utc": "2026-09-06T01:30:48.047255+00:00",
+  "scope": "Finished7c latency and numerical example; derived head-agent C1 remains visibly unfinished. No growing head-agent raw files copied. Final verifier inventoried, not run on actual final export.",
+  "copied_files": [
+    {
+      "path": "atlas-native-head-lat01/RESTRICTION.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/RESTRICTION.txt",
+      "sha256": "e65007880d03318cec397d585d00c9ee45107df60a5b074417a0724d2eef957a",
+      "bytes": 256
+    },
+    {
+      "path": "atlas-native-head-lat01/admission.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/admission.json",
+      "sha256": "9065d252815895973d7f7a498ac965db6e1f6b3615e12068a0fd69cc920edef1",
+      "bytes": 17507
+    },
+    {
+      "path": "atlas-native-head-lat01/available-spark.sha256",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/available-spark.sha256",
+      "sha256": "bb656a4c19717d051fb83607a4d9b85408a5ed4aab4fcc087fbd40611fa27fc3",
+      "bytes": 107
+    },
+    {
+      "path": "atlas-native-head-lat01/boot.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/boot.json",
+      "sha256": "3c183b0dd01980b2c0a7553654816fa8244f8df052c1ed08149dc59e791e0733",
+      "bytes": 5166
+    },
+    {
+      "path": "atlas-native-head-lat01/boot.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/boot.log",
+      "sha256": "3c183b0dd01980b2c0a7553654816fa8244f8df052c1ed08149dc59e791e0733",
+      "bytes": 5166
+    },
+    {
+      "path": "atlas-native-head-lat01/capture.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/capture.log",
+      "sha256": "defac9c0859f6d170602d5aac33ea122602f5453257fcce64b11615612e63a9b",
+      "bytes": 2082
+    },
+    {
+      "path": "atlas-native-head-lat01/coherency-post.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/coherency-post.json",
+      "sha256": "ea020fb8b85284f1e0ee7231ef1132b04a34f7cc2a69c04dcb5eef8eea5743c3",
+      "bytes": 12890
+    },
+    {
+      "path": "atlas-native-head-lat01/coherency-post.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/coherency-post.log",
+      "sha256": "ea020fb8b85284f1e0ee7231ef1132b04a34f7cc2a69c04dcb5eef8eea5743c3",
+      "bytes": 12890
+    },
+    {
+      "path": "atlas-native-head-lat01/coherency-pre.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/coherency-pre.json",
+      "sha256": "a16e6e1b0fd4b608b5f835cab6703f69b153e35237c12c10a2d003ee550483ef",
+      "bytes": 12876
+    },
+    {
+      "path": "atlas-native-head-lat01/coherency-pre.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/coherency-pre.log",
+      "sha256": "a16e6e1b0fd4b608b5f835cab6703f69b153e35237c12c10a2d003ee550483ef",
+      "bytes": 12876
+    },
+    {
+      "path": "atlas-native-head-lat01/compiler-occupancy-before.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/compiler-occupancy-before.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c1-00/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c1-00/request.json",
+      "sha256": "9b2ab007d01d7cf4ccfd046cfeecf05001720e83a7a093a44723bfe835e440ed",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c1-00/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c1-00/response-headers.json",
+      "sha256": "79cb4fb156a68b3de2a7fd5c86de96d4ba9af80043ae33c05744179a1c79658e",
+      "bytes": 970
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c1-00/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c1-00/response.body",
+      "sha256": "ec7f6784891a9c747753b7c5ae0721350bf69028bd1b125b223b65b51474564b",
+      "bytes": 608
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c1-00/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c1-00/result.json",
+      "sha256": "3b8d491bba7594645648c195c3af8e6dc7d1f432bf682f582b90c8c602b4897a",
+      "bytes": 2300
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-00/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-00/request.json",
+      "sha256": "7234acb2100b2c84338b9a0051a7471451c990955b76e5bd49bc1efcc868f97c",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-00/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-00/response-headers.json",
+      "sha256": "2376bdb8859359557dcfcc0146607117ab260f42f720c28576d1f73a95a79489",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-00/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-00/response.body",
+      "sha256": "ef4bcc5662bec80f1ce70beeb0441178d124ef7bd9b5146dd09d091801b04be5",
+      "bytes": 609
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-00/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-00/result.json",
+      "sha256": "ea549c8921c050e6dff5a8a4fd5dc293439a783a90ab0c1284f7db8a82a21951",
+      "bytes": 2304
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-01/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-01/request.json",
+      "sha256": "02371ea5e7d301bb5300b4334dfcc6c7ae2bafc17a278a45bb5aadb495311858",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-01/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-01/response-headers.json",
+      "sha256": "aca28a645cebf585346375db70d366486dc27e6479d42f769fb6dc8d3d097f8e",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-01/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-01/response.body",
+      "sha256": "2cf3639e0cae9ef341a26b7f1737e1b533875d84cdea6d7ce769800b74964932",
+      "bytes": 610
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-01/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-01/result.json",
+      "sha256": "f26901f9b2eed22ae30b2b0cee5fea3d7a4a2740306111667f76aba401ab1913",
+      "bytes": 2305
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-02/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-02/request.json",
+      "sha256": "fc3f09c30c334f7403c1f0c9c102ee4ee7ef955186bd4361278059d4be5a257e",
+      "bytes": 456
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-02/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-02/response-headers.json",
+      "sha256": "b205d7aadd7bf92a108f31c6e7e3c3b75dc1ffa9c69e30ee804754016ee9fdb1",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-02/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-02/response.body",
+      "sha256": "01d09a8078c000490a5e25006d2b8294ac4bbf770e7da5d0fc2f6fe89e6b5d67",
+      "bytes": 610
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-02/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-02/result.json",
+      "sha256": "31d67dc0cee5211a9d4cd794f30520f2e85c041afa72c70763bbe48e865b0e82",
+      "bytes": 2304
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-03/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-03/request.json",
+      "sha256": "c3e4b0c0a458d381728a2b650e8c21f5ea0cc41d15005ae640d6e1a2b762855d",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-03/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-03/response-headers.json",
+      "sha256": "3d2c7fad03b31fc297d06b7638c19c5a973acdd564c595c1a3c827de8ce4637a",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-03/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-03/response.body",
+      "sha256": "935f268c415329c956524a9e4ea619bba816fff65b1293c60a6e64a93521b46b",
+      "bytes": 610
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-03/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-03/result.json",
+      "sha256": "6794b44755379c7ae179b5f7318f997a7cd1743004e954834e11d2c4b917d9be",
+      "bytes": 2305
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-04/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-04/request.json",
+      "sha256": "e36a7c5e775da0d5b1ff8a0a35b79a205ae4981b3296dcbf448fa6b4f8b139a6",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-04/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-04/response-headers.json",
+      "sha256": "1ffbbf681e1d596fd4aab0b8a1b4acaf85f2ddbc694e9c64ab85e09576b702f9",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-04/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-04/response.body",
+      "sha256": "248a7e344f2176513df037ef50ba34292eed60668775764c3688b3bf24919920",
+      "bytes": 610
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-04/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-04/result.json",
+      "sha256": "fbe8d6a510f20ac7008effd0057b642503fe15a649704e224cff205c54129f2d",
+      "bytes": 2305
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-05/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-05/request.json",
+      "sha256": "cd87441788c33e0ed20272ddac5123279d3841e852b146d4ef2852239e566b52",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-05/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-05/response-headers.json",
+      "sha256": "d5e808db1a7b6ea95f4c2d182a05117841af638674bc01e1b366e2969943557a",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-05/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-05/response.body",
+      "sha256": "cd502df39be7f014433300f2f299ad0596617424747c6c87201e057c921fe75a",
+      "bytes": 608
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-05/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-05/result.json",
+      "sha256": "4cefb7beb6c1d9ce4724a2095a16ac8423c47a695f79d68e01e8299cf8ad64ca",
+      "bytes": 2303
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-06/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-06/request.json",
+      "sha256": "f3fb6730a0dc88229d21813718f3099dc8b998f7b3f3154ea2a4564b315e984d",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-06/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-06/response-headers.json",
+      "sha256": "50d1fe8b19ec3e195ab3ea7bde1c8bdb61741eea91e130e6ff9c84094c119ffb",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-06/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-06/response.body",
+      "sha256": "53613febb2acb5ac2f03d00c6c36ededdb81ed5832013d0b1c45fac067c5bf23",
+      "bytes": 610
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-06/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-06/result.json",
+      "sha256": "ce75119e511f78e80c7321b1673fcbec7fded7b2bab852ec3b134ef914b6b7e1",
+      "bytes": 2305
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-07/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-07/request.json",
+      "sha256": "7e54af7cbcd894f2464edfc11bd007d256a64d1d0638cb05d047931ee5c1947f",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-07/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-07/response-headers.json",
+      "sha256": "d9195e4bcf288f880f0e298d81575165ce19e376962433fc78eb00f61142cd87",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-07/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-07/response.body",
+      "sha256": "2d88c23d80b218e52b24be32eb37ddc570acab9d6cedfe173548bbeae769e633",
+      "bytes": 609
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-07/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-07/result.json",
+      "sha256": "f5dc696a74cfcadf216495be21dcb281bc8e3c76043be5c29b3af086d641d065",
+      "bytes": 2305
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-08/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-08/request.json",
+      "sha256": "6d67746404e6bd24f3fb8fe0dc0dcdecf6c6b9ecd12cb7959f9aee97e185e152",
+      "bytes": 456
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-08/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-08/response-headers.json",
+      "sha256": "c459d9d3975d0c61de847e0f6d833a1e3096427d8b45448e6cd3d3a8d1f035e5",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-08/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-08/response.body",
+      "sha256": "16ee6271523d2a43352fd960407235a2f377b148d55ede508caba66de4838187",
+      "bytes": 610
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-08/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-08/result.json",
+      "sha256": "159558f71a6ac2714bac6c88e9ee967cb62e6d049734d4f372c35c1ca104aeb0",
+      "bytes": 2304
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-09/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-09/request.json",
+      "sha256": "b91e3b78c93f71808121f6a79a52a5851b7acff750dcaa3b7d04b9339ca289e5",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-09/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-09/response-headers.json",
+      "sha256": "e5cae9b012d8848f0a3d820e1fbd59133e6513e960851b11c552e11380cccceb",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-09/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-09/response.body",
+      "sha256": "56c929ebb47c5715ffaaec687e02f96b112aed573e65f630ba08c470900b4cdf",
+      "bytes": 609
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-09/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-09/result.json",
+      "sha256": "42a6d4fefee30ec2ae66984a9038993f1fd31d598fa2d39487c9a3e43c601429",
+      "bytes": 2304
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-10/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-10/request.json",
+      "sha256": "bf95a8997f26f34c5357c1be8d0e2475977b3b62b7629914f230ed2e40f1a110",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-10/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-10/response-headers.json",
+      "sha256": "168757016ee7b054c2f5a41e44658d86b0189f9c7a6ede524e562a5f6eb2c8a2",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-10/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-10/response.body",
+      "sha256": "7f46aaf9ff2eec52159e5fab8192a029cf87b8c28b7ad8ca89d547a2c2fd3f3d",
+      "bytes": 609
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-10/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-10/result.json",
+      "sha256": "f9fbf2fca00d7d321efa05b5881307fdc52d0c21bcf5513bcb57247b9fd78cd6",
+      "bytes": 2304
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-11/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-11/request.json",
+      "sha256": "46d0b0063a7391ce5b6015251f3f388c4c5faa53604675ba7dd85c2098d3fea5",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-11/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-11/response-headers.json",
+      "sha256": "a1f8decd4c6c3ba7f49645bdf0d0de46313fc838bbe9d4f005b6125c26f20b2a",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-11/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-11/response.body",
+      "sha256": "b63e7d692f9045f8ab52e94118f0287e7a4fda5f30421ff4a6346b7427f4ccd8",
+      "bytes": 610
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-11/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-11/result.json",
+      "sha256": "8d2a5ef7d5519f48f20d6563a8efcc56877672fb4bed6fc14b614922caa88c43",
+      "bytes": 2306
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-12/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-12/request.json",
+      "sha256": "3dd46a5118d2be5afa0c245ed9092616058bfb2641929752611c58d1a379ac83",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-12/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-12/response-headers.json",
+      "sha256": "a4fbe1c68b5d411b2bb7f6c420e8d76c149aa6c514b0903d6136610e97ea27d7",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-12/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-12/response.body",
+      "sha256": "e764c20d93a26d1375e72ee04a65f090ce395b4513db215b7a3e919c4f6b2d89",
+      "bytes": 610
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-12/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-12/result.json",
+      "sha256": "cad91d8d4ba85eae59561b378268a5c66f386c73721fc61f91bc53435ccdbaea",
+      "bytes": 2306
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-13/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-13/request.json",
+      "sha256": "fbead7e91c5c1e84c689034d2274f0edbf9b739f69bc62d1955aa31f84d237ab",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-13/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-13/response-headers.json",
+      "sha256": "daf1ae03cbbce6eea6aff3846ea8a9cd678acdb18b6938e790195e52c4f43996",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-13/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-13/response.body",
+      "sha256": "6138d99eeb4d2234e019bb2f3b136efe277caf73f3c9705cdaa71f4a54c89c76",
+      "bytes": 619
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-13/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-13/result.json",
+      "sha256": "acf534c88e0ec11273f76f5525129339eb4f144e4f86e72d5bc87d69eac6ec81",
+      "bytes": 2315
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-14/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-14/request.json",
+      "sha256": "e6e497a09315c709bad2d942fe3217e8c77622a3ca6f94dd917dc268eb47c820",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-14/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-14/response-headers.json",
+      "sha256": "cb08cdd57bc2f74549efba3169fcca0d7af4f971881b9866f51bb78a043d0673",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-14/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-14/response.body",
+      "sha256": "fe04675e1e6471d7f355196797e7bb9fd4a1b4b22d70f8a0739f59d2310bc7ee",
+      "bytes": 618
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-14/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-14/result.json",
+      "sha256": "1bd44330ec7ec1f123a514f9e3234ead51c9ddbaf84a83833f2187540e0526f6",
+      "bytes": 2314
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-15/request.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-15/request.json",
+      "sha256": "7ea90f7776e276be365e6ab5e54c483d5608b681e8c81166eef4ce897bb9ef22",
+      "bytes": 457
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-15/response-headers.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-15/response-headers.json",
+      "sha256": "aee67de2b3c300a732fa947ad90664adef83e823f71f3c67b6b17466ffe94068",
+      "bytes": 971
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-15/response.body",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-15/response.body",
+      "sha256": "fb5b0a39ea3ddd5fccbd0b805dd9ba9c7347ed3541c0facbb8c46b3e75f1086f",
+      "bytes": 610
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/c16-15/result.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/c16-15/result.json",
+      "sha256": "9915611fe7487b068829471880c45205e433bf93d80ba1031c3e0d11716ac060",
+      "bytes": 2306
+    },
+    {
+      "path": "atlas-native-head-lat01/concurrent-quality/summary.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/concurrent-quality/summary.json",
+      "sha256": "837d0b0551ddffc266274c92142840d3bb0bf92b3d4a570a5bfb99118cd06140",
+      "bytes": 51654
+    },
+    {
+      "path": "atlas-native-head-lat01/df-after.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/df-after.txt",
+      "sha256": "b4de3155afa7b815639c1c9883c40a3a9823cdea6ed7b2d8e50313adcd1c1257",
+      "bytes": 89
+    },
+    {
+      "path": "atlas-native-head-lat01/df-before.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/df-before.txt",
+      "sha256": "b4de3155afa7b815639c1c9883c40a3a9823cdea6ed7b2d8e50313adcd1c1257",
+      "bytes": 89
+    },
+    {
+      "path": "atlas-native-head-lat01/endpoint-admission.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/endpoint-admission.json",
+      "sha256": "6ecf0649240cdd1643f924adaf8d66cc6c1dea088575f10823a16d7562373d16",
+      "bytes": 250
+    },
+    {
+      "path": "atlas-native-head-lat01/endpoint-admission.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/endpoint-admission.log",
+      "sha256": "49d2ae32a0d7c19ded6f79d8737b6060b9e19fbfabe72a422d822ae276b6e07a",
+      "bytes": 230
+    },
+    {
+      "path": "atlas-native-head-lat01/endpoint-before-ladder.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/endpoint-before-ladder.json",
+      "sha256": "51ccbc654fdda2ca7316bd1dd3cb2c04df63dc3eaac18ec60bc499e76fa21dcf",
+      "bytes": 867
+    },
+    {
+      "path": "atlas-native-head-lat01/endpoint-before-ladder.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/endpoint-before-ladder.log",
+      "sha256": "8851fe7ebcf285b9d72fb6da33c28a62410f81ab2e09e3f347dd53979287dda1",
+      "bytes": 733
+    },
+    {
+      "path": "atlas-native-head-lat01/endpoint-owned.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/endpoint-owned.json",
+      "sha256": "f74d561cf437035fd35be84d40a25620f3008acf04a7d225c8d0454a34888078",
+      "bytes": 867
+    },
+    {
+      "path": "atlas-native-head-lat01/endpoint-owned.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/endpoint-owned.log",
+      "sha256": "793329c2e81b6a00003ec1892896863b525f5b550ff10128406fb6b42509dfd4",
+      "bytes": 733
+    },
+    {
+      "path": "atlas-native-head-lat01/executed-spark.sha256",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/executed-spark.sha256",
+      "sha256": "5bfcb7a145897bdba5e17899808a1d9fb0b75c7e0cb0019653507e6677b20338",
+      "bytes": 153
+    },
+    {
+      "path": "atlas-native-head-lat01/exit-code.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/exit-code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "path": "atlas-native-head-lat01/harness.sha",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/harness.sha",
+      "sha256": "21d20127c562101203dbb7b6a70ea18ed37ca5345ed088b9490f96316f38e177",
+      "bytes": 41
+    },
+    {
+      "path": "atlas-native-head-lat01/ladder.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/ladder.json",
+      "sha256": "fa227a1d3e2b5ce96ddadf6d625b88fb696c15325c51e2c116fb967d4dee2d25",
+      "bytes": 6563
+    },
+    {
+      "path": "atlas-native-head-lat01/ladder.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/ladder.log",
+      "sha256": "c1ebfb1d2ce27b6e0ab2b5b03a907d494c522dcfbc5e1dcfa0fa689f81fcf7ed",
+      "bytes": 1317
+    },
+    {
+      "path": "atlas-native-head-lat01/launch-ready.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/launch-ready.json",
+      "sha256": "374fb7eef316ca5dc6418f3d5e07ac3935431be787267a40259aa992cc14378d",
+      "bytes": 2374
+    },
+    {
+      "path": "atlas-native-head-lat01/launch.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/launch.json",
+      "sha256": "c142a81433366db27f92b19afb095ed05ea647915e75204aecff78990bc8680b",
+      "bytes": 2374
+    },
+    {
+      "path": "atlas-native-head-lat01/measurement-budget.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/measurement-budget.json",
+      "sha256": "83f3686056d0bf29996c7a5ff31395094d4ac1f49d3be99452f5e87c1fdc0a27",
+      "bytes": 252
+    },
+    {
+      "path": "atlas-native-head-lat01/measurement-commands.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/measurement-commands.json",
+      "sha256": "4e8d8952ea88cf9b2905e789c36312bb7e2c99b603c016e428ea1f0574ff3aa0",
+      "bytes": 3515
+    },
+    {
+      "path": "atlas-native-head-lat01/measurement-complete.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/measurement-complete.json",
+      "sha256": "b74884af1bc9b4d5f95439130cbab7144ed0fb5c14789e893bae15cd52bf59bb",
+      "bytes": 196
+    },
+    {
+      "path": "atlas-native-head-lat01/measurement-harness.sha",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/measurement-harness.sha",
+      "sha256": "21d20127c562101203dbb7b6a70ea18ed37ca5345ed088b9490f96316f38e177",
+      "bytes": 41
+    },
+    {
+      "path": "atlas-native-head-lat01/measurement-wrapper.sha256",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/measurement-wrapper.sha256",
+      "sha256": "34b1f5b0f232f6b74e92b6a4c8c01e165a34c001593425e6c11e513f58b93425",
+      "bytes": 65
+    },
+    {
+      "path": "atlas-native-head-lat01/nvidia-smi-q.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/nvidia-smi-q.txt",
+      "sha256": "07a9f60b4f6a078921377f204ef743aa9a43327085cfc807021623a2b1ded41e",
+      "bytes": 14959
+    },
+    {
+      "path": "atlas-native-head-lat01/owner.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/owner.json",
+      "sha256": "54f1d114f69188c2c6174eedbbdd9ab6df37d0a6e1ef689c9dd8e02b2b978200",
+      "bytes": 2236
+    },
+    {
+      "path": "atlas-native-head-lat01/process-env.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/process-env.json",
+      "sha256": "fd0c08d4d343bd2aa43f6c071f3045bf39269b755ba3161956704b2f62010936",
+      "bytes": 318
+    },
+    {
+      "path": "atlas-native-head-lat01/quality-policy-post.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/quality-policy-post.json",
+      "sha256": "d92dafc9132af79d3c751643ee4bbf488fafeba276159af9ae877e7a06391c55",
+      "bytes": 766
+    },
+    {
+      "path": "atlas-native-head-lat01/quality-policy-post.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/quality-policy-post.log",
+      "sha256": "f559901183a9410fc9bd5de4d44bbff698314f77923d9adb6515db32ea674237",
+      "bytes": 662
+    },
+    {
+      "path": "atlas-native-head-lat01/quality-policy-pre.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/quality-policy-pre.json",
+      "sha256": "0f7392eacb916c9a13a34040654f757c7e07f5e9a4bbde4e462443460a772938",
+      "bytes": 765
+    },
+    {
+      "path": "atlas-native-head-lat01/quality-policy-pre.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/quality-policy-pre.log",
+      "sha256": "66f359dcc2982a3440ccfa3184975ff9ad268393cf2777c6474478be3992c59d",
+      "bytes": 661
+    },
+    {
+      "path": "atlas-native-head-lat01/ready.utc",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/ready.utc",
+      "sha256": "7d06f8da0090c184b36d336d44128b24bd9ef3444d69145b3752626da4cab5c0",
+      "bytes": 21
+    },
+    {
+      "path": "atlas-native-head-lat01/requests-complete",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/requests-complete",
+      "sha256": "df0aa51d3c565d9bf4c1ff5df4d811c291f192fee5ed69585a1e15ea445fae81",
+      "bytes": 33
+    },
+    {
+      "path": "atlas-native-head-lat01/serve-wrapper.sh",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/serve-wrapper.sh",
+      "sha256": "12d7ac339ef15d6ccd1e4bd3d7da59e6448300509099c0e5ba80ccda626c1808",
+      "bytes": 4110
+    },
+    {
+      "path": "atlas-native-head-lat01/serve.argv",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/serve.argv",
+      "sha256": "a84720dd1c11f462d8692749eb2d9d3fd17d3da8a985afed727864cff8d1578c",
+      "bytes": 754
+    },
+    {
+      "path": "atlas-native-head-lat01/serve.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/serve.log",
+      "sha256": "1d8cfac88fc0f04df3892973ae318836d410808f45f2a7bcd193e3013238e79d",
+      "bytes": 356425
+    },
+    {
+      "path": "atlas-native-head-lat01/start.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/start.log",
+      "sha256": "08629cfd2e6fc870bd68565c32da58d2b2d2a5efa076064e49d5253f46aeb530",
+      "bytes": 2082
+    },
+    {
+      "path": "atlas-native-head-lat01/stop.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/stop.json",
+      "sha256": "d433c9ddb41cbd6366852576245cb86c39e81bccfec3531b6be3631fa98be340",
+      "bytes": 65
+    },
+    {
+      "path": "atlas-native-head-lat01/stop.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/stop.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "atlas-native-head-lat01/tenants-after.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/benchmark.qwen38.atlas.native-head-lat01/tenants-after.txt",
+      "sha256": "c8c710f12a87ecfb56cb74a8f31fa316904690481df568847ef465a62e003e4c",
+      "bytes": 18
+    },
+    {
+      "path": "comparisons/MEASUREMENTS.md",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/MEASUREMENTS.md",
+      "sha256": "6436bc5beb487d0fd6716560b40d30e7a388a4e2e3f0165eac38eb9a3782e3c8",
+      "bytes": 22773
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-agent01-vs-benchmark.qwen38.vllm.agent01.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-agent01-vs-benchmark.qwen38.vllm.agent01.json",
+      "sha256": "53ceb8dae6b2c3336842634bb4067fd4faf3a5378bd952919cbc55083cfc6849",
+      "bytes": 1643
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-agent01-vs-benchmark.qwen38.vllm.agent01.md",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-agent01-vs-benchmark.qwen38.vllm.agent01.md",
+      "sha256": "53057ab3865f9db3c844d87e85bb8fafa5124f13f4d719dea33378bff4e5fbc6",
+      "bytes": 414
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-agent01-vs-benchmark.qwen38.vllm.agent01.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-agent01-vs-benchmark.qwen38.vllm.agent01.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-agent01-vs-benchmark.qwen38.vllm.agent01.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-agent01-vs-benchmark.qwen38.vllm.agent01.stdout",
+      "sha256": "53057ab3865f9db3c844d87e85bb8fafa5124f13f4d719dea33378bff4e5fbc6",
+      "bytes": 414
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-agent01-vs-benchmark.qwen38.atlas.native-agent01.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-agent01-vs-benchmark.qwen38.atlas.native-agent01.json",
+      "sha256": "b1fbc1a55b2a111e3b264afc698b3e94c0f4737adae59728dd8d5f0ae74a8f88",
+      "bytes": 1421
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-agent01-vs-benchmark.qwen38.atlas.native-agent01.md",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-agent01-vs-benchmark.qwen38.atlas.native-agent01.md",
+      "sha256": "e4cdb4ce4859127fb6ba0a6b681b7b39071580782e91e219f86b9e2cc204ab35",
+      "bytes": 384
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-agent01-vs-benchmark.qwen38.atlas.native-agent01.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-agent01-vs-benchmark.qwen38.atlas.native-agent01.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-agent01-vs-benchmark.qwen38.atlas.native-agent01.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-agent01-vs-benchmark.qwen38.atlas.native-agent01.stdout",
+      "sha256": "e4cdb4ce4859127fb6ba0a6b681b7b39071580782e91e219f86b9e2cc204ab35",
+      "bytes": 384
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-agent01-vs-benchmark.qwen38.vllm.agent01.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-agent01-vs-benchmark.qwen38.vllm.agent01.json",
+      "sha256": "75ab3d178397b89f63488a362ada10454086711bde5805ddb50733af3ac840c1",
+      "bytes": 1416
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-agent01-vs-benchmark.qwen38.vllm.agent01.md",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-agent01-vs-benchmark.qwen38.vllm.agent01.md",
+      "sha256": "e37aeb8e49434177b5a5d45b2247884d44008e2e6704424767752484b3033dae",
+      "bytes": 384
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-agent01-vs-benchmark.qwen38.vllm.agent01.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-agent01-vs-benchmark.qwen38.vllm.agent01.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-agent01-vs-benchmark.qwen38.vllm.agent01.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-agent01-vs-benchmark.qwen38.vllm.agent01.stdout",
+      "sha256": "e37aeb8e49434177b5a5d45b2247884d44008e2e6704424767752484b3033dae",
+      "bytes": 384
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.atlas.native-lat01.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.atlas.native-lat01.json",
+      "sha256": "12d5175c98ddcb32f5c0d8f8468a5e0fbb01cc8a3e39eacbbf7af98300b1181d",
+      "bytes": 1428
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.atlas.native-lat01.md",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.atlas.native-lat01.md",
+      "sha256": "f9a7e94f0554142ae0faaa5597057b767ebea35fe7cdd3190f66a0ac124698b8",
+      "bytes": 384
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.atlas.native-lat01.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.atlas.native-lat01.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.atlas.native-lat01.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.atlas.native-lat01.stdout",
+      "sha256": "f9a7e94f0554142ae0faaa5597057b767ebea35fe7cdd3190f66a0ac124698b8",
+      "bytes": 384
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.atlas.native-lat02.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.atlas.native-lat02.json",
+      "sha256": "c38752564c2581db889d359175dd2d94086686178499665f9bfd53258134dfa1",
+      "bytes": 1651
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.atlas.native-lat02.md",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.atlas.native-lat02.md",
+      "sha256": "f2a1d23c3388f67c1d40fdfa7085935f195583ec40c4cd2c8326375b9bbb35f3",
+      "bytes": 414
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.atlas.native-lat02.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.atlas.native-lat02.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.atlas.native-lat02.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.atlas.native-lat02.stdout",
+      "sha256": "f2a1d23c3388f67c1d40fdfa7085935f195583ec40c4cd2c8326375b9bbb35f3",
+      "bytes": 414
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.vllm.lat01.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.vllm.lat01.json",
+      "sha256": "fcf4581762273a42c58b2b431e3d87daedc6faf18b8fb939eab8c7141a5b94cc",
+      "bytes": 1647
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.vllm.lat01.md",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.vllm.lat01.md",
+      "sha256": "67f83c920244ad0cee07938a7d110d09b628d1865dc4490b5b950cf30029fd26",
+      "bytes": 413
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.vllm.lat01.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.vllm.lat01.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.vllm.lat01.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-head-lat01-vs-benchmark.qwen38.vllm.lat01.stdout",
+      "sha256": "67f83c920244ad0cee07938a7d110d09b628d1865dc4490b5b950cf30029fd26",
+      "bytes": 413
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-lat01-vs-benchmark.qwen38.vllm.lat01.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-lat01-vs-benchmark.qwen38.vllm.lat01.json",
+      "sha256": "fb416a323d212c6820244a48b967eef3b514f7fd07eed0217c53798581dd41f5",
+      "bytes": 1411
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-lat01-vs-benchmark.qwen38.vllm.lat01.md",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-lat01-vs-benchmark.qwen38.vllm.lat01.md",
+      "sha256": "76c1d313ea5f47650d74bd5beb86fba0dca7ac08c90a609649b431f475679220",
+      "bytes": 384
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-lat01-vs-benchmark.qwen38.vllm.lat01.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-lat01-vs-benchmark.qwen38.vllm.lat01.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-lat01-vs-benchmark.qwen38.vllm.lat01.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-lat01-vs-benchmark.qwen38.vllm.lat01.stdout",
+      "sha256": "76c1d313ea5f47650d74bd5beb86fba0dca7ac08c90a609649b431f475679220",
+      "bytes": 384
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.atlas.native-lat01.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.atlas.native-lat01.json",
+      "sha256": "fa72bc13b30000e36c4acddfa9d8f36b5ea77a6e0bab127530918adef48e382d",
+      "bytes": 1423
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.atlas.native-lat01.md",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.atlas.native-lat01.md",
+      "sha256": "f2b596e46c28f33302b9cb28e62a87958fc7623cea53895eda621908a5011383",
+      "bytes": 384
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.atlas.native-lat01.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.atlas.native-lat01.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.atlas.native-lat01.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.atlas.native-lat01.stdout",
+      "sha256": "f2b596e46c28f33302b9cb28e62a87958fc7623cea53895eda621908a5011383",
+      "bytes": 384
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.vllm.lat01.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.vllm.lat01.json",
+      "sha256": "1ce1a22ea77f995398870daff757f46e12fc86cc4133dff3034c30053b0ed26a",
+      "bytes": 1643
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.vllm.lat01.md",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.vllm.lat01.md",
+      "sha256": "aeb607ac8f603f4cd023a39d03da1dfd9eef867fa8544c080286b9a055f437e8",
+      "bytes": 413
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.vllm.lat01.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.vllm.lat01.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "comparisons/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.vllm.lat01.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.vllm.lat01.stdout",
+      "sha256": "aeb607ac8f603f4cd023a39d03da1dfd9eef867fa8544c080286b9a055f437e8",
+      "bytes": 413
+    },
+    {
+      "path": "comparisons/compare-qwen38.atlas.c.lat.c1-vs-benchmark.qwen38.vllm.lat01.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-qwen38.atlas.c.lat.c1-vs-benchmark.qwen38.vllm.lat01.json",
+      "sha256": "3f4d383495be36b305f4156d9d8df163b6954d254a9c7ae655b90ad21fc14557",
+      "bytes": 1425
+    },
+    {
+      "path": "comparisons/compare-qwen38.atlas.c.lat.c1-vs-benchmark.qwen38.vllm.lat01.md",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-qwen38.atlas.c.lat.c1-vs-benchmark.qwen38.vllm.lat01.md",
+      "sha256": "eff530fc4fa51a572b4988978a35fa20d73c32e912b8983a9c2a3d98355fa0f9",
+      "bytes": 382
+    },
+    {
+      "path": "comparisons/compare-qwen38.atlas.c.lat.c1-vs-benchmark.qwen38.vllm.lat01.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-qwen38.atlas.c.lat.c1-vs-benchmark.qwen38.vllm.lat01.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "comparisons/compare-qwen38.atlas.c.lat.c1-vs-benchmark.qwen38.vllm.lat01.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-qwen38.atlas.c.lat.c1-vs-benchmark.qwen38.vllm.lat01.stdout",
+      "sha256": "eff530fc4fa51a572b4988978a35fa20d73c32e912b8983a9c2a3d98355fa0f9",
+      "bytes": 382
+    },
+    {
+      "path": "comparisons/compare-selftest.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-selftest.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "comparisons/compare-selftest.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/compare-selftest.stdout",
+      "sha256": "83cc96504d6c55b7168a0f47de6217ec320d72fc517a3e24ea504b4a5153669d",
+      "bytes": 748
+    },
+    {
+      "path": "comparisons/known-bad-osl.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/known-bad-osl.json",
+      "sha256": "c8d5afe4921b9b75f6c9672be897b8684ca95792f8e65413cb851b0f4d5af342",
+      "bytes": 6552
+    },
+    {
+      "path": "comparisons/known-bad-osl.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/known-bad-osl.stderr",
+      "sha256": "7d6fecfda2bc5ad2385c34767fa842b2a0b13a1b89439512754bcf42c8c7cc7e",
+      "bytes": 109
+    },
+    {
+      "path": "comparisons/known-bad-osl.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/known-bad-osl.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "comparisons/measurement-summary.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/measurement-summary.json",
+      "sha256": "a5846db7188e3171fa19c751fa79c918fd11f28db527d0007b6dd46c31bbc79b",
+      "bytes": 340871
+    },
+    {
+      "path": "comparisons/validate-qwen38.atlas.c.lat.c1.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/validate-qwen38.atlas.c.lat.c1.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "comparisons/validate-qwen38.atlas.c.lat.c1.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/derived-measurements-head-lat-completed/validate-qwen38.atlas.c.lat.c1.stdout",
+      "sha256": "4a9882818cbb361cad90fdefe857420a19a104469065b97d9ffa8ade7ecee094",
+      "bytes": 139
+    },
+    {
+      "path": "gpu-numerical/binary.sha256",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.bf16-head.7c786cc50455dee52c11c3bf4097de945fbb8f6a/binary.sha256",
+      "sha256": "96857de9d16f49b8afa1fbb345091e545ce7e30290deae53689539139a8f77d3",
+      "bytes": 189
+    },
+    {
+      "path": "gpu-numerical/build.env",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.bf16-head.7c786cc50455dee52c11c3bf4097de945fbb8f6a/build.env",
+      "sha256": "221aea1b7837ab4c3cb4d4c7e9c87bf2f446295d10b230e9f73db7e8098d96eb",
+      "bytes": 173
+    },
+    {
+      "path": "gpu-numerical/build.exit",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.bf16-head.7c786cc50455dee52c11c3bf4097de945fbb8f6a/build.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "path": "gpu-numerical/build.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.bf16-head.7c786cc50455dee52c11c3bf4097de945fbb8f6a/build.stderr",
+      "sha256": "196819876aaa6e44d1e0a3ec6f5fa1b6f33362fbe5dbf756545ada93f5ff55ea",
+      "bytes": 756
+    },
+    {
+      "path": "gpu-numerical/build.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.bf16-head.7c786cc50455dee52c11c3bf4097de945fbb8f6a/build.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "gpu-numerical/build.time",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.bf16-head.7c786cc50455dee52c11c3bf4097de945fbb8f6a/build.time",
+      "sha256": "55bcd20c4b96a190c113d0c2bfdc91a039b84a8048c87aa4687f6b40bfd0b6d2",
+      "bytes": 868
+    },
+    {
+      "path": "gpu-numerical/command.sh",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.bf16-head.7c786cc50455dee52c11c3bf4097de945fbb8f6a/command.sh",
+      "sha256": "a29285ae22edbb72edbd7a42d83c706a61095a52651411e4884cb16617863fba",
+      "bytes": 2175
+    },
+    {
+      "path": "gpu-numerical/df-after.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.bf16-head.7c786cc50455dee52c11c3bf4097de945fbb8f6a/df-after.txt",
+      "sha256": "b4de3155afa7b815639c1c9883c40a3a9823cdea6ed7b2d8e50313adcd1c1257",
+      "bytes": 89
+    },
+    {
+      "path": "gpu-numerical/df-before.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.bf16-head.7c786cc50455dee52c11c3bf4097de945fbb8f6a/df-before.txt",
+      "sha256": "b4de3155afa7b815639c1c9883c40a3a9823cdea6ed7b2d8e50313adcd1c1257",
+      "bytes": 89
+    },
+    {
+      "path": "gpu-numerical/finished.utc",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.bf16-head.7c786cc50455dee52c11c3bf4097de945fbb8f6a/finished.utc",
+      "sha256": "bf0eb662161eec82f2049efdcd7cb3c2c7d6b784a42abb988bf0ed2ee0275a08",
+      "bytes": 21
+    },
+    {
+      "path": "gpu-numerical/numerical.argv",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.bf16-head.7c786cc50455dee52c11c3bf4097de945fbb8f6a/numerical.argv",
+      "sha256": "45c3aa947aeb52b9ba6cd7068eba77aafdde4b1a8b085263ab0d0c36bad5199b",
+      "bytes": 123
+    },
+    {
+      "path": "gpu-numerical/numerical.exit",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.bf16-head.7c786cc50455dee52c11c3bf4097de945fbb8f6a/numerical.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "path": "gpu-numerical/numerical.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.bf16-head.7c786cc50455dee52c11c3bf4097de945fbb8f6a/numerical.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "gpu-numerical/numerical.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.bf16-head.7c786cc50455dee52c11c3bf4097de945fbb8f6a/numerical.stdout",
+      "sha256": "957425140aa71fa96364fa2509ef13f996cada465d490bedeeba22f822290f0e",
+      "bytes": 799
+    },
+    {
+      "path": "gpu-numerical/numerical.time",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.bf16-head.7c786cc50455dee52c11c3bf4097de945fbb8f6a/numerical.time",
+      "sha256": "3ae63623ec8285c4ee24f7cd6a0e64d5c11a12a992443dec455d03e0ac9d182e",
+      "bytes": 853
+    },
+    {
+      "path": "gpu-numerical/nvidia-smi-before.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.bf16-head.7c786cc50455dee52c11c3bf4097de945fbb8f6a/nvidia-smi-before.txt",
+      "sha256": "867f38658efbcca82c4d2abc1067ca8e2134196843a88c724cf72d366ffaf97c",
+      "bytes": 14960
+    },
+    {
+      "path": "gpu-numerical/source.sha",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.bf16-head.7c786cc50455dee52c11c3bf4097de945fbb8f6a/source.sha",
+      "sha256": "21d20127c562101203dbb7b6a70ea18ed37ca5345ed088b9490f96316f38e177",
+      "bytes": 41
+    },
+    {
+      "path": "gpu-numerical/tenants-after.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.bf16-head.7c786cc50455dee52c11c3bf4097de945fbb8f6a/tenants-after.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "gpu-numerical/tenants-before.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.bf16-head.7c786cc50455dee52c11c3bf4097de945fbb8f6a/tenants-before.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "helpers/measurement-summary.py",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/measurement-summary.py",
+      "sha256": "92ac02f740ef54827565294e270259b5bee9c7916d272e55d894182fe3f33066",
+      "bytes": 20183
+    },
+    {
+      "path": "helpers/verify_final_export.py",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/verify_final_export.py",
+      "sha256": "1e874d2cfa1c44a03e2d2a5a0865fce6dddb2348106fe491c5f1d61000d3671b",
+      "bytes": 2824
+    },
+    {
+      "path": "helpers/final-export-verifier-selftest/stdout.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/final-export-verifier-selftest/stdout.txt",
+      "sha256": "98c427a487deb95ace63a0d1a79fe49d0fc046272bf69a6405efe42d982613e3",
+      "bytes": 1086
+    },
+    {
+      "path": "helpers/final-export-verifier-selftest/receipt.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/final-export-verifier-selftest/receipt.json",
+      "sha256": "1992bfcb161e13055b9fb88a821659e0a35b40acc539c71f92186801b509e830",
+      "bytes": 440
+    }
+  ],
+  "generated_files": [
+    {
+      "path": "atlas-native-head-lat01-c1.section10.json",
+      "sha256": "04295ac787ef54f50eaa095ab02c2712289aa109200163530b6285bc9627dc8c",
+      "bytes": 10195
+    },
+    {
+      "path": "atlas-native-head-lat01-c16.section10.json",
+      "sha256": "fc068490449406c0163b74a026bf591a398cac88d21e19a081244f257ff85e28",
+      "bytes": 10690
+    },
+    {
+      "path": "helpers/INVENTORY.json",
+      "sha256": "056e2b6bcf4b6743e18f051e36428cad4bf95b440103b94acd05462fdf129853",
+      "bytes": 642
+    }
+  ]
+}

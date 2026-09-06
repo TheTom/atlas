@@ -1,0 +1,11 @@
+Welcome to vast.ai. If authentication fails, try again after a few seconds, and double check your ssh key.
+Have fun!
+5cde118469d5f623c3e26da3055dd9001b781fc2
+ M crates/spark-model/src/model/trait_impl/decode_a2.rs
+ M crates/spark-model/src/model/trait_impl/lm_head_batched.rs
+?? crates/spark-model/src/model/trait_impl/lm_head_bf16_tests.rs
+9c90467ba016f85efce2c0a1248c008ea206ef1ae243ccf11858ff396323f4f5  crates/spark-model/src/model/trait_impl/decode_a2.rs
+e80223c9d4de7097f2efdd2db6955b3f69d8229d78ea1201c0fa253bc3827b89  crates/spark-model/src/model/trait_impl/lm_head_batched.rs
+c2832ee6a830c744eb858bade3642592b4f727896efbd2c38c83edbb08902410  crates/spark-model/src/model/trait_impl/lm_head_bf16_tests.rs
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         500G  117G  384G  24% /

@@ -1,0 +1,25 @@
+{
+  "policy": "user-authorized-rental-word-reversal-exception",
+  "original_gate_passed": false,
+  "proceed_with_performance_testing": true,
+  "known_answers": [
+    {
+      "expected": "391",
+      "status": "OK",
+      "detail": ""
+    },
+    {
+      "expected": "Tokyo",
+      "status": "OK",
+      "detail": ""
+    },
+    {
+      "expected": "rotaregirfer",
+      "status": "FAIL",
+      "detail": "answer not stated: 'To spell the word **refrigerator** backwards, we take the letters from the end o'"
+    }
+  ],
+  "certification_claimed": false,
+  "original_gate_sha256": "ea020fb8b85284f1e0ee7231ef1132b04a34f7cc2a69c04dcb5eef8eea5743c3",
+  "original_gate_path": "/workspace/atlas-rental/results/benchmark.qwen38.atlas.native-head-lat01/coherency-post.json"
+}

@@ -1,0 +1,3 @@
+# driver sha256 7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb
+[rental.qwen38.butter.native-lat-c1] C=  1 rep0  tok/s=    5.72  wall=  44.73s  ctok=    256  ptok/req=[1193]  ttft_p50=35281ms  err=0  clk=1980, 523.71
+[rental.qwen38.butter.native-lat-c1] C=  1 rep1  tok/s=    5.72  wall=  44.76s  ctok=    256  ptok/req=[1193]  ttft_p50=35303ms  err=0  clk=1980, 516.22

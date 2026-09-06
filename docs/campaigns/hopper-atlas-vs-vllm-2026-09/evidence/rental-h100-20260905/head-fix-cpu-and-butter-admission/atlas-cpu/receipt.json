@@ -1,0 +1,55 @@
+{
+  "base": "5cde118469d5f623c3e26da3055dd9001b781fc2",
+  "commit": "b5ef32d098b8c8ba8a85fcc45973a6ca05c746bf",
+  "tree": "a1b76d7c787a3b779d21b9008c77e1ae9d8d184e",
+  "sha256": {
+    "crates/spark-model/src/model/trait_impl/decode_a2.rs": "9c90467ba016f85efce2c0a1248c008ea206ef1ae243ccf11858ff396323f4f5",
+    "crates/spark-model/src/model/trait_impl/lm_head_batched.rs": "e80223c9d4de7097f2efdd2db6955b3f69d8229d78ea1201c0fa253bc3827b89",
+    "crates/spark-model/src/model/trait_impl/lm_head_bf16_tests.rs": "c2832ee6a830c744eb858bade3642592b4f727896efbd2c38c83edbb08902410"
+  },
+  "remote_match": true,
+  "checks": {
+    "red": {
+      "command": "cd /workspace/atlas-rental/src/native-bf16-head-batch-gemv && env CUDA_VISIBLE_DEVICES= ATLAS_SKIP_BUILD=1 CUDARC_CUDA_VERSION=13000 CARGO_TARGET_DIR=/workspace/atlas-rental/target-cpu-checks CARGO_BUILD_JOBS=4 ATLAS_TARGET_HW=hopper ATLAS_TARGET_MODEL=qwen3.8-27b ATLAS_TARGET_QUANT=nvfp4 /root/.cargo/bin/cargo +1.93.1 test --locked -p spark-model --lib lm_head_batched::bf16_tests -- --nocapture",
+      "exit": 101,
+      "wall_s": 40.255330085754395
+    },
+    "green": {
+      "command": "cd /workspace/atlas-rental/src/native-bf16-head-batch-gemv && env CUDA_VISIBLE_DEVICES= ATLAS_SKIP_BUILD=1 CUDARC_CUDA_VERSION=13000 CARGO_TARGET_DIR=/workspace/atlas-rental/target-cpu-checks CARGO_BUILD_JOBS=4 ATLAS_TARGET_HW=hopper ATLAS_TARGET_MODEL=qwen3.8-27b ATLAS_TARGET_QUANT=nvfp4 /root/.cargo/bin/cargo +1.93.1 test --locked -p spark-model --lib lm_head_batched::bf16_tests -- --nocapture",
+      "exit": 0,
+      "wall_s": 10.571796894073486
+    },
+    "full-model": {
+      "command": "cd /workspace/atlas-rental/src/native-bf16-head-batch-gemv && env CUDA_VISIBLE_DEVICES= ATLAS_SKIP_BUILD=1 CUDARC_CUDA_VERSION=13000 CARGO_TARGET_DIR=/workspace/atlas-rental/target-cpu-checks CARGO_BUILD_JOBS=4 ATLAS_TARGET_HW=hopper ATLAS_TARGET_MODEL=qwen3.8-27b ATLAS_TARGET_QUANT=nvfp4 /root/.cargo/bin/cargo +1.93.1 test --locked -p spark-model",
+      "exit": 0,
+      "wall_s": 30.731730222702026
+    },
+    "clippy": {
+      "command": "cd /workspace/atlas-rental/src/native-bf16-head-batch-gemv && env CUDA_VISIBLE_DEVICES= ATLAS_SKIP_BUILD=1 CUDARC_CUDA_VERSION=13000 CARGO_TARGET_DIR=/workspace/atlas-rental/target-cpu-checks CARGO_BUILD_JOBS=4 ATLAS_TARGET_HW=hopper ATLAS_TARGET_MODEL=qwen3.8-27b ATLAS_TARGET_QUANT=nvfp4 /root/.cargo/bin/cargo +1.93.1 clippy --locked -p spark-model --tests",
+      "exit": 0,
+      "wall_s": 26.473243951797485
+    },
+    "rustdoc": {
+      "command": "cd /workspace/atlas-rental/src/native-bf16-head-batch-gemv && env CUDA_VISIBLE_DEVICES= ATLAS_SKIP_BUILD=1 CUDARC_CUDA_VERSION=13000 CARGO_TARGET_DIR=/workspace/atlas-rental/target-cpu-checks CARGO_BUILD_JOBS=4 ATLAS_TARGET_HW=hopper ATLAS_TARGET_MODEL=qwen3.8-27b ATLAS_TARGET_QUANT=nvfp4 /root/.cargo/bin/cargo +1.93.1 doc --locked --workspace --no-deps",
+      "exit": 0,
+      "wall_s": 32.078981161117554
+    },
+    "doctests": {
+      "command": "cd /workspace/atlas-rental/src/native-bf16-head-batch-gemv && env CUDA_VISIBLE_DEVICES= ATLAS_SKIP_BUILD=1 CUDARC_CUDA_VERSION=13000 CARGO_TARGET_DIR=/workspace/atlas-rental/target-cpu-checks CARGO_BUILD_JOBS=4 ATLAS_TARGET_HW=hopper ATLAS_TARGET_MODEL=qwen3.8-27b ATLAS_TARGET_QUANT=nvfp4 /root/.cargo/bin/cargo +1.93.1 test --locked --workspace --doc",
+      "exit": 0,
+      "wall_s": 46.48494005203247
+    }
+  },
+  "full_model": {
+    "passed": 654,
+    "ignored": 14,
+    "failed": 0
+  },
+  "workspace_doctests": {
+    "passed": 0,
+    "ignored": 2,
+    "failed": 0
+  },
+  "cleanup_exit": 0,
+  "gpu_validation": "pending parent execution"
+}

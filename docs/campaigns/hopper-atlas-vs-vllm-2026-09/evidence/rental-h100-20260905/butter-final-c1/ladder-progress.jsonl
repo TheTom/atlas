@@ -1,0 +1,6 @@
+{"observed_utc": "2026-09-06T01:34:58.851185+00:00", "line": "# driver sha256 7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb"}
+{"observed_utc": "2026-09-06T01:36:27.907971+00:00", "line": "[rental.qwen38.butter.native-lat-c1] C=  1 rep0  tok/s=    5.73  wall=  44.70s  ctok=    256  ptok/req=[1193]  ttft_p50=35262ms  err=0  clk=1980, 525.51"}
+{"observed_utc": "2026-09-06T01:37:12.937605+00:00", "line": "[rental.qwen38.butter.native-lat-c1] C=  1 rep1  tok/s=    5.72  wall=  44.73s  ctok=    256  ptok/req=[1193]  ttft_p50=35271ms  err=0  clk=1980, 528.49"}
+{"observed_utc": "2026-09-06T01:37:57.968383+00:00", "line": "[rental.qwen38.butter.native-lat-c1] C=  1 rep2  tok/s=    5.72  wall=  44.77s  ctok=    256  ptok/req=[1193]  ttft_p50=35313ms  err=0  clk=1980, 526.74"}
+{"observed_utc": "2026-09-06T01:37:57.968671+00:00", "line": "[rental.qwen38.butter.native-lat-c1] C=  1 SERIES ['5.73', '5.72', '5.72'] mean=5.72 spread=0.16%"}
+{"observed_utc": "2026-09-06T01:37:57.968818+00:00", "line": "# wrote /workspace/butter-iron-rental/results/butter-block-fp8-lat-c1-final-20260906T013401Z/ladder.json"}

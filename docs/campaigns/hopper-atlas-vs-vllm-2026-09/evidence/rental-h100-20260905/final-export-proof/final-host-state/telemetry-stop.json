@@ -1,0 +1,15 @@
+{
+  "utc": "2026-09-06T01:54:48.739685+00:00",
+  "pid": 11819,
+  "argv": [
+    "nvidia-smi",
+    "--query-gpu=timestamp,uuid,utilization.gpu,memory.used,power.draw,clocks.sm,temperature.gpu",
+    "--format=csv",
+    "-l",
+    "1"
+  ],
+  "stdout_target": "/workspace/atlas-rental/results/telemetry.csv",
+  "signal": "SIGTERM via pidfd",
+  "owned_evidence_fd_verified": true,
+  "exit_observed": true
+}

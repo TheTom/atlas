@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/workspace/atlas-rental/src/atlas/bench/campaign/process_launch.py", line 41, in launch_environment
+    raise ValueError("environment key is not allowed: " + key)
+ValueError: environment key is not allowed: ATLAS_MS_PROFILE

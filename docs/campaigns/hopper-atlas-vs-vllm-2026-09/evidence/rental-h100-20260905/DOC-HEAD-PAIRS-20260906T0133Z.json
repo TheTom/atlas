@@ -1,0 +1,24 @@
+{
+  "utc": "2026-09-06T01:39:05.081583+00:00",
+  "status": "Queued only, no publication; final Butter full-C1, vLLMrepeat/crosscheck, MSprofile and real final-export proof still pending.",
+  "executed_engine_source": "7c786cc50455dee52c11c3bf4097de945fbb8f6a",
+  "latest_published_tooling_source": "f08d4eafb3f56e2168bfc993a657191a4e424a1e",
+  "binary_sha256": "23efba747b5b309a1750789e1166055e9b4432e0511462da719e626cce01db64",
+  "current_head_shapes_complete": [
+    "lat:C1,C16",
+    "agent:C1,C16"
+  ],
+  "new_manifest_hash_entries_verified": 466,
+  "new_json_files_parsed": 188,
+  "report_links_verified": 170,
+  "typos_exit": 0,
+  "indexed_sessions": 28,
+  "supplemental_cells": 16,
+  "final_export_proof": "Not yet run; actual verify_final_export.py bytes and separate synthetic selftest inventoried.",
+  "report_sha256": {
+    "RENTAL-H100-REPORT.md": "4bda480b1d6664f641a551e79d66d308fbf269e3f2c9765e0069b817c4f43d77",
+    "RENTAL-H100-NATIVE-FP8.md": "72e4063456e4d5255405348c8cea13af28a78be32e9c8f56396f58bb9f61fc92",
+    "RENTAL-H100-PROVENANCE.md": "ece83ca1a58dda455c3acad5488b93b3bbe7a150580c53141ee9a21bccb40971",
+    "NIGHT-LOG.md": "0e3c618a9d8efaa9d9ddb6bb56956e963b509662eccef42ee15d429104446fbf"
+  }
+}

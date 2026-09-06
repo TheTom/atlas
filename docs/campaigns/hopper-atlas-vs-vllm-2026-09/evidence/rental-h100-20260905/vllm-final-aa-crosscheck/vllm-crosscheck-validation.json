@@ -1,0 +1,17 @@
+{
+  "raw_sha256": "7facb863b560b2e71edd3dfc9e86a0308cd9f78d80f689e487ee32e5609b6b91",
+  "checks": {
+    "8_completed": true,
+    "zero_failed": true,
+    "total_input_exact": true,
+    "total_output_exact": true,
+    "8_empty_errors": true,
+    "input_lens": true,
+    "output_lens": true
+  },
+  "passed": true,
+  "configured_concurrency": 1,
+  "reported_max_concurrent_requests": 2,
+  "concurrency_metric_divergence": "Source audit pending; retain both original fields",
+  "certification_claimed": false
+}

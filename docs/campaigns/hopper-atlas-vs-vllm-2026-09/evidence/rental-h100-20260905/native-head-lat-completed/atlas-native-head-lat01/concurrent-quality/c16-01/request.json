@@ -1,0 +1,20 @@
+{
+  "model": "Qwen/Qwen3.8-27B-FP8",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Return only the exact integer answer. No explanation, reasoning, tags or punctuation."
+    },
+    {
+      "role": "user",
+      "content": "Request nonce: 15d9f65d7f5b4251b9d2547bddbd5d35\nWhat is 23 * 19?"
+    }
+  ],
+  "temperature": 0.0,
+  "seed": 42,
+  "max_tokens": 32,
+  "stream": false,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  }
+}

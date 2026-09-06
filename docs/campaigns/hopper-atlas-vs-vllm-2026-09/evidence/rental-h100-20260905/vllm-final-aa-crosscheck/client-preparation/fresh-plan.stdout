@@ -1,0 +1,32 @@
+{
+  "serve_argv": [
+    "bash",
+    "/workspace/atlas-rental/serve_qwen38_benchmark.sh",
+    "vllm",
+    "crosscheck02",
+    "off"
+  ],
+  "client_argv": [
+    "python3",
+    "/workspace/atlas-rental/run_vllm_crosscheck.py",
+    "--session-dir",
+    "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02",
+    "--out",
+    "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/crosscheck",
+    "--num-prompts",
+    "8",
+    "--execute"
+  ],
+  "session": "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02",
+  "control": "/workspace/atlas-rental/results/crosscheck-control.crosscheck02",
+  "expected_helper_sha256": {
+    "run_vllm_crosscheck.py": "d2334551e4bb0c370cf6a9d8e9c33a3984d75d3891917ebafa344b871e97a1c1",
+    "serve_qwen38_benchmark.sh": "12d7ac339ef15d6ccd1e4bd3d7da59e6448300509099c0e5ba80ccda626c1808"
+  },
+  "wall_budget_seconds": 600,
+  "boot_budget_seconds": 300,
+  "client_budget_seconds": 240,
+  "cleanup_reserve_seconds": 65,
+  "certification_claimed": false,
+  "execution_requested": false
+}

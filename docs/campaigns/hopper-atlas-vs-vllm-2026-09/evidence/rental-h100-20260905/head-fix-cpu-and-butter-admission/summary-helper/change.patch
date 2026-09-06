@@ -1,0 +1,41 @@
+diff --git a/tooling-fixes/measurement-summary-head-labels/measurement-summary-before.py b/measurement-summary.py
+index b839e20..85733b8 100644
+--- a/tooling-fixes/measurement-summary-head-labels/measurement-summary-before.py
++++ b/measurement-summary.py
+@@ -145,8 +145,15 @@ def main():
+     paths = sorted(p for p in args.raw.glob("*qwen38*/ladder.json") if read(p).get("rungs"))
+     pending = []
+     for directory in sorted(args.raw.glob("benchmark.qwen38*")):
+-        if directory.is_dir() and not (directory / "ladder.json").exists():
+-            pending.append({"directory": directory.name, "status": "no_ladder_export_yet",
++        if not directory.is_dir():
++            continue
++        ladder_path = directory / "ladder.json"
++        exported = read(ladder_path)
++        if exported is None or not exported.get("rungs"):
++            pending.append({"directory": directory.name,
++                            "status": "no_ladder_export_yet" if exported is None else "no_completed_rung_export_yet",
++                            "ladder_sha256": sha(ladder_path) if exported is not None else None,
++                            "ladder_header": None if exported is None else {k: v for k, v in exported.items() if k != "rungs"},
+                             "launch": read(directory / "launch-ready.json") or read(directory / "launch.json"),
+                             "boot": read(directory / "boot.json"),
+                             "concurrent_quality": read(directory / "concurrent-quality/summary.json"),
+@@ -190,7 +197,8 @@ def main():
+                 parity = {
+                     "both_native_fp8_environment": a["native_fp8_profile"] and v["native_fp8_profile"],
+                     "both_captured_bf16_head": all(c["observed_serve_flags"].get("--lm-head-dtype") == "bf16" for c in (a, v)),
+-                    "serve_argv_except_executable_equal": a["serve_argv"][1:] == v["serve_argv"][1:],
++                    "serve_argv_except_executable_equal": (a["serve_argv"][1:] == v["serve_argv"][1:]
++                                                         if a["serve_argv"] and v["serve_argv"] else None),
+                     "selected_precision_environment_equal": a["precision_profile_environment"] == v["precision_profile_environment"],
+                 }
+             comparisons.append({"name": name, "kind": kind, "native_profile_parity": parity, "atlas_input": a["directory"],
+@@ -260,7 +268,7 @@ def main():
+         quality = item["concurrent_quality"] or {}
+         control = quality.get("control", {})
+         concurrent = quality.get("concurrent", {})
+-        lines += [f"- {item['directory']}: no ladder JSON exported. Concurrent-quality control={control.get('passed')}, C16={concurrent.get('passed')}, observed client HTTP overlap={concurrent.get('max_overlapping_client_http_attempts')}. This is a quality diagnostic, not a throughput rung or proof of simultaneous GPU rows."]
++        lines += [f"- {item['directory']}: {item['status']}; no completed rung exported. Concurrent-quality control={control.get('passed')}, C16={concurrent.get('passed')}, observed client HTTP overlap={concurrent.get('max_overlapping_client_http_attempts')}. This is a quality diagnostic, not a throughput rung or proof of simultaneous GPU rows."]
+     for c in cells:
+         if c["session_status"] != "finished_ladder":
+             lines += [f"- {c['directory']}: {c['session_status']}; complete exported rungs={[r['concurrency'] for r in c['rungs'] if r['timed_reps_complete']]}; unobserved frozen concurrencies={c['unobserved_frozen_concurrencies']}; post-coherency present={'coherency-post' in c['gates']}."]

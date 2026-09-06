@@ -1,0 +1,1 @@
+/workspace/atlas-rental/bin/e68079c7d70035b17f52af3a33ca70a61c2863c5/qwen3.6-35b-a3b/spark

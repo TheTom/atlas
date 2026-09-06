@@ -1,0 +1,36 @@
+test_empty_export_is_pending_not_silently_dropped (__main__.SummaryTests.test_empty_export_is_pending_not_silently_dropped) ... FAIL
+test_missing_argv_preserves_unproven_parity (__main__.SummaryTests.test_missing_argv_preserves_unproven_parity) ... FAIL
+test_new_labels_preserve_baseline_pairs_and_failed_gates (__main__.SummaryTests.test_new_labels_preserve_baseline_pairs_and_failed_gates) ... ok
+
+======================================================================
+FAIL: test_empty_export_is_pending_not_silently_dropped (__main__.SummaryTests.test_empty_export_is_pending_not_silently_dropped)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/measurement-summary-head-labels/test_summary.py", line 67, in test_empty_export_is_pending_not_silently_dropped
+    self.assertIsNotNone(item, 'An existing empty-rung export vanished from cells and pending')
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : An existing empty-rung export vanished from cells and pending
+
+======================================================================
+FAIL: test_missing_argv_preserves_unproven_parity (__main__.SummaryTests.test_missing_argv_preserves_unproven_parity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/measurement-summary-head-labels/test_summary.py", line 76, in test_missing_argv_preserves_unproven_parity
+    d = self.run_case(change)
+  File "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/measurement-summary-head-labels/test_summary.py", line 34, in run_case
+    self.assertEqual(run.returncode, 0, run.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/measurement-summary.py", line 275, in <module>
+    main()
+    ~~~~^^
+  File "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/measurement-summary.py", line 193, in main
+    "serve_argv_except_executable_equal": a["serve_argv"][1:] == v["serve_argv"][1:],
+                                          ~~~~~~~~~~~~~~~^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.314s
+
+FAILED (failures=2)

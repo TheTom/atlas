@@ -1,0 +1,6 @@
+{
+  "export_reserve_utc": "2026-09-06T01:40:00+00:00",
+  "seconds_remaining": 1392.064717,
+  "required_start_reserve_s": 1200,
+  "basis": "Completed slow agent baseline took 657s; keep twenty minutes before final export and retain02:25fundedcutoff."
+}

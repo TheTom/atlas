@@ -1,0 +1,11 @@
+{
+  "executed_engine_source": "7c786cc50455dee52c11c3bf4097de945fbb8f6a",
+  "published_tooling_source": "f08d4eafb3f56e2168bfc993a657191a4e424a1e",
+  "changed_paths": [
+    "bench/campaign/process_launch_proc.py",
+    "bench/campaign/process_launch_test.py"
+  ],
+  "compiled_paths_identical": true,
+  "method": "git diff --name-only confirms changes restricted to bench/campaign; measured executable remains captured7c binary23ef.",
+  "engine_performance_retest_due_to_tooling_change": false
+}

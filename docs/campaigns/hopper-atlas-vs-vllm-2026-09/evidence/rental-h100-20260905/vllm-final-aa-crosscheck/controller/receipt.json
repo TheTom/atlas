@@ -1,0 +1,122 @@
+{
+  "serve_argv": [
+    "bash",
+    "/workspace/atlas-rental/serve_qwen38_benchmark.sh",
+    "vllm",
+    "crosscheck02",
+    "off"
+  ],
+  "client_argv": [
+    "python3",
+    "/workspace/atlas-rental/run_vllm_crosscheck.py",
+    "--session-dir",
+    "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02",
+    "--out",
+    "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/crosscheck",
+    "--num-prompts",
+    "8",
+    "--execute"
+  ],
+  "session": "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02",
+  "control": "/workspace/atlas-rental/results/crosscheck-control.crosscheck02",
+  "expected_helper_sha256": {
+    "run_vllm_crosscheck.py": "d2334551e4bb0c370cf6a9d8e9c33a3984d75d3891917ebafa344b871e97a1c1",
+    "serve_qwen38_benchmark.sh": "12d7ac339ef15d6ccd1e4bd3d7da59e6448300509099c0e5ba80ccda626c1808"
+  },
+  "wall_budget_seconds": 600,
+  "boot_budget_seconds": 300,
+  "client_budget_seconds": 240,
+  "cleanup_reserve_seconds": 65,
+  "certification_claimed": false,
+  "execution_requested": true,
+  "latency_aa_requested": true,
+  "started_utc": "2026-09-06T01:42:14.260789+00:00",
+  "wrapper_sha256": "e5b526f643c6d0f897bddc09ddf6c5a3c975a2f0873642c1be842cfe2ea31f36",
+  "inherited_environment_overrides": {
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1"
+  },
+  "compiler-before": {
+    "argv": [
+      "pgrep",
+      "-a",
+      "-x",
+      "rustc|cargo|nvcc|ptxas"
+    ],
+    "exit": 1
+  },
+  "df-before": {
+    "argv": [
+      "df",
+      "-h",
+      "/"
+    ],
+    "exit": 0
+  },
+  "serve_wrapper_pid": 202376,
+  "compiler-ready": {
+    "argv": [
+      "pgrep",
+      "-a",
+      "-x",
+      "rustc|cargo|nvcc|ptxas"
+    ],
+    "exit": 1
+  },
+  "aa_argv": [
+    "python3",
+    "/workspace/atlas-rental/run_vllm_lat_aa.py",
+    "--session-dir",
+    "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02",
+    "--budget-seconds",
+    "180"
+  ],
+  "aa_helper_sha256": "fef0d0a7799b095e016059e5a03e7efea6745e3150e44545116bf4b5e7bb0d83",
+  "latency-aa": {
+    "argv": [
+      "python3",
+      "/workspace/atlas-rental/run_vllm_lat_aa.py",
+      "--session-dir",
+      "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02",
+      "--budget-seconds",
+      "180"
+    ],
+    "exit": 0
+  },
+  "latency_aa_completed": true,
+  "client_exit": 0,
+  "endpoint_before_exit": 0,
+  "endpoint_after_exit": 0,
+  "owned-stop": {
+    "argv": [
+      "python3",
+      "/workspace/atlas-rental/src/atlas/bench/campaign/process_launch.py",
+      "stop",
+      "--record",
+      "/workspace/atlas-rental/results/benchmark.qwen38.vllm.crosscheck02/owner.json",
+      "--timeout",
+      "15"
+    ],
+    "exit": 0
+  },
+  "serve_wrapper_exit": 0,
+  "tenants-after": {
+    "argv": [
+      "nvidia-smi",
+      "--query-compute-apps=pid,process_name",
+      "--format=csv,noheader"
+    ],
+    "exit": 0
+  },
+  "df-after": {
+    "argv": [
+      "df",
+      "-h",
+      "/"
+    ],
+    "exit": 0
+  },
+  "finished_utc": "2026-09-06T01:45:36.039329+00:00",
+  "wall_seconds": 201.77866699098377,
+  "exit": 0
+}

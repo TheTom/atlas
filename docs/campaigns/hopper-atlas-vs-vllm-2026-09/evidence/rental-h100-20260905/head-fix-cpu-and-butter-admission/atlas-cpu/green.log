@@ -1,0 +1,13 @@
+Welcome to vast.ai. If authentication fails, try again after a few seconds, and double check your ssh key.
+Have fun!
+   Compiling spark-model v1.0.0-beta-preview (/workspace/atlas-rental/src/native-bf16-head-batch-gemv/crates/spark-model)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.00s
+     Running unittests src/lib.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/spark_model-ad53cb13b16afb43)
+
+running 3 tests
+test model::trait_impl::lm_head_batched::bf16_tests::legacy_opt_out_value_is_preserved ... ok
+test model::trait_impl::lm_head_batched::bf16_tests::default_small_bf16_head_uses_existing_batch_gemv ... ok
+test model::trait_impl::lm_head_batched::bf16_tests::opt_out_missing_kernel_and_wide_head_keep_scalar_fallback ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 658 filtered out; finished in 0.00s
+

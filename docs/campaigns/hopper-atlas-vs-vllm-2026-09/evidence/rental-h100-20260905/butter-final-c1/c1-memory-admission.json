@@ -1,0 +1,6 @@
+{
+  "free_mib": 36199,
+  "required_mib": 8192,
+  "utc": "2026-09-06T01:34:57.847937+00:00",
+  "scope": "Single concurrent request only; prior C16 admission timed out and is not bypassed for C16"
+}

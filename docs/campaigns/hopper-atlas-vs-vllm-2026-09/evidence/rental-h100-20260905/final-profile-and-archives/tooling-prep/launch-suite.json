@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "python3",
+    "bench/campaign/process_launch_test.py",
+    "-v"
+  ],
+  "exit": 0,
+  "wall_s": 0.07404184341430664
+}

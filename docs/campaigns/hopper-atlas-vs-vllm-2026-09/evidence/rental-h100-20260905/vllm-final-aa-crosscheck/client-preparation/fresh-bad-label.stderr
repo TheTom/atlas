@@ -1,0 +1,2 @@
+usage: run_vllm_crosscheck_fresh.py [-h] [--execute] label
+run_vllm_crosscheck_fresh.py: error: label must contain only letters, digits, underscore or hyphen

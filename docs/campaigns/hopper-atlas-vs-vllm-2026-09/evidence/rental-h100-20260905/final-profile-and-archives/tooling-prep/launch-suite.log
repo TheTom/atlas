@@ -1,0 +1,21 @@
+test_multisequence_profile_is_explicit_and_preserved (__main__.ProcessEnvironmentTests.test_multisequence_profile_is_explicit_and_preserved) ... ok
+test_unknown_diagnostic_still_refuses (__main__.ProcessEnvironmentTests.test_unknown_diagnostic_still_refuses) ... ok
+test_actual_snapshot_and_environment_are_owned_and_minimal (__main__.ProcessLaunchTests.test_actual_snapshot_and_environment_are_owned_and_minimal) ... skipped 'requires Linux /proc and pidfds'
+test_conflicting_process_title_environment_refuses (__main__.ProcessLaunchTests.test_conflicting_process_title_environment_refuses) ... skipped 'requires Linux /proc and pidfds'
+test_duplicate_record_refuses_before_launch (__main__.ProcessLaunchTests.test_duplicate_record_refuses_before_launch) ... skipped 'requires Linux /proc and pidfds'
+test_failed_launch_and_unknown_environment_refuse (__main__.ProcessLaunchTests.test_failed_launch_and_unknown_environment_refuse) ... skipped 'requires Linux /proc and pidfds'
+test_foreign_group_member_refuses_before_signalling_any_process (__main__.ProcessLaunchTests.test_foreign_group_member_refuses_before_signalling_any_process) ... skipped 'requires Linux /proc and pidfds'
+test_immediate_failure_cleans_up_children (__main__.ProcessLaunchTests.test_immediate_failure_cleans_up_children) ... skipped 'requires Linux /proc and pidfds'
+test_leader_environment_permission_and_io_errors_still_refuse (__main__.ProcessLaunchTests.test_leader_environment_permission_and_io_errors_still_refuse) ... skipped 'requires Linux /proc and pidfds'
+test_leader_exit_between_stat_and_environment_read_is_absent (__main__.ProcessLaunchTests.test_leader_exit_between_stat_and_environment_read_is_absent) ... skipped 'requires Linux /proc and pidfds'
+test_nul_argv_preserves_empty_arguments (__main__.ProcessLaunchTests.test_nul_argv_preserves_empty_arguments) ... skipped 'requires Linux /proc and pidfds'
+test_recorded_diagnostics_are_explicit_and_preserved_in_actual_process_evidence (__main__.ProcessLaunchTests.test_recorded_diagnostics_are_explicit_and_preserved_in_actual_process_evidence) ... skipped 'requires Linux /proc and pidfds'
+test_renamed_child_retains_marker_and_can_be_stopped (__main__.ProcessLaunchTests.test_renamed_child_retains_marker_and_can_be_stopped) ... skipped 'requires Linux /proc and pidfds'
+test_signal_during_start_cannot_orphan_the_new_session (__main__.ProcessLaunchTests.test_signal_during_start_cannot_orphan_the_new_session) ... skipped 'requires Linux /proc and pidfds'
+test_stale_pid_and_foreign_token_refuse_without_signalling (__main__.ProcessLaunchTests.test_stale_pid_and_foreign_token_refuse_without_signalling) ... skipped 'requires Linux /proc and pidfds'
+test_stop_reaps_owned_group_children_even_when_they_ignore_term (__main__.ProcessLaunchTests.test_stop_reaps_owned_group_children_even_when_they_ignore_term) ... skipped 'requires Linux /proc and pidfds'
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.001s
+
+OK (skipped=14)

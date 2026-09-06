@@ -1,0 +1,133 @@
+{
+  "captured_utc": "2026-09-06T01:57:06.797855+00:00",
+  "copied_files": [
+    {
+      "path": "final-export-verification.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/final-export-verification.json",
+      "sha256": "bc1abf6d4bb12a89240bf54680686fb6c8d2d8c48762306d3bd4417796c56749",
+      "bytes": 372322
+    },
+    {
+      "path": "final-export-verification-before-telemetry-stop.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/final-export-verification-before-telemetry-stop.json",
+      "sha256": "f2ef19ee2cc5d7025f854cb813e10692ccb818ffe4de162dc558ac6a53b80715",
+      "bytes": 372238
+    },
+    {
+      "path": "verify_final_export.py",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/verify_final_export.py",
+      "sha256": "1e874d2cfa1c44a03e2d2a5a0865fce6dddb2348106fe491c5f1d61000d3671b",
+      "bytes": 2824
+    },
+    {
+      "path": "final-host-state/compilers.exit",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state/compilers.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    {
+      "path": "final-host-state/compilers.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state/compilers.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "final-host-state/compilers.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state/compilers.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "final-host-state/df.exit",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state/df.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "path": "final-host-state/df.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state/df.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "final-host-state/df.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state/df.stdout",
+      "sha256": "b4de3155afa7b815639c1c9883c40a3a9823cdea6ed7b2d8e50313adcd1c1257",
+      "bytes": 89
+    },
+    {
+      "path": "final-host-state/finished.utc",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state/finished.utc",
+      "sha256": "709da5e3519c135c81a65461b74266ecbb7511f52a4b75665765c43d9b9f0b8c",
+      "bytes": 33
+    },
+    {
+      "path": "final-host-state/nvidia-smi-q.exit",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state/nvidia-smi-q.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "path": "final-host-state/nvidia-smi-q.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state/nvidia-smi-q.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "final-host-state/nvidia-smi-q.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state/nvidia-smi-q.stdout",
+      "sha256": "63e06b9a8ba69a3fcbd714f3d9dc459f7ec37e2ce82ad42d28fcdd526a0e4bbf",
+      "bytes": 14959
+    },
+    {
+      "path": "final-host-state/private-token-cleanup.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state/private-token-cleanup.json",
+      "sha256": "1ee6e6798ea8dda78c0a4d9fe4f74585e4631b4048f585548352646dc1497e29",
+      "bytes": 158
+    },
+    {
+      "path": "final-host-state/spark.exit",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state/spark.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    {
+      "path": "final-host-state/spark.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state/spark.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "final-host-state/spark.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state/spark.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "final-host-state/telemetry-stop.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state/telemetry-stop.json",
+      "sha256": "2d86d1322af45fc2dbcc56a058d98c1891a8d8406ed8cf4eb8be05e265da9367",
+      "bytes": 400
+    },
+    {
+      "path": "final-host-state/tenants.exit",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state/tenants.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "path": "final-host-state/tenants.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state/tenants.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "final-host-state/tenants.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state/tenants.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "generated_files": [],
+  "scope": "Full stopped rental results/download-proof export hash verification, earlier real telemetry mismatch retained, final device/process state and exact owned telemetry stop. No credentials or ELF files copied."
+}

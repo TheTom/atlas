@@ -1,0 +1,25 @@
+{
+  "policy": "user-authorized-rental-word-reversal-exception",
+  "original_gate_passed": false,
+  "proceed_with_performance_testing": true,
+  "known_answers": [
+    {
+      "expected": "391",
+      "status": "OK",
+      "detail": ""
+    },
+    {
+      "expected": "Tokyo",
+      "status": "OK",
+      "detail": ""
+    },
+    {
+      "expected": "rotaregirfer",
+      "status": "FAIL",
+      "detail": "answer not stated: 'To spell the word **refrigerator** backwards, we take the letters from the end o'"
+    }
+  ],
+  "certification_claimed": false,
+  "original_gate_sha256": "0fc9469511e2b1493efa202be2e9563a66aea987195c1a3f5477c1e19523df78",
+  "original_gate_path": "/workspace/butter-iron-rental/results/butter-block-fp8-lat-c1-final-20260906T013401Z/coherency-post.json"
+}

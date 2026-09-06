@@ -1,0 +1,20 @@
+{
+  "model": "Qwen/Qwen3.8-27B-FP8",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Return only the exact integer answer. No explanation, reasoning, tags or punctuation."
+    },
+    {
+      "role": "user",
+      "content": "Request nonce: 6089fcfa0c624dda845c4d4bd5d82bf9\nWhat is 37 * 17?"
+    }
+  ],
+  "temperature": 0.0,
+  "seed": 42,
+  "max_tokens": 32,
+  "stream": false,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  }
+}

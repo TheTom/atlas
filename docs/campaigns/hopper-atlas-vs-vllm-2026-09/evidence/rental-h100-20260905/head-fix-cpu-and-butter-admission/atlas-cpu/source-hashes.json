@@ -1,0 +1,11 @@
+{
+  "base": "5cde118469d5f623c3e26da3055dd9001b781fc2",
+  "commit": "b5ef32d098b8c8ba8a85fcc45973a6ca05c746bf",
+  "tree": "a1b76d7c787a3b779d21b9008c77e1ae9d8d184e",
+  "sha256": {
+    "crates/spark-model/src/model/trait_impl/decode_a2.rs": "9c90467ba016f85efce2c0a1248c008ea206ef1ae243ccf11858ff396323f4f5",
+    "crates/spark-model/src/model/trait_impl/lm_head_batched.rs": "e80223c9d4de7097f2efdd2db6955b3f69d8229d78ea1201c0fa253bc3827b89",
+    "crates/spark-model/src/model/trait_impl/lm_head_bf16_tests.rs": "c2832ee6a830c744eb858bade3642592b4f727896efbd2c38c83edbb08902410"
+  },
+  "remote_match": true
+}

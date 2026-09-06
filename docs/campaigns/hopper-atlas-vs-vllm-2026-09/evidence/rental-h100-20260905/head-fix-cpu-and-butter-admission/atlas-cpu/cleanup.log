@@ -1,0 +1,6 @@
+Welcome to vast.ai. If authentication fails, try again after a few seconds, and double check your ssh key.
+Have fun!
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         500G  117G  384G  24% /
+
+exit=0

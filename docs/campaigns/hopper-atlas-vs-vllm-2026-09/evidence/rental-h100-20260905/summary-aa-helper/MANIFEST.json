@@ -1,0 +1,43 @@
+{
+  "utc": "2026-09-06T01:45:55.696199+00:00",
+  "scope": "Standalone summary A/A pairing red-first proof only; no independent-repeat performance inferred before raw result.",
+  "copied_files": [
+    {
+      "path": "measurement-summary.py",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/measurement-summary.py",
+      "sha256": "f3291bf36d97df6d61c58e678aa6b1ae5f575a877aadc710c74e45c0ad9c724d",
+      "bytes": 21591
+    },
+    {
+      "path": "measurement-summary-before-aa.py",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/measurement-summary-head-labels/measurement-summary-before-aa.py",
+      "sha256": "92ac02f740ef54827565294e270259b5bee9c7916d272e55d894182fe3f33066",
+      "bytes": 20183
+    },
+    {
+      "path": "test_summary.py",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/measurement-summary-head-labels/test_summary.py",
+      "sha256": "4a232d4863bafbca6b123ffe6dafa37d39744fb661d6137226fda0efd140e4f6",
+      "bytes": 5754
+    },
+    {
+      "path": "aa-red.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/measurement-summary-head-labels/aa-red.log",
+      "sha256": "2d6d48b08c2bd188753b50f563ebf48c3cadb54e5fb2994c0bfd221d8d7da54f",
+      "bytes": 1536
+    },
+    {
+      "path": "aa-green.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/measurement-summary-head-labels/aa-green.log",
+      "sha256": "c4951560e31fa969d64ee3da96e8b44190c97d900157a818fde4ddb66d96f1d2",
+      "bytes": 644
+    },
+    {
+      "path": "aa-receipt.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/measurement-summary-head-labels/aa-receipt.json",
+      "sha256": "c3e0e9b2d9c63aba8d5807feee247ddff4b406fcd62b079f41320f93c7088c71",
+      "bytes": 966
+    }
+  ],
+  "generated_files": []
+}
