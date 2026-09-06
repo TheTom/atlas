@@ -1,0 +1,18 @@
+Welcome to vast.ai. If authentication fails, try again after a few seconds, and double check your ssh key.
+Have fun!
+   Compiling spark-model v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/spark-model)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.50s
+     Running unittests src/lib.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/spark_model-ad53cb13b16afb43)
+
+running 8 tests
+test layers::dense_ffn::mmq_tests::unavailable_mmq_preserves_transposed_weights_without_repack_or_free ... ok
+test layers::dense_ffn::tests::native_weight_presence_requires_prefill_dispatch ... ok
+test layers::dense_ffn::kernel_tests::missing_small_batch_kernel_uses_same_precision_pipelined_fallback ... ok
+test layers::dense_ffn::kernel_tests::missing_optional_kernels_keep_base_native_gemm ... ok
+test layers::dense_ffn::native_batch_tests::nvfp4_multi_row_dispatch_keeps_existing_batch_kernels ... ok
+test layers::dense_ffn::native_batch_tests::native_fp8_multi_row_dispatch_preserves_checkpoint_weights ... ok
+test layers::dense_ffn::kernel_tests::larger_native_ffn_uses_existing_pipelined_gemm ... ok
+test layers::dense_ffn::kernel_tests::small_native_ffn_uses_existing_batched_gemv ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 650 filtered out; finished in 0.01s
+

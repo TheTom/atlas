@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "python3",
+    "/workspace/butter-iron-rental/oracle-source/bench/hopper_ab/coherency_gate.py",
+    "--url",
+    "http://127.0.0.1:8890",
+    "--model",
+    "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "--think",
+    "off",
+    "--timeout",
+    "90",
+    "--out",
+    "/workspace/butter-iron-rental/results/butter-block-fp8-http-20260906T000408Z/coherency.json"
+  ],
+  "exit": 1,
+  "utc": "2026-09-06T00:05:02.019727+00:00"
+}

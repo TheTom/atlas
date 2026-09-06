@@ -1,0 +1,257 @@
+{
+  "record_type": "section10-supplemental-provenance",
+  "campaign": "hopper-atlas-vs-vllm-2026-09",
+  "engine": "vllm",
+  "certification_claimed": false,
+  "engine_version": {
+    "source_build_git_sha": null,
+    "engine_declared_git_sha": null,
+    "binary_sha256": null,
+    "reported_version": "0.28.0",
+    "declared_source_version": "g2cf0a6915",
+    "image_digest": null,
+    "image_note": "Native process, no engine image digest. vLLM installed implementation identity is unproven; interpreter hash is process evidence only."
+  },
+  "model": {
+    "hf_id": "Qwen/Qwen3.8-27B-FP8",
+    "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "checkpoint_quant": "E4M3FN with original128x128 block multipliers",
+    "snapshot_path": "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+  },
+  "hardware": {
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "gpu_count": 1,
+    "driver": "610.57.04",
+    "driver_reported_cuda": "13.3",
+    "nvidia_smi_q_sha256": "21248776c843a87cbe65aaa72e08d1b8bd5da0a80ebf17165495d9245d1c6535"
+  },
+  "topology": {
+    "tp": 1,
+    "ep": 1,
+    "world_size": 1,
+    "matched": false
+  },
+  "serve_command": [
+    "/workspace/atlas-rental/vllm/bin/python3",
+    "/workspace/atlas-rental/vllm/bin/vllm",
+    "serve",
+    "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "--tensor-parallel-size",
+    "1",
+    "--enable-auto-tool-choice",
+    "--tool-call-parser",
+    "qwen3_coder",
+    "--reasoning-parser",
+    "qwen3",
+    "--mm-encoder-tp-mode",
+    "data",
+    "--revision",
+    "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "--max-num-seqs",
+    "512",
+    "--served-model-name",
+    "Qwen/Qwen3.8-27B-FP8",
+    "--port",
+    "8000"
+  ],
+  "serve_environment": {
+    "PATH": "/workspace/atlas-rental/vllm/bin:/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "HOME": "/root",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "LD_LIBRARY_PATH": "/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "HF_HOME": "/workspace/atlas-rental/hf38",
+    "HF_HUB_CACHE": "/workspace/atlas-rental/hf38/hub",
+    "HF_HUB_OFFLINE": "1",
+    "SPT_NOENV": "1",
+    "ATLAS_CAMPAIGN_RUN_TOKEN": "5bdff5b3bd774a55b6dea4674338c46b"
+  },
+  "owned_process": {
+    "pid": 118342,
+    "start_ticks": 18490387,
+    "boot_id": "f7dff0ed-70ad-46d4-8961-c7075e4c6f72",
+    "executable": "/usr/bin/python3.12",
+    "executable_sha256": "a92f0f95e883390c7256b2e441484aac06b1002dbe1d924141a77c8d82f96223",
+    "captured_at": "2026-09-06T00:14:19.877766+00:00"
+  },
+  "harness": {
+    "launch_git_sha": "b3025ab19d30416a3bbef201f34989bf338e1acd",
+    "measurement_git_sha": "b3025ab19d30416a3bbef201f34989bf338e1acd",
+    "ladder_sha256": "7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb",
+    "measurement_wrapper_sha256": "fc2a94c1e2cdb9fe9483bc74c1497245ef0e01f5fc78347a5582705f6ebf3e90",
+    "serve_wrapper_sha256": "12d7ac339ef15d6ccd1e4bd3d7da59e6448300509099c0e5ba80ccda626c1808"
+  },
+  "precision": {
+    "profile": "Original FP8 block weights; dynamic W8A8; auto/BF16 KV",
+    "observed_serve_flags": {
+      "--max-num-seqs": "512"
+    },
+    "profile_environment": {},
+    "context_tokens": 262144,
+    "max_num_seqs": 512,
+    "active_batch_limit": null,
+    "model_dtype": "bf16",
+    "kv_dtype": "auto/BF16",
+    "fp8_kv_calibration_tokens": null,
+    "limitations": "Same original checkpoint weights; arithmetic, KV and capacity differ. Runtime source/loader evidence is not a complete GPU kernel trace."
+  },
+  "boot": {
+    "passed": true,
+    "time_to_ready_s": 88.583,
+    "first_token_s": 0.256
+  },
+  "quality": {
+    "gates": {
+      "coherency-pre": {
+        "passed": false,
+        "determinism_ok": true,
+        "toolcall_ok": true,
+        "think_leak_ok": true,
+        "known_answer_ok": false,
+        "details": {
+          "determinism_ok": "23 chars reproduced exactly, no degeneration signals",
+          "toolcall_ok": "1 get_weather call(s), required argument types valid",
+          "think_leak_ok": "137 chars, no leak signals",
+          "known_answer_ok": "'391' OK; 'Tokyo' OK; 'rotaregirfer' FAIL (answer not stated: 'To spell the word **refrigerator** backwards, we take the letters from the end o')"
+        },
+        "sha256": "8227190871ae28def4edb3b909be7a927fc7aa04395bed8109b70709c93247fb"
+      },
+      "coherency-post": {
+        "passed": false,
+        "determinism_ok": true,
+        "toolcall_ok": true,
+        "think_leak_ok": true,
+        "known_answer_ok": false,
+        "details": {
+          "determinism_ok": "23 chars reproduced exactly, no degeneration signals",
+          "toolcall_ok": "1 get_weather call(s), required argument types valid",
+          "think_leak_ok": "137 chars, no leak signals",
+          "known_answer_ok": "'391' OK; 'Tokyo' OK; 'rotaregirfer' FAIL (answer not stated: 'To spell the word **refrigerator** backwards, we take the letters from the end o')"
+        },
+        "sha256": "968b1f27cc5ea73db12b88bf3b4107d3e45aeb36747303cf0096838710b99d76"
+      }
+    },
+    "exception_policies": {
+      "quality-policy-pre": {
+        "policy": "user-authorized-rental-word-reversal-exception",
+        "original_gate_passed": false,
+        "proceed_with_performance_testing": true,
+        "known_answers": [
+          {
+            "expected": "391",
+            "status": "OK",
+            "detail": ""
+          },
+          {
+            "expected": "Tokyo",
+            "status": "OK",
+            "detail": ""
+          },
+          {
+            "expected": "rotaregirfer",
+            "status": "FAIL",
+            "detail": "answer not stated: 'To spell the word **refrigerator** backwards, we take the letters from the end o'"
+          }
+        ],
+        "certification_claimed": false,
+        "original_gate_sha256": "8227190871ae28def4edb3b909be7a927fc7aa04395bed8109b70709c93247fb",
+        "original_gate_path": "/workspace/atlas-rental/results/benchmark.qwen38.vllm.agent01/coherency-pre.json"
+      },
+      "quality-policy-post": {
+        "policy": "user-authorized-rental-word-reversal-exception",
+        "original_gate_passed": false,
+        "proceed_with_performance_testing": true,
+        "known_answers": [
+          {
+            "expected": "391",
+            "status": "OK",
+            "detail": ""
+          },
+          {
+            "expected": "Tokyo",
+            "status": "OK",
+            "detail": ""
+          },
+          {
+            "expected": "rotaregirfer",
+            "status": "FAIL",
+            "detail": "answer not stated: 'To spell the word **refrigerator** backwards, we take the letters from the end o'"
+          }
+        ],
+        "certification_claimed": false,
+        "original_gate_sha256": "968b1f27cc5ea73db12b88bf3b4107d3e45aeb36747303cf0096838710b99d76",
+        "original_gate_path": "/workspace/atlas-rental/results/benchmark.qwen38.vllm.agent01/coherency-post.json"
+      }
+    },
+    "certification_claimed": false
+  },
+  "run_complete": true,
+  "ladder_finished_utc": "2026-09-06T00:20:46Z",
+  "ladder_exit_code": 0,
+  "cleanup": {
+    "server_stop": {
+      "status": "stopped",
+      "pid": 118342,
+      "signalled_pids": [
+        118342,
+        118754,
+        118755
+      ]
+    },
+    "wrapper_exit": 0,
+    "immediate_query": "",
+    "note": "Atlas stopped PID transiently reports [No data]; not an empty-query assertion. vLLM query is empty."
+  },
+  "ptx_gate_ledger_sha256": null,
+  "supplement_limit": "This is not a schema-certified campaign artifact or retroactive modification of raw evidence.",
+  "cell": "benchmark.qwen38.vllm.agent01.c1",
+  "workload": {
+    "name": "agent",
+    "isl": 4096,
+    "actual_prompt_token_counts_observed": [
+      4593
+    ],
+    "prompt_counts_note": "Raw prompt_tokens_per_req is a sorted set, not one entry per request; aggregate prompt counts also checked.",
+    "osl": 512,
+    "concurrency": 1,
+    "requested_reps": 3,
+    "warmup": 1,
+    "temperature": 0.0,
+    "seed": 42,
+    "thinking": false,
+    "speculation": false
+  },
+  "rung_complete": true,
+  "metrics": {
+    "tok_s_series": [
+      78.48222624231042,
+      78.4289735454241,
+      78.44038951712936
+    ],
+    "tok_s_mean": 78.45052976828795,
+    "requests_ok": 3,
+    "request_errors": 0,
+    "completion_tokens_per_request": [
+      512,
+      512,
+      512
+    ],
+    "ttft_p50_ms_mean_of_rep_values": 387.3348919926987,
+    "ttft_p99_ms_mean_of_rep_values": 387.3348919926987,
+    "tpot_p50_ms_mean_of_rep_values": 12.01144446185544,
+    "aggregation": "Arithmetic mean of per-repetition statistics; no pooled percentiles."
+  },
+  "measurement_complete": {
+    "finished": "2026-09-06T00:20:55.156253+00:00",
+    "workload": "agent",
+    "all_requested_outputs_complete": true,
+    "quality_policy_pre_and_post_passed": true,
+    "certification_claimed": false
+  },
+  "evidence": {
+    "session_directory": "vllm-agent01",
+    "raw_ladder_sha256": "077236cf56976640e6a239b625bcb4a0b1d86b3d1e76562fa04d70e0ba1439e2",
+    "measurement_commands": "vllm-agent01/measurement-commands.json"
+  }
+}

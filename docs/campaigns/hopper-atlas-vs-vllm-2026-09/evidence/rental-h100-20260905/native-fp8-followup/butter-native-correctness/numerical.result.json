@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "/workspace/butter-iron-rental/target/release/deps/block_fp8_linear-fdd5ad77115b1170",
+    "--ignored",
+    "--nocapture",
+    "--test-threads=1"
+  ],
+  "exit": 0,
+  "utc": "2026-09-06T00:04:11.420537+00:00",
+  "test_build_source": "de5485c499946f387fa658f656fc4183b50781c1",
+  "current_binary_source": "dfc45a185fc36ee84a8351eef21ae1dfc56d527a",
+  "unchanged_operator_dependency_paths": [
+    "rust/Cargo.toml",
+    "rust/Cargo.lock",
+    "rust/crates/wh-butter-core",
+    "rust/crates/wh-butter-ops",
+    "rust/crates/backends/wh-butter-cuda"
+  ]
+}

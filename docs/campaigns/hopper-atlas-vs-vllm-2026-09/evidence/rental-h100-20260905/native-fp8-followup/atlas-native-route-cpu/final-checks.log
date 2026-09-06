@@ -1,0 +1,234 @@
+Welcome to vast.ai. If authentication fails, try again after a few seconds, and double check your ssh key.
+Have fun!
+STAGE focused-final
+   Compiling spark-model v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-model)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.12s
+     Running unittests src/lib.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/spark_model-ad53cb13b16afb43)
+
+running 2 tests
+test layers::dense_ffn::native_batch_tests::nvfp4_multi_row_dispatch_keeps_existing_batch_kernels ... ok
+test layers::dense_ffn::native_batch_tests::native_fp8_multi_row_dispatch_preserves_checkpoint_weights ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 652 filtered out; finished in 0.00s
+
+     Running tests/arm2_leg2_decode.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/arm2_leg2_decode-8a64d7c7d7581d46)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+     Running tests/arm2_leg2_prefill.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/arm2_leg2_prefill-07e0b127a182c6f8)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+     Running tests/moe_lora_delta_parity.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/moe_lora_delta_parity-35db62ff3cd1d8fa)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+     Running tests/moe_swiglu_clamp_scope.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/moe_swiglu_clamp_scope-723f815841db3201)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
+
+     Running tests/moe_topk_sigmoid_bounds.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/moe_topk_sigmoid_bounds-228b629e9e58e8bf)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+EXIT focused-final 0
+STAGE rustdoc
+     Running tests/nllb_metal_kernels.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/nllb_metal_kernels-16fa14d989deccfd)
+   Compiling atlas-core v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-core)
+    Checking cudarc v0.19.2 (/workspace/atlas-rental/src/native-fp8-batched-ffn/vendor/cudarc)
+   Compiling atlas-closure v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-closure)
+   Compiling spark-runtime v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-runtime)
+    Checking atlas-governance v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-governance)
+   Compiling spark-storage v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-storage)
+    Checking cufile-sys v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/cufile-sys)
+    Checking atlas-plugin v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-plugin)
+   Compiling atlas-kernels v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-kernels)
+    Checking atlas-rdma v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-rdma)
+    Checking atlas-tier v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-tier)
+    Checking spark-comm v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-comm)
+ Documenting atlas-plugin v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-plugin)
+    Checking xgrammar v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/xgrammar)
+   Compiling atlas-spark-bench v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-spark-bench)
+    Checking spark-nllb v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-nllb)
+ Documenting spark-nllb v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-nllb)
+ Documenting spark-runtime v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-runtime)
+ Documenting atlas-spark-bench v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-spark-bench)
+ Documenting atlas-kernels v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-kernels)
+ Documenting spark-storage v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-storage)
+    Checking spark-model v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-model)
+ Documenting spark-model v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-model)
+ Documenting atlas-core v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-core)
+ Documenting xgrammar v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/xgrammar)
+ Documenting cufile-sys v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/cufile-sys)
+ Documenting atlas-rdma v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-rdma)
+ Documenting atlas-closure v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-closure)
+ Documenting atlas-governance v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-governance)
+ Documenting spark-comm v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-comm)
+ Documenting atlas-tier v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-tier)
+    Checking spark-server v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-server)
+ Documenting spark-server v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-server)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 29.66s
+   Generated /workspace/atlas-rental/target-cpu-checks/doc/atlas_closure/index.html and 21 other files
+EXIT rustdoc 0
+STAGE clippy
+    Checking serde_core v1.0.229
+    Checking memchr v2.8.0
+    Checking smallvec v1.15.1
+    Checking parking_lot_core v0.9.12
+   Compiling atlas-closure v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-closure)
+   Compiling atlas-core v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-core)
+   Compiling serde_json v1.0.151
+    Checking thiserror v2.0.19
+    Checking parking_lot v0.12.5
+    Checking getrandom v0.3.4
+   Compiling atlas-rdma v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-rdma)
+    Checking hashbrown v0.16.1
+    Checking serde v1.0.229
+    Checking tracing-core v0.1.36
+    Checking tempfile v3.27.0
+   Compiling atlas-kernels v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-kernels)
+    Checking tracing v0.1.44
+    Checking indexmap v2.13.0
+   Compiling spark-runtime v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-runtime)
+    Checking tokio v1.52.3
+   Compiling spark-storage v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-storage)
+    Checking safetensors v0.8.0
+    Checking cufile-sys v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/cufile-sys)
+    Checking atlas-tier v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-tier)
+   Compiling spark-model v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-model)
+    Checking spark-comm v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-comm)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 23.14s
+EXIT clippy 0
+STAGE doctests
+   Compiling atlas-closure v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-closure)
+   Compiling atlas-core v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-core)
+   Compiling spark-runtime v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-runtime)
+   Compiling spark-storage v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-storage)
+   Compiling atlas-governance v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-governance)
+   Compiling spark-comm v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-comm)
+   Compiling atlas-kernels v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-kernels)
+   Compiling atlas-plugin v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-plugin)
+   Compiling xgrammar v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/xgrammar)
+   Compiling atlas-spark-bench v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-spark-bench)
+   Compiling spark-model v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-model)
+   Compiling spark-nllb v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-nllb)
+   Compiling spark-server v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-server)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 37.40s
+   Doc-tests atlas_closure
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_governance
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_kernels
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_plugin
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_rdma
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_spark_bench
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_tier
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests cufile_sys
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests spark_comm
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests spark_model
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests spark_nllb
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests spark_runtime
+
+running 1 test
+test crates/spark-runtime/src/kernel_args.rs - kernel_args (line 14) ... ignored
+
+test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+all doctests ran in 0.29s; merged doctests compilation took 0.29s
+   Doc-tests spark_server
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests spark_storage
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests xgrammar
+
+running 1 test
+test crates/xgrammar/src/matcher/coalesce.rs - matcher::coalesce::GrammarMatcher::forced_from_bitmask (line 107) ... ignored
+
+test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+all doctests ran in 0.29s; merged doctests compilation took 0.27s
+EXIT doctests 0
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         500G  116G  385G  24% /

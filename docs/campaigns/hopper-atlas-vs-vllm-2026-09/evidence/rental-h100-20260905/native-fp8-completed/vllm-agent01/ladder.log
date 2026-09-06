@@ -1,0 +1,10 @@
+# driver sha256 7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb
+[rental.qwen38.vllm.agent01] C=  1 rep0  tok/s=   78.48  wall=   6.52s  ctok=    512  ptok/req=[4593]  ttft_p50=385ms  err=0  clk=1980, 461.86
+[rental.qwen38.vllm.agent01] C=  1 rep1  tok/s=   78.43  wall=   6.53s  ctok=    512  ptok/req=[4593]  ttft_p50=387ms  err=0  clk=1980, 461.05
+[rental.qwen38.vllm.agent01] C=  1 rep2  tok/s=   78.44  wall=   6.53s  ctok=    512  ptok/req=[4593]  ttft_p50=389ms  err=0  clk=1980, 458.93
+[rental.qwen38.vllm.agent01] C=  1 SERIES ['78.48', '78.43', '78.44'] mean=78.45 spread=0.07%
+[rental.qwen38.vllm.agent01] C= 16 rep0  tok/s=  639.51  wall=  12.81s  ctok=   8192  ptok/req=[4593]  ttft_p50=3445ms  err=0  clk=1980, 508.30
+[rental.qwen38.vllm.agent01] C= 16 rep1  tok/s=  638.72  wall=  12.83s  ctok=   8192  ptok/req=[4593]  ttft_p50=3462ms  err=0  clk=1980, 507.02
+[rental.qwen38.vllm.agent01] C= 16 rep2  tok/s=  638.05  wall=  12.84s  ctok=   8192  ptok/req=[4593]  ttft_p50=3465ms  err=0  clk=1980, 498.29
+[rental.qwen38.vllm.agent01] C= 16 SERIES ['639.51', '638.72', '638.05'] mean=638.76 spread=0.23%
+# wrote /workspace/atlas-rental/results/benchmark.qwen38.vllm.agent01/ladder.json

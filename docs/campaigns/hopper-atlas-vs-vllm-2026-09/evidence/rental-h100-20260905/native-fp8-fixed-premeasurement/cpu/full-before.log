@@ -1,0 +1,8 @@
+5a0e83cdfc4b0bc636c26d2ce5ff159e4bcdb3afbf7b036c2f2ebd0059cce4fc  crates/spark-model/src/layers/dense_ffn.rs
+32247f14e461cb8414c321d0ff76a98adca98a5f8687cc3d39d60c46f9b315dd  crates/spark-model/src/layers/dense_ffn_kernel_tests.rs
+dbcbb59ac0ea62edd396528a6052ce82f44b16effccbf2ce2727611a2a4b68b0  crates/spark-model/src/layers/dense_ffn_native_batch_tests.rs
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         500G  116G  385G  24% /
+86G	/workspace/atlas-rental
+Welcome to vast.ai. If authentication fails, try again after a few seconds, and double check your ssh key.
+Have fun!

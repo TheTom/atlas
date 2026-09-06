@@ -1,0 +1,5 @@
+=== w8a16 microtest: kernel='w8a16_gemm_pipelined' M=129 N=512 K=2048 seed=0x51A7 ===
+cosine=1.000000  mean_rel=5.64e-7  max_rel=7.46e-3
+perf: 0.100 ms/iter  ~2.71 TFLOP/s (wall-clock incl. launch)
+kernel-only: 0.0906 ms/iter  ~2.98 TFLOP/s (CUDA events)
+RESULT: PASS (cosine 1.000000 >= 0.9995)

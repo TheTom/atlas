@@ -1,0 +1,34 @@
+Welcome to vast.ai. If authentication fails, try again after a few seconds, and double check your ssh key.
+Have fun!
+   Compiling cudarc v0.19.2 (/workspace/atlas-rental/src/native-fp8-batched-ffn/vendor/cudarc)
+   Compiling atlas-closure v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-closure)
+   Compiling atlas-core v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-core)
+   Compiling atlas-rdma v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-rdma)
+   Compiling spark-runtime v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-runtime)
+   Compiling spark-storage v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-storage)
+   Compiling cufile-sys v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/cufile-sys)
+   Compiling atlas-kernels v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-kernels)
+   Compiling atlas-tier v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/atlas-tier)
+   Compiling spark-model v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-model)
+   Compiling spark-comm v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-batched-ffn/crates/spark-comm)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 40.90s
+     Running unittests src/lib.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/spark_model-ad53cb13b16afb43)
+
+running 2 tests
+test layers::dense_ffn::native_batch_tests::native_fp8_multi_row_dispatch_preserves_checkpoint_weights ... FAILED
+
+thread 'layers::dense_ffn::native_batch_tests::native_fp8_multi_row_dispatch_preserves_checkpoint_weights' (85769) panicked at crates/spark-model/src/layers/dense_ffn_native_batch_tests.rs:91:5:
+assertion `left == right` failed: M=4: gate/up/down must all use the installed weight format
+  left: 0
+ right: 3
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test layers::dense_ffn::native_batch_tests::nvfp4_multi_row_dispatch_keeps_existing_batch_kernels ... ok
+
+failures:
+
+failures:
+    layers::dense_ffn::native_batch_tests::native_fp8_multi_row_dispatch_preserves_checkpoint_weights
+
+test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 652 filtered out; finished in 0.01s
+
+error: test failed, to rerun pass `-p spark-model --lib`

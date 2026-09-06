@@ -1,0 +1,21 @@
+{
+  "model": "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+  "messages": [
+    {
+      "role": "user",
+      "content": "List exactly five prime numbers greater than one hundred, comma separated, with no other words."
+    }
+  ],
+  "temperature": 0.0,
+  "seed": 42,
+  "presence_penalty": 0.0,
+  "frequency_penalty": 0.0,
+  "max_tokens": 256,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  },
+  "stream": true,
+  "stream_options": {
+    "include_usage": true
+  }
+}

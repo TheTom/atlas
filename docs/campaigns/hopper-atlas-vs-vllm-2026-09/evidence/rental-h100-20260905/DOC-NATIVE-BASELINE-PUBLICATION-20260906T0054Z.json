@@ -1,0 +1,77 @@
+{
+  "captured_utc": "2026-09-06T00:58:47.394434+00:00",
+  "scope": "Documentation-only completed single-H100 baseline through native-agent01; original failures remain immutable. No code, frozen harness, schema or thresholds changed.",
+  "oracle": "All queued manifests bind immutable file bytes; JSON parses; prose links resolve; staged paths are campaign documentation; known-bad OSL refuses before actual comparisons; per-cell metrics match complete raw repetitions.",
+  "groups": {
+    "native-fp8-followup": {
+      "manifest_files": 127,
+      "files": 128,
+      "bytes": 615543
+    },
+    "native-fp8-fixed-premeasurement": {
+      "manifest_files": 168,
+      "files": 169,
+      "bytes": 414473
+    },
+    "native-fp8-completed": {
+      "manifest_files": 210,
+      "files": 211,
+      "bytes": 1227833
+    },
+    "native-agent-completed": {
+      "manifest_files": 80,
+      "files": 81,
+      "bytes": 1345305
+    }
+  },
+  "verified_hash_entries": 585,
+  "json_files_parsed": 254,
+  "report_links_resolved": 114,
+  "queued_paths_before_receipt": 596,
+  "secret_scan": "No known token patterns found; no credentials included.",
+  "checks": [
+    {
+      "argv": [
+        "typos",
+        "RENTAL-H100-REPORT.md",
+        "RENTAL-H100-NATIVE-FP8.md",
+        "NIGHT-LOG.md",
+        "vllm-control/SCHEMA-GAPS.md"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        "docs/campaigns/hopper-atlas-vs-vllm-2026-09/RENTAL-H100-REPORT.md",
+        "docs/campaigns/hopper-atlas-vs-vllm-2026-09/RENTAL-H100-NATIVE-FP8.md",
+        "docs/campaigns/hopper-atlas-vs-vllm-2026-09/NIGHT-LOG.md",
+        "docs/campaigns/hopper-atlas-vs-vllm-2026-09/vllm-control/SCHEMA-GAPS.md"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "certification_claimed": false,
+  "head_performance_fix": "Pending; BF16 precision was honored in the measured baseline.",
+  "report_sha256": {
+    "RENTAL-H100-REPORT.md": "8659d342118052b42031d594683cf4673cc69ccbafb8b3efae3427b8415ed827",
+    "RENTAL-H100-NATIVE-FP8.md": "db432ea2c950827123102a3aa1e0d4793aa56bfd6a88887ea694fad12c96c713",
+    "NIGHT-LOG.md": "608593c63819b609e5f2afe36f6b6412ebfd0755c6a8c5d92fc4315739883351",
+    "vllm-control/SCHEMA-GAPS.md": "cca27c684d8df59aeb7b88bef70b84f9499677c51505dcc639a4f710b4d5593c"
+  },
+  "raw_whitespace_check": {
+    "argv": [
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "exit_code": 2,
+    "stdout": "docs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-agent-completed/comparisons/compare-benchmark.qwen38.atlas.native-agent01-vs-benchmark.qwen38.vllm.agent01.md:9: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-agent-completed/comparisons/compare-benchmark.qwen38.atlas.native-agent01-vs-benchmark.qwen38.vllm.agent01.stdout:9: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-agent-completed/comparisons/compare-benchmark.qwen38.atlas.native-lat01-vs-benchmark.qwen38.vllm.lat01.md:9: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-agent-completed/comparisons/compare-benchmark.qwen38.atlas.native-lat01-vs-benchmark.qwen38.vllm.lat01.stdout:9: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-agent-completed/comparisons/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.atlas.native-lat01.md:9: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-agent-completed/comparisons/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.atlas.native-lat01.stdout:9: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-agent-completed/comparisons/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.vllm.lat01.md:9: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-agent-completed/comparisons/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.vllm.lat01.stdout:9: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-agent-completed/comparisons/compare-qwen38.atlas.c.lat.c1-vs-benchmark.qwen38.vllm.lat01.md:9: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-agent-completed/comparisons/compare-qwen38.atlas.c.lat.c1-vs-benchmark.qwen38.vllm.lat01.stdout:9: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-fp8-completed/comparisons/compare-benchmark.qwen38.atlas.native-lat01-vs-benchmark.qwen38.vllm.lat01.md:9: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-fp8-completed/comparisons/compare-benchmark.qwen38.atlas.native-lat01-vs-benchmark.qwen38.vllm.lat01.stdout:9: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-fp8-completed/comparisons/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.atlas.native-lat01.md:9: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-fp8-completed/comparisons/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.atlas.native-lat01.stdout:9: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-fp8-completed/comparisons/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.vllm.lat01.md:9: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-fp8-completed/comparisons/compare-benchmark.qwen38.atlas.native-lat02-vs-benchmark.qwen38.vllm.lat01.stdout:9: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-fp8-completed/comparisons/compare-qwen38.atlas.c.lat.c1-vs-benchmark.qwen38.vllm.lat01.md:9: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-fp8-completed/comparisons/compare-qwen38.atlas.c.lat.c1-vs-benchmark.qwen38.vllm.lat01.stdout:9: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-fp8-completed/vllm-agent01/crosscheck/nvidia-smi-q.stdout:212: trailing whitespace.\n+    GPU Memory Power Readings \ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-fp8-completed/vllm-agent01/crosscheck/nvidia-smi-q.stdout:273: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-fp8-followup/butter-native-correctness/numerical.stdout:8: new blank line at EOF.\ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-fp8-followup/butter-native-correctness/nvidia-smi-q.stdout:212: trailing whitespace.\n+    GPU Memory Power Readings \ndocs/campaigns/hopper-atlas-vs-vllm-2026-09/evidence/rental-h100-20260905/native-fp8-followup/butter-native-correctness/nvidia-smi-q.stdout:267: new blank line at EOF.\n",
+    "stderr": "",
+    "note": "Raw copied output whitespace is preserved to retain source hashes; edited prose checks pass separately."
+  }
+}

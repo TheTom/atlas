@@ -1,0 +1,1918 @@
+{
+  "started_utc": "2026-09-06T00:34:18.935643+00:00",
+  "finished_utc": "2026-09-06T00:34:25.722922+00:00",
+  "url": "http://127.0.0.1:8888",
+  "model": "Qwen/Qwen3.8-27B-FP8",
+  "script_sha256": "c5af9917c9e38034a75fea21859d59db2b800178aee36449e2175a67bbdba6c1",
+  "scope": "Diagnostic only; exact arithmetic, HTTP and protocol oracle. Client HTTP-attempt overlap does not prove server admission, active batch size or simultaneous GPU rows.",
+  "stopping_rule": "One C1 plus one C16 batch only; no retries. Owned request children have wall deadlines; all results retained even if the control fails.",
+  "control": {
+    "label": "c1",
+    "requested_concurrency": 1,
+    "released_ns": 186103160339047,
+    "max_overlapping_client_http_attempts": 1,
+    "requested_overlap_observed": true,
+    "rows": [
+      {
+        "id": "c1-00",
+        "operands": [
+          17,
+          23
+        ],
+        "nonce": "852977a026bd46649bfcbd91392df336",
+        "expected": 391,
+        "started": {
+          "monotonic_ns": 186103160806457,
+          "utc": "2026-09-06T00:34:19.081947+00:00"
+        },
+        "elapsed_s": 0.437497867,
+        "response_sha256": "f54e9256edc6ec41ef5edbedaa856cbb5cb7f0e3a911e46356933121665e8c89",
+        "raw_response_file": "c1-00/response.body",
+        "transport": {
+          "status": 200,
+          "headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "x-request-id",
+              "req_e7bf54f1-ced2-4ab2-b6ef-d2dc44742657"
+            ],
+            [
+              "openai-processing-ms",
+              "395"
+            ],
+            [
+              "x-ratelimit-limit-requests",
+              "1000000"
+            ],
+            [
+              "x-ratelimit-remaining-requests",
+              "999999"
+            ],
+            [
+              "x-ratelimit-reset-requests",
+              "0s"
+            ],
+            [
+              "x-ratelimit-limit-tokens",
+              "1000000000"
+            ],
+            [
+              "x-ratelimit-remaining-tokens",
+              "999999999"
+            ],
+            [
+              "x-ratelimit-reset-tokens",
+              "0s"
+            ],
+            [
+              "openai-organization",
+              "atlas-local"
+            ],
+            [
+              "openai-version",
+              "2026-01-01"
+            ],
+            [
+              "access-control-allow-origin",
+              "*"
+            ],
+            [
+              "connection",
+              "close"
+            ],
+            [
+              "transfer-encoding",
+              "chunked"
+            ],
+            [
+              "date",
+              "Sun, 06 Sep 2026 00:34:19 GMT"
+            ]
+          ],
+          "complete": true,
+          "transport_error": null,
+          "bytes": 616,
+          "started_ns": 186103160806457,
+          "finished_ns": 186103598304324,
+          "finished_utc": "2026-09-06T00:34:19.519444+00:00"
+        },
+        "oracle": {
+          "passed": true,
+          "failures": [],
+          "content": "391",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 75,
+            "completion_tokens": 4,
+            "total_tokens": 79,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "time_to_first_token_ms": 326.89869300000004,
+            "response_token/s": 45.62141199000052
+          }
+        },
+        "child_exit": 0
+      }
+    ],
+    "passed": true
+  },
+  "concurrent": {
+    "label": "c16",
+    "requested_concurrency": 16,
+    "released_ns": 186103804217457,
+    "max_overlapping_client_http_attempts": 16,
+    "requested_overlap_observed": true,
+    "rows": [
+      {
+        "id": "c16-00",
+        "operands": [
+          17,
+          23
+        ],
+        "nonce": "7214166cbc0b4ed69b0ae2824f55549d",
+        "expected": 391,
+        "started": {
+          "monotonic_ns": 186103805029208,
+          "utc": "2026-09-06T00:34:19.726176+00:00"
+        },
+        "elapsed_s": 3.6649954,
+        "response_sha256": "c4423abec6a0239e68af8300741bb43435f3648fd55db62a83e5e6cc92f2d175",
+        "raw_response_file": "c16-00/response.body",
+        "transport": {
+          "status": 200,
+          "headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "x-request-id",
+              "req_4470aaab-139c-4081-80dd-c8c89ea8920a"
+            ],
+            [
+              "openai-processing-ms",
+              "3591"
+            ],
+            [
+              "x-ratelimit-limit-requests",
+              "1000000"
+            ],
+            [
+              "x-ratelimit-remaining-requests",
+              "999999"
+            ],
+            [
+              "x-ratelimit-reset-requests",
+              "0s"
+            ],
+            [
+              "x-ratelimit-limit-tokens",
+              "1000000000"
+            ],
+            [
+              "x-ratelimit-remaining-tokens",
+              "999999999"
+            ],
+            [
+              "x-ratelimit-reset-tokens",
+              "0s"
+            ],
+            [
+              "openai-organization",
+              "atlas-local"
+            ],
+            [
+              "openai-version",
+              "2026-01-01"
+            ],
+            [
+              "access-control-allow-origin",
+              "*"
+            ],
+            [
+              "connection",
+              "close"
+            ],
+            [
+              "transfer-encoding",
+              "chunked"
+            ],
+            [
+              "date",
+              "Sun, 06 Sep 2026 00:34:23 GMT"
+            ]
+          ],
+          "complete": true,
+          "transport_error": null,
+          "bytes": 610,
+          "started_ns": 186103805029208,
+          "finished_ns": 186107470024608,
+          "finished_utc": "2026-09-06T00:34:23.391168+00:00"
+        },
+        "oracle": {
+          "passed": true,
+          "failures": [],
+          "content": "391",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 76,
+            "completion_tokens": 4,
+            "total_tokens": 80,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "time_to_first_token_ms": 325.601542,
+            "response_token/s": 3.8031953600570367
+          }
+        },
+        "child_exit": 0
+      },
+      {
+        "id": "c16-01",
+        "operands": [
+          23,
+          19
+        ],
+        "nonce": "dc05b25b874b4c9d88bf343398921bd0",
+        "expected": 437,
+        "started": {
+          "monotonic_ns": 186103805192433,
+          "utc": "2026-09-06T00:34:19.726339+00:00"
+        },
+        "elapsed_s": 2.968192957,
+        "response_sha256": "8ef15185482ac7f3908e60155c16f2f2f55b9c3082319c6c0ebf5123b98dfc95",
+        "raw_response_file": "c16-01/response.body",
+        "transport": {
+          "status": 200,
+          "headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "x-request-id",
+              "req_6abd1b2d-a0a8-4e85-aa23-e7cd8aeac1ff"
+            ],
+            [
+              "openai-processing-ms",
+              "2895"
+            ],
+            [
+              "x-ratelimit-limit-requests",
+              "1000000"
+            ],
+            [
+              "x-ratelimit-remaining-requests",
+              "999999"
+            ],
+            [
+              "x-ratelimit-reset-requests",
+              "0s"
+            ],
+            [
+              "x-ratelimit-limit-tokens",
+              "1000000000"
+            ],
+            [
+              "x-ratelimit-remaining-tokens",
+              "999999999"
+            ],
+            [
+              "x-ratelimit-reset-tokens",
+              "0s"
+            ],
+            [
+              "openai-organization",
+              "atlas-local"
+            ],
+            [
+              "openai-version",
+              "2026-01-01"
+            ],
+            [
+              "access-control-allow-origin",
+              "*"
+            ],
+            [
+              "connection",
+              "close"
+            ],
+            [
+              "transfer-encoding",
+              "chunked"
+            ],
+            [
+              "date",
+              "Sun, 06 Sep 2026 00:34:22 GMT"
+            ]
+          ],
+          "complete": true,
+          "transport_error": null,
+          "bytes": 609,
+          "started_ns": 186103805192433,
+          "finished_ns": 186106773385390,
+          "finished_utc": "2026-09-06T00:34:22.694531+00:00"
+        },
+        "oracle": {
+          "passed": true,
+          "failures": [],
+          "content": "437",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 76,
+            "completion_tokens": 4,
+            "total_tokens": 80,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "time_to_first_token_ms": 321.287373,
+            "response_token/s": 6.430623169419957
+          }
+        },
+        "child_exit": 0
+      },
+      {
+        "id": "c16-02",
+        "operands": [
+          31,
+          7
+        ],
+        "nonce": "480d821907b64609b0ebec8df3321c08",
+        "expected": 217,
+        "started": {
+          "monotonic_ns": 186103807147401,
+          "utc": "2026-09-06T00:34:19.728293+00:00"
+        },
+        "elapsed_s": 4.403051659,
+        "response_sha256": "7be51ee8627a90d56b17cf285bdc50270d16b89b535f3e15b92337e6d8d4273f",
+        "raw_response_file": "c16-02/response.body",
+        "transport": {
+          "status": 200,
+          "headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "x-request-id",
+              "req_941a246f-5578-4714-a1cc-0caf3a71c5dd"
+            ],
+            [
+              "openai-processing-ms",
+              "4330"
+            ],
+            [
+              "x-ratelimit-limit-requests",
+              "1000000"
+            ],
+            [
+              "x-ratelimit-remaining-requests",
+              "999999"
+            ],
+            [
+              "x-ratelimit-reset-requests",
+              "0s"
+            ],
+            [
+              "x-ratelimit-limit-tokens",
+              "1000000000"
+            ],
+            [
+              "x-ratelimit-remaining-tokens",
+              "999999999"
+            ],
+            [
+              "x-ratelimit-reset-tokens",
+              "0s"
+            ],
+            [
+              "openai-organization",
+              "atlas-local"
+            ],
+            [
+              "openai-version",
+              "2026-01-01"
+            ],
+            [
+              "access-control-allow-origin",
+              "*"
+            ],
+            [
+              "connection",
+              "close"
+            ],
+            [
+              "transfer-encoding",
+              "chunked"
+            ],
+            [
+              "date",
+              "Sun, 06 Sep 2026 00:34:24 GMT"
+            ]
+          ],
+          "complete": true,
+          "transport_error": null,
+          "bytes": 608,
+          "started_ns": 186103807147401,
+          "finished_ns": 186108210199060,
+          "finished_utc": "2026-09-06T00:34:24.131344+00:00"
+        },
+        "oracle": {
+          "passed": true,
+          "failures": [],
+          "content": "217",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 76,
+            "completion_tokens": 4,
+            "total_tokens": 80,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "time_to_first_token_ms": 325.540379,
+            "response_token/s": 2.70687104024242
+          }
+        },
+        "child_exit": 0
+      },
+      {
+        "id": "c16-03",
+        "operands": [
+          29,
+          13
+        ],
+        "nonce": "df64050d285149f5a5f7ba164498b9b1",
+        "expected": 377,
+        "started": {
+          "monotonic_ns": 186103806421107,
+          "utc": "2026-09-06T00:34:19.727566+00:00"
+        },
+        "elapsed_s": 5.840959545,
+        "response_sha256": "821e7685c6df2912ceea02c93343980782a97e9d278de0fcfea9def8116070cc",
+        "raw_response_file": "c16-03/response.body",
+        "transport": {
+          "status": 200,
+          "headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "x-request-id",
+              "req_dced32b0-b0dc-4b86-98d6-c02cd1db4d23"
+            ],
+            [
+              "openai-processing-ms",
+              "5769"
+            ],
+            [
+              "x-ratelimit-limit-requests",
+              "1000000"
+            ],
+            [
+              "x-ratelimit-remaining-requests",
+              "999999"
+            ],
+            [
+              "x-ratelimit-reset-requests",
+              "0s"
+            ],
+            [
+              "x-ratelimit-limit-tokens",
+              "1000000000"
+            ],
+            [
+              "x-ratelimit-remaining-tokens",
+              "999999999"
+            ],
+            [
+              "x-ratelimit-reset-tokens",
+              "0s"
+            ],
+            [
+              "openai-organization",
+              "atlas-local"
+            ],
+            [
+              "openai-version",
+              "2026-01-01"
+            ],
+            [
+              "access-control-allow-origin",
+              "*"
+            ],
+            [
+              "connection",
+              "close"
+            ],
+            [
+              "transfer-encoding",
+              "chunked"
+            ],
+            [
+              "date",
+              "Sun, 06 Sep 2026 00:34:25 GMT"
+            ]
+          ],
+          "complete": true,
+          "transport_error": null,
+          "bytes": 617,
+          "started_ns": 186103806421107,
+          "finished_ns": 186109647380652,
+          "finished_utc": "2026-09-06T00:34:25.568521+00:00"
+        },
+        "oracle": {
+          "passed": true,
+          "failures": [],
+          "content": "377",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 77,
+            "completion_tokens": 4,
+            "total_tokens": 81,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "time_to_first_token_ms": 324.79287899999997,
+            "response_token/s": 2.703161962614308
+          }
+        },
+        "child_exit": 0
+      },
+      {
+        "id": "c16-04",
+        "operands": [
+          41,
+          11
+        ],
+        "nonce": "38e27a78ef1643b5aa79a62471a66199",
+        "expected": 451,
+        "started": {
+          "monotonic_ns": 186103806241224,
+          "utc": "2026-09-06T00:34:19.727386+00:00"
+        },
+        "elapsed_s": 5.940904245,
+        "response_sha256": "92778167808512e7b027f9767fa08c53187a106f5ade6d5764a9df16083e1905",
+        "raw_response_file": "c16-04/response.body",
+        "transport": {
+          "status": 200,
+          "headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "x-request-id",
+              "req_6ebd66c1-ab50-4f8f-a8dc-c2610a936f03"
+            ],
+            [
+              "openai-processing-ms",
+              "5868"
+            ],
+            [
+              "x-ratelimit-limit-requests",
+              "1000000"
+            ],
+            [
+              "x-ratelimit-remaining-requests",
+              "999999"
+            ],
+            [
+              "x-ratelimit-reset-requests",
+              "0s"
+            ],
+            [
+              "x-ratelimit-limit-tokens",
+              "1000000000"
+            ],
+            [
+              "x-ratelimit-remaining-tokens",
+              "999999999"
+            ],
+            [
+              "x-ratelimit-reset-tokens",
+              "0s"
+            ],
+            [
+              "openai-organization",
+              "atlas-local"
+            ],
+            [
+              "openai-version",
+              "2026-01-01"
+            ],
+            [
+              "access-control-allow-origin",
+              "*"
+            ],
+            [
+              "connection",
+              "close"
+            ],
+            [
+              "transfer-encoding",
+              "chunked"
+            ],
+            [
+              "date",
+              "Sun, 06 Sep 2026 00:34:25 GMT"
+            ]
+          ],
+          "complete": true,
+          "transport_error": null,
+          "bytes": 609,
+          "started_ns": 186103806241224,
+          "finished_ns": 186109747145469,
+          "finished_utc": "2026-09-06T00:34:25.668289+00:00"
+        },
+        "oracle": {
+          "passed": true,
+          "failures": [],
+          "content": "451",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 78,
+            "completion_tokens": 4,
+            "total_tokens": 82,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "time_to_first_token_ms": 324.110664,
+            "response_token/s": 20.42340454354988
+          }
+        },
+        "child_exit": 0
+      },
+      {
+        "id": "c16-05",
+        "operands": [
+          37,
+          17
+        ],
+        "nonce": "603b92937c274ffbbe3bacf195ff4c8d",
+        "expected": 629,
+        "started": {
+          "monotonic_ns": 186103806978731,
+          "utc": "2026-09-06T00:34:19.728123+00:00"
+        },
+        "elapsed_s": 1.525896274,
+        "response_sha256": "89930113573fd235f8aef599a4c418b75f04d1678df0c0b304f4bfefff3333f7",
+        "raw_response_file": "c16-05/response.body",
+        "transport": {
+          "status": 200,
+          "headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "x-request-id",
+              "req_f37102f4-ccdf-4627-b764-871e642a870a"
+            ],
+            [
+              "openai-processing-ms",
+              "1454"
+            ],
+            [
+              "x-ratelimit-limit-requests",
+              "1000000"
+            ],
+            [
+              "x-ratelimit-remaining-requests",
+              "999999"
+            ],
+            [
+              "x-ratelimit-reset-requests",
+              "0s"
+            ],
+            [
+              "x-ratelimit-limit-tokens",
+              "1000000000"
+            ],
+            [
+              "x-ratelimit-remaining-tokens",
+              "999999999"
+            ],
+            [
+              "x-ratelimit-reset-tokens",
+              "0s"
+            ],
+            [
+              "openai-organization",
+              "atlas-local"
+            ],
+            [
+              "openai-version",
+              "2026-01-01"
+            ],
+            [
+              "access-control-allow-origin",
+              "*"
+            ],
+            [
+              "connection",
+              "close"
+            ],
+            [
+              "transfer-encoding",
+              "chunked"
+            ],
+            [
+              "date",
+              "Sun, 06 Sep 2026 00:34:21 GMT"
+            ]
+          ],
+          "complete": true,
+          "transport_error": null,
+          "bytes": 609,
+          "started_ns": 186103806978731,
+          "finished_ns": 186105332875005,
+          "finished_utc": "2026-09-06T00:34:21.254014+00:00"
+        },
+        "oracle": {
+          "passed": true,
+          "failures": [],
+          "content": "629",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 74,
+            "completion_tokens": 4,
+            "total_tokens": 78,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "time_to_first_token_ms": 321.553558,
+            "response_token/s": 18.27068457697214
+          }
+        },
+        "child_exit": 0
+      },
+      {
+        "id": "c16-06",
+        "operands": [
+          43,
+          19
+        ],
+        "nonce": "e330557c3599426daf66c5f96a18bce0",
+        "expected": 817,
+        "started": {
+          "monotonic_ns": 186103806613181,
+          "utc": "2026-09-06T00:34:19.727759+00:00"
+        },
+        "elapsed_s": 4.404184714,
+        "response_sha256": "0094b743765cdee0c87a4c3ba38bbbe9567fd1fe27b65aca8644816cb0bf9d8e",
+        "raw_response_file": "c16-06/response.body",
+        "transport": {
+          "status": 200,
+          "headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "x-request-id",
+              "req_60299c55-e28d-4fee-b20b-f2cba80aa76c"
+            ],
+            [
+              "openai-processing-ms",
+              "4331"
+            ],
+            [
+              "x-ratelimit-limit-requests",
+              "1000000"
+            ],
+            [
+              "x-ratelimit-remaining-requests",
+              "999999"
+            ],
+            [
+              "x-ratelimit-reset-requests",
+              "0s"
+            ],
+            [
+              "x-ratelimit-limit-tokens",
+              "1000000000"
+            ],
+            [
+              "x-ratelimit-remaining-tokens",
+              "999999999"
+            ],
+            [
+              "x-ratelimit-reset-tokens",
+              "0s"
+            ],
+            [
+              "openai-organization",
+              "atlas-local"
+            ],
+            [
+              "openai-version",
+              "2026-01-01"
+            ],
+            [
+              "access-control-allow-origin",
+              "*"
+            ],
+            [
+              "connection",
+              "close"
+            ],
+            [
+              "transfer-encoding",
+              "chunked"
+            ],
+            [
+              "date",
+              "Sun, 06 Sep 2026 00:34:24 GMT"
+            ]
+          ],
+          "complete": true,
+          "transport_error": null,
+          "bytes": 610,
+          "started_ns": 186103806613181,
+          "finished_ns": 186108210797895,
+          "finished_utc": "2026-09-06T00:34:24.131944+00:00"
+        },
+        "oracle": {
+          "passed": true,
+          "failures": [],
+          "content": "817",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 76,
+            "completion_tokens": 4,
+            "total_tokens": 80,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "time_to_first_token_ms": 321.283947,
+            "response_token/s": 3.8069815531680957
+          }
+        },
+        "child_exit": 0
+      },
+      {
+        "id": "c16-07",
+        "operands": [
+          47,
+          23
+        ],
+        "nonce": "7b946616c13549879bc4a1b31520ece8",
+        "expected": 1081,
+        "started": {
+          "monotonic_ns": 186103806792678,
+          "utc": "2026-09-06T00:34:19.727938+00:00"
+        },
+        "elapsed_s": 5.890450542,
+        "response_sha256": "20d750d1f3511c6d954147d57a98b317424ae20ffb873b26fc1c45a65e331997",
+        "raw_response_file": "c16-07/response.body",
+        "transport": {
+          "status": 200,
+          "headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "x-request-id",
+              "req_7a7c2b56-aab7-404d-a001-d8a7715f444b"
+            ],
+            [
+              "openai-processing-ms",
+              "5818"
+            ],
+            [
+              "x-ratelimit-limit-requests",
+              "1000000"
+            ],
+            [
+              "x-ratelimit-remaining-requests",
+              "999999"
+            ],
+            [
+              "x-ratelimit-reset-requests",
+              "0s"
+            ],
+            [
+              "x-ratelimit-limit-tokens",
+              "1000000000"
+            ],
+            [
+              "x-ratelimit-remaining-tokens",
+              "999999999"
+            ],
+            [
+              "x-ratelimit-reset-tokens",
+              "0s"
+            ],
+            [
+              "openai-organization",
+              "atlas-local"
+            ],
+            [
+              "openai-version",
+              "2026-01-01"
+            ],
+            [
+              "access-control-allow-origin",
+              "*"
+            ],
+            [
+              "connection",
+              "close"
+            ],
+            [
+              "transfer-encoding",
+              "chunked"
+            ],
+            [
+              "date",
+              "Sun, 06 Sep 2026 00:34:25 GMT"
+            ]
+          ],
+          "complete": true,
+          "transport_error": null,
+          "bytes": 610,
+          "started_ns": 186103806792678,
+          "finished_ns": 186109697243220,
+          "finished_utc": "2026-09-06T00:34:25.618383+00:00"
+        },
+        "oracle": {
+          "passed": true,
+          "failures": [],
+          "content": "1081",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 77,
+            "completion_tokens": 5,
+            "total_tokens": 82,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "time_to_first_token_ms": 320.110514,
+            "response_token/s": 4.765295967761305
+          }
+        },
+        "child_exit": 0
+      },
+      {
+        "id": "c16-08",
+        "operands": [
+          53,
+          7
+        ],
+        "nonce": "018f247fa49245fbb56921e8be98c3ab",
+        "expected": 371,
+        "started": {
+          "monotonic_ns": 186103805720264,
+          "utc": "2026-09-06T00:34:19.726861+00:00"
+        },
+        "elapsed_s": 2.968024808,
+        "response_sha256": "c71a0ace2da7c606cb72c6d098f41f4ae914c100d030da06ccd6082a10ee8a26",
+        "raw_response_file": "c16-08/response.body",
+        "transport": {
+          "status": 200,
+          "headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "x-request-id",
+              "req_2340dded-da7e-43d9-af28-41909091bfc2"
+            ],
+            [
+              "openai-processing-ms",
+              "2909"
+            ],
+            [
+              "x-ratelimit-limit-requests",
+              "1000000"
+            ],
+            [
+              "x-ratelimit-remaining-requests",
+              "999999"
+            ],
+            [
+              "x-ratelimit-reset-requests",
+              "0s"
+            ],
+            [
+              "x-ratelimit-limit-tokens",
+              "1000000000"
+            ],
+            [
+              "x-ratelimit-remaining-tokens",
+              "999999999"
+            ],
+            [
+              "x-ratelimit-reset-tokens",
+              "0s"
+            ],
+            [
+              "openai-organization",
+              "atlas-local"
+            ],
+            [
+              "openai-version",
+              "2026-01-01"
+            ],
+            [
+              "access-control-allow-origin",
+              "*"
+            ],
+            [
+              "connection",
+              "close"
+            ],
+            [
+              "transfer-encoding",
+              "chunked"
+            ],
+            [
+              "date",
+              "Sun, 06 Sep 2026 00:34:22 GMT"
+            ]
+          ],
+          "complete": true,
+          "transport_error": null,
+          "bytes": 610,
+          "started_ns": 186103805720264,
+          "finished_ns": 186106773745072,
+          "finished_utc": "2026-09-06T00:34:22.694885+00:00"
+        },
+        "oracle": {
+          "passed": true,
+          "failures": [],
+          "content": "371",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 75,
+            "completion_tokens": 4,
+            "total_tokens": 79,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "time_to_first_token_ms": 321.123583,
+            "response_token/s": 3.8025620065724244
+          }
+        },
+        "child_exit": 0
+      },
+      {
+        "id": "c16-09",
+        "operands": [
+          59,
+          11
+        ],
+        "nonce": "8effca032c824188b0b67869405e8f49",
+        "expected": 649,
+        "started": {
+          "monotonic_ns": 186103806066188,
+          "utc": "2026-09-06T00:34:19.727208+00:00"
+        },
+        "elapsed_s": 5.09755889,
+        "response_sha256": "184a43f0cb7f223b41e656227e7315e9219a381b26b1ea68175dc0d2e64e5e03",
+        "raw_response_file": "c16-09/response.body",
+        "transport": {
+          "status": 200,
+          "headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "x-request-id",
+              "req_8f6d7657-9a8d-4e78-8115-7f36c549bbb2"
+            ],
+            [
+              "openai-processing-ms",
+              "5034"
+            ],
+            [
+              "x-ratelimit-limit-requests",
+              "1000000"
+            ],
+            [
+              "x-ratelimit-remaining-requests",
+              "999999"
+            ],
+            [
+              "x-ratelimit-reset-requests",
+              "0s"
+            ],
+            [
+              "x-ratelimit-limit-tokens",
+              "1000000000"
+            ],
+            [
+              "x-ratelimit-remaining-tokens",
+              "999999999"
+            ],
+            [
+              "x-ratelimit-reset-tokens",
+              "0s"
+            ],
+            [
+              "openai-organization",
+              "atlas-local"
+            ],
+            [
+              "openai-version",
+              "2026-01-01"
+            ],
+            [
+              "access-control-allow-origin",
+              "*"
+            ],
+            [
+              "connection",
+              "close"
+            ],
+            [
+              "transfer-encoding",
+              "chunked"
+            ],
+            [
+              "date",
+              "Sun, 06 Sep 2026 00:34:24 GMT"
+            ]
+          ],
+          "complete": true,
+          "transport_error": null,
+          "bytes": 609,
+          "started_ns": 186103806066188,
+          "finished_ns": 186108903625078,
+          "finished_utc": "2026-09-06T00:34:24.824764+00:00"
+        },
+        "oracle": {
+          "passed": true,
+          "failures": [],
+          "content": "649",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 77,
+            "completion_tokens": 4,
+            "total_tokens": 81,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "time_to_first_token_ms": 320.565654,
+            "response_token/s": 3.815823911662374
+          }
+        },
+        "child_exit": 0
+      },
+      {
+        "id": "c16-10",
+        "operands": [
+          61,
+          13
+        ],
+        "nonce": "bf75686dee884db681ffe9a0ff0d349f",
+        "expected": 793,
+        "started": {
+          "monotonic_ns": 186103805525710,
+          "utc": "2026-09-06T00:34:19.726667+00:00"
+        },
+        "elapsed_s": 1.526587889,
+        "response_sha256": "cef318c4cb1ce35c898f9204d47129cdd7f941d7f5e703716f35357977571908",
+        "raw_response_file": "c16-10/response.body",
+        "transport": {
+          "status": 200,
+          "headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "x-request-id",
+              "req_2e215571-42ec-4b4c-9628-099d0dce73f9"
+            ],
+            [
+              "openai-processing-ms",
+              "1470"
+            ],
+            [
+              "x-ratelimit-limit-requests",
+              "1000000"
+            ],
+            [
+              "x-ratelimit-remaining-requests",
+              "999999"
+            ],
+            [
+              "x-ratelimit-reset-requests",
+              "0s"
+            ],
+            [
+              "x-ratelimit-limit-tokens",
+              "1000000000"
+            ],
+            [
+              "x-ratelimit-remaining-tokens",
+              "999999999"
+            ],
+            [
+              "x-ratelimit-reset-tokens",
+              "0s"
+            ],
+            [
+              "openai-organization",
+              "atlas-local"
+            ],
+            [
+              "openai-version",
+              "2026-01-01"
+            ],
+            [
+              "access-control-allow-origin",
+              "*"
+            ],
+            [
+              "connection",
+              "close"
+            ],
+            [
+              "transfer-encoding",
+              "chunked"
+            ],
+            [
+              "date",
+              "Sun, 06 Sep 2026 00:34:21 GMT"
+            ]
+          ],
+          "complete": true,
+          "transport_error": null,
+          "bytes": 609,
+          "started_ns": 186103805525710,
+          "finished_ns": 186105332113599,
+          "finished_utc": "2026-09-06T00:34:21.253257+00:00"
+        },
+        "oracle": {
+          "passed": true,
+          "failures": [],
+          "content": "793",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 72,
+            "completion_tokens": 4,
+            "total_tokens": 76,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "time_to_first_token_ms": 324.921263,
+            "response_token/s": 3.722805422924787
+          }
+        },
+        "child_exit": 0
+      },
+      {
+        "id": "c16-11",
+        "operands": [
+          67,
+          17
+        ],
+        "nonce": "0643b5e95cbd40b6ad8093fa4c4be30e",
+        "expected": 1139,
+        "started": {
+          "monotonic_ns": 186103805890189,
+          "utc": "2026-09-06T00:34:19.727032+00:00"
+        },
+        "elapsed_s": 3.664355619,
+        "response_sha256": "cff10e349731c716e5d0bc1d4df47ac9da6f82b3cfa86f11abe2411781434ac5",
+        "raw_response_file": "c16-11/response.body",
+        "transport": {
+          "status": 200,
+          "headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "x-request-id",
+              "req_83d0da5e-47a9-41fa-924e-337efc5e77d1"
+            ],
+            [
+              "openai-processing-ms",
+              "3608"
+            ],
+            [
+              "x-ratelimit-limit-requests",
+              "1000000"
+            ],
+            [
+              "x-ratelimit-remaining-requests",
+              "999999"
+            ],
+            [
+              "x-ratelimit-reset-requests",
+              "0s"
+            ],
+            [
+              "x-ratelimit-limit-tokens",
+              "1000000000"
+            ],
+            [
+              "x-ratelimit-remaining-tokens",
+              "999999999"
+            ],
+            [
+              "x-ratelimit-reset-tokens",
+              "0s"
+            ],
+            [
+              "openai-organization",
+              "atlas-local"
+            ],
+            [
+              "openai-version",
+              "2026-01-01"
+            ],
+            [
+              "access-control-allow-origin",
+              "*"
+            ],
+            [
+              "connection",
+              "close"
+            ],
+            [
+              "transfer-encoding",
+              "chunked"
+            ],
+            [
+              "date",
+              "Sun, 06 Sep 2026 00:34:23 GMT"
+            ]
+          ],
+          "complete": true,
+          "transport_error": null,
+          "bytes": 610,
+          "started_ns": 186103805890189,
+          "finished_ns": 186107470245808,
+          "finished_utc": "2026-09-06T00:34:23.391387+00:00"
+        },
+        "oracle": {
+          "passed": true,
+          "failures": [],
+          "content": "1139",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 75,
+            "completion_tokens": 5,
+            "total_tokens": 80,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "time_to_first_token_ms": 328.248322,
+            "response_token/s": 2.214283687978895
+          }
+        },
+        "child_exit": 0
+      },
+      {
+        "id": "c16-12",
+        "operands": [
+          71,
+          19
+        ],
+        "nonce": "ae96e5e445bd417ea83488dfa6b0542f",
+        "expected": 1349,
+        "started": {
+          "monotonic_ns": 186103805342404,
+          "utc": "2026-09-06T00:34:19.726484+00:00"
+        },
+        "elapsed_s": 2.54831229,
+        "response_sha256": "7b9dadab1eef4f7e3ba45b84507898066bb3f2709d48a3c9267ce479ff68f00c",
+        "raw_response_file": "c16-12/response.body",
+        "transport": {
+          "status": 200,
+          "headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "x-request-id",
+              "req_fbe927fc-21ab-4986-9eb5-7df27f480cb1"
+            ],
+            [
+              "openai-processing-ms",
+              "2495"
+            ],
+            [
+              "x-ratelimit-limit-requests",
+              "1000000"
+            ],
+            [
+              "x-ratelimit-remaining-requests",
+              "999999"
+            ],
+            [
+              "x-ratelimit-reset-requests",
+              "0s"
+            ],
+            [
+              "x-ratelimit-limit-tokens",
+              "1000000000"
+            ],
+            [
+              "x-ratelimit-remaining-tokens",
+              "999999999"
+            ],
+            [
+              "x-ratelimit-reset-tokens",
+              "0s"
+            ],
+            [
+              "openai-organization",
+              "atlas-local"
+            ],
+            [
+              "openai-version",
+              "2026-01-01"
+            ],
+            [
+              "access-control-allow-origin",
+              "*"
+            ],
+            [
+              "connection",
+              "close"
+            ],
+            [
+              "transfer-encoding",
+              "chunked"
+            ],
+            [
+              "date",
+              "Sun, 06 Sep 2026 00:34:22 GMT"
+            ]
+          ],
+          "complete": true,
+          "transport_error": null,
+          "bytes": 617,
+          "started_ns": 186103805342404,
+          "finished_ns": 186106353654694,
+          "finished_utc": "2026-09-06T00:34:22.274799+00:00"
+        },
+        "oracle": {
+          "passed": true,
+          "failures": [],
+          "content": "1349",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 74,
+            "completion_tokens": 5,
+            "total_tokens": 79,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "time_to_first_token_ms": 321.58295300000003,
+            "response_token/s": 2.65648869682024
+          }
+        },
+        "child_exit": 0
+      },
+      {
+        "id": "c16-13",
+        "operands": [
+          73,
+          23
+        ],
+        "nonce": "03bf27f6393f4389b53288b9a9155ab9",
+        "expected": 1679,
+        "started": {
+          "monotonic_ns": 186103804737365,
+          "utc": "2026-09-06T00:34:19.725878+00:00"
+        },
+        "elapsed_s": 5.940976707,
+        "response_sha256": "7df6845da21ee08a97e6cbe32744893fb793a3fadbd203a6935113cc988c29a3",
+        "raw_response_file": "c16-13/response.body",
+        "transport": {
+          "status": 200,
+          "headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "x-request-id",
+              "req_b3a41c11-bafe-47bf-b240-928511aaa656"
+            ],
+            [
+              "openai-processing-ms",
+              "5893"
+            ],
+            [
+              "x-ratelimit-limit-requests",
+              "1000000"
+            ],
+            [
+              "x-ratelimit-remaining-requests",
+              "999999"
+            ],
+            [
+              "x-ratelimit-reset-requests",
+              "0s"
+            ],
+            [
+              "x-ratelimit-limit-tokens",
+              "1000000000"
+            ],
+            [
+              "x-ratelimit-remaining-tokens",
+              "999999999"
+            ],
+            [
+              "x-ratelimit-reset-tokens",
+              "0s"
+            ],
+            [
+              "openai-organization",
+              "atlas-local"
+            ],
+            [
+              "openai-version",
+              "2026-01-01"
+            ],
+            [
+              "access-control-allow-origin",
+              "*"
+            ],
+            [
+              "connection",
+              "close"
+            ],
+            [
+              "transfer-encoding",
+              "chunked"
+            ],
+            [
+              "date",
+              "Sun, 06 Sep 2026 00:34:25 GMT"
+            ]
+          ],
+          "complete": true,
+          "transport_error": null,
+          "bytes": 618,
+          "started_ns": 186103804737365,
+          "finished_ns": 186109745714072,
+          "finished_utc": "2026-09-06T00:34:25.666855+00:00"
+        },
+        "oracle": {
+          "passed": true,
+          "failures": [],
+          "content": "1679",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 78,
+            "completion_tokens": 5,
+            "total_tokens": 83,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "time_to_first_token_ms": 323.95185799999996,
+            "response_token/s": 7.736675502878492
+          }
+        },
+        "child_exit": 0
+      },
+      {
+        "id": "c16-14",
+        "operands": [
+          79,
+          29
+        ],
+        "nonce": "c9ec66c86f8041e3bf17c6da7077c606",
+        "expected": 2291,
+        "started": {
+          "monotonic_ns": 186103804765794,
+          "utc": "2026-09-06T00:34:19.725908+00:00"
+        },
+        "elapsed_s": 1.526135657,
+        "response_sha256": "844c8d9642c1be22b00074770469587832807ce019d5572c061c5288c442afe5",
+        "raw_response_file": "c16-14/response.body",
+        "transport": {
+          "status": 200,
+          "headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "x-request-id",
+              "req_5cf88db1-b492-44a4-af91-ea4e6030c575"
+            ],
+            [
+              "openai-processing-ms",
+              "1479"
+            ],
+            [
+              "x-ratelimit-limit-requests",
+              "1000000"
+            ],
+            [
+              "x-ratelimit-remaining-requests",
+              "999999"
+            ],
+            [
+              "x-ratelimit-reset-requests",
+              "0s"
+            ],
+            [
+              "x-ratelimit-limit-tokens",
+              "1000000000"
+            ],
+            [
+              "x-ratelimit-remaining-tokens",
+              "999999999"
+            ],
+            [
+              "x-ratelimit-reset-tokens",
+              "0s"
+            ],
+            [
+              "openai-organization",
+              "atlas-local"
+            ],
+            [
+              "openai-version",
+              "2026-01-01"
+            ],
+            [
+              "access-control-allow-origin",
+              "*"
+            ],
+            [
+              "connection",
+              "close"
+            ],
+            [
+              "transfer-encoding",
+              "chunked"
+            ],
+            [
+              "date",
+              "Sun, 06 Sep 2026 00:34:21 GMT"
+            ]
+          ],
+          "complete": true,
+          "transport_error": null,
+          "bytes": 619,
+          "started_ns": 186103804765794,
+          "finished_ns": 186105330901451,
+          "finished_utc": "2026-09-06T00:34:21.252045+00:00"
+        },
+        "oracle": {
+          "passed": true,
+          "failures": [],
+          "content": "2291",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 76,
+            "completion_tokens": 5,
+            "total_tokens": 81,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "time_to_first_token_ms": 327.52822199999997,
+            "response_token/s": 3.4785677972137523
+          }
+        },
+        "child_exit": 0
+      },
+      {
+        "id": "c16-15",
+        "operands": [
+          83,
+          31
+        ],
+        "nonce": "8da98b890040435b9c115cbd65319a50",
+        "expected": 2573,
+        "started": {
+          "monotonic_ns": 186103805557212,
+          "utc": "2026-09-06T00:34:19.726699+00:00"
+        },
+        "elapsed_s": 5.468966637,
+        "response_sha256": "c1eb75b0afe7633a4f9dc053007bd24476b977c82440c414f1d1844addb611d2",
+        "raw_response_file": "c16-15/response.body",
+        "transport": {
+          "status": 200,
+          "headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "x-request-id",
+              "req_4ff6c90a-3e36-4b29-8eeb-4169c375ec61"
+            ],
+            [
+              "openai-processing-ms",
+              "5421"
+            ],
+            [
+              "x-ratelimit-limit-requests",
+              "1000000"
+            ],
+            [
+              "x-ratelimit-remaining-requests",
+              "999999"
+            ],
+            [
+              "x-ratelimit-reset-requests",
+              "0s"
+            ],
+            [
+              "x-ratelimit-limit-tokens",
+              "1000000000"
+            ],
+            [
+              "x-ratelimit-remaining-tokens",
+              "999999999"
+            ],
+            [
+              "x-ratelimit-reset-tokens",
+              "0s"
+            ],
+            [
+              "openai-organization",
+              "atlas-local"
+            ],
+            [
+              "openai-version",
+              "2026-01-01"
+            ],
+            [
+              "access-control-allow-origin",
+              "*"
+            ],
+            [
+              "connection",
+              "close"
+            ],
+            [
+              "transfer-encoding",
+              "chunked"
+            ],
+            [
+              "date",
+              "Sun, 06 Sep 2026 00:34:25 GMT"
+            ]
+          ],
+          "complete": true,
+          "transport_error": null,
+          "bytes": 611,
+          "started_ns": 186103805557212,
+          "finished_ns": 186109274523849,
+          "finished_utc": "2026-09-06T00:34:25.195663+00:00"
+        },
+        "oracle": {
+          "passed": true,
+          "failures": [],
+          "content": "2573",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 77,
+            "completion_tokens": 5,
+            "total_tokens": 82,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "time_to_first_token_ms": 324.469174,
+            "response_token/s": 2.7065161473798183
+          }
+        },
+        "child_exit": 0
+      }
+    ],
+    "passed": true
+  },
+  "quality_passed": true,
+  "passed": true
+}

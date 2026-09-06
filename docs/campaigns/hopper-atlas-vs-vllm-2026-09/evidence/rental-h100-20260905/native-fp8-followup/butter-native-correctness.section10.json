@@ -1,0 +1,93 @@
+{
+  "record_type": "section10-supplemental-provenance",
+  "engine": "butter",
+  "scope": "Original-checkpoint correctness follow-on; not a scored Atlas/vLLM ladder cell",
+  "certification_claimed": false,
+  "engine_version": {
+    "source_build_git_sha": "dfc45a185fc36ee84a8351eef21ae1dfc56d527a",
+    "binary_sha256": "da3e60000d55a2aaca67c04b09cd0400553444e45653d911ae828f06103cf606",
+    "iron_revision": "a4c897ba2e89db49df82b9d2f2691642d8f8b697",
+    "image_digest": null,
+    "image_note": "Native source-built CUDA binary; no engine image used."
+  },
+  "model": {
+    "hf_id": "Qwen/Qwen3.8-27B-FP8",
+    "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "staging_proof_sha256": "6074590b1089e054afc8a4c2a23ca5e8a4184e4ff2c8ccb7898fa722cf812479",
+    "checkpoint_quant": "Original E4M3FN bytes plus128x128 block multipliers; mixed BF16 preserved."
+  },
+  "hardware": {
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "gpu_count": 1,
+    "driver": "610.57.04",
+    "driver_reported_cuda": "13.3",
+    "nvidia_smi_q_sha256": "58e5650726e5e03cf80259b157c3aee7bfe88afdf174a6c15a25fa90b5d512ad"
+  },
+  "serve_command": [
+    "/workspace/butter-iron-rental/bin/butter-block-fp8-dfc45a1",
+    "serve-local",
+    "--model",
+    "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "--max-context",
+    "8192",
+    "--parallel",
+    "1",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8890"
+  ],
+  "serve_environment": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "CUDA_HOME": "/usr/local/cuda",
+    "CUDA_PATH": "/usr/local/cuda",
+    "LD_LIBRARY_PATH": "/usr/local/cuda/lib64:/usr/lib/x86_64-linux-gnu",
+    "BUTTER_HOME": "/workspace/butter-iron-rental/butter-home",
+    "QWEN35_MARLIN": "0",
+    "BUTTER_IRON_SELECTORS": "1"
+  },
+  "owned_process": {
+    "pid": 99299,
+    "pgid": 99299,
+    "startticks": "18429550",
+    "utc": "2026-09-06T00:04:11.424392+00:00"
+  },
+  "build_receipt": "butter-native-correctness/build-receipt.json",
+  "harness": {
+    "git_sha": null,
+    "git_sha_note": "Dedicated correctness driver and copied frozen oracle captured by file hash; owning Git revision was not recorded as part of this session. Do not substitute engine commit.",
+    "runtime_driver_sha256": "ef4d66df15ee33162ec192c6df9f691ea42665d3f7a7c92be544977157dd0f76",
+    "coherency_oracle_sha256": "7b92ed2c6017cf8908fe849339ee8a49daebf275253ca12768c4804819be8eed",
+    "stream_probe_sha256": "6f0be7f66003ec10f0cc0ffc4cfc700a7ada52ee06f380a0a50e45b904efd5e7"
+  },
+  "precision": {
+    "operator": "W8A32, F32 accumulation/output; original BF16 scales expanded exactly",
+    "context_tokens": 8192,
+    "parallel_requests": 1,
+    "kv_note": "No cache precision parity asserted against Atlas or vLLM."
+  },
+  "boot": {
+    "ready_s": 10.084112389013171,
+    "first_http_status": 200,
+    "first_http_completion_tokens": 1
+  },
+  "quality": {
+    "raw_gate_passed": false,
+    "raw_gate_exit": 1,
+    "other_gates_passed": true,
+    "exception": "Only original word-reversal; separate original exception record retained",
+    "numerical_gpu_tests_passed": 3,
+    "plain_sse_passed": true,
+    "tool_sse_passed": true
+  },
+  "run_complete": true,
+  "finished_utc": "2026-09-06T00:05:12.790699+00:00",
+  "cleanup": {
+    "server_exit": -15,
+    "gpu_released": true,
+    "empty_query_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "performance_metrics": null,
+  "performance_note": "Correctness only; parent-authorized CPU tests overlap, no performance claims",
+  "ptx_gate_ledger_sha256": null
+}

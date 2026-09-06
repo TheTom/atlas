@@ -1,0 +1,10 @@
+{
+  "CUDA_VISIBLE_DEVICES": "0",
+  "HF_HOME": "/workspace/atlas-rental/hf38",
+  "HF_HUB_CACHE": "/workspace/atlas-rental/hf38/hub",
+  "LD_LIBRARY_PATH": "/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64",
+  "HF_HUB_OFFLINE": "1",
+  "SPT_NOENV": "1",
+  "RUST_LOG": "info",
+  "ATLAS_DENSE_FP8": "1"
+}

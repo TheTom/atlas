@@ -1,0 +1,8 @@
+{
+  "CUDA_VISIBLE_DEVICES": "",
+  "HF_HOME": "/workspace/atlas-rental/hf38",
+  "HF_HUB_CACHE": "/workspace/atlas-rental/hf38/hub",
+  "HF_HUB_OFFLINE": "1",
+  "TRANSFORMERS_OFFLINE": "1",
+  "TOKENIZERS_PARALLELISM": "false"
+}

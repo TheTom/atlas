@@ -1,0 +1,93 @@
+{
+  "source_head": "ce4f8af751d080dc37912b7c522857e01923128d",
+  "base_head": "b3025ab19d30416a3bbef201f34989bf338e1acd",
+  "recorded_at": "2026-09-06T00:20:04.350284+00:00",
+  "red": {
+    "exit": 101,
+    "passed": 0,
+    "failed": 2,
+    "oracle": "Actual DenseFfn forward_prefill must select existing batch GEMV for M<=4 and pipelined GEMM for larger M; old path selected base handle3848 instead of57005."
+  },
+  "focused_green": {
+    "exit": 0,
+    "passed": 8,
+    "failed": 0,
+    "ignored": 0,
+    "compile_seconds": 13.5
+  },
+  "full_gates": {
+    "full-model": {
+      "exit": 0,
+      "seconds": 31.300868374994025,
+      "command": "cd /workspace/atlas-rental/src/native-fp8-ffn-kernels && CUDA_VISIBLE_DEVICES='' ATLAS_SKIP_BUILD=1 CUDARC_CUDA_VERSION=13000 CARGO_TARGET_DIR=/workspace/atlas-rental/target-cpu-checks CARGO_BUILD_JOBS=4 ATLAS_TARGET_HW=hopper ATLAS_TARGET_MODEL=qwen3.8-27b ATLAS_TARGET_QUANT=nvfp4 /root/.cargo/bin/cargo +1.93.1 test --locked -p spark-model"
+    },
+    "clippy": {
+      "exit": 0,
+      "seconds": 27.044066374997783,
+      "command": "cd /workspace/atlas-rental/src/native-fp8-ffn-kernels && CUDA_VISIBLE_DEVICES='' ATLAS_SKIP_BUILD=1 CUDARC_CUDA_VERSION=13000 CARGO_TARGET_DIR=/workspace/atlas-rental/target-cpu-checks CARGO_BUILD_JOBS=4 ATLAS_TARGET_HW=hopper ATLAS_TARGET_MODEL=qwen3.8-27b ATLAS_TARGET_QUANT=nvfp4 /root/.cargo/bin/cargo +1.93.1 clippy --locked -p spark-model --tests"
+    },
+    "rustdoc": {
+      "exit": 0,
+      "seconds": 30.41831079100666,
+      "command": "cd /workspace/atlas-rental/src/native-fp8-ffn-kernels && CUDA_VISIBLE_DEVICES='' ATLAS_SKIP_BUILD=1 CUDARC_CUDA_VERSION=13000 CARGO_TARGET_DIR=/workspace/atlas-rental/target-cpu-checks CARGO_BUILD_JOBS=4 ATLAS_TARGET_HW=hopper ATLAS_TARGET_MODEL=qwen3.8-27b ATLAS_TARGET_QUANT=nvfp4 /root/.cargo/bin/cargo +1.93.1 doc --locked --workspace --no-deps"
+    },
+    "doctests": {
+      "exit": 0,
+      "seconds": 44.639117290993454,
+      "command": "cd /workspace/atlas-rental/src/native-fp8-ffn-kernels && CUDA_VISIBLE_DEVICES='' ATLAS_SKIP_BUILD=1 CUDARC_CUDA_VERSION=13000 CARGO_TARGET_DIR=/workspace/atlas-rental/target-cpu-checks CARGO_BUILD_JOBS=4 ATLAS_TARGET_HW=hopper ATLAS_TARGET_MODEL=qwen3.8-27b ATLAS_TARGET_QUANT=nvfp4 /root/.cargo/bin/cargo +1.93.1 test --locked --workspace --doc"
+    }
+  },
+  "runtime_gpu_proof": "not run by this agent",
+  "source_files": {
+    "crates/spark-model/src/layers/dense_ffn.rs": "5a0e83cdfc4b0bc636c26d2ce5ff159e4bcdb3afbf7b036c2f2ebd0059cce4fc",
+    "crates/spark-model/src/layers/dense_ffn_kernel_tests.rs": "32247f14e461cb8414c321d0ff76a98adca98a5f8687cc3d39d60c46f9b315dd",
+    "crates/spark-model/src/layers/dense_ffn_native_batch_tests.rs": "dbcbb59ac0ea62edd396528a6052ce82f44b16effccbf2ce2727611a2a4b68b0"
+  },
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "ATLAS_SKIP_BUILD": "1",
+    "CUDARC_CUDA_VERSION": "13000",
+    "CARGO_TARGET_DIR": "/workspace/atlas-rental/target-cpu-checks",
+    "CARGO_BUILD_JOBS": "4",
+    "ATLAS_TARGET_HW": "hopper",
+    "ATLAS_TARGET_MODEL": "qwen3.8-27b",
+    "ATLAS_TARGET_QUANT": "nvfp4"
+  },
+  "remote_owned_source": "/workspace/atlas-rental/src/native-fp8-ffn-kernels",
+  "disk_before": "385 GiB free; no disk-heavy downloads or new GPU target",
+  "initial_invocation": "Non-login SSH did not put cargo on PATH; exit127 before build, retained separately; corrected to /root/.cargo/bin/cargo.",
+  "full_spark_model": {
+    "passed": 651,
+    "ignored": 14,
+    "failed": 0
+  },
+  "workspace_doctests": {
+    "passed": 0,
+    "ignored": 2,
+    "failed": 0
+  },
+  "tree_sha": "09a287f0bfdd3a91c1f10c1f81f0876b0febaf3d",
+  "parent_cherry_pick": "5cde118",
+  "final_remote_source_hashes_match_commit": true,
+  "owned_remote_source_removed": true,
+  "cpu_lease_released_at": "2026-09-06T00:26:03.348933+00:00",
+  "disk_after": "Filesystem      Size  Used Avail Use% Mounted on\noverlay         500G  116G  385G  24% /",
+  "local_checks": {
+    "cargo_fmt": 0,
+    "git_diff_check": 0,
+    "typos_affected_sources": 0
+  },
+  "log_hashes": {
+    "stage.log": "64160dce54f7bad9f963619b4de5570119bb20b17c6e6884ea10e3ec068499e7",
+    "red.log": "b5082ce4dae232b3fc5e50a4263c75869d6a4f450f580bd37b217e445d7ffac4",
+    "clippy.log": "760427b4e2c3fcf5afd0784fe5b4911a4ecee9964baa8c69d8896005aa4bf879",
+    "full-model.log": "41f2e4e4adbdb1eaeab36974821baa10fd35bf34752c33f4ecad81994ea44651",
+    "full-before.log": "de752b53b177181a8c46530258bdd57b2c6594cbf768ecfb217e7b4543a90fc8",
+    "cleanup.log": "3701f24e2392282115c3bed406bdb7e86c739efca6332726e41402a183c2caf2",
+    "rustdoc.log": "b26c3cfa4b8a12d5f2410af55ad503f1c480a9c63b355eda5a1fad534499ecf7",
+    "red-invocation-path-missing.log": "0739a9eb206d9198fba66b3aff7bec2138b3182ade91f5127ef820534fa21d70",
+    "green-focused.log": "98166301c16d77fbefd98b6383ecf1a41fc2ecfda94054b5431cb3dac4519ca4",
+    "final-source.log": "a0dfa668498aa755a67b0fe1a81587d013601e9a8c3fc2c56ce32c3c71620c30",
+    "doctests.log": "84fb0ac6c578186fca422f7b7cc71bc460791c8ef7abb84431626a87b88c5418"
+  }
+}

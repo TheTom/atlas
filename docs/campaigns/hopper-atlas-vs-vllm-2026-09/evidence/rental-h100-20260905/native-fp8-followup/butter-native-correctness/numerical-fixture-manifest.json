@@ -1,0 +1,151 @@
+{
+  "purpose": "Independent exact checkpoint-format oracle; synthetic bytes with actual128\u00d7128 scale layout, not model-performance data",
+  "layout": "W[M,K]row-major;scale[ceil(M/128),ceil(K/128)]row-major;X[B,K]row-major;Y[B,M]",
+  "weight_equation": "E4M3FN(W[row,col])*BF16(weight_scale_inv[row//128,col//128]); no reciprocal",
+  "tail_case": {
+    "M": 257,
+    "K": 385,
+    "B": 7,
+    "input_nonzero_columns": [
+      0,
+      127,
+      128,
+      255,
+      256,
+      383,
+      384
+    ],
+    "oracle": "Every single-nonzero output is exactly representable inFP32; require exact FP32bits for a directFP32dequant/accumulate path."
+  },
+  "dense_case": {
+    "M": 257,
+    "K": 385,
+    "B": 3,
+    "oracle": "all128 lanes active; exact FP32 under any reduction order proven by sum_abs/common_unit<2^24"
+  },
+  "groups": {
+    "row_counts": [
+      129,
+      128
+    ],
+    "K": 385,
+    "scale_row_counts": [
+      2,
+      1
+    ],
+    "scale_offsets": [
+      0,
+      8
+    ],
+    "weight_offsets": [
+      0,
+      49665
+    ],
+    "output_layout": "Xbatch-major then concatenated independent projection rows"
+  },
+  "mixed_head": {
+    "M": 2,
+    "K": 3,
+    "B": 3,
+    "dtype": "BF16",
+    "must_remain_same_quant": true
+  },
+  "format_checks": "0/negative0/subnormal1/512/minnormal1/64/+1/-1/+448/-448/NaN sentinels",
+  "negative_oracles": {
+    "reciprocal_scale": {
+      "rejected": true,
+      "mismatching_single_nonzero_outputs": 1799
+    },
+    "one_scale_for_entire_K": {
+      "rejected": true,
+      "mismatching_single_nonzero_outputs": 1285
+    },
+    "floor_scale_stride": {
+      "rejected": true,
+      "mismatching_single_nonzero_outputs": 903
+    },
+    "flattened_16384_index": {
+      "rejected": true,
+      "mismatching_single_nonzero_outputs": 1370
+    },
+    "fp16_dequant_intermediate": {
+      "rejected": true,
+      "mismatching_single_nonzero_outputs": 280
+    },
+    "grouped_global_row_origin": {
+      "rejected": true,
+      "mismatching_outputs": 889
+    },
+    "BF16_head_requantization": {
+      "rejected": true,
+      "mismatching_elements": 6
+    }
+  },
+  "files": [
+    {
+      "path": "tail257x385.weight.e4m3fn",
+      "bytes": 98945,
+      "sha256": "35536005124909724fedb4b1ff61148ee44aff8e909cce1728c0bb930794e041"
+    },
+    {
+      "path": "tail257x385.scale.bf16",
+      "bytes": 24,
+      "sha256": "924dd98e61e013004a853c7496dd48026c24cad95ba12b7ef7e002dd40e12f03"
+    },
+    {
+      "path": "tail257x385.x.f32",
+      "bytes": 10780,
+      "sha256": "9240b482e7888f043cbff9574f057f7c0eb7a401bb3ed979ba13251e0e275830"
+    },
+    {
+      "path": "tail257x385.expected.f32",
+      "bytes": 7196,
+      "sha256": "00e90315f03519b5de80ea51519444e8495665ccac5f78f44ae3478907e61a59"
+    },
+    {
+      "path": "dense257x385.weight.e4m3fn",
+      "bytes": 98945,
+      "sha256": "13de8f9c5d4ea187639f164fcc2e0ce74e9dfec2dabfefb066bdb8032e15aad6"
+    },
+    {
+      "path": "dense257x385.x.f32",
+      "bytes": 4620,
+      "sha256": "3f20151c27b73baffda4986be3e1305cf355c00615de81cdb361af7a64103a59"
+    },
+    {
+      "path": "dense257x385.expected.f32",
+      "bytes": 3084,
+      "sha256": "cf03a03bde2801dba494993b4a7d8f921b838a78b126fbb8d4504c66d04a0603"
+    },
+    {
+      "path": "groups.weight.e4m3fn",
+      "bytes": 98945,
+      "sha256": "a940718628315baf7b999a731db43a357596fbefab4a723d9c3b4321451ad1a7"
+    },
+    {
+      "path": "groups.scale.bf16",
+      "bytes": 24,
+      "sha256": "4be143e15ac364a303bc4e836e1ee36de15fcdd5fdb9e092e53eeec2e1a9bbea"
+    },
+    {
+      "path": "groups.expected.f32",
+      "bytes": 7196,
+      "sha256": "2df96496adbe1e1c86750032b66905654c6db38ccc0f30703e9c18c7719216d0"
+    },
+    {
+      "path": "mixed_head.weight.bf16",
+      "bytes": 12,
+      "sha256": "37768048b3fafac26d0cafc51a6a64d731023efdbac56dd55aa199c13c1e2062"
+    },
+    {
+      "path": "mixed_head.x.f32",
+      "bytes": 36,
+      "sha256": "64eec129c8d3f58ee6b7ca145b25e312fa82d3d276db5adaedb59aaebb824885"
+    },
+    {
+      "path": "mixed_head.expected.f32",
+      "bytes": 24,
+      "sha256": "17e1f37076c04fde3ebefcbd51cf003f980ca5aaf06da17bf543faea7c3aa808"
+    }
+  ]
+}

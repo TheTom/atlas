@@ -1,0 +1,29 @@
+{
+  "utc": "2026-09-06T00:13:21.167401+00:00",
+  "action": "SIGINT exact owned ladder child; normal measurement wrapper cleanup follows",
+  "pid": 117563,
+  "argv": [
+    "/workspace/atlas-rental/vllm/bin/python3",
+    "bench/ladder38/harness_w55_conc_ladder.py",
+    "--url",
+    "http://127.0.0.1:8888",
+    "--model",
+    "Qwen/Qwen3.8-27B-FP8",
+    "--label",
+    "rental.qwen38.atlas.native-lat01",
+    "--out",
+    "/workspace/atlas-rental/results/benchmark.qwen38.atlas.native-lat01/ladder.json",
+    "--concs",
+    "1,16",
+    "--reps",
+    "3",
+    "--isl",
+    "1024",
+    "--osl",
+    "256",
+    "--warmup",
+    "1"
+  ],
+  "reason": "Native C16 sustained about3 decode tokens/s per active sequence; expected warmup+3reps would exceed1200s measurement cap. Preserve completedC1 rung and partialC16 evidence; prioritize narrow kernel repair. No certification or completedC16 claimed.",
+  "proc_stat": "117563 (python3) S 117353 117353 117353 0 -1 4194560 16744 16193 0 0 117 42 1 13 20 0 1 0 18445316 45355008 8849 18446744073709551615 4325376 7353021 140736269144560 0 0 0 0 16781312 2 1 0 0 17 2 0 0 0 0 0 10657224 12220544 24965120 140736269148011 140736269148332 140736269148332 140736269152207 0\n"
+}

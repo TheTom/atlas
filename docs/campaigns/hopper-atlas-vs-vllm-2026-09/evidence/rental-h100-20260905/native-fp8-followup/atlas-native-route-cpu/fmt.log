@@ -1,0 +1,10 @@
+Diff in /Users/tom/Documents/New project/atlas-native-fp8-batched-ffn/crates/spark-model/src/layers/dense_ffn_native_batch_tests.rs:8:
+ use crate::weight_map::{Fp8Weight, QuantizedWeight, WeightQuantFormat};
+ use atlas_core::config::ModelConfig;
+ use spark_runtime::buffers::BufferArena;
+-use spark_runtime::gpu::{GpuBackend, KernelHandle};
+ use spark_runtime::gpu::mock::{MockArg, MockGpuBackend};
++use spark_runtime::gpu::{GpuBackend, KernelHandle};
+ 
+ fn run_batch(native_fp8: bool, rows: u32) {
+     let gpu = MockGpuBackend::new();

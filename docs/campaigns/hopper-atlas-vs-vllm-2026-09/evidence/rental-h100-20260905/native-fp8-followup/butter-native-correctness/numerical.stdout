@@ -1,0 +1,8 @@
+
+running 3 tests
+test block_fp8_dense_inputs_exercise_all_reduction_lanes_exactly ... ok
+test block_fp8_projection_views_reset_the_row_block_origin ... ok
+test block_fp8_tails_and_unequal_k_scales_match_independent_fp32_bits ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.54s
+

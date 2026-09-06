@@ -1,0 +1,4 @@
+batch4 M= 4: worst_cos=1.000000000 max_abs=0.000000 PASS
+batch16 M= 8: worst_cos=1.000000000 max_abs=0.000000 PASS
+batch16 M=16: worst_cos=1.000000000 max_abs=0.125000 PASS
+ALL PASS

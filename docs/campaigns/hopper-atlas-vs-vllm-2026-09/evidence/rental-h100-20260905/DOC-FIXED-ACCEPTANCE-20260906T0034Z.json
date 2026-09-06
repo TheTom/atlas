@@ -1,0 +1,11 @@
+{
+  "utc": "2026-09-06T00:37:55.808839+00:00",
+  "scope": "Completed fixed-build acceptance only; no live measurement metrics copied, no remote actions.",
+  "files_copied": 166,
+  "bytes_copied": 349231,
+  "hashes_verified": 168,
+  "json_parsed": 72,
+  "prose_typos_exit": 0,
+  "manifest_sha256": "3171cb19269376cc13f85618bf521756b90fa25c8d7534e831abc3266ee3691b",
+  "script_sha256": "c5af9917c9e38034a75fea21859d59db2b800178aee36449e2175a67bbdba6c1"
+}

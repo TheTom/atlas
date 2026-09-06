@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "nvidia-smi",
+    "--query-gpu=uuid,memory.total,memory.used,memory.free",
+    "--format=csv,noheader"
+  ],
+  "exit": 0,
+  "utc": "2026-09-06T00:04:21.566898+00:00"
+}

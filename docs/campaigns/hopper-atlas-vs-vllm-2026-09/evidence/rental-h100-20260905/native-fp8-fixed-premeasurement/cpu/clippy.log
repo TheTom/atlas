@@ -1,0 +1,14 @@
+Welcome to vast.ai. If authentication fails, try again after a few seconds, and double check your ssh key.
+Have fun!
+   Compiling atlas-closure v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/atlas-closure)
+   Compiling atlas-core v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/atlas-core)
+    Checking cudarc v0.19.2 (/workspace/atlas-rental/src/native-fp8-ffn-kernels/vendor/cudarc)
+   Compiling atlas-rdma v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/atlas-rdma)
+   Compiling spark-runtime v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/spark-runtime)
+   Compiling spark-storage v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/spark-storage)
+    Checking cufile-sys v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/cufile-sys)
+    Checking atlas-tier v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/atlas-tier)
+   Compiling atlas-kernels v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/atlas-kernels)
+   Compiling spark-model v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/spark-model)
+    Checking spark-comm v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/spark-comm)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 24.50s

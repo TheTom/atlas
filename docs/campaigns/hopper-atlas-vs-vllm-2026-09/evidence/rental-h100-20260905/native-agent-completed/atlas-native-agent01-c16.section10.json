@@ -1,0 +1,335 @@
+{
+  "record_type": "section10-supplemental-provenance",
+  "campaign": "hopper-atlas-vs-vllm-2026-09",
+  "engine": "atlas",
+  "certification_claimed": false,
+  "engine_version": {
+    "source_build_git_sha": "5cde118469d5f623c3e26da3055dd9001b781fc2",
+    "engine_declared_git_sha": null,
+    "binary_sha256": "5dadfd4df7902d63a2bf03625c74cfb3d864f266c9f350d56d2ad7d5c5981470",
+    "reported_version": null,
+    "declared_source_version": null,
+    "image_digest": null,
+    "image_note": "Native process, no engine image digest. vLLM installed implementation identity is unproven; interpreter hash is process evidence only."
+  },
+  "model": {
+    "hf_id": "Qwen/Qwen3.8-27B-FP8",
+    "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "checkpoint_quant": "E4M3FN with original128x128 block multipliers",
+    "snapshot_path": "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+  },
+  "hardware": {
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "gpu_count": 1,
+    "driver": "610.57.04",
+    "driver_reported_cuda": "13.3",
+    "nvidia_smi_q_sha256": "86e3ba987e6b64ac3e26c75b4a66b03b8b71aa241757d8b41597e8b652b1b06c"
+  },
+  "topology": {
+    "tp": 1,
+    "ep": 1,
+    "world_size": 1,
+    "matched": false
+  },
+  "serve_command": [
+    "/workspace/atlas-rental/bin/5cde118469d5f623c3e26da3055dd9001b781fc2/qwen3.8-27b/spark",
+    "serve",
+    "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "--rank",
+    "0",
+    "--world-size",
+    "1",
+    "--ep-size",
+    "1",
+    "--tp-size",
+    "1",
+    "--gpu-ordinal",
+    "0",
+    "--port",
+    "8888",
+    "--master-addr",
+    "127.0.0.1",
+    "--master-port",
+    "29500",
+    "--no-tui",
+    "--bind",
+    "0.0.0.0",
+    "--warmup-prompt",
+    "/workspace/atlas-rental/src/atlas/bench/hopper_ab/warmup_1024.txt",
+    "--request-timeout",
+    "0",
+    "--gpu-memory-utilization",
+    "0.90",
+    "--max-num-seqs",
+    "128",
+    "--max-batch-size",
+    "4",
+    "--enable-prefix-caching",
+    "true",
+    "--scheduling-policy",
+    "slai",
+    "--kv-cache-dtype",
+    "fp8",
+    "--kv-high-precision-layers",
+    "auto",
+    "--max-seq-len",
+    "24576",
+    "--fp8-kv-calibration-tokens",
+    "256",
+    "--disable-thinking",
+    "--model-name",
+    "Qwen/Qwen3.8-27B-FP8",
+    "--lm-head-dtype",
+    "bf16"
+  ],
+  "serve_environment": {
+    "PATH": "/workspace/atlas-rental/vllm/bin:/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "HOME": "/root",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "LD_LIBRARY_PATH": "/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "HF_HOME": "/workspace/atlas-rental/hf38",
+    "HF_HUB_CACHE": "/workspace/atlas-rental/hf38/hub",
+    "HF_HUB_OFFLINE": "1",
+    "SPT_NOENV": "1",
+    "RUST_LOG": "info",
+    "ATLAS_DENSE_FP8": "1",
+    "ATLAS_CAMPAIGN_RUN_TOKEN": "0087bb7b6eed46728a50105f58bb5a74"
+  },
+  "owned_process": {
+    "pid": 134585,
+    "start_ticks": 18654869,
+    "boot_id": "f7dff0ed-70ad-46d4-8961-c7075e4c6f72",
+    "executable": "/workspace/atlas-rental/bin/5cde118469d5f623c3e26da3055dd9001b781fc2/qwen3.8-27b/spark",
+    "executable_sha256": "5dadfd4df7902d63a2bf03625c74cfb3d864f266c9f350d56d2ad7d5c5981470",
+    "captured_at": "2026-09-06T00:41:44.806531+00:00"
+  },
+  "harness": {
+    "launch_git_sha": "5cde118469d5f623c3e26da3055dd9001b781fc2",
+    "measurement_git_sha": "5cde118469d5f623c3e26da3055dd9001b781fc2",
+    "ladder_sha256": "7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb",
+    "measurement_wrapper_sha256": "fc2a94c1e2cdb9fe9483bc74c1497245ef0e01f5fc78347a5582705f6ebf3e90",
+    "serve_wrapper_sha256": "12d7ac339ef15d6ccd1e4bd3d7da59e6448300509099c0e5ba80ccda626c1808"
+  },
+  "precision": {
+    "profile": "Original FP8 overlay; mixed W8A8/W8A16; BF16 head only when captured argv confirms; FP8 KV",
+    "observed_serve_flags": {
+      "--lm-head-dtype": "bf16",
+      "--kv-cache-dtype": "fp8",
+      "--max-batch-size": "4",
+      "--max-num-seqs": "128"
+    },
+    "profile_environment": {
+      "ATLAS_DENSE_FP8": "1"
+    },
+    "context_tokens": 24576,
+    "max_num_seqs": 128,
+    "active_batch_limit": 4,
+    "model_dtype": "bf16",
+    "kv_dtype": "fp8 with4/16 attention layers BF16",
+    "fp8_kv_calibration_tokens": 256,
+    "limitations": "Same original checkpoint weights; arithmetic, KV and capacity differ. Runtime source/loader evidence is not a complete GPU kernel trace."
+  },
+  "boot": {
+    "passed": true,
+    "time_to_ready_s": 21.352,
+    "first_token_s": 0.2
+  },
+  "quality": {
+    "gates": {
+      "coherency-pre": {
+        "passed": false,
+        "determinism_ok": true,
+        "toolcall_ok": true,
+        "think_leak_ok": true,
+        "known_answer_ok": false,
+        "details": {
+          "determinism_ok": "23 chars reproduced exactly, no degeneration signals",
+          "toolcall_ok": "1 get_weather call(s), required argument types valid",
+          "think_leak_ok": "137 chars, no leak signals",
+          "known_answer_ok": "'391' OK; 'Tokyo' OK; 'rotaregirfer' FAIL (answer not stated: 'To spell the word **refrigerator** backwards, we take the letters from the end o')"
+        },
+        "sha256": "00240f0fe472b5becd0804d00b0123e616bd7a9043bdedb080c5e52f68248240"
+      },
+      "coherency-post": {
+        "passed": false,
+        "determinism_ok": true,
+        "toolcall_ok": true,
+        "think_leak_ok": true,
+        "known_answer_ok": false,
+        "details": {
+          "determinism_ok": "23 chars reproduced exactly, no degeneration signals",
+          "toolcall_ok": "1 get_weather call(s), required argument types valid",
+          "think_leak_ok": "137 chars, no leak signals",
+          "known_answer_ok": "'391' OK; 'Tokyo' OK; 'rotaregirfer' FAIL (answer not stated: 'To spell the word **refrigerator** backwards, we take the letters from the end o')"
+        },
+        "sha256": "a0603e82432794de2cba541a023e28ccfdd60df3ea857685d7487b6ecb3ccd4b"
+      }
+    },
+    "exception_policies": {
+      "quality-policy-pre": {
+        "policy": "user-authorized-rental-word-reversal-exception",
+        "original_gate_passed": false,
+        "proceed_with_performance_testing": true,
+        "known_answers": [
+          {
+            "expected": "391",
+            "status": "OK",
+            "detail": ""
+          },
+          {
+            "expected": "Tokyo",
+            "status": "OK",
+            "detail": ""
+          },
+          {
+            "expected": "rotaregirfer",
+            "status": "FAIL",
+            "detail": "answer not stated: 'To spell the word **refrigerator** backwards, we take the letters from the end o'"
+          }
+        ],
+        "certification_claimed": false,
+        "original_gate_sha256": "00240f0fe472b5becd0804d00b0123e616bd7a9043bdedb080c5e52f68248240",
+        "original_gate_path": "/workspace/atlas-rental/results/benchmark.qwen38.atlas.native-agent01/coherency-pre.json"
+      },
+      "quality-policy-post": {
+        "policy": "user-authorized-rental-word-reversal-exception",
+        "original_gate_passed": false,
+        "proceed_with_performance_testing": true,
+        "known_answers": [
+          {
+            "expected": "391",
+            "status": "OK",
+            "detail": ""
+          },
+          {
+            "expected": "Tokyo",
+            "status": "OK",
+            "detail": ""
+          },
+          {
+            "expected": "rotaregirfer",
+            "status": "FAIL",
+            "detail": "answer not stated: 'To spell the word **refrigerator** backwards, we take the letters from the end o'"
+          }
+        ],
+        "certification_claimed": false,
+        "original_gate_sha256": "a0603e82432794de2cba541a023e28ccfdd60df3ea857685d7487b6ecb3ccd4b",
+        "original_gate_path": "/workspace/atlas-rental/results/benchmark.qwen38.atlas.native-agent01/coherency-post.json"
+      }
+    },
+    "certification_claimed": false
+  },
+  "run_complete": true,
+  "ladder_finished_utc": "2026-09-06T00:53:21Z",
+  "ladder_exit_code": 0,
+  "cleanup": {
+    "server_stop": {
+      "status": "stopped",
+      "pid": 134585,
+      "signalled_pids": [
+        134585
+      ]
+    },
+    "wrapper_exit": 0,
+    "immediate_query": "134585, [No data]\n",
+    "note": "Immediate owned PID [No data] is not an empty-query assertion; parent subsequently observed empty GPU at00:54 UTC, independent of this exported query."
+  },
+  "ptx_gate_ledger_sha256": null,
+  "supplement_limit": "This is not a schema-certified campaign artifact or retroactive modification of raw evidence.",
+  "cell": "benchmark.qwen38.atlas.native-agent01.c16",
+  "workload": {
+    "name": "agent",
+    "isl": 4096,
+    "actual_prompt_token_counts_observed": [
+      4593
+    ],
+    "prompt_counts_note": "Raw prompt_tokens_per_req is a sorted set, not one entry per request; aggregate prompt counts also checked.",
+    "osl": 512,
+    "concurrency": 16,
+    "requested_reps": 3,
+    "warmup": 1,
+    "temperature": 0.0,
+    "seed": 42,
+    "thinking": false,
+    "speculation": false
+  },
+  "rung_complete": true,
+  "metrics": {
+    "tok_s_series": [
+      55.1746308244446,
+      55.062573498868744,
+      55.123232993499556
+    ],
+    "tok_s_mean": 55.120145772270966,
+    "requests_ok": 48,
+    "request_errors": 0,
+    "completion_tokens_per_request": [
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512
+    ],
+    "ttft_p50_ms_mean_of_rep_values": 63684.24934267144,
+    "ttft_p99_ms_mean_of_rep_values": 123654.76487483345,
+    "tpot_p50_ms_mean_of_rep_values": 60.366346414214405,
+    "aggregation": "Arithmetic mean of per-repetition statistics; no pooled percentiles."
+  },
+  "measurement_complete": {
+    "finished": "2026-09-06T00:53:36.587157+00:00",
+    "workload": "agent",
+    "all_requested_outputs_complete": true,
+    "quality_policy_pre_and_post_passed": true,
+    "certification_claimed": false
+  },
+  "evidence": {
+    "session_directory": "atlas-native-agent01",
+    "raw_ladder_sha256": "a52b935082a73a7abd4df31a9b3b7e60e641e9b86bcf741a6a9fbb131b43f3dd",
+    "measurement_commands": "atlas-native-agent01/measurement-commands.json"
+  }
+}

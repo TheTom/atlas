@@ -1,0 +1,40 @@
+Welcome to vast.ai. If authentication fails, try again after a few seconds, and double check your ssh key.
+Have fun!
+   Compiling cudarc v0.19.2 (/workspace/atlas-rental/src/native-fp8-ffn-kernels/vendor/cudarc)
+   Compiling atlas-closure v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/atlas-closure)
+   Compiling atlas-core v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/atlas-core)
+   Compiling atlas-rdma v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/atlas-rdma)
+   Compiling spark-runtime v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/spark-runtime)
+   Compiling spark-storage v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/spark-storage)
+   Compiling cufile-sys v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/cufile-sys)
+   Compiling atlas-kernels v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/atlas-kernels)
+   Compiling atlas-tier v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/atlas-tier)
+   Compiling spark-model v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/spark-model)
+   Compiling spark-comm v1.0.0-beta-preview (/workspace/atlas-rental/src/native-fp8-ffn-kernels/crates/spark-comm)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 34.40s
+     Running unittests src/lib.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/spark_model-ad53cb13b16afb43)
+
+running 2 tests
+test layers::dense_ffn::kernel_tests::small_native_ffn_uses_existing_batched_gemv ... FAILED
+test layers::dense_ffn::kernel_tests::larger_native_ffn_uses_existing_pipelined_gemm ... FAILED
+
+failures:
+
+failures:
+    layers::dense_ffn::kernel_tests::larger_native_ffn_uses_existing_pipelined_gemm
+    layers::dense_ffn::kernel_tests::small_native_ffn_uses_existing_batched_gemv
+
+test result: FAILED. 0 passed; 2 failed; 0 ignored; 0 measured; 654 filtered out; finished in 0.00s
+
+
+thread 'layers::dense_ffn::kernel_tests::small_native_ffn_uses_existing_batched_gemv' (121597) panicked at crates/spark-model/src/layers/dense_ffn_kernel_tests.rs:110:9:
+assertion `left == right` failed: M=1: gate/up/down selected the wrong native kernel
+  left: 3848
+ right: 57005
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'layers::dense_ffn::kernel_tests::larger_native_ffn_uses_existing_pipelined_gemm' (121596) panicked at crates/spark-model/src/layers/dense_ffn_kernel_tests.rs:110:9:
+assertion `left == right` failed: M=5: gate/up/down selected the wrong native kernel
+  left: 3848
+ right: 57005
+error: test failed, to rerun pass `-p spark-model --lib`

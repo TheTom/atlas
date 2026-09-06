@@ -1,0 +1,180 @@
+{
+  "record_type": "section10-supplemental-provenance",
+  "campaign": "hopper-atlas-vs-vllm-2026-09",
+  "engine": "atlas",
+  "certification_claimed": false,
+  "engine_version": {
+    "source_build_git_sha": "b3025ab19d30416a3bbef201f34989bf338e1acd",
+    "engine_declared_git_sha": null,
+    "binary_sha256": "e4b7468d6f35ce6dde1251142b23eb528fc23df79950b41d33fcef54fc290494",
+    "image_digest": null,
+    "image_note": "Native source-built process; no engine image digest applies."
+  },
+  "model": {
+    "hf_id": "Qwen/Qwen3.8-27B-FP8",
+    "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "checkpoint_quant": "E4M3FN with original128x128 block multipliers",
+    "snapshot_path": "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+  },
+  "hardware": {
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "gpu_count": 1,
+    "driver": "610.57.04",
+    "driver_reported_cuda": "13.3",
+    "nvidia_smi_q_sha256": "08369fe35387a1b9fa49f5c2fb2bf6944c49235b01d3ae5cc08704c84288067f"
+  },
+  "topology": {
+    "tp": 1,
+    "ep": 1,
+    "world_size": 1,
+    "matched": false
+  },
+  "serve_command": [
+    "/workspace/atlas-rental/bin/b3025ab19d30416a3bbef201f34989bf338e1acd/qwen3.8-27b/spark",
+    "serve",
+    "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "--rank",
+    "0",
+    "--world-size",
+    "1",
+    "--ep-size",
+    "1",
+    "--tp-size",
+    "1",
+    "--gpu-ordinal",
+    "0",
+    "--port",
+    "8888",
+    "--master-addr",
+    "127.0.0.1",
+    "--master-port",
+    "29500",
+    "--no-tui",
+    "--bind",
+    "0.0.0.0",
+    "--warmup-prompt",
+    "/workspace/atlas-rental/src/atlas/bench/hopper_ab/warmup_1024.txt",
+    "--request-timeout",
+    "0",
+    "--gpu-memory-utilization",
+    "0.90",
+    "--max-num-seqs",
+    "128",
+    "--max-batch-size",
+    "4",
+    "--enable-prefix-caching",
+    "true",
+    "--scheduling-policy",
+    "slai",
+    "--kv-cache-dtype",
+    "fp8",
+    "--kv-high-precision-layers",
+    "auto",
+    "--max-seq-len",
+    "24576",
+    "--fp8-kv-calibration-tokens",
+    "256",
+    "--disable-thinking",
+    "--model-name",
+    "Qwen/Qwen3.8-27B-FP8",
+    "--lm-head-dtype",
+    "bf16"
+  ],
+  "serve_environment": {
+    "PATH": "/workspace/atlas-rental/vllm/bin:/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "HOME": "/root",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "LD_LIBRARY_PATH": "/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "HF_HOME": "/workspace/atlas-rental/hf38",
+    "HF_HUB_CACHE": "/workspace/atlas-rental/hf38/hub",
+    "HF_HUB_OFFLINE": "1",
+    "SPT_NOENV": "1",
+    "RUST_LOG": "info",
+    "ATLAS_DENSE_FP8": "1",
+    "ATLAS_CAMPAIGN_RUN_TOKEN": "8a7145b98898425abdc074eb79761183"
+  },
+  "owned_process": {
+    "pid": 117357,
+    "start_ticks": 18440876,
+    "boot_id": "f7dff0ed-70ad-46d4-8961-c7075e4c6f72",
+    "executable": "/workspace/atlas-rental/bin/b3025ab19d30416a3bbef201f34989bf338e1acd/qwen3.8-27b/spark",
+    "captured_at": "2026-09-06T00:06:28.333203+00:00"
+  },
+  "harness": {
+    "launch_git_sha": "b3025ab19d30416a3bbef201f34989bf338e1acd",
+    "measurement_git_sha": "b3025ab19d30416a3bbef201f34989bf338e1acd",
+    "ladder_sha256": "7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb",
+    "measurement_wrapper_sha256": "f9b41807350b8229a1693f6df61ccb6a2f966000b535277e8c07b31358cb52c4",
+    "serve_wrapper_sha256": "12d7ac339ef15d6ccd1e4bd3d7da59e6448300509099c0e5ba80ccda626c1808"
+  },
+  "precision": {
+    "profile": "native FP8 plus explicit BF16 head; b3025ab native M4\u20138 FFN dispatch repair",
+    "dense_fp8_env": "1",
+    "lm_head_dtype": "bf16",
+    "native_gdn_layer_logs": 48,
+    "context_tokens": 24576,
+    "active_batch": 4,
+    "kv_dtype": "fp8 with4/16 attention layers BF16",
+    "fp8_kv_calibration_tokens": 256,
+    "limitations": "Weight format matched to pinned checkpoint; Atlas mixed W8A16/W8A8 activation paths differ from Butter W8A32 and vLLM dynamic W8A8. Source dispatch proof and loader logs are not a complete GPU kernel trace."
+  },
+  "boot": {
+    "passed": true,
+    "time_to_ready_s": 23.435,
+    "first_token_s": 0.344
+  },
+  "quality": {
+    "pre_gate_passed": false,
+    "pre_exception": "sole word-reversal user exception; all other checks passed",
+    "post_gate": null,
+    "post_gate_reason": "Operator stopped the interrupted ladder before post-coherency."
+  },
+  "run_complete": false,
+  "ladder_finished_utc": null,
+  "ladder_exit_code": -2,
+  "operator_stop_file": "atlas-native-lat01/operator-budget-stop.json",
+  "cleanup": {
+    "server_stop": "stopped",
+    "wrapper_exit": 0,
+    "immediate_query": "owned PID117357 persisted transiently as [No data]",
+    "later_empty_admission": "later-empty-admission/admission.json"
+  },
+  "ptx_gate_ledger_sha256": null,
+  "supplement_limit": "This is not a schema-certified campaign artifact or retroactive modification of raw evidence.",
+  "cell": "benchmark.qwen38.atlas.native-lat01.c1",
+  "workload": {
+    "name": "lat",
+    "isl": 1024,
+    "actual_prompt_tokens_per_request": 1193,
+    "osl": 256,
+    "concurrency": 1,
+    "requested_reps": 3,
+    "warmup": 1,
+    "temperature": 0.0,
+    "seed": 42,
+    "thinking": false,
+    "speculation": false
+  },
+  "rung_complete": true,
+  "metrics": {
+    "tok_s_series": [
+      28.970944314962477,
+      28.86395689494671,
+      28.942073180436193
+    ],
+    "tok_s_mean": 28.925658130115124,
+    "requests_ok": 3,
+    "request_errors": 0,
+    "completion_tokens_per_request": [
+      256,
+      256,
+      256
+    ],
+    "ttft_p50_ms_mean_of_rep_values": 3409.4227036597053,
+    "ttft_p99_ms_mean_of_rep_values": 3409.4227036597053,
+    "tpot_p50_ms_mean_of_rep_values": 21.333264670558457,
+    "aggregation": "Arithmetic mean of per-repetition statistics; no pooled percentiles."
+  }
+}

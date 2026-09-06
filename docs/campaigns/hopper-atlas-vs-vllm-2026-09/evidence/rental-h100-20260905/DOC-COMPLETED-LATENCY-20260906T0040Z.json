@@ -1,0 +1,25 @@
+{
+  "captured_utc": "2026-09-06T00:54:14.695917+00:00",
+  "oracle": "Copied bytes equal exported sources and manifest; all JSON parses; report links resolve; finished session gate/exception/completion and per-cell metrics match raw; active Atlas agent data excluded.",
+  "copied_source_hashes_verified": 205,
+  "all_manifest_hashes_verified": 210,
+  "json_files_parsed": 103,
+  "local_report_links_resolve": 106,
+  "completed_cells": 4,
+  "new_raw_files_bytes": 1103367,
+  "certification_claimed": false,
+  "publication": "Left uncommitted; no remote writes.",
+  "report_sha256": {
+    "RENTAL-H100-REPORT.md": "b69aabf509cdc65f6e9bd3d14cbe462fe1a3f3d79ee36735c1566a516683a19f",
+    "RENTAL-H100-NATIVE-FP8.md": "f54fba2df6619fc322206b18541fe790f9589b89b04065b5e764cb192fa6b9be",
+    "NIGHT-LOG.md": "7d8013f4fadb8a668e573dfca75d68f61bd65a11cae357956aadeabb70e11944",
+    "vllm-control/SCHEMA-GAPS.md": "cca27c684d8df59aeb7b88bef70b84f9499677c51505dcc639a4f710b4d5593c"
+  },
+  "manifest_sha256": "3faccbee8647e3c53bc3bd0d0098b5d3a555ac6b32aa1cae301a25a9bdc56a15",
+  "prose_checks": {
+    "git_diff_check_tracked_reports_exit": 0,
+    "typos_all_four_reports_exit": 0,
+    "note": "Original raw outputs are preserved byte for byte; these checks are limited to edited prose."
+  },
+  "failed_additional_crosscheck_cells": 1
+}

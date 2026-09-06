@@ -1,0 +1,10 @@
+# driver sha256 7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb
+[rental.qwen38.atlas.native-lat02] C=  1 rep0  tok/s=   39.33  wall=   6.51s  ctok=    256  ptok/req=[1193]  ttft_p50=1074ms  err=0  clk=1980, 510.75
+[rental.qwen38.atlas.native-lat02] C=  1 rep1  tok/s=   39.35  wall=   6.51s  ctok=    256  ptok/req=[1193]  ttft_p50=1077ms  err=0  clk=1980, 514.74
+[rental.qwen38.atlas.native-lat02] C=  1 rep2  tok/s=   39.33  wall=   6.51s  ctok=    256  ptok/req=[1193]  ttft_p50=1077ms  err=0  clk=1980, 510.63
+[rental.qwen38.atlas.native-lat02] C=  1 SERIES ['39.33', '39.35', '39.33'] mean=39.34 spread=0.03%
+[rental.qwen38.atlas.native-lat02] C= 16 rep0  tok/s=   64.92  wall=  63.10s  ctok=   4096  ptok/req=[1193]  ttft_p50=26318ms  err=0  clk=1980, 452.26
+[rental.qwen38.atlas.native-lat02] C= 16 rep1  tok/s=   64.98  wall=  63.03s  ctok=   4096  ptok/req=[1193]  ttft_p50=26233ms  err=0  clk=1980, 447.34
+[rental.qwen38.atlas.native-lat02] C= 16 rep2  tok/s=   65.09  wall=  62.92s  ctok=   4096  ptok/req=[1193]  ttft_p50=26231ms  err=0  clk=1980, 450.33
+[rental.qwen38.atlas.native-lat02] C= 16 SERIES ['64.92', '64.98', '65.09'] mean=65.00 spread=0.27%
+# wrote /workspace/atlas-rental/results/benchmark.qwen38.atlas.native-lat02/ladder.json

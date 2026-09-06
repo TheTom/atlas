@@ -1,0 +1,26 @@
+{
+  "checkpoint": {
+    "repo": "Qwen/Qwen3.8-27B-FP8",
+    "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+  },
+  "atlas_profile": {
+    "environment": {
+      "ATLAS_DENSE_FP8": "1"
+    },
+    "serve_overrides": [
+      "--lm-head-dtype",
+      "bf16"
+    ],
+    "required_fix": "13297c954a8b1794ea8995d1d59f5242a08284ac",
+    "precision_claim": "same checkpoint weight quantization; arithmetic andKVprecision differ",
+    "attention_prefill": "W8A8 default, W8A16 when requiredFP8quant/GEMMhandles absent",
+    "ffn_prefill": "W8A16",
+    "gdn_prefill": "W8A8 default, W8A16 fallback",
+    "decode": "W8A16 fornativeFP8projections; originalBF16head whenexplicitflagset",
+    "c16_capacity": "4active decode rows; othersqueue",
+    "vllm_observed_kernel": "FlashInferFp8DeepGEMMDynamicBlockScaledKernel",
+    "vllm_kv_cache": "auto; modeldtypeBF16",
+    "butter_operator": "W8A32, originalE4M3FNblockweights+FP32act/accum/output",
+    "gpu_status": "source expectation; parent owns finalruntimeproof"
+  }
+}

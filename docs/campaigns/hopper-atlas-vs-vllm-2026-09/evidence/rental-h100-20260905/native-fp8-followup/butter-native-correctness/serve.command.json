@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "/workspace/butter-iron-rental/bin/butter-block-fp8-dfc45a1",
+    "serve-local",
+    "--model",
+    "/workspace/atlas-rental/hf38/hub/models--Qwen--Qwen3.8-27B-FP8/snapshots/017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "--max-context",
+    "8192",
+    "--parallel",
+    "1",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8890"
+  ],
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "CUDA_HOME": "/usr/local/cuda",
+    "CUDA_PATH": "/usr/local/cuda",
+    "LD_LIBRARY_PATH": "/usr/local/cuda/lib64:/usr/lib/x86_64-linux-gnu",
+    "BUTTER_HOME": "/workspace/butter-iron-rental/butter-home",
+    "QWEN35_MARLIN": "0",
+    "BUTTER_IRON_SELECTORS": "1"
+  },
+  "utc": "2026-09-06T00:04:11.421807+00:00"
+}

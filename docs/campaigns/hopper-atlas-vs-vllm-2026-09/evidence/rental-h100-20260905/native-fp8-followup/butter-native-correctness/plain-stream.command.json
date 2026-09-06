@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "python3",
+    "/workspace/atlas-rental/src/atlas/bench/campaign/stream_probe.py",
+    "--url",
+    "http://127.0.0.1:8890/v1/chat/completions",
+    "--request-json",
+    "/workspace/butter-iron-rental/results/butter-block-fp8-http-20260906T000408Z/plain-stream.request.json",
+    "--out",
+    "/workspace/butter-iron-rental/results/butter-block-fp8-http-20260906T000408Z/plain-stream",
+    "--timeout-s",
+    "90"
+  ],
+  "exit": 0,
+  "utc": "2026-09-06T00:05:03.992494+00:00"
+}

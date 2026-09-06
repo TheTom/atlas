@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "errors": [],
+  "first_role_s": null,
+  "first_reasoning_s": null,
+  "first_content_s": null,
+  "first_tool_s": 8.19429090298945,
+  "finish_s": 8.19429090298945,
+  "usage_s": 8.19429090298945,
+  "done_s": 8.19429090298945,
+  "content": "",
+  "reasoning": "",
+  "tool_calls": {
+    "0": {
+      "id": "chatcmpl-tool-recovered-000000000000",
+      "name": "get_weather",
+      "arguments": "{\"city\":\"Reykjavik\",\"days\":3}"
+    }
+  },
+  "content_events": 0,
+  "usage": {
+    "cached_tokens": 0,
+    "completion_tokens": 40,
+    "prompt_tokens": 226,
+    "total_tokens": 266
+  },
+  "finish_reason": "tool_calls",
+  "scope": "single diagnostic stream; structural completion, not semantic correctness or campaign scoring",
+  "url": "http://127.0.0.1:8890/v1/chat/completions",
+  "http_status": 200,
+  "received_bytes": 1385,
+  "elapsed_s": 8.196881198004121,
+  "request_sha256": "eaaac1b415eea7d16e6307849b22e2357499850d6c10cdf23af84ca9a34a7ac4"
+}

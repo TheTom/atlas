@@ -1,0 +1,20 @@
+{
+  "script": "concurrent_quality_probe.py",
+  "sha256": "c5af9917c9e38034a75fea21859d59db2b800178aee36449e2175a67bbdba6c1",
+  "bytes": 13082,
+  "invocation": [
+    "python3",
+    "concurrent_quality_probe.py",
+    "--url",
+    "http://127.0.0.1:8888",
+    "--model",
+    "Qwen/Qwen3.8-27B-FP8",
+    "--out",
+    "results/diagnostic.atlas.native.concurrent-quality01"
+  ],
+  "known_bad_oracle": "9 refused before2 exact answer controls",
+  "cpu_transport": "One control and16 simultaneous local HTTP responses all passed, maximum actual client-attempt overlap16; trickling body forcibly bounded0.4347s with12bytes retained and0livechildren. See selftest.json.",
+  "following_metadata_only_change": "Preserve captured headers on timeout; mark overall result incomplete when actual client overlap is less than requested. No additional H100 action.",
+  "expected_duration": "Normal fast arithmetic should finish within a minute; C1 request cap10s/C16cap20s, setup cap10s each, owned child termination/reaping bounded. Parent whole-cell deadline still applies.",
+  "scope": "Standalone diagnostic outside frozen harness, no scoring or proof of server active GPU rows. All17requestJSONs/rawbody/header/result files plus summary saved. Never signal engine processes."
+}

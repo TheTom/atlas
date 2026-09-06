@@ -1,0 +1,125 @@
+[
+  {
+    "name": "coherency-pre",
+    "argv": [
+      "python3",
+      "bench/hopper_ab/coherency_gate.py",
+      "--url",
+      "http://127.0.0.1:8888",
+      "--model",
+      "Qwen/Qwen3.8-27B-FP8",
+      "--think",
+      "off",
+      "--timeout",
+      "120",
+      "--out",
+      "/workspace/atlas-rental/results/benchmark.qwen38.atlas.native-lat02/coherency-pre.json"
+    ],
+    "started": "2026-09-06T00:34:57.476397+00:00",
+    "timeout_s": 1000,
+    "exit_code": 1,
+    "finished": "2026-09-06T00:35:15.194516+00:00"
+  },
+  {
+    "name": "quality-policy-pre",
+    "argv": [
+      "python3",
+      "/workspace/atlas-rental/reversal_exception.py",
+      "--source",
+      "/workspace/atlas-rental/src/atlas",
+      "--coherency",
+      "/workspace/atlas-rental/results/benchmark.qwen38.atlas.native-lat02/coherency-pre.json",
+      "--out",
+      "/workspace/atlas-rental/results/benchmark.qwen38.atlas.native-lat02/quality-policy-pre.json"
+    ],
+    "started": "2026-09-06T00:35:15.195448+00:00",
+    "timeout_s": 20,
+    "exit_code": 0,
+    "finished": "2026-09-06T00:35:15.360935+00:00"
+  },
+  {
+    "name": "endpoint-before-ladder",
+    "argv": [
+      "python3",
+      "bench/campaign/process_endpoint.py",
+      "owned",
+      "--url",
+      "http://127.0.0.1:8888",
+      "--record",
+      "/workspace/atlas-rental/results/benchmark.qwen38.atlas.native-lat02/owner.json",
+      "--out",
+      "/workspace/atlas-rental/results/benchmark.qwen38.atlas.native-lat02/endpoint-before-ladder.json"
+    ],
+    "started": "2026-09-06T00:35:15.362476+00:00",
+    "timeout_s": 20,
+    "exit_code": 0,
+    "finished": "2026-09-06T00:35:15.728568+00:00"
+  },
+  {
+    "name": "ladder",
+    "argv": [
+      "/workspace/atlas-rental/vllm/bin/python3",
+      "bench/ladder38/harness_w55_conc_ladder.py",
+      "--url",
+      "http://127.0.0.1:8888",
+      "--model",
+      "Qwen/Qwen3.8-27B-FP8",
+      "--label",
+      "rental.qwen38.atlas.native-lat02",
+      "--out",
+      "/workspace/atlas-rental/results/benchmark.qwen38.atlas.native-lat02/ladder.json",
+      "--concs",
+      "1,16",
+      "--reps",
+      "3",
+      "--isl",
+      "1024",
+      "--osl",
+      "256",
+      "--warmup",
+      "1"
+    ],
+    "started": "2026-09-06T00:35:15.729579+00:00",
+    "timeout_s": 1200,
+    "exit_code": 0,
+    "finished": "2026-09-06T00:39:54.706482+00:00"
+  },
+  {
+    "name": "coherency-post",
+    "argv": [
+      "python3",
+      "bench/hopper_ab/coherency_gate.py",
+      "--url",
+      "http://127.0.0.1:8888",
+      "--model",
+      "Qwen/Qwen3.8-27B-FP8",
+      "--think",
+      "off",
+      "--timeout",
+      "120",
+      "--out",
+      "/workspace/atlas-rental/results/benchmark.qwen38.atlas.native-lat02/coherency-post.json"
+    ],
+    "started": "2026-09-06T00:39:54.707996+00:00",
+    "timeout_s": 1000,
+    "exit_code": 1,
+    "finished": "2026-09-06T00:40:09.364331+00:00"
+  },
+  {
+    "name": "quality-policy-post",
+    "argv": [
+      "python3",
+      "/workspace/atlas-rental/reversal_exception.py",
+      "--source",
+      "/workspace/atlas-rental/src/atlas",
+      "--coherency",
+      "/workspace/atlas-rental/results/benchmark.qwen38.atlas.native-lat02/coherency-post.json",
+      "--out",
+      "/workspace/atlas-rental/results/benchmark.qwen38.atlas.native-lat02/quality-policy-post.json"
+    ],
+    "started": "2026-09-06T00:40:09.365395+00:00",
+    "timeout_s": 20,
+    "exit_code": 0,
+    "finished": "2026-09-06T00:40:09.530996+00:00"
+  }
+]

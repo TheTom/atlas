@@ -1,0 +1,33 @@
+W0906 00:21:02.362000 122317 torch/utils/cpp_extension.py:178] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+Traceback (most recent call last):
+  File "/workspace/atlas-rental/vllm/bin/vllm", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/entrypoints/cli/main.py", line 97, in main
+    args.dispatch_function(args)
+  File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/entrypoints/cli/benchmark/serve.py", line 22, in cmd
+    main(args)
+  File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/benchmarks/serve.py", line 1963, in main
+    return asyncio.run(main_async(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/benchmarks/serve.py", line 2123, in main_async
+    input_requests = get_samples(args, tokenizer)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/benchmarks/datasets/datasets.py", line 2493, in get_samples
+    input_requests = dataset_mapping[args.dataset_name]()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/benchmarks/datasets/datasets.py", line 2409, in <lambda>
+    ).sample(
+      ^^^^^^^
+  File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/vllm/benchmarks/datasets/datasets.py", line 611, in sample
+    raise ValueError(
+ValueError: --random-input-len is too small: with tokenizer special tokens 0 and input range ratio 1.0, the minimum possible total input tokens (prefix + sampled) is 0. Increase --random-input-len and/or --random-prefix-len, or decrease the input range ratio so that prefix_len + floor(max(0, random_input_len - num_special)) * (1 - input_range_ratio) >= 1.

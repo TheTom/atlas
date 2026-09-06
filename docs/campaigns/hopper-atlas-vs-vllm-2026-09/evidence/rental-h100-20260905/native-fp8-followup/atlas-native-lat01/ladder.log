@@ -1,0 +1,41 @@
+# driver sha256 7a78f205e168a6ded92a6de270c46c59ea6e4dd18616c3927b98433128343fbb
+[rental.qwen38.atlas.native-lat01] C=  1 rep0  tok/s=   28.97  wall=   8.84s  ctok=    256  ptok/req=[1193]  ttft_p50=3407ms  err=0  clk=1980, 509.82
+[rental.qwen38.atlas.native-lat01] C=  1 rep1  tok/s=   28.86  wall=   8.87s  ctok=    256  ptok/req=[1193]  ttft_p50=3411ms  err=0  clk=1980, 511.94
+[rental.qwen38.atlas.native-lat01] C=  1 rep2  tok/s=   28.94  wall=   8.85s  ctok=    256  ptok/req=[1193]  ttft_p50=3410ms  err=0  clk=1980, 524.79
+[rental.qwen38.atlas.native-lat01] C=  1 SERIES ['28.97', '28.86', '28.94'] mean=28.93 spread=0.37%
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/workspace/atlas-rental/src/atlas/bench/ladder38/harness_w55_conc_ladder.py", line 246, in main
+    rep = await run_rep(session, chat, a.model, conc, a.isl, a.osl)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/atlas-rental/src/atlas/bench/ladder38/harness_w55_conc_ladder.py", line 179, in run_rep
+    outs = await asyncio.gather(*[one_request(session, url, model, p, osl) for p in prompts])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/atlas-rental/src/atlas/bench/ladder38/harness_w55_conc_ladder.py", line 129, in one_request
+    async for chunk in resp.content.iter_any():
+  File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/workspace/atlas-rental/vllm/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/atlas-rental/src/atlas/bench/ladder38/harness_w55_conc_ladder.py", line 284, in <module>
+    sys.exit(asyncio.run(main()))
+             ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt

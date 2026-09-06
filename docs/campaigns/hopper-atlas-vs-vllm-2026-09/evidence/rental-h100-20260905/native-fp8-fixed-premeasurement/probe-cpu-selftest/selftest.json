@@ -1,0 +1,9 @@
+{
+  "command": [
+    "python3",
+    "owned temporary CPU-only fixture"
+  ],
+  "exit": 0,
+  "stdout": "9 known-bad refusals before two exact-answer acceptances\n{\"c1_pass\": true, \"c16_pass\": true, \"max_overlap\": 16, \"deadline_refusal\": \"owned request wall deadline exceeded\", \"trickle_elapsed_s\": 0.43474308300210396, \"raw_partial_bytes\": 12, \"live_children\": 0}\n",
+  "stderr": ""
+}

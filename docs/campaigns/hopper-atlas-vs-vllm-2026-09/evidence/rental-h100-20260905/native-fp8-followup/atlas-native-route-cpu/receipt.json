@@ -1,0 +1,54 @@
+{
+  "source_head": "13297c954a8b1794ea8995d1d59f5242a08284ac",
+  "base_head": "fd65fb85a09e9ff3d81c36fcbceffff4bdc38269",
+  "recorded_at": "2026-09-05T23:53:52.013088+00:00",
+  "red_exit": 101,
+  "red_observation": "native M4 dispatched0 of3 requiredFP8projections; NVFP4controlpassed",
+  "full_spark_model": {
+    "exit": 0,
+    "passed": 647,
+    "failed": 0,
+    "ignored": 14
+  },
+  "source_files": {
+    "crates/spark-model/src/layers/dense_ffn.rs": "6fe33fbd57575750bfd13c372cadeced90e599098f8c7799e9865cc3a2905641",
+    "crates/spark-model/src/layers/dense_ffn_native_batch_tests.rs": "dfc20c331b24df8c9342347439b4fd818e60ccd75781ed7f05e9d196141dfa78"
+  },
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "ATLAS_SKIP_BUILD": "1",
+    "CUDARC_CUDA_VERSION": "13000",
+    "CARGO_TARGET_DIR": "/workspace/atlas-rental/target-cpu-checks",
+    "CARGO_BUILD_JOBS": "4",
+    "ATLAS_TARGET_HW": "hopper",
+    "ATLAS_TARGET_MODEL": "qwen3.8-27b",
+    "ATLAS_TARGET_QUANT": "nvfp4"
+  },
+  "cargo": "cargo +1.93.1 test --locked -p spark-model",
+  "remote_source": "/workspace/atlas-rental/src/native-fp8-batched-ffn",
+  "runtime_gpu_proof": "not run by this agent",
+  "format_note": "Full model suite preceded rustfmt-only import reordering in test module; final focused check rerun on formatted source.",
+  "final_checks": {
+    "focused-final": 0,
+    "rustdoc": 0,
+    "clippy": 0,
+    "doctests": 0
+  },
+  "workspace_doctests": {
+    "passed": 0,
+    "ignored": 2,
+    "exit": 0
+  },
+  "owned_remote_source_removed": true,
+  "disk_before": "388 GiB free on /workspace at2026-09-05T23:47:58Z; tool output recorded idle GPU0MiB and no GPU processes",
+  "disk_after": "385 GiB free on /workspace after CPU checks; owned source worktree removed; shared CPU target retained",
+  "log_hashes": {
+    "fmt-green.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fmt.log": "e03f3601fc85c0d8a27a17f7db946f25d2898827ed1b4c3169024cd2f22df6fb",
+    "red.log": "955a341d7bd2836836a667fc2cf86e26a32abacca14a408d0a2a5dc651e17986",
+    "green-full-model.log": "dcd3051e119457476ca5c7229ae8ecae865924e796bbc5df809a914810e8dc89",
+    "cleanup.log": "df2892523a49d3e81c593757fb98a6edf5fb49c41a16d4e3870f8e9bd02747d3",
+    "final-checks.log": "bd85b647044fe99b9dfab7242a5495eb10f0ba16fa1395da373750f12a6f23cd"
+  },
+  "final_remote_source_hashes_match_commit": true
+}
