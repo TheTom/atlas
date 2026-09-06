@@ -45,12 +45,12 @@
 ///   `GateBaseline.hardware` is keyed by, and what the campaign results
 ///   template's columns are. This is the unit a THRESHOLD is meaningful for.
 ///
-/// They coincide for `gb10` and `b200` and diverge for `hopper`, which is one
-/// architecture (SM 9.0) across two SKUs whose memory bandwidth differs by
-/// 43%. Both kinds must be registered: the arch classes because
-/// `every_kernel_hardware_dir_is_registered` demands it, the SKUs because
-/// `--hardware` validates against this list.
-pub const KNOWN_HARDWARE_IDS: [&str; 11] = [
+/// They coincide for `gb10`, `b200` and `rtx-pro-6000` and diverge for
+/// `hopper`, which is one architecture (SM 9.0) across two SKUs whose memory
+/// bandwidth differs by 43%. Both kinds must be registered: the arch classes
+/// because `every_kernel_hardware_dir_is_registered` demands it, the SKUs
+/// because `--hardware` validates against this list.
+pub const KNOWN_HARDWARE_IDS: [&str; 12] = [
     // NVIDIA GB10 / DGX Spark — the box every committed record was measured on.
     // Architecture class and SKU at once.
     "gb10",
@@ -76,6 +76,14 @@ pub const KNOWN_HARDWARE_IDS: [&str; 11] = [
     // that does not exist.
     "b200",
     "gb200",
+    // NVIDIA workstation Blackwell, SM 12.0 — `kernels/rtx-pro-6000/`
+    // (sm_120a). Architecture class and SKU at once, like gb10: the RTX PRO
+    // 6000 Blackwell parts (Max-Q Workstation, Workstation, Server Edition)
+    // are one GB202 die at 96 GB of GDDR7, and the id is the `kernels/<hw>/`
+    // directory name. NOT folded into `gb10`: same instruction set, but GB10
+    // is CC 12.1 with 273 GB/s of LPDDR5X against 1792 GB/s of GDDR7 here, so
+    // no memory-bound ceiling measured on one means anything on the other.
+    "rtx-pro-6000",
     // Apple Silicon, via the Metal backend.
     "metal",
     // AMD Strix Halo — Vulkan and HIP are separate targets and separate
@@ -93,6 +101,7 @@ pub const KNOWN_HARDWARE_IDS: [&str; 11] = [
 ///
 /// Matched as a WHOLE token, never a substring: `gh200` contains `h200`, and a
 /// substring match would file every Grace-Hopper run under the H200 baseline.
+/// SKUs whose name needs more than one token live in [`SKU_PHRASES`].
 ///
 /// Deliberately short. A SKU earns an entry only when the project has decided
 /// its numbers are worth scoring separately — everything absent falls through
@@ -109,6 +118,28 @@ const SKU_TOKENS: [(&str, &str); 7] = [
     ("gb200", "gb200"),
     ("mi300x", "mi300x"),
 ];
+
+/// SKUs whose name is a RUN of tokens, and the class each names.
+///
+/// [`SKU_TOKENS`] cannot express these. `nvidia-smi` answers
+/// `"NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition"`, and no single
+/// token in it names the part: `rtx` is on every GeForce and every RTX A-series
+/// board, and `6000` alone is shared with the RTX 6000 Ada Generation (sm_89,
+/// which Atlas ships nothing for) and the Quadro RTX 6000 (Turing). Only the
+/// three together — `rtx pro 6000` — pick out Blackwell workstation silicon.
+///
+/// Matched as CONSECUTIVE whole tokens for that reason, so `RTX 6000 Ada
+/// Generation` misses: its tokens are `rtx 6000 ada`, and `pro` is not between
+/// them. The trailing tokens are ignored, which is deliberate — Max-Q
+/// Workstation, Workstation and Server Edition are the same GB202 die at CC
+/// 12.0 and share `kernels/rtx-pro-6000/`.
+///
+/// The other RTX PRO Blackwell boards (5000, 4500, 4000) are also CC 12.0 and
+/// are deliberately ABSENT: they are different dies with different memory, so
+/// a threshold measured on a 6000 is not one of theirs. They fall through to
+/// `None` and keep their full name in the key, which is this table's safe
+/// default everywhere.
+const SKU_PHRASES: [(&[&str], &str); 1] = [(&["rtx", "pro", "6000"], "rtx-pro-6000")];
 
 /// Map a GPU's reported name onto the box class its numbers belong to.
 ///
@@ -133,14 +164,28 @@ const SKU_TOKENS: [(&str, &str); 7] = [
 /// column in the campaign results template, so the distinction is never lost —
 /// only the baseline key is coarse.
 pub fn hardware_id_from_gpu_name(name: &str) -> Option<&'static str> {
-    name.split(|c: char| !c.is_ascii_alphanumeric())
+    let tokens: Vec<String> = name
+        .split(|c: char| !c.is_ascii_alphanumeric())
+        .filter(|t| !t.is_empty())
         .map(str::to_ascii_lowercase)
-        .find_map(|token| {
+        .collect();
+    // Phrases FIRST. A multi-token SKU is the more specific reading of the
+    // same name, and checking it second would let a future one-token entry
+    // claim a name a phrase already describes.
+    let phrase = SKU_PHRASES.iter().find_map(|(phrase, id)| {
+        tokens
+            .windows(phrase.len())
+            .any(|w| w.iter().zip(*phrase).all(|(t, p)| t == p))
+            .then_some(*id)
+    });
+    phrase.or_else(|| {
+        tokens.iter().find_map(|token| {
             SKU_TOKENS
                 .iter()
-                .find(|(sku, _)| *sku == token)
+                .find(|(sku, _)| sku == token)
                 .map(|(_, id)| *id)
         })
+    })
 }
 
 /// True when `id` names a box class Atlas recognises.
@@ -191,7 +236,7 @@ mod tests {
     /// this list holds all of them rather than one set.
     #[test]
     fn the_kernel_arch_classes_and_the_bench_skus_are_both_registered() {
-        for arch_class in ["gb10", "hopper", "b200"] {
+        for arch_class in ["gb10", "hopper", "b200", "rtx-pro-6000"] {
             assert!(is_known_hardware_id(arch_class), "{arch_class}");
         }
         for sku in ["h100", "h200", "b200", "gb200"] {
@@ -325,6 +370,58 @@ mod tests {
                 is_known_hardware_id(id),
                 "{sku} maps to {id:?}, which is not in KNOWN_HARDWARE_IDS"
             );
+        }
+        for (phrase, id) in SKU_PHRASES {
+            assert!(
+                is_known_hardware_id(id),
+                "{phrase:?} maps to {id:?}, which is not in KNOWN_HARDWARE_IDS"
+            );
+        }
+    }
+
+    /// Oracle: the string `nvidia-smi --query-gpu=name` answers on the box
+    /// this target was added for — `"NVIDIA RTX PRO 6000 Blackwell Max-Q
+    /// Workstation Edition"`, read off a three-card host on 2026-09-05 —
+    /// plus the other two board names NVIDIA ships the same GB202 die under.
+    ///
+    /// All three are CC 12.0 and share `kernels/rtx-pro-6000/`, so the
+    /// trailing edition words must not change the answer.
+    #[test]
+    fn each_rtx_pro_6000_board_name_lands_on_its_box_class() {
+        for name in [
+            "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+            "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+            "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+            "rtx pro 6000",
+        ] {
+            assert_eq!(
+                hardware_id_from_gpu_name(name),
+                Some("rtx-pro-6000"),
+                "{name}"
+            );
+        }
+    }
+
+    /// ★ Oracle: the known-bad the phrase match exists for. `6000` is not a
+    /// part number Atlas can act on by itself.
+    ///
+    /// The RTX 6000 Ada Generation is sm_89 and the Quadro RTX 6000 is Turing;
+    /// Atlas compiles for neither, and filing either under `rtx-pro-6000`
+    /// would score an Ada board against Blackwell thresholds and tell its
+    /// operator to build an image that cannot load. The other RTX PRO
+    /// Blackwell boards are CC 12.0 but different dies with different memory,
+    /// so they answer `None` and keep their full name in the key.
+    #[test]
+    fn a_six_thousand_that_is_not_an_rtx_pro_6000_answers_none() {
+        for name in [
+            "NVIDIA RTX 6000 Ada Generation",
+            "Quadro RTX 6000",
+            "NVIDIA RTX PRO 5000 Blackwell",
+            "NVIDIA RTX PRO 4500 Blackwell",
+            "NVIDIA GeForce RTX 5090",
+        ] {
+            let got = hardware_id_from_gpu_name(name);
+            assert!(got.is_none(), "{name:?} must not map anywhere, got {got:?}");
         }
     }
 

@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 //! The hardware targets that INHERIT `kernels/gb10`'s kernels instead of
-//! shipping their own — `kernels/hopper` (H100/H200, sm_90a) and
-//! `kernels/b200` (B200/GB200, sm_100a) — pinned against the REAL tree.
+//! shipping their own — `kernels/hopper` (H100/H200, sm_90a), `kernels/b200`
+//! (B200/GB200, sm_100a) and `kernels/rtx-pro-6000` (workstation Blackwell,
+//! sm_120a) — pinned against the REAL tree.
 //!
 //! Same posture as `target_resolution.rs`: `src/*_tests.rs` prove the rules on
 //! fixtures, these prove the DATA that is actually checked in.
@@ -20,9 +21,10 @@
 //! in CI looks at either tree at all.
 //!
 //! PARAMETRISED over [`INHERITED`] rather than duplicated per hardware set:
-//! the second target arrived by copying the first, and two copies of an
-//! assertion drift the moment one is updated. Each test names the hardware set
-//! in its failure message, so a red still says which tree is wrong.
+//! the second target arrived by copying the first, the third by copying those,
+//! and copies of an assertion drift the moment one is updated. Each test names
+//! the hardware set in its failure message, so a red still says which tree is
+//! wrong.
 //!
 //! This binary covers the tree AS MIRRORED — HARDWARE.toml, `common/`, the P0
 //! MODEL.tomls, and what `build.rs` would resolve. The `ATLAS_NO_WARP_
@@ -48,9 +50,11 @@ use std::path::PathBuf;
 ///
 /// The arch numbers are the point of the test. Hopper is SM 9.0 — `sm_100` is
 /// Blackwell datacentre, not Hopper — and B200 is SM 10.0, which is neither
-/// consumer Blackwell (`sm_120`) nor GB10 (`sm_121`) nor Blackwell Ultra
-/// (`sm_103`). Getting one of those wrong produces a target that compiles and
-/// cannot load.
+/// consumer/workstation Blackwell (`sm_120`) nor GB10 (`sm_121`) nor Blackwell
+/// Ultra (`sm_103`). The RTX PRO 6000 is SM 12.0 and takes `sm_120a`, one
+/// minor version and one suffix away from gb10's `sm_121f` — and neither
+/// string loads on the other's device. Getting one of these wrong produces a
+/// target that compiles and cannot load.
 #[test]
 fn every_inherited_hardware_toml_declares_its_own_nvidia_arch() {
     for t in INHERITED {
@@ -338,6 +342,10 @@ fn resolved_targets(hw: &str, quant: &str) -> Vec<(String, String, String, PathB
 /// at that hardware's arch, each with a kernel directory that exists. This is
 /// the assertion the real build would make on a CUDA host, made where CI can
 /// actually run it.
+///
+/// Five per target, and each target's own arch: the wildcard is what
+/// `docker/<hw>/Dockerfile` ships with, so this counts what an image for that
+/// hardware would serve.
 #[test]
 fn a_wildcard_build_resolves_declared_targets_at_the_declared_arch() {
     for t in INHERITED {

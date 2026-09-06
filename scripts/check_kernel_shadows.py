@@ -51,6 +51,7 @@ HW_SOURCE_EXT = {
     "gb10": "cu",
     "hopper": "cu",
     "metal": "metal",
+    "rtx-pro-6000": "cu",
     "strix": "cu",
     "strix-hip": "cu",
 }

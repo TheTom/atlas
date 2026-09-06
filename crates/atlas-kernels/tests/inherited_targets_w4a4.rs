@@ -6,11 +6,19 @@
 //!
 //! Split out of `inherited_targets.rs` at the 500-LoC cap. That binary pins the
 //! tree as MIRRORED — every inherited file is gb10's file, reachable. This one
-//! pins the single place the two trees deliberately DIVERGE from gb10: ptxas
-//! rejects the warp-block-scale W4A4 region on both sm_90a and sm_100a, so both
-//! targets compile it out, and each must then declare the two entry points it
-//! loses with a reason naming its OWN rejection. gb10, whose PTX may not move,
-//! must declare neither.
+//! pins the single place an inherited tree may deliberately DIVERGE from gb10:
+//! ptxas rejects the warp-block-scale W4A4 region on sm_90a and sm_100a, so
+//! those two targets compile it out, and each must then declare the two entry
+//! points it loses with a reason naming its OWN rejection.
+//!
+//! It is a per-target property, not a property of inheriting: `rtx-pro-6000`
+//! is sm_120a, the architecture the warp-level
+//! `mma.sync ... .kind::mxf4nvf4.block_scale` was introduced ON, so it keeps
+//! the whole kernel set. Both halves are asserted — a target whose
+//! `blockscale_rejection` is `None` must define NO extra nvcc flag and declare
+//! NEITHER entry point absent, exactly as gb10 does. Silently skipping it
+//! would let the macro be added to a target that can run the kernels, deleting
+//! two of them, with nothing red.
 //!
 //! Parametrised over [`INHERITED`] from `support/inherited.rs` — the same
 //! declaration `inherited_targets.rs` reads, so a target added to one binary
@@ -39,13 +47,21 @@ const GUARDED_KERNELS: &[&str] = &[
 ];
 
 /// ORACLE: the two ptxas rejections measured on Spark 1 (CUDA 13.0.88),
-/// receipts under `docs/campaigns/hopper-atlas-vs-vllm-2026-09/receipts/`.
-/// Both targets define the guard; gb10 must NOT, because its PTX may not move.
+/// receipts under `docs/campaigns/hopper-atlas-vs-vllm-2026-09/receipts/`, and
+/// — for the target that declares none — CUTLASS's own
+/// `CUTLASS_ARCH_MMA_SM120_SUPPORTED` gate, which is exactly the architecture
+/// the warp-level form exists on.
+///
+/// The targets that cannot assemble the region define the guard; the one that
+/// can must add NO flags at all, and neither must gb10, whose PTX may not
+/// move. A stray flag on an sm_120a target is not a harmless extra define: it
+/// removes two kernels the hardware runs.
 #[test]
-fn both_inherited_targets_compile_out_the_warp_block_scale_path() {
+fn each_inherited_target_guards_the_block_scale_path_only_if_its_isa_must() {
     for t in INHERITED {
-        let flags = hardware_toml(t.hw)
-            .get("build")
+        let toml = hardware_toml(t.hw);
+        let build = toml.get("build");
+        let flags = build
             .and_then(|b| b.get("extra_nvcc_flags"))
             .and_then(|f| f.as_array())
             .map(|a| {
@@ -54,12 +70,21 @@ fn both_inherited_targets_compile_out_the_warp_block_scale_path() {
                     .collect::<Vec<_>>()
             })
             .unwrap_or_default();
+        let Some(rejection) = t.blockscale_rejection else {
+            assert!(
+                build.is_none(),
+                "kernels/{}/HARDWARE.toml must add no flags — sm_120a HAS the \
+                 warp-level block-scaled MMA, so the kernel set is gb10's \
+                 whole, got {flags:?}",
+                t.hw
+            );
+            continue;
+        };
         assert!(
             flags.iter().any(|f| f == GUARD_FLAG),
             "kernels/{}/HARDWARE.toml must define {GUARD_FLAG}: ptxas rejects \
-             the W4A4 region here with {:?}",
-            t.hw,
-            t.blockscale_rejection
+             the W4A4 region here with {rejection:?}",
+            t.hw
         );
     }
     let gb10: toml::Value =
@@ -104,16 +129,20 @@ fn the_declared_absences_are_the_entry_points_the_define_removes() {
     );
 }
 
-/// Both targets declare both kernels in `[expected_absent.moe_w4a16]`, each
-/// with a reason that names THAT architecture's ptxas rejection.
+/// A target that compiles the region OUT declares both kernels in
+/// `[expected_absent.moe_w4a16]`, each with a reason that names THAT
+/// architecture's ptxas rejection; a target that compiles them IN declares
+/// neither.
 ///
 /// A bare declaration would silence the boot gate without recording why, and
-/// the two reasons are genuinely different: Hopper has no NVFP4 datapath at
-/// all, datacentre Blackwell has one and reaches it through tcgen05. A reader
-/// who cannot tell those apart cannot tell which target a tcgen05 port would
-/// fix.
+/// the reasons are genuinely different: Hopper has no NVFP4 datapath at all,
+/// datacentre Blackwell has one and reaches it through tcgen05. A reader who
+/// cannot tell those apart cannot tell which target a tcgen05 port would fix.
+/// The negative side matters as much — declaring a kernel absent on hardware
+/// that HAS it turns a real gap into an expected one, silently, which is the
+/// whole failure `[expected_absent]` is auditing for.
 #[test]
-fn both_inherited_targets_declare_the_w4a4_kernels_expected_absent() {
+fn each_inherited_target_declares_exactly_the_w4a4_kernels_it_loses() {
     for t in INHERITED {
         let path = hw_dir(t.hw).join(GUARDED_MODEL).join("MODEL.toml");
         let toml: toml::Value = toml::from_str(&std::fs::read_to_string(&path).unwrap())
@@ -121,7 +150,19 @@ fn both_inherited_targets_declare_the_w4a4_kernels_expected_absent() {
         let table = toml
             .get("expected_absent")
             .and_then(|e| e.get(GUARDED_MODULE))
-            .and_then(|m| m.as_table())
+            .and_then(|m| m.as_table());
+        let Some(rejection) = t.blockscale_rejection else {
+            for kernel in GUARDED_KERNELS {
+                assert!(
+                    table.map(|t| t.get(*kernel).is_none()).unwrap_or(true),
+                    "{}: {kernel} COMPILES on sm_120a and must not be declared \
+                     absent — a declaration here hides a real gap",
+                    path.display()
+                );
+            }
+            continue;
+        };
+        let table = table
             .unwrap_or_else(|| panic!("{}: no [expected_absent.{GUARDED_MODULE}]", path.display()));
         for kernel in GUARDED_KERNELS {
             let reason = table
@@ -129,11 +170,10 @@ fn both_inherited_targets_declare_the_w4a4_kernels_expected_absent() {
                 .and_then(|v| v.as_str())
                 .unwrap_or_else(|| panic!("{}: {kernel} is not declared", path.display()));
             assert!(
-                reason.contains(t.blockscale_rejection),
+                reason.contains(rejection),
                 "{}: {kernel}'s reason does not name this architecture's ptxas \
-                 rejection {:?}:\n{reason}",
-                path.display(),
-                t.blockscale_rejection
+                 rejection {rejection:?}:\n{reason}",
+                path.display()
             );
             assert!(
                 reason.contains("ATLAS_NO_WARP_BLOCKSCALE_MMA"),
