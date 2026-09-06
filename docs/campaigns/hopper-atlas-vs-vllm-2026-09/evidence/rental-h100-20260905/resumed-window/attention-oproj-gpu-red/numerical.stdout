@@ -1,0 +1,5 @@
+KNOWN_BAD output-bit: refused: batch output differs from production scalar BF16 bits
+KNOWN_BAD guard: refused: batched row offset wrote outside output extent
+KNOWN_BAD nonfinite: refused: nonfinite projection output
+M=2 N=5120 K=6144 unequal_bf16=0 max_abs=0.000000000 cosine=1.000000000000
+M=4 N=5120 K=6144 unequal_bf16=3 max_abs=0.000488281 cosine=1.000000000000

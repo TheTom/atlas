@@ -1,0 +1,40 @@
+{
+  "kind": "numerical-example-section10-supplement",
+  "engine": "atlas kernel example",
+  "engine_source": "6b76f3d83cd4eadc90b62100a87925f46d2a4c8e",
+  "binary_sha256": "761f65e110286bf952b0d8cacab3eca41d8c321edab57bb222ec2c9c5d1aa60d",
+  "image_digest": null,
+  "model_weights_loaded": false,
+  "model_note": "Synthetic finite E4M3/BF16 tensors at actual Qwen3.8 attention O shape N5120K6144; this is not model coherency or a frozen ladder.",
+  "argv": [
+    "/workspace/atlas-rental/bin/6b76f3d83cd4eadc90b62100a87925f46d2a4c8e/qwen3.8-27b/examples/native_fp8_oproj_batch_microtest"
+  ],
+  "build_environment": "ATLAS_TARGET_HW=hopper\nATLAS_TARGET_MODEL=qwen3.8-27b\nATLAS_TARGET_QUANT=nvfp4\nCARGO_BUILD_JOBS=12\nCARGO_TARGET_DIR=/workspace/atlas-rental/target\nCUDARC_CUDA_VERSION=13000\n",
+  "nvidia_smi_q_sha256": "13fefa3f23321dd30c7919b514232bfac38a43622b145bb3a7a1d9db5d524618",
+  "driver": "610.57.04",
+  "gpu": "one NVIDIA H10080GBHBM3",
+  "harness": "native_fp8_oproj_batch_microtest",
+  "frozen_harness_sha256": null,
+  "build_exit": 0,
+  "numerical_exit": 1,
+  "observed": {
+    "M2": "exact BF16 bytes",
+    "M4": {
+      "unequal_bf16": 3,
+      "max_abs_printed": 0.000488281,
+      "cosine_printed": 1.0
+    },
+    "M5": "not reached",
+    "known_bad_mutations_refused": [
+      "output-bit",
+      "guard",
+      "nonfinite"
+    ]
+  },
+  "strict_oracle_passed": false,
+  "threshold_changed": false,
+  "runtime_model_or_ladder_started": false,
+  "tenants_after": "",
+  "finished_utc": "2026-09-06T02:23:13Z",
+  "certification_claimed": false
+}

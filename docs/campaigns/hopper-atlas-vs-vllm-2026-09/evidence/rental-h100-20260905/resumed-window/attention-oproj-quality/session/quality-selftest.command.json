@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "python3",
+    "/workspace/atlas-rental/concurrent_quality_probe.py",
+    "--selftest"
+  ],
+  "exit_code": 0,
+  "timeout_s": 60,
+  "finished_utc": "2026-09-06T02:44:14.595632+00:00"
+}

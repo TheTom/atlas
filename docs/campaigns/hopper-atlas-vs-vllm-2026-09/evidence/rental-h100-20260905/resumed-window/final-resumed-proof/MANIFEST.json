@@ -1,0 +1,57 @@
+{
+  "captured_utc": "2026-09-06T02:49:41.600606+00:00",
+  "copied_files": [
+    {
+      "path": "final-export-verification.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/final-export-verification.json",
+      "sha256": "7f0ec6698be9f1e873926f6c6769eef5bd0df22d42103e014d18505416255b6e",
+      "bytes": 444220
+    },
+    {
+      "path": "archive.json",
+      "source": "/Users/tom/Documents/H100-rental-binaries-2026-09-06/atlas/97375dfc940be63cfac6c30195224b363ad42145/archive.json",
+      "sha256": "01419ac38e1c80b9d4609289df3eb2276fb5269c4a7d3b642d17e1dc4aa2938b",
+      "bytes": 316
+    },
+    {
+      "path": "final-host-state-resumed/compiler.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state-resumed/compiler.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "final-host-state-resumed/disk.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state-resumed/disk.txt",
+      "sha256": "b4de3155afa7b815639c1c9883c40a3a9823cdea6ed7b2d8e50313adcd1c1257",
+      "bytes": 89
+    },
+    {
+      "path": "final-host-state-resumed/gpu.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state-resumed/gpu.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "final-host-state-resumed/nvidia-smi-q.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state-resumed/nvidia-smi-q.txt",
+      "sha256": "b824f8cc2ad8f31a0242179fbfc9366cd5c00351bf10e446f3c1ae4bed7700ad",
+      "bytes": 14959
+    },
+    {
+      "path": "final-host-state-resumed/receipt.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state-resumed/receipt.json",
+      "sha256": "87b0f643ce38a5416b504c141d252509dfb9a3107df7391e941d11cd286f1d89",
+      "bytes": 802
+    },
+    {
+      "path": "final-host-state-resumed/spark.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/final-host-state-resumed/spark.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "generated_files": [],
+  "archive_file_hash_independently_verified_locally": "3200435f5b1e382e0df4b2c846acd0d061ffd2fa52bb4bbfdbed4ac94d6d1258",
+  "archive_bytes": 80124312,
+  "scope": "Final resumed export and fresh empty-host proof; archive receipt only, no executable in Git. Prior1740-file proof remains unchanged in prior publication."
+}

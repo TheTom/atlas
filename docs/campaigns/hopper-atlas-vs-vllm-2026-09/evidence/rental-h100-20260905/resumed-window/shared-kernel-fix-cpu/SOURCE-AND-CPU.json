@@ -1,0 +1,22 @@
+{
+  "source_identities": {
+    "97375df": "97375dfc940be63cfac6c30195224b363ad42145",
+    "5c99d5d": "5c99d5d994ae95f1e37365d892019ecc2719d8a8",
+    "4c963ee": "4c963ee95aa06be7066e51e02fbaf93a4fc55d67",
+    "d119578": "d119578e4b941978c4644bdb6c35356a98102afd"
+  },
+  "compiled_path_difference": [],
+  "other_diff_paths": [
+    "bench/campaign/process_launch_proc.py",
+    "bench/campaign/process_launch_test.py"
+  ],
+  "kernel_cpu": {
+    "passed": 75,
+    "ignored": 7,
+    "exit": 0,
+    "tested_source": "4c963ee95aa06be7066e51e02fbaf93a4fc55d67"
+  },
+  "change": "Split paired product addition into two scalar-order FP32 accumulations in shared batch4/batch16 template. Strict BF16 oracle unchanged.",
+  "new_gpu_status_at_capture": "pending",
+  "original_red_fixture_bytes_preserved": true
+}

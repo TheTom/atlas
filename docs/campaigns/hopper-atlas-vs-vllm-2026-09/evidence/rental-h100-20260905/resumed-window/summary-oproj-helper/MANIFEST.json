@@ -1,0 +1,67 @@
+{
+  "captured_utc": "2026-09-06T02:34:17.505159+00:00",
+  "copied_files": [
+    {
+      "path": "change.patch",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/measurement-summary-oproj-labels/change.patch",
+      "sha256": "ade56bee5a6f3219e374ad6d3255efe17dddbbe52379ce185f3b0f1c51de7dd8",
+      "bytes": 5295
+    },
+    {
+      "path": "coherency-green.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/measurement-summary-oproj-labels/coherency-green.log",
+      "sha256": "33b30994abbe901b47d649d8b7b648585efd535ea96b4573e52b79658fd3913f",
+      "bytes": 1501
+    },
+    {
+      "path": "coherency-red.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/measurement-summary-oproj-labels/coherency-red.log",
+      "sha256": "d979f49b26e5e20bd853b9164e979d924b40a1571887526e6cc959f7004943c6",
+      "bytes": 2186
+    },
+    {
+      "path": "green-final.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/measurement-summary-oproj-labels/green-final.log",
+      "sha256": "70085bb1c7900fb847e7751164c943dc5c5501e42ca6427b4301e0856ff986eb",
+      "bytes": 1350
+    },
+    {
+      "path": "green.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/measurement-summary-oproj-labels/green.log",
+      "sha256": "66658589103fd55c1034b73b68914219c57704a68de5ccdfa681d3f96d48fa3e",
+      "bytes": 1210
+    },
+    {
+      "path": "measurement-summary-before.py",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/measurement-summary-oproj-labels/measurement-summary-before.py",
+      "sha256": "f3291bf36d97df6d61c58e678aa6b1ae5f575a877aadc710c74e45c0ad9c724d",
+      "bytes": 21591
+    },
+    {
+      "path": "receipt.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/measurement-summary-oproj-labels/receipt.json",
+      "sha256": "56810d82fd80274b66576bf67b3dd1cc15f702eab06043c6f68595c91472c443",
+      "bytes": 1315
+    },
+    {
+      "path": "red.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/measurement-summary-oproj-labels/red.log",
+      "sha256": "a60a094f23baa8c658bc42a9bd64e3bf7c50863ce7bc1bc41aa80527c379cae3",
+      "bytes": 2811
+    },
+    {
+      "path": "test_summary_oproj.py",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/measurement-summary-oproj-labels/test_summary_oproj.py",
+      "sha256": "eee51d944d5de059b1d7f696a3281a922b309be722d0ccd9ffec75cc958919dc",
+      "bytes": 4882
+    },
+    {
+      "path": "measurement-summary.py",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/measurement-summary.py",
+      "sha256": "57bb5a2d1a4774fb588e16124f6e36a8560c1ab09a940290b5abf350742146e5",
+      "bytes": 24344
+    }
+  ],
+  "generated_files": [],
+  "scope": "Standalone report-only fix with actual red-first diagnostics classification and distinct original coherency/exception fields. Final10CPUfixturespassed; frozenharnessunchanged."
+}

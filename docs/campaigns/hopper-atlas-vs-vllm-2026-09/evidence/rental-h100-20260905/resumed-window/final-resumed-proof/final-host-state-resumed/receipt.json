@@ -1,0 +1,51 @@
+{
+  "utc": "2026-09-06T02:47:26.831160+00:00",
+  "commands": [
+    {
+      "name": "gpu",
+      "argv": [
+        "nvidia-smi",
+        "--query-compute-apps=pid,process_name",
+        "--format=csv,noheader"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "nvidia-smi-q",
+      "argv": [
+        "nvidia-smi",
+        "-q"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "disk",
+      "argv": [
+        "df",
+        "-h",
+        "/"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "spark",
+      "argv": [
+        "pgrep",
+        "-a",
+        "-x",
+        "spark"
+      ],
+      "exit_code": 1
+    },
+    {
+      "name": "compiler",
+      "argv": [
+        "pgrep",
+        "-a",
+        "-x",
+        "rustc|cargo|nvcc|ptxas"
+      ],
+      "exit_code": 1
+    }
+  ]
+}

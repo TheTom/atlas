@@ -1,0 +1,31 @@
+{
+  "captured_utc": "2026-09-06T02:32:44.297099+00:00",
+  "copied_files": [
+    {
+      "path": "KERNEL-RED-RECEIPT.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/native-fp8-attention-oproj/KERNEL-RED-RECEIPT.json",
+      "sha256": "da1dca3fbd2247b05bcd9fa248a9a9e8c90dcef1e96a57b0812a0b32596625b2",
+      "bytes": 733
+    },
+    {
+      "path": "FINDING.md",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/native-fp8-attention-oproj/FINDING.md",
+      "sha256": "375bfa6dcbdc5812c40fa3ed36038a3d1f068288df1dba9ea9169c3773fcad00",
+      "bytes": 4754
+    },
+    {
+      "path": "kernel-cpu.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/native-fp8-attention-oproj/kernel-cpu.log",
+      "sha256": "0d139e00d8c65a0ed8c8e4ffe2979046c68bf66f7fb98bacc04320b1ce7e6751",
+      "bytes": 9293
+    }
+  ],
+  "generated_files": [
+    {
+      "path": "SOURCE-AND-CPU.json",
+      "sha256": "6e8d07de01c2b029fa5a02bd471824d12e4784ba872acce0db2084f58a4b4953",
+      "bytes": 799
+    }
+  ],
+  "scope": "Shared kernel arithmetic follow-up CPU receipt; corrected GPU and full-model results remain separate."
+}

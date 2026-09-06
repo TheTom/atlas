@@ -1,0 +1,16 @@
+{
+  "recorded_utc": "2026-09-06T02:10:40.418860+00:00",
+  "baseline_docs_commit": "d1e8df8062eb5dbcff398ae30249d5c588f3afc5",
+  "baseline_report_sha256": "a1c9404d4408d88b2b06f1334231e642cc42d9777d6f392d778db7a6753e8264",
+  "baseline_report_prefix_bytes": 16109,
+  "append_only_prefix_preserved": true,
+  "prior_export_verified_utc": "2026-09-06T01:55:49.379860+00:00",
+  "prior_export_scope": "1740 result/download-proof files,14577630bytes at the end of the previous completed window. Not proof of later resumed files.",
+  "resumed_budget_instruction": {
+    "gpu_done_utc": "2026-09-06T02:35:00Z",
+    "export_done_utc": "2026-09-06T02:40:00Z",
+    "cutoff_utc": "2026-09-06T02:45:00Z"
+  },
+  "new_measurements_at_boundary": [],
+  "publication_pending": true
+}

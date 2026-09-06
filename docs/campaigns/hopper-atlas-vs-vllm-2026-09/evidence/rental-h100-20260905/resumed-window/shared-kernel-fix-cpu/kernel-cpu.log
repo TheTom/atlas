@@ -1,0 +1,166 @@
+Welcome to vast.ai. If authentication fails, try again after a few seconds, and double check your ssh key.
+Have fun!
+Removing owned transfer metadata: kernels/gb10/common/._w8a16_gemv_batch4.cu
+Removing owned transfer metadata: crates/spark-model/examples/._native_fp8_oproj_batch_microtest.rs
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.16s
+
+running 22 tests
+     Running unittests src/lib.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/atlas_kernels-9e1b053c64c7760d)
+test resolve::tests::ambiguous_exact_tier_never_falls_through_to_wildcard ... ok
+test resolve::tests::empty_match_names_never_matches ... ok
+test resolve::tests::exact_collision_broken_by_checkpoint_reference ... ok
+test resolve::tests::exact_collision_with_no_matching_reference_is_a_hard_error ... ok
+test resolve::tests::multi_quant_variants_of_one_target_are_not_ambiguous ... ok
+test resolve::tests::no_declaration_resolves_to_none ... ok
+test resolve::tests::pin_to_incompatible_target_errors ... ok
+test resolve::tests::pin_overrides_the_tie_break ... ok
+test resolve::tests::pin_to_unknown_target_errors_with_the_available_list ... ok
+test resolve::tests::reference_matching_is_case_insensitive_and_scans_all_refs ... ok
+test resolve::tests::qwen35_checkpoint_still_routes_to_qwen36_target ... ok
+test tests::all_ptx_modules_non_empty ... ignored, requires nvcc and ATLAS_SKIP_BUILD unset
+test tests::all_targets_have_modules ... ignored, requires nvcc and ATLAS_SKIP_BUILD unset
+test tests::available_targets_non_empty ... ignored, requires nvcc and ATLAS_SKIP_BUILD unset
+test resolve::tests::reference_matching_multiple_candidates_is_a_hard_error ... ok
+test resolve::tests::single_exact_match_needs_no_reference ... ok
+test resolve::tests::wildcard_tier_collisions_error_too ... ok
+test tests::exact_verify_snap_lookups_resolve_or_are_declared_on_every_gdn_target ... ignored, requires nvcc and ATLAS_SKIP_BUILD unset
+test tests::ptx_for_config_breaks_the_dense_27b_tie_in_the_compiled_registry ... ignored, requires nvcc and ATLAS_SKIP_BUILD unset (multi-target build)
+test tests::ptx_for_model_lookup ... ignored, requires nvcc and ATLAS_SKIP_BUILD unset
+test resolve::tests::wildcard_fallback_when_no_exact_match ... ok
+test tests::behavior_default_prose_budget_matches_shared_constant ... ok
+
+test result: ok. 16 passed; 0 failed; 6 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 7 tests
+test a_nested_conditional_does_not_close_the_guard ... ok
+test another_ifndef_is_not_the_guard ... ok
+     Running tests/blockscale_mma_guard.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/blockscale_mma_guard-337458e23cc28941)
+test the_scanner_reports_a_site_in_the_guards_else_branch ... ok
+test the_scanner_reports_a_site_outside_the_guard ... ok
+test hopper_dense_38_scans_the_same_sources_as_its_36_alias_target ... ok
+test the_qwen36_moe_gemm_still_carries_its_blockscale_path_inside_the_guard ... ok
+test no_source_compiled_for_hopper_or_b200_leaves_a_blockscale_site_unguarded ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.49s
+
+     Running tests/hopper_27b.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/hopper_27b-e04c3a55b946c14c)
+
+running 3 tests
+test the_h200_fp8_checkpoint_selects_38_behavior_without_an_order_default ... ok
+test dense_warp_fp4_is_explicitly_absent_only_on_hopper ... ok
+test hopper_dense_27b_preserves_checkpoint_behavior_and_the_source_redirect ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/inherited_targets.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/inherited_targets-6eb1cb052f086ef6)
+
+running 12 tests
+test every_inherited_common_carries_the_headers_and_the_kernel_toml ... ok
+test mirror::the_dangling_symlink_check_can_fail ... ok
+test the_p0_model_targets_are_the_ones_declared ... ok
+test every_inherited_hardware_toml_declares_its_own_nvidia_arch ... ok
+test every_model_toml_records_its_inherited_provenance ... ok
+test mirror::the_mirror_check_reports_missing_entries_and_regular_files ... ok
+test every_inherited_hardware_toml_carries_the_same_key_set_as_gb10 ... ok
+test every_model_nvfp4_dir_mirrors_gb10 ... ok
+test every_inherited_common_mirrors_every_gb10_common_file ... ok
+test a_wildcard_build_resolves_declared_targets_at_the_declared_arch ... ok
+test every_model_toml_is_a_real_file_naming_its_own_directory ... ok
+test inherited_redirects_resolve_only_to_the_declared_same_hardware_source ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+
+running 4 tests
+test the_declared_absences_are_the_entry_points_the_define_removes ... ok
+test both_inherited_targets_compile_out_the_warp_block_scale_path ... ok
+test gb10_declares_neither_w4a4_kernel_absent ... ok
+test both_inherited_targets_declare_the_w4a4_kernels_expected_absent ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+
+running 1 test
+test w4a16_launch_family_arity_pins ... ignored, requires nvcc and ATLAS_SKIP_BUILD unset
+
+test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 8 tests
+test a_flag_declared_twice_is_emitted_once ... ok
+test a_hardware_toml_with_no_build_table_declares_no_flags ... ok
+test the_flag_key_follows_the_vendor ... ok
+test no_hardware_layer_leaves_the_old_two_layer_result ... ok
+test the_layers_merge_least_specific_first ... ok
+test a_non_string_flag_is_refused - should panic ... ok
+test gb10_declares_no_hardware_level_flags ... ok
+test the_wrong_vendors_key_is_not_read ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 5 tests
+test every_hardware_set_in_the_tree_is_guarded ... ok
+test a_shadow_dropping_a_macro_declared_kernel_is_reported ... ok
+test macro_declared_kernels_resolve_through_define_and_include ... ok
+     Running tests/inherited_targets_w4a4.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/inherited_targets_w4a4-0e20110af94f114d)
+     Running tests/kernel_arity.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/kernel_arity-dce5fe8cf4f63cd2)
+     Running tests/kernel_build_flags.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/kernel_build_flags-7b277683bc798332)
+     Running tests/kernel_shadow_detector.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/kernel_shadow_detector-54d8a855c64e81e2)
+test no_model_shadow_drops_a_common_kernel ... ok
+test every_common_source_declares_at_least_one_entry_point ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.42s
+
+
+running 6 tests
+     Running tests/kernel_target_arch.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/kernel_target_arch-195dfcd0926a0453)
+test an_arch_with_no_feature_suffix_records_the_same_string_twice ... ok
+test arch_specific_suffix_is_stripped ... ok
+test a_target_records_both_the_base_sm_and_the_arch_nvcc_was_handed ... ok
+test family_specific_suffix_is_stripped ... ok
+test a_plain_sm_number_is_unchanged ... ok
+test non_nvidia_arch_strings_pass_through ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 2 tests
+     Running tests/nvfp4_mmq_capability.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/nvfp4_mmq_capability-8ea43989898f6e10)
+test every_mmq_export_is_inside_the_vendor_capability_guard ... ok
+test hopper_audit_explains_every_removed_export_and_gb10_keeps_them ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/target_hints.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/target_hints-9758035622e8707d)
+
+running 2 tests
+test every_target_hint_names_a_hardware_set_that_exists ... ok
+test every_nvidia_hardware_set_is_reachable_from_its_declared_compute_capability ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/target_resolution.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/target_resolution-885353400a0cde76)
+
+running 10 tests
+test qwen38_target_declarations_are_sound ... ok
+test every_colliding_target_declares_match_names ... ok
+test kernel_source_redirects_are_wellformed ... ok
+test no_colliding_target_is_needle_dominated ... ok
+test identity_free_reference_is_a_hard_error_for_the_dense_27b_pair ... ok
+test kbenkhaled_qwen35_checkpoint_still_routes_to_qwen36 ... ok
+test qwen36_moe_beltandbraces_tier_resolves_uncontested ... ok
+test nemotron_puzzle_checkpoint_resolves_to_the_puzzle_target ... ok
+test qwen38_checkpoint_resolves_to_its_own_target ... ok
+test qwen36_flagship_checkpoints_keep_their_target ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.23s
+
+   Doc-tests atlas_kernels
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+CPU_RECEIPT {"argv": ["/root/.cargo/bin/cargo", "+1.93.1", "test", "--locked", "-p", "atlas-kernels"], "exit": 0, "wall_s": 2.622202614991693, "pid": 219630, "source": "4c963ee95aa06be7066e51e02fbaf93a4fc55d67", "terminated_on_timeout": false}

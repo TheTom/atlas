@@ -1,0 +1,48 @@
+{
+  "commit": "58d38ef5bb5582c33c145da62de077293fbeab19",
+  "base": "f08d4eafb3f56e2168bfc993a657191a4e424a1e",
+  "tree": "b20f14a38ba36a1ed87a12d14fd3a7d9fa4325cf",
+  "checks": {
+    "red": {
+      "argv": [
+        "python3",
+        "bench/campaign/process_launch_test.py",
+        "ProcessEnvironmentTests",
+        "-v"
+      ],
+      "exit": 1
+    },
+    "green": {
+      "argv": [
+        "python3",
+        "bench/campaign/process_launch_test.py",
+        "ProcessEnvironmentTests",
+        "-v"
+      ],
+      "exit": 0,
+      "wall_s": 0.09842610359191895
+    },
+    "launch-suite": {
+      "argv": [
+        "python3",
+        "bench/campaign/process_launch_test.py",
+        "-v"
+      ],
+      "exit": 0,
+      "wall_s": 0.0890340805053711
+    },
+    "campaign": {
+      "argv": [
+        "bash",
+        "bench/campaign/campaign_test.sh"
+      ],
+      "exit": 0,
+      "wall_s": 65.55382013320923
+    }
+  },
+  "campaign_assertions": 85,
+  "mac_environment_tests_passed": 2,
+  "linux_actual_process_tests_skipped": 14,
+  "wrapper_sha256": "78d6c25aeed98b3aa84e6bca25df7eb754cc1295fcdd72b57243f831e68c3182",
+  "no_remote_gpu_build_actions": true
+}

@@ -1,0 +1,33 @@
+Welcome to vast.ai. If authentication fails, try again after a few seconds, and double check your ssh key.
+Have fun!
+   Compiling cudarc v0.19.2 (/workspace/atlas-rental/src/fp8-attention-batch/vendor/cudarc)
+   Compiling atlas-closure v1.0.0-beta-preview (/workspace/atlas-rental/src/fp8-attention-batch/crates/atlas-closure)
+   Compiling atlas-core v1.0.0-beta-preview (/workspace/atlas-rental/src/fp8-attention-batch/crates/atlas-core)
+   Compiling atlas-rdma v1.0.0-beta-preview (/workspace/atlas-rental/src/fp8-attention-batch/crates/atlas-rdma)
+   Compiling spark-runtime v1.0.0-beta-preview (/workspace/atlas-rental/src/fp8-attention-batch/crates/spark-runtime)
+   Compiling spark-storage v1.0.0-beta-preview (/workspace/atlas-rental/src/fp8-attention-batch/crates/spark-storage)
+   Compiling cufile-sys v1.0.0-beta-preview (/workspace/atlas-rental/src/fp8-attention-batch/crates/cufile-sys)
+   Compiling atlas-kernels v1.0.0-beta-preview (/workspace/atlas-rental/src/fp8-attention-batch/crates/atlas-kernels)
+   Compiling atlas-tier v1.0.0-beta-preview (/workspace/atlas-rental/src/fp8-attention-batch/crates/atlas-tier)
+   Compiling spark-model v1.0.0-beta-preview (/workspace/atlas-rental/src/fp8-attention-batch/crates/spark-model)
+   Compiling spark-comm v1.0.0-beta-preview (/workspace/atlas-rental/src/fp8-attention-batch/crates/spark-comm)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 37.86s
+     Running unittests src/lib.rs (/workspace/atlas-rental/target-cpu-checks/debug/deps/spark_model-ad53cb13b16afb43)
+
+running 1 test
+
+thread 'layers::qwen3_attention::trait_impl::multi_seq::attn::o_proj::tests::native_fp8_attention_o_projection_batches_four_real_rows' (207378) panicked at crates/spark-model/src/layers/qwen3_attention/trait_impl/multi_seq/attn/o_proj_tests.rs:102:5:
+assertion `left == right` failed: native FP8 O projection must read the weights once for four rows
+  left: 4
+ right: 1
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test layers::qwen3_attention::trait_impl::multi_seq::attn::o_proj::tests::native_fp8_attention_o_projection_batches_four_real_rows ... FAILED
+
+failures:
+
+failures:
+    layers::qwen3_attention::trait_impl::multi_seq::attn::o_proj::tests::native_fp8_attention_o_projection_batches_four_real_rows
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 661 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p spark-model --lib`

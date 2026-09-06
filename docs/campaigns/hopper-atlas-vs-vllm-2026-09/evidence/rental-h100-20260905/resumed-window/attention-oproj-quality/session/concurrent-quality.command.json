@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "python3",
+    "/workspace/atlas-rental/concurrent_quality_probe.py",
+    "--url",
+    "http://127.0.0.1:8888",
+    "--model",
+    "Qwen/Qwen3.8-27B-FP8",
+    "--out",
+    "/workspace/atlas-rental/results/benchmark.qwen38.atlas.native-oproj-quality01/concurrent-quality"
+  ],
+  "exit_code": 0,
+  "timeout_s": 60,
+  "finished_utc": "2026-09-06T02:44:21.435104+00:00"
+}

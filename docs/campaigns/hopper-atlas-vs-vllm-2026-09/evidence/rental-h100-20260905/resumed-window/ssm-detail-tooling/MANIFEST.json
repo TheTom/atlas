@@ -1,0 +1,79 @@
+{
+  "captured_utc": "2026-09-06T02:11:03.745071+00:00",
+  "copied_files": [
+    {
+      "path": "REPORT.md",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ssm-detail-profile-env/REPORT.md",
+      "sha256": "8dbf96929ec7eb1e7c0a97466899ebc870d647fed7918521f2d6123387f20727",
+      "bytes": 3067
+    },
+    {
+      "path": "campaign.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ssm-detail-profile-env/campaign.json",
+      "sha256": "b85ba6f5c3a1ad3fa53dbd044604892e7b4f88ed90d3cca69918eb077d1ffeca",
+      "bytes": 114
+    },
+    {
+      "path": "campaign.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ssm-detail-profile-env/campaign.log",
+      "sha256": "74f8ddae1ce5d9bba3959a4242ae1de6748a6bb584b330fb9735b30bccf10ae6",
+      "bytes": 23309
+    },
+    {
+      "path": "green.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ssm-detail-profile-env/green.json",
+      "sha256": "62909e433dff1643b1ef5449fc0d6bf9340f0d1275472d42294f149373c5ba37",
+      "bytes": 166
+    },
+    {
+      "path": "green.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ssm-detail-profile-env/green.log",
+      "sha256": "76ccfe5aec8794efca6c04a2ba5335a0195421bcb975e55dad727b2ad5ad2ddf",
+      "bytes": 364
+    },
+    {
+      "path": "launch-suite.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ssm-detail-profile-env/launch-suite.json",
+      "sha256": "1488e487e4b0d719f07643fdf9c02392b282d6ca23c6f963633d37bf8411fbe4",
+      "bytes": 134
+    },
+    {
+      "path": "launch-suite.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ssm-detail-profile-env/launch-suite.log",
+      "sha256": "8fd623e98f91e140599d63986ebdbc3d65569028209508b9f2d4a5d35dae09e0",
+      "bytes": 3010
+    },
+    {
+      "path": "parser-red-green.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ssm-detail-profile-env/parser-red-green.json",
+      "sha256": "165a03c4f97fe9623b7e25e47c003eb11a86abc765682dfab234d94f1f590d35",
+      "bytes": 2931
+    },
+    {
+      "path": "receipt.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ssm-detail-profile-env/receipt.json",
+      "sha256": "c0dc4db1a127961888ad83b25da272b5e2b330038becad2e6dd5a9013c09a86e",
+      "bytes": 1161
+    },
+    {
+      "path": "red.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ssm-detail-profile-env/red.json",
+      "sha256": "6a9f00e1694166a9a399ee420f60f8c2168c1110b95042ac76e3834cd9bdc5ad",
+      "bytes": 133
+    },
+    {
+      "path": "red.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/ssm-detail-profile-env/red.log",
+      "sha256": "eb5544c0829ac8534599b60d2ba9fdbc44483f7b7b4a348e1f71b32fc9596427",
+      "bytes": 6033
+    },
+    {
+      "path": "run_qwen38_ssm_detail_profile.sh",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/run_qwen38_ssm_detail_profile.sh",
+      "sha256": "78d6c25aeed98b3aa84e6bca25df7eb754cc1295fcdd72b57243f831e68c3182",
+      "bytes": 8111
+    }
+  ],
+  "generated_files": [],
+  "scope": "Completed CPU tooling preparation and red-first parser fixture only; runtime diagnostic result pending at this snapshot."
+}

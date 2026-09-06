@@ -1,0 +1,67 @@
+{
+  "captured_utc": "2026-09-06T02:44:29.970386+00:00",
+  "copied_files": [
+    {
+      "path": "build.env",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145.build-resume01/build.env",
+      "sha256": "221aea1b7837ab4c3cb4d4c7e9c87bf2f446295d10b230e9f73db7e8098d96eb",
+      "bytes": 173
+    },
+    {
+      "path": "build.exit",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145.build-resume01/build.exit",
+      "sha256": "39b8dc3fc8b44765c8e6f1adee04c5b465e555ab791cc42d0d9e810d5b64297c",
+      "bytes": 4
+    },
+    {
+      "path": "build.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145.build-resume01/build.stderr",
+      "sha256": "56c5ba8e1827978e714396df49708b34d5fe4dd4296f6484996df285587d4cfa",
+      "bytes": 1340
+    },
+    {
+      "path": "build.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145.build-resume01/build.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "build.time",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145.build-resume01/build.time",
+      "sha256": "d8fd9c0a43de7df6b471828b315e38f5fa6ae90f6f4ad732b48a0ba523f6fdf2",
+      "bytes": 907
+    },
+    {
+      "path": "command.sh",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145.build-resume01/command.sh",
+      "sha256": "8f07afa299a92356e32015bf0029e3eb6ba8b199a1da95ca297e5db66e94747b",
+      "bytes": 2191
+    },
+    {
+      "path": "df-before.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145.build-resume01/df-before.txt",
+      "sha256": "b4de3155afa7b815639c1c9883c40a3a9823cdea6ed7b2d8e50313adcd1c1257",
+      "bytes": 89
+    },
+    {
+      "path": "nvidia-smi-before.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145.build-resume01/nvidia-smi-before.txt",
+      "sha256": "74a97d743544bae252e57b82a86c6e536d55efa8fc5ca13cd21f3e426f51705f",
+      "bytes": 14959
+    },
+    {
+      "path": "source.sha",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145.build-resume01/source.sha",
+      "sha256": "5cc2e1e3a5235fd3d515d5a379baaa241d9eb15d2f1ce5bafe0e12249e759615",
+      "bytes": 41
+    },
+    {
+      "path": "tenants-before.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145.build-resume01/tenants-before.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "generated_files": [],
+  "scope": "Warm resume fails Rust example compilation101 duewrong KernelLaunch import before numerical execution. Not a model or numerical failure."
+}

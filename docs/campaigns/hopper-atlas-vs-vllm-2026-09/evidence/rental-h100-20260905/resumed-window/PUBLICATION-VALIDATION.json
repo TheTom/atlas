@@ -1,0 +1,34 @@
+{
+  "validated_utc": "2026-09-06T02:56:40.894775+00:00",
+  "base_docs_commit": "d1e8df8062eb5dbcff398ae30249d5c588f3afc5",
+  "original_report_prefix_bytes_unchanged": 16109,
+  "original_report_prefix_sha256": "a1c9404d4408d88b2b06f1334231e642cc42d9777d6f392d778db7a6753e8264",
+  "new_files_before_receipt": 429,
+  "new_json_parsed": 190,
+  "manifest_entries_verified": 415,
+  "report_local_links_resolve": 51,
+  "report_sha256": "53883fb7f9b1a7ee839279fd2b58c327813871194ed66ff100bb8f14c9d8a965",
+  "summary_helper_final_cpu_tests": {
+    "passed": 10,
+    "failed": 0,
+    "red_before_green": true
+  },
+  "new_frozen_ladders": 0,
+  "new_throughput_gain_claimed": false,
+  "secret_or_binary_files_detected": false,
+  "resumed_export": {
+    "files": 2047,
+    "bytes": 16440705,
+    "verified_utc": "2026-09-06T02:47:37.781754+00:00"
+  },
+  "source_archive_locally_sha_verified": true,
+  "new_files_including_receipt": 430,
+  "new_json_including_receipt_parsed": 191,
+  "prose_typos_exit": 0,
+  "prose_diff_check_exit": 0,
+  "raw_evidence_diff_check": {
+    "exit": 2,
+    "location_count": 30,
+    "scope": "Preserved raw output and source patch whitespace only; report prose check passes. Raw bytes are not trimmed."
+  }
+}

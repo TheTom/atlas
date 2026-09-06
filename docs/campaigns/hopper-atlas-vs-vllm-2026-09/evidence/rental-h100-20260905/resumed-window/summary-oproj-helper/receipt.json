@@ -1,0 +1,33 @@
+{
+  "recorded_utc": "2026-09-06T02:20:26.542467+00:00",
+  "before_sha256": "f3291bf36d97df6d61c58e678aa6b1ae5f575a877aadc710c74e45c0ad9c724d",
+  "after_sha256": "57bb5a2d1a4774fb588e16124f6e36a8560c1ab09a940290b5abf350742146e5",
+  "red": {
+    "passed": 6,
+    "failures": 1,
+    "errors": 1,
+    "exit": 1,
+    "finding": "Explicit quality-only intent was classified as an unfinished ladder; no diagnostics collection existed."
+  },
+  "green": {
+    "passed": 9,
+    "failed": 0,
+    "exit": 0
+  },
+  "oracle": "Fresh oproj label retains baseline and same-workload pairs; genuine unfinished ladder retained; quality-only marker is not quality success; actual17observedrows and commandexit0 required. Bad row and failed command retainfalse. Inputbytes unchanged across each synthetic fixture.",
+  "scope": "Standalone report helper only. No frozen harness, compare.py, schema, threshold or engine changes.",
+  "after_initial_classification_sha256": "5f2ce59dbb0da74223ac196b32753c891a146fc6d5fbdab253f5b99b005d22d9",
+  "coherency_followup": {
+    "red": {
+      "passed": 9,
+      "errors": 1,
+      "exit": 1
+    },
+    "green": {
+      "passed": 10,
+      "failed": 0,
+      "exit": 0
+    },
+    "oracle": "Raw coherencyfalse/exit1 and separate exceptiontrue/exit0 remain distinct in quality-only reports."
+  }
+}

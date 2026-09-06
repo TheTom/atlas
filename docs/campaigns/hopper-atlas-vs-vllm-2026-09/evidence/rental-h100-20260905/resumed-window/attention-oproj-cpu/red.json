@@ -1,0 +1,7 @@
+{
+  "command": "cd /workspace/atlas-rental/src/fp8-attention-batch && env CUDA_VISIBLE_DEVICES= ATLAS_SKIP_BUILD=1 CUDARC_CUDA_VERSION=13000 CARGO_TARGET_DIR=/workspace/atlas-rental/target-cpu-checks CARGO_BUILD_JOBS=4 ATLAS_TARGET_HW=hopper ATLAS_TARGET_MODEL=qwen3.8-27b ATLAS_TARGET_QUANT=nvfp4 /root/.cargo/bin/cargo +1.93.1 test --locked -p spark-model --lib native_fp8_attention_o_projection_batches_four_real_rows -- --nocapture",
+  "exit": 101,
+  "oracle": "Real multi-sequence O-projection should use one existing batch4 kernel for four FP8 rows",
+  "observed": "4 scalar launches; assertion expected1, actual4",
+  "base": "f08d4eafb3f56e2168bfc993a657191a4e424a1e"
+}

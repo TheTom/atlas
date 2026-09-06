@@ -1,0 +1,17 @@
+warning: atlas-kernels@1.0.0-beta-preview: atlas-kernels: compiled 181 kernels for target 0 (hopper, qwen3.8-27b, nvfp4) (14 model-specific overrides)
+warning: atlas-kernels@1.0.0-beta-preview: atlas-kernels: dedup+parallel: 181/181 unique nvcc invocations (0 cache hits, 1.0× dedup), 23 parallel workers
+warning: atlas-kernels@1.0.0-beta-preview: closure: unresolved include (kernels/gb10/qwen3.6-27b/nvfp4/q4k_vendor/common.cuh -> vendors/hip.h)
+warning: atlas-kernels@1.0.0-beta-preview: closure: unresolved include (kernels/gb10/qwen3.6-27b/nvfp4/q4k_vendor/common.cuh -> vendors/musa.h)
+   Compiling spark-model v1.0.0-beta-preview (/workspace/atlas-rental/src/atlas/crates/spark-model)
+error[E0432]: unresolved import `spark_runtime::gpu::KernelLaunch`
+ --> crates/spark-model/examples/native_fp8_oproj_batch_microtest.rs:8:49
+  |
+8 | use spark_runtime::gpu::{DevicePtr, GpuBackend, KernelLaunch};
+  |                                                 ^^^^^^^^^^^^ no `KernelLaunch` in `gpu`
+  |
+  = help: consider importing one of these items instead:
+          atlas_core::error::AtlasError::KernelLaunch
+          spark_runtime::kernel_args::KernelLaunch
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `spark-model` (example "native_fp8_oproj_batch_microtest") due to 1 previous error

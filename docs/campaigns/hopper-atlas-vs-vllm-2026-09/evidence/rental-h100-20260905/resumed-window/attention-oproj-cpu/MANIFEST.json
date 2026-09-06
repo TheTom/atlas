@@ -1,0 +1,97 @@
+{
+  "captured_utc": "2026-09-06T02:24:31.434053+00:00",
+  "copied_files": [
+    {
+      "path": "CPU-IMPLEMENTATION-RECEIPT.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/native-fp8-attention-oproj/CPU-IMPLEMENTATION-RECEIPT.json",
+      "sha256": "be66b0ed9783dc6816234fef7a90b6ccde643b237bbba5a80e82fe468dfdf255",
+      "bytes": 1193
+    },
+    {
+      "path": "FINDING.md",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/native-fp8-attention-oproj/FINDING.md",
+      "sha256": "2d40b7632595f9b2235a2976aa8fe1a8bf00a82f8b587ed5348fb9ea467b6ca9",
+      "bytes": 3152
+    },
+    {
+      "path": "clippy.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/native-fp8-attention-oproj/clippy.json",
+      "sha256": "6754020dfca04fe776035525ed182311c20991697294037c03dad174b6337cca",
+      "bytes": 416
+    },
+    {
+      "path": "clippy.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/native-fp8-attention-oproj/clippy.log",
+      "sha256": "299595d7b2a2f98aad6977a8ccbc53eba3ed33c4274b2f1a6dce9ea59edfa467",
+      "bytes": 1428
+    },
+    {
+      "path": "doctests.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/native-fp8-attention-oproj/doctests.json",
+      "sha256": "fcacfe02801a9e0e968198dc7ec02fc3ab47b6f20c4e9082f1ea6e164a92eabf",
+      "bytes": 408
+    },
+    {
+      "path": "doctests.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/native-fp8-attention-oproj/doctests.log",
+      "sha256": "572d2ebf129e7d9158216136956786ccbeb903c7f9f794e3317c67c165a12b4c",
+      "bytes": 4259
+    },
+    {
+      "path": "green-model-final.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/native-fp8-attention-oproj/green-model-final.json",
+      "sha256": "7b86c94fdf2771b1cc228614feb9b46d1afba98ff608d820b21c0632de535976",
+      "bytes": 1390
+    },
+    {
+      "path": "green-model-final.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/native-fp8-attention-oproj/green-model-final.log",
+      "sha256": "2f854c2d5c7b9350a6b4098068fdb921c8e9a9107ef5452949990a6ee3f10c31",
+      "bytes": 60791
+    },
+    {
+      "path": "green-model.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/native-fp8-attention-oproj/green-model.log",
+      "sha256": "fd79556830d8bf82efdda2f3dbb5fc28204aaddde849ccc553f22f887f65c1d9",
+      "bytes": 1057
+    },
+    {
+      "path": "red.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/native-fp8-attention-oproj/red.json",
+      "sha256": "91fb272a49bac7721d3355f7883db9de0635173d37d2672422964431f988f603",
+      "bytes": 677
+    },
+    {
+      "path": "red.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/native-fp8-attention-oproj/red.log",
+      "sha256": "395edbc13f7706ea18fceed260350a0f0dbb34366de4d994a47507d5580dce82",
+      "bytes": 2465
+    },
+    {
+      "path": "red.patch",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/native-fp8-attention-oproj/red.patch",
+      "sha256": "132ef63cf52e31f758e2440423c1d5d95ced2e796f4621fe5f917dedb377b0a0",
+      "bytes": 4601
+    },
+    {
+      "path": "run-cpu-gates.py",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/native-fp8-attention-oproj/run-cpu-gates.py",
+      "sha256": "35eac4c780fe1f88904bad4b60206267e9f14833f2e689aab512d0daefe8c022",
+      "bytes": 1289
+    },
+    {
+      "path": "rustdoc.json",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/native-fp8-attention-oproj/rustdoc.json",
+      "sha256": "be1a8a6efe5d2e98ceab037d7ef8915563e685f0c4af1ac88861a548cd27f304",
+      "bytes": 411
+    },
+    {
+      "path": "rustdoc.log",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/native-fp8-attention-oproj/rustdoc.log",
+      "sha256": "7ebb34ba69facb11d8d309e7202fb5619abf8fc1ba6feec1068ba148e3bedaf3",
+      "bytes": 3989
+    }
+  ],
+  "generated_files": [],
+  "scope": "Completed CPU attention output-projection dispatch proof, source identity and numerical example design. GPU numerical/full-model results follow separately."
+}

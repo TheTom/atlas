@@ -1,0 +1,31 @@
+test_empty_export_is_pending_not_silently_dropped (__main__.ResumedSummaryTests.test_empty_export_is_pending_not_silently_dropped) ... ok
+test_missing_argv_preserves_unproven_parity (__main__.ResumedSummaryTests.test_missing_argv_preserves_unproven_parity) ... ok
+test_new_labels_preserve_baseline_pairs_and_failed_gates (__main__.ResumedSummaryTests.test_new_labels_preserve_baseline_pairs_and_failed_gates) ... ok
+test_oproj_complete_pairs_preserve_old_heads (__main__.ResumedSummaryTests.test_oproj_complete_pairs_preserve_old_heads) ... ok
+test_oproj_partial_is_retained (__main__.ResumedSummaryTests.test_oproj_partial_is_retained) ... ok
+test_quality_only_marker_does_not_become_pending_ladder_or_pass (__main__.ResumedSummaryTests.test_quality_only_marker_does_not_become_pending_ladder_or_pass) ... FAIL
+test_quality_pass_requires_observed_rows_and_command (__main__.ResumedSummaryTests.test_quality_pass_requires_observed_rows_and_command) ... ERROR
+test_vllm_repeat_has_actual_aa_pair_and_no_identity_upgrade (__main__.ResumedSummaryTests.test_vllm_repeat_has_actual_aa_pair_and_no_identity_upgrade) ... ok
+
+======================================================================
+ERROR: test_quality_pass_requires_observed_rows_and_command (__main__.ResumedSummaryTests.test_quality_pass_requires_observed_rows_and_command)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/measurement-summary-oproj-labels/test_summary_oproj.py", line 54, in test_quality_pass_requires_observed_rows_and_command
+    item=next(x for x in d['diagnostic_sessions'] if x['directory']==name)
+                         ~^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'diagnostic_sessions'
+
+======================================================================
+FAIL: test_quality_only_marker_does_not_become_pending_ladder_or_pass (__main__.ResumedSummaryTests.test_quality_only_marker_does_not_become_pending_ladder_or_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/tooling-fixes/measurement-summary-oproj-labels/test_summary_oproj.py", line 47, in test_quality_only_marker_does_not_become_pending_ladder_or_pass
+    self.assertNotIn(name,[x['directory'] for x in d['pending_sessions']])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'benchmark.qwen38.atlas.native-oproj-quality01' unexpectedly found in ['benchmark.qwen38.atlas.native-oproj-quality01']
+
+----------------------------------------------------------------------
+Ran 8 tests in 4.449s
+
+FAILED (failures=1, errors=1)

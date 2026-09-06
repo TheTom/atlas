@@ -1,0 +1,127 @@
+{
+  "captured_utc": "2026-09-06T02:45:32.481903+00:00",
+  "copied_files": [
+    {
+      "path": "binary.sha256",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.8882f088b3e1382456c72a7288c267b8dc6985de.build-resume01/binary.sha256",
+      "sha256": "3205eb8d190c058e58faa5b6c1aa3715f0c2c39bc99eed683f578e05864cb835",
+      "bytes": 189
+    },
+    {
+      "path": "build.env",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.8882f088b3e1382456c72a7288c267b8dc6985de.build-resume01/build.env",
+      "sha256": "221aea1b7837ab4c3cb4d4c7e9c87bf2f446295d10b230e9f73db7e8098d96eb",
+      "bytes": 173
+    },
+    {
+      "path": "build.exit",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.8882f088b3e1382456c72a7288c267b8dc6985de.build-resume01/build.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "path": "build.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.8882f088b3e1382456c72a7288c267b8dc6985de.build-resume01/build.stderr",
+      "sha256": "1bd2b0dfa51bd11ee9a625abc3e8e09aa3423c9e512101764082297b414a8838",
+      "bytes": 755
+    },
+    {
+      "path": "build.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.8882f088b3e1382456c72a7288c267b8dc6985de.build-resume01/build.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "build.time",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.8882f088b3e1382456c72a7288c267b8dc6985de.build-resume01/build.time",
+      "sha256": "1ece108ecf7c32d762cf810e9c247dd2983eaa672765414f5e3a612413ec0750",
+      "bytes": 862
+    },
+    {
+      "path": "command.sh",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.8882f088b3e1382456c72a7288c267b8dc6985de.build-resume01/command.sh",
+      "sha256": "8f07afa299a92356e32015bf0029e3eb6ba8b199a1da95ca297e5db66e94747b",
+      "bytes": 2191
+    },
+    {
+      "path": "df-after.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.8882f088b3e1382456c72a7288c267b8dc6985de.build-resume01/df-after.txt",
+      "sha256": "b4de3155afa7b815639c1c9883c40a3a9823cdea6ed7b2d8e50313adcd1c1257",
+      "bytes": 89
+    },
+    {
+      "path": "df-before.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.8882f088b3e1382456c72a7288c267b8dc6985de.build-resume01/df-before.txt",
+      "sha256": "b4de3155afa7b815639c1c9883c40a3a9823cdea6ed7b2d8e50313adcd1c1257",
+      "bytes": 89
+    },
+    {
+      "path": "finished.utc",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.8882f088b3e1382456c72a7288c267b8dc6985de.build-resume01/finished.utc",
+      "sha256": "dc0bbeeb1d1c5ae04b9e97a53abe3afe5dfa4473e6666a138d5ce21fbc9402a3",
+      "bytes": 21
+    },
+    {
+      "path": "numerical.argv",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.8882f088b3e1382456c72a7288c267b8dc6985de.build-resume01/numerical.argv",
+      "sha256": "b35b2a4ab01e4126afd27bcf575442c02520fde561a94dfa9fc3373f72c3bf9b",
+      "bytes": 123
+    },
+    {
+      "path": "numerical.exit",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.8882f088b3e1382456c72a7288c267b8dc6985de.build-resume01/numerical.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "path": "numerical.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.8882f088b3e1382456c72a7288c267b8dc6985de.build-resume01/numerical.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "numerical.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.8882f088b3e1382456c72a7288c267b8dc6985de.build-resume01/numerical.stdout",
+      "sha256": "3fb3293e7a508cd51dc6d5602bb2b9e8c0f48c26af12ee34831a510a01907f33",
+      "bytes": 689
+    },
+    {
+      "path": "numerical.time",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.8882f088b3e1382456c72a7288c267b8dc6985de.build-resume01/numerical.time",
+      "sha256": "376b81314a47e429a4ed054bfa727949464a9b48596813989ba3dcecafa5102d",
+      "bytes": 854
+    },
+    {
+      "path": "nvidia-smi-before.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.8882f088b3e1382456c72a7288c267b8dc6985de.build-resume01/nvidia-smi-before.txt",
+      "sha256": "a9c97f068ddcad479bd0f28d52a46c2b3a0e449e43ff3024fdc73e6058686941",
+      "bytes": 14959
+    },
+    {
+      "path": "source.sha",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.8882f088b3e1382456c72a7288c267b8dc6985de.build-resume01/source.sha",
+      "sha256": "7e99e4d359aaa292715cc16832ab3566753e7d1f45f625b48a1d1800aee48033",
+      "bytes": 41
+    },
+    {
+      "path": "tenants-after.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.8882f088b3e1382456c72a7288c267b8dc6985de.build-resume01/tenants-after.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "tenants-before.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.8882f088b3e1382456c72a7288c267b8dc6985de.build-resume01/tenants-before.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "generated_files": [
+    {
+      "path": "NUMERICAL-PASS.json",
+      "sha256": "9a93bb49460f4e2f6dd4fde82bbe5e0b645effdf5d0c4d544e7971ddae58c7be",
+      "bytes": 1837
+    }
+  ],
+  "scope": "Completed strict corrected GPU numerical proof at actual O shape; original red and two build failures preserved separately."
+}

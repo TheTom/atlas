@@ -1,0 +1,65 @@
+{
+  "status": 200,
+  "headers": [
+    [
+      "content-type",
+      "application/json"
+    ],
+    [
+      "x-request-id",
+      "req_ae51eaf6-2a81-4d6a-8ed2-e17a2d187797"
+    ],
+    [
+      "openai-processing-ms",
+      "5720"
+    ],
+    [
+      "x-ratelimit-limit-requests",
+      "1000000"
+    ],
+    [
+      "x-ratelimit-remaining-requests",
+      "999999"
+    ],
+    [
+      "x-ratelimit-reset-requests",
+      "0s"
+    ],
+    [
+      "x-ratelimit-limit-tokens",
+      "1000000000"
+    ],
+    [
+      "x-ratelimit-remaining-tokens",
+      "999999999"
+    ],
+    [
+      "x-ratelimit-reset-tokens",
+      "0s"
+    ],
+    [
+      "openai-organization",
+      "atlas-local"
+    ],
+    [
+      "openai-version",
+      "2026-01-01"
+    ],
+    [
+      "access-control-allow-origin",
+      "*"
+    ],
+    [
+      "connection",
+      "close"
+    ],
+    [
+      "transfer-encoding",
+      "chunked"
+    ],
+    [
+      "date",
+      "Sun, 06 Sep 2026 02:44:21 GMT"
+    ]
+  ]
+}

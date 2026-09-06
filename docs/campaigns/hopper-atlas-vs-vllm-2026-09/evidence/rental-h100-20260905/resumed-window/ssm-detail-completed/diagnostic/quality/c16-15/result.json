@@ -1,0 +1,111 @@
+{
+  "id": "c16-15",
+  "operands": [
+    83,
+    31
+  ],
+  "nonce": "94094b783f0946c3a8c5d102fdd65c92",
+  "expected": 2573,
+  "started": {
+    "monotonic_ns": 191918019985714,
+    "utc": "2026-09-06T02:11:13.941124+00:00"
+  },
+  "elapsed_s": 1.511204593,
+  "response_sha256": "5bc5164a1533a2facf9f032db18e3abc0ce5f95ae323f9ef2592220d64da25d8",
+  "raw_response_file": "c16-15/response.body",
+  "transport": {
+    "status": 200,
+    "headers": [
+      [
+        "content-type",
+        "application/json"
+      ],
+      [
+        "x-request-id",
+        "req_28b452f1-13b2-4092-8f13-928324549688"
+      ],
+      [
+        "openai-processing-ms",
+        "1468"
+      ],
+      [
+        "x-ratelimit-limit-requests",
+        "1000000"
+      ],
+      [
+        "x-ratelimit-remaining-requests",
+        "999999"
+      ],
+      [
+        "x-ratelimit-reset-requests",
+        "0s"
+      ],
+      [
+        "x-ratelimit-limit-tokens",
+        "1000000000"
+      ],
+      [
+        "x-ratelimit-remaining-tokens",
+        "999999999"
+      ],
+      [
+        "x-ratelimit-reset-tokens",
+        "0s"
+      ],
+      [
+        "openai-organization",
+        "atlas-local"
+      ],
+      [
+        "openai-version",
+        "2026-01-01"
+      ],
+      [
+        "access-control-allow-origin",
+        "*"
+      ],
+      [
+        "connection",
+        "close"
+      ],
+      [
+        "transfer-encoding",
+        "chunked"
+      ],
+      [
+        "date",
+        "Sun, 06 Sep 2026 02:11:15 GMT"
+      ]
+    ],
+    "complete": true,
+    "transport_error": null,
+    "bytes": 609,
+    "started_ns": 191918019985714,
+    "finished_ns": 191919531190307,
+    "finished_utc": "2026-09-06T02:11:15.452332+00:00"
+  },
+  "oracle": {
+    "passed": true,
+    "failures": [],
+    "content": "2573",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 79,
+      "completion_tokens": 5,
+      "total_tokens": 84,
+      "prompt_tokens_details": {
+        "cached_tokens": 16,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "time_to_first_token_ms": 324.23737,
+      "response_token/s": 3.500948054107341
+    }
+  },
+  "child_exit": 0
+}

@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-09-06T02:49:41.600908+00:00",
+  "baseline_docs_commit": "d1e8df8062eb5dbcff398ae30249d5c588f3afc5",
+  "certification_claimed": false,
+  "new_frozen_ladders": [],
+  "records": [
+    {
+      "kind": "completed detailed profiling",
+      "path": "ssm-detail-completed/ssm-detail.section10.json"
+    },
+    {
+      "kind": "completed CPU dispatch proof",
+      "path": "attention-oproj-cpu/CPU-IMPLEMENTATION-RECEIPT.json"
+    },
+    {
+      "kind": "failed realGPU numerical oracle",
+      "path": "attention-oproj-gpu-red/NUMERICAL-FAILURE.json"
+    },
+    {
+      "kind": "completed corrected server build",
+      "path": "corrected-source-build/MANIFEST.json"
+    },
+    {
+      "kind": "build124 before numerical execution",
+      "path": "corrected-example-build-timeout/BUILD-INTERRUPTION.json"
+    },
+    {
+      "kind": "build101 before numerical execution",
+      "path": "corrected-example-import-error/MANIFEST.json"
+    },
+    {
+      "kind": "corrected exact GPU numerical proof",
+      "path": "attention-oproj-gpu-green/NUMERICAL-PASS.json"
+    },
+    {
+      "kind": "completed real model quality, rawcoherencyfalse separatepolicytrue",
+      "path": "attention-oproj-quality/quality.section10.json"
+    },
+    {
+      "kind": "finalresumed export2047files16440705bytes",
+      "path": "final-resumed-proof/final-export-verification.json"
+    }
+  ]
+}

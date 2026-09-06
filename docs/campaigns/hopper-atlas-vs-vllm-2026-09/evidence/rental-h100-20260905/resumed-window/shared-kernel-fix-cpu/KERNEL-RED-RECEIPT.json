@@ -1,0 +1,17 @@
+{
+  "observed_by": "parent H100 numerical run",
+  "failing_integrated_commit": "6b76f3d83cd4eadc90b62100a87925f46d2a4c8e",
+  "M2": "exact pass",
+  "M4": {
+    "verdict": "FAIL",
+    "unequal_bf16": 3,
+    "max_abs": 0.000488281,
+    "cosine": 1
+  },
+  "oracle": "strict BF16 output bytes plus finite outputs and guards; tolerance unchanged",
+  "cause": "batch template adds paired products before accumulator; scalar adds each product separately",
+  "kernel_fix_commit": "d119578e4b941978c4644bdb6c35356a98102afd",
+  "expanded_test_commit": "4c963ee95aa06be7066e51e02fbaf93a4fc55d67",
+  "original_red_fixture_preserved": true,
+  "pending": "parent rebuild, exact GPU numerical tests, actual-checkpoint coherency and frozen ladder"
+}

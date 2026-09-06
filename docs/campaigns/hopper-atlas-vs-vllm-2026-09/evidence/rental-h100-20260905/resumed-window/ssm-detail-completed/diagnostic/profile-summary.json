@@ -1,0 +1,200 @@
+{
+  "scope": "Synchronized device-inclusive wall attribution; includes CPU launch/sync overhead; not frozen throughput",
+  "bucket_meaning": {
+    "ssm": "whole SSM transformer layers, including FFN",
+    "attention": "whole attention transformer layers, including FFN",
+    "head": "final normalization and head projection"
+  },
+  "rows": [
+    {
+      "n": 4,
+      "padded_n": 4,
+      "total_us": 44753,
+      "ssm_us": 33013,
+      "ssm_layers": 48,
+      "attention_us": 10798,
+      "attention_layers": 16,
+      "head_us": 942,
+      "source_line": "\u001b[2m2026-09-06T02:11:15.338102Z\u001b[0m \u001b[32m INFO\u001b[0m \u001b[2mspark_model::model::trait_impl::decode_a2\u001b[0m\u001b[2m:\u001b[0m ATLAS_MS_PROFILE n=4 padded_n=4: total=44753us  ssm=33013us(48L)  attn=10798us(16L)  head=942us  [per-tok 11.19ms]"
+    },
+    {
+      "n": 4,
+      "padded_n": 4,
+      "total_us": 45189,
+      "ssm_us": 33420,
+      "ssm_layers": 48,
+      "attention_us": 10830,
+      "attention_layers": 16,
+      "head_us": 939,
+      "source_line": "\u001b[2m2026-09-06T02:11:15.392784Z\u001b[0m \u001b[32m INFO\u001b[0m \u001b[2mspark_model::model::trait_impl::decode_a2\u001b[0m\u001b[2m:\u001b[0m ATLAS_MS_PROFILE n=4 padded_n=4: total=45189us  ssm=33420us(48L)  attn=10830us(16L)  head=939us  [per-tok 11.30ms]"
+    },
+    {
+      "n": 4,
+      "padded_n": 4,
+      "total_us": 47026,
+      "ssm_us": 34832,
+      "ssm_layers": 48,
+      "attention_us": 11232,
+      "attention_layers": 16,
+      "head_us": 962,
+      "source_line": "\u001b[2m2026-09-06T02:11:15.445539Z\u001b[0m \u001b[32m INFO\u001b[0m \u001b[2mspark_model::model::trait_impl::decode_a2\u001b[0m\u001b[2m:\u001b[0m ATLAS_MS_PROFILE n=4 padded_n=4: total=47026us  ssm=34832us(48L)  attn=11232us(16L)  head=962us  [per-tok 11.76ms]"
+    },
+    {
+      "n": 4,
+      "padded_n": 4,
+      "total_us": 44432,
+      "ssm_us": 32667,
+      "ssm_layers": 48,
+      "attention_us": 10825,
+      "attention_layers": 16,
+      "head_us": 940,
+      "source_line": "\u001b[2m2026-09-06T02:11:16.465011Z\u001b[0m \u001b[32m INFO\u001b[0m \u001b[2mspark_model::model::trait_impl::decode_a2\u001b[0m\u001b[2m:\u001b[0m ATLAS_MS_PROFILE n=4 padded_n=4: total=44432us  ssm=32667us(48L)  attn=10825us(16L)  head=940us  [per-tok 11.11ms]"
+    },
+    {
+      "n": 4,
+      "padded_n": 4,
+      "total_us": 44454,
+      "ssm_us": 32730,
+      "ssm_layers": 48,
+      "attention_us": 10784,
+      "attention_layers": 16,
+      "head_us": 940,
+      "source_line": "\u001b[2m2026-09-06T02:11:16.838854Z\u001b[0m \u001b[32m INFO\u001b[0m \u001b[2mspark_model::model::trait_impl::decode_a2\u001b[0m\u001b[2m:\u001b[0m ATLAS_MS_PROFILE n=4 padded_n=4: total=44454us  ssm=32730us(48L)  attn=10784us(16L)  head=940us  [per-tok 11.11ms]"
+    },
+    {
+      "n": 4,
+      "padded_n": 4,
+      "total_us": 44823,
+      "ssm_us": 33044,
+      "ssm_layers": 48,
+      "attention_us": 10840,
+      "attention_layers": 16,
+      "head_us": 939,
+      "source_line": "\u001b[2m2026-09-06T02:11:16.887568Z\u001b[0m \u001b[32m INFO\u001b[0m \u001b[2mspark_model::model::trait_impl::decode_a2\u001b[0m\u001b[2m:\u001b[0m ATLAS_MS_PROFILE n=4 padded_n=4: total=44823us  ssm=33044us(48L)  attn=10840us(16L)  head=939us  [per-tok 11.21ms]"
+    },
+    {
+      "n": 4,
+      "padded_n": 4,
+      "total_us": 44400,
+      "ssm_us": 32681,
+      "ssm_layers": 48,
+      "attention_us": 10778,
+      "attention_layers": 16,
+      "head_us": 941,
+      "source_line": "\u001b[2m2026-09-06T02:11:17.261796Z\u001b[0m \u001b[32m INFO\u001b[0m \u001b[2mspark_model::model::trait_impl::decode_a2\u001b[0m\u001b[2m:\u001b[0m ATLAS_MS_PROFILE n=4 padded_n=4: total=44400us  ssm=32681us(48L)  attn=10778us(16L)  head=941us  [per-tok 11.10ms]"
+    },
+    {
+      "n": 4,
+      "padded_n": 4,
+      "total_us": 44456,
+      "ssm_us": 32696,
+      "ssm_layers": 48,
+      "attention_us": 10820,
+      "attention_layers": 16,
+      "head_us": 940,
+      "source_line": "\u001b[2m2026-09-06T02:11:18.276890Z\u001b[0m \u001b[32m INFO\u001b[0m \u001b[2mspark_model::model::trait_impl::decode_a2\u001b[0m\u001b[2m:\u001b[0m ATLAS_MS_PROFILE n=4 padded_n=4: total=44456us  ssm=32696us(48L)  attn=10820us(16L)  head=940us  [per-tok 11.11ms]"
+    },
+    {
+      "n": 4,
+      "padded_n": 4,
+      "total_us": 45462,
+      "ssm_us": 33513,
+      "ssm_layers": 48,
+      "attention_us": 10991,
+      "attention_layers": 16,
+      "head_us": 958,
+      "source_line": "\u001b[2m2026-09-06T02:11:18.326165Z\u001b[0m \u001b[32m INFO\u001b[0m \u001b[2mspark_model::model::trait_impl::decode_a2\u001b[0m\u001b[2m:\u001b[0m ATLAS_MS_PROFILE n=4 padded_n=4: total=45462us  ssm=33513us(48L)  attn=10991us(16L)  head=958us  [per-tok 11.37ms]"
+    },
+    {
+      "n": 4,
+      "padded_n": 4,
+      "total_us": 44483,
+      "ssm_us": 32735,
+      "ssm_layers": 48,
+      "attention_us": 10809,
+      "attention_layers": 16,
+      "head_us": 939,
+      "source_line": "\u001b[2m2026-09-06T02:11:18.700141Z\u001b[0m \u001b[32m INFO\u001b[0m \u001b[2mspark_model::model::trait_impl::decode_a2\u001b[0m\u001b[2m:\u001b[0m ATLAS_MS_PROFILE n=4 padded_n=4: total=44483us  ssm=32735us(48L)  attn=10809us(16L)  head=939us  [per-tok 11.12ms]"
+    },
+    {
+      "n": 4,
+      "padded_n": 4,
+      "total_us": 44723,
+      "ssm_us": 32891,
+      "ssm_layers": 48,
+      "attention_us": 10875,
+      "attention_layers": 16,
+      "head_us": 957,
+      "source_line": "\u001b[2m2026-09-06T02:11:19.714416Z\u001b[0m \u001b[32m INFO\u001b[0m \u001b[2mspark_model::model::trait_impl::decode_a2\u001b[0m\u001b[2m:\u001b[0m ATLAS_MS_PROFILE n=4 padded_n=4: total=44723us  ssm=32891us(48L)  attn=10875us(16L)  head=957us  [per-tok 11.18ms]"
+    },
+    {
+      "n": 4,
+      "padded_n": 4,
+      "total_us": 46219,
+      "ssm_us": 33971,
+      "ssm_layers": 48,
+      "attention_us": 11292,
+      "attention_layers": 16,
+      "head_us": 956,
+      "source_line": "\u001b[2m2026-09-06T02:11:19.764637Z\u001b[0m \u001b[32m INFO\u001b[0m \u001b[2mspark_model::model::trait_impl::decode_a2\u001b[0m\u001b[2m:\u001b[0m ATLAS_MS_PROFILE n=4 padded_n=4: total=46219us  ssm=33971us(48L)  attn=11292us(16L)  head=956us  [per-tok 11.55ms]"
+    },
+    {
+      "n": 3,
+      "padded_n": 4,
+      "total_us": 50697,
+      "ssm_us": 38420,
+      "ssm_layers": 48,
+      "attention_us": 11316,
+      "attention_layers": 16,
+      "head_us": 961,
+      "source_line": "\u001b[2m2026-09-06T02:11:19.821805Z\u001b[0m \u001b[32m INFO\u001b[0m \u001b[2mspark_model::model::trait_impl::decode_a2\u001b[0m\u001b[2m:\u001b[0m ATLAS_MS_PROFILE n=3 padded_n=4: total=50697us  ssm=38420us(48L)  attn=11316us(16L)  head=961us  [per-tok 12.67ms]"
+    },
+    {
+      "n": 2,
+      "padded_n": 2,
+      "total_us": 33033,
+      "ssm_us": 25186,
+      "ssm_layers": 48,
+      "attention_us": 7011,
+      "attention_layers": 16,
+      "head_us": 836,
+      "source_line": "\u001b[2m2026-09-06T02:11:19.860952Z\u001b[0m \u001b[32m INFO\u001b[0m \u001b[2mspark_model::model::trait_impl::decode_a2\u001b[0m\u001b[2m:\u001b[0m ATLAS_MS_PROFILE n=2 padded_n=2: total=33033us  ssm=25186us(48L)  attn=7011us(16L)  head=836us  [per-tok 16.52ms]"
+    }
+  ],
+  "groups": [
+    {
+      "n": 2,
+      "padded_n": 2,
+      "steps": 1,
+      "median_us": {
+        "total_us": 33033,
+        "ssm_us": 25186,
+        "attention_us": 7011,
+        "head_us": 836
+      }
+    },
+    {
+      "n": 3,
+      "padded_n": 4,
+      "steps": 1,
+      "median_us": {
+        "total_us": 50697,
+        "ssm_us": 38420,
+        "attention_us": 11316,
+        "head_us": 961
+      }
+    },
+    {
+      "n": 4,
+      "padded_n": 4,
+      "steps": 12,
+      "median_us": {
+        "total_us": 44738.0,
+        "ssm_us": 32952.0,
+        "attention_us": 10827.5,
+        "head_us": 940.5
+      }
+    }
+  ],
+  "actual_c4_observed": true
+}

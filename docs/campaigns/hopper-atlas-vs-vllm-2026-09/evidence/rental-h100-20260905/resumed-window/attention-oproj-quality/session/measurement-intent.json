@@ -1,0 +1,6 @@
+{
+  "kind": "concurrent_quality_only",
+  "expected_requests": 17,
+  "ladder_requested": false,
+  "oracle": "exact integer, stop finish, no tool or reasoning payload"
+}

@@ -1,0 +1,15 @@
+{
+  "source": "97375dfc940be63cfac6c30195224b363ad42145",
+  "kind": "build interruption before numerical execution",
+  "build_exit": 124,
+  "build_cap_seconds": 300,
+  "observed_build_log": "181CUDAkernels compiled, then Rust crates compiled beforetimeout",
+  "numerical_started": false,
+  "numerical_exit": null,
+  "numerical_binary_sha256": null,
+  "full_model_started": false,
+  "frozen_ladder_started": false,
+  "finished_marker_present": false,
+  "certification_claimed": false,
+  "scope": "Retain interrupted build independently. Parent resumes same source/flags using warm target in a fresh evidence directory; no numerical oracle failure is inferred here."
+}

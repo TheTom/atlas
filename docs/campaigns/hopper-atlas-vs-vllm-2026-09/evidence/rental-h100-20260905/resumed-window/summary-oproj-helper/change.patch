@@ -1,0 +1,63 @@
+--- measurement-summary.py before
++++ measurement-summary.py after
+@@ -143,12 +143,40 @@
+         parser.error("--source must be the Atlas checkout containing bench/hopper_ab/compare.py")
+     args.out.mkdir(parents=True, exist_ok=True)
+     paths = sorted(p for p in args.raw.glob("*qwen38*/ladder.json") if read(p).get("rungs"))
+-    pending = []
++    pending, diagnostics = [], []
+     for directory in sorted(args.raw.glob("benchmark.qwen38*")):
+         if not directory.is_dir():
+             continue
+         ladder_path = directory / "ladder.json"
+         exported = read(ladder_path)
++        intent = read(directory / "measurement-intent.json") or {}
++        if (exported is None and intent.get("kind") == "concurrent_quality_only"
++                and intent.get("ladder_requested") is False):
++            quality = read(directory / "concurrent-quality/summary.json") or {}
++            command = read(directory / "concurrent-quality.command.json") or {}
++            groups = [quality.get(key, {}) for key in ("control", "concurrent")]
++            rows = [row for group in groups for row in group.get("rows", [])]
++            observed_pass = (intent.get("expected_requests") == len(rows) and bool(rows)
++                             and command.get("exit_code") == 0
++                             and all(group.get("passed") is True for group in groups)
++                             and all(row.get("oracle", {}).get("passed") is True
++                                     and row.get("transport", {}).get("complete") is True
++                                     and row.get("transport", {}).get("status") == 200
++                                     and row.get("child_exit") == 0 for row in rows))
++            diagnostics.append({"directory": directory.name,
++                                "status": "quality_only_no_ladder_requested",
++                                "measurement_intent": intent,
++                                "concurrent_quality": quality,
++                                "quality_command": command,
++                                "coherency": read(directory / "coherency.json"),
++                                "coherency_command": read(directory / "coherency.command.json"),
++                                "exception_policy": read(directory / "quality-policy.json"),
++                                "exception_policy_command": read(directory / "quality-policy.command.json"),
++                                "observed_request_count": len(rows),
++                                "request_oracle_observed_passed": observed_pass,
++                                "stop": read(directory / "stop.json"),
++                                "certification_claimed": False})
++            continue
+         if exported is None or not exported.get("rungs"):
+             pending.append({"directory": directory.name,
+                             "status": "no_ladder_export_yet" if exported is None else "no_completed_rung_export_yet",
+@@ -230,7 +258,7 @@
+                "harness_source_sha256": sha(args.source / "bench/ladder38/harness_w55_conc_ladder.py"),
+                "source_head": subprocess.check_output(["git", "-C", str(args.source), "rev-parse", "HEAD"], text=True).strip(),
+                "generated_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+-               "cells": cells, "pending_sessions": pending,
++               "cells": cells, "pending_sessions": pending, "diagnostic_sessions": diagnostics,
+                "comparisons": comparisons, "commands": commands}
+     save(args.out / "measurement-summary.json", receipt)
+     lines = ["# Single H100 Qwen3.8 diagnostic measurements", "",
+@@ -278,6 +306,9 @@
+             lines += ["  Both inputs are Atlas. The tool's legacy Atlas column is the later build and its vLLM column is the earlier build. Neither raw input is relabeled or edited. Captured profile checks: `" + json.dumps(comparison["native_profile_parity"], sort_keys=True) + "`. Missing concurrencies on both inputs are still absent even when compare.py has no NO-PAIR row to display."]
+         if comparison['kind'] == 'vllm_after_vs_before':
+             lines += ["  Both inputs are vLLM: legacy Atlas column is the later run and vLLM column the earlier run. These actual WIN/LOSS/TIE verdicts are preserved. TIE requires exactly ratio1.0; the identical-input selftest is not a noise-tolerance oracle for independent repeats. Captured profile checks: `" + json.dumps(comparison["vllm_repeat_profile_parity"], sort_keys=True) + "`. No immutable vLLM implementation identity is inferred."]
++    lines += ["", "## Explicit quality-only sessions", ""]
++    for item in diagnostics:
++        lines += [f"- {item['directory']}: no ladder requested; observed request count={item['observed_request_count']}; request oracle and command passed={item['request_oracle_observed_passed']}. Original coherency passed={(item['coherency'] or {}).get('passed')}; separate exception permits continuation={(item['exception_policy'] or {}).get('proceed_with_performance_testing')}. Intent or cleanup markers alone do not prove quality success; no throughput or certification is inferred."]
+     lines += ["", "## Pending exports", ""]
+     for item in pending:
+         quality = item["concurrent_quality"] or {}

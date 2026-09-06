@@ -1,0 +1,73 @@
+{
+  "captured_utc": "2026-09-06T02:41:06.773571+00:00",
+  "copied_files": [
+    {
+      "path": "build.env",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145/build.env",
+      "sha256": "221aea1b7837ab4c3cb4d4c7e9c87bf2f446295d10b230e9f73db7e8098d96eb",
+      "bytes": 173
+    },
+    {
+      "path": "build.exit",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145/build.exit",
+      "sha256": "ca2ebdf97d7469496b1f4b78958f9dc8447efdcb623953fee7b6996b762f6fff",
+      "bytes": 4
+    },
+    {
+      "path": "build.stderr",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145/build.stderr",
+      "sha256": "d6c407c0a1d52cae7640bfd80ff8ecc080fa79e138bcaa922f3303c7131b5f4c",
+      "bytes": 1005
+    },
+    {
+      "path": "build.stdout",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145/build.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "build.time",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145/build.time",
+      "sha256": "73c959a6315a6c719601de0f1b6986ba537aa8211c6224c62649d8b1b5e0318d",
+      "bytes": 914
+    },
+    {
+      "path": "command.sh",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145/command.sh",
+      "sha256": "a20722dfb577989822b075001ac806a009846b3ac9acb00d8cbf9632b495d246",
+      "bytes": 2177
+    },
+    {
+      "path": "df-before.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145/df-before.txt",
+      "sha256": "b4de3155afa7b815639c1c9883c40a3a9823cdea6ed7b2d8e50313adcd1c1257",
+      "bytes": 89
+    },
+    {
+      "path": "nvidia-smi-before.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145/nvidia-smi-before.txt",
+      "sha256": "75ab5ee348213a237171aef6ea29a4fc86c25504b5fc3c476e5399025e57e2f7",
+      "bytes": 14959
+    },
+    {
+      "path": "source.sha",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145/source.sha",
+      "sha256": "5cc2e1e3a5235fd3d515d5a379baaa241d9eb15d2f1ce5bafe0e12249e759615",
+      "bytes": 41
+    },
+    {
+      "path": "tenants-before.txt",
+      "source": "/Users/tom/Documents/New project/atlas-campaign-evidence/rental-live/single-h100/remote-results/diagnostic.native-fp8-oproj.97375dfc940be63cfac6c30195224b363ad42145/tenants-before.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "generated_files": [
+    {
+      "path": "BUILD-INTERRUPTION.json",
+      "sha256": "2d1a8f9652be912573b98c225c3cc14e2a3f4297c3705c75a313e3be25cd4e51",
+      "bytes": 667
+    }
+  ],
+  "scope": "Observed build124; numericalexample neverstarted. No false finished timestamp or numerical verdict added."
+}

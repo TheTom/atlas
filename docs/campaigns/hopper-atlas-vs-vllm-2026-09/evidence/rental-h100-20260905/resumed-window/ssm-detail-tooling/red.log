@@ -1,0 +1,67 @@
+test_multisequence_profile_is_explicit_and_preserved (__main__.ProcessEnvironmentTests.test_multisequence_profile_is_explicit_and_preserved) ... 
+  test_multisequence_profile_is_explicit_and_preserved (__main__.ProcessEnvironmentTests.test_multisequence_profile_is_explicit_and_preserved) (key='ATLAS_SSM_MS_PROFILE', value='0') ... ERROR
+  test_multisequence_profile_is_explicit_and_preserved (__main__.ProcessEnvironmentTests.test_multisequence_profile_is_explicit_and_preserved) (key='ATLAS_SSM_MS_PROFILE', value='1') ... ERROR
+  test_multisequence_profile_is_explicit_and_preserved (__main__.ProcessEnvironmentTests.test_multisequence_profile_is_explicit_and_preserved) (key='ATLAS_SSM_DETAIL_PROFILE', value='0') ... ERROR
+  test_multisequence_profile_is_explicit_and_preserved (__main__.ProcessEnvironmentTests.test_multisequence_profile_is_explicit_and_preserved) (key='ATLAS_SSM_DETAIL_PROFILE', value='1') ... ERROR
+test_unknown_diagnostic_still_refuses (__main__.ProcessEnvironmentTests.test_unknown_diagnostic_still_refuses) ... ok
+
+======================================================================
+ERROR: test_multisequence_profile_is_explicit_and_preserved (__main__.ProcessEnvironmentTests.test_multisequence_profile_is_explicit_and_preserved) (key='ATLAS_SSM_MS_PROFILE', value='0')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-ssm-profile-env/bench/campaign/process_launch_test.py", line 35, in test_multisequence_profile_is_explicit_and_preserved
+    self.assertEqual(self.environment({key: value})[key], value)
+                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-ssm-profile-env/bench/campaign/process_launch_test.py", line 29, in environment
+    return process_launch.launch_environment(SimpleNamespace(env_json=str(path), env=[]))
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-ssm-profile-env/bench/campaign/process_launch.py", line 41, in launch_environment
+    raise ValueError("environment key is not allowed: " + key)
+ValueError: environment key is not allowed: ATLAS_SSM_MS_PROFILE
+
+======================================================================
+ERROR: test_multisequence_profile_is_explicit_and_preserved (__main__.ProcessEnvironmentTests.test_multisequence_profile_is_explicit_and_preserved) (key='ATLAS_SSM_MS_PROFILE', value='1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-ssm-profile-env/bench/campaign/process_launch_test.py", line 35, in test_multisequence_profile_is_explicit_and_preserved
+    self.assertEqual(self.environment({key: value})[key], value)
+                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-ssm-profile-env/bench/campaign/process_launch_test.py", line 29, in environment
+    return process_launch.launch_environment(SimpleNamespace(env_json=str(path), env=[]))
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-ssm-profile-env/bench/campaign/process_launch.py", line 41, in launch_environment
+    raise ValueError("environment key is not allowed: " + key)
+ValueError: environment key is not allowed: ATLAS_SSM_MS_PROFILE
+
+======================================================================
+ERROR: test_multisequence_profile_is_explicit_and_preserved (__main__.ProcessEnvironmentTests.test_multisequence_profile_is_explicit_and_preserved) (key='ATLAS_SSM_DETAIL_PROFILE', value='0')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-ssm-profile-env/bench/campaign/process_launch_test.py", line 35, in test_multisequence_profile_is_explicit_and_preserved
+    self.assertEqual(self.environment({key: value})[key], value)
+                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-ssm-profile-env/bench/campaign/process_launch_test.py", line 29, in environment
+    return process_launch.launch_environment(SimpleNamespace(env_json=str(path), env=[]))
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-ssm-profile-env/bench/campaign/process_launch.py", line 41, in launch_environment
+    raise ValueError("environment key is not allowed: " + key)
+ValueError: environment key is not allowed: ATLAS_SSM_DETAIL_PROFILE
+
+======================================================================
+ERROR: test_multisequence_profile_is_explicit_and_preserved (__main__.ProcessEnvironmentTests.test_multisequence_profile_is_explicit_and_preserved) (key='ATLAS_SSM_DETAIL_PROFILE', value='1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/tom/Documents/New project/atlas-ssm-profile-env/bench/campaign/process_launch_test.py", line 35, in test_multisequence_profile_is_explicit_and_preserved
+    self.assertEqual(self.environment({key: value})[key], value)
+                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-ssm-profile-env/bench/campaign/process_launch_test.py", line 29, in environment
+    return process_launch.launch_environment(SimpleNamespace(env_json=str(path), env=[]))
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom/Documents/New project/atlas-ssm-profile-env/bench/campaign/process_launch.py", line 41, in launch_environment
+    raise ValueError("environment key is not allowed: " + key)
+ValueError: environment key is not allowed: ATLAS_SSM_DETAIL_PROFILE
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.006s
+
+FAILED (errors=4)

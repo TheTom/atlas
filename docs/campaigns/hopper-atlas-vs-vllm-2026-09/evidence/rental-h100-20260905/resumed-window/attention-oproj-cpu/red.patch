@@ -1,0 +1,128 @@
+diff --git a/crates/spark-model/src/layers/qwen3_attention/trait_impl/multi_seq/attn/o_proj.rs b/crates/spark-model/src/layers/qwen3_attention/trait_impl/multi_seq/attn/o_proj.rs
+index 5c5584f..1c46f32 100644
+--- a/crates/spark-model/src/layers/qwen3_attention/trait_impl/multi_seq/attn/o_proj.rs
++++ b/crates/spark-model/src/layers/qwen3_attention/trait_impl/multi_seq/attn/o_proj.rs
+@@ -275,3 +275,7 @@ impl Qwen3AttentionLayer {
+         Ok(o_out)
+     }
+ }
++
++#[cfg(test)]
++#[path = "o_proj_tests.rs"]
++mod tests;
+diff --git a/crates/spark-model/src/layers/qwen3_attention/trait_impl/multi_seq/attn/o_proj_tests.rs b/crates/spark-model/src/layers/qwen3_attention/trait_impl/multi_seq/attn/o_proj_tests.rs
+new file mode 100644
+index 0000000..2062437
+--- /dev/null
++++ b/crates/spark-model/src/layers/qwen3_attention/trait_impl/multi_seq/attn/o_proj_tests.rs
+@@ -0,0 +1,110 @@
++// SPDX-License-Identifier: AGPL-3.0-only
++
++use super::super::super::ctx::MultiSeqCtx;
++use crate::layer::{ForwardContext, MoeLoraRoute};
++use crate::layers::ops::{DerivedWeights, GemmDispatch, ModelLevers, ModelStats};
++use crate::layers::{FfnComponent, qwen3_attention::Qwen3AttentionLayer};
++use crate::weight_map::{
++    AttentionWeights, DenseWeight, Fp8Weight, QuantWeight, QuantizedWeight, WeightQuantFormat,
++};
++use atlas_core::config::ModelConfig;
++use spark_runtime::buffers::BufferArena;
++use spark_runtime::gpu::mock::{MockArg, MockGpuBackend};
++use spark_runtime::gpu::{GpuBackend, KernelHandle};
++use spark_runtime::kv_cache::KvCacheDtype;
++
++#[test]
++fn native_fp8_attention_o_projection_batches_four_real_rows() {
++    let gpu = MockGpuBackend::new();
++    let mut config = ModelConfig::qwen3_next_80b_nvfp4();
++    config.hidden_size = 128;
++    config.intermediate_size = 128;
++    config.num_attention_heads = 1;
++    config.num_key_value_heads = 1;
++    config.head_dim = 128;
++    config.num_experts = 1;
++    config.num_experts_per_tok = 1;
++    config.moe_intermediate_size = 128;
++    config.vocab_size = 128;
++    let buffers = BufferArena::new(&config, 8, 16, 16, 8, &gpu).unwrap();
++    let dense = DenseWeight {
++        weight: gpu.alloc(128 * 128 * 2).unwrap(),
++    };
++    let fallback = QuantizedWeight::null();
++    let attn = AttentionWeights {
++        q_proj: dense,
++        k_proj: dense,
++        v_proj: dense,
++        o_proj: fallback,
++        q_norm: dense,
++        k_norm: dense,
++        q_norm_full: None,
++        k_norm_full: None,
++        k_scale: 1.0,
++        v_scale: 1.0,
++    };
++    let mut layer = Qwen3AttentionLayer::new(
++        dense,
++        attn,
++        dense,
++        FfnComponent::None,
++        0,
++        None,
++        None,
++        None,
++        &gpu,
++        KvCacheDtype::Bf16,
++        0,
++        &config,
++    )
++    .unwrap();
++    layer.w8a16_gemv_k = KernelHandle(0xF081);
++    let fp8 = Fp8Weight {
++        weight: gpu.alloc(128 * 128).unwrap(),
++        row_scale: gpu.alloc(4).unwrap(),
++        n: 128,
++        k: 128,
++        scale_format: WeightQuantFormat::Fp8BlockScaled,
++    };
++    layer.o_weight = Some(QuantWeight::Fp8(fp8));
++    let dispatch = GemmDispatch::defaults();
++    let derived = DerivedWeights::new();
++    let levers = ModelLevers::defaults();
++    let stats = ModelStats::new();
++    let fwd = ForwardContext {
++        buffers: &buffers,
++        hc_row_offset: 0,
++        gpu: &gpu,
++        config: &config,
++        dispatch: &dispatch,
++        derived: &derived,
++        levers: &levers,
++        stats: &stats,
++        attn_metadata: None,
++        profile: false,
++        comm: None,
++        graph_capture: false,
++        gdn_exact_replay: false,
++        token_ids: None,
++        host_token_ids: None,
++        routed_lora_layers: None,
++        midchunk_capture: None,
++        moe_lora_route: MoeLoraRoute::Fold,
++    };
++    let c = MultiSeqCtx::new(&layer, &fwd, buffers.hidden_states(), buffers.residual(), 4, 16, 0);
++    let first = gpu.launch_count();
++    let output = layer.ms_phase_o_proj(&c, buffers.attn_output()).unwrap();
++    let all = gpu.launches_snapshot();
++    let launches: Vec<_> = all[first..]
++        .iter()
++        .filter(|l| l.args.contains(&MockArg::Buffer(fp8.weight)))
++        .collect();
++    assert_eq!(
++        launches.len(),
++        1,
++        "native FP8 O projection must read the weights once for four rows"
++    );
++    assert_eq!(launches[0].args[0], MockArg::Buffer(buffers.attn_output()));
++    assert!(launches[0].args.contains(&MockArg::Buffer(fp8.row_scale)));
++    assert!(launches[0].args.contains(&MockArg::Buffer(output)));
++}

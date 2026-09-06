@@ -1,0 +1,40 @@
+{
+  "tested_commit": "ce75585a96ec94de05133f616cbff0f8657a9f56",
+  "integrated_commit": "6b76f3d83cd4eadc90b62100a87925f46d2a4c8e",
+  "compiled_path_diff_exit": 0,
+  "compiled_paths": [
+    "crates",
+    "kernels",
+    "Cargo.toml",
+    "Cargo.lock",
+    "vendor",
+    "jinja-templates",
+    "rust-toolchain.toml",
+    "3rdparty_patches"
+  ],
+  "other_changes": [
+    "bench/campaign/process_launch_proc.py",
+    "bench/campaign/process_launch_test.py"
+  ],
+  "red": {
+    "exit": 101,
+    "actual_launches": 4,
+    "expected_launches": 1
+  },
+  "green": {
+    "unit_passed": 653,
+    "unit_ignored": 11,
+    "integration_passed": 4,
+    "integration_ignored": 3,
+    "clippy_exit": 0,
+    "rustdoc_exit": 0,
+    "workspace_doctests_exit": 0,
+    "workspace_doctests_runnable": 0,
+    "workspace_doctests_ignored": 2,
+    "fmt_exit": 0,
+    "typos_exit": 0,
+    "diff_check_exit": 0
+  },
+  "gpu_status": "parent owns pending actual-shape numerical example then real model quality and frozen latency",
+  "runtime_oracle": "M2/M4/M5 N5120 K6144 exact BF16 equivalence to preexisting scalar; finite output and guard integrity; same verifier rejects output bit mutation, guard mutation and NaN"
+}
