@@ -1,0 +1,48 @@
+{
+  "observed_at_utc": "2026-09-06T08:04:08.730965+00:00",
+  "head_sha": "e12295af5dfbd3a7f08320b0aecb5b93b4cdf67a",
+  "job_id": 101448742930,
+  "run_id": 34019156276,
+  "url": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34019156276/job/101448742930",
+  "conclusion": "success",
+  "completed_at": "2026-09-06T08:00:48Z",
+  "steps": [
+    {
+      "name": "Test PR body sanitization",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 6,
+      "started_at": "2026-09-06T08:00:37Z",
+      "completed_at": "2026-09-06T08:00:38Z"
+    },
+    {
+      "name": "Sanitize the PR body",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 7,
+      "started_at": "2026-09-06T08:00:38Z",
+      "completed_at": "2026-09-06T08:00:38Z"
+    }
+  ],
+  "test_output": [
+    "Ran 6 tests in 0.251s",
+    "OK"
+  ],
+  "full_local_log_sha256": "9b2f791d0bd2abebf1592d836c9bdcd71f5bcbfd65f160a2134ea3f279a628f4",
+  "metal": {
+    "job": 101450441886,
+    "result": "failure before tests",
+    "error": "xcrun cannot find metal",
+    "exit": 101,
+    "classification": "known runner setup blocker; owner instructions already posted"
+  },
+  "seal": {
+    "job": 101448742723,
+    "result": "failure",
+    "classification": "known missing codeowner Seal"
+  },
+  "new_code_change": false,
+  "retested_locally": false,
+  "source_validation": "Required suites already passed on the unchanged e12295a source; retained under evidence/ci-followup-20260906-0717.",
+  "job_head_sha": "e12295af5dfbd3a7f08320b0aecb5b93b4cdf67a"
+}
