@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "cargo",
+    "test",
+    "-p",
+    "spark-runtime",
+    "--no-default-features",
+    "--features",
+    "metal",
+    "--locked",
+    "metal_backend",
+    "--",
+    "--nocapture"
+  ],
+  "exit": 0,
+  "wall_s": 0.16732270799548132,
+  "backend_skip_count": 0,
+  "backend_skip_messages": [],
+  "oracle": "A passing test must actually construct the Metal backend; conditional early-return passes do not qualify."
+}

@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "shellcheck",
+    "-S",
+    "warning",
+    "scripts/hopper_ptx_gate.sh",
+    "scripts/hopper_ptx_gate_test.sh"
+  ],
+  "exit": 0
+}

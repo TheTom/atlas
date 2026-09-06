@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "ssh",
+    "pidtom@192.168.50.125",
+    "cd /home/pidtom/atlas-ci-metal-20260906-0454 && tar -xzf ptx-cpu-sources.tar.gz && CUDA_VISIBLE_DEVICES= NVCC_BIN=/usr/local/cuda/bin/nvcc bash scripts/hopper_ptx_gate_test.sh"
+  ],
+  "exit": 0,
+  "wall_s": 1.1395161249965895,
+  "GPU_work": false
+}

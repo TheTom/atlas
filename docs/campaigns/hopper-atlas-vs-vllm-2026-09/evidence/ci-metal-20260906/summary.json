@@ -1,0 +1,24 @@
+{
+  "code_before": "8882f088b3e1382456c72a7288c267b8dc6985de",
+  "code_fix": "64b468bf2d0602c9695dfb09f667e7608352cac6",
+  "modified_paths": [
+    ".github/workflows/ci.yml"
+  ],
+  "perf_tree_changed": false,
+  "red": {
+    "exit": 101,
+    "passed": 0,
+    "failed": 35,
+    "ignored": 5
+  },
+  "green": {
+    "exit": 0,
+    "passed": 35,
+    "failed": 0,
+    "ignored": 5,
+    "kernels_compiled": 43,
+    "backend_skips": 0
+  },
+  "remote_green_observed": false,
+  "rental_instance_49994640": "destroyed; not contacted"
+}

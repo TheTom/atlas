@@ -1,0 +1,7 @@
+{
+  "argv": [
+    "actionlint",
+    "/Users/tom/Documents/New project/atlas-campaign-evidence/ci-audit-20260906/metal-job-101430753851/prepush/ci-before.yml"
+  ],
+  "exit": 1
+}

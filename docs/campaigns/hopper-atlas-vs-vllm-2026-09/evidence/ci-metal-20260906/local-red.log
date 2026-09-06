@@ -1,0 +1,364 @@
+ Downloading crates ...
+  Downloaded fastrand v2.3.0
+  Downloaded rand_chacha v0.3.1
+  Downloaded itoa v1.0.17
+  Downloaded foldhash v0.2.0
+  Downloaded zmij v1.0.21
+  Downloaded rand_core v0.6.4
+  Downloaded ppv-lite86 v0.2.21
+  Downloaded pin-project-lite v0.2.16
+  Downloaded smallvec v1.15.1
+  Downloaded safetensors v0.8.0
+  Downloaded quote v1.0.45
+  Downloaded allocator-api2 v0.2.21
+  Downloaded getrandom v0.3.4
+  Downloaded bitflags v2.11.0
+  Downloaded anyhow v1.0.104
+  Downloaded memchr v2.8.0
+  Downloaded proc-macro2 v1.0.106
+  Downloaded rand v0.8.6
+  Downloaded indexmap v2.13.0
+  Downloaded zerocopy-derive v0.8.39
+  Downloaded hashbrown v0.16.1
+  Downloaded winnow v0.7.14
+  Downloaded zerocopy v0.8.39
+  Downloaded syn v2.0.117
+  Downloaded tokio v1.52.3
+   Compiling proc-macro2 v1.0.106
+   Compiling quote v1.0.45
+   Compiling unicode-ident v1.0.24
+   Compiling libc v0.2.189
+   Compiling cfg-if v1.0.4
+   Compiling equivalent v1.0.2
+   Compiling serde_core v1.0.229
+   Compiling version_check v0.9.5
+   Compiling serde v1.0.229
+   Compiling generic-array v0.14.7
+   Compiling typenum v1.20.1
+   Compiling hashbrown v0.16.1
+   Compiling zmij v1.0.21
+   Compiling indexmap v2.13.0
+   Compiling syn v2.0.117
+   Compiling syn v3.0.3
+   Compiling serde_spanned v0.6.9
+   Compiling toml_datetime v0.6.11
+   Compiling toml_write v0.1.2
+   Compiling objc2 v0.6.4
+   Compiling anyhow v1.0.104
+   Compiling winnow v0.7.14
+   Compiling bitflags v2.11.0
+   Compiling memchr v2.8.0
+   Compiling itoa v1.0.17
+   Compiling toml_edit v0.22.27
+   Compiling crypto-common v0.1.7
+   Compiling block-buffer v0.10.4
+   Compiling zerocopy v0.8.39
+   Compiling objc2-encode v4.1.0
+   Compiling allocator-api2 v0.2.21
+   Compiling foldhash v0.2.0
+   Compiling zerocopy-derive v0.8.39
+   Compiling toml v0.8.23
+   Compiling digest v0.10.7
+   Compiling cpufeatures v0.2.17
+   Compiling serde_json v1.0.151
+   Compiling sha2 v0.10.9
+   Compiling serde_derive v1.0.229
+   Compiling parking_lot_core v0.9.12
+   Compiling once_cell v1.21.4
+   Compiling thiserror v2.0.19
+   Compiling rustix v1.1.4
+   Compiling getrandom v0.3.4
+   Compiling atlas-closure v1.0.0-beta-preview (/Users/tom/Documents/New project/atlas-campaign-code/crates/atlas-closure)
+   Compiling block2 v0.6.2
+   Compiling thiserror-impl v2.0.19
+   Compiling getrandom v0.2.17
+   Compiling errno v0.3.14
+   Compiling scopeguard v1.2.0
+   Compiling smallvec v1.15.1
+   Compiling atlas-core v1.0.0-beta-preview (/Users/tom/Documents/New project/atlas-campaign-code/crates/atlas-core)
+   Compiling lock_api v0.4.14
+   Compiling rand_core v0.6.4
+   Compiling atlas-kernels v1.0.0-beta-preview (/Users/tom/Documents/New project/atlas-campaign-code/crates/atlas-kernels)
+   Compiling ppv-lite86 v0.2.21
+   Compiling objc2-core-foundation v0.3.2
+   Compiling fastrand v2.3.0
+   Compiling pin-project-lite v0.2.16
+   Compiling tempfile v3.27.0
+   Compiling rand_chacha v0.3.1
+   Compiling objc2-foundation v0.3.2
+   Compiling parking_lot v0.12.5
+   Compiling dispatch2 v0.3.1
+   Compiling tracing-core v0.1.36
+   Compiling spark-runtime v1.0.0-beta-preview (/Users/tom/Documents/New project/atlas-campaign-code/crates/spark-runtime)
+   Compiling tracing-attributes v0.1.31
+   Compiling tokio v1.52.3
+   Compiling rand v0.8.6
+   Compiling tracing v0.1.44
+   Compiling safetensors v0.8.0
+   Compiling half v2.7.1
+   Compiling memmap2 v0.9.11
+   Compiling objc2-metal v0.3.2
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 18.43s
+     Running unittests src/lib.rs (/Users/tom/Documents/New project/atlas-campaign-evidence/ci-audit-20260906/metal-job-101430753851/target/debug/deps/spark_runtime-26f4f09c55cfe177)
+
+running 40 tests
+test metal_backend::tests::parity_attention::metal_softmax_topp_dominant_logit ... FAILED
+test metal_backend::tests::parity_attention::metal_attention_decode_matches_reference ... FAILED
+test metal_backend::tests::parity_norms::metal_silu_gate_matches_reference ... FAILED
+test metal_backend::tests::parity_asym::metal_kv_cache_append_bf16k_turbov_matches_reference ... FAILED
+test metal_backend::tests::parity_norms::metal_argmax_bf16_matches_reference ... FAILED
+test metal_backend::tests::parity_norms::metal_embed_lookup_matches_reference ... FAILED
+test metal_backend::tests::parity_attention_full::metal_attention_full_matches_reference ... FAILED
+test metal_backend::tests::parity_basic::metal_sigmoid_gate_matches_reference ... FAILED
+test metal_backend::tests::parity_basic::metal_alloc_copy_launch_roundtrip ... FAILED
+test metal_backend::tests::parity_asym::metal_attention_decode_bf16k_turbo4v_matches_reference ... FAILED
+test metal_backend::tests::parity_basic::metal_bf16_add_matches_reference ... FAILED
+test metal_backend::tests::parity_attention::metal_attention_prefill_matches_reference ... FAILED
+test metal_backend::tests::parity_gdn::metal_causal_conv1d_decode_matches_reference ... FAILED
+test metal_backend::tests::parity_gdn::metal_selective_scan_decode_matches_reference ... FAILED
+test metal_backend::tests::parity_norms::metal_rms_norm_matches_reference ... FAILED
+test metal_backend::tests::parity_norms::metal_rope_apply_matches_reference ... FAILED
+test metal_backend::tests::parity_attention::metal_kv_cache_append_matches_reference ... FAILED
+test metal_backend::tests::parity_turbo23::metal_kv_cache_append_turbo2_matches_reference ... FAILED
+test metal_backend::tests::parity_turbo23::metal_attention_decode_turbo23_matches_reference ... FAILED
+test metal_backend::tests::parity_quant::metal_mlx_int8_dequant_matches_reference ... FAILED
+test metal_backend::tests::parity_turbo4::metal_attention_decode_turbo4_matches_reference ... FAILED
+test metal_backend::tests::parity_turbo4::metal_kv_cache_append_turbo4_matches_reference ... FAILED
+test metal_backend::tests::parity_quant::metal_mlx_int8_gemm_matches_reference ... FAILED
+test metal_backend::tests::parity_turbo23::metal_kv_cache_append_turbo3_matches_reference ... FAILED
+test metal_backend::tests::parity_turbo::metal_wht_bf16_inverse_roundtrip ... FAILED
+test metal_backend::tests::parity_turbo::metal_attention_decode_turbo8_matches_reference ... FAILED
+test metal_backend::tests::real_model_attention::metal_real_model_full_attention_block_layer3 ... ignored, requires local copy of mlx-community/Qwen3.5-4B-MLX-8bit
+test metal_backend::tests::parity_turbo::metal_wht_bf16_matches_reference ... FAILED
+test metal_backend::tests::real_model_gemv::metal_mlx_int8_gemv_real_model_q_proj ... ignored, requires local copy of mlx-community/Qwen3.5-4B-MLX-8bit
+test metal_backend::tests::parity_turbo::metal_kv_cache_append_turbo8_matches_reference ... FAILED
+test metal_backend::tests::real_model_misc::metal_mlx_int8_dequant_real_model ... ignored, requires local copy of mlx-community/Qwen3.5-4B-MLX-8bit
+test metal_backend::tests::real_model_misc::metal_real_model_chain_norm_then_qproj ... ignored, requires local copy of mlx-community/Qwen3.5-4B-MLX-8bit
+test metal_backend::tests::parity_quant::metal_mlx_int8_gemv_matches_reference ... FAILED
+test metal_backend::tests::real_model_vision::metal_real_model_vision_block_forward ... ignored, requires local copy of mlx-community/Qwen3.5-4B-MLX-8bit
+test metal_backend::tests::parity_vision::metal_dense_gemm_bf16_matches_reference ... FAILED
+test metal_backend::tests::parity_vision::metal_conv3d_patch_embed_matches_reference ... FAILED
+test metal_backend::tests::parity_vision::metal_gelu_matches_reference ... FAILED
+test metal_backend::tests::parity_vision::metal_layer_norm_matches_reference ... FAILED
+test metal_backend::tests::parity_vision::metal_dense_gemv_bf16_matches_reference ... FAILED
+test metal_backend::tests::parity_gdn::metal_gated_delta_rule_decode_matches_reference ... FAILED
+
+failures:
+
+---- metal_backend::tests::parity_attention::metal_softmax_topp_dominant_logit stdout ----
+
+thread 'metal_backend::tests::parity_attention::metal_softmax_topp_dominant_logit' (6601761) panicked at crates/spark-runtime/src/metal_backend/tests/parity_attention.rs:169:65:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'softmax_topp'
+
+---- metal_backend::tests::parity_attention::metal_attention_decode_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_attention::metal_attention_decode_matches_reference' (6601758) panicked at crates/spark-runtime/src/metal_backend/tests/parity_attention.rs:383:10:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'attention_decode'
+
+---- metal_backend::tests::parity_norms::metal_silu_gate_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_norms::metal_silu_gate_matches_reference' (6601773) panicked at crates/spark-runtime/src/metal_backend/tests/parity_norms.rs:157:59:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'silu_gate'
+
+---- metal_backend::tests::parity_asym::metal_kv_cache_append_bf16k_turbov_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_asym::metal_kv_cache_append_bf16k_turbov_matches_reference' (6601757) panicked at crates/spark-runtime/src/metal_backend/tests/parity_asym.rs:74:10:
+kernel lookup: Metal: unknown module 'kv_cache_append_bf16k_turbov'
+
+---- metal_backend::tests::parity_norms::metal_argmax_bf16_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_norms::metal_argmax_bf16_matches_reference' (6601769) panicked at crates/spark-runtime/src/metal_backend/tests/parity_norms.rs:394:63:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'argmax_bf16'
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- metal_backend::tests::parity_norms::metal_embed_lookup_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_norms::metal_embed_lookup_matches_reference' (6601770) panicked at crates/spark-runtime/src/metal_backend/tests/parity_norms.rs:334:65:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'embed_lookup'
+
+---- metal_backend::tests::parity_attention_full::metal_attention_full_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_attention_full::metal_attention_full_matches_reference' (6601762) panicked at crates/spark-runtime/src/metal_backend/tests/parity_attention_full.rs:82:69:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'attention_full'
+
+---- metal_backend::tests::parity_basic::metal_sigmoid_gate_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_basic::metal_sigmoid_gate_matches_reference' (6601765) panicked at crates/spark-runtime/src/metal_backend/tests/parity_basic.rs:167:65:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'sigmoid_gate'
+
+---- metal_backend::tests::parity_basic::metal_alloc_copy_launch_roundtrip stdout ----
+
+thread 'metal_backend::tests::parity_basic::metal_alloc_copy_launch_roundtrip' (6601763) panicked at crates/spark-runtime/src/metal_backend/tests/parity_basic.rs:37:10:
+kernel lookup: Metal: unknown module 'noop_smoke'
+
+---- metal_backend::tests::parity_asym::metal_attention_decode_bf16k_turbo4v_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_asym::metal_attention_decode_bf16k_turbo4v_matches_reference' (6601756) panicked at crates/spark-runtime/src/metal_backend/tests/parity_asym.rs:216:10:
+append: Metal: unknown module 'kv_cache_append_bf16k_turbov'
+
+---- metal_backend::tests::parity_basic::metal_bf16_add_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_basic::metal_bf16_add_matches_reference' (6601764) panicked at crates/spark-runtime/src/metal_backend/tests/parity_basic.rs:99:57:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'bf16_add'
+
+---- metal_backend::tests::parity_attention::metal_attention_prefill_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_attention::metal_attention_prefill_matches_reference' (6601759) panicked at crates/spark-runtime/src/metal_backend/tests/parity_attention.rs:95:10:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'attention_prefill'
+
+---- metal_backend::tests::parity_gdn::metal_causal_conv1d_decode_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_gdn::metal_causal_conv1d_decode_matches_reference' (6601766) panicked at crates/spark-runtime/src/metal_backend/tests/parity_gdn.rs:386:10:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'causal_conv1d_decode'
+
+---- metal_backend::tests::parity_gdn::metal_selective_scan_decode_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_gdn::metal_selective_scan_decode_matches_reference' (6601768) panicked at crates/spark-runtime/src/metal_backend/tests/parity_gdn.rs:246:10:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'selective_scan_decode'
+
+---- metal_backend::tests::parity_norms::metal_rms_norm_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_norms::metal_rms_norm_matches_reference' (6601771) panicked at crates/spark-runtime/src/metal_backend/tests/parity_norms.rs:248:57:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'rms_norm'
+
+---- metal_backend::tests::parity_norms::metal_rope_apply_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_norms::metal_rope_apply_matches_reference' (6601772) panicked at crates/spark-runtime/src/metal_backend/tests/parity_norms.rs:68:61:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'rope_apply'
+
+---- metal_backend::tests::parity_attention::metal_kv_cache_append_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_attention::metal_kv_cache_append_matches_reference' (6601760) panicked at crates/spark-runtime/src/metal_backend/tests/parity_attention.rs:246:10:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'kv_cache_append'
+
+---- metal_backend::tests::parity_turbo23::metal_kv_cache_append_turbo2_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_turbo23::metal_kv_cache_append_turbo2_matches_reference' (6601795) panicked at crates/spark-runtime/src/metal_backend/tests/parity_turbo23.rs:78:10:
+kernel lookup: Metal: unknown module 'kv_cache_append_turbo2'
+
+---- metal_backend::tests::parity_turbo23::metal_attention_decode_turbo23_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_turbo23::metal_attention_decode_turbo23_matches_reference' (6601794) panicked at crates/spark-runtime/src/metal_backend/tests/parity_turbo23.rs:237:61:
+append: Metal: unknown module 'kv_cache_append_turbo3'
+
+---- metal_backend::tests::parity_quant::metal_mlx_int8_dequant_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_quant::metal_mlx_int8_dequant_matches_reference' (6601791) panicked at crates/spark-runtime/src/metal_backend/tests/parity_quant.rs:99:10:
+kernel lookup: Metal: unknown module 'mlx_int8_dequant'
+
+---- metal_backend::tests::parity_turbo4::metal_attention_decode_turbo4_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_turbo4::metal_attention_decode_turbo4_matches_reference' (6601797) panicked at crates/spark-runtime/src/metal_backend/tests/parity_turbo4.rs:154:10:
+append lookup: Metal: unknown module 'kv_cache_append_turbo4'
+
+---- metal_backend::tests::parity_turbo4::metal_kv_cache_append_turbo4_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_turbo4::metal_kv_cache_append_turbo4_matches_reference' (6601798) panicked at crates/spark-runtime/src/metal_backend/tests/parity_turbo4.rs:66:10:
+kernel lookup: Metal: unknown module 'kv_cache_append_turbo4'
+
+---- metal_backend::tests::parity_quant::metal_mlx_int8_gemm_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_quant::metal_mlx_int8_gemm_matches_reference' (6601792) panicked at crates/spark-runtime/src/metal_backend/tests/parity_quant.rs:319:67:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'mlx_int8_gemm'
+
+---- metal_backend::tests::parity_turbo23::metal_kv_cache_append_turbo3_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_turbo23::metal_kv_cache_append_turbo3_matches_reference' (6601796) panicked at crates/spark-runtime/src/metal_backend/tests/parity_turbo23.rs:78:10:
+kernel lookup: Metal: unknown module 'kv_cache_append_turbo3'
+
+---- metal_backend::tests::parity_turbo::metal_wht_bf16_inverse_roundtrip stdout ----
+
+thread 'metal_backend::tests::parity_turbo::metal_wht_bf16_inverse_roundtrip' (6601801) panicked at crates/spark-runtime/src/metal_backend/tests/parity_turbo.rs:127:10:
+fwd lookup: Metal: unknown module 'wht_bf16'
+
+---- metal_backend::tests::parity_turbo::metal_attention_decode_turbo8_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_turbo::metal_attention_decode_turbo8_matches_reference' (6601799) panicked at crates/spark-runtime/src/metal_backend/tests/parity_turbo.rs:271:10:
+append lookup: Metal: unknown module 'kv_cache_append_turbo8'
+
+---- metal_backend::tests::parity_turbo::metal_wht_bf16_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_turbo::metal_wht_bf16_matches_reference' (6601802) panicked at crates/spark-runtime/src/metal_backend/tests/parity_turbo.rs:71:10:
+kernel lookup: Metal: unknown module 'wht_bf16'
+
+---- metal_backend::tests::parity_turbo::metal_kv_cache_append_turbo8_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_turbo::metal_kv_cache_append_turbo8_matches_reference' (6601800) panicked at crates/spark-runtime/src/metal_backend/tests/parity_turbo.rs:183:10:
+kernel lookup: Metal: unknown module 'kv_cache_append_turbo8'
+
+---- metal_backend::tests::parity_quant::metal_mlx_int8_gemv_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_quant::metal_mlx_int8_gemv_matches_reference' (6601793) panicked at crates/spark-runtime/src/metal_backend/tests/parity_quant.rs:203:67:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'mlx_int8_gemv'
+
+---- metal_backend::tests::parity_vision::metal_dense_gemm_bf16_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_vision::metal_dense_gemm_bf16_matches_reference' (6601804) panicked at crates/spark-runtime/src/metal_backend/tests/parity_vision.rs:200:10:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'dense_gemm_bf16'
+
+---- metal_backend::tests::parity_vision::metal_conv3d_patch_embed_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_vision::metal_conv3d_patch_embed_matches_reference' (6601803) panicked at crates/spark-runtime/src/metal_backend/tests/parity_vision.rs:100:10:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'conv3d_patch_embed'
+
+---- metal_backend::tests::parity_vision::metal_gelu_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_vision::metal_gelu_matches_reference' (6601806) panicked at crates/spark-runtime/src/metal_backend/tests/parity_vision.rs:453:49:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'gelu'
+
+---- metal_backend::tests::parity_vision::metal_layer_norm_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_vision::metal_layer_norm_matches_reference' (6601807) panicked at crates/spark-runtime/src/metal_backend/tests/parity_vision.rs:383:61:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'layer_norm'
+
+---- metal_backend::tests::parity_vision::metal_dense_gemv_bf16_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_vision::metal_dense_gemv_bf16_matches_reference' (6601805) panicked at crates/spark-runtime/src/metal_backend/tests/parity_vision.rs:284:10:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'dense_gemv_bf16'
+
+---- metal_backend::tests::parity_gdn::metal_gated_delta_rule_decode_matches_reference stdout ----
+
+thread 'metal_backend::tests::parity_gdn::metal_gated_delta_rule_decode_matches_reference' (6601767) panicked at crates/spark-runtime/src/metal_backend/tests/parity_gdn.rs:126:10:
+called `Result::unwrap()` on an `Err` value: Metal: unknown module 'gated_delta_rule_decode'
+
+
+failures:
+    metal_backend::tests::parity_asym::metal_attention_decode_bf16k_turbo4v_matches_reference
+    metal_backend::tests::parity_asym::metal_kv_cache_append_bf16k_turbov_matches_reference
+    metal_backend::tests::parity_attention::metal_attention_decode_matches_reference
+    metal_backend::tests::parity_attention::metal_attention_prefill_matches_reference
+    metal_backend::tests::parity_attention::metal_kv_cache_append_matches_reference
+    metal_backend::tests::parity_attention::metal_softmax_topp_dominant_logit
+    metal_backend::tests::parity_attention_full::metal_attention_full_matches_reference
+    metal_backend::tests::parity_basic::metal_alloc_copy_launch_roundtrip
+    metal_backend::tests::parity_basic::metal_bf16_add_matches_reference
+    metal_backend::tests::parity_basic::metal_sigmoid_gate_matches_reference
+    metal_backend::tests::parity_gdn::metal_causal_conv1d_decode_matches_reference
+    metal_backend::tests::parity_gdn::metal_gated_delta_rule_decode_matches_reference
+    metal_backend::tests::parity_gdn::metal_selective_scan_decode_matches_reference
+    metal_backend::tests::parity_norms::metal_argmax_bf16_matches_reference
+    metal_backend::tests::parity_norms::metal_embed_lookup_matches_reference
+    metal_backend::tests::parity_norms::metal_rms_norm_matches_reference
+    metal_backend::tests::parity_norms::metal_rope_apply_matches_reference
+    metal_backend::tests::parity_norms::metal_silu_gate_matches_reference
+    metal_backend::tests::parity_quant::metal_mlx_int8_dequant_matches_reference
+    metal_backend::tests::parity_quant::metal_mlx_int8_gemm_matches_reference
+    metal_backend::tests::parity_quant::metal_mlx_int8_gemv_matches_reference
+    metal_backend::tests::parity_turbo23::metal_attention_decode_turbo23_matches_reference
+    metal_backend::tests::parity_turbo23::metal_kv_cache_append_turbo2_matches_reference
+    metal_backend::tests::parity_turbo23::metal_kv_cache_append_turbo3_matches_reference
+    metal_backend::tests::parity_turbo4::metal_attention_decode_turbo4_matches_reference
+    metal_backend::tests::parity_turbo4::metal_kv_cache_append_turbo4_matches_reference
+    metal_backend::tests::parity_turbo::metal_attention_decode_turbo8_matches_reference
+    metal_backend::tests::parity_turbo::metal_kv_cache_append_turbo8_matches_reference
+    metal_backend::tests::parity_turbo::metal_wht_bf16_inverse_roundtrip
+    metal_backend::tests::parity_turbo::metal_wht_bf16_matches_reference
+    metal_backend::tests::parity_vision::metal_conv3d_patch_embed_matches_reference
+    metal_backend::tests::parity_vision::metal_dense_gemm_bf16_matches_reference
+    metal_backend::tests::parity_vision::metal_dense_gemv_bf16_matches_reference
+    metal_backend::tests::parity_vision::metal_gelu_matches_reference
+    metal_backend::tests::parity_vision::metal_layer_norm_matches_reference
+
+test result: FAILED. 0 passed; 35 failed; 5 ignored; 0 measured; 270 filtered out; finished in 0.04s
+
+error: test failed, to rerun pass `-p spark-runtime --lib`

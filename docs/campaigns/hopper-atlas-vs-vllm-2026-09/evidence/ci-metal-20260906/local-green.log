@@ -1,0 +1,51 @@
+[1m[92m   Compiling[0m atlas-kernels v1.0.0-beta-preview (/Users/tom/Documents/New project/atlas-campaign-code/crates/atlas-kernels)
+[1m[92m   Compiling[0m spark-runtime v1.0.0-beta-preview (/Users/tom/Documents/New project/atlas-campaign-code/crates/spark-runtime)
+[1m[33mwarning[0m: atlas-kernels@1.0.0-beta-preview: atlas-kernels: compiled 43 kernels for target 0 (metal, qwen3-5-4b-vlm-mlx-int8, mlx_int8)
+[1m[33mwarning[0m: atlas-kernels@1.0.0-beta-preview: atlas-kernels: dedup+parallel: 43/43 unique nvcc invocations (0 cache hits, 1.0× dedup), 18 parallel workers
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 1.42s
+[1m[92m     Running[0m unittests src/lib.rs (/Users/tom/Documents/New project/atlas-campaign-evidence/ci-audit-20260906/metal-job-101430753851/target/debug/deps/spark_runtime-26f4f09c55cfe177)
+
+running 40 tests
+test metal_backend::tests::parity_basic::metal_sigmoid_gate_matches_reference ... ok
+test metal_backend::tests::parity_norms::metal_silu_gate_matches_reference ... ok
+test metal_backend::tests::parity_norms::metal_rope_apply_matches_reference ... ok
+test metal_backend::tests::parity_basic::metal_alloc_copy_launch_roundtrip ... ok
+test metal_backend::tests::parity_attention::metal_kv_cache_append_matches_reference ... ok
+test metal_backend::tests::parity_basic::metal_bf16_add_matches_reference ... ok
+test metal_backend::tests::parity_attention_full::metal_attention_full_matches_reference ... ok
+test metal_backend::tests::parity_norms::metal_rms_norm_matches_reference ... ok
+test metal_backend::tests::parity_gdn::metal_causal_conv1d_decode_matches_reference ... ok
+test metal_backend::tests::parity_attention::metal_attention_decode_matches_reference ... ok
+test metal_backend::tests::parity_attention::metal_attention_prefill_matches_reference ... ok
+test metal_backend::tests::parity_norms::metal_argmax_bf16_matches_reference ... ok
+test metal_backend::tests::parity_norms::metal_embed_lookup_matches_reference ... ok
+test metal_backend::tests::parity_quant::metal_mlx_int8_dequant_matches_reference ... ok
+test metal_backend::tests::parity_gdn::metal_selective_scan_decode_matches_reference ... ok
+test metal_backend::tests::parity_asym::metal_kv_cache_append_bf16k_turbov_matches_reference ... ok
+test metal_backend::tests::parity_turbo23::metal_kv_cache_append_turbo2_matches_reference ... ok
+test metal_backend::tests::parity_quant::metal_mlx_int8_gemm_matches_reference ... ok
+test metal_backend::tests::parity_quant::metal_mlx_int8_gemv_matches_reference ... ok
+test metal_backend::tests::real_model_attention::metal_real_model_full_attention_block_layer3 ... ignored, requires local copy of mlx-community/Qwen3.5-4B-MLX-8bit
+test metal_backend::tests::parity_turbo4::metal_kv_cache_append_turbo4_matches_reference ... ok
+test metal_backend::tests::real_model_gemv::metal_mlx_int8_gemv_real_model_q_proj ... ignored, requires local copy of mlx-community/Qwen3.5-4B-MLX-8bit
+test metal_backend::tests::real_model_misc::metal_mlx_int8_dequant_real_model ... ignored, requires local copy of mlx-community/Qwen3.5-4B-MLX-8bit
+test metal_backend::tests::parity_turbo23::metal_kv_cache_append_turbo3_matches_reference ... ok
+test metal_backend::tests::real_model_misc::metal_real_model_chain_norm_then_qproj ... ignored, requires local copy of mlx-community/Qwen3.5-4B-MLX-8bit
+test metal_backend::tests::real_model_vision::metal_real_model_vision_block_forward ... ignored, requires local copy of mlx-community/Qwen3.5-4B-MLX-8bit
+test metal_backend::tests::parity_turbo::metal_kv_cache_append_turbo8_matches_reference ... ok
+test metal_backend::tests::parity_asym::metal_attention_decode_bf16k_turbo4v_matches_reference ... ok
+test metal_backend::tests::parity_vision::metal_conv3d_patch_embed_matches_reference ... ok
+test metal_backend::tests::parity_vision::metal_dense_gemm_bf16_matches_reference ... ok
+test metal_backend::tests::parity_turbo::metal_wht_bf16_matches_reference ... ok
+test metal_backend::tests::parity_turbo::metal_wht_bf16_inverse_roundtrip ... ok
+test metal_backend::tests::parity_vision::metal_dense_gemv_bf16_matches_reference ... ok
+test metal_backend::tests::parity_vision::metal_gelu_matches_reference ... ok
+test metal_backend::tests::parity_gdn::metal_gated_delta_rule_decode_matches_reference ... ok
+test metal_backend::tests::parity_vision::metal_layer_norm_matches_reference ... ok
+test metal_backend::tests::parity_turbo4::metal_attention_decode_turbo4_matches_reference ... ok
+test metal_backend::tests::parity_attention::metal_softmax_topp_dominant_logit ... ok
+test metal_backend::tests::parity_turbo::metal_attention_decode_turbo8_matches_reference ... ok
+test metal_backend::tests::parity_turbo23::metal_attention_decode_turbo23_matches_reference ... ok
+
+test result: ok. 35 passed; 0 failed; 5 ignored; 0 measured; 270 filtered out; finished in 0.06s
+

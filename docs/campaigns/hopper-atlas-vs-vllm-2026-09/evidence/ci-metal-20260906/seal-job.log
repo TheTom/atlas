@@ -1,0 +1,89 @@
+﻿2026-09-06T05:03:32.5128059Z Current runner version: '2.337.0'
+2026-09-06T05:03:32.5155955Z ##[group]Runner Image Provisioner
+2026-09-06T05:03:32.5156988Z Hosted Compute Agent
+2026-09-06T05:03:32.5157627Z Version: 20260828.587
+2026-09-06T05:03:32.5158305Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-06T05:03:32.5159139Z Build Date: 2026-08-28T16:44:25Z
+2026-09-06T05:03:32.5160085Z Worker ID: {dd86a31a-b401-42e5-a272-606a69897eca}
+2026-09-06T05:03:32.5160819Z Azure Region: eastus
+2026-09-06T05:03:32.5161499Z ##[endgroup]
+2026-09-06T05:03:32.5163123Z ##[group]Operating System
+2026-09-06T05:03:32.5163908Z Ubuntu
+2026-09-06T05:03:32.5164516Z 24.04.4
+2026-09-06T05:03:32.5165052Z LTS
+2026-09-06T05:03:32.5165678Z ##[endgroup]
+2026-09-06T05:03:32.5166263Z ##[group]Runner Image
+2026-09-06T05:03:32.5166977Z Image: ubuntu-24.04
+2026-09-06T05:03:32.5167648Z Version: 20260831.293.1
+2026-09-06T05:03:32.5169040Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260831.293/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-06T05:03:32.5170833Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260831.293
+2026-09-06T05:03:32.5171898Z ##[endgroup]
+2026-09-06T05:03:32.5173171Z ##[group]GITHUB_TOKEN Permissions
+2026-09-06T05:03:32.5175682Z Contents: read
+2026-09-06T05:03:32.5176339Z Metadata: read
+2026-09-06T05:03:32.5176944Z ##[endgroup]
+2026-09-06T05:03:32.5179472Z Secret source: None
+2026-09-06T05:03:32.5181084Z Prepare workflow directory
+2026-09-06T05:03:32.5573236Z Prepare all required actions
+2026-09-06T05:03:32.5640818Z Complete job name: seal status
+2026-09-06T05:03:32.6430790Z ##[group]Run set -uo pipefail
+2026-09-06T05:03:32.6431764Z [36;1mset -uo pipefail[0m
+2026-09-06T05:03:32.6432620Z [36;1m# A push to main has already landed and a dispatch has no diff to[0m
+2026-09-06T05:03:32.6433686Z [36;1m# vouch for; neither carries a PR, so there is nothing to seal.[0m
+2026-09-06T05:03:32.6434750Z [36;1mif [ "$EVENT" != "pull_request" ] && [ "$EVENT" != "merge_group" ]; then[0m
+2026-09-06T05:03:32.6435934Z [36;1m  echo "$EVENT carries no pull request — nothing to seal."[0m
+2026-09-06T05:03:32.6519165Z [36;1m  exit 0[0m
+2026-09-06T05:03:32.6520074Z [36;1mfi[0m
+2026-09-06T05:03:32.6520748Z [36;1msha="$PR_SHA"; num="$PR_NUM"[0m
+2026-09-06T05:03:32.6521654Z [36;1mif [ "$EVENT" = "merge_group" ]; then[0m
+2026-09-06T05:03:32.6522693Z [36;1m  # Queue branches are GitHub-generated:[0m
+2026-09-06T05:03:32.6523832Z [36;1m  # gh-readonly-queue/<base>/pr-<N>-<sha>[0m
+2026-09-06T05:03:32.6524774Z [36;1m  branch="${MQ_HEAD_REF#refs/heads/}"[0m
+2026-09-06T05:03:32.6525645Z [36;1m  num="$(printf '%s' "$branch" | sed -n 's|.*/pr-\([0-9][0-9]*\)-.*|\1|p')"[0m
+2026-09-06T05:03:32.6526422Z [36;1m  if [ -z "$num" ]; then[0m
+2026-09-06T05:03:32.6527617Z [36;1m    echo "::error title=Cannot identify the queued PR::queue branch '$branch' does not name a PR, so the seal cannot be re-proved. Refusing rather than guessing."[0m
+2026-09-06T05:03:32.6528807Z [36;1m    exit 1[0m
+2026-09-06T05:03:32.6529535Z [36;1m  fi[0m
+2026-09-06T05:03:32.6530227Z [36;1m  sha="$(gh api "repos/$REPO/pulls/$num" --jq '.head.sha' 2>/dev/null)" || sha=""[0m
+2026-09-06T05:03:32.6530991Z [36;1mfi[0m
+2026-09-06T05:03:32.6531430Z [36;1mif [ -z "$sha" ]; then[0m
+2026-09-06T05:03:32.6532202Z [36;1m  echo "::error title=Cannot resolve the sealed commit::no head sha for PR #$num."[0m
+2026-09-06T05:03:32.6533018Z [36;1m  exit 1[0m
+2026-09-06T05:03:32.6533455Z [36;1mfi[0m
+2026-09-06T05:03:32.6534073Z [36;1m# A seal vouches for a DIFF, so only a Seal on the CURRENT head counts[0m
+2026-09-06T05:03:32.6534979Z [36;1m# — unlike a stamp, which deliberately carries across new commits.[0m
+2026-09-06T05:03:32.6535877Z [36;1mn=$(gh api "repos/$REPO/commits/$sha/check-runs?per_page=100" \[0m
+2026-09-06T05:03:32.6536961Z [36;1m      --jq '[.check_runs[] | select((.name == "Seal" or .name == "Expedite") and .conclusion == "success")] | length' \[0m
+2026-09-06T05:03:32.6537921Z [36;1m      2>/dev/null) || n=REFUSE[0m
+2026-09-06T05:03:32.6538977Z [36;1mcase "$n" in ''|*[!0-9]*) n=REFUSE ;; esac[0m
+2026-09-06T05:03:32.6539966Z [36;1m# Deliberately fails CLOSED, inverting the fail-open shape of `stamp`[0m
+2026-09-06T05:03:32.6540901Z [36;1m# beside it. A stamp only spends runners, so guessing "yes" is cheap;[0m
+2026-09-06T05:03:32.6541800Z [36;1m# a seal is a person vouching for the diff, and an unreadable API must[0m
+2026-09-06T05:03:32.6542651Z [36;1m# never be read as a vouch nobody gave. Same direction as[0m
+2026-09-06T05:03:32.6543377Z [36;1m# seal-coverage.py, and the same reason.[0m
+2026-09-06T05:03:32.6543976Z [36;1mif [ "$n" = "REFUSE" ]; then[0m
+2026-09-06T05:03:32.6545000Z [36;1m  echo "::error title=Could not read the seal::the check-runs API did not answer for $sha, and a seal is never assumed. Re-run this job."[0m
+2026-09-06T05:03:32.6546010Z [36;1m  exit 1[0m
+2026-09-06T05:03:32.6546434Z [36;1mfi[0m
+2026-09-06T05:03:32.6546869Z [36;1mif [ "$n" -gt 0 ]; then[0m
+2026-09-06T05:03:32.6547544Z [36;1m  echo "sealed at $sha — a codeowner has vouched for this diff."[0m
+2026-09-06T05:03:32.6548242Z [36;1m  exit 0[0m
+2026-09-06T05:03:32.6548670Z [36;1mfi[0m
+2026-09-06T05:03:32.6549996Z [36;1mecho "::error title=Not sealed::PR #$num has no Seal on $sha. A codeowner of every path in the diff must comment /seal. The next commit voids it, so seal once the diff has settled."[0m
+2026-09-06T05:03:32.6551229Z [36;1mexit 1[0m
+2026-09-06T05:03:32.7255727Z shell: /usr/bin/bash -e {0}
+2026-09-06T05:03:32.7257008Z env:
+2026-09-06T05:03:32.7258064Z   CARGO_TERM_COLOR: always
+2026-09-06T05:03:32.7258854Z   RUST_BACKTRACE: 1
+2026-09-06T05:03:32.7259787Z   ATLAS_SKIP_BUILD: 1
+2026-09-06T05:03:32.7260542Z   CUDARC_CUDA_VERSION: 13000
+2026-09-06T05:03:32.7267539Z   GH_TOKEN: ***
+2026-09-06T05:03:32.7268286Z   REPO: Avarok-Cybersecurity/atlas
+2026-09-06T05:03:32.7269071Z   EVENT: pull_request
+2026-09-06T05:03:32.7270036Z   PR_SHA: 8882f088b3e1382456c72a7288c267b8dc6985de
+2026-09-06T05:03:32.7270925Z   PR_NUM: 895
+2026-09-06T05:03:32.7271600Z   MQ_HEAD_REF: 
+2026-09-06T05:03:32.7272172Z ##[endgroup]
+2026-09-06T05:03:33.2203990Z ##[error]PR #895 has no Seal on 8882f088b3e1382456c72a7288c267b8dc6985de. A codeowner of every path in the diff must comment /seal. The next commit voids it, so seal once the diff has settled.
+2026-09-06T05:03:33.2222806Z ##[error]Process completed with exit code 1.
+2026-09-06T05:03:33.2399521Z Cleaning up orphan processes

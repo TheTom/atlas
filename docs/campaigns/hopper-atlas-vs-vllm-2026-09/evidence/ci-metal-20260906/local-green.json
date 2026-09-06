@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "/bin/bash",
+    "--noprofile",
+    "--norc",
+    "-e",
+    "-o",
+    "pipefail",
+    "-c",
+    "cargo test -p spark-runtime --no-default-features \\\n  --features metal --locked metal_backend\n"
+  ],
+  "env": {
+    "ATLAS_SKIP_BUILD": "0",
+    "ATLAS_TARGET_HW": "metal",
+    "ATLAS_TARGET_MODEL": "qwen3-5-4b-vlm-mlx-int8",
+    "ATLAS_TARGET_QUANT": "mlx_int8",
+    "CUDARC_CUDA_VERSION": "13000",
+    "CARGO_BUILD_JOBS": "4",
+    "CARGO_TARGET_DIR": "/Users/tom/Documents/New project/atlas-campaign-evidence/ci-audit-20260906/metal-job-101430753851/target"
+  },
+  "exit": 0,
+  "wall_s": 1.7452880409982754,
+  "oracle": "Same real Metal parity suite, unchanged kernel code and tolerances; workflow effective environment must compile the selected metallibs."
+}

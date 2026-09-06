@@ -1,0 +1,7 @@
+{
+  "argv": [
+    "actionlint",
+    ".github/workflows/ci.yml"
+  ],
+  "exit": 1
+}

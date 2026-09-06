@@ -1,0 +1,57 @@
+[
+  {
+    "argv": [
+      "uname",
+      "-sm"
+    ],
+    "exit": 0,
+    "stdout": "Darwin arm64\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "sw_vers"
+    ],
+    "exit": 0,
+    "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0\nBuildVersion:\t\t26A5353q\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "sysctl",
+      "-n",
+      "machdep.cpu.brand_string"
+    ],
+    "exit": 0,
+    "stdout": "Apple M5 Max\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "rustc",
+      "--version"
+    ],
+    "exit": 0,
+    "stdout": "rustc 1.93.1 (01f6ddf75 2026-02-11)\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "cargo",
+      "--version"
+    ],
+    "exit": 0,
+    "stdout": "cargo 1.93.1 (083ac5135 2025-12-15)\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "xcrun",
+      "metal",
+      "--version"
+    ],
+    "exit": 0,
+    "stdout": "Apple metal version 32023.883 (metalfe-32023.883)\nTarget: air64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /private/var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.6.109.0.qGKMeG/Metal.xctoolchain/usr/metal/current/bin\n",
+    "stderr": ""
+  }
+]

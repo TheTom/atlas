@@ -1,0 +1,108 @@
+[
+  {
+    "name": "campaign",
+    "argv": [
+      "bash",
+      "bench/campaign/campaign_test.sh"
+    ],
+    "exit": 0,
+    "wall_s": 52.636041624995414
+  },
+  {
+    "name": "launcher",
+    "argv": [
+      "bash",
+      "scripts/start_node_ep_test.sh"
+    ],
+    "exit": 0,
+    "wall_s": 8.722864582996408
+  },
+  {
+    "name": "docker",
+    "argv": [
+      "bash",
+      "docker/datacenter_dockerfiles_test.sh"
+    ],
+    "exit": 0,
+    "wall_s": 0.23762158300087322
+  },
+  {
+    "name": "atlas-render",
+    "argv": [
+      "python3",
+      "bench/campaign/atlas_render.py",
+      "--selftest"
+    ],
+    "exit": 0,
+    "wall_s": 0.07135974999982864
+  },
+  {
+    "name": "vllm-render",
+    "argv": [
+      "python3",
+      "bench/campaign/vllm_render.py",
+      "--selftest"
+    ],
+    "exit": 2,
+    "wall_s": 0.07618670800002292
+  },
+  {
+    "name": "validator",
+    "argv": [
+      "python3",
+      "bench/campaign/validate_artifact.py",
+      "--selftest"
+    ],
+    "exit": 0,
+    "wall_s": 0.04096416699758265
+  },
+  {
+    "name": "assembler",
+    "argv": [
+      "python3",
+      "bench/campaign/cell_assemble.py",
+      "--selftest"
+    ],
+    "exit": 0,
+    "wall_s": 5.313211542001227
+  },
+  {
+    "name": "fmt",
+    "argv": [
+      "cargo",
+      "fmt",
+      "--all",
+      "--",
+      "--check"
+    ],
+    "exit": 0,
+    "wall_s": 1.9685276659947704
+  },
+  {
+    "name": "typos",
+    "argv": [
+      "typos"
+    ],
+    "exit": 0,
+    "wall_s": 0.23023725000530249
+  },
+  {
+    "name": "actionlint",
+    "argv": [
+      "actionlint",
+      ".github/workflows/ci.yml"
+    ],
+    "exit": 1,
+    "wall_s": 0.12929933299892582
+  },
+  {
+    "name": "diff",
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit": 0,
+    "wall_s": 0.07278620900615351
+  }
+]

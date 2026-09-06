@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "cargo",
+    "test",
+    "-p",
+    "spark-runtime",
+    "--no-default-features",
+    "--features",
+    "metal",
+    "--locked",
+    "metal_backend"
+  ],
+  "env": {
+    "ATLAS_SKIP_BUILD": "1",
+    "ATLAS_TARGET_HW": "metal",
+    "ATLAS_TARGET_MODEL": "qwen3-5-4b-vlm-mlx-int8",
+    "ATLAS_TARGET_QUANT": "mlx_int8",
+    "CUDARC_CUDA_VERSION": "13000",
+    "CARGO_BUILD_JOBS": "4",
+    "CARGO_TARGET_DIR": "/Users/tom/Documents/New project/atlas-campaign-evidence/ci-audit-20260906/metal-job-101430753851/target"
+  },
+  "exit": 101,
+  "wall_s": 18.666569042004994,
+  "oracle": "Real Metal modules resolve and all parity tests pass; missing module is a failure, not a numerical result."
+}

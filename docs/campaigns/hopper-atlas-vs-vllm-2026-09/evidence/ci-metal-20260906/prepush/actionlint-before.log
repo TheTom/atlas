@@ -1,0 +1,12 @@
+../atlas-campaign-evidence/ci-audit-20260906/metal-job-101430753851/prepush/ci-before.yml:937:9: shellcheck reported issue in this script: SC2016:info:3:10: Expressions don't expand in single quotes, use double quotes for that [shellcheck]
+    |
+937 |         run: |
+    |         ^~~~
+../atlas-campaign-evidence/ci-audit-20260906/metal-job-101430753851/prepush/ci-before.yml:937:9: shellcheck reported issue in this script: SC2016:info:65:10: Expressions don't expand in single quotes, use double quotes for that [shellcheck]
+    |
+937 |         run: |
+    |         ^~~~
+../atlas-campaign-evidence/ci-audit-20260906/metal-job-101430753851/prepush/ci-before.yml:937:9: shellcheck reported issue in this script: SC2016:info:66:10: Expressions don't expand in single quotes, use double quotes for that [shellcheck]
+    |
+937 |         run: |
+    |         ^~~~

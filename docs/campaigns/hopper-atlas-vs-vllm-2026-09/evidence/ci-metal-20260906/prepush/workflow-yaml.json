@@ -1,0 +1,8 @@
+{
+  "argv": [
+    "actionlint",
+    "-shellcheck=",
+    ".github/workflows/ci.yml"
+  ],
+  "exit": 0
+}

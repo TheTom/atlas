@@ -1,0 +1,12 @@
+{
+  "local_df_before": "Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on\n/dev/disk3s1s1   1.8Ti    23Gi    13Gi    65%    480k  136M    0%   /\n",
+  "local_target_size": "634M\t/Users/tom/Documents/New project/atlas-campaign-evidence/ci-audit-20260906/metal-job-101430753851/target\n",
+  "local_target": "/Users/tom/Documents/New project/atlas-campaign-evidence/ci-audit-20260906/metal-job-101430753851/target",
+  "local_target_removed": true,
+  "local_df_after": "Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on\n/dev/disk3s1s1   1.8Ti    23Gi    13Gi    65%    480k  136M    0%   /\n",
+  "spark1_cleanup": {
+    "exit": 0,
+    "stdout": "{\n  \"directory\": \"/home/pidtom/atlas-ci-metal-20260906-0454\",\n  \"df_before\": \"Filesystem      Size  Used Avail Use% Mounted on\\n/dev/nvme0n1p2  916G  790G   80G  91% /\\n\",\n  \"size\": \"5.1M\\t/home/pidtom/atlas-ci-metal-20260906-0454\\n\",\n  \"removed\": true,\n  \"df_after\": \"Filesystem      Size  Used Avail Use% Mounted on\\n/dev/nvme0n1p2  916G  790G   80G  91% /\\n\"\n}\n",
+    "stderr": ""
+  }
+}
