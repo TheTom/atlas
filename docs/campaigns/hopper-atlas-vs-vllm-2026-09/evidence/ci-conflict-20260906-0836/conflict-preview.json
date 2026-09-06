@@ -1,0 +1,19 @@
+{
+  "description": "Quoted diagnostic data from git merge-tree, not an unresolved source file",
+  "full_conflicted_blob_sha256": "12bf1ddc9367bffdacd8e7e1bdedc4b56fe6e33ed02b4bb048b32d7e5dbd35b0",
+  "source_path": ".github/workflows/ci.yml",
+  "start_line": 501,
+  "conflict_lines": [
+    "<<<<<<< HEAD",
+    "          # The real parity tests need metallibs, not the workflow's empty stub.",
+    "=======",
+    "          # The workflow-wide ATLAS_SKIP_BUILD=1 stubs atlas-kernels' build",
+    "          # script, so `metallib_modules()` is EMPTY and every parity test",
+    "          # fails with `Metal: unknown module '...'`. That never showed on",
+    "          # GitHub-hosted macOS runners because MTLCreateSystemDefaultDevice",
+    "          # returns null there and the tests skip themselves; on a real Mac",
+    "          # (the self-hosted M5) they run and go red. This step is the one",
+    "          # place the metal kernel set must actually be built.",
+    ">>>>>>> 3dc4369ced28207788487cc53747c115ff242c31"
+  ]
+}

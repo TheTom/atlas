@@ -1,0 +1,7 @@
+{
+  "exit": 0,
+  "base": "3dc4369ced28207788487cc53747c115ff242c31",
+  "head": "201a1368e16dddf6174c4b6be25ee2d0c875dbf1",
+  "actual_merge_or_rebase_to_main": false,
+  "oracle": "git merge-tree must return 0 with no conflicts while runtime and workflow behavior remain unchanged"
+}

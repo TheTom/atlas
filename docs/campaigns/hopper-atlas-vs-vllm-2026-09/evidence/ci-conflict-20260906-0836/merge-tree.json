@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "git",
+    "merge-tree",
+    "--write-tree",
+    "--name-only",
+    "HEAD",
+    "3dc4369ced28207788487cc53747c115ff242c31"
+  ],
+  "exit": 1,
+  "base": "3dc4369ced28207788487cc53747c115ff242c31",
+  "head": "e12295af5dfbd3a7f08320b0aecb5b93b4cdf67a",
+  "updates_branch_or_worktree": false
+}

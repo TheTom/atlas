@@ -1,0 +1,153 @@
+[
+  {
+    "name": "body",
+    "argv": [
+      "python3",
+      "scripts/ci_pr_body_test.py"
+    ],
+    "exit": 0,
+    "wall_s": 0.6775328750009066,
+    "tail": [
+      "",
+      "OK"
+    ]
+  },
+  {
+    "name": "campaign",
+    "argv": [
+      "bash",
+      "bench/campaign/campaign_test.sh"
+    ],
+    "exit": 0,
+    "wall_s": 56.385325999995985,
+    "tail": [
+      "",
+      "ALL 85 assertions passed."
+    ]
+  },
+  {
+    "name": "launcher",
+    "argv": [
+      "bash",
+      "scripts/start_node_ep_test.sh"
+    ],
+    "exit": 0,
+    "wall_s": 8.777020499997889,
+    "tail": [
+      "",
+      "ALL 30 assertions passed."
+    ]
+  },
+  {
+    "name": "docker",
+    "argv": [
+      "bash",
+      "docker/datacenter_dockerfiles_test.sh"
+    ],
+    "exit": 0,
+    "wall_s": 0.24960574999568053,
+    "tail": [
+      "",
+      "PASS \u2014 17 assertions (workflow checked in yaml mode)"
+    ]
+  },
+  {
+    "name": "atlas-render",
+    "argv": [
+      "python3",
+      "bench/campaign/atlas_render.py",
+      "--selftest"
+    ],
+    "exit": 0,
+    "wall_s": 0.05104720799863571,
+    "tail": [
+      "atlas_render selftest: 346/346 checks passed over 19 entries"
+    ]
+  },
+  {
+    "name": "vllm-render",
+    "argv": [
+      "python3",
+      "bench/campaign/vllm_render.py",
+      "--recipes",
+      "bench/campaign/vllm_recipes.json",
+      "--selftest"
+    ],
+    "exit": 0,
+    "wall_s": 0.049422417003370356,
+    "tail": [
+      "vllm_control selftest: 258/258 checks passed over 31 rendered entries"
+    ]
+  },
+  {
+    "name": "validator",
+    "argv": [
+      "python3",
+      "bench/campaign/validate_artifact.py",
+      "--selftest"
+    ],
+    "exit": 0,
+    "wall_s": 0.05081741699541453,
+    "tail": [
+      "validate_artifact selftest: 26/26 checks passed (7 known-bad fixtures)"
+    ]
+  },
+  {
+    "name": "assembler",
+    "argv": [
+      "python3",
+      "bench/campaign/cell_assemble.py",
+      "--selftest"
+    ],
+    "exit": 0,
+    "wall_s": 5.749646584001312,
+    "tail": [
+      "OK",
+      "cell_assemble selftest: 16/16 test methods passed"
+    ]
+  },
+  {
+    "name": "fmt",
+    "argv": [
+      "cargo",
+      "fmt",
+      "--all",
+      "--",
+      "--check"
+    ],
+    "exit": 0,
+    "wall_s": 1.8472434589930344,
+    "tail": []
+  },
+  {
+    "name": "typos",
+    "argv": [
+      "typos"
+    ],
+    "exit": 0,
+    "wall_s": 0.17168462500558235,
+    "tail": []
+  },
+  {
+    "name": "workflow-yaml",
+    "argv": [
+      "actionlint",
+      "-shellcheck=",
+      ".github/workflows/ci.yml"
+    ],
+    "exit": 0,
+    "wall_s": 0.022872458001074847,
+    "tail": []
+  },
+  {
+    "name": "diff",
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit": 0,
+    "wall_s": 0.05117795799742453,
+    "tail": []
+  }
+]

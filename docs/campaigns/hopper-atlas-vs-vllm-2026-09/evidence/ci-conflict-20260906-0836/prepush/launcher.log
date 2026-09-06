@@ -1,0 +1,32 @@
+  ok [a] prints exactly 4 rank commands
+  ok [a] each rank carries --rank/--world-size/--ep-size/--tp-size/--gpu-ordinal/--port/--master-*
+  ok [a] NCCL_PROFILE=default emits no NCCL_* variable
+  ok [a] prints the port layout, the one-line summary and a pasteable rank0_command
+  ok [a] launch order is ranks N-1..1 then rank 0
+  ok [b] gb10-roce reproduces the start-ep2.sh NCCL block
+  ok [c] NGPUS=4 EP_SIZE=2 TP_SIZE=1 is refused with the rule and a fix
+  ok [c] orthogonal mesh TP=2 EP=2 on 4 GPUs is accepted
+  ok [d] container mode prints 4 docker run lines with no RDMA/IB flags
+  ok [e] --check-kernels runs rank 0 alone at --world-size 1
+  ok [f] no executable 'pkill -f' in the launcher (--stop uses pid files)
+  ok [g] one occupancy probe plus 503,503,200 measures 2s (>= 2) and reports it
+  ok [g] --stop kills the recorded pid by pid file and clears it
+  ok [h] a create records the image ID it resolved, not just the tag it was given
+  ok [h] a create records the container ID it made and the run label it stamped
+  ok [h] two run directories on two ports get distinct container names (atlas-run-a-55412-rank0 / atlas-run-b-55413-rank0)
+  ok [h] starting run B leaves run A's rank alone
+  ok [h] --stop from run A's directory removes only run A's container
+  ok [i] a rank that exits while a foreign server answers 200 fails the launch
+  ok [j] a port that already answers /health is refused before anything is started
+  ok [k] an intent with no container record is reconciled by name and run label
+  ok [k] a same-named container wearing another launch's label is left alone
+  ok [l] a --stop whose docker ps failed keeps the intent, touches nothing and exits non-zero
+  ok [l] a --stop whose docker stop failed keeps the intent and exits non-zero
+  ok [l] the next --stop, with Docker answering, removes the leaked rank and clears the intent
+  ok [m] a --stop whose removal failed keeps the container, image and intent records
+  ok [m] the next --stop, with Docker answering, removes the container and clears all three records
+  ok [m] a container Docker answers 'No such container' for is confirmed absent, not unresolved
+  ok [n] a completed record is stopped and removed by the container ID its create returned
+  ok [n] a same-named container with another ID and label is left alone, ours confirmed gone
+
+ALL 30 assertions passed.

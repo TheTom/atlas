@@ -1,0 +1,89 @@
+﻿2026-09-06T08:30:36.1007319Z Current runner version: '2.337.0'
+2026-09-06T08:30:36.1033024Z ##[group]Runner Image Provisioner
+2026-09-06T08:30:36.1033935Z Hosted Compute Agent
+2026-09-06T08:30:36.1034904Z Version: 20260828.587
+2026-09-06T08:30:36.1035593Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-06T08:30:36.1036323Z Build Date: 2026-08-28T16:44:25Z
+2026-09-06T08:30:36.1037100Z Worker ID: {73d21d4a-e79c-42b3-be03-1d5799130924}
+2026-09-06T08:30:36.1037847Z Azure Region: eastus
+2026-09-06T08:30:36.1038445Z ##[endgroup]
+2026-09-06T08:30:36.1039952Z ##[group]Operating System
+2026-09-06T08:30:36.1040575Z Ubuntu
+2026-09-06T08:30:36.1041192Z 24.04.4
+2026-09-06T08:30:36.1041780Z LTS
+2026-09-06T08:30:36.1042359Z ##[endgroup]
+2026-09-06T08:30:36.1042920Z ##[group]Runner Image
+2026-09-06T08:30:36.1043526Z Image: ubuntu-24.04
+2026-09-06T08:30:36.1044113Z Version: 20260831.293.1
+2026-09-06T08:30:36.1045735Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260831.293/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-06T08:30:36.1047298Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260831.293
+2026-09-06T08:30:36.1048295Z ##[endgroup]
+2026-09-06T08:30:36.1049477Z ##[group]GITHUB_TOKEN Permissions
+2026-09-06T08:30:36.1051662Z Contents: read
+2026-09-06T08:30:36.1052276Z Metadata: read
+2026-09-06T08:30:36.1052822Z ##[endgroup]
+2026-09-06T08:30:36.1055410Z Secret source: None
+2026-09-06T08:30:36.1056979Z Prepare workflow directory
+2026-09-06T08:30:36.1448330Z Prepare all required actions
+2026-09-06T08:30:36.1512380Z Complete job name: PR benchmark gate
+2026-09-06T08:30:36.2387022Z ##[group]Run echo "PR Benchmark Certifications => ${RESULT} (web_only=${WEB_ONLY:-unknown})"
+2026-09-06T08:30:36.2388280Z [36;1mecho "PR Benchmark Certifications => ${RESULT} (web_only=${WEB_ONLY:-unknown})"[0m
+2026-09-06T08:30:36.2389191Z [36;1mif [ "${RESULT}" = "success" ]; then exit 0; fi[0m
+2026-09-06T08:30:36.2390030Z [36;1m# An admin waived the evidence requirement with /expedite. Pass -- but[0m
+2026-09-06T08:30:36.2390989Z [36;1m# say so loudly, because a green check that silently means "we did not[0m
+2026-09-06T08:30:36.2391984Z [36;1m# measure" is the exact hole this pipeline exists to close. The[0m
+2026-09-06T08:30:36.2392784Z [36;1m# Expedite check run carries who waived it and why.[0m
+2026-09-06T08:30:36.2393475Z [36;1mif [ "${EXPEDITED}" = "true" ]; then[0m
+2026-09-06T08:30:36.2394329Z [36;1m  echo "::warning title=Certification waived::An admin expedited this PR, so \[0m
+2026-09-06T08:30:36.2395790Z [36;1mcertification did not have to pass. See the Expedite check run for who \[0m
+2026-09-06T08:30:36.2396627Z [36;1mwaived it and the reason they gave."[0m
+2026-09-06T08:30:36.2397217Z [36;1m  exit 0[0m
+2026-09-06T08:30:36.2397660Z [36;1mfi[0m
+2026-09-06T08:30:36.2398277Z [36;1m# THE ONE SKIP THAT IS A PASS: the certification was deliberately not[0m
+2026-09-06T08:30:36.2399171Z [36;1m# run because every changed file is under site/ blog/ book/[0m
+2026-09-06T08:30:36.2400049Z [36;1m# web-shared/, none of which is a measured input of any record. The[0m
+2026-09-06T08:30:36.2400964Z [36;1m# condition is positive on purpose — a skip caused by a BROKEN[0m
+2026-09-06T08:30:36.2401869Z [36;1m# classifier leaves WEB_ONLY empty and stays red below, so this[0m
+2026-09-06T08:30:36.2402706Z [36;1m# branch cannot become a hole in branch protection.[0m
+2026-09-06T08:30:36.2403502Z [36;1mif [ "${RESULT}" = "skipped" ] && [ "${WEB_ONLY}" = "true" ]; then[0m
+2026-09-06T08:30:36.2404559Z [36;1m  echo "web-only diff: no record's measured inputs were touched — pass."[0m
+2026-09-06T08:30:36.2405323Z [36;1m  exit 0[0m
+2026-09-06T08:30:36.2405774Z [36;1mfi[0m
+2026-09-06T08:30:36.2406410Z [36;1m# HELD, not failed. Certification never ran because nobody has released[0m
+2026-09-06T08:30:36.2407356Z [36;1m# the expensive lane, and the generic message below — "read its log,[0m
+2026-09-06T08:30:36.2408238Z [36;1m# not this one" — would send a reader to a job that has no log.[0m
+2026-09-06T08:30:36.2409197Z [36;1m#[0m
+2026-09-06T08:30:36.2409815Z [36;1m# Still RED. An unstamped PR is genuinely not ready to merge, and a[0m
+2026-09-06T08:30:36.2410577Z [36;1m# green check here would say it was.[0m
+2026-09-06T08:30:36.2411306Z [36;1mif [ "${RESULT}" = "skipped" ] && [ "${STAMPED}" = "false" ]; then[0m
+2026-09-06T08:30:36.2412083Z [36;1m  echo "::error title=Certification is held::\[0m
+2026-09-06T08:30:36.2412930Z [36;1mComment /stamp to release certification and the nine release-matrix \[0m
+2026-09-06T08:30:36.2413902Z [36;1mbuilds. They are held so a draft does not spend an hour of runners on \[0m
+2026-09-06T08:30:36.2415141Z [36;1mevery push. Anyone with write access can stamp, and a stamp survives \[0m
+2026-09-06T08:30:36.2415926Z [36;1mnew commits."[0m
+2026-09-06T08:30:36.2416399Z [36;1m  exit 1[0m
+2026-09-06T08:30:36.2416824Z [36;1mfi[0m
+2026-09-06T08:30:36.2417387Z [36;1m# Anything else — failure, cancelled, skipped — is not a[0m
+2026-09-06T08:30:36.2418273Z [36;1m# pass. Defaulting the unknown case to green would make the shim a hole[0m
+2026-09-06T08:30:36.2419134Z [36;1m# in branch protection for as long as it exists.[0m
+2026-09-06T08:30:36.2419791Z [36;1mif [ "${RESULT}" != "success" ]; then[0m
+2026-09-06T08:30:36.2420517Z [36;1m  echo "::error title=Benchmark certifications did not pass::\[0m
+2026-09-06T08:30:36.2421473Z [36;1mThe job now named \"PR Benchmark Certifications\" reported '${RESULT}'. \[0m
+2026-09-06T08:30:36.2422482Z [36;1mThis check is a transitional alias for that job — read its log, not this one."[0m
+2026-09-06T08:30:36.2423477Z [36;1m  exit 1[0m
+2026-09-06T08:30:36.2423925Z [36;1mfi[0m
+2026-09-06T08:30:36.3125907Z shell: /usr/bin/bash -e {0}
+2026-09-06T08:30:36.3126925Z env:
+2026-09-06T08:30:36.3127413Z   CARGO_TERM_COLOR: always
+2026-09-06T08:30:36.3127955Z   RUST_BACKTRACE: 1
+2026-09-06T08:30:36.3128440Z   ATLAS_SKIP_BUILD: 1
+2026-09-06T08:30:36.3128946Z   CUDARC_CUDA_VERSION: 13000
+2026-09-06T08:30:36.3129476Z   RESULT: skipped
+2026-09-06T08:30:36.3129967Z   WEB_ONLY: false
+2026-09-06T08:30:36.3130434Z   STAMPED: false
+2026-09-06T08:30:36.3130899Z   EXPEDITED: false
+2026-09-06T08:30:36.3131365Z ##[endgroup]
+2026-09-06T08:30:36.3326484Z PR Benchmark Certifications => skipped (web_only=false)
+2026-09-06T08:30:36.3367959Z ##[error]Comment /stamp to release certification and the nine release-matrix builds. They are held so a draft does not spend an hour of runners on every push. Anyone with write access can stamp, and a stamp survives new commits.
+2026-09-06T08:30:36.3386125Z ##[error]Process completed with exit code 1.
+2026-09-06T08:30:36.3542160Z Cleaning up orphan processes

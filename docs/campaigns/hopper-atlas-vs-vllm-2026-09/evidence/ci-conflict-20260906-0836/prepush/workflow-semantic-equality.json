@@ -1,0 +1,4 @@
+{
+  "equal": true,
+  "comparison": "PyYAML safe_load of parent and new workflow; comments excluded by parser"
+}
