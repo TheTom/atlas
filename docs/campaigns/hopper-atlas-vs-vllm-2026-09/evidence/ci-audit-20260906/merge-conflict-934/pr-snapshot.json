@@ -1,0 +1,474 @@
+{
+  "baseRefName": "main",
+  "headRefName": "hopper/sm90-target-tdd-2026-09",
+  "headRefOid": "201a1368e16dddf6174c4b6be25ee2d0c875dbf1",
+  "mergeStateStatus": "DIRTY",
+  "mergeable": "CONFLICTING",
+  "number": 895,
+  "state": "OPEN",
+  "statusCheckRollup": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T08:57:37Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613792/job/101457827735",
+      "name": "classify diff (web-only?)",
+      "startedAt": "2026-09-06T08:57:29Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T08:59:18Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022612222/job/101457823222",
+      "name": "CLAAssistant",
+      "startedAt": "2026-09-06T08:59:09Z",
+      "status": "COMPLETED",
+      "workflowName": "CLA Assistant"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T08:42:51Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022612221/job/101457823243",
+      "name": "Certification state",
+      "startedAt": "2026-09-06T08:42:37Z",
+      "status": "COMPLETED",
+      "workflowName": "Certification bot"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T08:51:26Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613611/job/101457826811",
+      "name": "classify diff (web-only?)",
+      "startedAt": "2026-09-06T08:51:19Z",
+      "status": "COMPLETED",
+      "workflowName": "Coverage"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T08:57:27Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613681/job/101457827286",
+      "name": "resolve targets",
+      "startedAt": "2026-09-06T08:57:24Z",
+      "status": "COMPLETED",
+      "workflowName": "Datacenter binaries"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T08:49:54Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613569/job/101457826881",
+      "name": "classify diff (web-only?)",
+      "startedAt": "2026-09-06T08:49:47Z",
+      "status": "COMPLETED",
+      "workflowName": "Docs"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:15:12Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613614/job/101457827137",
+      "name": "Enforce \u2264500 LoC per source file",
+      "startedAt": "2026-09-06T09:15:01Z",
+      "status": "COMPLETED",
+      "workflowName": "File size cap (\u2264500 LoC per .rs)"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:07:06Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613567/job/101457826568",
+      "name": "Verify committed GDN binaries match PINS.sha256",
+      "startedAt": "2026-09-06T09:06:59Z",
+      "status": "COMPLETED",
+      "workflowName": "GDN .so provenance pin"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T08:56:33Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613696/job/101457827363",
+      "name": "classify diff (web-only?)",
+      "startedAt": "2026-09-06T08:56:29Z",
+      "status": "COMPLETED",
+      "workflowName": "Kernel compile"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T08:59:49Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613660/job/101457827235",
+      "name": "classify diff (web-only?)",
+      "startedAt": "2026-09-06T08:59:42Z",
+      "status": "COMPLETED",
+      "workflowName": "Lighthouse"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:13:13Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613640/job/101457827387",
+      "name": "PR shares history with its base",
+      "startedAt": "2026-09-06T09:13:06Z",
+      "status": "COMPLETED",
+      "workflowName": "Merge ancestry"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T08:53:36Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613646/job/101457827364",
+      "name": "cargo deny",
+      "startedAt": "2026-09-06T08:52:44Z",
+      "status": "COMPLETED",
+      "workflowName": "Security Audit"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:12:25Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613690/job/101457827376",
+      "name": "classify diff (web-only?)",
+      "startedAt": "2026-09-06T09:12:17Z",
+      "status": "COMPLETED",
+      "workflowName": "Site"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T08:52:32Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613621/job/101457826933",
+      "name": "No block_on under tui/ or recipe/",
+      "startedAt": "2026-09-06T08:52:24Z",
+      "status": "COMPLETED",
+      "workflowName": "TUI threading contract"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T08:59:49Z",
+      "conclusion": "SKIPPED",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613660/job/101459955403",
+      "name": "Lighthouse audit",
+      "startedAt": "2026-09-06T08:59:49Z",
+      "status": "COMPLETED",
+      "workflowName": "Lighthouse"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T08:57:12Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613792/job/101457827669",
+      "name": "stamp status",
+      "startedAt": "2026-09-06T08:56:34Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:15:35Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613611/job/101458956529",
+      "name": "cargo llvm-cov --workspace",
+      "startedAt": "2026-09-06T09:13:15Z",
+      "status": "COMPLETED",
+      "workflowName": "Coverage"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:29:14Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613681/job/101459687879",
+      "name": "spark hopper (sm_90a, x86_64)",
+      "startedAt": "2026-09-06T09:17:17Z",
+      "status": "COMPLETED",
+      "workflowName": "Datacenter binaries"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:11:47Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613569/job/101458763959",
+      "name": "Build mdBook + rustdoc",
+      "startedAt": "2026-09-06T09:10:31Z",
+      "status": "COMPLETED",
+      "workflowName": "Docs"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:20:00Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613696/job/101459575227",
+      "name": "nvcc -> PTX (all gb10 targets)",
+      "startedAt": "2026-09-06T09:11:21Z",
+      "status": "COMPLETED",
+      "workflowName": "Kernel compile"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:12:36Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613640/job/101457827248",
+      "name": "Merge-ancestry guard self-test",
+      "startedAt": "2026-09-06T09:12:27Z",
+      "status": "COMPLETED",
+      "workflowName": "Merge ancestry"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:09:50Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613690/job/101457827406",
+      "name": "Site unit tests",
+      "startedAt": "2026-09-06T09:09:37Z",
+      "status": "COMPLETED",
+      "workflowName": "Site"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:32:09Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613681/job/101459687878",
+      "name": "spark b200 (sm_100a, x86_64)",
+      "startedAt": "2026-09-06T09:24:35Z",
+      "status": "COMPLETED",
+      "workflowName": "Datacenter binaries"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:09:44Z",
+      "conclusion": "FAILURE",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613792/job/101457827726",
+      "name": "seal status",
+      "startedAt": "2026-09-06T09:09:41Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:11:48Z",
+      "conclusion": "SKIPPED",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613569/job/101461508646",
+      "name": "Deploy to avarok via rsync",
+      "startedAt": "2026-09-06T09:11:48Z",
+      "status": "COMPLETED",
+      "workflowName": "Docs"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T08:59:49Z",
+      "conclusion": "SKIPPED",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613660/job/101459955159",
+      "name": "Lighthouse audit (blog)",
+      "startedAt": "2026-09-06T08:59:49Z",
+      "status": "COMPLETED",
+      "workflowName": "Lighthouse"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:06:55Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613696/job/101459575195",
+      "name": "nvcc -> PTX (hopper, sm_90a)",
+      "startedAt": "2026-09-06T08:59:22Z",
+      "status": "COMPLETED",
+      "workflowName": "Kernel compile"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:09:31Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613690/job/101457827259",
+      "name": "Build SvelteKit site",
+      "startedAt": "2026-09-06T09:09:02Z",
+      "status": "COMPLETED",
+      "workflowName": "Site"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:18:51Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613792/job/101457827777",
+      "name": "cargo fmt --check",
+      "startedAt": "2026-09-06T09:18:27Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:18:25Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613696/job/101459575293",
+      "name": "nvcc -> PTX (b200, sm_100a)",
+      "startedAt": "2026-09-06T09:15:37Z",
+      "status": "COMPLETED",
+      "workflowName": "Kernel compile"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:29:10Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613690/job/101461584866",
+      "name": "Blog frontmatter",
+      "startedAt": "2026-09-06T09:29:00Z",
+      "status": "COMPLETED",
+      "workflowName": "Site"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:09:50Z",
+      "conclusion": "SKIPPED",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613690/job/101461256910",
+      "name": "Deploy to avarok via rsync",
+      "startedAt": "2026-09-06T09:09:51Z",
+      "status": "COMPLETED",
+      "workflowName": "Site"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:15:01Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613792/job/101457827727",
+      "name": "SPDX license headers",
+      "startedAt": "2026-09-06T09:14:53Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:09:50Z",
+      "conclusion": "SKIPPED",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613690/job/101461257065",
+      "name": "Verify the deployed blog",
+      "startedAt": "2026-09-06T09:09:51Z",
+      "status": "COMPLETED",
+      "workflowName": "Site"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:15:24Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613792/job/101457827738",
+      "name": "typos",
+      "startedAt": "2026-09-06T09:15:14Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T08:56:41Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613792/job/101457827705",
+      "name": "kernel shadow structure",
+      "startedAt": "2026-09-06T08:56:34Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:22:07Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613792/job/101457827856",
+      "name": "harvest triage decision table",
+      "startedAt": "2026-09-06T09:21:59Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T08:58:32Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613792/job/101457827719",
+      "name": "PR categorize (advisory)",
+      "startedAt": "2026-09-06T08:57:22Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:38:54Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613792/job/101459708350",
+      "name": "cargo clippy --tests",
+      "startedAt": "2026-09-06T09:36:49Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:37:02Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613792/job/101459708341",
+      "name": "cargo test --workspace",
+      "startedAt": "2026-09-06T09:33:47Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:02:04Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613792/job/101459708345",
+      "name": "cargo test --features metal (macOS aarch64)",
+      "startedAt": "2026-09-06T08:59:22Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T08:57:53Z",
+      "conclusion": "FAILURE",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613792/job/101459708348",
+      "name": "metal device parity (self-hosted, advisory)",
+      "startedAt": "2026-09-06T08:57:39Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T08:57:37Z",
+      "conclusion": "SKIPPED",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613792/job/101459709028",
+      "name": "PR Benchmark Certifications",
+      "startedAt": "2026-09-06T08:57:38Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:38:54Z",
+      "conclusion": "SKIPPED",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613792/job/101464934777",
+      "name": "release matrix",
+      "startedAt": "2026-09-06T09:38:54Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T09:39:14Z",
+      "conclusion": "FAILURE",
+      "detailsUrl": "https://github.com/Avarok-Cybersecurity/atlas/actions/runs/34022613792/job/101459708506",
+      "name": "PR benchmark gate",
+      "startedAt": "2026-09-06T09:39:11Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-06T08:43:10Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://dashboard.gitguardian.com",
+      "name": "GitGuardian Security Checks",
+      "startedAt": "2026-09-06T08:42:35Z",
+      "status": "COMPLETED",
+      "workflowName": ""
+    }
+  ],
+  "title": "kernels: Hopper (sm_90a) and B200 (sm_100a) targets, device-arch preflight, PTX compile gate",
+  "updatedAt": "2026-09-06T08:43:08Z",
+  "url": "https://github.com/Avarok-Cybersecurity/atlas/pull/895"
+}

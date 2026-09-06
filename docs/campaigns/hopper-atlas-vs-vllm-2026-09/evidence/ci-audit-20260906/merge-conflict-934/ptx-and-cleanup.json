@@ -1,0 +1,8 @@
+{
+  "exit": 0,
+  "host": "Spark 1 CPU only",
+  "source_paths_unchanged": true,
+  "archive_sha256": "019ba4d4c4fd4b3082dd502bacbb1e7d521317e94957690de7e76ce307bf64aa",
+  "script": "set -uo pipefail\ndf -h /\ntask_dir=$(mktemp -d /tmp/codex-pr895-audit1708.XXXXXX) || exit 1\ntrap 'rm -rf -- \"$task_dir\"' EXIT\ntar -xzf - -C \"$task_dir\" || exit 1\ncd \"$task_dir\" || exit 1\nexport PATH=/usr/local/cuda/bin:$PATH\nbash scripts/hopper_ptx_gate_test.sh\nresult=$?\ncd /tmp || exit 1\nrm -rf -- \"$task_dir\"\ntrap - EXIT\ndf -h /\nexit \"$result\"\n",
+  "wall_s": 1.3329986660100985
+}

@@ -1,0 +1,14 @@
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  916G  797G   73G  92% /
+  ok [a] qwen3.8-27b lists 181 tasks
+  ok [a] the 14 model kernels all come from kernels/gb10/qwen3.6-27b/nvfp4/
+  ok [a] the 4 shadowing stems resolve to the redirect target, not common/
+  ok [b] qwen3.8-27b and qwen3.6-27b select an identical (stem, source) set
+  ok [c] no task points into kernels/gb10/qwen3.8-27b/
+  ok [d] an unknown model exits 2 and names what it looked for
+  ok [e] both ptxas errors land in the ledger (error_count=2, rejected_entries=2)
+  -- [f] shellcheck not installed, skipped
+
+ALL 7 assertions passed.
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  916G  797G   73G  92% /

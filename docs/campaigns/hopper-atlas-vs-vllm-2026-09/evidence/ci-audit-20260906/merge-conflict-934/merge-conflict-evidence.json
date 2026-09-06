@@ -1,0 +1,257 @@
+{
+  "observed_at_utc": "2026-09-06T17:12:44.523049+00:00",
+  "head": "201a1368e16dddf6174c4b6be25ee2d0c875dbf1",
+  "base": "136520b4f54b4d681718c0a6fc2770e5d07e1513",
+  "merge_preview_tree": "4edb8fca1e04742e7554994b67241db88b8ba284",
+  "commands": [
+    {
+      "name": "conflicting-main",
+      "command": [
+        "git",
+        "merge-tree",
+        "--write-tree",
+        "--name-only",
+        "201a1368e16dddf6174c4b6be25ee2d0c875dbf1",
+        "136520b4f54b4d681718c0a6fc2770e5d07e1513"
+      ],
+      "cwd": "/Users/tom/Documents/New project/atlas-campaign-code",
+      "exit_code": 1,
+      "stdout_lines": [
+        "4edb8fca1e04742e7554994b67241db88b8ba284",
+        ".github/workflows/ci.yml",
+        "crates/atlas-kernels/tests/nvfp4_mmq_capability.rs",
+        "crates/spark-server/src/scheduler/lifecycle_tests.rs",
+        "crates/spark-server/src/scheduler/mod.rs",
+        "docs/HARDWARE.md",
+        "",
+        "Auto-merging .github/workflows/ci.yml",
+        "CONFLICT (content): Merge conflict in .github/workflows/ci.yml",
+        "Auto-merging .github/workflows/kernel-compile.yml",
+        "Auto-merging Cargo.lock",
+        "Auto-merging crates/atlas-kernels/tests/nvfp4_mmq_capability.rs",
+        "CONFLICT (add/add): Merge conflict in crates/atlas-kernels/tests/nvfp4_mmq_capability.rs",
+        "Auto-merging crates/spark-runtime/src/cuda_backend.rs",
+        "Auto-merging crates/spark-server/src/grammar/tests/mod.rs",
+        "Auto-merging crates/spark-server/src/scheduler/lifecycle_tests.rs",
+        "CONFLICT (content): Merge conflict in crates/spark-server/src/scheduler/lifecycle_tests.rs",
+        "Auto-merging crates/spark-server/src/scheduler/mod.rs",
+        "CONFLICT (content): Merge conflict in crates/spark-server/src/scheduler/mod.rs",
+        "Auto-merging docs/HARDWARE.md",
+        "CONFLICT (content): Merge conflict in docs/HARDWARE.md",
+        "Auto-merging kernels/gb10/qwen3.6-27b/nvfp4/nvfp4_mmq.cu",
+        "Auto-merging scripts/check_kernel_shadows.py"
+      ],
+      "stderr": ""
+    },
+    {
+      "name": "self-control",
+      "command": [
+        "git",
+        "merge-tree",
+        "--write-tree",
+        "--name-only",
+        "201a1368e16dddf6174c4b6be25ee2d0c875dbf1",
+        "201a1368e16dddf6174c4b6be25ee2d0c875dbf1"
+      ],
+      "cwd": "/Users/tom/Documents/New project/atlas-campaign-code",
+      "exit_code": 0,
+      "stdout_lines": [
+        "394a0d48851329710f0a20148c7609d7e87a9286"
+      ],
+      "stderr": ""
+    }
+  ],
+  "conflicts": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "preview_blob_sha256": "de539fe2b0947f3265f29f1dc3781552c321b444d29978778b4c98d1e4f1fa59",
+      "conflict_hunks": [
+        {
+          "preview_line": 573,
+          "lines": [
+            "      # run on a developer machine; default `cargo test` skips them.",
+            "      - name: cargo test -p spark-runtime --features metal",
+            "        env:",
+            "<<<<<<< 201a1368e16dddf6174c4b6be25ee2d0c875dbf1",
+            "          # The workflow-wide ATLAS_SKIP_BUILD=1 stubs atlas-kernels' build",
+            "          # script, so `metallib_modules()` is EMPTY and every parity test",
+            "          # fails with `Metal: unknown module '...'`. That never showed on",
+            "          # GitHub-hosted macOS runners because MTLCreateSystemDefaultDevice",
+            "          # returns null there and the tests skip themselves; on a real Mac",
+            "          # (the self-hosted M5) they run and go red. This step is the one",
+            "          # place the metal kernel set must actually be built.",
+            "=======",
+            "          # \u2605 ATLAS_SKIP_BUILD=0, overriding the workflow-level \"1\".",
+            "          #",
+            "          # Reached independently three times (TheTom's #907, #909, #911); this",
+            "          # is #911's writeup, kept because it names the guards.",
+            "          #",
+            "          # This job used to inherit `ATLAS_SKIP_BUILD: \"1\"` from the top of",
+            "          # this file, which exists so the ubuntu jobs can type-check without",
+            "          # nvcc. atlas-kernels' build.rs honours it FIRST -- before the",
+            "          # macOS/ATLAS_TARGET_HW logic -- and emits a stub whose",
+            "          # `metallib_modules()` returns `Vec::new()`. `MetalGpuBackend::new`",
+            "          # then builds an EMPTY library cache (an empty module slice is not an",
+            "          # error to it) and every pipeline lookup dies with",
+            "          # `Metal: unknown module '<name>'`, so all 35 parity tests failed",
+            "          # instantly and this required context was red on every non-web PR --",
+            "          # red about the stub, never about the kernels.",
+            "          #",
+            "          # The Metal compile path is implemented, not stubbed:",
+            "          # build_target.rs `AppleTarget` (xcrun -sdk macosx metal -> AIR ->",
+            "          # metallib), reached from `resolve_compute_target(\"apple\")`, over the",
+            "          # 43 `.metal` sources under kernels/metal/ whose HARDWARE.toml",
+            "          # declares `vendor = \"apple\"`. So the fix is to let it run, not to",
+            "          # skip the suite: a suite told not to build the thing it tests can",
+            "          # neither fail for a real defect nor pass meaningfully, and a skip",
+            "          # that survived Phase 2 would be the same bug wearing green.",
+            "          #",
+            "          # `.github/scripts/assert-gates-are-wired.py` pins this statically and",
+            "          # `metal_backend::tests::embedded_kernels` refuses at RUNTIME if the",
+            "          # embedded metallib set is ever empty again, so the stub cannot come",
+            "          # back quietly by either route.",
+            "          #",
+            "          # This never showed on GitHub-hosted macOS runners: there",
+            "          # MTLCreateSystemDefaultDevice returns null and the tests skip",
+            "          # themselves. On a real Mac (the self-hosted M5) they run, and go",
+            "          # red. This step is the one place the metal kernel set is built.",
+            ">>>>>>> 136520b4f54b4d681718c0a6fc2770e5d07e1513",
+            "          ATLAS_SKIP_BUILD: \"0\"",
+            "          ATLAS_TARGET_HW: metal",
+            "          ATLAS_TARGET_MODEL: qwen3-5-4b-vlm-mlx-int8"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "crates/atlas-kernels/tests/nvfp4_mmq_capability.rs",
+      "preview_blob_sha256": "586b3148bcae7fc317f7b006cb7fa2e85ce70028a957b2d04c20862bbbdff016",
+      "conflict_hunks": [
+        {
+          "preview_line": 57,
+          "lines": [
+            "}",
+            "",
+            "#[test]",
+            "<<<<<<< 201a1368e16dddf6174c4b6be25ee2d0c875dbf1",
+            "fn hopper_audit_explains_every_removed_export_and_gb10_keeps_them() {",
+            "    let functions = exports(&source());",
+            "    assert_eq!(functions.len(), 13);",
+            "    for hw in [\"hopper\", \"gb10\"] {",
+            "        for model in [\"qwen3.6-27b\", \"qwen3.8-27b\"] {",
+            "            let path = root().join(hw).join(model).join(\"MODEL.toml\");",
+            "            let doc: toml::Value =",
+            "                toml::from_str(&std::fs::read_to_string(&path).unwrap()).unwrap();",
+            "            let absent = doc.get(\"expected_absent\").and_then(|t| t.get(\"nvfp4_mmq\"));",
+            "            if hw == \"gb10\" {",
+            "                assert!(absent.is_none(), \"GB10 must retain the supported MMQ path\");",
+            "                continue;",
+            "            }",
+            "            let absent = absent",
+            "                .and_then(toml::Value::as_table)",
+            "                .expect(\"all excluded MMQ entry points need reasons in the real Hopper audit\");",
+            "            assert_eq!(absent.len(), functions.len());",
+            "            for name in &functions {",
+            "                let reason = absent[name].as_str().unwrap();",
+            "                assert!(reason.contains(\"BLACKWELL_MMA_AVAILABLE\"));",
+            "                assert!(reason.contains(\"W4A16\"));",
+            "            }",
+            "        }",
+            "=======",
+            "fn gb10_dense_targets_keep_every_supported_mmq_export() {",
+            "    let functions = exports(&source());",
+            "    assert_eq!(functions.len(), 13);",
+            "    // GB10 is SM 12.1: BLACKWELL_MMA_AVAILABLE is defined, so every entry",
+            "    // point above compiles to real device code and none of them may be",
+            "    // declared absent. A target whose arch does not define the predicate",
+            "    // records each exclusion under `expected_absent.nvfp4_mmq` instead.",
+            "    for model in [\"qwen3.6-27b\", \"qwen3.8-27b\"] {",
+            "        let path = root().join(\"gb10\").join(model).join(\"MODEL.toml\");",
+            "        let doc: toml::Value = toml::from_str(&std::fs::read_to_string(&path).unwrap()).unwrap();",
+            "        let absent = doc.get(\"expected_absent\").and_then(|t| t.get(\"nvfp4_mmq\"));",
+            "        assert!(absent.is_none(), \"GB10 must retain the supported MMQ path\");",
+            ">>>>>>> 136520b4f54b4d681718c0a6fc2770e5d07e1513",
+            "    }",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "crates/spark-server/src/scheduler/lifecycle_tests.rs",
+      "preview_blob_sha256": "57a6dfd4fec9436b8b9eaa887c824ec78d3721c1840a418704f72da87dc851fc",
+      "conflict_hunks": [
+        {
+          "preview_line": 182,
+          "lines": [
+            "/// Minimal `Model`: only the paths `finish_sequence` exercises",
+            "/// (`cache_sequence`, `free_sequence`, `ep_broadcast_cmd_for_seq`",
+            "/// default) are live; everything else is unreachable in these tests.",
+            "<<<<<<< 201a1368e16dddf6174c4b6be25ee2d0c875dbf1",
+            "=======",
+            "/// `pub(super)` because `shutdown_drain_tests` drives the same stub. Sibling",
+            "/// test modules under `scheduler`, nothing wider. `Default` because that is",
+            "/// all that module needs \u2014 #911's richer StubModel carried a `freed` field for",
+            "/// `swap_resume_tests`, and that commit is superseded here by 963e22f684.",
+            ">>>>>>> 136520b4f54b4d681718c0a6fc2770e5d07e1513",
+            "pub(super) struct StubModel;",
+            "",
+            "impl Model for StubModel {"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "crates/spark-server/src/scheduler/mod.rs",
+      "preview_blob_sha256": "881945a930db527421bfa23d127dcb1b27221660adff20a513b7625119d250f8",
+      "conflict_hunks": [
+        {
+          "preview_line": 56,
+          "lines": [
+            "mod prefill_a_step_params;",
+            "mod prefill_b_step;",
+            "#[cfg(test)]",
+            "<<<<<<< 201a1368e16dddf6174c4b6be25ee2d0c875dbf1",
+            "mod prefill_timing_tests;",
+            "=======",
+            "mod prefill_fifo_tests;",
+            ">>>>>>> 136520b4f54b4d681718c0a6fc2770e5d07e1513",
+            "mod repetition;",
+            "mod rollback;",
+            "mod sample_step;"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/HARDWARE.md",
+      "preview_blob_sha256": "e8f8e94a00466194bf04f7880b121fc967156c3ca31b35244f6e1c35238296d4",
+      "conflict_hunks": [
+        {
+          "preview_line": 106,
+          "lines": [
+            "",
+            "## Adding a new hardware target",
+            "",
+            "<<<<<<< 201a1368e16dddf6174c4b6be25ee2d0c875dbf1",
+            "Atlas's NVIDIA targets are **GB10 (Blackwell, sm_121)**, **Hopper",
+            "(H100/H200, sm_90a)** and **B200 (B200/GB200, sm_100a)**; `strix`/`strix-hip`",
+            "(AMD gfx1151) and `metal` are the non-NVIDIA sets. Adding another \u2014 say sm_120",
+            "for a consumer Blackwell board, or sm_103 for Blackwell Ultra (B300/GB300) \u2014",
+            "requires:",
+            "=======",
+            "Atlas currently targets only **GB10 (Blackwell, sm_121)**. Adding another",
+            "target (say sm_120a for an RTX PRO 6000 workstation card, sm_90a for Hopper,",
+            "or sm_100a for B200) requires:",
+            ">>>>>>> 136520b4f54b4d681718c0a6fc2770e5d07e1513",
+            "",
+            "1. **`kernels/<new-hw>/HARDWARE.toml`**. The keys are exactly the ones",
+            "   `crates/atlas-kernels/build.rs` reads, plus documentation:"
+          ]
+        }
+      ]
+    }
+  ],
+  "code_changed": false,
+  "integration_validated": false
+}
