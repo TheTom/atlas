@@ -1,0 +1,6 @@
+{
+  "exit": 1,
+  "command": "python3 scripts/ci_pr_body_test.py",
+  "host": "Spark 1 CPU only",
+  "workflow": "64b468bf2d0602c9695dfb09f667e7608352cac6"
+}

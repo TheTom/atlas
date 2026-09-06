@@ -1,0 +1,10 @@
+{
+  "host": "Spark 1 CPU only",
+  "input_bytes": 60000,
+  "exit": 0,
+  "stdout": "",
+  "stderr": "",
+  "wall_s": 0.007237451005494222,
+  "body_bytes": 2000,
+  "github_output_exists": true
+}

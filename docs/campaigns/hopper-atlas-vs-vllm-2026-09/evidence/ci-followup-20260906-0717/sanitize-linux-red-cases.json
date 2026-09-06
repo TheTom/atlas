@@ -1,0 +1,58 @@
+[
+  {
+    "case": "observed",
+    "input_bytes": 11567,
+    "exit": 0,
+    "stderr": "",
+    "output_exists": true
+  },
+  {
+    "case": "8000",
+    "input_bytes": 8000,
+    "exit": 0,
+    "stderr": "",
+    "output_exists": true
+  },
+  {
+    "case": "10000",
+    "input_bytes": 10000,
+    "exit": 141,
+    "stderr": "",
+    "output_exists": false
+  },
+  {
+    "case": "12000",
+    "input_bytes": 12000,
+    "exit": 141,
+    "stderr": "",
+    "output_exists": false
+  },
+  {
+    "case": "15000",
+    "input_bytes": 15000,
+    "exit": 0,
+    "stderr": "",
+    "output_exists": true
+  },
+  {
+    "case": "20000",
+    "input_bytes": 20000,
+    "exit": 0,
+    "stderr": "",
+    "output_exists": true
+  },
+  {
+    "case": "40000",
+    "input_bytes": 40000,
+    "exit": 0,
+    "stderr": "",
+    "output_exists": true
+  },
+  {
+    "case": "60000",
+    "input_bytes": 60000,
+    "exit": 0,
+    "stderr": "",
+    "output_exists": true
+  }
+]

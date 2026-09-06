@@ -1,0 +1,152 @@
+[
+  {
+    "path": "FINDINGS.md",
+    "bytes": 5527,
+    "sha256": "98eb99b103d6e42ab251dff401b2043ae2ab43538d6a2ff58a55610b210e21c5"
+  },
+  {
+    "path": "categorize-job.log",
+    "bytes": 103649,
+    "sha256": "11c3ad734a8d48b74ce039e3956f92fda534b3123b0b803c2361f1618b92c065"
+  },
+  {
+    "path": "metal-job.log",
+    "bytes": 90209,
+    "sha256": "11a80680ca93ebeebf3394da4920069370e360379ec6bd5c60310c51df6e329c"
+  },
+  {
+    "path": "observed-pr-body.txt",
+    "bytes": 11567,
+    "sha256": "21ad241d695230432749d88dd85081bf770fe4069e8b57b57423b82d4c8ff983"
+  },
+  {
+    "path": "pr.json",
+    "bytes": 13536,
+    "sha256": "ef4dacdbcd7359239f44d950dd642d0579406bfe2bfa5280ca285fe11e84b801"
+  },
+  {
+    "path": "prepush/assembler.log",
+    "bytes": 2483,
+    "sha256": "7645cf8600dc39d49e6f72f6f742a077e2ab630fbdba60000b1b220415365a0d"
+  },
+  {
+    "path": "prepush/atlas-render.log",
+    "bytes": 61,
+    "sha256": "ccc9b6dde4677083938045dfa92550ba16a59f0cd7865031a6f567ec5af40304"
+  },
+  {
+    "path": "prepush/body-mac.log",
+    "bytes": 868,
+    "sha256": "2ff146b5f18fc8e9bf4135aac066e8e1954333d5b78562412ed4ad8c46a504f9"
+  },
+  {
+    "path": "prepush/campaign.log",
+    "bytes": 23309,
+    "sha256": "d2036ecb3a90f7bec245948998d55eb1494e82751296e8c6d7b3f5f05710293e"
+  },
+  {
+    "path": "prepush/diff.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "prepush/docker.log",
+    "bytes": 1028,
+    "sha256": "c4141fae15a7e8f4c0ca18891a13b75980cadfd52fd433fe22946cdfe4976ea6"
+  },
+  {
+    "path": "prepush/fmt.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "prepush/launcher.log",
+    "bytes": 2351,
+    "sha256": "8e87fe4b49c3bec7d7379326268ce84d6977e2ab2ea71cb0436f4a79a9d29d0c"
+  },
+  {
+    "path": "prepush/ptx-shellcheck.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "prepush/summary.json",
+    "bytes": 2986,
+    "sha256": "72b82df954c1a631500123c63413f6313122af11b69083186dcf4d1595cee8da"
+  },
+  {
+    "path": "prepush/typos.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "prepush/validator.log",
+    "bytes": 71,
+    "sha256": "80024a3903b09caa008d7ec01906a45745c53370096a0143f51c06d58956856c"
+  },
+  {
+    "path": "prepush/vllm-render.log",
+    "bytes": 70,
+    "sha256": "f890a628adeba75726f426d30114afe0ac1f1b937b8b81bf24cc6d18b62948cd"
+  },
+  {
+    "path": "prepush/workflow-yaml.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "regression-and-ptx-linux-green.json",
+    "bytes": 161,
+    "sha256": "6e57e18262e56545a6bab32d7b32214c7795adcb41f9180ea8c66a944fde46cf"
+  },
+  {
+    "path": "regression-and-ptx-linux-green.log",
+    "bytes": 1504,
+    "sha256": "20af4147e2e6914da66533a67433b61ee37a91ab08bfb1edbebed9d8ae6ac851"
+  },
+  {
+    "path": "regression-linux-red.json",
+    "bytes": 155,
+    "sha256": "4818fa165f288480838a8644b3b3f2deabcb31a4d49a32da7213f1ba22236565"
+  },
+  {
+    "path": "regression-linux-red.log",
+    "bytes": 5393,
+    "sha256": "f8879bbed6c0a252ab73b23376a429ece90c4f096d72bb96eced8a9752db8a31"
+  },
+  {
+    "path": "sanitize-before.sh",
+    "bytes": 339,
+    "sha256": "7a18515bfa5ce7993832101aeb6aae97e9fa8212eda142c53584da101c7ad55f"
+  },
+  {
+    "path": "sanitize-linux-red-cases.json",
+    "bytes": 930,
+    "sha256": "6ae8c66638c4257d3add290d8d4e5cd9607ea89b717166d7440dacb44ea7b129"
+  },
+  {
+    "path": "sanitize-linux-red.json",
+    "bytes": 190,
+    "sha256": "32b8351e2bd2af45395c073f72d71f28b01b63ee615199c7206842abfa774653"
+  },
+  {
+    "path": "sanitize-mac-red-cases.json",
+    "bytes": 924,
+    "sha256": "3552d4558b8352dda42bbb3118b1b074204f877c07379691ce9b176db7c1092e"
+  },
+  {
+    "path": "sanitize-red.json",
+    "bytes": 246,
+    "sha256": "785e24909bc4bb2d84bc1b99cbe0af561ff5dbaebd0080b2a14e49e222def86d"
+  },
+  {
+    "path": "seal-job.log",
+    "bytes": 6619,
+    "sha256": "eaa08c10c3ed766e5f6fc2d101acbfa121c74a4a570b97a25f7aa0f5487f0b9e"
+  },
+  {
+    "path": "spark1-cleanup.json",
+    "bytes": 366,
+    "sha256": "3c16256aae6c23c84ca3ff5d151889d3bb9ac852b89599babf50ec00616a804d"
+  }
+]

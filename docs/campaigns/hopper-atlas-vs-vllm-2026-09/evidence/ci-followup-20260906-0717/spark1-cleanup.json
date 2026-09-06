@@ -1,0 +1,7 @@
+{
+  "directory": "/home/pidtom/atlas-ci-prbody-20260906-0717",
+  "df_before": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  790G   80G  91% /\n",
+  "size": "4.6M\t/home/pidtom/atlas-ci-prbody-20260906-0717\n",
+  "removed": true,
+  "df_after": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  916G  790G   80G  91% /\n"
+}

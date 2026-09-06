@@ -1,0 +1,943 @@
+﻿2026-09-06T06:51:55.1403122Z Current runner version: '2.337.0'
+2026-09-06T06:51:55.1438051Z ##[group]Runner Image Provisioner
+2026-09-06T06:51:55.1439778Z Hosted Compute Agent
+2026-09-06T06:51:55.1440699Z Version: 20260828.587
+2026-09-06T06:51:55.1441836Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-06T06:51:55.1443084Z Build Date: 2026-08-28T16:44:25Z
+2026-09-06T06:51:55.1444136Z Worker ID: {be85450e-003e-47f0-be5d-4924f8e6daba}
+2026-09-06T06:51:55.1445263Z Azure Region: eastus2
+2026-09-06T06:51:55.1446131Z ##[endgroup]
+2026-09-06T06:51:55.1448529Z ##[group]Operating System
+2026-09-06T06:51:55.1449571Z Ubuntu
+2026-09-06T06:51:55.1450320Z 24.04.4
+2026-09-06T06:51:55.1451169Z LTS
+2026-09-06T06:51:55.1451952Z ##[endgroup]
+2026-09-06T06:51:55.1452838Z ##[group]Runner Image
+2026-09-06T06:51:55.1453840Z Image: ubuntu-24.04
+2026-09-06T06:51:55.1454709Z Version: 20260831.293.1
+2026-09-06T06:51:55.1456707Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260831.293/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-06T06:51:55.1459443Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260831.293
+2026-09-06T06:51:55.1461027Z ##[endgroup]
+2026-09-06T06:51:55.1462960Z ##[group]GITHUB_TOKEN Permissions
+2026-09-06T06:51:55.1465826Z Contents: read
+2026-09-06T06:51:55.1466698Z Metadata: read
+2026-09-06T06:51:55.1467761Z ##[endgroup]
+2026-09-06T06:51:55.1470888Z Secret source: None
+2026-09-06T06:51:55.1472460Z Prepare workflow directory
+2026-09-06T06:51:55.2004057Z Prepare all required actions
+2026-09-06T06:51:55.2070868Z Getting action download info
+2026-09-06T06:51:55.4118913Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-09-06T06:51:55.5190632Z Download action repository 'Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6' (SHA:6323deb102c322ba6fcbdcafc7e3dddab59af2b6)
+2026-09-06T06:51:55.7511358Z Download action repository 'actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a' (SHA:043fb46d1a93c77aae656e7c1c64a875d1fc6a0a)
+2026-09-06T06:51:55.9224527Z Complete job name: PR categorize (advisory)
+2026-09-06T06:51:55.9991835Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-09-06T06:51:55.9992855Z with:
+2026-09-06T06:51:55.9993270Z   fetch-depth: 0
+2026-09-06T06:51:55.9993741Z   repository: Avarok-Cybersecurity/atlas
+2026-09-06T06:51:55.9997826Z   token: ***
+2026-09-06T06:51:55.9998512Z   ssh-strict: true
+2026-09-06T06:51:55.9998959Z   ssh-user: git
+2026-09-06T06:51:55.9999408Z   persist-credentials: true
+2026-09-06T06:51:55.9999895Z   clean: true
+2026-09-06T06:51:56.0000340Z   sparse-checkout-cone-mode: true
+2026-09-06T06:51:56.0000859Z   fetch-tags: false
+2026-09-06T06:51:56.0001299Z   show-progress: true
+2026-09-06T06:51:56.0001759Z   lfs: false
+2026-09-06T06:51:56.0002171Z   submodules: false
+2026-09-06T06:51:56.0002624Z   set-safe-directory: true
+2026-09-06T06:51:56.0003128Z   allow-unsafe-pr-checkout: false
+2026-09-06T06:51:56.0003871Z env:
+2026-09-06T06:51:56.0004307Z   CARGO_TERM_COLOR: always
+2026-09-06T06:51:56.0004782Z   RUST_BACKTRACE: 1
+2026-09-06T06:51:56.0005243Z   ATLAS_SKIP_BUILD: 1
+2026-09-06T06:51:56.0005698Z   CUDARC_CUDA_VERSION: 13000
+2026-09-06T06:51:56.0006178Z ##[endgroup]
+2026-09-06T06:51:56.1023436Z Syncing repository: Avarok-Cybersecurity/atlas
+2026-09-06T06:51:56.1025917Z ##[group]Getting Git version info
+2026-09-06T06:51:56.1026919Z Working directory is '/home/runner/work/atlas/atlas'
+2026-09-06T06:51:56.1028594Z [command]/usr/bin/git version
+2026-09-06T06:51:56.1062514Z git version 2.55.0
+2026-09-06T06:51:56.1084558Z ##[endgroup]
+2026-09-06T06:51:56.1097351Z Temporarily overriding HOME='/home/runner/work/_temp/bded2f4c-27c6-4ff7-abaa-deabbda028e7' before making global git config changes
+2026-09-06T06:51:56.1100373Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-06T06:51:56.1104273Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/atlas/atlas
+2026-09-06T06:51:56.1156066Z Deleting the contents of '/home/runner/work/atlas/atlas'
+2026-09-06T06:51:56.1160174Z ##[group]Determining repository object format
+2026-09-06T06:51:56.1172985Z ##[endgroup]
+2026-09-06T06:51:56.1174402Z ##[group]Initializing the repository
+2026-09-06T06:51:56.1175676Z [command]/usr/bin/git init /home/runner/work/atlas/atlas
+2026-09-06T06:51:56.1251065Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-06T06:51:56.1255376Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-06T06:51:56.1256878Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-06T06:51:56.1258046Z hint: call:
+2026-09-06T06:51:56.1258854Z hint:
+2026-09-06T06:51:56.1259639Z hint: 	git config --global init.defaultBranch <name>
+2026-09-06T06:51:56.1260606Z hint:
+2026-09-06T06:51:56.1261508Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-06T06:51:56.1263021Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-06T06:51:56.1264234Z hint:
+2026-09-06T06:51:56.1264893Z hint: 	git branch -m <name>
+2026-09-06T06:51:56.1265631Z hint:
+2026-09-06T06:51:56.1266606Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-06T06:51:56.1268270Z Initialized empty Git repository in /home/runner/work/atlas/atlas/.git/
+2026-09-06T06:51:56.1271137Z [command]/usr/bin/git remote add origin https://github.com/Avarok-Cybersecurity/atlas
+2026-09-06T06:51:56.1402781Z ##[endgroup]
+2026-09-06T06:51:56.1413732Z ##[group]Disabling automatic garbage collection
+2026-09-06T06:51:56.1415282Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-06T06:51:56.1418445Z ##[endgroup]
+2026-09-06T06:51:56.1419754Z ##[group]Setting up auth
+2026-09-06T06:51:56.1420703Z Removing SSH command configuration
+2026-09-06T06:51:56.1422033Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-06T06:51:56.1456275Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-06T06:51:56.1872690Z Removing HTTP extra header
+2026-09-06T06:51:56.1895410Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-06T06:51:56.1951269Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-06T06:51:56.2270385Z Removing includeIf entries pointing to credentials config files
+2026-09-06T06:51:56.2271774Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-06T06:51:56.2300355Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-06T06:51:56.2554852Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-cc9bf132-9738-4f5a-a683-2976a9a4714a.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-06T06:51:56.2598532Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/atlas/atlas/.git.path /home/runner/work/_temp/git-credentials-cc9bf132-9738-4f5a-a683-2976a9a4714a.config
+2026-09-06T06:51:56.2638863Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/atlas/atlas/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-cc9bf132-9738-4f5a-a683-2976a9a4714a.config
+2026-09-06T06:51:56.2680223Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-cc9bf132-9738-4f5a-a683-2976a9a4714a.config
+2026-09-06T06:51:56.2717422Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-cc9bf132-9738-4f5a-a683-2976a9a4714a.config
+2026-09-06T06:51:56.2750543Z ##[endgroup]
+2026-09-06T06:51:56.2751581Z ##[group]Fetching the repository
+2026-09-06T06:51:56.2757688Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/* +45273758a3dfa662495ed894f7dd346824d34d2e:refs/remotes/pull/895/merge
+2026-09-06T06:52:00.7320869Z From https://github.com/Avarok-Cybersecurity/atlas
+2026-09-06T06:52:00.7323043Z  * [new branch]        DeepSeek_V4_Flash_Support                -> origin/DeepSeek_V4_Flash_Support
+2026-09-06T06:52:00.7325080Z  * [new branch]        a11y/decorative-icons                    -> origin/a11y/decorative-icons
+2026-09-06T06:52:00.7327117Z  * [new branch]        a11y/reduced-motion-gaps                 -> origin/a11y/reduced-motion-gaps
+2026-09-06T06:52:00.7329569Z  * [new branch]        admin/insert/user/codeowners/TheTom      -> origin/admin/insert/user/codeowners/TheTom
+2026-09-06T06:52:00.7330801Z  * [new branch]        attn-512-tc                              -> origin/attn-512-tc
+2026-09-06T06:52:00.7331958Z  * [new branch]        attn-parameterise-tiles                  -> origin/attn-parameterise-tiles
+2026-09-06T06:52:00.7333166Z  * [new branch]        attn-timer-label                         -> origin/attn-timer-label
+2026-09-06T06:52:00.7334177Z  * [new branch]        batch-a                                  -> origin/batch-a
+2026-09-06T06:52:00.7335336Z  * [new branch]        bench/baseline-keying-and-ceilings       -> origin/bench/baseline-keying-and-ceilings
+2026-09-06T06:52:00.7336653Z  * [new branch]        bench/batchcap-caveat                    -> origin/bench/batchcap-caveat
+2026-09-06T06:52:00.7337820Z  * [new branch]        bench/c16-c32-confirmed                  -> origin/bench/c16-c32-confirmed
+2026-09-06T06:52:00.7339721Z  * [new branch]        bench/c16-ksweep                         -> origin/bench/c16-ksweep
+2026-09-06T06:52:00.7341868Z  * [new branch]        bench/c2-rung-hardened                   -> origin/bench/c2-rung-hardened
+2026-09-06T06:52:00.7344636Z  * [new branch]        bench/c32-regression                     -> origin/bench/c32-regression
+2026-09-06T06:52:00.7346761Z  * [new branch]        bench/c32-wins                           -> origin/bench/c32-wins
+2026-09-06T06:52:00.7348757Z  * [new branch]        bench/decode-tps-not-tighter             -> origin/bench/decode-tps-not-tighter
+2026-09-06T06:52:00.7350626Z  * [new branch]        bench/driver-excluded                    -> origin/bench/driver-excluded
+2026-09-06T06:52:00.7352366Z  * [new branch]        bench/hi-rungs-bounded                   -> origin/bench/hi-rungs-bounded
+2026-09-06T06:52:00.7354151Z  * [new branch]        bench/nvfp4-moe-ttft-gate                -> origin/bench/nvfp4-moe-ttft-gate
+2026-09-06T06:52:00.7356062Z  * [new branch]        blog/article-0-images                    -> origin/blog/article-0-images
+2026-09-06T06:52:00.7357996Z  * [new branch]        blog/article-0-seven-tenets              -> origin/blog/article-0-seven-tenets
+2026-09-06T06:52:00.7359902Z  * [new branch]        blog/remove-scaffold-posts               -> origin/blog/remove-scaffold-posts
+2026-09-06T06:52:00.7361578Z  * [new branch]        blog/robots-parity                       -> origin/blog/robots-parity
+2026-09-06T06:52:00.7363070Z  * [new branch]        bot-cards                                -> origin/bot-cards
+2026-09-06T06:52:00.7364609Z  * [new branch]        bot/governance-harvest                   -> origin/bot/governance-harvest
+2026-09-06T06:52:00.7366270Z  * [new branch]        build/target-diagnostics                 -> origin/build/target-diagnostics
+2026-09-06T06:52:00.7368054Z  * [new branch]        chore/polish-wave-26                     -> origin/chore/polish-wave-26
+2026-09-06T06:52:00.7369929Z  * [new branch]        chore/polish-waves-26-28                 -> origin/chore/polish-waves-26-28
+2026-09-06T06:52:00.7371234Z  * [new branch]        chore/rename-benchmark-check             -> origin/chore/rename-benchmark-check
+2026-09-06T06:52:00.7372515Z  * [new branch]        chore/robustness-final                   -> origin/chore/robustness-final
+2026-09-06T06:52:00.7373888Z  * [new branch]        chore/site-manual-redeploy               -> origin/chore/site-manual-redeploy
+2026-09-06T06:52:00.7375007Z  * [new branch]        ci/canary-upgrade-path                   -> origin/ci/canary-upgrade-path
+2026-09-06T06:52:00.7376077Z  * [new branch]        ci/deploy-delete-delay                   -> origin/ci/deploy-delete-delay
+2026-09-06T06:52:00.7377347Z  * [new branch]        ci/docs-paths-filter                     -> origin/ci/docs-paths-filter
+2026-09-06T06:52:00.7378617Z  * [new branch]        ci/fix-telemetry                         -> origin/ci/fix-telemetry
+2026-09-06T06:52:00.7379660Z  * [new branch]        ci/macos-burst-runner                    -> origin/ci/macos-burst-runner
+2026-09-06T06:52:00.7380730Z  * [new branch]        ci/merge-ancestry-guard                  -> origin/ci/merge-ancestry-guard
+2026-09-06T06:52:00.7382399Z  * [new branch]        ci/merge-group-triggers                  -> origin/ci/merge-group-triggers
+2026-09-06T06:52:00.7384052Z  * [new branch]        ci/pin-actions-consolidate               -> origin/ci/pin-actions-consolidate
+2026-09-06T06:52:00.7385233Z  * [new branch]        ci/port-amd-strix-halo-green             -> origin/ci/port-amd-strix-halo-green
+2026-09-06T06:52:00.7386335Z  * [new branch]        ci/release-from-main                     -> origin/ci/release-from-main
+2026-09-06T06:52:00.7387501Z  * [new branch]        ci/route-cheap-checks-self-hosted        -> origin/ci/route-cheap-checks-self-hosted
+2026-09-06T06:52:00.7388803Z  * [new branch]        ci/site-tests                            -> origin/ci/site-tests
+2026-09-06T06:52:00.7389814Z  * [new branch]        ci/ssm-poisoning-gate                    -> origin/ci/ssm-poisoning-gate
+2026-09-06T06:52:00.7390855Z  * [new branch]        cla-signatures                           -> origin/cla-signatures
+2026-09-06T06:52:00.7391992Z  * [new branch]        codex/route-macos-metal-self-hosted      -> origin/codex/route-macos-metal-self-hosted
+2026-09-06T06:52:00.7393453Z  * [new branch]        dependabot/cargo/getrandom-0.4.3         -> origin/dependabot/cargo/getrandom-0.4.3
+2026-09-06T06:52:00.7394802Z  * [new branch]        dependabot/cargo/minor-updates-3d2f76ded1 -> origin/dependabot/cargo/minor-updates-3d2f76ded1
+2026-09-06T06:52:00.7396213Z  * [new branch]        dependabot/cargo/patch-updates-a48b72d076 -> origin/dependabot/cargo/patch-updates-a48b72d076
+2026-09-06T06:52:00.7397536Z  * [new branch]        dependabot/cargo/ratatui-0.30.2          -> origin/dependabot/cargo/ratatui-0.30.2
+2026-09-06T06:52:00.7399169Z  * [new branch]        dependabot/cargo/toml-1.1.4spec-1.1.0    -> origin/dependabot/cargo/toml-1.1.4spec-1.1.0
+2026-09-06T06:52:00.7400695Z  * [new branch]        dependabot/github_actions/actions-all-adec75042f -> origin/dependabot/github_actions/actions-all-adec75042f
+2026-09-06T06:52:00.7402129Z  * [new branch]        dflash-record-defaults                   -> origin/dflash-record-defaults
+2026-09-06T06:52:00.7403275Z  * [new branch]        docs/ai-repository-harness               -> origin/docs/ai-repository-harness
+2026-09-06T06:52:00.7404658Z  * [new branch]        docs/campaign-2-runbook                  -> origin/docs/campaign-2-runbook
+2026-09-06T06:52:00.7405854Z  * [new branch]        docs/exact-verify-temp0-cost             -> origin/docs/exact-verify-temp0-cost
+2026-09-06T06:52:00.7406959Z  * [new branch]        docs/gate-pin-policy                     -> origin/docs/gate-pin-policy
+2026-09-06T06:52:00.7408266Z  * [new branch]        docs/prunestale-real-reason              -> origin/docs/prunestale-real-reason
+2026-09-06T06:52:00.7409406Z  * [new branch]        docs/readme-logo                         -> origin/docs/readme-logo
+2026-09-06T06:52:00.7410688Z  * [new branch]        docs/ttft-double-run-nuance              -> origin/docs/ttft-double-run-nuance
+2026-09-06T06:52:00.7411834Z  * [new branch]        dx/stable-generated-files                -> origin/dx/stable-generated-files
+2026-09-06T06:52:00.7413386Z  * [new branch]        expert-telemetry-bench                   -> origin/expert-telemetry-bench
+2026-09-06T06:52:00.7414583Z  * [new branch]        feat/agentic-2.5h-bf16tc-prefill         -> origin/feat/agentic-2.5h-bf16tc-prefill
+2026-09-06T06:52:00.7416022Z  * [new branch]        feat/agentic-gate-seconds-per-turn       -> origin/feat/agentic-gate-seconds-per-turn
+2026-09-06T06:52:00.7417917Z  * [new branch]        feat/atlasctl-site                       -> origin/feat/atlasctl-site
+2026-09-06T06:52:00.7419831Z  * [new branch]        feat/automerger-skill                    -> origin/feat/automerger-skill
+2026-09-06T06:52:00.7421661Z  * [new branch]        feat/banner-atlasctl                     -> origin/feat/banner-atlasctl
+2026-09-06T06:52:00.7423492Z  * [new branch]        feat/batched-decode-engine               -> origin/feat/batched-decode-engine
+2026-09-06T06:52:00.7425377Z  * [new branch]        feat/bf16-native-loading                 -> origin/feat/bf16-native-loading
+2026-09-06T06:52:00.7427522Z  * [new branch]        feat/blog-markdown-docs-brand            -> origin/feat/blog-markdown-docs-brand
+2026-09-06T06:52:00.7429577Z  * [new branch]        feat/blog-subdomain                      -> origin/feat/blog-subdomain
+2026-09-06T06:52:00.7431287Z  * [new branch]        feat/campaign-drift-guard                -> origin/feat/campaign-drift-guard
+2026-09-06T06:52:00.7433099Z  * [new branch]        feat/cmd-runner-and-expedite             -> origin/feat/cmd-runner-and-expedite
+2026-09-06T06:52:00.7434863Z  * [new branch]        feat/coderag-workflow                    -> origin/feat/coderag-workflow
+2026-09-06T06:52:00.7436711Z  * [new branch]        feat/concurrency-128-dflash2-gate        -> origin/feat/concurrency-128-dflash2-gate
+2026-09-06T06:52:00.7438792Z  * [new branch]        feat/control-plane                       -> origin/feat/control-plane
+2026-09-06T06:52:00.7439934Z  * [new branch]        feat/control-plane-bridge                -> origin/feat/control-plane-bridge
+2026-09-06T06:52:00.7441294Z  * [new branch]        feat/dense-fp8-attn-ffn                  -> origin/feat/dense-fp8-attn-ffn
+2026-09-06T06:52:00.7442425Z  * [new branch]        feat/dflash-cross-turn-carry             -> origin/feat/dflash-cross-turn-carry
+2026-09-06T06:52:00.7443664Z  * [new branch]        feat/fp8-rowwise-mixed-precision         -> origin/feat/fp8-rowwise-mixed-precision
+2026-09-06T06:52:00.7444890Z  * [new branch]        feat/gate-chart-readability              -> origin/feat/gate-chart-readability
+2026-09-06T06:52:00.7445983Z  * [new branch]        feat/gdn-dense-tp-pr                     -> origin/feat/gdn-dense-tp-pr
+2026-09-06T06:52:00.7447237Z  * [new branch]        feat/gdn-flashinfer-aot                  -> origin/feat/gdn-flashinfer-aot
+2026-09-06T06:52:00.7449149Z  * [new branch]        feat/gdn-tooling-tokenizer               -> origin/feat/gdn-tooling-tokenizer
+2026-09-06T06:52:00.7450411Z  * [new branch]        feat/governance-fifo-cap                 -> origin/feat/governance-fifo-cap
+2026-09-06T06:52:00.7451545Z  * [new branch]        feat/governance-harvest                  -> origin/feat/governance-harvest
+2026-09-06T06:52:00.7452686Z  * [new branch]        feat/hardware-state-precheck             -> origin/feat/hardware-state-precheck
+2026-09-06T06:52:00.7453852Z  * [new branch]        feat/harness-certification               -> origin/feat/harness-certification
+2026-09-06T06:52:00.7454980Z  * [new branch]        feat/harvest-github-app                  -> origin/feat/harvest-github-app
+2026-09-06T06:52:00.7456069Z  * [new branch]        feat/harvest-self-repair                 -> origin/feat/harvest-self-repair
+2026-09-06T06:52:00.7457163Z  * [new branch]        feat/harvest-triage-test                 -> origin/feat/harvest-triage-test
+2026-09-06T06:52:00.7458499Z  * [new branch]        feat/holo-fp8-on-holo-gb10               -> origin/feat/holo-fp8-on-holo-gb10
+2026-09-06T06:52:00.7460005Z  * [new branch]        feat/holo-native-bf16-dense-loader       -> origin/feat/holo-native-bf16-dense-loader
+2026-09-06T06:52:00.7462038Z  * [new branch]        feat/holo-official-harness               -> origin/feat/holo-official-harness
+2026-09-06T06:52:00.7463948Z  * [new branch]        feat/intent-eigenvector                  -> origin/feat/intent-eigenvector
+2026-09-06T06:52:00.7465884Z  * [new branch]        feat/intent-eigenvector-gated            -> origin/feat/intent-eigenvector-gated
+2026-09-06T06:52:00.7467866Z  * [new branch]        feat/longcat-ngram-readiness             -> origin/feat/longcat-ngram-readiness
+2026-09-06T06:52:00.7469875Z  * [new branch]        feat/lora-gdn-inproj                     -> origin/feat/lora-gdn-inproj
+2026-09-06T06:52:00.7471851Z  * [new branch]        feat/measurement-discipline-skill        -> origin/feat/measurement-discipline-skill
+2026-09-06T06:52:00.7473717Z  * [new branch]        feat/mlperf-agentic-leg                  -> origin/feat/mlperf-agentic-leg
+2026-09-06T06:52:00.7475447Z  * [new branch]        feat/mtp-drafter-defaults                -> origin/feat/mtp-drafter-defaults
+2026-09-06T06:52:00.7477273Z  * [new branch]        feat/mtp-prefill-fp8-head                -> origin/feat/mtp-prefill-fp8-head
+2026-09-06T06:52:00.7479318Z  * [new branch]        feat/no-unknown-categories               -> origin/feat/no-unknown-categories
+2026-09-06T06:52:00.7481293Z  * [new branch]        feat/pairing-commit-verb                 -> origin/feat/pairing-commit-verb
+2026-09-06T06:52:00.7482569Z  * [new branch]        feat/placement-and-topology              -> origin/feat/placement-and-topology
+2026-09-06T06:52:00.7483737Z  * [new branch]        feat/pr-benchmark-campaign               -> origin/feat/pr-benchmark-campaign
+2026-09-06T06:52:00.7484852Z  * [new branch]        feat/pr-categorizer-ci                   -> origin/feat/pr-categorizer-ci
+2026-09-06T06:52:00.7485910Z  * [new branch]        feat/pr-categorizer-v2                   -> origin/feat/pr-categorizer-v2
+2026-09-06T06:52:00.7486981Z  * [new branch]        feat/pr-intent-taxonomy                  -> origin/feat/pr-intent-taxonomy
+2026-09-06T06:52:00.7488464Z  * [new branch]        feat/pr-telemetry-rework                 -> origin/feat/pr-telemetry-rework
+2026-09-06T06:52:00.7489619Z  * [new branch]        feat/pwa-control-only                    -> origin/feat/pwa-control-only
+2026-09-06T06:52:00.7491072Z  * [new branch]        feat/q12-batched-prefill                 -> origin/feat/q12-batched-prefill
+2026-09-06T06:52:00.7492850Z  * [new branch]        feat/qkv-batched-tiled-on-main           -> origin/feat/qkv-batched-tiled-on-main
+2026-09-06T06:52:00.7494158Z  * [new branch]        feat/qsa-prefill-select-perf             -> origin/feat/qsa-prefill-select-perf
+2026-09-06T06:52:00.7495279Z  * [new branch]        feat/qwen3.8-27b-support                 -> origin/feat/qwen3.8-27b-support
+2026-09-06T06:52:00.7496373Z  * [new branch]        feat/qwen4exp-mtp-module                 -> origin/feat/qwen4exp-mtp-module
+2026-09-06T06:52:00.7497416Z  * [new branch]        feat/rsafier-wave1                       -> origin/feat/rsafier-wave1
+2026-09-06T06:52:00.7498914Z  * [new branch]        feat/seal-enforcement-and-footer-social  -> origin/feat/seal-enforcement-and-footer-social
+2026-09-06T06:52:00.7500198Z  * [new branch]        feat/serve-options-manifest              -> origin/feat/serve-options-manifest
+2026-09-06T06:52:00.7501341Z  * [new branch]        feat/sheaf-based-replaying               -> origin/feat/sheaf-based-replaying
+2026-09-06T06:52:00.7502495Z  * [new branch]        feat/site-benchmark-dashboard            -> origin/feat/site-benchmark-dashboard
+2026-09-06T06:52:00.7503594Z  * [new branch]        feat/site-code-chat                      -> origin/feat/site-code-chat
+2026-09-06T06:52:00.7504677Z  * [new branch]        feat/site-concurrency-ladder             -> origin/feat/site-concurrency-ladder
+2026-09-06T06:52:00.7505873Z  * [new branch]        feat/site-full-stack-positioning         -> origin/feat/site-full-stack-positioning
+2026-09-06T06:52:00.7507193Z  * [new branch]        feat/site-ledger-redesign                -> origin/feat/site-ledger-redesign
+2026-09-06T06:52:00.7508838Z  * [new branch]        feat/strix-rocmfp4-integration           -> origin/feat/strix-rocmfp4-integration
+2026-09-06T06:52:00.7510001Z  * [new branch]        feat/telemetry-discussion                -> origin/feat/telemetry-discussion
+2026-09-06T06:52:00.7511248Z  * [new branch]        feat/tokenizer-from-checkpoint-on-main   -> origin/feat/tokenizer-from-checkpoint-on-main
+2026-09-06T06:52:00.7512457Z  * [new branch]        feat/tree-spec-decode                    -> origin/feat/tree-spec-decode
+2026-09-06T06:52:00.7513414Z  * [new branch]        feat/tui-ux                              -> origin/feat/tui-ux
+2026-09-06T06:52:00.7514356Z  * [new branch]        feat/video-support                       -> origin/feat/video-support
+2026-09-06T06:52:00.7515388Z  * [new branch]        feat/windows-installer                   -> origin/feat/windows-installer
+2026-09-06T06:52:00.7516383Z  * [new branch]        final-campaign                           -> origin/final-campaign
+2026-09-06T06:52:00.7517468Z  * [new branch]        fix-cla-bot-9510431919528654687          -> origin/fix-cla-bot-9510431919528654687
+2026-09-06T06:52:00.7518840Z  * [new branch]        fix/110-mixed-batch-scratch-race         -> origin/fix/110-mixed-batch-scratch-race
+2026-09-06T06:52:00.7519974Z  * [new branch]        fix/110-rc3-kv-refcount                  -> origin/fix/110-rc3-kv-refcount
+2026-09-06T06:52:00.7520992Z  * [new branch]        fix/328-prose-budget                     -> origin/fix/328-prose-budget
+2026-09-06T06:52:00.7521988Z  * [new branch]        fix/aria-modal-trap                      -> origin/fix/aria-modal-trap
+2026-09-06T06:52:00.7523084Z  * [new branch]        fix/bfcl-missing-soundfile-pin           -> origin/fix/bfcl-missing-soundfile-pin
+2026-09-06T06:52:00.7524221Z  * [new branch]        fix/bfcl-scorer-selftest                 -> origin/fix/bfcl-scorer-selftest
+2026-09-06T06:52:00.7525270Z  * [new branch]        fix/canary-curl-pipe                     -> origin/fix/canary-curl-pipe
+2026-09-06T06:52:00.7526610Z  * [new branch]        fix/certificate-image-fallback           -> origin/fix/certificate-image-fallback
+2026-09-06T06:52:00.7527971Z  * [new branch]        fix/certificate-never-fabricates-certifiers -> origin/fix/certificate-never-fabricates-certifiers
+2026-09-06T06:52:00.7529410Z  * [new branch]        fix/chat-quota-handling                  -> origin/fix/chat-quota-handling
+2026-09-06T06:52:00.7530467Z  * [new branch]        fix/chat-stream-settle                   -> origin/fix/chat-stream-settle
+2026-09-06T06:52:00.7531576Z  * [new branch]        fix/cla-allowlist-cursoragent            -> origin/fix/cla-allowlist-cursoragent
+2026-09-06T06:52:00.7532729Z  * [new branch]        fix/cla-allowlist-harvester              -> origin/fix/cla-allowlist-harvester
+2026-09-06T06:52:00.7533783Z  * [new branch]        fix/codeql-alerts                        -> origin/fix/codeql-alerts
+2026-09-06T06:52:00.7534841Z  * [new branch]        fix/coderag-chunk-token-cap              -> origin/fix/coderag-chunk-token-cap
+2026-09-06T06:52:00.7535952Z  * [new branch]        fix/coderag-corpus-size                  -> origin/fix/coderag-corpus-size
+2026-09-06T06:52:00.7537023Z  * [new branch]        fix/coderag-non-blocking                 -> origin/fix/coderag-non-blocking
+2026-09-06T06:52:00.7538208Z  * [new branch]        fix/coderag-pin-v0.1.1                   -> origin/fix/coderag-pin-v0.1.1
+2026-09-06T06:52:00.7539308Z  * [new branch]        fix/codex-compat-guard                   -> origin/fix/codex-compat-guard
+2026-09-06T06:52:00.7540351Z  * [new branch]        fix/control-hydration                    -> origin/fix/control-hydration
+2026-09-06T06:52:00.7541338Z  * [new branch]        fix/control-url                          -> origin/fix/control-url
+2026-09-06T06:52:00.7542427Z  * [new branch]        fix/cutlass-ep-null-expert-guard         -> origin/fix/cutlass-ep-null-expert-guard
+2026-09-06T06:52:00.7543560Z  * [new branch]        fix/dez-npm-advisories                   -> origin/fix/dez-npm-advisories
+2026-09-06T06:52:00.7544797Z  * [new branch]        fix/dflash-218-correctness               -> origin/fix/dflash-218-correctness
+2026-09-06T06:52:00.7545977Z  * [new branch]        fix/dflash-capture-kv-floor-shift        -> origin/fix/dflash-capture-kv-floor-shift
+2026-09-06T06:52:00.7547148Z  * [new branch]        fix/docker-bench-fixtures                -> origin/fix/docker-bench-fixtures
+2026-09-06T06:52:00.7548410Z  * [new branch]        fix/docs-headers-and-llms                -> origin/fix/docs-headers-and-llms
+2026-09-06T06:52:00.7549471Z  * [new branch]        fix/dumpbin-cfg-gate                     -> origin/fix/dumpbin-cfg-gate
+2026-09-06T06:52:00.7550527Z  * [new branch]        fix/flagship-recipe-ssot                 -> origin/fix/flagship-recipe-ssot
+2026-09-06T06:52:00.7551632Z  * [new branch]        fix/flash-next-fp8-refusal               -> origin/fix/flash-next-fp8-refusal
+2026-09-06T06:52:00.7552794Z  * [new branch]        fix/fleet-silent-probe-dead-end          -> origin/fix/fleet-silent-probe-dead-end
+2026-09-06T06:52:00.7553958Z  * [new branch]        fix/fp8-moe-bfcl-regression              -> origin/fix/fp8-moe-bfcl-regression
+2026-09-06T06:52:00.7555021Z  * [new branch]        fix/fp8-moe-residual                     -> origin/fix/fp8-moe-residual
+2026-09-06T06:52:00.7556125Z  * [new branch]        fix/gb10-builder-from-community          -> origin/fix/gb10-builder-from-community
+2026-09-06T06:52:00.7557270Z  * [new branch]        fix/generic-nvfp4-moe-gate               -> origin/fix/generic-nvfp4-moe-gate
+2026-09-06T06:52:00.7558459Z  * [new branch]        fix/gitignore-bun                        -> origin/fix/gitignore-bun
+2026-09-06T06:52:00.7559498Z  * [new branch]        fix/gpu-fault-exit-code                  -> origin/fix/gpu-fault-exit-code
+2026-09-06T06:52:00.7560575Z  * [new branch]        fix/h2-advisory-and-typos                -> origin/fix/h2-advisory-and-typos
+2026-09-06T06:52:00.7561838Z  * [new branch]        fix/harness-readiness-marker             -> origin/fix/harness-readiness-marker
+2026-09-06T06:52:00.7563116Z  * [new branch]        fix/harvest-commit-subject               -> origin/fix/harvest-commit-subject
+2026-09-06T06:52:00.7564196Z  * [new branch]        fix/harvest-converge                     -> origin/fix/harvest-converge
+2026-09-06T06:52:00.7565261Z  * [new branch]        fix/harvest-feedback-loop                -> origin/fix/harvest-feedback-loop
+2026-09-06T06:52:00.7566380Z  * [new branch]        fix/harvest-idempotent-push              -> origin/fix/harvest-idempotent-push
+2026-09-06T06:52:00.7567505Z  * [new branch]        fix/harvest-repair-dirty                 -> origin/fix/harvest-repair-dirty
+2026-09-06T06:52:00.7568793Z  * [new branch]        fix/harvest-repair-recreate              -> origin/fix/harvest-repair-recreate
+2026-09-06T06:52:00.7569915Z  * [new branch]        fix/harvest-sweep-always                 -> origin/fix/harvest-sweep-always
+2026-09-06T06:52:00.7571030Z  * [new branch]        fix/harvest-title-hygiene                -> origin/fix/harvest-title-hygiene
+2026-09-06T06:52:00.7572119Z  * [new branch]        fix/harvest-title-length                 -> origin/fix/harvest-title-length
+2026-09-06T06:52:00.7573179Z  * [new branch]        fix/help-title-editing                   -> origin/fix/help-title-editing
+2026-09-06T06:52:00.7574231Z  * [new branch]        fix/hip-fp8x2-halfraw2                   -> origin/fix/hip-fp8x2-halfraw2
+2026-09-06T06:52:00.7575212Z  * [new branch]        fix/join-hosts                           -> origin/fix/join-hosts
+2026-09-06T06:52:00.7576291Z  * [new branch]        fix/k4-verdict-rewind-by-forward         -> origin/fix/k4-verdict-rewind-by-forward
+2026-09-06T06:52:00.7577412Z  * [new branch]        fix/kv-preempt-resume                    -> origin/fix/kv-preempt-resume
+2026-09-06T06:52:00.7578713Z  * [new branch]        fix/ladder-into-dashboard                -> origin/fix/ladder-into-dashboard
+2026-09-06T06:52:00.7579985Z  * [new branch]        fix/launch-dialog-flicker                -> origin/fix/launch-dialog-flicker
+2026-09-06T06:52:00.7581145Z  * [new branch]        fix/launch-dialog-poll-failed            -> origin/fix/launch-dialog-poll-failed
+2026-09-06T06:52:00.7582242Z  * [new branch]        fix/ldb-common-port                      -> origin/fix/ldb-common-port
+2026-09-06T06:52:00.7583317Z  * [new branch]        fix/live-reasoning-timeout               -> origin/fix/live-reasoning-timeout
+2026-09-06T06:52:00.7584397Z  * [new branch]        fix/live-spec-pill                       -> origin/fix/live-spec-pill
+2026-09-06T06:52:00.7585526Z  * [new branch]        fix/manifest-sha-must-be-a-string        -> origin/fix/manifest-sha-must-be-a-string
+2026-09-06T06:52:00.7586696Z  * [new branch]        fix/markdown-href-interior               -> origin/fix/markdown-href-interior
+2026-09-06T06:52:00.7587841Z  * [new branch]        fix/metal-runner-hook-unblock            -> origin/fix/metal-runner-hook-unblock
+2026-09-06T06:52:00.7589173Z  * [new branch]        fix/moe-grouped-ptr-cache                -> origin/fix/moe-grouped-ptr-cache
+2026-09-06T06:52:00.7590282Z  * [new branch]        fix/moe-shared-expert-bf16               -> origin/fix/moe-shared-expert-bf16
+2026-09-06T06:52:00.7591403Z  * [new branch]        fix/mtp-gate-partial-window              -> origin/fix/mtp-gate-partial-window
+2026-09-06T06:52:00.7592521Z  * [new branch]        fix/mtp-k4-verify-dispatch               -> origin/fix/mtp-k4-verify-dispatch
+2026-09-06T06:52:00.7593572Z  * [new branch]        fix/mtp-refeed-map                       -> origin/fix/mtp-refeed-map
+2026-09-06T06:52:00.7594610Z  * [new branch]        fix/mtp-think-skip-parity                -> origin/fix/mtp-think-skip-parity
+2026-09-06T06:52:00.7595739Z  * [new branch]        fix/mtp-warm-drafter-coverage            -> origin/fix/mtp-warm-drafter-coverage
+2026-09-06T06:52:00.7597017Z  * [new branch]        fix/native-fp8-ssm-shadowed-modelopt-35b -> origin/fix/native-fp8-ssm-shadowed-modelopt-35b
+2026-09-06T06:52:00.7598639Z  * [new branch]        fix/no-undefined-in-agent-errors         -> origin/fix/no-undefined-in-agent-errors
+2026-09-06T06:52:00.7599826Z  * [new branch]        fix/nvfp4-batch-gemv-parity              -> origin/fix/nvfp4-batch-gemv-parity
+2026-09-06T06:52:00.7600942Z  * [new branch]        fix/onboarding-audit-batch               -> origin/fix/onboarding-audit-batch
+2026-09-06T06:52:00.7602083Z  * [new branch]        fix/pair-panel-says-where                -> origin/fix/pair-panel-says-where
+2026-09-06T06:52:00.7603129Z  * [new branch]        fix/post-433-stack                       -> origin/fix/post-433-stack
+2026-09-06T06:52:00.7604205Z  * [new branch]        fix/prefix-cache-straddle-ref            -> origin/fix/prefix-cache-straddle-ref
+2026-09-06T06:52:00.7605322Z  * [new branch]        fix/prose-bounds-799-842                 -> origin/fix/prose-bounds-799-842
+2026-09-06T06:52:00.7606455Z  * [new branch]        fix/protocol-malformed-welcome           -> origin/fix/protocol-malformed-welcome
+2026-09-06T06:52:00.7607618Z  * [new branch]        fix/qsa-ple-seq-state-leak               -> origin/fix/qsa-ple-seq-state-leak
+2026-09-06T06:52:00.7608912Z  * [new branch]        fix/qwen3.8-reasoning-effort             -> origin/fix/qwen3.8-reasoning-effort
+2026-09-06T06:52:00.7610043Z  * [new branch]        fix/qwen36-agentic-rebased               -> origin/fix/qwen36-agentic-rebased
+2026-09-06T06:52:00.7611257Z  * [new branch]        fix/radix-partial-tail-second-writer     -> origin/fix/radix-partial-tail-second-writer
+2026-09-06T06:52:00.7612416Z  * [new branch]        fix/remove-bun-cache                     -> origin/fix/remove-bun-cache
+2026-09-06T06:52:00.7613441Z  * [new branch]        fix/rerank-index-guard                   -> origin/fix/rerank-index-guard
+2026-09-06T06:52:00.7614572Z  * [new branch]        fix/rerank-index-must-be-an-index        -> origin/fix/rerank-index-must-be-an-index
+2026-09-06T06:52:00.7615671Z  * [new branch]        fix/results-dup-c8                       -> origin/fix/results-dup-c8
+2026-09-06T06:52:00.7617009Z  * [new branch]        fix/sampling-defaults-preset-fallback    -> origin/fix/sampling-defaults-preset-fallback
+2026-09-06T06:52:00.7618405Z  * [new branch]        fix/selection-clock-flake                -> origin/fix/selection-clock-flake
+2026-09-06T06:52:00.7619545Z  * [new branch]        fix/simhash-loop-kill-switch             -> origin/fix/simhash-loop-kill-switch
+2026-09-06T06:52:00.7620641Z  * [new branch]        fix/single-module-load                   -> origin/fix/single-module-load
+2026-09-06T06:52:00.7621699Z  * [new branch]        fix/site-npm-advisories                  -> origin/fix/site-npm-advisories
+2026-09-06T06:52:00.7622744Z  * [new branch]        fix/site-qwen3.8-family                  -> origin/fix/site-qwen3.8-family
+2026-09-06T06:52:00.7623737Z  * [new branch]        fix/soon-focus                           -> origin/fix/soon-focus
+2026-09-06T06:52:00.7624776Z  * [new branch]        fix/splitk-workspace-bounds              -> origin/fix/splitk-workspace-bounds
+2026-09-06T06:52:00.7625907Z  * [new branch]        fix/ssm-gauge-real-pool                  -> origin/fix/ssm-gauge-real-pool
+2026-09-06T06:52:00.7626988Z  * [new branch]        fix/ssm-rollback-hardening               -> origin/fix/ssm-rollback-hardening
+2026-09-06T06:52:00.7628242Z  * [new branch]        fix/ssm-snapshot-selection               -> origin/fix/ssm-snapshot-selection
+2026-09-06T06:52:00.7629376Z  * [new branch]        fix/ssm-tier-reap-dead-keys              -> origin/fix/ssm-tier-reap-dead-keys
+2026-09-06T06:52:00.7630484Z  * [new branch]        fix/streaming-markup-leak                -> origin/fix/streaming-markup-leak
+2026-09-06T06:52:00.7631634Z  * [new branch]        fix/ticker-illegal-invocation            -> origin/fix/ticker-illegal-invocation
+2026-09-06T06:52:00.7632827Z  * [new branch]        fix/unpaired-must-keep-probing           -> origin/fix/unpaired-must-keep-probing
+2026-09-06T06:52:00.7633958Z  * [new branch]        fix/v4-nvfp4-decode-sink                 -> origin/fix/v4-nvfp4-decode-sink
+2026-09-06T06:52:00.7635241Z  * [new branch]        fix/version-mismatch-copy                -> origin/fix/version-mismatch-copy
+2026-09-06T06:52:00.7636396Z  * [new branch]        fix/video-gate-pad-arithmetic            -> origin/fix/video-gate-pad-arithmetic
+2026-09-06T06:52:00.7637619Z  * [new branch]        fix/vision-gate-declared-area-bound      -> origin/fix/vision-gate-declared-area-bound
+2026-09-06T06:52:00.7639029Z  * [new branch]        fix/vllm-parity-remove-bandaids          -> origin/fix/vllm-parity-remove-bandaids
+2026-09-06T06:52:00.7640237Z  * [new branch]        fix/w8a16-batch-gemv-bitparity           -> origin/fix/w8a16-batch-gemv-bitparity
+2026-09-06T06:52:00.7641295Z  * [new branch]        gdn-pipe-spine                           -> origin/gdn-pipe-spine
+2026-09-06T06:52:00.7642192Z  * [new branch]        gdn-tma                                  -> origin/gdn-tma
+2026-09-06T06:52:00.7643106Z  * [new branch]        gdn-wu-gate-repair                       -> origin/gdn-wu-gate-repair
+2026-09-06T06:52:00.7644125Z  * [new branch]        gdn-wu-parallel-scan                     -> origin/gdn-wu-parallel-scan
+2026-09-06T06:52:00.7645154Z  * [new branch]        gdn-wu-right-looking                     -> origin/gdn-wu-right-looking
+2026-09-06T06:52:00.7646175Z  * [new branch]        gemma4-ffn-transpose                     -> origin/gemma4-ffn-transpose
+2026-09-06T06:52:00.7647170Z  * [new branch]        gemma4-moe-copies                        -> origin/gemma4-moe-copies
+2026-09-06T06:52:00.7648286Z  * [new branch]        gemma4-ratchet                           -> origin/gemma4-ratchet
+2026-09-06T06:52:00.7649250Z  * [new branch]        gemma4-ttft-gate                         -> origin/gemma4-ttft-gate
+2026-09-06T06:52:00.7650176Z  * [new branch]        gh-pages                                 -> origin/gh-pages
+2026-09-06T06:52:00.7651196Z  * [new branch]        governance-owners-update                 -> origin/governance-owners-update
+2026-09-06T06:52:00.7652467Z  * [new branch]        harden/pwa-onboarding                    -> origin/harden/pwa-onboarding
+2026-09-06T06:52:00.7653523Z  * [new branch]        harden/site-html-sinks                   -> origin/harden/site-html-sinks
+2026-09-06T06:52:00.7654472Z  * [new branch]        holo-gb10                                -> origin/holo-gb10
+2026-09-06T06:52:00.7655493Z  * [new branch]        integration/qwen38-flash-next            -> origin/integration/qwen38-flash-next
+2026-09-06T06:52:00.7656557Z  * [new branch]        kernel-perf-sweep                        -> origin/kernel-perf-sweep
+2026-09-06T06:52:00.7657663Z  * [new branch]        local-preview-paragraph-break            -> origin/local-preview-paragraph-break
+2026-09-06T06:52:00.7658867Z  * [new branch]        main                                     -> origin/main
+2026-09-06T06:52:00.7659677Z  * [new branch]        metal                                    -> origin/metal
+2026-09-06T06:52:00.7660607Z  * [new branch]        moe-prefill-copies                       -> origin/moe-prefill-copies
+2026-09-06T06:52:00.7661664Z  * [new branch]        perf/agentic-2.5h-prefill                -> origin/perf/agentic-2.5h-prefill
+2026-09-06T06:52:00.7662789Z  * [new branch]        perf/canonical-key-width-gate            -> origin/perf/canonical-key-width-gate
+2026-09-06T06:52:00.7663934Z  * [new branch]        perf/conv1d-token-parallel               -> origin/perf/conv1d-token-parallel
+2026-09-06T06:52:00.7665062Z  * [new branch]        perf/decode-vilp-mtp-fixes               -> origin/perf/decode-vilp-mtp-fixes
+2026-09-06T06:52:00.7666186Z  * [new branch]        perf/drain-tail-graph-reuse              -> origin/perf/drain-tail-graph-reuse
+2026-09-06T06:52:00.7667361Z  * [new branch]        perf/enterprise-concurrency-v2           -> origin/perf/enterprise-concurrency-v2
+2026-09-06T06:52:00.7668725Z  * [new branch]        perf/enterprise-concurrency-v3           -> origin/perf/enterprise-concurrency-v3
+2026-09-06T06:52:00.7669878Z  * [new branch]        perf/fast-moe-default-on                 -> origin/perf/fast-moe-default-on
+2026-09-06T06:52:00.7671249Z  * [new branch]        perf/gb10-golden-conglomerate-2026-07-24 -> origin/perf/gb10-golden-conglomerate-2026-07-24
+2026-09-06T06:52:00.7672453Z  * [new branch]        perf/gdn-fla-chunked                     -> origin/perf/gdn-fla-chunked
+2026-09-06T06:52:00.7673469Z  * [new branch]        perf/gdn-fused-spine                     -> origin/perf/gdn-fused-spine
+2026-09-06T06:52:00.7674541Z  * [new branch]        perf/gdn-qkvz-nvfp4-decode               -> origin/perf/gdn-qkvz-nvfp4-decode
+2026-09-06T06:52:00.7675599Z  * [new branch]        perf/gdn-vtile-spine                     -> origin/perf/gdn-vtile-spine
+2026-09-06T06:52:00.7676610Z  * [new branch]        perf/gdn-warm-replay                     -> origin/perf/gdn-warm-replay
+2026-09-06T06:52:00.7677685Z  * [new branch]        perf/grammar-multidraft-fold             -> origin/perf/grammar-multidraft-fold
+2026-09-06T06:52:00.7679020Z  * [new branch]        perf/hss-decode-overhead                 -> origin/perf/hss-decode-overhead
+2026-09-06T06:52:00.7680113Z  * [new branch]        perf/int8-prefill-faith2                 -> origin/perf/int8-prefill-faith2
+2026-09-06T06:52:00.7681134Z  * [new branch]        perf/lmhead-27b                          -> origin/perf/lmhead-27b
+2026-09-06T06:52:00.7682154Z  * [new branch]        perf/mixed-head-lm-ladder                -> origin/perf/mixed-head-lm-ladder
+2026-09-06T06:52:00.7683291Z  * [new branch]        perf/mtp-accept-width-buckets            -> origin/perf/mtp-accept-width-buckets
+2026-09-06T06:52:00.7684404Z  * [new branch]        perf/mtp-drafter-small-m                 -> origin/perf/mtp-drafter-small-m
+2026-09-06T06:52:00.7685487Z  * [new branch]        perf/mtp-reverify-dgx1                   -> origin/perf/mtp-reverify-dgx1
+2026-09-06T06:52:00.7686573Z  * [new branch]        perf/mtp-ttft-decode-levers              -> origin/perf/mtp-ttft-decode-levers
+2026-09-06T06:52:00.7687846Z  * [new branch]        perf/prefill-varlen-batch                -> origin/perf/prefill-varlen-batch
+2026-09-06T06:52:00.7689167Z  * [new branch]        perf/qwen36-27b-prefill-nvfp4            -> origin/perf/qwen36-27b-prefill-nvfp4
+2026-09-06T06:52:00.7690385Z  * [new branch]        perf/retain-dflash-verify-graphs         -> origin/perf/retain-dflash-verify-graphs
+2026-09-06T06:52:00.7691515Z  * [new branch]        perf/small-m-prefill                     -> origin/perf/small-m-prefill
+2026-09-06T06:52:00.7692582Z  * [new branch]        perf/ssm-fp16-pool-complete              -> origin/perf/ssm-fp16-pool-complete
+2026-09-06T06:52:00.7693691Z  * [new branch]        perf/ssm-rollback-batched                -> origin/perf/ssm-rollback-batched
+2026-09-06T06:52:00.7694810Z  * [new branch]        perf/ssm-spill-eviction-cost             -> origin/perf/ssm-spill-eviction-cost
+2026-09-06T06:52:00.7695962Z  * [new branch]        perf/ssm-verify-pool-capacity            -> origin/perf/ssm-verify-pool-capacity
+2026-09-06T06:52:00.7697221Z  * [new branch]        perf/stream-marker-prefix-holdback       -> origin/perf/stream-marker-prefix-holdback
+2026-09-06T06:52:00.7698818Z  * [new branch]        perf/strix-rocmfp4-full1004-87.85        -> origin/perf/strix-rocmfp4-full1004-87.85
+2026-09-06T06:52:00.7699971Z  * [new branch]        perf/verify-fixed-cost                   -> origin/perf/verify-fixed-cost
+2026-09-06T06:52:00.7701096Z  * [new branch]        perf/verify-graph-key-canonical          -> origin/perf/verify-graph-key-canonical
+2026-09-06T06:52:00.7702222Z  * [new branch]        perf/verify-row-cap-160                  -> origin/perf/verify-row-cap-160
+2026-09-06T06:52:00.7703256Z  * [new branch]        perf/w4a16-gemv-batch8                   -> origin/perf/w4a16-gemv-batch8
+2026-09-06T06:52:00.7704266Z  * [new branch]        perf/w4a4-fp4-gemm                       -> origin/perf/w4a4-fp4-gemm
+2026-09-06T06:52:00.7705254Z  * [new branch]        port/amd-strix-halo                      -> origin/port/amd-strix-halo
+2026-09-06T06:52:00.7706403Z  * [new branch]        pr/strix-rocmfp4                         -> origin/pr/strix-rocmfp4
+2026-09-06T06:52:00.7707491Z  * [new branch]        prep/pr334-loc-cap                       -> origin/prep/pr334-loc-cap
+2026-09-06T06:52:00.7708694Z  * [new branch]        prep/pr335-owed-items                    -> origin/prep/pr335-owed-items
+2026-09-06T06:52:00.7710273Z  * [new branch]        proto/qwen38-verify-divergence-dflash2   -> origin/proto/qwen38-verify-divergence-dflash2
+2026-09-06T06:52:00.7711659Z  * [new branch]        queue-protocol                           -> origin/queue-protocol
+2026-09-06T06:52:00.7712827Z  * [new branch]        records-base/mlperf-agentic-80c9eb5069   -> origin/records-base/mlperf-agentic-80c9eb5069
+2026-09-06T06:52:00.7714119Z  * [new branch]        refactor/mla-guard-capability            -> origin/refactor/mla-guard-capability
+2026-09-06T06:52:00.7715244Z  * [new branch]        scripts/campaign-traps                   -> origin/scripts/campaign-traps
+2026-09-06T06:52:00.7716383Z  * [new branch]        security/codeowners-harden               -> origin/security/codeowners-harden
+2026-09-06T06:52:00.7717443Z  * [new branch]        site-contact-tidy                        -> origin/site-contact-tidy
+2026-09-06T06:52:00.7718736Z  * [new branch]        site/diligence-ladder-repro              -> origin/site/diligence-ladder-repro
+2026-09-06T06:52:00.7719886Z  * [new branch]        site/diligence-walkthrough               -> origin/site/diligence-walkthrough
+2026-09-06T06:52:00.7721044Z  * [new branch]        site/inception-badge-contacts            -> origin/site/inception-badge-contacts
+2026-09-06T06:52:00.7722172Z  * [new branch]        site/receipt-affordance                  -> origin/site/receipt-affordance
+2026-09-06T06:52:00.7723219Z  * [new branch]        spec_ssm_docs_2026_06_03                 -> origin/spec_ssm_docs_2026_06_03
+2026-09-06T06:52:00.7724176Z  * [new branch]        spec_ssm_fix                             -> origin/spec_ssm_fix
+2026-09-06T06:52:00.7725322Z  * [new branch]        stack/441-bugfixes                       -> origin/stack/441-bugfixes
+2026-09-06T06:52:00.7726307Z  * [new branch]        stack/759-739-728-720                    -> origin/stack/759-739-728-720
+2026-09-06T06:52:00.7727301Z  * [new branch]        stack/batch1-safe                        -> origin/stack/batch1-safe
+2026-09-06T06:52:00.7728378Z  * [new branch]        stack/batch2-perf                        -> origin/stack/batch2-perf
+2026-09-06T06:52:00.7729364Z  * [new branch]        stack/batch3-ports                       -> origin/stack/batch3-ports
+2026-09-06T06:52:00.7730351Z  * [new branch]        stack/batch4-v2                          -> origin/stack/batch4-v2
+2026-09-06T06:52:00.7731273Z  * [new branch]        stack/batch5                             -> origin/stack/batch5
+2026-09-06T06:52:00.7732161Z  * [new branch]        stack/batch6                             -> origin/stack/batch6
+2026-09-06T06:52:00.7733085Z  * [new branch]        stack/c0904-1-deps                       -> origin/stack/c0904-1-deps
+2026-09-06T06:52:00.7734058Z  * [new branch]        stack/c0904-2-eos                        -> origin/stack/c0904-2-eos
+2026-09-06T06:52:00.7735067Z  * [new branch]        stack/c0904-3-verify-meta                -> origin/stack/c0904-3-verify-meta
+2026-09-06T06:52:00.7736125Z  * [new branch]        stack/c0904-4-gdn-tables                 -> origin/stack/c0904-4-gdn-tables
+2026-09-06T06:52:00.7737160Z  * [new branch]        stack/c0904-5-gdn-switch                 -> origin/stack/c0904-5-gdn-switch
+2026-09-06T06:52:00.7738377Z  * [new branch]        stack/c0904-6-dflash                     -> origin/stack/c0904-6-dflash
+2026-09-06T06:52:00.7739391Z  * [new branch]        stack/c0904-7-resolver                   -> origin/stack/c0904-7-resolver
+2026-09-06T06:52:00.7740444Z  * [new branch]        stack/certified-2026-09-04               -> origin/stack/certified-2026-09-04
+2026-09-06T06:52:00.7741523Z  * [new branch]        stack/certified-2026-09-06               -> origin/stack/certified-2026-09-06
+2026-09-06T06:52:00.7742745Z  * [new branch]        stack/ci-cost-controls                   -> origin/stack/ci-cost-controls
+2026-09-06T06:52:00.7743757Z  * [new branch]        stack/ci-honesty                         -> origin/stack/ci-honesty
+2026-09-06T06:52:00.7744727Z  * [new branch]        stack/ci-plumbing                        -> origin/stack/ci-plumbing
+2026-09-06T06:52:00.7745744Z  * [new branch]        stack/concurrency-cycle                  -> origin/stack/concurrency-cycle
+2026-09-06T06:52:00.7746828Z  * [new branch]        stack/content-and-records                -> origin/stack/content-and-records
+2026-09-06T06:52:00.7747855Z  * [new branch]        stack/deps-cargo                         -> origin/stack/deps-cargo
+2026-09-06T06:52:00.7748973Z  * [new branch]        stack/dflash-concurrency                 -> origin/stack/dflash-concurrency
+2026-09-06T06:52:00.7750061Z  * [new branch]        stack/dflash2-mem-buffers                -> origin/stack/dflash2-mem-buffers
+2026-09-06T06:52:00.7751093Z  * [new branch]        stack/gdn-dflash2                        -> origin/stack/gdn-dflash2
+2026-09-06T06:52:00.7752049Z  * [new branch]        stack/lora-hybrid                        -> origin/stack/lora-hybrid
+2026-09-06T06:52:00.7753047Z  * [new branch]        stack/nightly-honesty                    -> origin/stack/nightly-honesty
+2026-09-06T06:52:00.7754068Z  * [new branch]        stack/perf-plumbing                      -> origin/stack/perf-plumbing
+2026-09-06T06:52:00.7755081Z  * [new branch]        stack/prefill-582-584                    -> origin/stack/prefill-582-584
+2026-09-06T06:52:00.7756105Z  * [new branch]        stack/site-fixes-813-816                 -> origin/stack/site-fixes-813-816
+2026-09-06T06:52:00.7757182Z  * [new branch]        stack/tui-prefill-metrics                -> origin/stack/tui-prefill-metrics
+2026-09-06T06:52:00.7758420Z  * [new branch]        stack/verify-and-spec                    -> origin/stack/verify-and-spec
+2026-09-06T06:52:00.7759553Z  * [new branch]        strix-accfix2                            -> origin/strix-accfix2
+2026-09-06T06:52:00.7760531Z  * [new branch]        strix/consolidate-tmp                    -> origin/strix/consolidate-tmp
+2026-09-06T06:52:00.7761540Z  * [new branch]        strix/env-defaults                       -> origin/strix/env-defaults
+2026-09-06T06:52:00.7762577Z  * [new branch]        strix/mtp-context-prefill                -> origin/strix/mtp-context-prefill
+2026-09-06T06:52:00.7763597Z  * [new branch]        strix/qwen3.8-27b                        -> origin/strix/qwen3.8-27b
+2026-09-06T06:52:00.7764625Z  * [new branch]        strix/windows-hip-compat                 -> origin/strix/windows-hip-compat
+2026-09-06T06:52:00.7765572Z  * [new branch]        sync                                     -> origin/sync
+2026-09-06T06:52:00.7766505Z  * [new branch]        test/cutlass-sfb-parity                  -> origin/test/cutlass-sfb-parity
+2026-09-06T06:52:00.7767529Z  * [new branch]        test/ladder-stack                        -> origin/test/ladder-stack
+2026-09-06T06:52:00.7768710Z  * [new branch]        test/official-harness-on-main            -> origin/test/official-harness-on-main
+2026-09-06T06:52:00.7769843Z  * [new branch]        test/rune-module-harness                 -> origin/test/rune-module-harness
+2026-09-06T06:52:00.7770913Z  * [new branch]        thermal-and-fused-spine                  -> origin/thermal-and-fused-spine
+2026-09-06T06:52:00.7771953Z  * [new branch]        thetom-audit-stack                       -> origin/thetom-audit-stack
+2026-09-06T06:52:00.7772875Z  * [new branch]        tma-infra                                -> origin/tma-infra
+2026-09-06T06:52:00.7773826Z  * [new branch]        update-discord-invite                    -> origin/update-discord-invite
+2026-09-06T06:52:00.7774854Z  * [new branch]        update-twitter-link                      -> origin/update-twitter-link
+2026-09-06T06:52:00.7775792Z  * [new branch]        vl-ttft-gate                             -> origin/vl-ttft-gate
+2026-09-06T06:52:00.7776896Z  * [new branch]        windows-hip-first-run                    -> origin/windows-hip-first-run
+2026-09-06T06:52:00.7777900Z  * [new branch]        wip/dflash2-full                         -> origin/wip/dflash2-full
+2026-09-06T06:52:00.7779047Z  * [new branch]        wip/exl3-mtp                             -> origin/wip/exl3-mtp
+2026-09-06T06:52:00.7780021Z  * [new branch]        wip/exl3-mtp-batched                     -> origin/wip/exl3-mtp-batched
+2026-09-06T06:52:00.7781014Z  * [new branch]        wip/exl3-research                        -> origin/wip/exl3-research
+2026-09-06T06:52:00.7782025Z  * [new branch]        wip/laguna-integration                   -> origin/wip/laguna-integration
+2026-09-06T06:52:00.7783090Z  * [new branch]        wip/longcat-integration                  -> origin/wip/longcat-integration
+2026-09-06T06:52:00.7784124Z  * [new branch]        wip/nemo-integration                     -> origin/wip/nemo-integration
+2026-09-06T06:52:00.7785168Z  * [new branch]        wip/radixark-qwen4-exp                   -> origin/wip/radixark-qwen4-exp
+2026-09-06T06:52:00.7786277Z  * [new branch]        worktree-q12-flag-eager-n-fix            -> origin/worktree-q12-flag-eager-n-fix
+2026-09-06T06:52:00.7787359Z  * [new branch]        wt/batch4-leftovers                      -> origin/wt/batch4-leftovers
+2026-09-06T06:52:00.7788396Z  * [new branch]        wt/repair-479                            -> origin/wt/repair-479
+2026-09-06T06:52:00.7789244Z  * [new tag]           b223                                     -> b223
+2026-09-06T06:52:00.7789970Z  * [new tag]           b225                                     -> b225
+2026-09-06T06:52:00.7790675Z  * [new tag]           b226                                     -> b226
+2026-09-06T06:52:00.7791373Z  * [new tag]           b227                                     -> b227
+2026-09-06T06:52:00.7792065Z  * [new tag]           b228                                     -> b228
+2026-09-06T06:52:00.7792950Z  * [new tag]           b229                                     -> b229
+2026-09-06T06:52:00.7793644Z  * [new tag]           b230                                     -> b230
+2026-09-06T06:52:00.7794340Z  * [new tag]           b231                                     -> b231
+2026-09-06T06:52:00.7795030Z  * [new tag]           b232                                     -> b232
+2026-09-06T06:52:00.7795719Z  * [new tag]           b233                                     -> b233
+2026-09-06T06:52:00.7796396Z  * [new tag]           b234                                     -> b234
+2026-09-06T06:52:00.7797085Z  * [new tag]           b235                                     -> b235
+2026-09-06T06:52:00.7797778Z  * [new tag]           b236                                     -> b236
+2026-09-06T06:52:00.7798568Z  * [new tag]           b237                                     -> b237
+2026-09-06T06:52:00.7799256Z  * [new tag]           b240                                     -> b240
+2026-09-06T06:52:00.7799962Z  * [new tag]           b241                                     -> b241
+2026-09-06T06:52:00.7800654Z  * [new tag]           b243                                     -> b243
+2026-09-06T06:52:00.7801349Z  * [new tag]           b244                                     -> b244
+2026-09-06T06:52:00.7802036Z  * [new tag]           b245                                     -> b245
+2026-09-06T06:52:00.7802722Z  * [new tag]           b246                                     -> b246
+2026-09-06T06:52:00.7803406Z  * [new tag]           b247                                     -> b247
+2026-09-06T06:52:00.7804396Z  * [new tag]           b249                                     -> b249
+2026-09-06T06:52:00.7805186Z  * [new tag]           b250                                     -> b250
+2026-09-06T06:52:00.7805869Z  * [new tag]           b256                                     -> b256
+2026-09-06T06:52:00.7806560Z  * [new tag]           b257                                     -> b257
+2026-09-06T06:52:00.7807265Z  * [new tag]           b258                                     -> b258
+2026-09-06T06:52:00.7808206Z  * [new tag]           b260                                     -> b260
+2026-09-06T06:52:00.7808906Z  * [new tag]           b261                                     -> b261
+2026-09-06T06:52:00.7809597Z  * [new tag]           b262                                     -> b262
+2026-09-06T06:52:00.7810289Z  * [new tag]           b263                                     -> b263
+2026-09-06T06:52:00.7810983Z  * [new tag]           b264                                     -> b264
+2026-09-06T06:52:00.7811681Z  * [new tag]           b265                                     -> b265
+2026-09-06T06:52:00.7812369Z  * [new tag]           b266                                     -> b266
+2026-09-06T06:52:00.7813055Z  * [new tag]           b267                                     -> b267
+2026-09-06T06:52:00.7813743Z  * [new tag]           b269                                     -> b269
+2026-09-06T06:52:00.7814431Z  * [new tag]           b270                                     -> b270
+2026-09-06T06:52:00.7815144Z  * [new tag]           b272                                     -> b272
+2026-09-06T06:52:00.7815859Z  * [new tag]           b273                                     -> b273
+2026-09-06T06:52:00.7816549Z  * [new tag]           b274                                     -> b274
+2026-09-06T06:52:00.7817237Z  * [new tag]           b276                                     -> b276
+2026-09-06T06:52:00.7817924Z  * [new tag]           b277                                     -> b277
+2026-09-06T06:52:00.7818816Z  * [new tag]           b278                                     -> b278
+2026-09-06T06:52:00.7819507Z  * [new tag]           b279                                     -> b279
+2026-09-06T06:52:00.7820198Z  * [new tag]           b280                                     -> b280
+2026-09-06T06:52:00.7820889Z  * [new tag]           b281                                     -> b281
+2026-09-06T06:52:00.7821580Z  * [new tag]           b282                                     -> b282
+2026-09-06T06:52:00.7822432Z  * [new tag]           b283                                     -> b283
+2026-09-06T06:52:00.7823115Z  * [new tag]           b284                                     -> b284
+2026-09-06T06:52:00.7823799Z  * [new tag]           b285                                     -> b285
+2026-09-06T06:52:00.7824486Z  * [new tag]           b286                                     -> b286
+2026-09-06T06:52:00.7825172Z  * [new tag]           b287                                     -> b287
+2026-09-06T06:52:00.7825859Z  * [new tag]           b288                                     -> b288
+2026-09-06T06:52:00.7826535Z  * [new tag]           b289                                     -> b289
+2026-09-06T06:52:00.7827225Z  * [new tag]           b290                                     -> b290
+2026-09-06T06:52:00.7827915Z  * [new tag]           b291                                     -> b291
+2026-09-06T06:52:00.7828739Z  * [new tag]           b292                                     -> b292
+2026-09-06T06:52:00.7829466Z  * [new tag]           b293                                     -> b293
+2026-09-06T06:52:00.7830161Z  * [new tag]           b294                                     -> b294
+2026-09-06T06:52:00.7830849Z  * [new tag]           b295                                     -> b295
+2026-09-06T06:52:00.7831540Z  * [new tag]           b296                                     -> b296
+2026-09-06T06:52:00.7832225Z  * [new tag]           b298                                     -> b298
+2026-09-06T06:52:00.7832926Z  * [new tag]           b299                                     -> b299
+2026-09-06T06:52:00.7833622Z  * [new tag]           b300                                     -> b300
+2026-09-06T06:52:00.7834312Z  * [new tag]           b301                                     -> b301
+2026-09-06T06:52:00.7834995Z  * [new tag]           b302                                     -> b302
+2026-09-06T06:52:00.7835678Z  * [new tag]           b303                                     -> b303
+2026-09-06T06:52:00.7836378Z  * [new tag]           b304                                     -> b304
+2026-09-06T06:52:00.7837220Z  * [new tag]           b305                                     -> b305
+2026-09-06T06:52:00.7837923Z  * [new tag]           b306                                     -> b306
+2026-09-06T06:52:00.7838739Z  * [new tag]           b307                                     -> b307
+2026-09-06T06:52:00.7839473Z  * [new tag]           b308                                     -> b308
+2026-09-06T06:52:00.7840162Z  * [new tag]           b309                                     -> b309
+2026-09-06T06:52:00.7840865Z  * [new tag]           b310                                     -> b310
+2026-09-06T06:52:00.7841556Z  * [new tag]           b311                                     -> b311
+2026-09-06T06:52:00.7842241Z  * [new tag]           b312                                     -> b312
+2026-09-06T06:52:00.7842917Z  * [new tag]           b313                                     -> b313
+2026-09-06T06:52:00.7843622Z  * [new tag]           b314                                     -> b314
+2026-09-06T06:52:00.7844325Z  * [new tag]           b315                                     -> b315
+2026-09-06T06:52:00.7845008Z  * [new tag]           b316                                     -> b316
+2026-09-06T06:52:00.7845697Z  * [new tag]           b317                                     -> b317
+2026-09-06T06:52:00.7846388Z  * [new tag]           b318                                     -> b318
+2026-09-06T06:52:00.7847068Z  * [new tag]           b319                                     -> b319
+2026-09-06T06:52:00.7847749Z  * [new tag]           b320                                     -> b320
+2026-09-06T06:52:00.7848529Z  * [new tag]           b322                                     -> b322
+2026-09-06T06:52:00.7849216Z  * [new tag]           b324                                     -> b324
+2026-09-06T06:52:00.7849915Z  * [new tag]           b325                                     -> b325
+2026-09-06T06:52:00.7850749Z  * [new tag]           b326                                     -> b326
+2026-09-06T06:52:00.7851452Z  * [new tag]           b327                                     -> b327
+2026-09-06T06:52:00.7852142Z  * [new tag]           b328                                     -> b328
+2026-09-06T06:52:00.7852833Z  * [new tag]           b329                                     -> b329
+2026-09-06T06:52:00.7853522Z  * [new tag]           b330                                     -> b330
+2026-09-06T06:52:00.7854204Z  * [new tag]           b331                                     -> b331
+2026-09-06T06:52:00.7854889Z  * [new tag]           b333                                     -> b333
+2026-09-06T06:52:00.7855586Z  * [new tag]           b334                                     -> b334
+2026-09-06T06:52:00.7856276Z  * [new tag]           b335                                     -> b335
+2026-09-06T06:52:00.7856965Z  * [new tag]           b337                                     -> b337
+2026-09-06T06:52:00.7857662Z  * [new tag]           b342                                     -> b342
+2026-09-06T06:52:00.7858557Z  * [new tag]           b346                                     -> b346
+2026-09-06T06:52:00.7859257Z  * [new tag]           b347                                     -> b347
+2026-09-06T06:52:00.7859952Z  * [new tag]           b348                                     -> b348
+2026-09-06T06:52:00.7860650Z  * [new tag]           b349                                     -> b349
+2026-09-06T06:52:00.7861351Z  * [new tag]           b350                                     -> b350
+2026-09-06T06:52:00.7862045Z  * [new tag]           b351                                     -> b351
+2026-09-06T06:52:00.7862737Z  * [new tag]           b352                                     -> b352
+2026-09-06T06:52:00.7863434Z  * [new tag]           b353                                     -> b353
+2026-09-06T06:52:00.7864128Z  * [new tag]           b355                                     -> b355
+2026-09-06T06:52:00.7864817Z  * [new tag]           b356                                     -> b356
+2026-09-06T06:52:00.7865665Z  * [new tag]           b359                                     -> b359
+2026-09-06T06:52:00.7866364Z  * [new tag]           b360                                     -> b360
+2026-09-06T06:52:00.7867070Z  * [new tag]           b361                                     -> b361
+2026-09-06T06:52:00.7867757Z  * [new tag]           b363                                     -> b363
+2026-09-06T06:52:00.7868550Z  * [new tag]           b364                                     -> b364
+2026-09-06T06:52:00.7869252Z  * [new tag]           b365                                     -> b365
+2026-09-06T06:52:00.7869945Z  * [new tag]           b366                                     -> b366
+2026-09-06T06:52:00.7870632Z  * [new tag]           b367                                     -> b367
+2026-09-06T06:52:00.7871345Z  * [new tag]           b369                                     -> b369
+2026-09-06T06:52:00.7872052Z  * [new tag]           b370                                     -> b370
+2026-09-06T06:52:00.7872781Z  * [new tag]           b371                                     -> b371
+2026-09-06T06:52:00.7873476Z  * [new tag]           b372                                     -> b372
+2026-09-06T06:52:00.7874165Z  * [new tag]           b373                                     -> b373
+2026-09-06T06:52:00.7874857Z  * [new tag]           b374                                     -> b374
+2026-09-06T06:52:00.7875549Z  * [new tag]           b375                                     -> b375
+2026-09-06T06:52:00.7876416Z  * [new tag]           backup/pre-buncache-rewrite              -> backup/pre-buncache-rewrite
+2026-09-06T06:52:00.7877546Z  * [new tag]           mlperf-edge-strix-desktop-2026-07-21     -> mlperf-edge-strix-desktop-2026-07-21
+2026-09-06T06:52:00.7878811Z  * [new tag]           mlperf-edge-strix-k3-20260724            -> mlperf-edge-strix-k3-20260724
+2026-09-06T06:52:00.7879893Z  * [new tag]           mlperf-edge-strix-k3-20260725            -> mlperf-edge-strix-k3-20260725
+2026-09-06T06:52:00.7881141Z  * [new tag]           mlperf-edge-strix-k3-m64-20260724        -> mlperf-edge-strix-k3-m64-20260724
+2026-09-06T06:52:00.7882153Z  * [new ref]           45273758a3dfa662495ed894f7dd346824d34d2e -> pull/895/merge
+2026-09-06T06:52:00.7884104Z ##[endgroup]
+2026-09-06T06:52:00.7884835Z ##[group]Determining the checkout info
+2026-09-06T06:52:00.7885663Z ##[endgroup]
+2026-09-06T06:52:00.7886144Z [command]/usr/bin/git sparse-checkout disable
+2026-09-06T06:52:00.7887592Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-06T06:52:00.7889306Z ##[group]Checking out the ref
+2026-09-06T06:52:00.7890028Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/895/merge
+2026-09-06T06:52:01.2754841Z Note: switching to 'refs/remotes/pull/895/merge'.
+2026-09-06T06:52:01.2755582Z 
+2026-09-06T06:52:01.2756119Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-09-06T06:52:01.2757392Z changes and commit them, and you can discard any commits you make in this
+2026-09-06T06:52:01.2759211Z state without impacting any branches by switching back to a branch.
+2026-09-06T06:52:01.2760125Z 
+2026-09-06T06:52:01.2760636Z If you want to create a new branch to retain commits you create, you may
+2026-09-06T06:52:01.2761940Z do so (now or later) by using -c with the switch command. Example:
+2026-09-06T06:52:01.2762724Z 
+2026-09-06T06:52:01.2763060Z   git switch -c <new-branch-name>
+2026-09-06T06:52:01.2763623Z 
+2026-09-06T06:52:01.2763938Z Or undo this operation with:
+2026-09-06T06:52:01.2764433Z 
+2026-09-06T06:52:01.2764746Z   git switch -
+2026-09-06T06:52:01.2765162Z 
+2026-09-06T06:52:01.2765921Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-09-06T06:52:01.2766925Z 
+2026-09-06T06:52:01.2768209Z HEAD is now at 45273758 Merge 64b468bf2d0602c9695dfb09f667e7608352cac6 into 8682329cce0dd8bec1d3775704e978533b00bf7a
+2026-09-06T06:52:01.3300383Z ##[endgroup]
+2026-09-06T06:52:01.3302985Z [command]/usr/bin/git log -1 --format=%H
+2026-09-06T06:52:01.3334902Z 45273758a3dfa662495ed894f7dd346824d34d2e
+2026-09-06T06:52:01.3795765Z ##[group]Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6
+2026-09-06T06:52:01.3797407Z with:
+2026-09-06T06:52:01.3798368Z   shared-key: pr-categorize
+2026-09-06T06:52:01.3799387Z   prefix-key: v0-rust
+2026-09-06T06:52:01.3800321Z   add-job-id-key: true
+2026-09-06T06:52:01.3801334Z   add-rust-environment-hash-key: true
+2026-09-06T06:52:01.3802477Z   cache-targets: true
+2026-09-06T06:52:01.3803404Z   cache-all-crates: false
+2026-09-06T06:52:01.3804433Z   cache-workspace-crates: false
+2026-09-06T06:52:01.3805471Z   save-if: true
+2026-09-06T06:52:01.3806321Z   cache-provider: github
+2026-09-06T06:52:01.3807278Z   cache-bin: true
+2026-09-06T06:52:01.3808298Z   lookup-only: false
+2026-09-06T06:52:01.3809188Z   cmd-format: {0}
+2026-09-06T06:52:01.3810011Z env:
+2026-09-06T06:52:01.3810798Z   CARGO_TERM_COLOR: always
+2026-09-06T06:52:01.3811794Z   RUST_BACKTRACE: 1
+2026-09-06T06:52:01.3812674Z   ATLAS_SKIP_BUILD: 1
+2026-09-06T06:52:01.3813607Z   CUDARC_CUDA_VERSION: 13000
+2026-09-06T06:52:01.3814624Z ##[endgroup]
+2026-09-06T06:52:10.7747039Z ##[group]Cache Configuration
+2026-09-06T06:52:10.7747521Z Cache Provider:
+2026-09-06T06:52:10.7747833Z     github
+2026-09-06T06:52:10.7748329Z Workspaces:
+2026-09-06T06:52:10.7748682Z     /home/runner/work/atlas/atlas
+2026-09-06T06:52:10.7749100Z Cache Paths:
+2026-09-06T06:52:10.7749427Z     /home/runner/.cargo/bin
+2026-09-06T06:52:10.7749830Z     /home/runner/.cargo/.crates.toml
+2026-09-06T06:52:10.7750297Z     /home/runner/.cargo/.crates2.json
+2026-09-06T06:52:10.7750760Z     /home/runner/.cargo/registry
+2026-09-06T06:52:10.7751461Z     /home/runner/.cargo/git
+2026-09-06T06:52:10.7752193Z     /home/runner/work/atlas/atlas/target
+2026-09-06T06:52:10.7752621Z Restore Key:
+2026-09-06T06:52:10.7752985Z     v0-rust-pr-categorize-Linux-x64-aedd8457
+2026-09-06T06:52:10.7753444Z Cache Key:
+2026-09-06T06:52:10.7753853Z     v0-rust-pr-categorize-Linux-x64-aedd8457-0fe7a537
+2026-09-06T06:52:10.7754818Z .. Prefix:
+2026-09-06T06:52:10.7755203Z   - v0-rust-pr-categorize-Linux-x64
+2026-09-06T06:52:10.7755651Z .. Environment considered:
+2026-09-06T06:52:10.7756025Z   - Rust Versions:
+2026-09-06T06:52:10.7756548Z     - 1.93.1 x86_64-unknown-linux-gnu 01f6ddf7588f42ae2d7eb0a2f21d44e8e96674cf
+2026-09-06T06:52:10.7757379Z     - 1.98.0 x86_64-unknown-linux-gnu 88d9e12ae178fab0fb5cc050a94da85685d449ea
+2026-09-06T06:52:10.7757987Z   - CARGO_INCREMENTAL
+2026-09-06T06:52:10.7758495Z   - CARGO_TERM_COLOR
+2026-09-06T06:52:10.7758837Z   - RUST_BACKTRACE
+2026-09-06T06:52:10.7759177Z .. Lockfiles considered:
+2026-09-06T06:52:10.7759598Z   - /home/runner/work/atlas/atlas/Cargo.lock
+2026-09-06T06:52:10.7760216Z   - /home/runner/work/atlas/atlas/crates/atlas-closure/Cargo.toml
+2026-09-06T06:52:10.7760916Z   - /home/runner/work/atlas/atlas/crates/atlas-core/Cargo.toml
+2026-09-06T06:52:10.7761698Z   - /home/runner/work/atlas/atlas/crates/atlas-governance/Cargo.toml
+2026-09-06T06:52:10.7762428Z   - /home/runner/work/atlas/atlas/crates/atlas-kernels/Cargo.toml
+2026-09-06T06:52:10.7763134Z   - /home/runner/work/atlas/atlas/crates/atlas-plugin/Cargo.toml
+2026-09-06T06:52:10.7763832Z   - /home/runner/work/atlas/atlas/crates/atlas-rdma/Cargo.toml
+2026-09-06T06:52:10.7764557Z   - /home/runner/work/atlas/atlas/crates/atlas-spark-bench/Cargo.toml
+2026-09-06T06:52:10.7765270Z   - /home/runner/work/atlas/atlas/crates/atlas-tier/Cargo.toml
+2026-09-06T06:52:10.7765925Z   - /home/runner/work/atlas/atlas/crates/cufile-sys/Cargo.toml
+2026-09-06T06:52:10.7766587Z   - /home/runner/work/atlas/atlas/crates/spark-comm/Cargo.toml
+2026-09-06T06:52:10.7767250Z   - /home/runner/work/atlas/atlas/crates/spark-model/Cargo.toml
+2026-09-06T06:52:10.7767921Z   - /home/runner/work/atlas/atlas/crates/spark-nllb/Cargo.toml
+2026-09-06T06:52:10.7768738Z   - /home/runner/work/atlas/atlas/crates/spark-runtime/Cargo.toml
+2026-09-06T06:52:10.7769444Z   - /home/runner/work/atlas/atlas/crates/spark-server/Cargo.toml
+2026-09-06T06:52:10.7770144Z   - /home/runner/work/atlas/atlas/crates/spark-storage/Cargo.toml
+2026-09-06T06:52:10.7771143Z   - /home/runner/work/atlas/atlas/crates/xgrammar/Cargo.toml
+2026-09-06T06:52:10.7771751Z   - /home/runner/work/atlas/atlas/rust-toolchain.toml
+2026-09-06T06:52:10.7772554Z ##[endgroup]
+2026-09-06T06:52:10.7772748Z 
+2026-09-06T06:52:10.7772886Z ... Restoring cache ...
+2026-09-06T06:52:10.8418861Z Cache hit for: v0-rust-pr-categorize-Linux-x64-aedd8457-0fe7a537
+2026-09-06T06:52:11.7219591Z Received 183977285 of 183977285 (100.0%), 211.1 MBs/sec
+2026-09-06T06:52:11.7220337Z Cache Size: ~175 MB (183977285 B)
+2026-09-06T06:52:11.7254078Z [command]/usr/bin/tar -xf /home/runner/work/_temp/961597d0-f12e-4669-a4b2-b1d4259760fc/cache.tzst -P -C /home/runner/work/atlas/atlas --use-compress-program unzstd
+2026-09-06T06:52:12.8206151Z Cache restored successfully
+2026-09-06T06:52:12.8329816Z Restored from cache key "v0-rust-pr-categorize-Linux-x64-aedd8457-0fe7a537" full match: true.
+2026-09-06T06:52:12.8553269Z ##[group]Run set -euo pipefail
+2026-09-06T06:52:12.8553729Z [36;1mset -euo pipefail[0m
+2026-09-06T06:52:12.8554136Z [36;1m# Both values come from the event payload, which GitHub controls, not[0m
+2026-09-06T06:52:12.8554675Z [36;1m# the branch contents. They still go through env rather than being[0m
+2026-09-06T06:52:12.8555085Z [36;1m# interpolated into this script.[0m
+2026-09-06T06:52:12.8555363Z [36;1m#[0m
+2026-09-06T06:52:12.8555699Z [36;1m# Heredoc-delimited with a RANDOMIZED marker, the same discipline as[0m
+2026-09-06T06:52:12.8556212Z [36;1m# classify-path's own `emit`: these are repo paths, and a path can[0m
+2026-09-06T06:52:12.8556712Z [36;1m# contain almost anything — including a filename that spells a FIXED[0m
+2026-09-06T06:52:12.8557207Z [36;1m# delimiter on a line of its own and forges extra step outputs.[0m
+2026-09-06T06:52:12.8557671Z [36;1m# $RANDOM$RANDOM is not cryptographic, but the forgery has to be[0m
+2026-09-06T06:52:12.8558393Z [36;1m# committed into the diff before the run picks the marker.[0m
+2026-09-06T06:52:12.8559066Z [36;1memit_file() {  # output name, file — value is the file, verbatim[0m
+2026-09-06T06:52:12.8559444Z [36;1m  local d="__ATLAS_EOF_$RANDOM$RANDOM"[0m
+2026-09-06T06:52:12.8559725Z [36;1m  {[0m
+2026-09-06T06:52:12.8559949Z [36;1m    printf '%s<<%s\n' "$1" "$d"[0m
+2026-09-06T06:52:12.8560217Z [36;1m    cat "$2"[0m
+2026-09-06T06:52:12.8560535Z [36;1m    # The closing marker must sit on its own line even when the file[0m
+2026-09-06T06:52:12.8560968Z [36;1m    # does not end in a newline (head -c can cut mid-line).[0m
+2026-09-06T06:52:12.8561371Z [36;1m    if [ -s "$2" ] && [ -n "$(tail -c1 "$2")" ]; then echo; fi[0m
+2026-09-06T06:52:12.8561711Z [36;1m    printf '%s\n' "$d"[0m
+2026-09-06T06:52:12.8561970Z [36;1m  } >> "$GITHUB_OUTPUT"[0m
+2026-09-06T06:52:12.8562211Z [36;1m}[0m
+2026-09-06T06:52:12.8562525Z [36;1mgit diff --name-only "$BASE_SHA" "$HEAD_SHA" > changed.txt || true[0m
+2026-09-06T06:52:12.8562908Z [36;1mtotal=$(wc -l < changed.txt)[0m
+2026-09-06T06:52:12.8563217Z [36;1mecho "count=$total" >> "$GITHUB_OUTPUT"[0m
+2026-09-06T06:52:12.8563589Z [36;1m# TWO views of the same diff, complementary by construction:[0m
+2026-09-06T06:52:12.8564062Z [36;1m#   * a COMPLETE histogram over the top two path levels — never[0m
+2026-09-06T06:52:12.8564492Z [36;1m#     truncated, so the overall SHAPE of the change reaches the[0m
+2026-09-06T06:52:12.8564892Z [36;1m#     classifier whole no matter how large the diff is;[0m
+2026-09-06T06:52:12.8565300Z [36;1m#   * the full path list, sorted, capped at 24000 bytes with an[0m
+2026-09-06T06:52:12.8565670Z [36;1m#     EXPLICIT trailer naming what was cut.[0m
+2026-09-06T06:52:12.8566054Z [36;1m# The old form was `head -c 4000` of the unsorted list and nothing[0m
+2026-09-06T06:52:12.8566714Z [36;1m# else — silently truncated, and steerable: path ORDER decided what[0m
+2026-09-06T06:52:12.8567365Z [36;1m# the model saw, so a PR could lead with 4000 bytes of docs/ churn[0m
+2026-09-06T06:52:12.8567814Z [36;1m# and push the kernel edit past the cut. Sorting removes the[0m
+2026-09-06T06:52:12.8568442Z [36;1m# ordering lever, the histogram survives any cut, and the trailer[0m
+2026-09-06T06:52:12.8568912Z [36;1m# makes a cut visible to the model and to the human reading the[0m
+2026-09-06T06:52:12.8569330Z [36;1m# summary instead of looking like a complete list.[0m
+2026-09-06T06:52:12.8569768Z [36;1mcut -d/ -f1-2 changed.txt | sort | uniq -c | sort -rn > histogram.txt[0m
+2026-09-06T06:52:12.8570166Z [36;1msort changed.txt > sorted.txt[0m
+2026-09-06T06:52:12.8570459Z [36;1mhead -c 24000 sorted.txt > paths.txt[0m
+2026-09-06T06:52:12.8570785Z [36;1mif [ "$(wc -c < sorted.txt)" -gt 24000 ]; then[0m
+2026-09-06T06:52:12.8571188Z [36;1m  # Drop the (possibly mid-path) final line, then say what was cut.[0m
+2026-09-06T06:52:12.8571564Z [36;1m  sed -i '$ d' paths.txt[0m
+2026-09-06T06:52:12.8572080Z [36;1m  printf '(truncated: showing %s of %s paths)\n' \[0m
+2026-09-06T06:52:12.8572442Z [36;1m    "$(wc -l < paths.txt)" "$total" >> paths.txt[0m
+2026-09-06T06:52:12.8572745Z [36;1mfi[0m
+2026-09-06T06:52:12.8572980Z [36;1memit_file histogram histogram.txt[0m
+2026-09-06T06:52:12.8573269Z [36;1memit_file paths paths.txt[0m
+2026-09-06T06:52:12.8620842Z shell: /usr/bin/bash -e {0}
+2026-09-06T06:52:12.8621115Z env:
+2026-09-06T06:52:12.8621342Z   CARGO_TERM_COLOR: always
+2026-09-06T06:52:12.8621598Z   RUST_BACKTRACE: 1
+2026-09-06T06:52:12.8621827Z   ATLAS_SKIP_BUILD: 1
+2026-09-06T06:52:12.8622057Z   CUDARC_CUDA_VERSION: 13000
+2026-09-06T06:52:12.8622316Z   CACHE_ON_FAILURE: false
+2026-09-06T06:52:12.8622551Z   CARGO_INCREMENTAL: 0
+2026-09-06T06:52:12.8622823Z   BASE_SHA: 567b5ebe7784ac3657a4ae97940f6783c8414393
+2026-09-06T06:52:12.8623165Z   HEAD_SHA: 64b468bf2d0602c9695dfb09f667e7608352cac6
+2026-09-06T06:52:12.8623463Z ##[endgroup]
+2026-09-06T06:52:12.8997307Z ##[group]Run set -uo pipefail
+2026-09-06T06:52:12.8997661Z [36;1mset -uo pipefail[0m
+2026-09-06T06:52:12.8998638Z [36;1mAPI='https://api.github.com/repos/Avarok-Cybersecurity/atlas-recipes/git/trees/main?recursive=1'[0m
+2026-09-06T06:52:12.8999207Z [36;1mout=$(mktemp)[0m
+2026-09-06T06:52:12.8999558Z [36;1mfetch() {  # extra curl args; body on stdout iff the answer was 200[0m
+2026-09-06T06:52:12.8999935Z [36;1m  local code[0m
+2026-09-06T06:52:12.9000268Z [36;1m  code=$(curl -sS --max-time 20 -o "$out" -w '%{http_code}' \[0m
+2026-09-06T06:52:12.9000712Z [36;1m           -H 'Accept: application/vnd.github+json' "$@" "$API" \[0m
+2026-09-06T06:52:12.9001079Z [36;1m           2>/dev/null) || return 1[0m
+2026-09-06T06:52:12.9001367Z [36;1m  [ "$code" = "200" ] || return 1[0m
+2026-09-06T06:52:12.9001634Z [36;1m  cat "$out"[0m
+2026-09-06T06:52:12.9001844Z [36;1m}[0m
+2026-09-06T06:52:12.9002037Z [36;1mbody=""[0m
+2026-09-06T06:52:12.9002305Z [36;1mif [ -n "${ORG_READ:-}" ]; then[0m
+2026-09-06T06:52:12.9002594Z [36;1m  echo "::add-mask::$ORG_READ"[0m
+2026-09-06T06:52:12.9003190Z [36;1m  body=$(fetch -H "Authorization: ***") || body=""[0m
+2026-09-06T06:52:12.9003544Z [36;1mfi[0m
+2026-09-06T06:52:12.9003812Z [36;1mif [ -z "$body" ] && [ -n "${REPO_TOKEN:-}" ]; then[0m
+2026-09-06T06:52:12.9004251Z [36;1m  body=$(fetch -H "Authorization: ***") || body=""[0m
+2026-09-06T06:52:12.9004577Z [36;1mfi[0m
+2026-09-06T06:52:12.9004795Z [36;1mif [ -z "$body" ]; then[0m
+2026-09-06T06:52:12.9005060Z [36;1m  body=$(fetch) || body=""[0m
+2026-09-06T06:52:12.9005314Z [36;1mfi[0m
+2026-09-06T06:52:12.9005525Z [36;1mif [ -n "$body" ] \[0m
+2026-09-06T06:52:12.9005794Z [36;1m   && names=$(printf '%s' "$body" \[0m
+2026-09-06T06:52:12.9006246Z [36;1m        | jq -r '[.tree[]? | select(.path | endswith(".yaml")) | .path] | .[0:60] | join("\n")' \[0m
+2026-09-06T06:52:12.9006672Z [36;1m          2>/dev/null) \[0m
+2026-09-06T06:52:12.9006945Z [36;1m   && [ -n "$names" ]; then[0m
+2026-09-06T06:52:12.9007234Z [36;1m  printf '%s' "$names" > recipes.txt[0m
+2026-09-06T06:52:12.9007517Z [36;1melse[0m
+2026-09-06T06:52:12.9007743Z [36;1m  : > recipes.txt[0m
+2026-09-06T06:52:12.9008419Z [36;1m  echo "::notice::atlas-recipes not readable on any rung of the token chain; classifying without recipe context"[0m
+2026-09-06T06:52:12.9008922Z [36;1mfi[0m
+2026-09-06T06:52:12.9009204Z [36;1mecho "count=$(wc -l < recipes.txt)" >> "$GITHUB_OUTPUT"[0m
+2026-09-06T06:52:12.9009662Z [36;1m# Randomized marker, same reason as the diff step: recipe names come[0m
+2026-09-06T06:52:12.9010152Z [36;1m# from a sibling repo's tree listing, which is not this repo's data.[0m
+2026-09-06T06:52:12.9010532Z [36;1md="__ATLAS_EOF_$RANDOM$RANDOM"[0m
+2026-09-06T06:52:12.9010957Z [36;1m{ printf 'names<<%s\n' "$d"; cat recipes.txt; printf '\n%s\n' "$d"; } >> "$GITHUB_OUTPUT"[0m
+2026-09-06T06:52:12.9051039Z shell: /usr/bin/bash -e {0}
+2026-09-06T06:52:12.9051325Z env:
+2026-09-06T06:52:12.9051558Z   CARGO_TERM_COLOR: always
+2026-09-06T06:52:12.9051809Z   RUST_BACKTRACE: 1
+2026-09-06T06:52:12.9052039Z   ATLAS_SKIP_BUILD: 1
+2026-09-06T06:52:12.9052291Z   CUDARC_CUDA_VERSION: 13000
+2026-09-06T06:52:12.9052569Z   CACHE_ON_FAILURE: false
+2026-09-06T06:52:12.9052812Z   CARGO_INCREMENTAL: 0
+2026-09-06T06:52:12.9053029Z   ORG_READ: 
+2026-09-06T06:52:12.9055601Z   REPO_TOKEN: ***
+2026-09-06T06:52:12.9055835Z ##[endgroup]
+2026-09-06T06:52:13.1755389Z ##[group]Run set -euo pipefail
+2026-09-06T06:52:13.1755713Z [36;1mset -euo pipefail[0m
+2026-09-06T06:52:13.1755979Z [36;1mprintf '%s' "${PR_BODY:-}" \[0m
+2026-09-06T06:52:13.1756293Z [36;1m  | tr -d '\000-\010\013-\037\177' \[0m
+2026-09-06T06:52:13.1756610Z [36;1m  | perl -0777 -pe 's/<!--.*?-->//gs' \[0m
+2026-09-06T06:52:13.1756917Z [36;1m  | head -c 2000 > body.txt[0m
+2026-09-06T06:52:13.1757190Z [36;1md="__ATLAS_EOF_$RANDOM$RANDOM"[0m
+2026-09-06T06:52:13.1757465Z [36;1m{[0m
+2026-09-06T06:52:13.1757684Z [36;1m  printf 'text<<%s\n' "$d"[0m
+2026-09-06T06:52:13.1757943Z [36;1m  cat body.txt[0m
+2026-09-06T06:52:13.1758500Z [36;1m  if [ -s body.txt ] && [ -n "$(tail -c1 body.txt)" ]; then echo; fi[0m
+2026-09-06T06:52:13.1759070Z [36;1m  printf '%s\n' "$d"[0m
+2026-09-06T06:52:13.1759331Z [36;1m} >> "$GITHUB_OUTPUT"[0m
+2026-09-06T06:52:13.1800452Z shell: /usr/bin/bash -e {0}
+2026-09-06T06:52:13.1800719Z env:
+2026-09-06T06:52:13.1800968Z   CARGO_TERM_COLOR: always
+2026-09-06T06:52:13.1801216Z   RUST_BACKTRACE: 1
+2026-09-06T06:52:13.1801435Z   ATLAS_SKIP_BUILD: 1
+2026-09-06T06:52:13.1801666Z   CUDARC_CUDA_VERSION: 13000
+2026-09-06T06:52:13.1801918Z   CACHE_ON_FAILURE: false
+2026-09-06T06:52:13.1802150Z   CARGO_INCREMENTAL: 0
+2026-09-06T06:52:13.1840040Z   PR_BODY: Hopper (`sm_90a`) and B200 (`sm_100a`) kernel targets, architecture preflight, strict PTX assembly checks, and paired Atlas/vLLM campaign tooling. Campaign plans and evidence are tracked in #899.
+
+- Add target metadata and inherited kernels for H100/H200 and B200/GB200, including the first H200 Qwen3.8-27B target. Guard unsupported warp blockscale instructions and declare expected absences; the dense GB10 PTX remains unchanged.
+- Preserve the compiled PTX architecture and refuse incompatible devices before weight/module loading. Kernel-check JSON carries `compiled_arch` and numeric `device_cc`, including early refusal.
+- Distinguish integrated and discrete GPU memory accounting in both allocation budgeting and the watchdog/TUI poll. Includes the two reviewed fixes from #904; unknown integration never authorizes substituting host RAM.
+- Add single-node rank launching, ownership-safe cleanup, strict nvcc→ptxas ledgers, datacenter Dockerfiles and x86_64 CI artifacts with build identity.
+- Add per-cell serve/boot/coherency/ladder orchestration and artifact validation. Preserve nested refusals; failed preflight prevents every engine/audit/container path, and a failed kernel audit prevents normal launch. Coherency requests and certification match the measured thinking policy.
+- Render 31 vLLM and 19 Atlas profiles, including H100 and H200 Qwen3.8-27B pairs, scored Kimi context49152 and B200 MiniMax NVFP4. Pin primary revisions, record intended Atlas pins, and refuse unproven external-draft image support.
+- Support direct Linux process execution for provider-supplied containers, using the existing recipe argv, explicit pinned snapshots and stable model aliases. Audit and serve share the same allowlisted environment. Preserve PID/start-time/group/run-marker ownership through signals and worker process-title changes.
+- Refuse occupied process endpoints before launch; prove listener and accepted-socket ownership after readiness and before the ladder using the existing process identity policy.
+- End native boot probes promptly when the verified API leader exits, including while an HTTP response is held open. Retain partial probe evidence and the normal runner cleanup path. Treat an exiting procfs leader as absent during cleanup while retaining permission and I/O refusals.
+- Add an optional Linux whole-cell deadline that records expiry before signalling the owned runner, retains the existing cleanup path and reports unconfirmed cleanup after its grace expires.
+- Add a separate streaming diagnostic with retained request/raw bytes, distinct role/reasoning/content/tool timestamps, strict terminal/usage checks and a total network deadline.
+- Include both Hopper Qwen27B targets in the gate inventory expectation.
+- Avoid injecting duplicate parser instructions when a supported native Qwen template already renders tools; retain explicit required/named tool choice and fallback behavior.
+- Start scheduler service TTFT before grammar preparation in both prefill paths; keep decode timing separate. Allow the existing decode timing diagnostic through the recorded process environment.
+- Factor native tool parameter values so the grammar scanner handles value entry without per-token contextual vocabulary trials; preserve the accepted language, complete masks and rollback.
+- Add bounded grammar compiler parallelism with complete-mask parity tests; retain the engine's historical single-worker default after live validation. Borrow immutable vocabulary inputs during mask interval preparation to eliminate allocation growth with vocabulary size.
+- Adapt the H100 Qwen3.8 vLLM profile to an explicit 512-sequence limit for the recorded vLLM 0.28 Mamba cache capacity; retain the original recipe provenance and failed profile.
+- Bound the single-H100 Qwen3.8 Atlas profile to four active sequences after the original batch32 memory refusal; retain rollback/prefix snapshots and explicit queued C16 semantics.
+- Permit and capture the existing `ATLAS_MS_PROFILE` diagnostic switch while retaining unknown-key refusal. Instrumented phase attribution is separate from frozen benchmark runs and uses the unchanged engine binary.
+- Record explicit `ATLAS_DENSE_FP8` process profiles in the allowlisted launch environment and actual process evidence; preserve unknown-key refusals. Normalize a verified child exit during procfs snapshot to the actual exit status while retaining group cleanup. Both were observed red before the Linux ownership suite passed13 tests with1 optional dependency skip.
+- Select the existing native FP8 batch GEMV for up to four FFN rows and the existing pipelined GEMM for larger prefills, retaining the original block scales, activation dtype and optional-kernel fallbacks. No new CUDA implementation or weight conversion.
+- Restore the existing BF16 output-head batch GEMV for aligned M1–8 projections, honoring the existing opt-out and retaining scalar fallback for unsupported shapes or missing handles. Preserve original BF16 head weights and the shared ordinary/mixed decode path; no new CUDA code or weight conversion.
+- Preserve an installed native FP8 or BF16 FFN overlay during multi-row decode, including M4–8 with valid NVFP4 fallback weights. Reuse the existing format-aware prefill dispatcher; retain default NVFP4 behavior.
+- Exclude dense NVFP4 MMQ entry points where the vendor ISA capability is absent, so handle-based selection retains the existing W4A16 path and its transposed weights. Declare the thirteen expected Hopper absences; preserve supported SM12.x exports.
+- Capture owned container or process argv before teardown without retaining environment secrets. Populate model revision only from matching launch and boot evidence; unknown identity stays null. MiniMax on/off labels refuse until its `thinking_mode` request mapping is verified.
+
+The four request-policy, dry-render and revision review findings are implemented with regression tests. Additional fixes cover launcher test environment, named renderer/assembler selftests, missing paid-cell recipes, architecture JSON, and failed-audit launch. Review replies retain red/green reproductions; maintainers resolve threads.
+
+Validation: campaign85 assertions on macOS; launcher30; PTX suite7; Dockerfiles17; Atlas346/346, vLLM258/258, validator26/26, assembler16/16. Preflight admission: four negative launch paths and four positive controls; Linux endpoint13/13, deadline12/12, stream7/7. Process recipe6/6, actual Linux runner3/3 and readiness5/5. Cleanup ownership suite:13 passed,1 optional setproctitle test skipped; the earlier pinned setproctitle reproduction remains recorded. Real API exit and procfs ESRCH regressions were observed red first; permission/I/O and stale-owner controls still refuse. Failed-preflight dispatch, occupied-endpoint audit, trickling-input overrun, watchdog misattribution and deadline-during-cleanup failures were observed red before green. The earlier audit-environment mismatch, interrupted-create leak and ownership-marker loss retain their red/green evidence. Inventory correction: atlas-plugin932 tests and workspace rustdoc pass. Formatting, shellcheck and typos pass. CPU affected-crate runs passed2810 tests before the watchdog follow-up, then final spark-runtime292 tests; workspace rustdoc passes. Strict Hopper Qwen27B assembly passes181/181 modules. Native tool rendering and service TTFT regressions were observed red first; the combined spark-server default CPU suite passes2456 tests with19 ignored and no failures. xgrammar has826 passing unit tests; both EOS IDs and original/factored production grammars produce identical full-vocabulary and rollback masks. Workspace doctests and rustdoc pass on the same crate tree. The original live diagnostic tool choices pass12/12; the final grammar repair passes five live timing probes and all twelve typed tool cases. The combined MMQ source passes75 kernel tests,645 model tests and2,456 server tests, plus826 xgrammar unit tests and the allocation integration test; optional tokenizer integration entries are not counted as executed native checks. The actual H100 Qwen3.8 kernel audit, first-token boot and full coherency gate pass after the MMQ fix under the default runtime quantization profile. The native multi-row dispatch regression and basic-versus-fast kernel selection were observed red before green. The BF16 output-head selector also failed with the old scalar dispatch before three focused checks passed. The recorded multi-sequence profiling environment first refuses on the actual rental, then all16 Linux process/ownership tests pass after the allowlist change; the standalone instrumented17-request arithmetic probe also passes. The earlier output-head source passes654 model tests with14 ignored, affected clippy, workspace rustdoc and doctest commands (zero executed, two ignored). On the H100, the existing BF16 batch-GEMV example passes all nine bit-equivalence comparisons against repeated single-row GEMV; these are example shapes, not a full-vocabulary equivalence claim. Seventeen full-model arithmetic requests pass, including sixteen simultaneous HTTP requests. The original-FP8 profile retains the word-reversal gate failure; its raw false verdict remains unchanged.
+
+Native FP8 attention output projections now share each weight pass across up to four contiguous rows, using the existing optional kernel and buffers. Single-row decode, missing handles, unsupported dimensions and other scale formats retain scalar dispatch. Production dispatch failed red with four launches instead of one; the new checks cover row offsets, raw scale pointers, fallback cases and zero allocations. This source passes 657 model tests with 14 ignored, affected Clippy, workspace rustdoc and doctest commands.
+
+The actual-shape GPU oracle then exposed a rounding defect in the shared FP8 batch4/batch16 kernel: a paired-product sum differed from the scalar kernel's sequential accumulation in three BF16 outputs at M4. The kernel now follows scalar accumulation order. With the original red fixture preserved and no tolerance relaxation, five H100 cases pass exact BF16 equality, finiteness and output guards: batch4 M2/M4/M5 and batch16 M8/M16 at N5120/K6144. Corrupted-output, guard and NaN counterexamples refuse before green. The applicable kernel CPU suite passes 75 tests with 7 ignored. The final server source is 97375df; 8882f08 only corrects an import in the numerical example. The final model passes 17 arithmetic requests and all other coherency checks; the original-FP8 word-reversal failure remains recorded as false. No new throughput result is claimed for this kernel revision.
+
+The existing SSM phase/detail profiling switches are now allowlisted and captured alongside the outer multi-sequence switch. Production refusals were observed before the actual Linux process suite passed all 16 tests. Attribution is documented separately as instrumented, graph-disabled wall timing; it is not a frozen performance measurement.
+
+Direct process mode currently supports a single Atlas rank or a single vLLM node. Unknown immutable vLLM environment identity remains null and uncertifiable; a Python interpreter hash is not presented as the engine build. The frozen ladder and artifact schema are unchanged.
+
+Runtime observations are tracked in #899. No new performance certification or B200 GPU execution is claimed. Real mismatched-device refusal, NCCL behavior and current-tree GB10 perf records remain unproven. Nano's vLLM parser provisioning and selected-image draft support remain explicit gaps in #899.
+
+
+
+2026-09-06T06:52:13.1877964Z ##[endgroup]
+2026-09-06T06:52:13.1968260Z Unable to flush stdout: Broken pipe
+2026-09-06T06:52:13.1984294Z ##[error]Process completed with exit code 1.
+2026-09-06T06:52:13.2167361Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-09-06T06:52:13.2167790Z with:
+2026-09-06T06:52:13.2168032Z   name: governance-event-pr895
+2026-09-06T06:52:13.2168597Z   path: governance/pr-895.jsonl
+2026-09-06T06:52:13.2168862Z   if-no-files-found: warn
+2026-09-06T06:52:13.2169106Z   retention-days: 30
+2026-09-06T06:52:13.2169340Z   compression-level: 6
+2026-09-06T06:52:13.2169566Z   overwrite: false
+2026-09-06T06:52:13.2169793Z   include-hidden-files: false
+2026-09-06T06:52:13.2170037Z   archive: true
+2026-09-06T06:52:13.2170238Z env:
+2026-09-06T06:52:13.2170444Z   CARGO_TERM_COLOR: always
+2026-09-06T06:52:13.2170677Z   RUST_BACKTRACE: 1
+2026-09-06T06:52:13.2170896Z   ATLAS_SKIP_BUILD: 1
+2026-09-06T06:52:13.2171121Z   CUDARC_CUDA_VERSION: 13000
+2026-09-06T06:52:13.2171372Z   CACHE_ON_FAILURE: false
+2026-09-06T06:52:13.2171600Z   CARGO_INCREMENTAL: 0
+2026-09-06T06:52:13.2171818Z ##[endgroup]
+2026-09-06T06:52:13.3560321Z ##[warning]No files were found with the provided path: governance/pr-895.jsonl. No artifacts will be uploaded.
+2026-09-06T06:52:13.3776860Z Post job cleanup.
+2026-09-06T06:52:13.4688762Z [command]/usr/bin/git version
+2026-09-06T06:52:13.4731164Z git version 2.55.0
+2026-09-06T06:52:13.4767762Z Temporarily overriding HOME='/home/runner/work/_temp/f42eb63a-3392-4e71-9752-ce13a4615a22' before making global git config changes
+2026-09-06T06:52:13.4769283Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-06T06:52:13.4772167Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/atlas/atlas
+2026-09-06T06:52:13.4804891Z Removing SSH command configuration
+2026-09-06T06:52:13.4811741Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-06T06:52:13.4847586Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-06T06:52:13.5135292Z Removing HTTP extra header
+2026-09-06T06:52:13.5142935Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-06T06:52:13.5179659Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-06T06:52:13.5445506Z Removing includeIf entries pointing to credentials config files
+2026-09-06T06:52:13.5452590Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-06T06:52:13.5486506Z includeif.gitdir:/home/runner/work/atlas/atlas/.git.path
+2026-09-06T06:52:13.5487462Z includeif.gitdir:/home/runner/work/atlas/atlas/.git/worktrees/*.path
+2026-09-06T06:52:13.5488625Z includeif.gitdir:/github/workspace/.git.path
+2026-09-06T06:52:13.5489469Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-06T06:52:13.5495262Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/atlas/atlas/.git.path
+2026-09-06T06:52:13.5527944Z /home/runner/work/_temp/git-credentials-cc9bf132-9738-4f5a-a683-2976a9a4714a.config
+2026-09-06T06:52:13.5556544Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/atlas/atlas/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-cc9bf132\-9738\-4f5a\-a683\-2976a9a4714a\.config
+2026-09-06T06:52:13.5603863Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/atlas/atlas/.git/worktrees/*.path
+2026-09-06T06:52:13.5634334Z /home/runner/work/_temp/git-credentials-cc9bf132-9738-4f5a-a683-2976a9a4714a.config
+2026-09-06T06:52:13.5644301Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/atlas/atlas/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-cc9bf132\-9738\-4f5a\-a683\-2976a9a4714a\.config
+2026-09-06T06:52:13.5685438Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-09-06T06:52:13.5715026Z /github/runner_temp/git-credentials-cc9bf132-9738-4f5a-a683-2976a9a4714a.config
+2026-09-06T06:52:13.5723361Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-cc9bf132\-9738\-4f5a\-a683\-2976a9a4714a\.config
+2026-09-06T06:52:13.5764268Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-06T06:52:13.5791423Z /github/runner_temp/git-credentials-cc9bf132-9738-4f5a-a683-2976a9a4714a.config
+2026-09-06T06:52:13.5800522Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-cc9bf132\-9738\-4f5a\-a683\-2976a9a4714a\.config
+2026-09-06T06:52:13.5840923Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-06T06:52:13.6091363Z Removing credentials config '/home/runner/work/_temp/git-credentials-cc9bf132-9738-4f5a-a683-2976a9a4714a.config'
+2026-09-06T06:52:13.6235119Z Cleaning up orphan processes
