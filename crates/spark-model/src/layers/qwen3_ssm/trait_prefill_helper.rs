@@ -281,17 +281,44 @@ impl Qwen3SsmLayer {
                 stream,
             )
         } else if let Some(ref nvfp4_t) = self.out_proj_nvfp4_t {
-            ops::w4a16_gemm_n128(
-                ctx.gpu,
-                self.w4a16_gemm_t_k,
-                normed_out_buf,
-                nvfp4_t,
-                out_proj_buf,
-                k,
-                h as u32,
-                value_dim as u32,
-                stream,
-            )
+            // `k` is the TOKEN COUNT here, not the reduction dimension, the
+            // launcher takes it as `m`. Above 128 rows the 128-row M tile
+            // halves the number of times the weight is re-read and
+            // re-dequantised, which is the whole reason `w4a16_gemm_t_m128`
+            // exists.
+            //
+            // This arm did not test it. The sibling QKVZ dispatch three files
+            // away does (`trait_prefill_proj.rs`, `if k > 128`), on the same
+            // `k`, for the same reason, with the same two launchers, and
+            // nothing anywhere said why out_proj should differ. At the 9B's
+            // 2973-token prefill that asymmetry is 47 weight passes instead of
+            // 24, over a [4096, 4096] weight, on 24 layers
+            // (PREFILL-ANALYSIS.md section 4, suspect S4).
+            if k > 128 && self.w4a16_gemm_t_m128_k.0 != 0 {
+                ops::w4a16_gemm_n128_m128(
+                    ctx.gpu,
+                    self.w4a16_gemm_t_m128_k,
+                    normed_out_buf,
+                    nvfp4_t,
+                    out_proj_buf,
+                    k,
+                    h as u32,
+                    value_dim as u32,
+                    stream,
+                )
+            } else {
+                ops::w4a16_gemm_n128(
+                    ctx.gpu,
+                    self.w4a16_gemm_t_k,
+                    normed_out_buf,
+                    nvfp4_t,
+                    out_proj_buf,
+                    k,
+                    h as u32,
+                    value_dim as u32,
+                    stream,
+                )
+            }
         } else {
             ops::w4a16_gemm(
                 ctx.gpu,
