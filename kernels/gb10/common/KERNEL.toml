@@ -80,6 +80,15 @@ paged_decode_attn = "paged_decode"
 paged_decode_attn_fp8 = "paged_decode_fp8"
 paged_decode_attn_nvfp4 = "paged_decode_nvfp4"
 w4a16_gemm = "w4a16"
+# The RDNA 4 (gfx1201) prefill arm. The SOURCE is not here: it is a real
+# file in `kernels/r9700/common/`, declared in that target's
+# `HARDWARE.toml [kernels] overrides`, because nothing about its tile,
+# thread count or LDS budget is arch-neutral. Only the module NAME is
+# here, because `[modules]` is read from THIS file on every target (the
+# other trees' `common/KERNEL.toml` are symlinks to it) and a stem no
+# other tree carries maps to nothing on those trees. Inert everywhere
+# but r9700.
+w4a16_gemm_rdna4 = "w4a16_rdna4"
 kv_cache_append = "kv_cache"
 moe_w4a16_grouped_gemm = "moe_w4a16"
 moe_sorted_prefill = "moe_sorted"

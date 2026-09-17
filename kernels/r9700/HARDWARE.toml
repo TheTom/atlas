@@ -228,6 +228,38 @@ memory_gb = 32
 extra_nvcc_flags = ["-ffp-contract=off"]
 
 [kernels]
+# Sources this target OWNS: real files in `kernels/r9700/common/`, not mirror
+# symlinks into `kernels/gb10/common/`. Read by
+# `scripts/check_kernel_shadows.py` (RULE 3), which fails on a regular file
+# here that this list does not name, so a silent fork of a shared kernel is
+# not available as a third option.
+#
+#   w4a16_gemm_rdna4.cu
+#       `w4a16_gemm_rdna4`, the W4A16 prefill GEMM written for gfx1201. Same
+#       argument list and same NON-transposed B layout as the plain
+#       `w4a16_gemm`, so it needs no transposed twin; 128x128 CTA tile over
+#       256 threads (8 wave32 waves) for 64 accumulator VGPRs per thread
+#       instead of the `w4a16_gemm_t_m128` twin's 128; no `cp.async`
+#       anywhere; 40960 B of LDS.
+#
+#       An ADDITION, not a replacement: `kernels/gb10/common` has no file of
+#       this stem, and gb10, hopper and b200 do not compile this source at
+#       all. That is deliberate on two counts. Nothing in it is arch-neutral
+#      , every one of those numbers answers a gfx1201 measurement, and on
+#       an NVIDIA part the twin arm it displaces wins by 7.3x. And
+#       `scripts/check_cross_hardware.py` rule S1 refuses a new
+#       cross-hardware symlink outright, so a gb10 source mirrored into this
+#       tree is not a shape this repository allows for a new kernel; option
+#       (c) of that script, "separate kernel in the intended tree, NO
+#       symlink", is this.
+#
+#       `kernels/gb10/common/KERNEL.toml [modules]` still carries the stem ->
+#       module mapping (`w4a16_gemm_rdna4 = "w4a16_rdna4"`), because that file
+#       is the ONE `[modules]` table on every target, this tree's
+#       `common/KERNEL.toml` is a symlink to it. A stem no other tree has maps
+#       to nothing on those trees.
+overrides = ["w4a16_gemm_rdna4.cu"]
+
 # Entries of `kernels/gb10/common/` this mirror deliberately does NOT carry.
 # Read by `scripts/check_kernel_shadows.py` (RULE 3), which fails if the set
 # of gb10 entries missing here is not exactly this list, so a gb10 kernel

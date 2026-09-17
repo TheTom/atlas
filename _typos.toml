@@ -27,6 +27,12 @@ extend-ignore-identifiers-re = [
 [default.extend-words]
 # a REST conformance report filename suffix (thinking off), docs/porting/r9700-bringup-2026-09-17.md
 nothink = "nothink"
+# `VALU` is AMD's name for the vector ALU (the SIMD lanes), the counterpart of
+# `SALU`, the scalar one. It is the unit an RDNA instruction budget is counted
+# in, so it appears in the r9700 kernel prose; it is not a misspelling of
+# "value". Both cases listed because the checker is case-insensitive.
+VALU = "VALU"
+valu = "valu"
 # `RETUNED` — past tense of "retune", used in the MODEL.toml sampling-default
 # changelogs (`presence_penalty RETUNED 1.5 -> 1.0`). A real word; the checker
 # reads it as a misspelling of `RETURNED`, which it is not.
