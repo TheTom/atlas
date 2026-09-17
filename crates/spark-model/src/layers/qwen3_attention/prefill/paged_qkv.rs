@@ -321,6 +321,29 @@ impl Qwen3AttentionLayer {
                     stream,
                 )?;
             }
+        } else if self.w4a16_rdna4_k.0 != 0
+            && let Some(nvfp4) = weight_opt.and_then(|w| w.as_nvfp4())
+        {
+            // RDNA 4 (gfx1201). AHEAD of the transposed-twin arms below,
+            // because on that board the twin arm is the SLOW one:
+            // PREFILL-ANALYSIS.md section 3.6 measures ~1.07 TFLOP/s on
+            // `w4a16_gemm_t_m128` against ~4.11 on the plain arm. It reads the
+            // NON-transposed weight the checkpoint ships, so it needs no twin.
+            //
+            // The handle is zero unless `[defaults] w4a16_prefill_variant` is
+            // `"rdna4"`, so no other target reaches this branch;
+            // `ATLAS_W4A16_PREFILL_VARIANT=gb10` is the A/B.
+            ops::w4a16_gemm_rdna4(
+                ctx.gpu,
+                self.w4a16_rdna4_k,
+                normed,
+                nvfp4,
+                out,
+                n,
+                out_dim,
+                h,
+                stream,
+            )?;
         } else if let Some(nvfp4_t) = nvfp4_t {
             if n > 128 {
                 self.w4a16_gemm_m128_dispatch(

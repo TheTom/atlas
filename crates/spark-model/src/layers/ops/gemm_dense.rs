@@ -281,6 +281,55 @@ pub fn w4a16_gemm(
         .launch(stream)
 }
 
+/// W4A16 GEMM, RDNA 4 (gfx1201) prefill arm: C = A @ dequant(B).
+///
+/// SAME ARGUMENTS and the SAME non-transposed `[N, K/2]` B layout as
+/// [`w4a16_gemm`]: it needs no transposed twin, which on the R9700 is also
+/// 12.74 GiB the model does not have to hold. Only the TILE differs, so only
+/// the grid and the block do:
+///
+/// Grid: (ceil(N/128), ceil(M/128), 1)  Block: (256, 1, 1)
+///
+/// 256 threads for a 128x128 tile is 64 accumulator VGPRs per thread against
+/// `w4a16_gemm_t_m128`'s 128, and the kernel carries no `cp.async` at all.
+/// Those are the two structural causes `PREFILL-ANALYSIS.md` section 4 gives
+/// for the twin arm measuring ~1.07 TFLOP/s on that board where the plain arm
+/// measures ~4.11.
+///
+/// GRID CONTRACT: N is the fast axis, `blockIdx.x` is the N block, exactly as
+/// [`w4a16_gemm_n128_m128`] documents for the whole family. The kernel reads it
+/// that way and this launcher is shared by dense_ffn, qwen3_ssm and
+/// qwen3_attention.
+///
+/// K-ALIGNMENT: the kernel's vector loads assume `K % 16 == 0`, which NVFP4
+/// guarantees by construction (`B_scale` is `[N, K/16]`, one FP8 scale per 16
+/// K values, so a K that is not a multiple of 16 has no representable scale
+/// array). M and N tails are predicated inside the kernel.
+pub fn w4a16_gemm_rdna4(
+    gpu: &dyn GpuBackend,
+    kernel: KernelHandle,
+    input: DevicePtr,
+    weight: &QuantizedWeight,
+    output: DevicePtr,
+    m: u32,
+    n: u32,
+    k: u32,
+    stream: u64,
+) -> Result<()> {
+    KernelLaunch::new(gpu, kernel)
+        .grid([div_ceil(n, 128), div_ceil(m, 128), 1])
+        .block([256, 1, 1])
+        .arg_ptr(input)
+        .arg_ptr(weight.weight)
+        .arg_ptr(weight.weight_scale)
+        .arg_f32(weight.weight_scale_2)
+        .arg_ptr(output)
+        .arg_u32(m)
+        .arg_u32(n)
+        .arg_u32(k)
+        .launch(stream)
+}
+
 /// W4A16 GEMM with N_TILE=128: same kernel signature, wider N tile.
 ///
 /// Grid: (ceil(N/128), ceil(M/64), 1)  Block: (128, 1, 1)

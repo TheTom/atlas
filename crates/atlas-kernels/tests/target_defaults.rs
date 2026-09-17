@@ -26,9 +26,15 @@ use build_defaults::{
 
 use std::path::PathBuf;
 
-/// Every NVIDIA target that carries a `[defaults]` table. Named once so a new
+/// Every target that carries a `[defaults]` table. Named once so a new
 /// hardware tree makes someone decide rather than inherit silently.
-const DECLARING: &[&str] = &["gb10", "hopper", "b200"];
+///
+/// `r9700` joined the list when it declared `w4a16_prefill_variant`. It is
+/// the first non-NVIDIA member, and it is here for the reason the list
+/// exists: the r9700 prefill audit found that EVERY lever on that target was
+/// a GB10 baseline it had inherited by saying nothing, which is
+/// indistinguishable from a decision nobody made.
+const DECLARING: &[&str] = &["gb10", "hopper", "b200", "r9700"];
 
 fn kernels_root() -> PathBuf {
     PathBuf::from(env!("CARGO_MANIFEST_DIR"))
@@ -206,12 +212,57 @@ fn b200_declares_the_conservative_table_not_hoppers() {
     );
 }
 
+/// R9700 declares the RDNA 4 prefill GEMM family, and nothing else moves.
+///
+/// The row is a DEFAULT, not a receipt: this target has never served a model
+/// to completion. What earns it is the alternative, `PREFILL-ANALYSIS.md`
+/// section 3.6 measures the GB10 family at ~1.07 TFLOP/s on the twin arm
+/// here against ~4.11 on the plain one, inverting GB10's 7.3x ordering, and
+/// `ATLAS_W4A16_PREFILL_VARIANT=gb10` is one variable away.
+///
+/// Asserted as an equality against `baseline` with only that field
+/// normalised, for the same reason gb10's test is: a SECOND divergence
+/// arriving unnoticed in an AMD target's table is exactly the silent
+/// inheritance this whole mechanism replaces, and it is how that target got
+/// GB10's 48-SM constant in the first place.
+#[test]
+fn r9700_declares_the_rdna4_prefill_gemm_and_nothing_else() {
+    let d = declared("r9700");
+    assert_eq!(d.hw, "r9700");
+    assert_eq!(
+        d.w4a16_prefill_variant, "rdna4",
+        "kernels/r9700/common/w4a16_gemm_rdna4.cu is this target's prefill \
+         GEMM; the GB10 family it replaces measures ~1.07 TFLOP/s here"
+    );
+    assert_eq!(baseline("r9700").w4a16_prefill_variant, "gb10");
+    for hw in DECLARING.iter().filter(|h| **h != "r9700") {
+        assert_eq!(
+            declared(hw).w4a16_prefill_variant,
+            "gb10",
+            "kernels/{hw} does not carry w4a16_gemm_rdna4.cu at all, so the \
+             row there is unreachable and must read gb10"
+        );
+    }
+    let normalised = Defaults {
+        w4a16_prefill_variant: "gb10".to_string(),
+        ..d
+    };
+    assert_eq!(
+        normalised,
+        baseline("r9700"),
+        "apart from the prefill GEMM family, kernels/r9700/HARDWARE.toml \
+         [defaults] restates the inherited baseline and nothing else, it \
+         exists to SAY what this target serves with, which the section 5 \
+         audit found nobody had"
+    );
+}
+
 /// The targets that declare NO `[defaults]` table are unaffected: they resolve
 /// to the baseline, which is what their resolvers did before. Named
 /// explicitly so adding a hardware tree makes someone decide.
 #[test]
 fn the_silent_targets_resolve_to_the_baseline() {
-    for hw in ["metal", "strix", "strix-hip", "r9700"] {
+    for hw in ["metal", "strix", "strix-hip"] {
         assert_eq!(
             declared(hw),
             baseline(hw),
@@ -256,6 +307,12 @@ fn every_declaring_target_states_every_lever() {
             // absent cap and a deliberate no-cap must not look identical.
             "w8a8_prefill_max_m_widening",
             "w8a8_prefill_max_m_narrowing",
+            // The r9700 prefill GEMM family. gb10, hopper and b200 declare
+            // `"gb10"` rather than omitting the row: the alternative names a
+            // kernel only `kernels/r9700/common/` carries, so on those trees
+            // it is unreachable, and an unreachable value and an absent row
+            // must not look identical.
+            "w4a16_prefill_variant",
         ] {
             assert!(
                 raw.contains(&format!("\n{lever} = ")),
@@ -400,6 +457,10 @@ fn the_generated_constant_names_every_field() {
         "ffn_gateup_fused: true",
         "w8a8_prefill_max_m_widening: 4294967295",
         "w8a8_prefill_max_m_narrowing: 4294967295",
+        // Emitted QUOTED, like `attn_decode_splitk`: the field is a
+        // `&'static str` and an unquoted `rdna4` would be an undeclared
+        // identifier in the generated file, which fails a LATER rustc run.
+        "w4a16_prefill_variant: \"gb10\"",
     ] {
         assert!(
             generated.contains(field),
@@ -434,6 +495,7 @@ fn the_baked_constant_matches_its_own_hardware_tree() {
         baked.w8a8_prefill_max_m_narrowing,
         declared.w8a8_prefill_max_m_narrowing
     );
+    assert_eq!(baked.w4a16_prefill_variant, declared.w4a16_prefill_variant);
     assert_eq!(
         atlas_kernels::TARGET_SM_COUNT,
         read_sm_count(&kernels_root(), baked.hw),

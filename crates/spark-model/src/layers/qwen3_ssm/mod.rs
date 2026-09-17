@@ -177,6 +177,12 @@ pub struct Qwen3SsmLayer {
     gated_rms_norm_prefill_k: KernelHandle,
     // Kernels — batched verification path (multi-token GEMM)
     w4a16_gemm_k: KernelHandle,
+    /// The RDNA 4 prefill GEMM (`w4a16_gemm_rdna4`), or `KernelHandle(0)`
+    /// when this target's `[defaults] w4a16_prefill_variant` is not `rdna4`
+    /// or the kernel is absent. Resolved at init by
+    /// `ops::w4a16_prefill_rdna4::rdna4_prefill_kernel`, which does not even
+    /// issue the lookup off r9700.
+    w4a16_rdna4_k: KernelHandle,
     w4a16_gemm_t_k: KernelHandle, // Transposed B layout [K/2, N] — K_STEP_T=32
     w4a16_gemm_t_k64_k: KernelHandle, // K64 variant: K_STEP_T=64, halves outer loop
     /// K64 with a 64-wide N tile: same math, 2x the CTAs. `KernelHandle(0)`

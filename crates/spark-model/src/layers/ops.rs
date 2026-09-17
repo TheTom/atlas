@@ -33,6 +33,11 @@ mod dispatch_proj_decode;
 // SSOT for every lever that differs between one target and another.
 #[path = "ops/target_defaults.rs"]
 pub mod target_defaults;
+// WHICH W4A16 prefill GEMM family this target dispatches, and the init-time
+// handle for the RDNA 4 one. A sibling of target_defaults.rs: that file owns
+// the lever, this one owns the lookup it gates.
+#[path = "ops/w4a16_prefill_rdna4.rs"]
+pub mod w4a16_prefill_rdna4;
 // Row-wise FP8 routing, split out when it took dispatch_proj.rs over the cap.
 #[path = "ops/dispatch_proj_rowwise.rs"]
 mod dispatch_proj_rowwise;

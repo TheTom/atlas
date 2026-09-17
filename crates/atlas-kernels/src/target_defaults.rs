@@ -210,4 +210,24 @@ pub struct TargetDefaults {
     /// Upper `M` for the same path on a NARROWING projection (`n <= k`: down).
     /// See [`Self::w8a8_prefill_max_m_widening`].
     pub w8a8_prefill_max_m_narrowing: u32,
+    /// Which W4A16 PREFILL GEMM family this target dispatches: `"gb10"` (the
+    /// `w4a16_gemm` / `w4a16_gemm_t*` kernels every target has always served
+    /// with) or `"rdna4"` (`w4a16_gemm_rdna4`, the gfx1201 arm in
+    /// `kernels/r9700/common/`).
+    ///
+    /// A STRING and not a bool, for the reason [`Self::attn_decode_splitk`]
+    /// is one: the target declares WHICH FAMILY it wants, and a second AMD
+    /// arm: the native `__builtin_amdgcn_wmma` port the r9700 prefill
+    /// analysis names as the follow-up: must be able to arrive as a third
+    /// spelling rather than by inverting a boolean whose name would then
+    /// describe neither value.
+    ///
+    /// `"rdna4"` only on `kernels/r9700`, and only that target compiles the
+    /// source: the kernel is a real file under `kernels/r9700/common/`, not a
+    /// gb10 file mirrored there, so on every NVIDIA target the row is not
+    /// merely false but unreachable. The resolver ALSO declines to issue the
+    /// lookup unless the row asks for it, which is the discipline
+    /// `layers::w4a16_v2_kernel` established: a probe that can never succeed
+    /// is a permanently-failing row in the boot audit and nothing else.
+    pub w4a16_prefill_variant: &'static str,
 }

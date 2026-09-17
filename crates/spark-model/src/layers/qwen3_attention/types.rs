@@ -345,6 +345,12 @@ pub struct Qwen3AttentionLayer {
     pub(super) w4a16_batchm: W4a16BatchmTiers,
     // Kernels — prefill (GEMM M=N + Flash Attention)
     pub(super) w4a16_gemm_k: KernelHandle,
+    /// The RDNA 4 prefill GEMM (`w4a16_gemm_rdna4`), or `KernelHandle(0)`
+    /// when this target's `[defaults] w4a16_prefill_variant` is not `rdna4`
+    /// or the kernel is absent. Resolved at init by
+    /// `ops::w4a16_prefill_rdna4::rdna4_prefill_kernel`, which does not even
+    /// issue the lookup off r9700.
+    pub(super) w4a16_rdna4_k: KernelHandle,
     pub(super) w4a16_gemm_t_k: KernelHandle,
     pub(super) w4a16_gemm_t_k64_k: KernelHandle,
     /// K64 with a 64-wide N tile: same math, 2x the CTAs. `KernelHandle(0)`

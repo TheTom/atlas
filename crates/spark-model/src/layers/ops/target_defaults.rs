@@ -136,6 +136,65 @@ pub fn resolve_toggle(default_on: bool, raw: Option<&str>, legacy_off: bool) -> 
     }
 }
 
+/// Which W4A16 PREFILL GEMM family this target dispatches.
+///
+/// An ENUM over the baked string, the same shape `attn_decode_splitk` takes,
+/// so that the third spelling this is going to need, the native
+/// `__builtin_amdgcn_wmma_f32_16x16x16_bf16_w32` arm the r9700 prefill
+/// analysis names as the follow-up to suspect S3, arrives as a variant
+/// rather than by inverting a boolean whose name would then describe neither
+/// value.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum W4a16PrefillVariant {
+    /// `w4a16_gemm` and the `w4a16_gemm_t*` twins, every target's family
+    /// before `kernels/r9700` had a table, and every NVIDIA target's still.
+    Gb10,
+    /// `w4a16_gemm_rdna4` (`kernels/r9700/common/w4a16_gemm_rdna4.cu`).
+    Rdna4,
+}
+
+impl W4a16PrefillVariant {
+    /// The spelling a HARDWARE.toml row and the serve log use.
+    pub fn label(self) -> &'static str {
+        match self {
+            W4a16PrefillVariant::Gb10 => "gb10",
+            W4a16PrefillVariant::Rdna4 => "rdna4",
+        }
+    }
+}
+
+/// Parse one spelling, PANICKING on anything else.
+///
+/// Not a silent fallback, from either source. A baked row the parser does not
+/// know is a HARDWARE.toml that says one thing and a binary that does another;
+/// an environment value the parser does not know is an operator running an A/B
+/// that is quietly not happening, which is the failure
+/// `layers::w4a16_v2_kernel` already refuses ("refusing to start with a
+/// silently-degraded config"). Both are configuration errors and both are
+/// cheaper to find at boot.
+fn parse_w4a16_variant(text: &str, whence: &str) -> W4a16PrefillVariant {
+    match text.trim().to_ascii_lowercase().as_str() {
+        "gb10" => W4a16PrefillVariant::Gb10,
+        "rdna4" => W4a16PrefillVariant::Rdna4,
+        other => panic!(
+            "{whence} w4a16 prefill variant `{other}` is not a family this build knows; \
+             the spellings are `gb10` and `rdna4`"
+        ),
+    }
+}
+
+/// The W4A16 prefill family: the target's declaration unless
+/// `ATLAS_W4A16_PREFILL_VARIANT` overrides it.
+pub fn resolve_w4a16_variant(default: &str, raw: Option<&str>) -> Resolved<W4a16PrefillVariant> {
+    match raw {
+        Some(v) => Resolved::env(parse_w4a16_variant(v, "ATLAS_W4A16_PREFILL_VARIANT:")),
+        None => Resolved::target(parse_w4a16_variant(
+            default,
+            "kernels/<hw>/HARDWARE.toml [defaults] w4a16_prefill_variant:",
+        )),
+    }
+}
+
 /// The BF16 decode head's batched-GEMV band.
 ///
 /// 🔴 Read `layers/ops/gemm_quant.rs` before touching the DEFAULT. The band's
@@ -200,6 +259,9 @@ pub struct TargetLevers {
     pub ffn_gateup_fused: Resolved<bool>,
     pub w8a8_prefill_max_m_widening: Resolved<u32>,
     pub w8a8_prefill_max_m_narrowing: Resolved<u32>,
+    /// The W4A16 PREFILL GEMM family. `Rdna4` only where the target declares
+    /// it, which today is `kernels/r9700` alone.
+    pub w4a16_prefill_variant: Resolved<W4a16PrefillVariant>,
 }
 
 /// The whole table, as a pure function of the baked declaration and a variable
@@ -341,6 +403,22 @@ pub fn resolve(
             var("ATLAS_FFN_GATEUP_FUSED").as_deref(),
             false,
         ),
+        // The W4A16 prefill family. DECLARATION plus
+        // `ATLAS_W4A16_PREFILL_VARIANT`, which is the whole A/B behind the
+        // r9700 default: `=gb10` puts that target back on the arm the prefill
+        // analysis measured at ~1.07 TFLOP/s, and nothing else changes.
+        //
+        // No `ATLAS_NO_*` legacy spelling: the lever is new, so there is no
+        // older script for a presence rule to keep faith with. No relation to
+        // `ATLAS_W4A16_VARIANT` either, which picks v1/v2/v3 WITHIN the gb10
+        // family and is a different question, the two are deliberately not
+        // folded, because `ATLAS_W4A16_VARIANT=v1` is REQUIRED on gfx1201
+        // (SCALE has no e4m3 MMA codegen) and would otherwise start meaning
+        // "and also use the GB10 family", which it does not.
+        w4a16_prefill_variant: resolve_w4a16_variant(
+            defaults.w4a16_prefill_variant,
+            var("ATLAS_W4A16_PREFILL_VARIANT").as_deref(),
+        ),
     }
 }
 
@@ -401,7 +479,8 @@ pub fn format_levers(l: &TargetLevers) -> String {
          attn_m16_tc={attn_m16_tc} lm_head_m16_tc={lm_head_m16_tc} \
          attn_ncol_gemv={attn_ncol_gemv} ffn_gateup_fused={gateup} \
          fp8_act_quant_hopper={act_quant} \
-         w8a8_prefill_max_m={w8a8_wide}/{w8a8_narrow}{w8a8_src}",
+         w8a8_prefill_max_m={w8a8_wide}/{w8a8_narrow}{w8a8_src} \
+         w4a16_prefill_variant={w4a16_variant}{w4a16_src}",
         hw = if l.hw.is_empty() { "unknown" } else { l.hw },
         // Not a resolvable lever — it is a FACT about the part, cross-checked
         // at boot against the driver. Printed on this line because the levers
@@ -427,6 +506,8 @@ pub fn format_levers(l: &TargetLevers) -> String {
         w8a8_wide = cap(l.w8a8_prefill_max_m_widening.value),
         w8a8_narrow = cap(l.w8a8_prefill_max_m_narrowing.value),
         w8a8_src = l.w8a8_prefill_max_m_widening.source.tag(),
+        w4a16_variant = l.w4a16_prefill_variant.value.label(),
+        w4a16_src = l.w4a16_prefill_variant.source.tag(),
     )
 }
 

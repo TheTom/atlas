@@ -209,6 +209,7 @@ impl Qwen3SsmLayer {
                 gpu.kernel("norm", "gated_rms_norm_prefill")?
             },
             w4a16_gemm_k: gpu.kernel("w4a16", "w4a16_gemm")?,
+            w4a16_rdna4_k: crate::layers::ops::w4a16_prefill_rdna4::rdna4_prefill_kernel(gpu),
             w4a16_gemm_t_k: crate::layers::tgemm_kernel(gpu),
             w4a16_gemm_t_k64_k: crate::layers::k64_kernel(gpu)?,
             w4a16_gemm_t_k64_n64_k: crate::layers::k64_n64_kernel(gpu),

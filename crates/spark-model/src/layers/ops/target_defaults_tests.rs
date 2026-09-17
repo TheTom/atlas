@@ -46,6 +46,7 @@ const GB10: TargetDefaults = TargetDefaults {
     ffn_gateup_fused: false,
     w8a8_prefill_max_m_widening: 64,
     w8a8_prefill_max_m_narrowing: 384,
+    w4a16_prefill_variant: "gb10",
 };
 
 /// `kernels/hopper/HARDWARE.toml` `[defaults]`.
@@ -73,6 +74,31 @@ const HOPPER: TargetDefaults = TargetDefaults {
     // No cap: W8A8 is 2.0-3.1x over W8A16 at every M measured on H100.
     w8a8_prefill_max_m_widening: u32::MAX,
     w8a8_prefill_max_m_narrowing: u32::MAX,
+    w4a16_prefill_variant: "gb10",
+};
+
+/// `kernels/r9700/HARDWARE.toml` `[defaults]`, the one AMD/SCALE table, and
+/// the one row in this file that is not GB10's.
+///
+/// Every other row restates the baseline the target used to inherit by saying
+/// nothing, which is what `PREFILL-ANALYSIS.md` section 5 went and checked.
+const R9700: TargetDefaults = TargetDefaults {
+    hw: "r9700",
+    lm_head_batchm_max: 8,
+    ssm_batched_recurrent: false,
+    gdn_prefill_tc: false,
+    ssm_ba_gates_hopper: false,
+    fp8_act_quant_hopper: false,
+    decode_split_silu: true,
+    attn_decode_splitk: "legacy",
+    ffn_m16_tc: false,
+    attn_m16_tc: false,
+    lm_head_m16_tc: false,
+    attn_ncol_gemv: false,
+    ffn_gateup_fused: false,
+    w8a8_prefill_max_m_widening: u32::MAX,
+    w8a8_prefill_max_m_narrowing: u32::MAX,
+    w4a16_prefill_variant: "rdna4",
 };
 
 fn with(defaults: &TargetDefaults, env: &[(&str, &str)]) -> TargetLevers {
@@ -415,3 +441,9 @@ fn hopper_resolves_the_widened_head_band_from_its_declaration() {
 /// one stays under the house 500-line cap.
 #[path = "target_defaults_gateup_tests.rs"]
 mod gateup;
+
+/// The W4A16 prefill GEMM family: declaration, override and reported
+/// spelling. Its own module, for the reason `gateup` has one and so this file
+/// stays under the house 500-line cap.
+#[path = "target_defaults_w4a16_tests.rs"]
+mod w4a16_prefill;

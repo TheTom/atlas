@@ -43,6 +43,7 @@ pub(crate) struct Defaults {
     pub ffn_gateup_fused: bool,
     pub w8a8_prefill_max_m_widening: u32,
     pub w8a8_prefill_max_m_narrowing: u32,
+    pub w4a16_prefill_variant: String,
 }
 
 /// What a target that declares NO `[defaults]` table gets.
@@ -84,6 +85,10 @@ pub(crate) fn baseline(hw: &str) -> Defaults {
         // not measured otherwise — H100 included (2.0-3.1x at every M).
         w8a8_prefill_max_m_widening: u32::MAX,
         w8a8_prefill_max_m_narrowing: u32::MAX,
+        // The GB10 family of W4A16 prefill kernels, `w4a16_gemm` and the
+        // `w4a16_gemm_t*` twins. Every target served with them before this
+        // row existed, and every NVIDIA target still does.
+        w4a16_prefill_variant: "gb10".to_string(),
     }
 }
 
@@ -199,6 +204,7 @@ pub(crate) fn parse_defaults(hw: &str, hw_toml: &toml::Value) -> Defaults {
             "lm_head_m16_tc" => out.lm_head_m16_tc = boolean(key, value),
             "attn_ncol_gemv" => out.attn_ncol_gemv = boolean(key, value),
             "ffn_gateup_fused" => out.ffn_gateup_fused = boolean(key, value),
+            "w4a16_prefill_variant" => out.w4a16_prefill_variant = string(key, value),
             other => panic!(
                 "kernels/{hw}/HARDWARE.toml: [defaults] has no key `{other}`. \
                  The lever list is the field list of `TargetDefaults` \
@@ -238,6 +244,7 @@ pub(crate) fn literal(d: &Defaults) -> String {
          \x20   ffn_gateup_fused: {gateup_fused},\n\
          \x20   w8a8_prefill_max_m_widening: {w8a8_wide},\n\
          \x20   w8a8_prefill_max_m_narrowing: {w8a8_narrow},\n\
+         \x20   w4a16_prefill_variant: \"{w4a16_variant}\",\n\
          }};\n",
         hw = d.hw,
         batchm = d.lm_head_batchm_max,
@@ -254,6 +261,7 @@ pub(crate) fn literal(d: &Defaults) -> String {
         gateup_fused = d.ffn_gateup_fused,
         w8a8_wide = d.w8a8_prefill_max_m_widening,
         w8a8_narrow = d.w8a8_prefill_max_m_narrowing,
+        w4a16_variant = d.w4a16_prefill_variant,
     )
 }
 

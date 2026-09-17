@@ -258,6 +258,28 @@ impl Qwen3SsmLayer {
                     stream,
                 )
             }
+        } else if self.w4a16_rdna4_k.0 != 0 {
+            // RDNA 4 (gfx1201). AHEAD of the transposed-twin arm below,
+            // because on that board the twin arm is the SLOW one:
+            // PREFILL-ANALYSIS.md section 3.6 measures ~1.07 TFLOP/s on
+            // `w4a16_gemm_t_m128` against ~4.11 on the plain arm. It reads the
+            // NON-transposed `self.ssm.out_proj` the checkpoint ships, so it
+            // needs no twin at all.
+            //
+            // The handle is zero unless `[defaults] w4a16_prefill_variant` is
+            // `"rdna4"`, so no other target reaches this branch;
+            // `ATLAS_W4A16_PREFILL_VARIANT=gb10` is the A/B.
+            ops::w4a16_gemm_rdna4(
+                ctx.gpu,
+                self.w4a16_rdna4_k,
+                normed_out_buf,
+                &self.ssm.out_proj,
+                out_proj_buf,
+                k,
+                h as u32,
+                value_dim as u32,
+                stream,
+            )
         } else if let Some(ref nvfp4_t) = self.out_proj_nvfp4_t {
             ops::w4a16_gemm_n128(
                 ctx.gpu,

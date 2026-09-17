@@ -324,6 +324,33 @@ impl Qwen3SsmLayer {
             .map_err(|e| {
                 anyhow::anyhow!("ssm prefill: QKVZ FP8 GEMM failed (M={k}, N={qkvz_size}): {e}")
             })?;
+        } else if self.w4a16_rdna4_k.0 != 0
+            && let Some(ref nvfp4) = self.qkvz_nvfp4
+        {
+            // RDNA 4 (gfx1201). AHEAD of the transposed-twin arms below,
+            // because on that board the twin arm is the SLOW one:
+            // PREFILL-ANALYSIS.md section 3.6 measures ~1.07 TFLOP/s on
+            // `w4a16_gemm_t_m128` against ~4.11 on the plain arm. It reads the
+            // NON-transposed weight the checkpoint ships, so it also works
+            // with the twins dropped, which is 12.74 GiB on a 32 GB board.
+            //
+            // The handle is zero unless `[defaults] w4a16_prefill_variant` is
+            // `"rdna4"`, so no other target reaches this branch;
+            // `ATLAS_W4A16_PREFILL_VARIANT=gb10` is the A/B.
+            ops::w4a16_gemm_rdna4(
+                ctx.gpu,
+                self.w4a16_rdna4_k,
+                normed,
+                nvfp4,
+                proj_dst,
+                k,
+                qkvz_size as u32,
+                h as u32,
+                stream,
+            )
+            .map_err(|e| {
+                anyhow::anyhow!("ssm prefill: QKVZ rdna4 GEMM failed (M={k}, N={qkvz_size}): {e}")
+            })?;
         } else if let Some(ref nvfp4_t) = self.qkvz_nvfp4_t {
             if k > 128 {
                 ops::w4a16_gemm_n128_m128(

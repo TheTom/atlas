@@ -117,6 +117,12 @@ pub struct DenseFfnLayer {
     /// tiers are 0-handles when the target did not load them.
     w4a16_batchm: W4a16BatchmTiers,
     w4a16_gemm: KernelHandle,
+    /// The RDNA 4 prefill GEMM (`w4a16_gemm_rdna4`), or `KernelHandle(0)`
+    /// when this target's `[defaults] w4a16_prefill_variant` is not `rdna4`
+    /// or the kernel is absent. Resolved at init by
+    /// `ops::w4a16_prefill_rdna4::rdna4_prefill_kernel`, which does not even
+    /// issue the lookup off r9700.
+    w4a16_rdna4_k: KernelHandle,
     // 128x128 2-stage cp.async pipelined w4a16 GEMM — the fast prefill kernel
     // attention/SSM already use. The base `w4a16_gemm` (M64xN64) only hits
     // ~10 TFLOPS at M=8k and was the flat ~155 tok/s dense-FFN prefill
@@ -426,6 +432,7 @@ impl DenseFfnLayer {
             w4a16_gemv_batch3: gpu.kernel("w4a16_gemv", "w4a16_gemv_batch3")?,
             w4a16_batchm: W4a16BatchmTiers::resolve(gpu),
             w4a16_gemm: gpu.kernel("w4a16", "w4a16_gemm")?,
+            w4a16_rdna4_k: ops::w4a16_prefill_rdna4::rdna4_prefill_kernel(gpu),
             w4a16_gemm_t_m128_k: super::try_kernel(gpu, "w4a16", "w4a16_gemm_t_m128"),
             w4a16_gemm_t_m128_v2_k: super::w4a16_v2_kernel(gpu),
             w4a16_gemm_t_m128_bf16_k: super::try_kernel(gpu, "w4a16", "w4a16_gemm_t_m128_bf16"),
@@ -2783,6 +2790,34 @@ impl DenseFfnLayer {
                     Some(wt) if m <= 64 => {
                         self.w4a16_prefill_gemm(ctx, $w, Some(&wt), $in, $out, m, $n, $k, stream)?
                     }
+                    // RDNA 4 (gfx1201). AHEAD of the twin arms and not behind
+                    // them, because on that board the twin arm is the SLOW one:
+                    // PREFILL-ANALYSIS.md section 3.6 measures ~1.07 TFLOP/s on
+                    // `w4a16_gemm_t_m128` against ~4.11 on the plain arm, which
+                    // inverts the GB10 ordering the ladder below was built for.
+                    // Placing it after them would arm a target default that the
+                    // 9B: whose twins are built: could never reach.
+                    //
+                    // The twin arms themselves are untouched, and the handle is
+                    // zero unless `[defaults] w4a16_prefill_variant = "rdna4"`,
+                    // so no other target sees this rung at all.
+                    // `ATLAS_W4A16_PREFILL_VARIANT=gb10` is the A/B.
+                    //
+                    // It takes `$w`, the NON-transposed weight, not the twin:
+                    // the kernel reads the `[N, K/2]` layout the checkpoint
+                    // ships, which is also why this arm makes the 12.74 GiB of
+                    // twins droppable on a 32 GB board.
+                    _ if self.w4a16_rdna4_k.0 != 0 => ops::w4a16_gemm_rdna4(
+                        ctx.gpu,
+                        self.w4a16_rdna4_k,
+                        $in,
+                        $w,
+                        $out,
+                        m,
+                        $n,
+                        $k,
+                        stream,
+                    )?,
                     // Prefer v2 (8-warp) > t_m128 (4-warp) > scalar-tile base.
                     Some(wt) if self.w4a16_gemm_t_m128_v2_k.0 != 0 => ops::w4a16_gemm_n128_m128_v2(
                         ctx.gpu,
