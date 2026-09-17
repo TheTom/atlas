@@ -127,6 +127,43 @@ pub fn gdn_prefill_split(
 ///          gate, beta, output, batch_size, seq_len, num_k_heads,
 ///          num_v_heads, k_dim, v_dim, qk_stride, v_stride, gb_stride)`
 /// Grid: (num_v_heads * 4, batch, 1)  Block: (32, 1, 1)
+///
+/// # A wider split is NOT a launch-parameter change
+///
+/// `PREFILL-ANALYSIS.md` section 4, suspect S5, is right that this grid is
+/// the largest structural regression against NVIDIA in the SCALE prefill
+/// path: on gfx1201 it is 128 CTAs of ONE wave32 each on 128 SIMDs, 1 wave
+/// per SIMD against a 12-wave budget, with no co-resident wave to hide an LDS
+/// or global latency. Its cheapest proposed fix, "widen the split: `split8`
+/// or `split16` ... the only change is the `tid` arithmetic and the grid,
+/// 4 to 6 h, low risk": does not survive contact with the kernel, so this
+/// note is here rather than that change.
+///
+/// The split is over `v_dim`, not over work. `gated_delta_rule.cu` computes
+/// `tid = split * blockDim.x + threadIdx.x` and gives each thread ONE v
+/// column, with that column's whole `H_reg[K_DIM]` state in registers. So
+/// `num_splits * blockDim.x` must equal `v_dim`, which is 128, and
+/// `split4 x 32` already spends every lane. `split8` therefore means 8 CTAs
+/// of SIXTEEN threads, and two things follow:
+///
+///   * The smem staging is hardcoded to four loads at stride `quarter =
+///     blockDim.x`, covering `K_DIM = 128` only while `blockDim.x == 32`. At
+///     16 it covers 64 of 128. That is a kernel edit, in three places.
+///   * A 16-thread block still occupies a full wave32 slot with half its
+///     lanes masked. Resident WAVES double and resident WORK does not, so the
+///     8 CTAs run the same 128 lanes of arithmetic across twice the wave
+///     slots. On this part that is a pessimisation, not a fix.
+///
+/// Splitting `K` instead of `v_dim` would add parallelism, but `hk_dot` and
+/// `q_dot` are full reductions over `K_DIM` per token and `H` is updated in
+/// place from them, so it needs a cross-CTA reduction and a shared `H`, a
+/// different algorithm, which is what the chunked FLA path already is.
+///
+/// Also worth stating: section 3.3 brackets this whole kernel at 26 ms to
+/// 133 ms for a 2973-token 9B prefill, i.e. 0.1% to 0.35% of the measured
+/// 38.5 s TTFT. It is ranked fifth for that reason and it cannot move TTFT
+/// until the projection GEMMs do. `SSM prefill [gdn_prefill]` under
+/// `ATLAS_PROFILE=1` is the measurement that would overturn the estimate.
 #[allow(clippy::too_many_arguments)]
 pub fn gdn_prefill_split4(
     gpu: &dyn GpuBackend,
